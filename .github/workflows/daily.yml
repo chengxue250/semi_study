@@ -54,55 +54,56 @@ jobs:
           echo "theme=$THEME" >> "$GITHUB_OUTPUT"
           echo "date=$DATE"   >> "$GITHUB_OUTPUT"
 
-      - name: Commit the day's edition
+      - name: Commit the day's edition to main
         run: |
           git config user.name  "semi-news-bot"
           git config user.email "actions@users.noreply.github.com"
           git add output/
           if git diff --staged --quiet; then
-            echo "no changes — nothing to commit"
+            echo "no changes on main — nothing to commit"
           else
             git commit -m "edition $(date -u +%F)"
             git push
           fi
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: output
-
-  # --------------------------------------------------------------------------
-  # Deploy the built site to GitHub Pages.
-  # --------------------------------------------------------------------------
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    outputs:
-      page_url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish output/ to gh-pages branch
+        run: |
+          # Use a fresh subtree-style push: build a one-commit tree from
+          # output/ and force-push it to gh-pages. Force-push is OK here
+          # because gh-pages is a derived branch, never an upstream of work.
+          git checkout --orphan gh-pages-new
+          git rm -rf . >/dev/null
+          git checkout main -- output
+          mv output/* .
+          rm -rf output
+          touch .nojekyll          # serve files literally; no Jekyll processing
+          git add -A
+          git commit -m "pages: edition $(date -u +%F)"
+          git push origin gh-pages-new:gh-pages --force
 
   # --------------------------------------------------------------------------
   # Push notification to phone. Uses ntfy.sh — no signup, free.
-  # Set repo secrets:
-  #   NTFY_TOPIC  - your secret topic name (required)
+  # Set repo secrets to enable:
+  #   NTFY_TOPIC  - your secret topic name
   #   NTFY_TOKEN  - only if your ntfy server uses auth (most don't)
+  # If NTFY_TOPIC is not set, this step logs and exits 0 — the workflow
+  # still succeeds.
   # --------------------------------------------------------------------------
   notify:
-    needs: [build, deploy]
+    needs: [build]
     runs-on: ubuntu-latest
-    if: ${{ secrets.NTFY_TOPIC != '' }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Send ntfy push
+      - name: Send ntfy push (skipped when NTFY_TOPIC is not set)
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
-          PUBLIC_URL: ${{ needs.deploy.outputs.page_url }}
+          PUBLIC_URL: "https://chengxue250.github.io/semi_study/"
         run: |
+          if [ -z "$NTFY_TOPIC" ]; then
+            echo "NTFY_TOPIC secret not set — skipping phone notification."
+            echo "(To enable later: gh secret set NTFY_TOPIC -R \"$GITHUB_REPOSITORY\")"
+            exit 0
+          fi
           python3 scripts/notify.py
