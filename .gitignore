@@ -1,0 +1,18 @@
+# Local notification config (contains your secret ntfy topic).
+# Copy notify.yaml.example to notify.yaml and edit.
+notify.yaml
+
+# Run logs from launchd / cron.
+output/run.log
+output/launchd.out.log
+output/launchd.err.log
+
+# Editor / OS noise.
+.DS_Store
+*.swp
+.idea/
+.vscode/
+__pycache__/
+
+# Agent-CLI machine-local settings (Claude Code, etc.).
+.claude/

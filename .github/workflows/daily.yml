@@ -1,0 +1,108 @@
+name: Daily semi-news edition
+
+on:
+  schedule:
+    # 11:30 UTC ≈ 07:30 ET / 19:30 SGT / 13:30 CEST.
+    # Adjust to your timezone (cron is UTC).
+    - cron: "30 11 * * *"
+  workflow_dispatch:  # lets you trigger manually from the Actions tab
+
+permissions:
+  contents: write       # to commit the day's output back to the repo
+  pages: write          # to deploy GitHub Pages
+  id-token: write       # required for actions/deploy-pages
+
+concurrency:
+  group: daily-edition
+  cancel-in-progress: false
+
+jobs:
+  # --------------------------------------------------------------------------
+  # Build today's edition. Swap the "Run agent" step if you use a different
+  # CLI (Aider, Cursor agent, OpenCode, etc.).
+  # --------------------------------------------------------------------------
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      theme: ${{ steps.read.outputs.theme }}
+      date: ${{ steps.read.outputs.date }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0       # full history so commits land cleanly
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run agent on the skill
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude -p "Build today's semiconductor news edition using the SKILL.md in this repo. Run all scripts to completion. Then exit." \
+            --permission-mode acceptEdits \
+            --max-turns 80
+
+      - name: Read theme + date from edition.json
+        id: read
+        run: |
+          THEME=$(python3 -c 'import json;d=json.load(open("output/edition.json"));print(d.get("theme",{}).get("en",""))')
+          DATE=$(python3 -c 'import json;d=json.load(open("output/edition.json"));print(d.get("date",""))')
+          echo "theme=$THEME" >> "$GITHUB_OUTPUT"
+          echo "date=$DATE"   >> "$GITHUB_OUTPUT"
+
+      - name: Commit the day's edition
+        run: |
+          git config user.name  "semi-news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add output/
+          if git diff --staged --quiet; then
+            echo "no changes — nothing to commit"
+          else
+            git commit -m "edition $(date -u +%F)"
+            git push
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+  # --------------------------------------------------------------------------
+  # Deploy the built site to GitHub Pages.
+  # --------------------------------------------------------------------------
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  # --------------------------------------------------------------------------
+  # Push notification to phone. Uses ntfy.sh — no signup, free.
+  # Set repo secrets:
+  #   NTFY_TOPIC  - your secret topic name (required)
+  #   NTFY_TOKEN  - only if your ntfy server uses auth (most don't)
+  # --------------------------------------------------------------------------
+  notify:
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    if: ${{ secrets.NTFY_TOPIC != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send ntfy push
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          PUBLIC_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          python3 scripts/notify.py

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archive — Semi News Daily</title>
+<style>
+  :root {
+    --bg:#fbfaf7;--fg:#18181b;--muted:#6b6b6b;--rule:#e7e3da;--accent:#b1370b;
+    --serif:"Newsreader","Charter","Iowan Old Style",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue","PingFang SC",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14130f;--fg:#ece9e1;--muted:#9a9690;--rule:#2b2925;--accent:#e88a55; }
+  }
+  body { background:var(--bg);color:var(--fg);font-family:var(--sans);
+         max-width:720px;margin:0 auto;padding:48px 20px 80px;line-height:1.55; }
+  h1 { font-family:var(--serif);font-weight:600;font-size:32px;margin:0 0 28px; }
+  .top { font-size:13px;color:var(--muted);margin-bottom:8px; }
+  .top a { color:var(--muted); }
+  ul { list-style:none;padding:0;margin:0; }
+  li { padding:14px 0;border-bottom:1px solid var(--rule); }
+  li a { color:var(--fg);text-decoration:none;display:flex;gap:14px;align-items:baseline; }
+  li a:hover .date { color:var(--accent); }
+  .date { font-family:var(--serif);font-variant-numeric:tabular-nums;color:var(--muted);min-width:104px; }
+  body[data-lang="en"] .zh { display:none; }
+  body[data-lang="zh"] .en { display:none; }
+</style>
+</head>
+<body>
+  <div class="top"><a href="index.html">← <span class="en">today</span><span class="zh">今日</span></a></div>
+  <h1><span class="en">Archive</span><span class="zh">往期</span></h1>
+  <ul>
+    <li><a href="index.html"><span class="date">2026-05-21</span><span class="en"> — AMD Doubles Down on Taiwan as Nvidia Yields China</span><span class="zh"> — AMD加码押注台湾,英伟达让出中国</span></a></li>
+  </ul>
+</body>
+</html>

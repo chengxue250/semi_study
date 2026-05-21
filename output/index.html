@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-21">
+<meta name="generator" content="semi-news-daily">
+<title>AMD Doubles Down on Taiwan as Nvidia Yields China — Semi News 2026-05-21</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Lang visibility — pure CSS off the body[data-lang] */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, May 21, 2026</span>
+      <span class="zh">2026年5月21日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">AMD Doubles Down on Taiwan as Nvidia Yields China</span>
+      <span class="zh">AMD加码押注台湾,英伟达让出中国</span>
+    </h1>
+    <p class="dek">
+      <span class="en">EPYC Venice begins its 2nm ramp at TSMC the same week Lisa Su pledges another $10B to Taiwan, Taipei runs its first formal raids on Nvidia-chip smuggling rings, and Jensen Huang concedes the China AI market to Huawei. The Strait is now the single most important map in the industry.</span>
+      <span class="zh">EPYC Venice在台积电2nm进入量产爬坡的同一周,苏姿丰再向台湾承诺投资100亿美元;台北首次正式收网,搜查英伟达走私链条;黄仁勋则承认中国AI市场已让予华为。海峡两侧,正成为产业地图上最关键的一条线。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/amd-begins-production-ramp-of-256-core-epyc-venice-on-tsmcs-2nm-node" target="_blank" rel="noopener">
+          <span class="en">AMD begins 256-core EPYC Venice ramp on TSMC N2, pledges $10B more for Taiwan</span>
+          <span class="zh">AMD于台积电N2量产256核EPYC Venice,再追加百亿美元台湾投资</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 3h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD&#x27;s sixth-generation EPYC processor, codenamed Venice, has entered production ramp on TSMC&#x27;s N2 node — the first 2nm server CPU to reach that stage. AMD claims a 70% per-socket performance leap over Turin and packs up to 256 Zen 6 cores. Lisa Su paired the announcement with a $10B fresh-investment commitment in Taiwan, deepening AMD&#x27;s dependence on Hsinchu just as Washington presses for chip diversification.</span>
+        <span class="zh">AMD第六代EPYC处理器(代号Venice)已在台积电N2节点进入量产爬坡,成为首款进入该阶段的2nm服务器CPU。AMD宣称单插槽性能较Turin提升70%,最高可达256核Zen 6。苏姿丰同步宣布对台湾追加100亿美元投资,在华盛顿力推产能多元化之际,反而加深了AMD对新竹的依赖。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://startupfortune.com/nvidia-largely-conceded-china-ai-chip-market-to-huawei/" target="_blank" rel="noopener">
+          <span class="en">Nvidia says it has &#x27;largely conceded&#x27; China&#x27;s AI chip market to Huawei</span>
+          <span class="zh">英伟达:中国AI芯片市场已&#x27;基本让予&#x27;华为</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Startup Fortune</span> · 5h ago</span>
+        <span class="zh"><span class="source">Startup Fortune</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Jensen Huang told investors and Beijing officials in the same week that Nvidia has &#x27;largely conceded&#x27; the Chinese AI accelerator market to Huawei, citing successive rounds of U.S. export controls and a hardening domestic-substitution policy. The shift is now explicit company posture, not analyst speculation — and reframes how Nvidia models its 2026–2027 TAM.</span>
+        <span class="zh">黄仁勋在同一周内向投资者与北京官员表示,英伟达已&#x27;基本让予&#x27;中国AI加速器市场予华为,原因是美国连续多轮出口管制叠加中国国产替代政策持续加码。这从分析师推测转为公司官方立场,将重塑英伟达对2026–2027年市场空间的建模方式。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/gpus/pcb-shots-appear-of-intels-crescent-island-revealing-a-single-gpu-setup-and-pads-for-20-lpddr5x-modules" target="_blank" rel="noopener">
+          <span class="en">Intel&#x27;s Crescent Island AI GPU sidesteps HBM with 160GB of LPDDR5X</span>
+          <span class="zh">Intel新AI GPU绕开HBM瓶颈:160GB LPDDR5X方案曝光</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 6h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Leaked PCB shots of Intel&#x27;s upcoming Crescent Island accelerator show a single-GPU design with pads for 20 LPDDR5X modules — roughly 160GB of memory, no HBM. The choice trades bandwidth for availability and cost at a moment when HBM3E supply is committed through 2027. For inference-skewed workloads, that may be a defensible bet; for training, it&#x27;s a concession.</span>
+        <span class="zh">Intel下一代加速器Crescent Island的PCB照流出,显示单GPU设计搭配20颗LPDDR5X(约160GB),完全跳过HBM。在HBM3E产能已锁定至2027年的当下,该方案以带宽换可得性与成本——面向推理负载尚可成立,面向训练则是退让。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://techwireasia.com/2026/05/tsmc-arizona-fab-posts-514m-year-one-profit-q1-2026-earnings-surpass-full-2025-figure/" target="_blank" rel="noopener">
+          <span class="en">TSMC Arizona Fab 21 posts $514M Q1 profit, already past full-year 2025</span>
+          <span class="zh">台积电亚利桑那Fab 21单季获利5.14亿美元,已超去年全年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Wire Asia</span> · 17h ago</span>
+        <span class="zh"><span class="source">Tech Wire Asia</span> · 17小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s first Arizona fab reported Q1 2026 net profit of $514M — exceeding the full 2025 figure in a single quarter, on the back of priority N4/N3 allocations for Apple and AMD. The number complicates the long-running narrative that the U.S. site cannot match Taiwan economics, though wafer-cost-per-die remains ~30% higher than Hsinchu&#x27;s twin lines.</span>
+        <span class="zh">台积电首座亚利桑那厂2026年一季度净利5.14亿美元,单季即超越2025年全年水平,主因是苹果与AMD的N4/N3订单优先排程。该数据动摇了&#x27;美国厂经济性追不上台湾&#x27;的长期叙事,但单片成本仍较新竹姊妹线高约30%。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.globaltimes.cn/page/202605/1342010.shtml" target="_blank" rel="noopener">
+          <span class="en">ASML chief: tighter China export rules will speed up Chinese rival tools</span>
+          <span class="zh">ASML首席执行官:进一步对华管制将加速中国本土设备替代</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Global Times</span> · 7h ago</span>
+        <span class="zh"><span class="source">Global Times</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Speaking to European lawmakers, ASML&#x27;s CEO warned that another round of China-specific export restrictions would directly accelerate indigenous Chinese lithography efforts and erode the West&#x27;s structural advantage. The point is no longer just an industry argument; it is now in front of policymakers ahead of the EU&#x27;s mid-year tool-control review.</span>
+        <span class="zh">ASML首席执行官在面向欧洲议员的发言中警告,新一轮针对中国的出口管制将直接加速中国本土光刻设备的发展,侵蚀西方的结构性优势。该论点已不再止于行业层面,而是在欧盟年中设备管制评估前正式摆上政策桌面。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.techtimes.com/articles/micron-hbm-seoul-samsung-hires.htm" target="_blank" rel="noopener">
+          <span class="en">Samsung strike ends just as Micron opens permanent Seoul HBM design roles</span>
+          <span class="zh">三星罢工刚落幕,美光在首尔挂出HBM设计长期职位</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 5h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung&#x27;s union voted to suspend strike action after the company agreed to AI-linked bonus pay — and within hours, Micron posted permanent HBM design engineer openings in Seoul, with packages reportedly reaching the high end of Korean DRAM compensation. The hire-or-be-hired squeeze on Samsung&#x27;s HBM4 team is now visible in job postings, not just rumor.</span>
+        <span class="zh">三星工会在公司同意以AI业绩挂钩的奖金后投票暂停罢工——数小时内,美光便在首尔挂出HBM设计工程师的长期职位,薪酬据报达韩国DRAM行业高位。对三星HBM4团队的人才争夺已不再是传闻,而是公开的招聘动作。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.photonics.com/Articles/ASML_and_Tata_Electronics_Pair_to_Elevate/a72148" target="_blank" rel="noopener">
+          <span class="en">ASML pairs with Tata Electronics on India fab tool support</span>
+          <span class="zh">ASML与塔塔电子合作,支持印度晶圆厂设备落地</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Photonics Spectra</span> · 1h ago</span>
+        <span class="zh"><span class="source">Photonics Spectra</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML and Tata Electronics announced a formal partnership covering lithography tool installation, service, and engineer training for Tata&#x27;s Dholera fab. The deal is narrow — no leading-edge EUV is involved — but it is the first time ASML has signed a structured local-services commitment in India, signaling the country is now a second-order destination on its support map.</span>
+        <span class="zh">ASML与塔塔电子宣布正式合作,内容涵盖塔塔Dholera晶圆厂光刻设备的安装、服务与工程师培训。本次合作未涉及尖端EUV,但这是ASML首次在印度签署结构化的本地服务承诺,标志着印度已进入其支持版图的第二梯队。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.businesswire.com/news/home/20260521/asahi-kasei-photosensitive-polyimide-panel-level-packaging" target="_blank" rel="noopener">
+          <span class="en">Asahi Kasei rolls out photosensitive polyimide for panel-level packaging</span>
+          <span class="zh">旭化成推出适用于面板级封装的光敏聚酰亚胺薄膜</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Business Wire</span> · 2h ago</span>
+        <span class="zh"><span class="source">Business Wire</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Asahi Kasei announced a new photosensitive polyimide film aimed at panel-level advanced packaging — the format TSMC, Samsung, and Intel are all betting on for the post-CoWoS generation. The material targets higher dimensional stability across 600mm-class panels, the size at which yield economics historically fall apart.</span>
+        <span class="zh">旭化成发布面向面板级先进封装的全新光敏聚酰亚胺薄膜——这正是台积电、三星与Intel共同押注的后CoWoS世代封装形态。该材料主攻600mm级面板上的尺寸稳定性,而这正是面板级封装良率历史上的最大瓶颈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/desktops/servers/taiwan-raids-12-locations-in-its-first-formal-crackdown-on-nvidia-ai-chip-smuggling-hunts-three-fugitives-for-document-forgery-fraudulent-declarations-in-super-micro-smuggling-case" target="_blank" rel="noopener">
+          <span class="en">Taiwan raids 12 locations in first formal crackdown on Nvidia chip smuggling</span>
+          <span class="zh">台湾首次正式查抄英伟达走私网络,搜查12处地点</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 2h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwan prosecutors raided 12 sites and are seeking the detention of three individuals accused of forging export documents to route Nvidia Hopper and Blackwell systems through Super Micro channels into mainland China. It is Taipei&#x27;s first formal enforcement action against AI-chip diversion since the rules tightened — and a clear signal that the island intends to police its end of the export-control architecture rather than leave it to Washington.</span>
+        <span class="zh">台湾检方对12处地点展开搜查,并寻求羁押三名涉嫌伪造出口文件、借由Super Micro渠道将英伟达Hopper与Blackwell系统转运至中国大陆的当事人。这是台北自管制收紧以来首次对AI芯片走私采取正式执法行动,明确表态将主动管好出口管制链条的台湾一端,而非任由华盛顿单边执行。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.reuters.com/business/finance/taiwan-may-limit-currency-switching-tsmc-dollar-dividends-once-year-sources-say-2026-05-21/" target="_blank" rel="noopener">
+          <span class="en">Taipei weighs limiting TSMC USD-dividend FX conversion to once a year</span>
+          <span class="zh">台北拟将台积电美元股息换汇限定为每年一次</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 2h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Reuters reports Taiwan&#x27;s central bank is considering capping how often TSMC may convert its U.S.-dollar dividend inflows to NT$ to once per year, in an effort to dampen FX-market shocks from the company&#x27;s now-dominant earnings. For a single firm to motivate a capital-account policy change is itself a story about how concentrated Taiwan&#x27;s economy has become around one foundry.</span>
+        <span class="zh">据路透社报道,台湾央行正考虑将台积电美元股息换汇频率上限定为每年一次,以减缓单家公司收益对外汇市场的冲击。一家企业即能触发资本账户政策调整,本身就是台湾经济过度集中于单一晶圆代工厂的写照。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.bloomberg.com/news/articles/2026-05-18/ai-chip-startup-tenstorrent-draws-takeover-interest-from-intel-qualcomm" target="_blank" rel="noopener">
+          <span class="en">Intel and Qualcomm both circle Tenstorrent at a $5B+ price tag</span>
+          <span class="zh">Intel与高通同时接洽Tenstorrent,潜在估值逾50亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Bloomberg</span> · 2d ago</span>
+        <span class="zh"><span class="source">Bloomberg</span> · 2天前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bloomberg reports that Intel and Qualcomm have separately approached Tenstorrent about a takeover that could value the AI-chip startup at more than $5 billion — roughly 60% above its November 2025 Fidelity-led primary at $3.2B pre-money. Tenstorrent&#x27;s spatial-dataflow Tensix architecture and RISC-V chiplet line are the specific pieces both incumbents want; the read-through is that this is now the strategic price level for the whole non-incumbent compute layer in the same week Cerebras priced its IPO at $56B.</span>
+        <span class="zh">据Bloomberg报道,Intel与高通分别接触Tenstorrent,潜在收购估值超过50亿美元,较该公司2025年11月由Fidelity领投的32亿美元投前估值高出约六成。两家巨头看中的具体是Tenstorrent的空间数据流Tensix架构及其RISC-V chiplet产品线;在Cerebras同周以560亿美元定价IPO的背景下,这一价格被读作整个非主流算力赛道的战略锚点。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.cerebras.ai/blog/cerebras-brings-trillion-parameter-inference-to-enterprises-with-kimi-k2-6" target="_blank" rel="noopener">
+          <span class="en">Cerebras lands Kimi K2.6 trillion-parameter inference on its wafer-scale stack</span>
+          <span class="zh">Cerebras晶圆级平台拿下Kimi K2.6万亿参数推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Cerebras</span> · 2d ago</span>
+        <span class="zh"><span class="source">Cerebras</span> · 2天前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras announced production deployment of Moonshot AI&#x27;s Kimi K2.6 trillion-parameter model for enterprise inference on CS-3 systems — the first named trillion-parameter workload running entirely on its wafer-scale engines without offload. The same week as its $5.55B IPO and a $20B+ OpenAI inference commitment disclosed in the prospectus, the Kimi deal is the more concrete answer to &#x27;do customers actually use this?&#x27; than any banker chart.</span>
+        <span class="zh">Cerebras宣布以CS-3系统投产部署Moonshot AI的Kimi K2.6万亿参数模型企业推理——这是首个完全在其晶圆级引擎上、无需外溢运行的具名万亿参数负载。与55.5亿美元IPO和招股书披露的逾200亿美元OpenAI推理承诺相比,Kimi合作更直接回答了&#x27;客户真的在用吗&#x27;这一问题。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-21 15:06 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-05-21 15:06 UTC · <a href="archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

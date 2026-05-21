@@ -1,0 +1,49 @@
+# Notification config for the daily edition.
+#
+# Copy this file to `notify.yaml` (next to it) and edit. The renamed file is
+# in .gitignore by default so your secret topic name doesn't leak into git.
+#
+# Run after every build:
+#   python3 scripts/build_page.py && python3 scripts/notify.py
+#
+# Or dry-run to see what would be sent:
+#   python3 scripts/notify.py --dry-run
+
+site:
+  # Where the rendered page lives (GitHub Pages, Cloudflare Pages, etc.).
+  # The push notification's "tap to open" link points here. Leave blank if
+  # you only want the headline + dek and no link.
+  public_url: https://YOUR-USERNAME.github.io/semi-news/
+
+ntfy:
+  enabled: true
+
+  # ntfy uses a "secret URL" security model: anyone who knows the topic name
+  # can read and write to it. So pick something long and unguessable.
+  # Generate one with, e.g.:   uuidgen | tr 'A-Z' 'a-z'
+  topic: semi-news-CHANGE-ME-to-a-long-random-string
+
+  # Default server is https://ntfy.sh (free, public, no signup). If you
+  # self-host an ntfy server, set its URL here.
+  server: https://ntfy.sh
+
+  # Optional. Set if your topic uses auth (most don't on ntfy.sh public).
+  # Can also be passed via NTFY_TOKEN environment variable.
+  # token: ""
+
+  # 1=min, 3=default, 4=high, 5=max. Use 3 unless you want it to interrupt.
+  priority: 3
+
+  # Optional comma-separated tags. Some are rendered as emoji by ntfy clients
+  # (e.g. "newspaper" → 📰). Leave blank for plain notifications.
+  # tags: newspaper
+
+# Environment-variable equivalents (override the file above):
+#   NTFY_TOPIC, NTFY_SERVER, NTFY_TOKEN, PUBLIC_URL
+#
+# Setup on your phone (one time):
+#   1. Install the ntfy app (iOS / Android / F-Droid) or open https://ntfy.sh
+#      in the browser.
+#   2. Subscribe to your topic (use the same long string as above).
+#   3. When the skill posts, your phone shows a notification with the daily
+#      theme headline and a link to the rendered page.

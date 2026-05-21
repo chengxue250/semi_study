@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="{{ISO_DATE}}">
+<meta name="generator" content="semi-news-daily (research)">
+<title>{{RESEARCH_THEME_EN}} — Semi Research {{DATE}}</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Lang visibility */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · {{DATE_LONG_EN}}</span>
+      <span class="zh">研究摘要 · {{DATE_LONG_ZH}}</span>
+    </div>
+    <h1>
+      <span class="en">{{RESEARCH_THEME_EN}}</span>
+      <span class="zh">{{RESEARCH_THEME_ZH}}</span>
+    </h1>
+    <p class="dek">
+      <span class="en">{{RESEARCH_DEK_EN}}</span>
+      <span class="zh">{{RESEARCH_DEK_ZH}}</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: {{RESEARCH_WINDOW_EN}} · {{PAPER_COUNT}} paper(s)</span>
+      <span class="zh">回溯窗口: {{RESEARCH_WINDOW_ZH}} · {{PAPER_COUNT}}篇</span>
+    </div>
+  </header>
+
+  {{RESEARCH_AREAS}}
+
+  <footer>
+    <div>
+      <span class="en">Built {{GENERATED_AT}} · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 {{GENERATED_AT}} · <a href="index.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

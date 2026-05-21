@@ -1,0 +1,210 @@
+# Semiconductor news sources.
+#
+# Two roles:
+#   - `feeds`: machine-pullable RSS/Atom URLs. scripts/fetch_rss.py uses these.
+#   - `outlets`: human-curated list the agent should also consult via web search /
+#               direct fetch (paywalled or non-RSS sources). The agent reads names
+#               and home URLs and decides what to look at.
+#
+# Edit freely. Lines starting with `#` are comments. Any feed that 404s or stops
+# updating will be flagged when you run: `python3 scripts/fetch_rss.py --probe`.
+
+feeds:
+  # --- English: analysis & industry press --------------------------------------
+  - name: SemiAnalysis
+    url: https://www.semianalysis.com/feed
+    weight: high     # analysis-heavy, prefer when available
+  - name: SemiWiki
+    url: https://semiwiki.com/feed/
+  - name: EE Times
+    url: https://www.eetimes.com/feed/
+  - name: EE Times Asia
+    url: https://www.eetasia.com/feed/
+  - name: Electronics Weekly
+    url: https://www.electronicsweekly.com/feed/
+  - name: The Next Platform
+    url: https://www.nextplatform.com/feed/
+  - name: ServeTheHome
+    url: https://www.servethehome.com/feed/
+  - name: AnandTech (archive)
+    url: https://www.anandtech.com/rss/
+    note: site is in maintenance mode but feed sometimes carries notes
+  - name: Tom's Hardware
+    url: https://www.tomshardware.com/feeds/all
+  - name: Wccftech
+    url: https://wccftech.com/feed/
+  - name: HotHardware
+    url: https://hothardware.com/news.rss
+  - name: The Register (Systems)
+    url: https://www.theregister.com/headlines.atom
+  - name: IEEE Spectrum — Semiconductors
+    url: https://spectrum.ieee.org/feeds/topic/semiconductors.rss
+  - name: Embedded.com
+    url: https://www.embedded.com/feed/
+
+  # --- English: wires & geopolitics --------------------------------------------
+  - name: Reuters Technology (Google News)
+    url: https://news.google.com/rss/search?q=semiconductor+when:1d&hl=en-US&gl=US&ceid=US:en
+    note: aggregator query; widen window via --since-hours if needed
+  - name: Nikkei Asia — Tech
+    url: https://asia.nikkei.com/rss/feed/nar
+    note: many items paywalled; treat as a tip sheet
+
+  # --- Chinese-language sources ------------------------------------------------
+  - name: 半导体行业观察
+    url: https://www.semiinsights.com/feed
+  - name: 集微网 (ijiwei)
+    url: https://www.laoyaoba.com/rss
+    note: feed format varies; the probe will flag if it breaks
+  - name: 36氪 — 半导体
+    url: https://36kr.com/feed-search?q=%E5%8D%8A%E5%AF%BC%E4%BD%93
+
+  # --- Topical Google News queries (broad safety net) --------------------------
+  - name: GNews — TSMC
+    url: https://news.google.com/rss/search?q=TSMC+when:1d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — ASML
+    url: https://news.google.com/rss/search?q=ASML+lithography+when:1d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — HBM
+    url: https://news.google.com/rss/search?q=HBM+memory+when:1d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Chip export controls
+    url: https://news.google.com/rss/search?q=chip+export+controls+when:1d&hl=en-US&gl=US&ceid=US:en
+
+  # --- Challengers & non-incumbents -------------------------------------------
+  # These are easy to miss in mainstream trade press. Per-company Google News
+  # queries are the most reliable way to catch them on the day they ship news.
+  - name: GNews — Cerebras
+    url: https://news.google.com/rss/search?q=Cerebras+chip+OR+wafer-scale+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Groq
+    url: https://news.google.com/rss/search?q=Groq+LPU+OR+inference+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Tenstorrent
+    url: https://news.google.com/rss/search?q=Tenstorrent+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — SambaNova
+    url: https://news.google.com/rss/search?q=SambaNova+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Etched
+    url: https://news.google.com/rss/search?q=%22Etched%22+chip+OR+Sohu+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Rebellions / Furiosa
+    url: https://news.google.com/rss/search?q=Rebellions+OR+Furiosa+chip+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Rivos
+    url: https://news.google.com/rss/search?q=Rivos+RISC-V+chip+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Lightmatter / Ayar Labs / Celestial AI
+    url: https://news.google.com/rss/search?q=%22Lightmatter%22+OR+%22Ayar+Labs%22+OR+%22Celestial+AI%22+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — EnCharge / Rain / Mythic
+    url: https://news.google.com/rss/search?q=%22EnCharge+AI%22+OR+%22Rain+AI%22+OR+%22Mythic+AI%22+when:7d&hl=en-US&gl=US&ceid=US:en
+  - name: GNews — Hailo / Esperanto / d-Matrix
+    url: https://news.google.com/rss/search?q=Hailo+OR+%22Esperanto+Technologies%22+OR+%22d-Matrix%22+chip+when:7d&hl=en-US&gl=US&ceid=US:en
+
+  # --- Academic / research feeds (used by research.html) -----------------------
+  # These have role=research so fetch_rss can isolate them for the research page.
+  - name: arXiv cs.AR (Hardware Architecture)
+    url: http://export.arxiv.org/rss/cs.AR
+    role: research
+  - name: arXiv cs.ET (Emerging Technologies)
+    url: http://export.arxiv.org/rss/cs.ET
+    role: research
+  - name: arXiv eess.SP (Signal Processing)
+    url: http://export.arxiv.org/rss/eess.SP
+    role: research
+  - name: arXiv physics.app-ph (Applied Physics)
+    url: http://export.arxiv.org/rss/physics.app-ph
+    role: research
+  - name: arXiv cs.AI (AI — for accelerator-relevant papers)
+    url: http://export.arxiv.org/rss/cs.AI
+    role: research
+  - name: arXiv cs.LG (Machine Learning — systems & efficiency)
+    url: http://export.arxiv.org/rss/cs.LG
+    role: research
+  - name: arXiv cs.CL (NLP — LLM systems papers)
+    url: http://export.arxiv.org/rss/cs.CL
+    role: research
+  - name: arXiv cs.DC (Distributed, Parallel — training systems)
+    url: http://export.arxiv.org/rss/cs.DC
+    role: research
+  - name: Nature Electronics — current issue
+    url: https://www.nature.com/natelectron/current_issue/rss
+    role: research
+  - name: Semiconductor Today
+    url: https://www.semiconductor-today.com/rss.xml
+    role: research
+
+# Human-curated outlets the agent should consult even when there is no working
+# RSS feed (paywalled, JS-only, or behind a login). Use web search or direct
+# fetch.
+outlets:
+  - name: The Information
+    home: https://www.theinformation.com
+    note: paywalled — read summaries only from secondary coverage
+  - name: Bloomberg Technology
+    home: https://www.bloomberg.com/technology
+    note: paywalled
+  - name: Financial Times — Semiconductors
+    home: https://www.ft.com/semiconductors
+    note: paywalled
+  - name: DIGITIMES Asia
+    home: https://www.digitimes.com
+    note: supply-chain scoops, much of it paywalled
+  - name: Stratechery
+    home: https://stratechery.com
+    note: strategy commentary; paywalled but free weekly piece
+  - name: Chip History Center
+    home: https://www.chiphistory.org
+    note: archival/research context only
+  - name: 芯东西 (zhidongxi)
+    home: https://zhidx.com
+  - name: 爱集微 (aijiwei)
+    home: https://www.laoyaoba.com
+
+# News sections used by index.html. The agent can add or omit per day, but
+# keep IDs stable so archived editions still match CSS targets.
+sections:
+  - id: ai-accelerators
+    title_en: AI & Accelerators
+    title_zh: AI与加速器
+  - id: foundry
+    title_en: Foundry & Manufacturing
+    title_zh: 晶圆代工与制造
+  - id: memory
+    title_en: Memory
+    title_zh: 存储器
+  - id: equipment
+    title_en: Equipment & Materials
+    title_zh: 设备与材料
+  - id: policy
+    title_en: Policy & Geopolitics
+    title_zh: 政策与地缘
+  - id: earnings
+    title_en: Earnings & Markets
+    title_zh: 财报与市场
+  - id: research
+    title_en: Research & Roadmaps
+    title_zh: 研究与路线图
+  - id: packaging
+    title_en: Packaging & Advanced Nodes
+    title_zh: 封装与先进节点
+  - id: challengers
+    title_en: Challengers & New Silicon
+    title_zh: 新势力与新硅
+
+# Research sections used by research.html. Same taxonomy idea: stable IDs,
+# agent omits empty ones per edition.
+research_sections:
+  - id: devices
+    title_en: Devices & Process
+    title_zh: 器件与工艺
+  - id: circuits
+    title_en: Circuits & Architecture
+    title_zh: 电路与体系结构
+  - id: accelerators
+    title_en: AI Accelerators & Compute-in-Memory
+    title_zh: AI加速器与存算一体
+  - id: ai-research
+    title_en: AI Research (hardware-relevant)
+    title_zh: AI研究(与硬件相关)
+  - id: power
+    title_en: Power Electronics & Wide-Bandgap
+    title_zh: 功率电子与宽禁带
+  - id: quantum
+    title_en: Quantum Devices
+    title_zh: 量子器件
+  - id: eda
+    title_en: EDA, Verification & Design Automation
+    title_zh: EDA与设计自动化
