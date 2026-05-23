@@ -49,6 +49,8 @@ DEFAULT_EDITION = ROOT / "output" / "edition.json"
 OUT_DIR = ROOT / "output"
 ARCHIVE_DIR = OUT_DIR / "archive"
 RESEARCH_ARCHIVE_DIR = OUT_DIR / "archive" / "research"
+SEEN_URLS_PATH = OUT_DIR / ".seen_urls.json"
+SEEN_RETENTION_DAYS = 90
 
 ZH_WEEKDAYS = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
 ZH_MONTHS = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
@@ -341,6 +343,54 @@ def regenerate_archive_index(today_file: Path) -> None:
     (OUT_DIR / "archive.html").write_text(page, encoding="utf-8")
 
 
+def update_seen_urls(edition: dict, today: str) -> tuple[int, int]:
+    """Append today's news + research URLs to output/.seen_urls.json.
+
+    Preserves the first-seen date for URLs already in the file (so same-day
+    re-renders don't promote yesterday's articles to today). Prunes entries
+    older than SEEN_RETENTION_DAYS to bound the file size — a year-old URL
+    re-surfacing in RSS is rare, and if it does, treating it as new is fine.
+
+    Returns (added, pruned).
+    """
+    existing: dict[str, str] = {}
+    if SEEN_URLS_PATH.exists():
+        try:
+            existing = json.loads(SEEN_URLS_PATH.read_text(encoding="utf-8"))
+            if not isinstance(existing, dict):
+                existing = {}
+        except json.JSONDecodeError:
+            existing = {}
+
+    # Prune anything older than the retention window.
+    cutoff = (dt.date.fromisoformat(today) - dt.timedelta(days=SEEN_RETENTION_DAYS)).isoformat()
+    pruned = sum(1 for d in existing.values() if d < cutoff)
+    existing = {u: d for u, d in existing.items() if d >= cutoff}
+
+    # Collect URLs from this edition.
+    added = 0
+    for section in edition.get("sections", []) or []:
+        for story in section.get("stories", []) or []:
+            url = story.get("url")
+            if url and url not in existing:
+                existing[url] = today
+                added += 1
+    research = edition.get("research") or {}
+    for area in research.get("areas", []) or []:
+        for paper in area.get("papers", []) or []:
+            url = paper.get("venue_url") or paper.get("url")
+            if url and url not in existing:
+                existing[url] = today
+                added += 1
+
+    SEEN_URLS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    SEEN_URLS_PATH.write_text(
+        json.dumps(existing, ensure_ascii=False, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
+    return added, pruned
+
+
 def rotate_research_to_archive(research_path: Path, today: str) -> Path | None:
     if not research_path.exists():
         return None
@@ -414,6 +464,10 @@ def main() -> int:
 
     regenerate_archive_index(index_path)
     print(f"refreshed archive index → {OUT_DIR / 'archive.html'}", file=sys.stderr)
+
+    added, pruned = update_seen_urls(edition, today)
+    print(f"seen_urls: +{added} new, -{pruned} pruned → {SEEN_URLS_PATH}",
+          file=sys.stderr)
     return 0
 
 

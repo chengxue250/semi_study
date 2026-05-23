@@ -30,6 +30,20 @@ Not this:
 > Chip giant TSMC has reportedly announced exciting news today about their
 > revolutionary new Arizona fab! Industry watchers are abuzz...
 
+## 1a. Don't repeat yesterday
+
+The skill maintains `output/.seen_urls.json` — a flat `{url: first-seen-date}`
+map of every story (and research paper) that's been published in any past
+edition. `fetch_rss.py --exclude-seen` honors it automatically; the agent's
+job is to apply the same check to web-search results.
+
+A story is "the same story" if it's the same URL, *or* if it's a near-rewrite
+of yesterday's lead with no new facts. The script catches the first case;
+the agent has to catch the second. If today's "TSMC Arizona ramps to 4nm"
+is just a follow-on of yesterday's "TSMC Arizona begins limited 4nm
+production" with no new numbers, skip it. A genuine follow-on with new
+data (yield update, supplier added, customer named) is its own story.
+
 ## 2. The news, not the press release
 
 Companies write press releases to land a frame. The job is to extract the news
