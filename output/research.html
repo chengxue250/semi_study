@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-05-21">
+<meta name="edition-date" content="2026-05-23">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Compute-in-Memory Comes of Age While LLM Serving Treats Hardware as a First-Class Variable — Semi Research 2026-05-21</title>
+<title>Specialization Sharpens: Near-Memory, Per-Component, Per-Expert — Semi Research 2026-05-23</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -218,16 +218,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, May 21, 2026</span>
-      <span class="zh">研究摘要 · 2026年5月21日 星期四</span>
+      <span class="en">Research digest · Saturday, May 23, 2026</span>
+      <span class="zh">研究摘要 · 2026年5月23日 星期六</span>
     </div>
     <h1>
-      <span class="en">Compute-in-Memory Comes of Age While LLM Serving Treats Hardware as a First-Class Variable</span>
-      <span class="zh">存算一体走向系统,LLM服务把硬件当作一等变量</span>
+      <span class="en">Specialization Sharpens: Near-Memory, Per-Component, Per-Expert</span>
+      <span class="zh">专用化加深:近存储、按部件、按专家</span>
     </h1>
     <p class="dek">
-      <span class="en">This week the hardware stack and the software stack converge on the same problem from opposite directions. From the silicon side: a fabricated TiO2/HfZrO2 ferroelectric FET, a 16Kb 3T1R ReRAM CIM macro spanning CNN and SNN inference, and an SNN inference architecture that finally exploits temporal sparsity. From the systems side: three new LLM-serving works treat GPU power caps, MoE expert parallelism, and per-phase quantization not as constraints but as control knobs.</span>
-      <span class="zh">本周硬件栈与软件栈从两端逼近同一个问题。硬件侧:TiO2/HfZrO2铁电FET的工艺、同时支持CNN与SNN推理的16Kb 3T1R ReRAM CIM macro、以及真正利用时间稀疏性的SNN推理架构。系统侧:三项新的LLM服务工作分别将GPU功耗上限、MoE专家并行、按阶段量化精度从硬约束转为可调旋钮。</span>
+      <span class="en">This week&#x27;s literature converges on one move — squeezing inefficiency out by making everything more local and granular. RAG retrieval shifts into the DIMM (NasZip); GPU power becomes a per-component knob (CompPow); MoE expert placement factors per-GPU thermal variability (GEM); KV cache compression goes from lossy-on-average to attention-aware INT2 (OSCAR) or fully lossless-on-demand (VeriCache). &#x27;One knob fits all&#x27; is increasingly the design pattern of the previous decade.</span>
+      <span class="zh">本周文献围绕同一个动作收敛——通过把一切做得更本地、更细粒度来挤出低效。RAG检索从CPU搬进DIMM(NasZip);GPU功耗成为按组件可调的旋钮(CompPow);MoE专家放置开始考虑每张卡的散热差异(GEM);KV缓存压缩从&#x27;平均无损&#x27;走向注意力感知的INT2(OSCAR)或按需完全无损(VeriCache)。&#x27;一档拨齐&#x27;正越来越像上一代的设计模式。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 10 paper(s)</span>
@@ -242,17 +242,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.20375" target="_blank" rel="noopener">
-          <span class="en">2D GaSe single-pixel spectrometer via electro-optical barrier co-modulation</span>
-          <span class="zh">基于电-光势垒协同调制的2D GaSe单像素光谱仪</span>
-        </a><span class="tag">device-fab</span><span class="tag">2D-materials</span>
+        <a href="https://arxiv.org/abs/2605.18033" target="_blank" rel="noopener">
+          <span class="en">Autonomous-lab discovery of phase-change memory materials with real-time multi-instrument fusion</span>
+          <span class="zh">基于实时多仪器融合的自主实验室相变存储材料发现</span>
+        </a><span class="tag">device-fab</span><span class="tag">autonomous-lab</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Chih-Yu Lee, Haotong Liang, Ryan Kim, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.20375" target="_blank" rel="noopener">arXiv:2605.20375</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.18033" target="_blank" rel="noopener">arXiv:2605.18033</a> · 2026-05-18</p>
       <p class="summary">
-        <span class="en">A few-layer GaSe device is shown to act as a computational spectrometer by jointly modulating an electrostatic gate and an optical bias, replacing the dispersive optics of a conventional spectrometer with a single pixel. Reconstruction is done in software. The interest for chip-scale sensing is real, though spectral resolution and noise floor haven&#x27;t been benchmarked against silicon-photonic or filter-array competitors.</span>
-        <span class="zh">作者证明一只少层GaSe器件可同时受电压和光学偏置调制,从而以单像素替代传统光谱仪的色散光学,后续由软件重建光谱。对芯片级光谱传感意义明确,但本文尚未与硅光及滤波器阵列方案在光谱分辨率与噪声底上做对比。</span>
+        <span class="en">The group operationalizes an autonomous lab that ingests heterogeneous, unsynchronized streams from multiple instruments *during* a deposition run and steers the next experiment in flight, rather than batch-analyzing afterward. Demonstrated on phase-change memory candidate materials; the contribution is the orchestration layer (synthesis ↔ process ↔ structure ↔ property), not the materials themselves. Generalizable to any thin-film device search.</span>
+        <span class="zh">作者建立了一个自主实验室,可在沉积过程中实时融合来自多台仪器的异构非同步数据,并在线引导下一步实验,而非事后批量分析。以相变存储候选材料为示范;贡献在于&#x27;合成↔工艺↔结构↔性能&#x27;的编排层,而非材料本身。该方法可推广到任意薄膜器件的搜索。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.22196" target="_blank" rel="noopener">
+          <span class="en">LUFFY: a framework for rational design of molecular field-coupled nanocomputing molecules</span>
+          <span class="zh">LUFFY:分子场耦合纳米计算分子的理性设计框架</span>
+        </a><span class="tag">theory</span><span class="tag">beyond-CMOS</span>
+      </h3>
+      <p class="authors">Federico Ravera, Leonardo Medrano Sandonas, Andrea Vezzoli, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.22196" target="_blank" rel="noopener">arXiv:2605.22196</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">Molecular Field-Coupled Nanocomputing (MolFCN) propagates information electrostatically rather than via charge transport — promising ultra-low-power logic post-CMOS, but stuck on the problem of finding molecules with stable logic states *and* clean clock-field switching *and* reliable propagation. LUFFY is a layered evaluation framework that scores candidate molecules against all three together. Computational-only; no synthesized devices yet.</span>
+        <span class="zh">分子场耦合纳米计算(MolFCN)通过静电而非电荷输运传播信息,有望在CMOS之后实现超低功耗逻辑,但长期受限于&#x27;稳定逻辑态、洁净时钟场开关、可靠传播&#x27;三者兼具的分子稀缺。LUFFY提供一个分层评估框架,可同时对三项指标打分。仅为计算层成果,尚无合成器件。</span>
       </p>
     </article>
   </section>
@@ -263,17 +278,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.21203" target="_blank" rel="noopener">
-          <span class="en">Dynamic control-flow execution for runtime-reconfigurable processors</span>
-          <span class="zh">面向运行时可重构处理器的动态控制流执行支持</span>
-        </a><span class="tag">architecture</span><span class="tag">simulation-only</span>
+        <a href="https://arxiv.org/abs/2605.17720" target="_blank" rel="noopener">
+          <span class="en">On-chip rotary-oscillator arrays for subharmonic injection locking in Ising machines</span>
+          <span class="zh">面向Ising机的片上旋转振荡器阵列,实现亚谐波注入锁定</span>
+        </a><span class="tag">architecture</span><span class="tag">Ising-machine</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Nicholas Sica, Baris Taskin</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.21203" target="_blank" rel="noopener">arXiv:2605.21203</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.17720" target="_blank" rel="noopener">arXiv:2605.17720</a> · 2026-05-18</p>
       <p class="summary">
-        <span class="en">The paper tackles a long-standing limitation of CGRA/reconfigurable fabrics: irregular control flow forces fallback to a host CPU and wipes out the energy advantage. The proposed extensions support data-dependent branches natively on the reconfigurable substrate. Evaluation is simulation-only, but the design is concrete enough to be implementable, and the energy numbers are competitive with prior CGRA work.</span>
-        <span class="zh">本文针对CGRA等可重构架构长期存在的短板:不规则控制流必须回落到主机CPU,能效优势随之消失。作者提出的扩展可在可重构基底原生支持数据相关分支。评估为仿真级,但设计具体到可落地的程度,能效与前期CGRA工作相当。</span>
+        <span class="en">Oscillator-based Ising machines (OIMs) need subharmonic injection locking (SHIL) signals at exact multiples of the node frequency to converge correctly. Generating those signals off-chip doesn&#x27;t scale; generating them on-chip is hard because process variation drifts the SHIL frequency away from the integer multiple. The paper uses an array of rotary traveling-wave oscillators (RTWOs) as the SHIL source, exploiting their inherent frequency stability. Concrete circuit proposal with simulated scaling behavior; no fabricated chip in this paper.</span>
+        <span class="zh">基于振荡器的Ising机(OIM)需要严格整数倍于节点频率的亚谐波注入锁定(SHIL)信号才能正常收敛。片外生成SHIL无法规模化;片上生成则因工艺偏差导致频率偏离整数倍。本文以片上旋转行波振荡器(RTWO)阵列作为SHIL源,利用其固有频率稳定性。给出具体电路方案与仿真扩展性结果,本文未含流片。</span>
       </p>
     </article>
   </section>
@@ -284,47 +299,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.20717" target="_blank" rel="noopener">
-          <span class="en">E-ReCON: a 16Kb 3T1R ReRAM CIM macro for both CNN and SNN edge inference</span>
-          <span class="zh">E-ReCON:面向CNN与SNN边缘推理的16Kb 3T1R ReRAM存内计算宏</span>
-        </a><span class="tag">tape-out</span><span class="tag">compute-in-memory</span>
+        <a href="https://arxiv.org/abs/2605.21952" target="_blank" rel="noopener">
+          <span class="en">NasZip: pushing RAG vector retrieval into DIMM-based near-data processing</span>
+          <span class="zh">NasZip:将RAG向量检索下沉至DIMM近数据处理</span>
+        </a><span class="tag">near-memory</span><span class="tag">RAG</span><span class="tag">LLM-serving</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Cheng Zou, Shuo Yang, Chen Nie, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.20717" target="_blank" rel="noopener">arXiv:2605.20717</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21952" target="_blank" rel="noopener">arXiv:2605.21952</a> · 2026-05-21</p>
       <p class="summary">
-        <span class="en">The macro is real silicon: a 0.85µm² 3T1R ReRAM bitcell driving an AND-based in-memory multiplier that supports both conventional CNN and spiking workloads, with a novel interleaved 10T/28T adder tree to amortize accumulation overhead. The dual-mode CNN/SNN capability is the differentiating claim — most prior CIM macros pick one. Edge-inference targets, not data-center.</span>
-        <span class="zh">该宏为实际流片:0.85µm² 3T1R ReRAM位单元搭配基于AND的存内乘法,同时支持传统CNN与脉冲网络负载,并引入新颖的10T/28T交错加法树以分摊累加开销。&#x27;CNN/SNN双模&#x27;是其核心差异点——此前的CIM宏多只支持其一。面向边缘推理,而非数据中心。</span>
+        <span class="en">RAG-driven LLM serving spends a growing fraction of its time in approximate nearest-neighbor search (ANNS), which is memory-bound — CPU and GPU bandwidth caps it long before compute does. NasZip is a software/hardware co-design that pushes the distance computation into DIMM-resident near-data processors, returning only the top-k indices over the memory bus. The macroeconomic point: as RAG corpora grow, ANNS rather than attention becomes the next memory-bandwidth ceiling.</span>
+        <span class="zh">RAG驱动的LLM服务越来越多的时间花在近似最近邻搜索(ANNS)上;该负载受内存带宽约束,CPU和GPU都早早被带宽顶住而非算力。NasZip提出软硬件协同设计,将距离计算下沉到DIMM内的近数据处理单元,仅通过内存总线返回top-k索引。宏观层意义在于:随着RAG语料库扩大,下一个内存带宽天花板将是ANNS而非注意力。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.20802" target="_blank" rel="noopener">
-          <span class="en">ELSA: an elastic SNN inference architecture that exploits temporal sparsity</span>
-          <span class="zh">ELSA:真正利用时间稀疏性的弹性脉冲神经网络推理架构</span>
-        </a><span class="tag">architecture</span><span class="tag">neuromorphic</span>
+        <a href="https://arxiv.org/abs/2605.21847" target="_blank" rel="noopener">
+          <span class="en">CompPow: per-component GPU power management, not just per-card</span>
+          <span class="zh">CompPow:GPU功耗按组件管理,而非按整卡</span>
+        </a><span class="tag">GPU</span><span class="tag">power</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Shaizeen Aga, Mohamed Assem Ibrahim</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.20802" target="_blank" rel="noopener">arXiv:2605.20802</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21847" target="_blank" rel="noopener">arXiv:2605.21847</a> · 2026-05-21</p>
       <p class="summary">
-        <span class="en">SNN accelerators have advertised event-driven efficiency for years, but most are still layer-by-layer pipelines that wait for the full input window before emitting an output. ELSA implements true elastic inference: confident outputs are emitted as soon as enough spikes accumulate, and downstream layers are gated accordingly. The architectural lesson is that SNN efficiency is fundamentally a scheduling problem, not just a circuit one.</span>
-        <span class="zh">SNN加速器多年来一直宣传事件驱动的能效,但绝大多数仍是逐层流水、等满输入窗口才输出。ELSA实现了真正的弹性推理:在脉冲累积到置信阈值时立即输出,下游层据此被门控。其架构启示是:SNN的能效首先是调度问题,而非单纯的电路问题。</span>
+        <span class="en">Modern GPU power management treats the whole card as one knob. The authors observe that the actual hot components (SM clusters, HBM stacks, NoC) have very different power-vs-throughput curves and that workload-aware per-component capping leaves real efficiency on the table when collapsed into a single card-level cap. The proposed runtime tunes each component independently. Simulation-based at this stage; complementary to the rack-level PALS-style work we covered last edition.</span>
+        <span class="zh">现有GPU功耗管理把整卡当作单一旋钮调节。作者观察到:卡内不同部件(SM簇、HBM堆栈、片上网络)的功耗-吞吐曲线差异很大,若强制收敛到整卡上限,会损失实测可达的能效。本文提出按部件独立调节的运行时方案。当前为仿真级,与上期PALS式机柜级工作互补。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.20406" target="_blank" rel="noopener">
-          <span class="en">High-performance TiO2 ferroelectric FETs with HfZrO2 dielectric for neuromorphic computing</span>
-          <span class="zh">面向类脑计算的高性能TiO2铁电FET(HfZrO2介质)</span>
-        </a><span class="tag">device-fab</span><span class="tag">neuromorphic</span>
+        <a href="https://arxiv.org/abs/2605.17613" target="_blank" rel="noopener">
+          <span class="en">VeriCache: making lossy KV-cache compression lossless on demand</span>
+          <span class="zh">VeriCache:让有损KV缓存压缩按需变为无损</span>
+        </a><span class="tag">LLM-serving</span><span class="tag">KV-cache</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Jiayi Yao, Samuel Shen, Kuntai Du, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.20406" target="_blank" rel="noopener">arXiv:2605.20406</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.17613" target="_blank" rel="noopener">arXiv:2605.17613</a> · 2026-05-17</p>
       <p class="summary">
-        <span class="en">Bottom-gate FeFETs using TiO2 channels on HfZrO2 ferroelectric dielectric, reported with high on/off ratios across two gate-stack thicknesses. The novelty is moving the CMOS-back-end-compatible HZO stack into a configuration that supports gradual conductance modulation — the prerequisite for analog weight storage. Single-device characterization only; no array-level retention or endurance data yet.</span>
-        <span class="zh">作者在HfZrO2铁电介质上以TiO2作为沟道,制备底栅FeFET并报告两种栅叠厚度下的高开关比。新意在于将与CMOS后段兼容的HZO体系配置为支持电导渐变调制——这是模拟权重存储的前提。仅为单器件表征,尚无阵列级保持或耐久数据。</span>
+        <span class="en">Every existing KV-cache compression scheme (token drop, INT quant, eviction) is lossy and the divergence from full-cache outputs compounds across decode steps — fine for short chats, catastrophic for code generation and tool use. VeriCache layers a verifier that detects when the lossy cache is about to misfire and falls back to the full cache only for those steps. The framing — &#x27;lossy by default, lossless when it matters&#x27; — is the architecturally interesting bit; the verifier is the implementation detail.</span>
+        <span class="zh">现有所有KV缓存压缩方法(token丢弃、INT量化、淘汰)均为有损,且与全量缓存的偏差在解码步上累积——短对话尚可,代码生成和工具调用则灾难性。VeriCache在压缩缓存之上增加一个验证器,识别即将出错的步骤并临时回退到全缓存。&#x27;默认有损、关键时刻无损&#x27;的框架是架构上的关键贡献,验证器只是实现细节。</span>
       </p>
     </article>
   </section>
@@ -335,47 +350,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.20315" target="_blank" rel="noopener">
-          <span class="en">Mix-Quant: phase-aware quantization — aggressive in prefill, precise in decode</span>
-          <span class="zh">Mix-Quant:阶段感知量化——预填激进、解码精确</span>
-        </a><span class="tag">quantization</span><span class="tag">LLM-serving</span>
+        <a href="https://arxiv.org/abs/2605.17757" target="_blank" rel="noopener">
+          <span class="en">OSCAR: attention-aware rotations make INT2 KV-cache quantization actually deployable</span>
+          <span class="zh">OSCAR:注意力感知旋转,让INT2 KV缓存量化真正可部署</span>
+        </a><span class="tag">quantization</span><span class="tag">KV-cache</span><span class="tag">LLM-serving</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Zhongzhu Zhou, Donglin Zhuang, Jisen Li, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.20315" target="_blank" rel="noopener">arXiv:2605.20315</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.17757" target="_blank" rel="noopener">arXiv:2605.17757</a> · 2026-05-18</p>
       <p class="summary">
-        <span class="en">Most LLM quantization schemes pick a single precision for the whole forward pass; Mix-Quant observes that the prefill phase (compute-bound, error-tolerant due to attention averaging) and the decode phase (memory-bound, error-sensitive) want different precisions. The framework runs prefill at FP4 / INT4 and decode at higher precision, with measured throughput gains on agentic, long-context workloads. The framing — phase as a first-class quantization dimension — is the more durable contribution than any specific schedule.</span>
-        <span class="zh">多数LLM量化方案对整次前向使用统一精度;Mix-Quant注意到prefill阶段(计算密集、对误差宽容)与decode阶段(内存密集、对误差敏感)需要不同精度。框架在prefill使用FP4/INT4,decode使用更高精度,在Agentic长上下文负载上获得实测吞吐量提升。比起具体调度,&#x27;阶段作为一等量化维度&#x27;这一框架本身更具持久价值。</span>
+        <span class="en">Generic rotation transforms (Hadamard, etc.) reduce outliers and enable INT4 KV-cache quantization, but degrade noticeably at INT2 because they ignore what downstream attention does with the keys. OSCAR estimates an attention-aware covariance offline once and derives both the rotation and clipping thresholds from it. The result is a fixed (no-runtime-overhead) transform that keeps INT2 within deployable accuracy. A clean example of the &#x27;co-design via offline analysis&#x27; pattern that&#x27;s quietly becoming the dominant approach to ultra-low-bit serving.</span>
+        <span class="zh">通用旋转变换(如Hadamard)可降低离群值、支撑INT4 KV缓存量化,但因忽视下游注意力对key的实际使用方式,在INT2精度下显著退化。OSCAR离线一次性估计注意力感知的协方差,并据此同时导出旋转矩阵与裁剪阈值,得到一个无运行时开销的固定变换,使INT2达到可部署精度。这是&#x27;通过离线分析做协同设计&#x27;范式的清晰范例,该范式正在悄然成为超低比特服务的主流路径。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.21427" target="_blank" rel="noopener">
-          <span class="en">PALS: power-aware LLM serving — GPU power caps as a runtime variable</span>
-          <span class="zh">PALS:功耗感知的LLM服务——把GPU功耗上限当成运行时变量</span>
-        </a><span class="tag">LLM-serving</span><span class="tag">MoE</span><span class="tag">power</span>
+        <a href="https://arxiv.org/abs/2605.19945" target="_blank" rel="noopener">
+          <span class="en">GEM: factoring per-GPU thermal variability into MoE expert placement</span>
+          <span class="zh">GEM:把每张卡的散热差异纳入MoE专家放置决策</span>
+        </a><span class="tag">MoE</span><span class="tag">LLM-serving</span><span class="tag">scheduling</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Sourish Wawdhane, Avinash Kumar, Poulami Das</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.21427" target="_blank" rel="noopener">arXiv:2605.21427</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.19945" target="_blank" rel="noopener">arXiv:2605.19945</a> · 2026-05-19</p>
       <p class="summary">
-        <span class="en">Existing LLM-serving systems treat GPU power as a static datacenter constraint and optimize only batching, scheduling, and parallelism. PALS treats power caps as a first-class control surface, dynamically retuning per-GPU power limits across expert-parallel MoE replicas to match the actual computation cost per token. The reported gains in tokens-per-watt are modest but the architectural shift is the right one: in a memory-bound inference regime, the binding constraint is increasingly thermal, not FLOPS.</span>
-        <span class="zh">现有LLM服务系统将GPU功耗视为数据中心层面的静态约束,只在批处理、调度、并行上做优化。PALS将功耗上限当作一等控制面,在专家并行MoE副本之间动态调整每卡功耗上限,以匹配每token的实际计算开销。论文给出的能效提升不算激进,但架构方向是对的:在内存受限的推理形态下,真正的硬约束越来越是热,而非FLOPS。</span>
+        <span class="en">MoE serving engines distribute experts across GPUs uniformly, assuming all GPUs are interchangeable. In practice they&#x27;re not — thermal throttling, silicon lottery, and rack-position effects produce real, persistent per-GPU performance variability. GEM measures it and biases expert placement toward the faster GPUs, then re-routes around the slower ones at the lockstep synchronization barrier that bottlenecks every MoE layer. Notable not for the algorithm but for being the first widely-shared paper to treat &#x27;GPUs are not iid&#x27; as the central serving constraint.</span>
+        <span class="zh">MoE服务系统通常把专家在GPU间均匀分布,默认所有GPU可互换。实际并非如此——散热限频、硅彩票、机柜位置效应会带来稳定的卡间性能差异。GEM显式测量并将专家偏置至更快的卡,在每层MoE的锁步同步壁前绕开较慢的卡。其重要性不在算法,而在于首次把&#x27;GPU不是独立同分布&#x27;当作服务系统的核心约束公开讨论。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.21100" target="_blank" rel="noopener">
-          <span class="en">NanoCP: request-level dynamic context parallelism for data-expert parallel MoE decoding</span>
-          <span class="zh">NanoCP:用于数据-专家并行MoE解码的请求级动态上下文并行</span>
-        </a><span class="tag">LLM-serving</span><span class="tag">MoE</span><span class="tag">KV-cache</span>
+        <a href="https://arxiv.org/abs/2605.20179" target="_blank" rel="noopener">
+          <span class="en">TIDE: I/O-aware expert offload for MoE diffusion LLMs on resource-constrained hardware</span>
+          <span class="zh">TIDE:面向资源受限硬件的MoE扩散LLM I/O感知专家卸载</span>
+        </a><span class="tag">MoE</span><span class="tag">diffusion-LLM</span><span class="tag">edge</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">Zhiben Chen, Youpeng Zhao, Yang Sui, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.21100" target="_blank" rel="noopener">arXiv:2605.21100</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20179" target="_blank" rel="noopener">arXiv:2605.20179</a> · 2026-05-19</p>
       <p class="summary">
-        <span class="en">Modern MoE serving binds each request&#x27;s attention, MoE communication, and KV cache to a single instance — fine for short prompts, ruinous for long context because attention cost scales with KV-cache size while MoE all-to-all latency scales with batch. NanoCP dynamically splits context parallelism per request, decoupling these two scaling laws. The contribution is small in code but large in implication: MoE serving has to stop pretending requests are uniform.</span>
-        <span class="zh">现代MoE服务系统将每个请求的注意力、MoE通信与KV缓存绑定到单一实例——短提示词没问题,长上下文则灾难性:注意力开销随KV缓存大小增长,MoE的all-to-all延迟随批大小增长,两者的扩展规律相互矛盾。NanoCP按请求动态分配上下文并行度,解耦了这两个维度。代码层改动不大,意义却大:MoE服务必须停止假装请求是同质的。</span>
+        <span class="en">Diffusion LLMs (dLLMs) decode in parallel blocks rather than autoregressively, and their MoE variants are too large to fit on edge devices. Existing offload strategies adapted from AR LLMs either kill latency (I/O-bound) or kill throughput (compute-bound). TIDE schedules expert offload based on dLLM&#x27;s I/O access pattern specifically, which is more predictable than AR. The piece is small in implementation but flags an important divergence: dLLMs need their own serving systems, not retrofitted AR ones.</span>
+        <span class="zh">扩散LLM(dLLM)以并行块解码而非自回归,其MoE变体过大,无法在边缘设备本地承载。从AR LLM移植的卸载策略要么牺牲延迟(I/O密集)要么牺牲吞吐(算力密集)。TIDE根据dLLM自身的I/O访问模式(比AR更可预测)调度专家卸载。实现量不大,但指出一个重要分叉:dLLM需要自己的服务系统,而非AR系统的改装版。</span>
       </p>
     </article>
   </section>
@@ -386,46 +401,25 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.21045" target="_blank" rel="noopener">
-          <span class="en">Towards transistor-based quantum computing: telesistors and topologically protected Clifford gates</span>
-          <span class="zh">面向晶体管化的量子计算:Telesistor与拓扑保护Clifford门</span>
-        </a><span class="tag">theory</span><span class="tag">preprint</span>
+        <a href="https://arxiv.org/abs/2605.19590" target="_blank" rel="noopener">
+          <span class="en">Photolithography-only transmons via double-oblique evaporation — no e-beam needed</span>
+          <span class="zh">仅以光刻+双角度蒸镀制备transmon,无需电子束</span>
+        </a><span class="tag">device-fab</span><span class="tag">transmon</span><span class="tag">quantum-hardware</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
+      <p class="authors">K. Aoyanagi, S. Abe, S. Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.21045" target="_blank" rel="noopener">arXiv:2605.21045</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.19590" target="_blank" rel="noopener">arXiv:2605.19590</a> · 2026-05-19</p>
       <p class="summary">
-        <span class="en">The authors propose a universal QC architecture in which the elementary unit is a teleportation-based &#x27;telesistor&#x27; built from symmetry-protected topological ground states, which suppress certain noise channels and yield Clifford gates without active error correction. The hope is to make the architectural picture of a quantum processor more transistor-like — a tractable, composable element. Theoretical proposal; nothing fabricated.</span>
-        <span class="zh">作者提出一种通用量子计算架构,其基元为基于对称性保护拓扑序基态的&#x27;telesistor&#x27;:通过隐形传态实现门操作,从而被动抑制特定噪声、无需主动纠错即可获得Clifford门。其雄心在于让量子处理器的架构图景更像经典晶体管:可分解、可组合。目前为理论提案,尚无器件实现。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">EDA, Verification &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2605.10807" target="_blank" rel="noopener">
-          <span class="en">LLMs for secure hardware design: opportunities and severe vulnerabilities</span>
-          <span class="zh">大模型用于硬件安全设计:机会与严重漏洞</span>
-        </a><span class="tag">survey</span><span class="tag">EDA</span>
-      </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.10807" target="_blank" rel="noopener">arXiv:2605.10807</a> · 2026-05-21</p>
-      <p class="summary">
-        <span class="en">A comprehensive review of LLMs across the EDA stack — RTL generation, testbench synthesis, spec-to-silicon — that breaks from the usual cheerleading and catalogs concrete vulnerabilities: prompt-injection-induced Trojans, leakage of pre-silicon IP through chat logs, and verification gaps the models reliably miss. The clearest practitioner-facing summary published this year.</span>
-        <span class="zh">对大模型在EDA各环节(RTL生成、测试平台合成、规格到芯片的桥接)应用的全面综述,但跳出业内常见的乐观叙述,系统记录了具体漏洞:提示注入诱导的硬件木马、聊天日志泄漏前期IP、以及模型反复遗漏的验证盲区。是今年面向实务工程师最清晰的一份梳理。</span>
+        <span class="en">Transmon Josephson junctions are typically defined with electron-beam lithography because qubit-relevant junction areas (~10⁴ nm²) are below the resolution of most photolithography. The group uses a bilayer-resist + double-oblique Al evaporation trick to get into that area regime with photolithography alone, confirmed by SEM and room-temperature resistance spreads. If qubit metrics at cryo hold up, this directly attacks the cost-per-qubit ceiling that&#x27;s blocked scaling — e-beam is the rate-limiter, not the cryostat.</span>
+        <span class="zh">Transmon约瑟夫森结的特征尺寸通常用电子束光刻定义,因为量子比特相关结面积(~10⁴ nm²)低于大多数光刻分辨率。作者通过双层光刻胶+双角度铝蒸镀的方法,仅靠光刻就进入该面积区间,SEM与室温电阻分布均给出验证。若低温下的量子比特性能站得住,该工艺将直接挑战阻碍规模化的&#x27;每量子比特成本&#x27;天花板——瓶颈一直是电子束,而非低温平台。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-05-23 01:26 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-05-23 01:26 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-05-23 13:09 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-05-23 13:09 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

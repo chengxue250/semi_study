@@ -158,5 +158,208 @@
         }
       ]
     }
-  ]
+  ],
+  "research": {
+    "window_days": 7,
+    "theme": {
+      "en": "Specialization Sharpens: Near-Memory, Per-Component, Per-Expert",
+      "zh": "专用化加深:近存储、按部件、按专家"
+    },
+    "dek": {
+      "en": "This week's literature converges on one move — squeezing inefficiency out by making everything more local and granular. RAG retrieval shifts into the DIMM (NasZip); GPU power becomes a per-component knob (CompPow); MoE expert placement factors per-GPU thermal variability (GEM); KV cache compression goes from lossy-on-average to attention-aware INT2 (OSCAR) or fully lossless-on-demand (VeriCache). 'One knob fits all' is increasingly the design pattern of the previous decade.",
+      "zh": "本周文献围绕同一个动作收敛——通过把一切做得更本地、更细粒度来挤出低效。RAG检索从CPU搬进DIMM(NasZip);GPU功耗成为按组件可调的旋钮(CompPow);MoE专家放置开始考虑每张卡的散热差异(GEM);KV缓存压缩从'平均无损'走向注意力感知的INT2(OSCAR)或按需完全无损(VeriCache)。'一档拨齐'正越来越像上一代的设计模式。"
+    },
+    "areas": [
+      {
+        "id": "devices",
+        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "papers": [
+          {
+            "title": {
+              "en": "Autonomous-lab discovery of phase-change memory materials with real-time multi-instrument fusion",
+              "zh": "基于实时多仪器融合的自主实验室相变存储材料发现"
+            },
+            "authors": "Chih-Yu Lee, Haotong Liang, Ryan Kim, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2605.18033",
+            "venue_url": "https://arxiv.org/abs/2605.18033",
+            "summary": {
+              "en": "The group operationalizes an autonomous lab that ingests heterogeneous, unsynchronized streams from multiple instruments *during* a deposition run and steers the next experiment in flight, rather than batch-analyzing afterward. Demonstrated on phase-change memory candidate materials; the contribution is the orchestration layer (synthesis ↔ process ↔ structure ↔ property), not the materials themselves. Generalizable to any thin-film device search.",
+              "zh": "作者建立了一个自主实验室,可在沉积过程中实时融合来自多台仪器的异构非同步数据,并在线引导下一步实验,而非事后批量分析。以相变存储候选材料为示范;贡献在于'合成↔工艺↔结构↔性能'的编排层,而非材料本身。该方法可推广到任意薄膜器件的搜索。"
+            },
+            "published": "2026-05-18",
+            "tags": ["device-fab", "autonomous-lab"]
+          },
+          {
+            "title": {
+              "en": "LUFFY: a framework for rational design of molecular field-coupled nanocomputing molecules",
+              "zh": "LUFFY:分子场耦合纳米计算分子的理性设计框架"
+            },
+            "authors": "Federico Ravera, Leonardo Medrano Sandonas, Andrea Vezzoli, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2605.22196",
+            "venue_url": "https://arxiv.org/abs/2605.22196",
+            "summary": {
+              "en": "Molecular Field-Coupled Nanocomputing (MolFCN) propagates information electrostatically rather than via charge transport — promising ultra-low-power logic post-CMOS, but stuck on the problem of finding molecules with stable logic states *and* clean clock-field switching *and* reliable propagation. LUFFY is a layered evaluation framework that scores candidate molecules against all three together. Computational-only; no synthesized devices yet.",
+              "zh": "分子场耦合纳米计算(MolFCN)通过静电而非电荷输运传播信息,有望在CMOS之后实现超低功耗逻辑,但长期受限于'稳定逻辑态、洁净时钟场开关、可靠传播'三者兼具的分子稀缺。LUFFY提供一个分层评估框架,可同时对三项指标打分。仅为计算层成果,尚无合成器件。"
+            },
+            "published": "2026-05-21",
+            "tags": ["theory", "beyond-CMOS"]
+          }
+        ]
+      },
+      {
+        "id": "circuits",
+        "title": {"en": "Circuits & Architecture", "zh": "电路与体系结构"},
+        "papers": [
+          {
+            "title": {
+              "en": "On-chip rotary-oscillator arrays for subharmonic injection locking in Ising machines",
+              "zh": "面向Ising机的片上旋转振荡器阵列,实现亚谐波注入锁定"
+            },
+            "authors": "Nicholas Sica, Baris Taskin",
+            "affiliation": "",
+            "venue": "arXiv:2605.17720",
+            "venue_url": "https://arxiv.org/abs/2605.17720",
+            "summary": {
+              "en": "Oscillator-based Ising machines (OIMs) need subharmonic injection locking (SHIL) signals at exact multiples of the node frequency to converge correctly. Generating those signals off-chip doesn't scale; generating them on-chip is hard because process variation drifts the SHIL frequency away from the integer multiple. The paper uses an array of rotary traveling-wave oscillators (RTWOs) as the SHIL source, exploiting their inherent frequency stability. Concrete circuit proposal with simulated scaling behavior; no fabricated chip in this paper.",
+              "zh": "基于振荡器的Ising机(OIM)需要严格整数倍于节点频率的亚谐波注入锁定(SHIL)信号才能正常收敛。片外生成SHIL无法规模化;片上生成则因工艺偏差导致频率偏离整数倍。本文以片上旋转行波振荡器(RTWO)阵列作为SHIL源,利用其固有频率稳定性。给出具体电路方案与仿真扩展性结果,本文未含流片。"
+            },
+            "published": "2026-05-18",
+            "tags": ["architecture", "Ising-machine"]
+          }
+        ]
+      },
+      {
+        "id": "accelerators",
+        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "papers": [
+          {
+            "title": {
+              "en": "NasZip: pushing RAG vector retrieval into DIMM-based near-data processing",
+              "zh": "NasZip:将RAG向量检索下沉至DIMM近数据处理"
+            },
+            "authors": "Cheng Zou, Shuo Yang, Chen Nie, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2605.21952",
+            "venue_url": "https://arxiv.org/abs/2605.21952",
+            "summary": {
+              "en": "RAG-driven LLM serving spends a growing fraction of its time in approximate nearest-neighbor search (ANNS), which is memory-bound — CPU and GPU bandwidth caps it long before compute does. NasZip is a software/hardware co-design that pushes the distance computation into DIMM-resident near-data processors, returning only the top-k indices over the memory bus. The macroeconomic point: as RAG corpora grow, ANNS rather than attention becomes the next memory-bandwidth ceiling.",
+              "zh": "RAG驱动的LLM服务越来越多的时间花在近似最近邻搜索(ANNS)上;该负载受内存带宽约束,CPU和GPU都早早被带宽顶住而非算力。NasZip提出软硬件协同设计,将距离计算下沉到DIMM内的近数据处理单元,仅通过内存总线返回top-k索引。宏观层意义在于:随着RAG语料库扩大,下一个内存带宽天花板将是ANNS而非注意力。"
+            },
+            "published": "2026-05-21",
+            "tags": ["near-memory", "RAG", "LLM-serving"]
+          },
+          {
+            "title": {
+              "en": "CompPow: per-component GPU power management, not just per-card",
+              "zh": "CompPow:GPU功耗按组件管理,而非按整卡"
+            },
+            "authors": "Shaizeen Aga, Mohamed Assem Ibrahim",
+            "affiliation": "",
+            "venue": "arXiv:2605.21847",
+            "venue_url": "https://arxiv.org/abs/2605.21847",
+            "summary": {
+              "en": "Modern GPU power management treats the whole card as one knob. The authors observe that the actual hot components (SM clusters, HBM stacks, NoC) have very different power-vs-throughput curves and that workload-aware per-component capping leaves real efficiency on the table when collapsed into a single card-level cap. The proposed runtime tunes each component independently. Simulation-based at this stage; complementary to the rack-level PALS-style work we covered last edition.",
+              "zh": "现有GPU功耗管理把整卡当作单一旋钮调节。作者观察到:卡内不同部件(SM簇、HBM堆栈、片上网络)的功耗-吞吐曲线差异很大,若强制收敛到整卡上限,会损失实测可达的能效。本文提出按部件独立调节的运行时方案。当前为仿真级,与上期PALS式机柜级工作互补。"
+            },
+            "published": "2026-05-21",
+            "tags": ["GPU", "power"]
+          },
+          {
+            "title": {
+              "en": "VeriCache: making lossy KV-cache compression lossless on demand",
+              "zh": "VeriCache:让有损KV缓存压缩按需变为无损"
+            },
+            "authors": "Jiayi Yao, Samuel Shen, Kuntai Du, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2605.17613",
+            "venue_url": "https://arxiv.org/abs/2605.17613",
+            "summary": {
+              "en": "Every existing KV-cache compression scheme (token drop, INT quant, eviction) is lossy and the divergence from full-cache outputs compounds across decode steps — fine for short chats, catastrophic for code generation and tool use. VeriCache layers a verifier that detects when the lossy cache is about to misfire and falls back to the full cache only for those steps. The framing — 'lossy by default, lossless when it matters' — is the architecturally interesting bit; the verifier is the implementation detail.",
+              "zh": "现有所有KV缓存压缩方法(token丢弃、INT量化、淘汰)均为有损,且与全量缓存的偏差在解码步上累积——短对话尚可,代码生成和工具调用则灾难性。VeriCache在压缩缓存之上增加一个验证器,识别即将出错的步骤并临时回退到全缓存。'默认有损、关键时刻无损'的框架是架构上的关键贡献,验证器只是实现细节。"
+            },
+            "published": "2026-05-17",
+            "tags": ["LLM-serving", "KV-cache"]
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {"en": "AI Research (hardware-relevant)", "zh": "AI研究(与硬件相关)"},
+        "papers": [
+          {
+            "title": {
+              "en": "OSCAR: attention-aware rotations make INT2 KV-cache quantization actually deployable",
+              "zh": "OSCAR:注意力感知旋转,让INT2 KV缓存量化真正可部署"
+            },
+            "authors": "Zhongzhu Zhou, Donglin Zhuang, Jisen Li, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2605.17757",
+            "venue_url": "https://arxiv.org/abs/2605.17757",
+            "summary": {
+              "en": "Generic rotation transforms (Hadamard, etc.) reduce outliers and enable INT4 KV-cache quantization, but degrade noticeably at INT2 because they ignore what downstream attention does with the keys. OSCAR estimates an attention-aware covariance offline once and derives both the rotation and clipping thresholds from it. The result is a fixed (no-runtime-overhead) transform that keeps INT2 within deployable accuracy. A clean example of the 'co-design via offline analysis' pattern that's quietly becoming the dominant approach to ultra-low-bit serving.",
+              "zh": "通用旋转变换(如Hadamard)可降低离群值、支撑INT4 KV缓存量化,但因忽视下游注意力对key的实际使用方式,在INT2精度下显著退化。OSCAR离线一次性估计注意力感知的协方差,并据此同时导出旋转矩阵与裁剪阈值,得到一个无运行时开销的固定变换,使INT2达到可部署精度。这是'通过离线分析做协同设计'范式的清晰范例,该范式正在悄然成为超低比特服务的主流路径。"
+            },
+            "published": "2026-05-18",
+            "tags": ["quantization", "KV-cache", "LLM-serving"]
+          },
+          {
+            "title": {
+              "en": "GEM: factoring per-GPU thermal variability into MoE expert placement",
+              "zh": "GEM:把每张卡的散热差异纳入MoE专家放置决策"
+            },
+            "authors": "Sourish Wawdhane, Avinash Kumar, Poulami Das",
+            "affiliation": "",
+            "venue": "arXiv:2605.19945",
+            "venue_url": "https://arxiv.org/abs/2605.19945",
+            "summary": {
+              "en": "MoE serving engines distribute experts across GPUs uniformly, assuming all GPUs are interchangeable. In practice they're not — thermal throttling, silicon lottery, and rack-position effects produce real, persistent per-GPU performance variability. GEM measures it and biases expert placement toward the faster GPUs, then re-routes around the slower ones at the lockstep synchronization barrier that bottlenecks every MoE layer. Notable not for the algorithm but for being the first widely-shared paper to treat 'GPUs are not iid' as the central serving constraint.",
+              "zh": "MoE服务系统通常把专家在GPU间均匀分布,默认所有GPU可互换。实际并非如此——散热限频、硅彩票、机柜位置效应会带来稳定的卡间性能差异。GEM显式测量并将专家偏置至更快的卡,在每层MoE的锁步同步壁前绕开较慢的卡。其重要性不在算法,而在于首次把'GPU不是独立同分布'当作服务系统的核心约束公开讨论。"
+            },
+            "published": "2026-05-19",
+            "tags": ["MoE", "LLM-serving", "scheduling"]
+          },
+          {
+            "title": {
+              "en": "TIDE: I/O-aware expert offload for MoE diffusion LLMs on resource-constrained hardware",
+              "zh": "TIDE:面向资源受限硬件的MoE扩散LLM I/O感知专家卸载"
+            },
+            "authors": "Zhiben Chen, Youpeng Zhao, Yang Sui, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2605.20179",
+            "venue_url": "https://arxiv.org/abs/2605.20179",
+            "summary": {
+              "en": "Diffusion LLMs (dLLMs) decode in parallel blocks rather than autoregressively, and their MoE variants are too large to fit on edge devices. Existing offload strategies adapted from AR LLMs either kill latency (I/O-bound) or kill throughput (compute-bound). TIDE schedules expert offload based on dLLM's I/O access pattern specifically, which is more predictable than AR. The piece is small in implementation but flags an important divergence: dLLMs need their own serving systems, not retrofitted AR ones.",
+              "zh": "扩散LLM(dLLM)以并行块解码而非自回归,其MoE变体过大,无法在边缘设备本地承载。从AR LLM移植的卸载策略要么牺牲延迟(I/O密集)要么牺牲吞吐(算力密集)。TIDE根据dLLM自身的I/O访问模式(比AR更可预测)调度专家卸载。实现量不大,但指出一个重要分叉:dLLM需要自己的服务系统,而非AR系统的改装版。"
+            },
+            "published": "2026-05-19",
+            "tags": ["MoE", "diffusion-LLM", "edge"]
+          }
+        ]
+      },
+      {
+        "id": "quantum",
+        "title": {"en": "Quantum Devices", "zh": "量子器件"},
+        "papers": [
+          {
+            "title": {
+              "en": "Photolithography-only transmons via double-oblique evaporation — no e-beam needed",
+              "zh": "仅以光刻+双角度蒸镀制备transmon,无需电子束"
+            },
+            "authors": "K. Aoyanagi, S. Abe, S. Chen, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2605.19590",
+            "venue_url": "https://arxiv.org/abs/2605.19590",
+            "summary": {
+              "en": "Transmon Josephson junctions are typically defined with electron-beam lithography because qubit-relevant junction areas (~10⁴ nm²) are below the resolution of most photolithography. The group uses a bilayer-resist + double-oblique Al evaporation trick to get into that area regime with photolithography alone, confirmed by SEM and room-temperature resistance spreads. If qubit metrics at cryo hold up, this directly attacks the cost-per-qubit ceiling that's blocked scaling — e-beam is the rate-limiter, not the cryostat.",
+              "zh": "Transmon约瑟夫森结的特征尺寸通常用电子束光刻定义,因为量子比特相关结面积(~10⁴ nm²)低于大多数光刻分辨率。作者通过双层光刻胶+双角度铝蒸镀的方法,仅靠光刻就进入该面积区间,SEM与室温电阻分布均给出验证。若低温下的量子比特性能站得住,该工艺将直接挑战阻碍规模化的'每量子比特成本'天花板——瓶颈一直是电子束,而非低温平台。"
+            },
+            "published": "2026-05-19",
+            "tags": ["device-fab", "transmon", "quantum-hardware"]
+          }
+        ]
+      }
+    ]
+  }
 }
