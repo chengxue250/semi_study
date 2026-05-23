@@ -95,35 +95,14 @@ feeds:
 
   # --- Academic / research feeds (used by research.html) -----------------------
   # These have role=research so fetch_rss can isolate them for the research page.
-  - name: arXiv cs.AR (Hardware Architecture)
-    url: http://export.arxiv.org/rss/cs.AR
-    role: research
-  - name: arXiv cs.ET (Emerging Technologies)
-    url: http://export.arxiv.org/rss/cs.ET
-    role: research
-  - name: arXiv eess.SP (Signal Processing)
-    url: http://export.arxiv.org/rss/eess.SP
-    role: research
-  - name: arXiv physics.app-ph (Applied Physics)
-    url: http://export.arxiv.org/rss/physics.app-ph
-    role: research
-  - name: arXiv cs.AI (AI — for accelerator-relevant papers)
-    url: http://export.arxiv.org/rss/cs.AI
-    role: research
-  - name: arXiv cs.LG (Machine Learning — systems & efficiency)
-    url: http://export.arxiv.org/rss/cs.LG
-    role: research
-  - name: arXiv cs.CL (NLP — LLM systems papers)
-    url: http://export.arxiv.org/rss/cs.CL
-    role: research
-  - name: arXiv cs.DC (Distributed, Parallel — training systems)
-    url: http://export.arxiv.org/rss/cs.DC
-    role: research
+  #
+  # NOTE: arXiv is *not* listed here — its RSS feeds only carry the current
+  # day's announcement batch (empty on weekends, missing all prior days), so
+  # they're unsuitable for a 7-day rolling window. arXiv coverage goes through
+  # scripts/fetch_arxiv.py (uses the arXiv Query API with a real date range);
+  # see the `arxiv_categories` section below.
   - name: Nature Electronics — current issue
     url: https://www.nature.com/natelectron/current_issue/rss
-    role: research
-  - name: Semiconductor Today
-    url: https://www.semiconductor-today.com/rss.xml
     role: research
 
 # Human-curated outlets the agent should consult even when there is no working
@@ -183,6 +162,38 @@ sections:
   - id: challengers
     title_en: Challengers & New Silicon
     title_zh: 新势力与新硅
+
+# arXiv categories queried by scripts/fetch_arxiv.py via the arXiv Query API.
+# Pulls papers submitted in the last --days (default 7), so a real rolling
+# window — works on weekends and any other day. Categories cover the spectrum
+# of hardware-relevant arXiv: devices, architecture, ML systems, applied
+# physics, signal processing.
+arxiv_categories:
+  - cs.AR           # Hardware Architecture
+  - cs.ET           # Emerging Technologies
+  - eess.SP         # Signal Processing
+  - physics.app-ph  # Applied Physics
+  - cs.AI           # AI — for accelerator-relevant papers
+  - cs.LG           # Machine Learning — systems & efficiency
+  - cs.CL           # NLP — LLM systems papers
+  - cs.DC           # Distributed / Parallel — training & inference systems
+
+# Semantic Scholar Graph API queries used by scripts/fetch_semscholar.py.
+# Coverage complement to arXiv: catches conference proceedings (ISSCC, IEDM,
+# MICRO, etc.), IEEE journal papers, and papers that landed on Xplore/DOI
+# without an arXiv preprint. Each query goes through S2's free unauthenticated
+# tier (no key required for the volume we use).
+semscholar_queries:
+  - "compute-in-memory CMOS"
+  - "neuromorphic chip ASIC"
+  - "advanced packaging chiplet"
+  - "ferroelectric transistor memory"
+  - "silicon photonics integrated"
+  - "VLSI processor architecture"
+  - "HBM memory bandwidth"
+  - "GaN SiC power semiconductor"
+  - "LLM inference accelerator"
+  - "spiking neural network hardware"
 
 # Research sections used by research.html. Same taxonomy idea: stable IDs,
 # agent omits empty ones per edition.

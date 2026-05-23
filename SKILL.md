@@ -140,15 +140,26 @@ Build a JSON object matching this shape and write it to `output/edition.json`:
 
 If the user asks for or implies research/academic coverage — or simply if it's been ≥ 5 days since the last `research.html` update — add a `research` block to `edition.json`. See `references/research-guide.md` for the full editorial guide; the short version:
 
-1. Pull arXiv + journal RSS:
+1. Pull from three complementary sources — run all three; they cover different layers of the literature and each handles weekend/holiday gaps differently:
+
    ```bash
-   python3 scripts/fetch_rss.py \
-     --role research \
-     --since-hours 168 \
-     --exclude-seen output/.seen_urls.json \
-     --out /tmp/semi_research.json
+   # arXiv preprints (real 7-day window via the Query API — works on weekends).
+   python3 scripts/fetch_arxiv.py --days 7 \
+     --exclude-seen output/.seen_urls.json --out /tmp/research_arxiv.json
+
+   # Conference proceedings + journal papers via Semantic Scholar.
+   python3 scripts/fetch_semscholar.py --days 14 \
+     --exclude-seen output/.seen_urls.json --out /tmp/research_semscholar.json
+
+   # Non-arXiv research RSS feeds (Nature Electronics current issue, etc.).
+   python3 scripts/fetch_rss.py --role research --since-hours 168 \
+     --exclude-seen output/.seen_urls.json --out /tmp/research_rss.json
    ```
-   The `--role research` flag is honored if the feed entry in `sources.yaml` has `role: research`. Default look-back is **7 days** (168h) rather than 24h because paper diffusion is slower. The same `--exclude-seen` filter applies — `.seen_urls.json` stores both news URLs and research paper venue URLs, so a paper summarized in any prior edition (even months ago) won't be re-summarized today.
+
+   - `fetch_arxiv.py` uses the arXiv Query API (not RSS) so it returns a real submittedDate range. Critical: arXiv's RSS only carries today's announcement batch — empty on weekends — so RSS was unsuitable for a 7-day window. The API path doesn't have that gap.
+   - `fetch_semscholar.py` covers the conference/journal layer (ISSCC, IEDM, MICRO, IEEE JSSC/TED, Nature Electronics) that doesn't reliably appear on arXiv. No API key needed for our volume.
+   - `fetch_rss.py --role research` catches anything else with a working RSS feed.
+   - All three honor `--exclude-seen output/.seen_urls.json`, so a paper summarized in any prior edition (even months ago) won't be re-summarized today. For arXiv, the matching is on **version-stripped IDs** — v1 and v2 of the same paper are treated as one.
 
 2. Select **8–15 papers** across the research sections in `sources.yaml`. Apply the bar in `research-guide.md` § "Selection criteria" — measured silicon over simulation, top venues, real bottlenecks. If a paper looks compelling but isn't in the filtered RSS output, *double-check it isn't in `.seen_urls.json`* before adding it manually — the most common cause of a "missing" paper is that you already wrote it up last week.
 
@@ -268,7 +279,9 @@ assets/
   template.html                News page template (amber accent)
   research-template.html       Research page template (green accent, denser layout)
 scripts/
-  fetch_rss.py                 Pulls RSS feeds → JSON (supports --role research)
+  fetch_rss.py                 Pulls RSS feeds → JSON (supports --role research, --exclude-seen)
+  fetch_arxiv.py               Pulls arXiv preprints via the Query API (real date range, no weekend gap)
+  fetch_semscholar.py          Pulls conference/journal papers via Semantic Scholar Graph API
   build_page.py                Renders edition.json → today's HTML pages + archive
   notify.py                    (Optional) sends ntfy.sh push notification to user's phone
 notify.yaml.example            Sample notification config; copy to notify.yaml (gitignored)

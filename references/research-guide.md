@@ -8,14 +8,26 @@ layout. This file is how to write the research page.
 
 ## Cadence
 
-Default look-back is **7 days** for research (vs. 36 hours for news), because
+Default look-back is **7 days** for research (vs. 24 hours for news), because
 papers diffuse more slowly and a single day of arXiv is not enough signal.
-Set this via `--since-hours 168` when running `fetch_rss.py` for research, or
-just include items from the last 7 days when curating manually.
+
+The research workflow now runs three fetchers in parallel:
+
+- `scripts/fetch_arxiv.py --days 7` — arXiv preprints, real date range via
+  the arXiv Query API. Works on weekends. This replaces the old arXiv RSS
+  feeds, which only carried today's announcement batch (empty Sat/Sun).
+- `scripts/fetch_semscholar.py --days 14` — conference proceedings and
+  journal papers (ISSCC, IEDM, MICRO, IEEE JSSC, Nature Electronics, …) via
+  Semantic Scholar. Wider window because publication dates lag the actual
+  work by weeks.
+- `scripts/fetch_rss.py --role research --since-hours 168` — non-arXiv,
+  non-S2 research RSS feeds.
 
 It is fine for the research page to update less often than the news page. If
 nothing meaningful landed in a domain this week, leave that section empty
-rather than padding.
+rather than padding. **What changed in this iteration**: the empty-Saturday
+problem we hit on 2026-05-23 is gone — `fetch_arxiv.py` returned real papers
+that day because it queries an API, not a daily RSS dump.
 
 ## Voice
 
