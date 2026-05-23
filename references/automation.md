@@ -137,7 +137,43 @@ python3 scripts/notify.py
 git add output/
 git commit -m "edition $(date -u +%F)" || echo "no changes"
 git push origin main
+
+# Publish output/ to the gh-pages branch (safe — clones into /tmp first).
+# Do NOT replace this with a manual `git checkout --orphan gh-pages …`
+# pattern; that leaks any untracked file in the working tree, including
+# .gitignored secrets like notify.yaml. See scripts/publish_gh_pages.sh
+# for the rationale.
+scripts/publish_gh_pages.sh main
 ```
+
+## Publishing to gh-pages (manual or scripted)
+
+GitHub Pages is set up to deploy from the `gh-pages` branch root. Whenever
+you want to push a new edition to the live site, run:
+
+```bash
+scripts/publish_gh_pages.sh [source-ref]   # source-ref defaults to "main"
+```
+
+The script clones the repo into a temp directory and operates entirely
+there, so:
+
+- `.gitignored` files in your working tree (notify.yaml, .env, .claude/,
+  etc.) **cannot** end up on gh-pages, even by accident.
+- Your working tree is not modified.
+- Force-push to `gh-pages` is safe because that branch is derived state.
+
+**Do not** publish gh-pages with the naïve "orphan branch in the project
+directory" pattern (`git checkout --orphan gh-pages && git add -A && git
+push --force …`). That pattern silently leaks every untracked file at the
+project root. We hit this bug twice on 2026-05-23 before writing the
+script — once is unlucky, twice means the pattern itself is wrong.
+
+If the script fails, exit codes are:
+
+- `0` — pushed
+- `2` — bad input (missing ref, no `output/`, no remote configured)
+- `3` — push failed (network, auth, force-push protection, etc.)
 
 `chmod +x scripts/run_daily.sh`, then load the plist:
 
