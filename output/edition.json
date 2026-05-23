@@ -1,17 +1,20 @@
 {
-  "date": "2026-05-21",
+  "date": "2026-05-22",
   "theme": {
-    "en": "AMD Doubles Down on Taiwan as Nvidia Yields China",
-    "zh": "AMD加码押注台湾,英伟达让出中国"
+    "en": "China Export Controls Tighten, HBM Supply Chain Update",
+    "zh": "中国出口管制收紧,HBM供应链最新动态"
   },
   "dek": {
-    "en": "EPYC Venice begins its 2nm ramp at TSMC the same week Lisa Su pledges another $10B to Taiwan, Taipei runs its first formal raids on Nvidia-chip smuggling rings, and Jensen Huang concedes the China AI market to Huawei. The Strait is now the single most important map in the industry.",
-    "zh": "EPYC Venice在台积电2nm进入量产爬坡的同一周,苏姿丰再向台湾承诺投资100亿美元;台北首次正式收网,搜查英伟达走私链条;黄仁勋则承认中国AI市场已让予华为。海峡两侧,正成为产业地图上最关键的一条线。"
+    "en": "TSMC faces new export review, Samsung HBM yields improve, Intel foundry update",
+    "zh": "台积电面临新出口审查,三星HBM良率提升,英特尔代工最新进展"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
           "featured": true,
@@ -58,7 +61,10 @@
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "title": {
@@ -90,7 +96,10 @@
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储器"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储器"
+      },
       "stories": [
         {
           "title": {
@@ -109,7 +118,10 @@
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
       "stories": [
         {
           "title": {
@@ -141,7 +153,10 @@
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘"
+      },
       "stories": [
         {
           "featured": true,
@@ -174,7 +189,10 @@
     },
     {
       "id": "challengers",
-      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
       "stories": [
         {
           "title": {
@@ -218,7 +236,10 @@
     "areas": [
       {
         "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
         "papers": [
           {
             "title": {
@@ -234,13 +255,19 @@
               "zh": "作者证明一只少层GaSe器件可同时受电压和光学偏置调制,从而以单像素替代传统光谱仪的色散光学,后续由软件重建光谱。对芯片级光谱传感意义明确,但本文尚未与硅光及滤波器阵列方案在光谱分辨率与噪声底上做对比。"
             },
             "published": "2026-05-21",
-            "tags": ["device-fab", "2D-materials"]
+            "tags": [
+              "device-fab",
+              "2D-materials"
+            ]
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Circuits & Architecture", "zh": "电路与体系结构"},
+        "title": {
+          "en": "Circuits & Architecture",
+          "zh": "电路与体系结构"
+        },
         "papers": [
           {
             "title": {
@@ -256,13 +283,19 @@
               "zh": "本文针对CGRA等可重构架构长期存在的短板:不规则控制流必须回落到主机CPU,能效优势随之消失。作者提出的扩展可在可重构基底原生支持数据相关分支。评估为仿真级,但设计具体到可落地的程度,能效与前期CGRA工作相当。"
             },
             "published": "2026-05-21",
-            "tags": ["architecture", "simulation-only"]
+            "tags": [
+              "architecture",
+              "simulation-only"
+            ]
           }
         ]
       },
       {
         "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
         "papers": [
           {
             "title": {
@@ -278,7 +311,10 @@
               "zh": "该宏为实际流片:0.85µm² 3T1R ReRAM位单元搭配基于AND的存内乘法,同时支持传统CNN与脉冲网络负载,并引入新颖的10T/28T交错加法树以分摊累加开销。'CNN/SNN双模'是其核心差异点——此前的CIM宏多只支持其一。面向边缘推理,而非数据中心。"
             },
             "published": "2026-05-21",
-            "tags": ["tape-out", "compute-in-memory"]
+            "tags": [
+              "tape-out",
+              "compute-in-memory"
+            ]
           },
           {
             "title": {
@@ -294,7 +330,10 @@
               "zh": "SNN加速器多年来一直宣传事件驱动的能效,但绝大多数仍是逐层流水、等满输入窗口才输出。ELSA实现了真正的弹性推理:在脉冲累积到置信阈值时立即输出,下游层据此被门控。其架构启示是:SNN的能效首先是调度问题,而非单纯的电路问题。"
             },
             "published": "2026-05-21",
-            "tags": ["architecture", "neuromorphic"]
+            "tags": [
+              "architecture",
+              "neuromorphic"
+            ]
           },
           {
             "title": {
@@ -310,13 +349,19 @@
               "zh": "作者在HfZrO2铁电介质上以TiO2作为沟道,制备底栅FeFET并报告两种栅叠厚度下的高开关比。新意在于将与CMOS后段兼容的HZO体系配置为支持电导渐变调制——这是模拟权重存储的前提。仅为单器件表征,尚无阵列级保持或耐久数据。"
             },
             "published": "2026-05-21",
-            "tags": ["device-fab", "neuromorphic"]
+            "tags": [
+              "device-fab",
+              "neuromorphic"
+            ]
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Research (hardware-relevant)", "zh": "AI研究(与硬件相关)"},
+        "title": {
+          "en": "AI Research (hardware-relevant)",
+          "zh": "AI研究(与硬件相关)"
+        },
         "papers": [
           {
             "title": {
@@ -332,7 +377,10 @@
               "zh": "多数LLM量化方案对整次前向使用统一精度;Mix-Quant注意到prefill阶段(计算密集、对误差宽容)与decode阶段(内存密集、对误差敏感)需要不同精度。框架在prefill使用FP4/INT4,decode使用更高精度,在Agentic长上下文负载上获得实测吞吐量提升。比起具体调度,'阶段作为一等量化维度'这一框架本身更具持久价值。"
             },
             "published": "2026-05-21",
-            "tags": ["quantization", "LLM-serving"]
+            "tags": [
+              "quantization",
+              "LLM-serving"
+            ]
           },
           {
             "title": {
@@ -348,7 +396,11 @@
               "zh": "现有LLM服务系统将GPU功耗视为数据中心层面的静态约束,只在批处理、调度、并行上做优化。PALS将功耗上限当作一等控制面,在专家并行MoE副本之间动态调整每卡功耗上限,以匹配每token的实际计算开销。论文给出的能效提升不算激进,但架构方向是对的:在内存受限的推理形态下,真正的硬约束越来越是热,而非FLOPS。"
             },
             "published": "2026-05-21",
-            "tags": ["LLM-serving", "MoE", "power"]
+            "tags": [
+              "LLM-serving",
+              "MoE",
+              "power"
+            ]
           },
           {
             "title": {
@@ -364,13 +416,20 @@
               "zh": "现代MoE服务系统将每个请求的注意力、MoE通信与KV缓存绑定到单一实例——短提示词没问题,长上下文则灾难性:注意力开销随KV缓存大小增长,MoE的all-to-all延迟随批大小增长,两者的扩展规律相互矛盾。NanoCP按请求动态分配上下文并行度,解耦了这两个维度。代码层改动不大,意义却大:MoE服务必须停止假装请求是同质的。"
             },
             "published": "2026-05-21",
-            "tags": ["LLM-serving", "MoE", "KV-cache"]
+            "tags": [
+              "LLM-serving",
+              "MoE",
+              "KV-cache"
+            ]
           }
         ]
       },
       {
         "id": "quantum",
-        "title": {"en": "Quantum Devices", "zh": "量子器件"},
+        "title": {
+          "en": "Quantum Devices",
+          "zh": "量子器件"
+        },
         "papers": [
           {
             "title": {
@@ -386,13 +445,19 @@
               "zh": "作者提出一种通用量子计算架构,其基元为基于对称性保护拓扑序基态的'telesistor':通过隐形传态实现门操作,从而被动抑制特定噪声、无需主动纠错即可获得Clifford门。其雄心在于让量子处理器的架构图景更像经典晶体管:可分解、可组合。目前为理论提案,尚无器件实现。"
             },
             "published": "2026-05-21",
-            "tags": ["theory", "preprint"]
+            "tags": [
+              "theory",
+              "preprint"
+            ]
           }
         ]
       },
       {
         "id": "eda",
-        "title": {"en": "EDA, Verification & Design Automation", "zh": "EDA与设计自动化"},
+        "title": {
+          "en": "EDA, Verification & Design Automation",
+          "zh": "EDA与设计自动化"
+        },
         "papers": [
           {
             "title": {
@@ -408,7 +473,10 @@
               "zh": "对大模型在EDA各环节(RTL生成、测试平台合成、规格到芯片的桥接)应用的全面综述,但跳出业内常见的乐观叙述,系统记录了具体漏洞:提示注入诱导的硬件木马、聊天日志泄漏前期IP、以及模型反复遗漏的验证盲区。是今年面向实务工程师最清晰的一份梳理。"
             },
             "published": "2026-05-21",
-            "tags": ["survey", "EDA"]
+            "tags": [
+              "survey",
+              "EDA"
+            ]
           }
         ]
       }
