@@ -46,6 +46,20 @@ Not this:
 > demonstrates promising results and may have significant implications for
 > the field, building on prior work in the area.
 
+## Don't re-summarize papers we've already covered
+
+The research page shares `output/.seen_urls.json` with the news page. A paper
+whose `venue_url` (arXiv abs page, DOI link, journal article URL) is in that
+file with a date before today is *already in a past edition* — do not
+re-summarize it. `fetch_rss.py --exclude-seen` filters arXiv RSS hits
+automatically; if you find a paper through manual search or by following a
+citation, check the file yourself before adding it.
+
+Paper-version updates (e.g., arXiv v2 of a paper we covered as v1) count as
+the same paper unless the revision is *substantively* different — new
+results, fab silicon where there was none, a fundamental change in claims.
+If in doubt, skip; the field will surface it again at conference acceptance.
+
 ## Selection criteria
 
 Per week, target **8–15 papers across all sections**. Drop anything that

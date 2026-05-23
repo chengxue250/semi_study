@@ -216,8 +216,10 @@ def fetch_one(feed: dict) -> tuple[dict, list[dict], str | None]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--since-hours", type=int, default=36,
-                    help="discard entries older than this many hours")
+    ap.add_argument("--since-hours", type=int, default=24,
+                    help="discard entries older than this many hours "
+                         "(default: 24 — matches the daily-run cadence so "
+                         "yesterday's stories don't re-surface)")
     ap.add_argument("--out", default="/tmp/semi_rss.json",
                     help="output JSON path")
     ap.add_argument("--probe", action="store_true",
@@ -226,6 +228,10 @@ def main() -> int:
     ap.add_argument("--role", default=None,
                     help="filter to feeds with the given role (e.g. 'research'); "
                          "default is feeds with no role set (i.e. news feeds)")
+    ap.add_argument("--exclude-seen", default=None,
+                    help="path to .seen_urls.json — drop entries whose URL has "
+                         "already been published in a previous edition. Same-day "
+                         "entries are kept so re-running today still works.")
     args = ap.parse_args()
 
     feeds = load_feeds(SOURCES)
@@ -276,7 +282,7 @@ def main() -> int:
             print(f"  failed: {n} — {e}")
         return 0
 
-    # Dedupe by URL.
+    # Dedupe by URL (within this run).
     seen = set()
     deduped = []
     for it in all_items:
@@ -284,6 +290,30 @@ def main() -> int:
             continue
         seen.add(it["link"])
         deduped.append(it)
+
+    # Drop URLs already published in a previous edition. URLs first-seen
+    # today are kept so re-running the build for today still produces output.
+    if args.exclude_seen:
+        seen_path = Path(args.exclude_seen)
+        if seen_path.exists():
+            try:
+                already = json.loads(seen_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as e:
+                print(f"warning: --exclude-seen file is malformed ({e}); ignoring", file=sys.stderr)
+                already = {}
+            today = datetime.now(timezone.utc).date().isoformat()
+            before = len(deduped)
+            deduped = [
+                it for it in deduped
+                if already.get(it["link"], today) >= today
+            ]
+            dropped = before - len(deduped)
+            if dropped:
+                print(f"\nexcluded {dropped} item(s) previously published "
+                      f"(per {seen_path})", file=sys.stderr)
+        else:
+            print(f"(--exclude-seen file {seen_path} not found; first run, nothing to exclude)",
+                  file=sys.stderr)
 
     # Sort newest first; undated to the end.
     def sortkey(it):

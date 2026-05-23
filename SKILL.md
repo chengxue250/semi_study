@@ -31,7 +31,8 @@ Follow these steps in order. Each step has a clear handoff so a fresh agent can 
 
 - Use the system date (the agent's current date). Format as `YYYY-MM-DD`.
 - If `output/index.html` already exists with today's date in its `<meta name="edition-date">`, ask the user whether to **refresh** (re-run today) or **skip**. Default to refresh.
-- Read `output/archive/` to see what was published yesterday — use this to avoid repeating yesterday's stories unless there is genuinely new development.
+- **`output/.seen_urls.json`** is the source of truth for "what we've already published." It's a flat `{url: first-seen-date}` map covering both news story URLs and research paper venue URLs. The next steps use it to filter candidates so daily runs don't repeat the same items. Same-day re-runs are explicitly supported — only URLs first seen on a *previous* day are filtered out.
+- Read `output/archive/` to see what shape yesterday's edition took (sections, themes) — useful for choosing a complementary theme today.
 
 ### 2. Gather candidate stories (cast a wide net)
 
@@ -40,10 +41,15 @@ Combine two sources of candidates so neither single mechanism is a bottleneck:
 **a. RSS (deterministic, always run this first):**
 
 ```bash
-python3 scripts/fetch_rss.py --since-hours 36 --out /tmp/semi_rss.json
+python3 scripts/fetch_rss.py \
+  --since-hours 24 \
+  --exclude-seen output/.seen_urls.json \
+  --out /tmp/semi_rss.json
 ```
 
-This pulls every feed listed in `references/sources.yaml`, filters to entries newer than the window, and writes a JSON array of `{title, link, source, published, summary}` to the output path. `--since-hours 36` gives one day plus a buffer for late-published items.
+This pulls every feed listed in `references/sources.yaml`, filters to entries newer than 24 hours, drops any URL already published in a previous edition (via `--exclude-seen`), and writes the survivors to the output path as `{title, link, source, published, summary}`.
+
+The 24-hour window matches the daily-run cadence. **Why not the older 36-hour window?** Without `--exclude-seen` the 36h overlap was needed to catch late-publishing items; with `--exclude-seen` the overlap would just re-pull stories we already shipped yesterday. The de-dup filter handles the "late publisher" case correctly: anything still genuinely new (not in `.seen_urls.json`) survives.
 
 **b. Web search (judgment-driven):**
 
@@ -56,7 +62,7 @@ Run 4–6 targeted searches to surface stories RSS misses (paywalled outlets, so
 - "chip export controls China news"
 - "HBM memory news this week"
 
-Filter aggressively: skip stories older than ~36h, press-release republishing, and product-review fluff. Keep the original publisher's URL when possible.
+Filter aggressively: skip stories older than ~24h, press-release republishing, and product-review fluff. **Also cross-check every web-search hit against `output/.seen_urls.json`** — if the URL is there with a date < today, drop it. The RSS script does this automatically; web-search results don't pass through the script so the agent must do the check explicitly. Keep the original publisher's URL when possible (Google News redirect URLs are stable enough to use as keys, but prefer the canonical link when known).
 
 ### 3. Curate to ~10–15 stories
 
@@ -136,11 +142,15 @@ If the user asks for or implies research/academic coverage — or simply if it's
 
 1. Pull arXiv + journal RSS:
    ```bash
-   python3 scripts/fetch_rss.py --since-hours 168 --role research --out /tmp/semi_research.json
+   python3 scripts/fetch_rss.py \
+     --role research \
+     --since-hours 168 \
+     --exclude-seen output/.seen_urls.json \
+     --out /tmp/semi_research.json
    ```
-   The `--role research` flag is honored if the feed entry in `sources.yaml` has `role: research`. Default look-back is **7 days** (168h) rather than 36h.
+   The `--role research` flag is honored if the feed entry in `sources.yaml` has `role: research`. Default look-back is **7 days** (168h) rather than 24h because paper diffusion is slower. The same `--exclude-seen` filter applies — `.seen_urls.json` stores both news URLs and research paper venue URLs, so a paper summarized in any prior edition (even months ago) won't be re-summarized today.
 
-2. Select **8–15 papers** across the research sections in `sources.yaml`. Apply the bar in `research-guide.md` § "Selection criteria" — measured silicon over simulation, top venues, real bottlenecks.
+2. Select **8–15 papers** across the research sections in `sources.yaml`. Apply the bar in `research-guide.md` § "Selection criteria" — measured silicon over simulation, top venues, real bottlenecks. If a paper looks compelling but isn't in the filtered RSS output, *double-check it isn't in `.seen_urls.json`* before adding it manually — the most common cause of a "missing" paper is that you already wrote it up last week.
 
 3. Write each paper's bilingual summary as a **3–4 sentence "what's new + why it matters + caveats"**, *not* a rephrased abstract. See `research-guide.md` § "Voice."
 
@@ -183,7 +193,8 @@ This:
 - writes `output/index.html` (news);
 - if `edition.json` has a `research` block with papers, writes `output/research.html`;
 - rotates yesterday's index/research into `output/archive/` and `output/archive/research/` respectively;
-- regenerates `output/archive.html`.
+- regenerates `output/archive.html`;
+- **appends every published URL to `output/.seen_urls.json`** with today's date as first-seen. Existing entries keep their original first-seen date (so a same-day re-run doesn't promote yesterday's URLs to today), and entries older than 90 days are pruned to bound the file size.
 
 The script is idempotent — running it twice on the same day overwrites cleanly without duplicating archive entries.
 
@@ -268,4 +279,6 @@ output/                        Generated site (this is what you serve)
   archive/YYYY-MM-DD.html      Past news editions
   archive/research/YYYY-MM-DD.html  Past research digests
   edition.json                 Today's structured data (news + optional research)
+  .seen_urls.json              {url: first-seen-date} for de-dup across daily runs;
+                               auto-updated by build_page.py, consumed by --exclude-seen
 ```
