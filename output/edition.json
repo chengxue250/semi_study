@@ -1,485 +1,162 @@
 {
-  "date": "2026-05-22",
+  "date": "2026-05-23",
   "theme": {
-    "en": "China Export Controls Tighten, HBM Supply Chain Update",
-    "zh": "中国出口管制收紧,HBM供应链最新动态"
+    "en": "US Memory Fabs Light Up as Huawei Bypasses NAND Sanctions",
+    "zh": "美国存储产能上线,华为绕开NAND管制"
   },
   "dek": {
-    "en": "TSMC faces new export review, Samsung HBM yields improve, Intel foundry update",
-    "zh": "台积电面临新出口审查,三星HBM良率提升,英特尔代工最新进展"
+    "en": "Micron's Virginia fab begins quadrupling US DDR4 output the same day TSMC approves another $20B for Arizona, while Huawei unveils a 122TB SSD that sidesteps US 3D-NAND sanctions through a new die-on-board packaging route. DRAM is up nearly 98% YTD, and the supply chain is splitting visibly along jurisdictional lines.",
+    "zh": "美光弗吉尼亚厂当日投产、美国DDR4产能预计将翻两番;台积电同日批准向亚利桑那再追加200亿美元资本开支;华为则发布122TB SSD,通过新的die-on-board封装路径绕开美国对3D NAND的管制。DRAM年内涨幅已近98%,供应链正沿着管辖边界明显裂解。"
   },
   "sections": [
     {
-      "id": "ai-accelerators",
-      "title": {
-        "en": "AI & Accelerators",
-        "zh": "AI与加速器"
-      },
+      "id": "memory",
+      "title": {"en": "Memory", "zh": "存储器"},
       "stories": [
         {
           "featured": true,
           "title": {
-            "en": "AMD begins 256-core EPYC Venice ramp on TSMC N2, pledges $10B more for Taiwan",
-            "zh": "AMD于台积电N2量产256核EPYC Venice,再追加百亿美元台湾投资"
+            "en": "Micron's Virginia fab begins producing America's most advanced DDR4, quadrupling US output",
+            "zh": "美光弗吉尼亚厂投产美国最先进DDR4,产能将翻两番"
           },
           "summary": {
-            "en": "AMD's sixth-generation EPYC processor, codenamed Venice, has entered production ramp on TSMC's N2 node — the first 2nm server CPU to reach that stage. AMD claims a 70% per-socket performance leap over Turin and packs up to 256 Zen 6 cores. Lisa Su paired the announcement with a $10B fresh-investment commitment in Taiwan, deepening AMD's dependence on Hsinchu just as Washington presses for chip diversification.",
-            "zh": "AMD第六代EPYC处理器(代号Venice)已在台积电N2节点进入量产爬坡,成为首款进入该阶段的2nm服务器CPU。AMD宣称单插槽性能较Turin提升70%,最高可达256核Zen 6。苏姿丰同步宣布对台湾追加100亿美元投资,在华盛顿力推产能多元化之际,反而加深了AMD对新竹的依赖。"
+            "en": "Micron's expanded Manassas, Virginia fab has begun producing what it calls 'America's most advanced DRAM' — DDR4 destined primarily for automotive and defense, both of which were hit hardest by this year's DDR4 squeeze as the big memory makers shifted to DDR5/HBM. The expansion is on track to quadruple Manassas output. The strategic point isn't bleeding-edge nodes; it's that the US now has trailing-edge memory capacity insulated from the China-Taiwan supply axis.",
+            "zh": "美光位于弗吉尼亚州马纳萨斯的扩建厂已开始生产其所称的'美国最先进DRAM'——主要为汽车与国防领域供货的DDR4;由于大厂转向DDR5/HBM,这两个行业正承受DDR4严重短缺。扩建后产能预计将翻两番。重点不在尖端节点,而在于美国从此拥有不依赖中国—台湾轴心的成熟节点存储产能。"
           },
           "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/semiconductors/amd-begins-production-ramp-of-256-core-epyc-venice-on-tsmcs-2nm-node",
-          "published": "2026-05-21T11:20:00Z"
-        },
-        {
-          "featured": true,
-          "title": {
-            "en": "Nvidia says it has 'largely conceded' China's AI chip market to Huawei",
-            "zh": "英伟达:中国AI芯片市场已'基本让予'华为"
-          },
-          "summary": {
-            "en": "Jensen Huang told investors and Beijing officials in the same week that Nvidia has 'largely conceded' the Chinese AI accelerator market to Huawei, citing successive rounds of U.S. export controls and a hardening domestic-substitution policy. The shift is now explicit company posture, not analyst speculation — and reframes how Nvidia models its 2026–2027 TAM.",
-            "zh": "黄仁勋在同一周内向投资者与北京官员表示,英伟达已'基本让予'中国AI加速器市场予华为,原因是美国连续多轮出口管制叠加中国国产替代政策持续加码。这从分析师推测转为公司官方立场,将重塑英伟达对2026–2027年市场空间的建模方式。"
-          },
-          "source": "Startup Fortune",
-          "url": "https://startupfortune.com/nvidia-largely-conceded-china-ai-chip-market-to-huawei/",
-          "published": "2026-05-21T09:15:00Z"
+          "url": "https://www.tomshardware.com/tech-industry/micron-begins-producing-americas-most-advanced-dram-at-its-virginia-fab",
+          "published": "2026-05-23T12:00:00Z"
         },
         {
           "title": {
-            "en": "Intel's Crescent Island AI GPU sidesteps HBM with 160GB of LPDDR5X",
-            "zh": "Intel新AI GPU绕开HBM瓶颈:160GB LPDDR5X方案曝光"
+            "en": "Hyperscalers reportedly bankrolling SK Hynix's $100B fab blitz",
+            "zh": "传超大规模厂商出资支持SK海力士1000亿美元扩产"
           },
           "summary": {
-            "en": "Leaked PCB shots of Intel's upcoming Crescent Island accelerator show a single-GPU design with pads for 20 LPDDR5X modules — roughly 160GB of memory, no HBM. The choice trades bandwidth for availability and cost at a moment when HBM3E supply is committed through 2027. For inference-skewed workloads, that may be a defensible bet; for training, it's a concession.",
-            "zh": "Intel下一代加速器Crescent Island的PCB照流出,显示单GPU设计搭配20颗LPDDR5X(约160GB),完全跳过HBM。在HBM3E产能已锁定至2027年的当下,该方案以带宽换可得性与成本——面向推理负载尚可成立,面向训练则是退让。"
+            "en": "Multiple outlets are reporting that the next wave of SK Hynix capex — roughly $100B across new HBM and DRAM lines through 2030 — is being underwritten in part by direct hyperscaler commitments, not just on-spec orders. The structure (prepayments, capacity reservations, equity stakes) blurs the line between customer and capital partner and locks in the bottleneck on which the current AI cycle most depends.",
+            "zh": "多家媒体报道,SK海力士下一轮约1000亿美元的资本开支(涵盖HBM与DRAM新线,延至2030年)将部分由超大规模厂商直接出资承担,而非仅通过订单。预付款、产能预留与股权安排等结构,正模糊客户与资本伙伴的边界,把当下AI周期最关键的瓶颈一并锁定。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/gpus/pcb-shots-appear-of-intels-crescent-island-revealing-a-single-gpu-setup-and-pads-for-20-lpddr5x-modules",
-          "published": "2026-05-21T08:30:00Z"
+          "source": "Ad Hoc News",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOTFlTSVp6NmhFaEpzRVBlRUVvZzdJTWZqblQtUFF3Nkd1cVk0U1IyS3lEeWNiOUNTS1RkYm5PbzJwMV9OVHVvYThCZlVBdE9DX2lSYWNibVR1N25pT1QzdE1DNDJwbnVzUEtuQzdqQWpKN2tqdjNzM2trbUtvZThaSW44d3RULUwySWpSdE53TVNXVmRpRG9TNDdWdjYwTGt1SHpBZDBKODNQeDRGVzdpSnhhdVZPMi0wTE00WkE2NWliaERuVFE?oc=5",
+          "published": "2026-05-23T09:53:00Z"
+        },
+        {
+          "title": {
+            "en": "Spot DRAM nearly doubles YTD as the AI memory shortage filters past HBM",
+            "zh": "DRAM现货年内近翻倍,AI存储短缺已蔓延至非HBM产品"
+          },
+          "summary": {
+            "en": "Spot DRAM prices are now up roughly 98% since the April launch window, with the wave that started in HBM3E now visible in commodity DDR5 and even DDR4. Nanya's CEO said this week that DRAM margins across all segments are currently above HBM margins — a useful reminder that 'the AI memory shortage' is no longer a leading-edge story.",
+            "zh": "现货DRAM价格自4月发货窗口以来已上涨约98%,起源于HBM3E的供需紧张已传导至DDR5与DDR4。南亚科技首席执行官本周表示,目前全系列DRAM的利润率高于HBM——这提醒市场:'AI存储短缺'已不再只是尖端产品的故事。"
+          },
+          "source": "AOL.com",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOa3c0SUE0TWM1U0ZZQnNfMUp6Tmg5WlA3MS00NGNKTHpaYU1VV2JsWDlRSGszQ25hZVVkX2VqVl9LYTQzR1ZkQ3dKNEJQT0xQSVVFU0c4SzQzU1pEU29kZkxPaTBlSEFmcXN4NGl5cEtnZmlwWlFOTUpXeFlDaTJUNA?oc=5",
+          "published": "2026-05-23T07:32:00Z"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {
-        "en": "Foundry & Manufacturing",
-        "zh": "晶圆代工与制造"
-      },
+      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
       "stories": [
         {
           "title": {
-            "en": "TSMC Arizona Fab 21 posts $514M Q1 profit, already past full-year 2025",
-            "zh": "台积电亚利桑那Fab 21单季获利5.14亿美元,已超去年全年"
+            "en": "TSMC approves another $20B for Arizona, following first-year Fab 21 profit",
+            "zh": "台积电批准对亚利桑那再追加200亿美元,Fab 21首年已盈利"
           },
           "summary": {
-            "en": "TSMC's first Arizona fab reported Q1 2026 net profit of $514M — exceeding the full 2025 figure in a single quarter, on the back of priority N4/N3 allocations for Apple and AMD. The number complicates the long-running narrative that the U.S. site cannot match Taiwan economics, though wafer-cost-per-die remains ~30% higher than Hsinchu's twin lines.",
-            "zh": "台积电首座亚利桑那厂2026年一季度净利5.14亿美元,单季即超越2025年全年水平,主因是苹果与AMD的N4/N3订单优先排程。该数据动摇了'美国厂经济性追不上台湾'的长期叙事,但单片成本仍较新竹姊妹线高约30%。"
+            "en": "TSMC's board approved a $20B capex increase for its Arizona campus this week, on top of the existing commitment. The move follows Fab 21's surprise $514M Q1 2026 net profit reported last week — once the US site cleared the economic credibility bar, the appetite for further phases visibly hardened. The new tranche is reportedly aimed at accelerating advanced packaging on-site, not just adding more wafer capacity.",
+            "zh": "台积电董事会本周批准对亚利桑那园区在现有承诺之外再追加200亿美元资本开支。此前Fab 21出乎意料地在2026年一季度录得5.14亿美元净利;美国厂跨越经济性门槛后,推进后续阶段的意愿明显加强。据报道,新一笔投资重点在于在地推进先进封装,而非单纯扩产晶圆产能。"
           },
-          "source": "Tech Wire Asia",
-          "url": "https://techwireasia.com/2026/05/tsmc-arizona-fab-posts-514m-year-one-profit-q1-2026-earnings-surpass-full-2025-figure/",
-          "published": "2026-05-20T22:00:00Z"
-        },
-        {
-          "title": {
-            "en": "ASML chief: tighter China export rules will speed up Chinese rival tools",
-            "zh": "ASML首席执行官:进一步对华管制将加速中国本土设备替代"
-          },
-          "summary": {
-            "en": "Speaking to European lawmakers, ASML's CEO warned that another round of China-specific export restrictions would directly accelerate indigenous Chinese lithography efforts and erode the West's structural advantage. The point is no longer just an industry argument; it is now in front of policymakers ahead of the EU's mid-year tool-control review.",
-            "zh": "ASML首席执行官在面向欧洲议员的发言中警告,新一轮针对中国的出口管制将直接加速中国本土光刻设备的发展,侵蚀西方的结构性优势。该论点已不再止于行业层面,而是在欧盟年中设备管制评估前正式摆上政策桌面。"
-          },
-          "source": "Global Times",
-          "url": "https://www.globaltimes.cn/page/202605/1342010.shtml",
-          "published": "2026-05-21T07:40:00Z"
+          "source": "Reuters / MSN",
+          "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQRzFudnl0S3dDcVNLSlNKNHpURVkzbERiRXBXdlQ2bHlrd0ZDQ243aGZ3bnRfc21QemNJakhjWU9Wb19xa2pGOEZSdVhDWXVUWjM4cXVyMmZwVFNPb25nQl84MUM5M0tpMTdBZk1uTU9mcU9XSmZrMmU1N2lUbjFtWGlHY1lMNXQ3dGJRaWU3bGRkUFh2cThPaFpCTEFXSjdXNkhOZnNTYk1TV3dwa3poOXRsMUdnTjBENl9ENzFTallCRzBSNU5aM2VkcjZyYzd2NHE0eFdVb1Bib0pDc3VBd2VKOXUxMVk?oc=5",
+          "published": "2026-05-23T07:55:00Z"
         }
       ]
     },
     {
-      "id": "memory",
-      "title": {
-        "en": "Memory",
-        "zh": "存储器"
-      },
+      "id": "ai-accelerators",
+      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
       "stories": [
         {
           "title": {
-            "en": "Samsung strike ends just as Micron opens permanent Seoul HBM design roles",
-            "zh": "三星罢工刚落幕,美光在首尔挂出HBM设计长期职位"
+            "en": "Enthusiast runs Kimi K2.5 (1T params) on 768GB of cheap Intel Optane — about 4 tokens/sec",
+            "zh": "玩家以768GB廉价Intel Optane运行Kimi K2.5万亿参数模型,约4 token/秒"
           },
           "summary": {
-            "en": "Samsung's union voted to suspend strike action after the company agreed to AI-linked bonus pay — and within hours, Micron posted permanent HBM design engineer openings in Seoul, with packages reportedly reaching the high end of Korean DRAM compensation. The hire-or-be-hired squeeze on Samsung's HBM4 team is now visible in job postings, not just rumor.",
-            "zh": "三星工会在公司同意以AI业绩挂钩的奖金后投票暂停罢工——数小时内,美光便在首尔挂出HBM设计工程师的长期职位,薪酬据报达韩国DRAM行业高位。对三星HBM4团队的人才争夺已不再是传闻,而是公开的招聘动作。"
+            "en": "A workstation build using 768GB of decommissioned Intel Optane PMem DIMMs as RAM has been shown running a 1-trillion-parameter Kimi K2.5 model fully locally at roughly 4 tokens/sec with a single consumer GPU. The headline number is slow, but the cost-per-trillion-params is a useful data point as Optane stockpiles get liquidated. It's also a reminder that the byte-addressable persistent-memory tier — for which Intel killed the product line — fits LLM weight residency surprisingly well.",
+            "zh": "一名玩家在工作站以768GB退役Intel Optane PMem DIMM作为内存,搭配单张消费级GPU,在本地完整运行万亿参数Kimi K2.5,速度约每秒4 token。绝对速度并不快,但在Optane库存被清仓的当下,'每万亿参数的成本'是个有意义的参考。它也提醒业内:Intel已停产的字节寻址持久内存层,恰好与LLM权重常驻的需求高度契合。"
           },
-          "source": "Tech Times",
-          "url": "https://www.techtimes.com/articles/micron-hbm-seoul-samsung-hires.htm",
-          "published": "2026-05-21T10:05:00Z"
-        }
-      ]
-    },
-    {
-      "id": "equipment",
-      "title": {
-        "en": "Equipment & Materials",
-        "zh": "设备与材料"
-      },
-      "stories": [
-        {
-          "title": {
-            "en": "ASML pairs with Tata Electronics on India fab tool support",
-            "zh": "ASML与塔塔电子合作,支持印度晶圆厂设备落地"
-          },
-          "summary": {
-            "en": "ASML and Tata Electronics announced a formal partnership covering lithography tool installation, service, and engineer training for Tata's Dholera fab. The deal is narrow — no leading-edge EUV is involved — but it is the first time ASML has signed a structured local-services commitment in India, signaling the country is now a second-order destination on its support map.",
-            "zh": "ASML与塔塔电子宣布正式合作,内容涵盖塔塔Dholera晶圆厂光刻设备的安装、服务与工程师培训。本次合作未涉及尖端EUV,但这是ASML首次在印度签署结构化的本地服务承诺,标志着印度已进入其支持版图的第二梯队。"
-          },
-          "source": "Photonics Spectra",
-          "url": "https://www.photonics.com/Articles/ASML_and_Tata_Electronics_Pair_to_Elevate/a72148",
-          "published": "2026-05-21T13:14:00Z"
-        },
-        {
-          "title": {
-            "en": "Asahi Kasei rolls out photosensitive polyimide for panel-level packaging",
-            "zh": "旭化成推出适用于面板级封装的光敏聚酰亚胺薄膜"
-          },
-          "summary": {
-            "en": "Asahi Kasei announced a new photosensitive polyimide film aimed at panel-level advanced packaging — the format TSMC, Samsung, and Intel are all betting on for the post-CoWoS generation. The material targets higher dimensional stability across 600mm-class panels, the size at which yield economics historically fall apart.",
-            "zh": "旭化成发布面向面板级先进封装的全新光敏聚酰亚胺薄膜——这正是台积电、三星与Intel共同押注的后CoWoS世代封装形态。该材料主攻600mm级面板上的尺寸稳定性,而这正是面板级封装良率历史上的最大瓶颈。"
-          },
-          "source": "Business Wire",
-          "url": "https://www.businesswire.com/news/home/20260521/asahi-kasei-photosensitive-polyimide-panel-level-packaging",
-          "published": "2026-05-21T12:40:00Z"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/enthusiast-runs-1-trillion-parameter-llm-from-768gb-of-intel-optane-dimm-memory-sticks-local-kimi-k2-5-install-achieved-roughly-4-tokens-per-second",
+          "published": "2026-05-23T11:20:00Z"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {
-        "en": "Policy & Geopolitics",
-        "zh": "政策与地缘"
-      },
+      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘"},
       "stories": [
         {
           "featured": true,
           "title": {
-            "en": "Taiwan raids 12 locations in first formal crackdown on Nvidia chip smuggling",
-            "zh": "台湾首次正式查抄英伟达走私网络,搜查12处地点"
+            "en": "Huawei unveils 122TB SSD that bypasses US 3D-NAND sanctions via die-on-board packaging",
+            "zh": "华为发布122TB SSD,以die-on-board封装绕开美国3D NAND管制"
           },
           "summary": {
-            "en": "Taiwan prosecutors raided 12 sites and are seeking the detention of three individuals accused of forging export documents to route Nvidia Hopper and Blackwell systems through Super Micro channels into mainland China. It is Taipei's first formal enforcement action against AI-chip diversion since the rules tightened — and a clear signal that the island intends to police its end of the export-control architecture rather than leave it to Washington.",
-            "zh": "台湾检方对12处地点展开搜查,并寻求羁押三名涉嫌伪造出口文件、借由Super Micro渠道将英伟达Hopper与Blackwell系统转运至中国大陆的当事人。这是台北自管制收紧以来首次对AI芯片走私采取正式执法行动,明确表态将主动管好出口管制链条的台湾一端,而非任由华盛顿单边执行。"
+            "en": "Huawei has introduced a 122TB enterprise SSD that avoids US-controlled high-layer-count 3D NAND by mounting the NAND dies directly on the PCB (die-on-board) rather than buying packaged chips. The trick gets more silicon area per drive while sidestepping the specific tooling and IP that are export-controlled. It does not solve the underlying density disadvantage, but it ships a real product that the sanctions architecture is supposed to prevent.",
+            "zh": "华为发布122TB企业级SSD,通过将NAND裸die直接贴装于PCB(die-on-board)的方式,避开美国管制的高层数3D NAND成品芯片。这一手法以更多每盘硅面积换取容量,同时绕开受管制的封装工艺与知识产权。它未解决底层的密度劣势,但实打实地推出了管制体系本应阻断的产品。"
           },
           "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/desktops/servers/taiwan-raids-12-locations-in-its-first-formal-crackdown-on-nvidia-ai-chip-smuggling-hunts-three-fugitives-for-document-forgery-fraudulent-declarations-in-super-micro-smuggling-case",
-          "published": "2026-05-21T13:01:00Z"
+          "url": "https://www.tomshardware.com/pc-components/ssds/huawei-introduces-122tb-ssd-without-using-sanctioned-3d-nand-chips-chinese-tech-firm-develops-proprietary-tech-to-cram-more-nand-dies-in-a-smaller-footprint",
+          "published": "2026-05-23T11:40:00Z"
         },
         {
           "title": {
-            "en": "Taipei weighs limiting TSMC USD-dividend FX conversion to once a year",
-            "zh": "台北拟将台积电美元股息换汇限定为每年一次"
+            "en": "Wingtech sues Nexperia for $1.2B, seeks control",
+            "zh": "闻泰对Nexperia提起12亿美元诉讼,寻求控制权"
           },
           "summary": {
-            "en": "Reuters reports Taiwan's central bank is considering capping how often TSMC may convert its U.S.-dollar dividend inflows to NT$ to once per year, in an effort to dampen FX-market shocks from the company's now-dominant earnings. For a single firm to motivate a capital-account policy change is itself a story about how concentrated Taiwan's economy has become around one foundry.",
-            "zh": "据路透社报道,台湾央行正考虑将台积电美元股息换汇频率上限定为每年一次,以减缓单家公司收益对外汇市场的冲击。一家企业即能触发资本账户政策调整,本身就是台湾经济过度集中于单一晶圆代工厂的写照。"
+            "en": "Wingtech, the Chinese parent that bought Nexperia in 2019 and was effectively stripped of control after a Dutch government intervention last year, is suing Nexperia for $1.2B and seeking to reassert ownership. The case is the first major legal test of European-style 'national-security clawback' actions against Chinese-acquired chip assets, and the outcome will shape every similar case in the EU pipeline.",
+            "zh": "中国母公司闻泰于2019年收购Nexperia,去年遭荷兰政府干预后实质失去控制;闻泰现对Nexperia提起12亿美元诉讼,寻求重新主张所有权。该案是首起对欧式'国家安全追溯'回收中资芯片资产的重大法律检验,其结果将左右欧盟在审中的同类案件。"
+          },
+          "source": "Tech in Asia",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE0ycmhPUTFFSnJLNERrel9FNG8zTHk5ZnVtclV1N1NTMDVvcm91WFlzelNweUpEUVZ1Y0VQeEdoMVVIaUZHUVlGRG1PcGljaVdZd0NsMGNzc0JLRlRhZXBKSlpxdC1McGp6RTFUbjFYcnFvc0xTZUdrZUpneU4?oc=5",
+          "published": "2026-05-23T08:47:00Z"
+        },
+        {
+          "title": {
+            "en": "Nvidia clarifies: $200B CPU forecast includes China — softening last week's 'conceded' line",
+            "zh": "英伟达澄清:2000亿美元CPU市场预测包含中国——较上周'已让予'表态有所软化"
+          },
+          "summary": {
+            "en": "Two days after Huang said Nvidia had 'largely conceded' the Chinese AI accelerator market to Huawei, Nvidia clarified to Reuters that its $200B CPU-market forecast for the next cycle 'includes China.' The two statements aren't contradictory — accelerators and CPUs are different addressable markets — but the speed of the clarification and its venue suggest the original line landed harder in Beijing and on the buy-side than the company expected.",
+            "zh": "黄仁勋两天前称英伟达已'基本让予'中国AI加速器市场,英伟达本周向路透社澄清,其下一周期2000亿美元CPU市场预测'包含中国'。两个表态并不冲突——加速器与CPU是不同的可寻址市场——但澄清的速度与渠道暗示,原话在北京与买方圈引发的反响超出公司预期。"
           },
           "source": "Reuters",
-          "url": "https://www.reuters.com/business/finance/taiwan-may-limit-currency-switching-tsmc-dollar-dividends-once-year-sources-say-2026-05-21/",
-          "published": "2026-05-21T12:43:00Z"
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPVGJtaGk0ZTdTcS10ZjF0Q3U1SXlwbFVQbEpjQVJwbENYc0NibFFpVF9MN29UNE5uZ205eGliMTh6QXUxem5Dd0g0dVdWT2h2c3ZhemRaMWdPN2VabWtBOWlzVmt5a2doREhnYkU5T3pVTFE2Vm1SQTMweFkycmRBTFFJemdTV21nd202QkRtS29YMGUxZzZHYXdjSUxkLTNFNjdBX3FNcjVMNFcxWkZz?oc=5",
+          "published": "2026-05-23T11:12:00Z"
         }
       ]
     },
     {
       "id": "challengers",
-      "title": {
-        "en": "Challengers & New Silicon",
-        "zh": "新势力与新硅"
-      },
+      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
       "stories": [
         {
           "title": {
-            "en": "Intel and Qualcomm both circle Tenstorrent at a $5B+ price tag",
-            "zh": "Intel与高通同时接洽Tenstorrent,潜在估值逾50亿美元"
+            "en": "Lattice Semiconductor acquires AMI to deepen baseboard-controller play in AI datacenters",
+            "zh": "Lattice收购AMI,深化在AI数据中心基板控制层的布局"
           },
           "summary": {
-            "en": "Bloomberg reports that Intel and Qualcomm have separately approached Tenstorrent about a takeover that could value the AI-chip startup at more than $5 billion — roughly 60% above its November 2025 Fidelity-led primary at $3.2B pre-money. Tenstorrent's spatial-dataflow Tensix architecture and RISC-V chiplet line are the specific pieces both incumbents want; the read-through is that this is now the strategic price level for the whole non-incumbent compute layer in the same week Cerebras priced its IPO at $56B.",
-            "zh": "据Bloomberg报道,Intel与高通分别接触Tenstorrent,潜在收购估值超过50亿美元,较该公司2025年11月由Fidelity领投的32亿美元投前估值高出约六成。两家巨头看中的具体是Tenstorrent的空间数据流Tensix架构及其RISC-V chiplet产品线;在Cerebras同周以560亿美元定价IPO的背景下,这一价格被读作整个非主流算力赛道的战略锚点。"
+            "en": "Lattice Semiconductor announced an acquisition of AMI (American Megatrends), the dominant firmware/BMC vendor for server motherboards, framed as a way to deepen Lattice's role in AI-datacenter platform control. The bet: as accelerator-heavy servers proliferate, the security/management plane around the GPUs becomes its own real-time problem, and an FPGA vendor that owns the BMC stack can sell into both sides of the board. Price not disclosed in early reporting.",
+            "zh": "Lattice宣布收购AMI(American Megatrends)——服务器主板固件/BMC的主导供应商,意在深化在AI数据中心平台控制层的角色。其逻辑是:随着加速器密集服务器普及,围绕GPU的安全/管理面将成为独立的实时问题,而拥有BMC栈的FPGA厂商可在主板两侧同时切入。早期报道未披露交易金额。"
           },
-          "source": "Bloomberg",
-          "url": "https://www.bloomberg.com/news/articles/2026-05-18/ai-chip-startup-tenstorrent-draws-takeover-interest-from-intel-qualcomm",
-          "published": "2026-05-18T20:30:00Z"
-        },
-        {
-          "title": {
-            "en": "Cerebras lands Kimi K2.6 trillion-parameter inference on its wafer-scale stack",
-            "zh": "Cerebras晶圆级平台拿下Kimi K2.6万亿参数推理"
-          },
-          "summary": {
-            "en": "Cerebras announced production deployment of Moonshot AI's Kimi K2.6 trillion-parameter model for enterprise inference on CS-3 systems — the first named trillion-parameter workload running entirely on its wafer-scale engines without offload. The same week as its $5.55B IPO and a $20B+ OpenAI inference commitment disclosed in the prospectus, the Kimi deal is the more concrete answer to 'do customers actually use this?' than any banker chart.",
-            "zh": "Cerebras宣布以CS-3系统投产部署Moonshot AI的Kimi K2.6万亿参数模型企业推理——这是首个完全在其晶圆级引擎上、无需外溢运行的具名万亿参数负载。与55.5亿美元IPO和招股书披露的逾200亿美元OpenAI推理承诺相比,Kimi合作更直接回答了'客户真的在用吗'这一问题。"
-          },
-          "source": "Cerebras",
-          "url": "https://www.cerebras.ai/blog/cerebras-brings-trillion-parameter-inference-to-enterprises-with-kimi-k2-6",
-          "published": "2026-05-19T14:00:00Z"
+          "source": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNSGNFZEVCSjZhazZZTmdUb1VHN0dHT3hZSE1iaHFaQnBBanF1UVhkN0NNN0JvZlBFdEFlR1ViOEpncklIRHJNdE55TUltN3dDQ0ZvVDg3OGNGVmZGTWd6c0o2bE1yQ0hRTzZscTduV0VxR1J2bWxPNE5qMm80SlNNS1cyLUtQdFMtdjZhdjlMVHNZWmJFdm5sUE9MbW5zaWNJM3pIMERMZjYxZw?oc=5",
+          "published": "2026-05-23T10:22:00Z"
         }
       ]
     }
-  ],
-  "research": {
-    "window_days": 7,
-    "theme": {
-      "en": "Compute-in-Memory Comes of Age While LLM Serving Treats Hardware as a First-Class Variable",
-      "zh": "存算一体走向系统,LLM服务把硬件当作一等变量"
-    },
-    "dek": {
-      "en": "This week the hardware stack and the software stack converge on the same problem from opposite directions. From the silicon side: a fabricated TiO2/HfZrO2 ferroelectric FET, a 16Kb 3T1R ReRAM CIM macro spanning CNN and SNN inference, and an SNN inference architecture that finally exploits temporal sparsity. From the systems side: three new LLM-serving works treat GPU power caps, MoE expert parallelism, and per-phase quantization not as constraints but as control knobs.",
-      "zh": "本周硬件栈与软件栈从两端逼近同一个问题。硬件侧:TiO2/HfZrO2铁电FET的工艺、同时支持CNN与SNN推理的16Kb 3T1R ReRAM CIM macro、以及真正利用时间稀疏性的SNN推理架构。系统侧:三项新的LLM服务工作分别将GPU功耗上限、MoE专家并行、按阶段量化精度从硬约束转为可调旋钮。"
-    },
-    "areas": [
-      {
-        "id": "devices",
-        "title": {
-          "en": "Devices & Process",
-          "zh": "器件与工艺"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "2D GaSe single-pixel spectrometer via electro-optical barrier co-modulation",
-              "zh": "基于电-光势垒协同调制的2D GaSe单像素光谱仪"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.20375",
-            "venue_url": "https://arxiv.org/abs/2605.20375",
-            "summary": {
-              "en": "A few-layer GaSe device is shown to act as a computational spectrometer by jointly modulating an electrostatic gate and an optical bias, replacing the dispersive optics of a conventional spectrometer with a single pixel. Reconstruction is done in software. The interest for chip-scale sensing is real, though spectral resolution and noise floor haven't been benchmarked against silicon-photonic or filter-array competitors.",
-              "zh": "作者证明一只少层GaSe器件可同时受电压和光学偏置调制,从而以单像素替代传统光谱仪的色散光学,后续由软件重建光谱。对芯片级光谱传感意义明确,但本文尚未与硅光及滤波器阵列方案在光谱分辨率与噪声底上做对比。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "device-fab",
-              "2D-materials"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "circuits",
-        "title": {
-          "en": "Circuits & Architecture",
-          "zh": "电路与体系结构"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "Dynamic control-flow execution for runtime-reconfigurable processors",
-              "zh": "面向运行时可重构处理器的动态控制流执行支持"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.21203",
-            "venue_url": "https://arxiv.org/abs/2605.21203",
-            "summary": {
-              "en": "The paper tackles a long-standing limitation of CGRA/reconfigurable fabrics: irregular control flow forces fallback to a host CPU and wipes out the energy advantage. The proposed extensions support data-dependent branches natively on the reconfigurable substrate. Evaluation is simulation-only, but the design is concrete enough to be implementable, and the energy numbers are competitive with prior CGRA work.",
-              "zh": "本文针对CGRA等可重构架构长期存在的短板:不规则控制流必须回落到主机CPU,能效优势随之消失。作者提出的扩展可在可重构基底原生支持数据相关分支。评估为仿真级,但设计具体到可落地的程度,能效与前期CGRA工作相当。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "architecture",
-              "simulation-only"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "accelerators",
-        "title": {
-          "en": "AI Accelerators & Compute-in-Memory",
-          "zh": "AI加速器与存算一体"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "E-ReCON: a 16Kb 3T1R ReRAM CIM macro for both CNN and SNN edge inference",
-              "zh": "E-ReCON:面向CNN与SNN边缘推理的16Kb 3T1R ReRAM存内计算宏"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.20717",
-            "venue_url": "https://arxiv.org/abs/2605.20717",
-            "summary": {
-              "en": "The macro is real silicon: a 0.85µm² 3T1R ReRAM bitcell driving an AND-based in-memory multiplier that supports both conventional CNN and spiking workloads, with a novel interleaved 10T/28T adder tree to amortize accumulation overhead. The dual-mode CNN/SNN capability is the differentiating claim — most prior CIM macros pick one. Edge-inference targets, not data-center.",
-              "zh": "该宏为实际流片:0.85µm² 3T1R ReRAM位单元搭配基于AND的存内乘法,同时支持传统CNN与脉冲网络负载,并引入新颖的10T/28T交错加法树以分摊累加开销。'CNN/SNN双模'是其核心差异点——此前的CIM宏多只支持其一。面向边缘推理,而非数据中心。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "tape-out",
-              "compute-in-memory"
-            ]
-          },
-          {
-            "title": {
-              "en": "ELSA: an elastic SNN inference architecture that exploits temporal sparsity",
-              "zh": "ELSA:真正利用时间稀疏性的弹性脉冲神经网络推理架构"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.20802",
-            "venue_url": "https://arxiv.org/abs/2605.20802",
-            "summary": {
-              "en": "SNN accelerators have advertised event-driven efficiency for years, but most are still layer-by-layer pipelines that wait for the full input window before emitting an output. ELSA implements true elastic inference: confident outputs are emitted as soon as enough spikes accumulate, and downstream layers are gated accordingly. The architectural lesson is that SNN efficiency is fundamentally a scheduling problem, not just a circuit one.",
-              "zh": "SNN加速器多年来一直宣传事件驱动的能效,但绝大多数仍是逐层流水、等满输入窗口才输出。ELSA实现了真正的弹性推理:在脉冲累积到置信阈值时立即输出,下游层据此被门控。其架构启示是:SNN的能效首先是调度问题,而非单纯的电路问题。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "architecture",
-              "neuromorphic"
-            ]
-          },
-          {
-            "title": {
-              "en": "High-performance TiO2 ferroelectric FETs with HfZrO2 dielectric for neuromorphic computing",
-              "zh": "面向类脑计算的高性能TiO2铁电FET(HfZrO2介质)"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.20406",
-            "venue_url": "https://arxiv.org/abs/2605.20406",
-            "summary": {
-              "en": "Bottom-gate FeFETs using TiO2 channels on HfZrO2 ferroelectric dielectric, reported with high on/off ratios across two gate-stack thicknesses. The novelty is moving the CMOS-back-end-compatible HZO stack into a configuration that supports gradual conductance modulation — the prerequisite for analog weight storage. Single-device characterization only; no array-level retention or endurance data yet.",
-              "zh": "作者在HfZrO2铁电介质上以TiO2作为沟道,制备底栅FeFET并报告两种栅叠厚度下的高开关比。新意在于将与CMOS后段兼容的HZO体系配置为支持电导渐变调制——这是模拟权重存储的前提。仅为单器件表征,尚无阵列级保持或耐久数据。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "device-fab",
-              "neuromorphic"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "ai-research",
-        "title": {
-          "en": "AI Research (hardware-relevant)",
-          "zh": "AI研究(与硬件相关)"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "Mix-Quant: phase-aware quantization — aggressive in prefill, precise in decode",
-              "zh": "Mix-Quant:阶段感知量化——预填激进、解码精确"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.20315",
-            "venue_url": "https://arxiv.org/abs/2605.20315",
-            "summary": {
-              "en": "Most LLM quantization schemes pick a single precision for the whole forward pass; Mix-Quant observes that the prefill phase (compute-bound, error-tolerant due to attention averaging) and the decode phase (memory-bound, error-sensitive) want different precisions. The framework runs prefill at FP4 / INT4 and decode at higher precision, with measured throughput gains on agentic, long-context workloads. The framing — phase as a first-class quantization dimension — is the more durable contribution than any specific schedule.",
-              "zh": "多数LLM量化方案对整次前向使用统一精度;Mix-Quant注意到prefill阶段(计算密集、对误差宽容)与decode阶段(内存密集、对误差敏感)需要不同精度。框架在prefill使用FP4/INT4,decode使用更高精度,在Agentic长上下文负载上获得实测吞吐量提升。比起具体调度,'阶段作为一等量化维度'这一框架本身更具持久价值。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "quantization",
-              "LLM-serving"
-            ]
-          },
-          {
-            "title": {
-              "en": "PALS: power-aware LLM serving — GPU power caps as a runtime variable",
-              "zh": "PALS:功耗感知的LLM服务——把GPU功耗上限当成运行时变量"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.21427",
-            "venue_url": "https://arxiv.org/abs/2605.21427",
-            "summary": {
-              "en": "Existing LLM-serving systems treat GPU power as a static datacenter constraint and optimize only batching, scheduling, and parallelism. PALS treats power caps as a first-class control surface, dynamically retuning per-GPU power limits across expert-parallel MoE replicas to match the actual computation cost per token. The reported gains in tokens-per-watt are modest but the architectural shift is the right one: in a memory-bound inference regime, the binding constraint is increasingly thermal, not FLOPS.",
-              "zh": "现有LLM服务系统将GPU功耗视为数据中心层面的静态约束,只在批处理、调度、并行上做优化。PALS将功耗上限当作一等控制面,在专家并行MoE副本之间动态调整每卡功耗上限,以匹配每token的实际计算开销。论文给出的能效提升不算激进,但架构方向是对的:在内存受限的推理形态下,真正的硬约束越来越是热,而非FLOPS。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "LLM-serving",
-              "MoE",
-              "power"
-            ]
-          },
-          {
-            "title": {
-              "en": "NanoCP: request-level dynamic context parallelism for data-expert parallel MoE decoding",
-              "zh": "NanoCP:用于数据-专家并行MoE解码的请求级动态上下文并行"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.21100",
-            "venue_url": "https://arxiv.org/abs/2605.21100",
-            "summary": {
-              "en": "Modern MoE serving binds each request's attention, MoE communication, and KV cache to a single instance — fine for short prompts, ruinous for long context because attention cost scales with KV-cache size while MoE all-to-all latency scales with batch. NanoCP dynamically splits context parallelism per request, decoupling these two scaling laws. The contribution is small in code but large in implication: MoE serving has to stop pretending requests are uniform.",
-              "zh": "现代MoE服务系统将每个请求的注意力、MoE通信与KV缓存绑定到单一实例——短提示词没问题,长上下文则灾难性:注意力开销随KV缓存大小增长,MoE的all-to-all延迟随批大小增长,两者的扩展规律相互矛盾。NanoCP按请求动态分配上下文并行度,解耦了这两个维度。代码层改动不大,意义却大:MoE服务必须停止假装请求是同质的。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "LLM-serving",
-              "MoE",
-              "KV-cache"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "quantum",
-        "title": {
-          "en": "Quantum Devices",
-          "zh": "量子器件"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "Towards transistor-based quantum computing: telesistors and topologically protected Clifford gates",
-              "zh": "面向晶体管化的量子计算:Telesistor与拓扑保护Clifford门"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.21045",
-            "venue_url": "https://arxiv.org/abs/2605.21045",
-            "summary": {
-              "en": "The authors propose a universal QC architecture in which the elementary unit is a teleportation-based 'telesistor' built from symmetry-protected topological ground states, which suppress certain noise channels and yield Clifford gates without active error correction. The hope is to make the architectural picture of a quantum processor more transistor-like — a tractable, composable element. Theoretical proposal; nothing fabricated.",
-              "zh": "作者提出一种通用量子计算架构,其基元为基于对称性保护拓扑序基态的'telesistor':通过隐形传态实现门操作,从而被动抑制特定噪声、无需主动纠错即可获得Clifford门。其雄心在于让量子处理器的架构图景更像经典晶体管:可分解、可组合。目前为理论提案,尚无器件实现。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "theory",
-              "preprint"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "eda",
-        "title": {
-          "en": "EDA, Verification & Design Automation",
-          "zh": "EDA与设计自动化"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "LLMs for secure hardware design: opportunities and severe vulnerabilities",
-              "zh": "大模型用于硬件安全设计:机会与严重漏洞"
-            },
-            "authors": "et al. (see paper)",
-            "affiliation": "",
-            "venue": "arXiv:2605.10807",
-            "venue_url": "https://arxiv.org/abs/2605.10807",
-            "summary": {
-              "en": "A comprehensive review of LLMs across the EDA stack — RTL generation, testbench synthesis, spec-to-silicon — that breaks from the usual cheerleading and catalogs concrete vulnerabilities: prompt-injection-induced Trojans, leakage of pre-silicon IP through chat logs, and verification gaps the models reliably miss. The clearest practitioner-facing summary published this year.",
-              "zh": "对大模型在EDA各环节(RTL生成、测试平台合成、规格到芯片的桥接)应用的全面综述,但跳出业内常见的乐观叙述,系统记录了具体漏洞:提示注入诱导的硬件木马、聊天日志泄漏前期IP、以及模型反复遗漏的验证盲区。是今年面向实务工程师最清晰的一份梳理。"
-            },
-            "published": "2026-05-21",
-            "tags": [
-              "survey",
-              "EDA"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  ]
 }
