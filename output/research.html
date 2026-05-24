@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="edition-date" content="2026-05-24">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Specialization Sharpens: Near-Memory, Per-Component, Per-Expert — Semi Research 2026-05-24</title>
+<title>Data Movement Is the New Compute — Semi Research 2026-05-24</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -222,12 +222,12 @@
       <span class="zh">研究摘要 · 2026年5月24日 星期日</span>
     </div>
     <h1>
-      <span class="en">Specialization Sharpens: Near-Memory, Per-Component, Per-Expert</span>
-      <span class="zh">专用化加深:近存储、按部件、按专家</span>
+      <span class="en">Data Movement Is the New Compute</span>
+      <span class="zh">数据搬移就是新的算力</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s literature converges on one move — squeezing inefficiency out by making everything more local and granular. RAG retrieval shifts into the DIMM (NasZip); GPU power becomes a per-component knob (CompPow); MoE expert placement factors per-GPU thermal variability (GEM); KV cache compression goes from lossy-on-average to attention-aware INT2 (OSCAR) or fully lossless-on-demand (VeriCache). &#x27;One knob fits all&#x27; is increasingly the design pattern of the previous decade.</span>
-      <span class="zh">本周文献围绕同一个动作收敛——通过把一切做得更本地、更细粒度来挤出低效。RAG检索从CPU搬进DIMM(NasZip);GPU功耗成为按组件可调的旋钮(CompPow);MoE专家放置开始考虑每张卡的散热差异(GEM);KV缓存压缩从&#x27;平均无损&#x27;走向注意力感知的INT2(OSCAR)或按需完全无损(VeriCache)。&#x27;一档拨齐&#x27;正越来越像上一代的设计模式。</span>
+      <span class="en">Five of this week&#x27;s hardware papers attack data movement directly — pushing crypto into DRAM, multicasting collectives instead of duplicating sends, overlapping operators inside a single device, cutting video-DiT tokens, and shifting LLM inference accounting from prefill-bound to capacity-bound. The shared assumption: compute density is no longer the constraint the field thinks it is.</span>
+      <span class="zh">本周硬件论文中,有五篇直接针对数据搬移做文章——把密码运算下沉到DRAM、用多播替代重复发送实现集合通信、在单设备内进行算子重叠、削减video-DiT的token数、并把LLM推理记账从&#x27;prefill约束&#x27;转向&#x27;容量约束&#x27;。共识在于:计算密度已不是业界以为的那个核心瓶颈。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 10 paper(s)</span>
@@ -242,32 +242,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.18033" target="_blank" rel="noopener">
-          <span class="en">Autonomous-lab discovery of phase-change memory materials with real-time multi-instrument fusion</span>
-          <span class="zh">基于实时多仪器融合的自主实验室相变存储材料发现</span>
-        </a><span class="tag">device-fab</span><span class="tag">autonomous-lab</span>
+        <a href="https://arxiv.org/abs/2605.20420" target="_blank" rel="noopener">
+          <span class="en">An AI-driven robotic system for automated 2D van-der-Waals hetero-assembly</span>
+          <span class="zh">用于自动化二维范德瓦尔斯异质组装的AI驱动机器人系统</span>
+        </a><span class="tag">device-fab</span><span class="tag">2D-materials</span>
       </h3>
-      <p class="authors">Chih-Yu Lee, Haotong Liang, Ryan Kim, et al.</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.18033" target="_blank" rel="noopener">arXiv:2605.18033</a> · 2026-05-18</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20420" target="_blank" rel="noopener">arXiv:2605.20420</a> · 2026-05-19</p>
       <p class="summary">
-        <span class="en">The group operationalizes an autonomous lab that ingests heterogeneous, unsynchronized streams from multiple instruments *during* a deposition run and steers the next experiment in flight, rather than batch-analyzing afterward. Demonstrated on phase-change memory candidate materials; the contribution is the orchestration layer (synthesis ↔ process ↔ structure ↔ property), not the materials themselves. Generalizable to any thin-film device search.</span>
-        <span class="zh">作者建立了一个自主实验室,可在沉积过程中实时融合来自多台仪器的异构非同步数据,并在线引导下一步实验,而非事后批量分析。以相变存储候选材料为示范;贡献在于&#x27;合成↔工艺↔结构↔性能&#x27;的编排层,而非材料本身。该方法可推广到任意薄膜器件的搜索。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2605.22196" target="_blank" rel="noopener">
-          <span class="en">LUFFY: a framework for rational design of molecular field-coupled nanocomputing molecules</span>
-          <span class="zh">LUFFY:分子场耦合纳米计算分子的理性设计框架</span>
-        </a><span class="tag">theory</span><span class="tag">beyond-CMOS</span>
-      </h3>
-      <p class="authors">Federico Ravera, Leonardo Medrano Sandonas, Andrea Vezzoli, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.22196" target="_blank" rel="noopener">arXiv:2605.22196</a> · 2026-05-21</p>
-      <p class="summary">
-        <span class="en">Molecular Field-Coupled Nanocomputing (MolFCN) propagates information electrostatically rather than via charge transport — promising ultra-low-power logic post-CMOS, but stuck on the problem of finding molecules with stable logic states *and* clean clock-field switching *and* reliable propagation. LUFFY is a layered evaluation framework that scores candidate molecules against all three together. Computational-only; no synthesized devices yet.</span>
-        <span class="zh">分子场耦合纳米计算(MolFCN)通过静电而非电荷输运传播信息,有望在CMOS之后实现超低功耗逻辑,但长期受限于&#x27;稳定逻辑态、洁净时钟场开关、可靠传播&#x27;三者兼具的分子稀缺。LUFFY提供一个分层评估框架,可同时对三项指标打分。仅为计算层成果,尚无合成器件。</span>
+        <span class="en">2D van-der-Waals stacks (twisted bilayer graphene, hBN/MoS2, etc.) are a key materials platform for quantum simulation and exotic electronic phases, but assembly is essentially handcraft — operator-led, slow, hit-or-miss. The group automates the stacking via an AI-driven robotic system that handles flake identification, alignment, and transfer. Materials-layer infrastructure rather than a new device, but the kind of tooling that scales an entire research-method bottleneck once it works.</span>
+        <span class="zh">二维范德瓦尔斯堆叠结构(扭转双层石墨烯、hBN/MoS2等)是量子模拟与新电子相态的关键材料平台,但组装本质仍是手工——人工操作、慢、命中率低。作者通过AI驱动的机器人系统自动完成薄片识别、对位与转印。这并非新器件而是材料层基础设施,一旦走通,可释放整条研究方法瓶颈的产能。</span>
       </p>
     </article>
   </section>
@@ -278,17 +263,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.17720" target="_blank" rel="noopener">
-          <span class="en">On-chip rotary-oscillator arrays for subharmonic injection locking in Ising machines</span>
-          <span class="zh">面向Ising机的片上旋转振荡器阵列,实现亚谐波注入锁定</span>
-        </a><span class="tag">architecture</span><span class="tag">Ising-machine</span>
+        <a href="https://arxiv.org/abs/2605.18444" target="_blank" rel="noopener">
+          <span class="en">Aging-aware arithmetic multipliers under NBTI and process variation</span>
+          <span class="zh">考虑NBTI老化与工艺偏差的算术乘法器设计</span>
+        </a><span class="tag">circuit-design</span><span class="tag">reliability</span>
       </h3>
-      <p class="authors">Nicholas Sica, Baris Taskin</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.17720" target="_blank" rel="noopener">arXiv:2605.17720</a> · 2026-05-18</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.18444" target="_blank" rel="noopener">arXiv:2605.18444</a> · 2026-05-18</p>
       <p class="summary">
-        <span class="en">Oscillator-based Ising machines (OIMs) need subharmonic injection locking (SHIL) signals at exact multiples of the node frequency to converge correctly. Generating those signals off-chip doesn&#x27;t scale; generating them on-chip is hard because process variation drifts the SHIL frequency away from the integer multiple. The paper uses an array of rotary traveling-wave oscillators (RTWOs) as the SHIL source, exploiting their inherent frequency stability. Concrete circuit proposal with simulated scaling behavior; no fabricated chip in this paper.</span>
-        <span class="zh">基于振荡器的Ising机(OIM)需要严格整数倍于节点频率的亚谐波注入锁定(SHIL)信号才能正常收敛。片外生成SHIL无法规模化;片上生成则因工艺偏差导致频率偏离整数倍。本文以片上旋转行波振荡器(RTWO)阵列作为SHIL源,利用其固有频率稳定性。给出具体电路方案与仿真扩展性结果,本文未含流片。</span>
+        <span class="en">Multipliers are the workhorse of AI accelerators — systolic arrays, tensor cores, FPGAs all multiply constantly. NBTI aging shifts threshold voltages on the most-stressed transistors over years; in a multiplier that runs at near-100% utilization for the chip&#x27;s life, the cumulative drift is real and pushes timing margins out of the window. The paper proposes a designable margin-and-redundancy combination targeted at AI duty cycles specifically. Worth reading because most aging-aware design work has assumed CPU-style bursty utilization, not LLM-serving sustained 90%+.</span>
+        <span class="zh">乘法器是AI加速器的主力单元——脉动阵列、Tensor Core、FPGA本质都在持续做乘法。NBTI老化在受应力最强的晶体管上长期推高阈值电压;在芯片寿命内接近满负载的乘法器中,累积漂移真实且会把时序裕度推出窗口。本文提出针对AI工作负载占空比的可设计裕度与冗余组合。值得一读:既有的老化感知设计大多默认CPU式的突发占用,而非LLM服务式的持续90%+占用。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.18361" target="_blank" rel="noopener">
+          <span class="en">iHAC: integrated high-availability cluster architecture with hybrid resource pooling</span>
+          <span class="zh">iHAC:具备混合资源池化的集成高可用集群架构</span>
+        </a><span class="tag">architecture</span><span class="tag">availability</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.18361" target="_blank" rel="noopener">arXiv:2605.18361</a> · 2026-05-18</p>
+      <p class="summary">
+        <span class="en">Traditional HA clusters keep a hot standby idle for failover, which both wastes resources and creates single-point-of-failure exposure when the standby drifts out of sync. iHAC integrates compute pooling with availability so the &#x27;standby&#x27; capacity does productive work and failover is a routing change, not a resource flip. Concrete architecture proposal with simulation; the interest for AI-serving systems is direct — keeping a hot GPU idle &#x27;just in case&#x27; costs more than the workload that displaced it.</span>
+        <span class="zh">传统高可用集群将热备节点闲置以备故障切换,既浪费资源,又因备机长期未同步而构成新的单点风险。iHAC将算力池化与可用性整合,使&#x27;备份&#x27;容量参与生产负载,故障切换变为路由切换而非资源重置。具体架构方案配仿真;对AI服务系统直接相关——为&#x27;以防万一&#x27;保留闲置GPU的成本,常常高于被它挤掉的负载本身。</span>
       </p>
     </article>
   </section>
@@ -299,47 +299,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.21952" target="_blank" rel="noopener">
-          <span class="en">NasZip: pushing RAG vector retrieval into DIMM-based near-data processing</span>
-          <span class="zh">NasZip:将RAG向量检索下沉至DIMM近数据处理</span>
-        </a><span class="tag">near-memory</span><span class="tag">RAG</span><span class="tag">LLM-serving</span>
+        <a href="https://arxiv.org/abs/2605.20047" target="_blank" rel="noopener">
+          <span class="en">Near-memory cryptography: AES-128 and SHA-256 inside the DRAM, not on the CPU</span>
+          <span class="zh">近存储密码运算:在DRAM内而非CPU上完成AES-128与SHA-256</span>
+        </a><span class="tag">near-memory</span><span class="tag">crypto</span><span class="tag">data-movement</span>
       </h3>
-      <p class="authors">Cheng Zou, Shuo Yang, Chen Nie, et al.</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.21952" target="_blank" rel="noopener">arXiv:2605.21952</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20047" target="_blank" rel="noopener">arXiv:2605.20047</a> · 2026-05-19</p>
       <p class="summary">
-        <span class="en">RAG-driven LLM serving spends a growing fraction of its time in approximate nearest-neighbor search (ANNS), which is memory-bound — CPU and GPU bandwidth caps it long before compute does. NasZip is a software/hardware co-design that pushes the distance computation into DIMM-resident near-data processors, returning only the top-k indices over the memory bus. The macroeconomic point: as RAG corpora grow, ANNS rather than attention becomes the next memory-bandwidth ceiling.</span>
-        <span class="zh">RAG驱动的LLM服务越来越多的时间花在近似最近邻搜索(ANNS)上;该负载受内存带宽约束,CPU和GPU都早早被带宽顶住而非算力。NasZip提出软硬件协同设计,将距离计算下沉到DIMM内的近数据处理单元,仅通过内存总线返回top-k索引。宏观层意义在于:随着RAG语料库扩大,下一个内存带宽天花板将是ANNS而非注意力。</span>
+        <span class="en">AES-128 and SHA-256 are fast on a CPU per-op but their *bandwidth* profile is terrible — they sit at the wrong end of a memory bus. The group implements both primitives inside the DRAM via near-memory processing, returning ciphertext/hashes directly without round-tripping plaintext over the CPU bus. The compute saved isn&#x27;t the headline; the bandwidth saved is. For full-disk encryption and storage-tier hashing — which scale linearly with data volume — this is the right place to put the primitive.</span>
+        <span class="zh">AES-128与SHA-256每次操作在CPU上很快,但其&#x27;带宽特征&#x27;糟糕——位于内存总线的不利端。作者通过DRAM内近存储处理实现两种原语,直接返回密文/哈希,避免明文在CPU总线上往返。节省的算力不是重点,节省的带宽才是。对于全盘加密与存储层哈希(其规模随数据量线性增长),把原语放在这里才是正确的位置。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.21847" target="_blank" rel="noopener">
-          <span class="en">CompPow: per-component GPU power management, not just per-card</span>
-          <span class="zh">CompPow:GPU功耗按组件管理,而非按整卡</span>
-        </a><span class="tag">GPU</span><span class="tag">power</span>
+        <a href="https://arxiv.org/abs/2605.22015" target="_blank" rel="noopener">
+          <span class="en">ORBIS: output-guided token reduction for video Diffusion-Transformer acceleration</span>
+          <span class="zh">ORBIS:面向视频DiT加速的输出引导token裁剪</span>
+        </a><span class="tag">video-diffusion</span><span class="tag">token-reduction</span>
       </h3>
-      <p class="authors">Shaizeen Aga, Mohamed Assem Ibrahim</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.21847" target="_blank" rel="noopener">arXiv:2605.21847</a> · 2026-05-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.22015" target="_blank" rel="noopener">arXiv:2605.22015</a> · 2026-05-21</p>
       <p class="summary">
-        <span class="en">Modern GPU power management treats the whole card as one knob. The authors observe that the actual hot components (SM clusters, HBM stacks, NoC) have very different power-vs-throughput curves and that workload-aware per-component capping leaves real efficiency on the table when collapsed into a single card-level cap. The proposed runtime tunes each component independently. Simulation-based at this stage; complementary to the rack-level PALS-style work we covered last edition.</span>
-        <span class="zh">现有GPU功耗管理把整卡当作单一旋钮调节。作者观察到:卡内不同部件(SM簇、HBM堆栈、片上网络)的功耗-吞吐曲线差异很大,若强制收敛到整卡上限,会损失实测可达的能效。本文提出按部件独立调节的运行时方案。当前为仿真级,与上期PALS式机柜级工作互补。</span>
+        <span class="en">Video Diffusion Transformers blow up compute because 3D spatio-temporal attention scales with token-count × frames. Most token-reduction methods key on visual-similarity heuristics, which are noisy and over-prune. ORBIS uses the model&#x27;s own output distribution to decide which tokens carry information for *this* generation and which are safe to drop. Practical: works on existing video-DiT checkpoints without retraining. The conceptual move — let the output decide what the input should be — is the architecturally interesting bit.</span>
+        <span class="zh">视频Diffusion Transformer因三维时空注意力随token数×帧数膨胀而算力暴涨。多数token裁剪方法依赖视觉相似度启发式,噪声大且常误删。ORBIS利用模型自身输出分布判断哪些token对当前生成实际重要、哪些可安全丢弃。实践层面:可直接用于现有video-DiT权重,无需重训。&#x27;让输出反过来决定输入应该是什么&#x27;的思路才是架构上的关键贡献。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.17613" target="_blank" rel="noopener">
-          <span class="en">VeriCache: making lossy KV-cache compression lossless on demand</span>
-          <span class="zh">VeriCache:让有损KV缓存压缩按需变为无损</span>
-        </a><span class="tag">LLM-serving</span><span class="tag">KV-cache</span>
+        <a href="https://arxiv.org/abs/2605.17683" target="_blank" rel="noopener">
+          <span class="en">μ-ORCA: microsecond-scale DNN inference on AMD ACAP for high-energy-physics jet tagging</span>
+          <span class="zh">μ-ORCA:面向高能物理喷注识别的AMD ACAP微秒级DNN推理</span>
+        </a><span class="tag">accelerator</span><span class="tag">low-latency</span><span class="tag">FPGA</span>
       </h3>
-      <p class="authors">Jiayi Yao, Samuel Shen, Kuntai Du, et al.</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.17613" target="_blank" rel="noopener">arXiv:2605.17613</a> · 2026-05-17</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.17683" target="_blank" rel="noopener">arXiv:2605.17683</a> · 2026-05-17</p>
       <p class="summary">
-        <span class="en">Every existing KV-cache compression scheme (token drop, INT quant, eviction) is lossy and the divergence from full-cache outputs compounds across decode steps — fine for short chats, catastrophic for code generation and tool use. VeriCache layers a verifier that detects when the lossy cache is about to misfire and falls back to the full cache only for those steps. The framing — &#x27;lossy by default, lossless when it matters&#x27; — is the architecturally interesting bit; the verifier is the implementation detail.</span>
-        <span class="zh">现有所有KV缓存压缩方法(token丢弃、INT量化、淘汰)均为有损,且与全量缓存的偏差在解码步上累积——短对话尚可,代码生成和工具调用则灾难性。VeriCache在压缩缓存之上增加一个验证器,识别即将出错的步骤并临时回退到全缓存。&#x27;默认有损、关键时刻无损&#x27;的框架是架构上的关键贡献,验证器只是实现细节。</span>
+        <span class="en">Jet-tagging at colliders needs DNN inference inside the trigger pipeline at microsecond latency on tiny inputs — exactly the case where most accelerators waste 80% of die area on instruction fetch and dataflow they don&#x27;t need. The paper targets AMD&#x27;s ACAP (Versal) heterogeneous fabric: tensor cores for the multiply, programmable logic for the control, NoC for the data movement. Niche application, but the systematic engineering of &#x27;small model + extreme latency&#x27; is the relevant pattern for inference workloads pushing into agentic decode and edge.</span>
+        <span class="zh">对撞机喷注识别需在触发流水线内对小输入做微秒级DNN推理——恰是多数加速器为指令取指与不必要的数据流浪费80%晶元面积的场景。本文以AMD ACAP(Versal)异构架构为目标:Tensor Core执行乘法、可编程逻辑做控制、片上网络处理数据搬移。应用面较窄,但&#x27;小模型+极致延迟&#x27;的系统化工程,对正朝向Agentic解码与边缘扩展的推理负载,有可移植的范式意义。</span>
       </p>
     </article>
   </section>
@@ -350,76 +350,76 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.17757" target="_blank" rel="noopener">
-          <span class="en">OSCAR: attention-aware rotations make INT2 KV-cache quantization actually deployable</span>
-          <span class="zh">OSCAR:注意力感知旋转,让INT2 KV缓存量化真正可部署</span>
-        </a><span class="tag">quantization</span><span class="tag">KV-cache</span><span class="tag">LLM-serving</span>
+        <a href="https://arxiv.org/abs/2605.22428" target="_blank" rel="noopener">
+          <span class="en">Exploiting multicast for collective-communication acceleration in training and inference</span>
+          <span class="zh">训练与推理中利用多播加速集合通信</span>
+        </a><span class="tag">collective-comm</span><span class="tag">networking</span><span class="tag">training</span>
       </h3>
-      <p class="authors">Zhongzhu Zhou, Donglin Zhuang, Jisen Li, et al.</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.17757" target="_blank" rel="noopener">arXiv:2605.17757</a> · 2026-05-18</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.22428" target="_blank" rel="noopener">arXiv:2605.22428</a> · 2026-05-21</p>
       <p class="summary">
-        <span class="en">Generic rotation transforms (Hadamard, etc.) reduce outliers and enable INT4 KV-cache quantization, but degrade noticeably at INT2 because they ignore what downstream attention does with the keys. OSCAR estimates an attention-aware covariance offline once and derives both the rotation and clipping thresholds from it. The result is a fixed (no-runtime-overhead) transform that keeps INT2 within deployable accuracy. A clean example of the &#x27;co-design via offline analysis&#x27; pattern that&#x27;s quietly becoming the dominant approach to ultra-low-bit serving.</span>
-        <span class="zh">通用旋转变换(如Hadamard)可降低离群值、支撑INT4 KV缓存量化,但因忽视下游注意力对key的实际使用方式,在INT2精度下显著退化。OSCAR离线一次性估计注意力感知的协方差,并据此同时导出旋转矩阵与裁剪阈值,得到一个无运行时开销的固定变换,使INT2达到可部署精度。这是&#x27;通过离线分析做协同设计&#x27;范式的清晰范例,该范式正在悄然成为超低比特服务的主流路径。</span>
+        <span class="en">State-of-the-art AllGather and AlltoAll implementations rely on unicast writes and transmit the same data multiple times across the fabric. The paper observes that the underlying interconnects (NVLink, InfiniBand, modern Ethernet) all support hardware multicast — it&#x27;s just never been used by the AI-collective implementations. Replacing unicast-by-default with multicast-where-applicable removes the duplicate transmissions at the wire level. Concrete numbers on real clusters; the punchline is that the optimization existed in the hardware for years, and the software left it on the floor.</span>
+        <span class="zh">当前最先进的AllGather/AlltoAll实现依赖单播写入,在网络结构上多次传输相同数据。作者观察到:底层互连(NVLink、InfiniBand、现代以太网)早就支持硬件多播——只是AI集合通信实现从未使用。将默认单播替换为&#x27;适用处多播&#x27;,即可在线缆层面消除重复传输。论文在实际集群上给出具体数字,要点是:该优化在硬件中存在多年,软件却一直未使用。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.19945" target="_blank" rel="noopener">
-          <span class="en">GEM: factoring per-GPU thermal variability into MoE expert placement</span>
-          <span class="zh">GEM:把每张卡的散热差异纳入MoE专家放置决策</span>
-        </a><span class="tag">MoE</span><span class="tag">LLM-serving</span><span class="tag">scheduling</span>
+        <a href="https://arxiv.org/abs/2605.19775" target="_blank" rel="noopener">
+          <span class="en">Inference scaling for reasoning LLMs: from prefill-bound to capacity-bound</span>
+          <span class="zh">推理型LLM的推理扩展:从prefill约束转向容量约束</span>
+        </a><span class="tag">LLM-serving</span><span class="tag">reasoning</span><span class="tag">capacity-planning</span>
       </h3>
-      <p class="authors">Sourish Wawdhane, Avinash Kumar, Poulami Das</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.19945" target="_blank" rel="noopener">arXiv:2605.19945</a> · 2026-05-19</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.19775" target="_blank" rel="noopener">arXiv:2605.19775</a> · 2026-05-19</p>
       <p class="summary">
-        <span class="en">MoE serving engines distribute experts across GPUs uniformly, assuming all GPUs are interchangeable. In practice they&#x27;re not — thermal throttling, silicon lottery, and rack-position effects produce real, persistent per-GPU performance variability. GEM measures it and biases expert placement toward the faster GPUs, then re-routes around the slower ones at the lockstep synchronization barrier that bottlenecks every MoE layer. Notable not for the algorithm but for being the first widely-shared paper to treat &#x27;GPUs are not iid&#x27; as the central serving constraint.</span>
-        <span class="zh">MoE服务系统通常把专家在GPU间均匀分布,默认所有GPU可互换。实际并非如此——散热限频、硅彩票、机柜位置效应会带来稳定的卡间性能差异。GEM显式测量并将专家偏置至更快的卡,在每层MoE的锁步同步壁前绕开较慢的卡。其重要性不在算法,而在于首次把&#x27;GPU不是独立同分布&#x27;当作服务系统的核心约束公开讨论。</span>
+        <span class="en">Classic LLM-serving analysis treats prefill as compute-bound and decode as memory-bound. With reasoning-centric architectures generating chains of thought thousands of tokens long, that mental model breaks: the dominant phase is decode, the dominant cost is *capacity* (per-token KV-cache footprint × concurrent requests), and prefill is comparatively cheap. The paper formalizes the regime, gives the right bottleneck taxonomy, and notes that most existing serving optimizations were built for the wrong workload. Required reading for anyone planning capacity around reasoning-model deployment.</span>
+        <span class="zh">经典LLM服务分析将prefill视为算力受限、decode视为内存带宽受限。在生成长达数千token思维链的推理型架构下,该心智模型失效:主导阶段变为decode,主导成本是&#x27;容量&#x27;(每token的KV缓存占用×并发请求数),prefill反而相对廉价。论文形式化了这一新范式,给出正确的瓶颈分类,并指出多数现有服务优化原本针对的是另一种工作负载。所有围绕推理型模型规划产能的人都应阅读。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.20179" target="_blank" rel="noopener">
-          <span class="en">TIDE: I/O-aware expert offload for MoE diffusion LLMs on resource-constrained hardware</span>
-          <span class="zh">TIDE:面向资源受限硬件的MoE扩散LLM I/O感知专家卸载</span>
-        </a><span class="tag">MoE</span><span class="tag">diffusion-LLM</span><span class="tag">edge</span>
+        <a href="https://arxiv.org/abs/2605.21603" target="_blank" rel="noopener">
+          <span class="en">DynaFlow: programmable operator scheduling for transparent intra-device parallelism</span>
+          <span class="zh">DynaFlow:面向透明设备内并行的可编程算子调度</span>
+        </a><span class="tag">scheduling</span><span class="tag">intra-device-parallelism</span>
       </h3>
-      <p class="authors">Zhiben Chen, Youpeng Zhao, Yang Sui, et al.</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.20179" target="_blank" rel="noopener">arXiv:2605.20179</a> · 2026-05-19</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21603" target="_blank" rel="noopener">arXiv:2605.21603</a> · 2026-05-20</p>
       <p class="summary">
-        <span class="en">Diffusion LLMs (dLLMs) decode in parallel blocks rather than autoregressively, and their MoE variants are too large to fit on edge devices. Existing offload strategies adapted from AR LLMs either kill latency (I/O-bound) or kill throughput (compute-bound). TIDE schedules expert offload based on dLLM&#x27;s I/O access pattern specifically, which is more predictable than AR. The piece is small in implementation but flags an important divergence: dLLMs need their own serving systems, not retrofitted AR ones.</span>
-        <span class="zh">扩散LLM(dLLM)以并行块解码而非自回归,其MoE变体过大,无法在边缘设备本地承载。从AR LLM移植的卸载策略要么牺牲延迟(I/O密集)要么牺牲吞吐(算力密集)。TIDE根据dLLM自身的I/O访问模式(比AR更可预测)调度专家卸载。实现量不大,但指出一个重要分叉:dLLM需要自己的服务系统,而非AR系统的改装版。</span>
+        <span class="en">GPUs underutilize their hardware on most ML workloads — an attention layer leaves the tensor cores idle during softmax, a MoE layer leaves them idle during routing, etc. Overlapping operators with different resource profiles closes that gap, but every existing framework demands invasive, model-specific code changes to do it. DynaFlow exposes a programmable scheduler so the overlap is configured rather than hand-coded. Implementation is in PyTorch; the abstraction is the contribution.</span>
+        <span class="zh">在大多数ML工作负载下,GPU硬件并未充分利用——注意力层的softmax阶段Tensor Core空闲、MoE层的路由阶段Tensor Core空闲。重叠资源占用不同的算子可弥合这一差距,但现有框架需对每个模型做侵入式定制改造。DynaFlow暴露一个可编程调度器,使重叠由配置完成而非手工实现。实现位于PyTorch层;真正的贡献是该抽象本身。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="quantum">
+  <section class="area" id="eda">
     <h2>
-      <span class="en">Quantum Devices</span>
-      <span class="zh">量子器件</span>
+      <span class="en">EDA, Verification &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.19590" target="_blank" rel="noopener">
-          <span class="en">Photolithography-only transmons via double-oblique evaporation — no e-beam needed</span>
-          <span class="zh">仅以光刻+双角度蒸镀制备transmon,无需电子束</span>
-        </a><span class="tag">device-fab</span><span class="tag">transmon</span><span class="tag">quantum-hardware</span>
+        <a href="https://arxiv.org/abs/2605.17892" target="_blank" rel="noopener">
+          <span class="en">CPPL: an LLM-targeted intermediate language between natural language and CIRCT</span>
+          <span class="zh">CPPL:位于自然语言与CIRCT之间、面向大模型的中间语言</span>
+        </a><span class="tag">EDA</span><span class="tag">LLM-for-hardware</span>
       </h3>
-      <p class="authors">K. Aoyanagi, S. Abe, S. Chen, et al.</p>
+      <p class="authors">et al. (see paper)</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2605.19590" target="_blank" rel="noopener">arXiv:2605.19590</a> · 2026-05-19</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.17892" target="_blank" rel="noopener">arXiv:2605.17892</a> · 2026-05-18</p>
       <p class="summary">
-        <span class="en">Transmon Josephson junctions are typically defined with electron-beam lithography because qubit-relevant junction areas (~10⁴ nm²) are below the resolution of most photolithography. The group uses a bilayer-resist + double-oblique Al evaporation trick to get into that area regime with photolithography alone, confirmed by SEM and room-temperature resistance spreads. If qubit metrics at cryo hold up, this directly attacks the cost-per-qubit ceiling that&#x27;s blocked scaling — e-beam is the rate-limiter, not the cryostat.</span>
-        <span class="zh">Transmon约瑟夫森结的特征尺寸通常用电子束光刻定义,因为量子比特相关结面积(~10⁴ nm²)低于大多数光刻分辨率。作者通过双层光刻胶+双角度铝蒸镀的方法,仅靠光刻就进入该面积区间,SEM与室温电阻分布均给出验证。若低温下的量子比特性能站得住,该工艺将直接挑战阻碍规模化的&#x27;每量子比特成本&#x27;天花板——瓶颈一直是电子束,而非低温平台。</span>
+        <span class="en">LLM-to-RTL has been the obvious EDA application of LLMs since GPT-4, but production usage stays low because raw LLM-emitted RTL is hard to validate and integrate with compiler-based flows (CIRCT, etc.). CPPL is a typed prompt-language at the right level of abstraction for an LLM to emit reliably *and* for CIRCT to consume directly. The architectural contribution: don&#x27;t try to make the LLM emit RTL, give it a target that&#x27;s correct-by-construction and that downstream tools already trust. A cleaner separation of concerns than most prior LLM-EDA work.</span>
+        <span class="zh">自GPT-4以来,LLM到RTL一直被视为LLM在EDA的明显应用方向,但实际投产很少——LLM直出的RTL难以校验、也难以与基于编译器的设计流(如CIRCT)整合。CPPL是位于合适抽象层级的类型化提示语言,既便于LLM稳定输出,也可被CIRCT直接消费。架构贡献在于:不要让LLM直出RTL,而是给它一个&#x27;构造即正确&#x27;且下游工具早已信任的目标。该关注点分离比此前多数LLM-EDA工作更干净。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-05-25 03:31 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-05-25 03:31 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-05-24 13:13 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-05-24 13:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
