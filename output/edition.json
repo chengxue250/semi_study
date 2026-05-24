@@ -11,7 +11,10 @@
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
           "featured": true,
@@ -31,7 +34,10 @@
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "title": {
@@ -76,7 +82,10 @@
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储器"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储器"
+      },
       "stories": [
         {
           "featured": true,
@@ -96,7 +105,10 @@
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
       "stories": [
         {
           "title": {
@@ -115,7 +127,10 @@
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘"
+      },
       "stories": [
         {
           "featured": true,
@@ -135,7 +150,10 @@
     },
     {
       "id": "earnings",
-      "title": {"en": "Earnings & Markets", "zh": "财报与市场"},
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "财报与市场"
+      },
       "stories": [
         {
           "title": {
@@ -154,7 +172,10 @@
     },
     {
       "id": "challengers",
-      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
       "stories": [
         {
           "title": {
@@ -185,7 +206,10 @@
     "areas": [
       {
         "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
         "papers": [
           {
             "title": {
@@ -201,13 +225,19 @@
               "zh": "二维范德瓦尔斯堆叠结构(扭转双层石墨烯、hBN/MoS2等)是量子模拟与新电子相态的关键材料平台,但组装本质仍是手工——人工操作、慢、命中率低。作者通过AI驱动的机器人系统自动完成薄片识别、对位与转印。这并非新器件而是材料层基础设施,一旦走通,可释放整条研究方法瓶颈的产能。"
             },
             "published": "2026-05-19",
-            "tags": ["device-fab", "2D-materials"]
+            "tags": [
+              "device-fab",
+              "2D-materials"
+            ]
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Circuits & Architecture", "zh": "电路与体系结构"},
+        "title": {
+          "en": "Circuits & Architecture",
+          "zh": "电路与体系结构"
+        },
         "papers": [
           {
             "title": {
@@ -223,7 +253,10 @@
               "zh": "乘法器是AI加速器的主力单元——脉动阵列、Tensor Core、FPGA本质都在持续做乘法。NBTI老化在受应力最强的晶体管上长期推高阈值电压;在芯片寿命内接近满负载的乘法器中,累积漂移真实且会把时序裕度推出窗口。本文提出针对AI工作负载占空比的可设计裕度与冗余组合。值得一读:既有的老化感知设计大多默认CPU式的突发占用,而非LLM服务式的持续90%+占用。"
             },
             "published": "2026-05-18",
-            "tags": ["circuit-design", "reliability"]
+            "tags": [
+              "circuit-design",
+              "reliability"
+            ]
           },
           {
             "title": {
@@ -239,13 +272,19 @@
               "zh": "传统高可用集群将热备节点闲置以备故障切换,既浪费资源,又因备机长期未同步而构成新的单点风险。iHAC将算力池化与可用性整合,使'备份'容量参与生产负载,故障切换变为路由切换而非资源重置。具体架构方案配仿真;对AI服务系统直接相关——为'以防万一'保留闲置GPU的成本,常常高于被它挤掉的负载本身。"
             },
             "published": "2026-05-18",
-            "tags": ["architecture", "availability"]
+            "tags": [
+              "architecture",
+              "availability"
+            ]
           }
         ]
       },
       {
         "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
         "papers": [
           {
             "title": {
@@ -261,7 +300,11 @@
               "zh": "AES-128与SHA-256每次操作在CPU上很快,但其'带宽特征'糟糕——位于内存总线的不利端。作者通过DRAM内近存储处理实现两种原语,直接返回密文/哈希,避免明文在CPU总线上往返。节省的算力不是重点,节省的带宽才是。对于全盘加密与存储层哈希(其规模随数据量线性增长),把原语放在这里才是正确的位置。"
             },
             "published": "2026-05-19",
-            "tags": ["near-memory", "crypto", "data-movement"]
+            "tags": [
+              "near-memory",
+              "crypto",
+              "data-movement"
+            ]
           },
           {
             "title": {
@@ -277,7 +320,10 @@
               "zh": "视频Diffusion Transformer因三维时空注意力随token数×帧数膨胀而算力暴涨。多数token裁剪方法依赖视觉相似度启发式,噪声大且常误删。ORBIS利用模型自身输出分布判断哪些token对当前生成实际重要、哪些可安全丢弃。实践层面:可直接用于现有video-DiT权重,无需重训。'让输出反过来决定输入应该是什么'的思路才是架构上的关键贡献。"
             },
             "published": "2026-05-21",
-            "tags": ["video-diffusion", "token-reduction"]
+            "tags": [
+              "video-diffusion",
+              "token-reduction"
+            ]
           },
           {
             "title": {
@@ -293,13 +339,20 @@
               "zh": "对撞机喷注识别需在触发流水线内对小输入做微秒级DNN推理——恰是多数加速器为指令取指与不必要的数据流浪费80%晶元面积的场景。本文以AMD ACAP(Versal)异构架构为目标:Tensor Core执行乘法、可编程逻辑做控制、片上网络处理数据搬移。应用面较窄,但'小模型+极致延迟'的系统化工程,对正朝向Agentic解码与边缘扩展的推理负载,有可移植的范式意义。"
             },
             "published": "2026-05-17",
-            "tags": ["accelerator", "low-latency", "FPGA"]
+            "tags": [
+              "accelerator",
+              "low-latency",
+              "FPGA"
+            ]
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Research (hardware-relevant)", "zh": "AI研究(与硬件相关)"},
+        "title": {
+          "en": "AI Research (hardware-relevant)",
+          "zh": "AI研究(与硬件相关)"
+        },
         "papers": [
           {
             "title": {
@@ -315,7 +368,11 @@
               "zh": "当前最先进的AllGather/AlltoAll实现依赖单播写入,在网络结构上多次传输相同数据。作者观察到:底层互连(NVLink、InfiniBand、现代以太网)早就支持硬件多播——只是AI集合通信实现从未使用。将默认单播替换为'适用处多播',即可在线缆层面消除重复传输。论文在实际集群上给出具体数字,要点是:该优化在硬件中存在多年,软件却一直未使用。"
             },
             "published": "2026-05-21",
-            "tags": ["collective-comm", "networking", "training"]
+            "tags": [
+              "collective-comm",
+              "networking",
+              "training"
+            ]
           },
           {
             "title": {
@@ -331,7 +388,11 @@
               "zh": "经典LLM服务分析将prefill视为算力受限、decode视为内存带宽受限。在生成长达数千token思维链的推理型架构下,该心智模型失效:主导阶段变为decode,主导成本是'容量'(每token的KV缓存占用×并发请求数),prefill反而相对廉价。论文形式化了这一新范式,给出正确的瓶颈分类,并指出多数现有服务优化原本针对的是另一种工作负载。所有围绕推理型模型规划产能的人都应阅读。"
             },
             "published": "2026-05-19",
-            "tags": ["LLM-serving", "reasoning", "capacity-planning"]
+            "tags": [
+              "LLM-serving",
+              "reasoning",
+              "capacity-planning"
+            ]
           },
           {
             "title": {
@@ -347,13 +408,19 @@
               "zh": "在大多数ML工作负载下,GPU硬件并未充分利用——注意力层的softmax阶段Tensor Core空闲、MoE层的路由阶段Tensor Core空闲。重叠资源占用不同的算子可弥合这一差距,但现有框架需对每个模型做侵入式定制改造。DynaFlow暴露一个可编程调度器,使重叠由配置完成而非手工实现。实现位于PyTorch层;真正的贡献是该抽象本身。"
             },
             "published": "2026-05-20",
-            "tags": ["scheduling", "intra-device-parallelism"]
+            "tags": [
+              "scheduling",
+              "intra-device-parallelism"
+            ]
           }
         ]
       },
       {
         "id": "eda",
-        "title": {"en": "EDA, Verification & Design Automation", "zh": "EDA与设计自动化"},
+        "title": {
+          "en": "EDA, Verification & Design Automation",
+          "zh": "EDA与设计自动化"
+        },
         "papers": [
           {
             "title": {
@@ -369,7 +436,10 @@
               "zh": "自GPT-4以来,LLM到RTL一直被视为LLM在EDA的明显应用方向,但实际投产很少——LLM直出的RTL难以校验、也难以与基于编译器的设计流(如CIRCT)整合。CPPL是位于合适抽象层级的类型化提示语言,既便于LLM稳定输出,也可被CIRCT直接消费。架构贡献在于:不要让LLM直出RTL,而是给它一个'构造即正确'且下游工具早已信任的目标。该关注点分离比此前多数LLM-EDA工作更干净。"
             },
             "published": "2026-05-18",
-            "tags": ["EDA", "LLM-for-hardware"]
+            "tags": [
+              "EDA",
+              "LLM-for-hardware"
+            ]
           }
         ]
       }

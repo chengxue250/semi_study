@@ -12,6 +12,19 @@ This skill produces **two** sibling HTML pages from a single `edition.json`:
 
 Both are self-contained (inlined CSS + tiny JS), bilingual (English + 中文 via in-page toggle), cross-linked in the top nav, and share the same brand/color palette (news = amber accent, research = green accent so the two pages are visually distinguishable at a glance).
 
+## Two ways to run this skill
+
+**A. As an autonomous agent (this document, full workflow)** — a capable agent (Claude Code, GPT-4-class, Cursor) reads the workflow below and runs each step itself: fetch, curate, summarize, render, publish.
+
+**B. As a scripted pipeline (recommended for weak/cheap LLMs and unattended cron)** — use `scripts/run_daily.sh`. It runs *all* of the deterministic work (fetch, dedup, shortlist, render, archive, publish) in bash, and only invokes an LLM for step 3 (writing `output/edition.json`). The LLM reads a short, focused [`PROMPT.md`](PROMPT.md) instead of this longer file.
+
+Use the scripted pipeline when:
+- You're running unattended on a schedule (cron, launchd, systemd timer).
+- The agent is a small/cheap/weak LLM that may skip steps if given an open-ended workflow.
+- You want post-LLM validation that catches the "agent re-stamped yesterday's edition without doing the work" failure mode.
+
+See `references/automation.md` § "Running on a weak/cheap LLM" for the setup. The rest of this document describes the autonomous-agent workflow (A).
+
 The skill is platform-agnostic. It runs anywhere an agent can read files, run Python, search the web, and fetch URLs — Claude Code, Cursor, Aider, Cline, Continue, OpenCode, and similar. The bundled Python scripts do the deterministic work (RSS pulling, HTML assembly) so the agent's job is curation, summarization, and theming — the parts that need judgment.
 
 ## Required capabilities
@@ -284,6 +297,12 @@ scripts/
   fetch_semscholar.py          Pulls conference/journal papers via Semantic Scholar Graph API
   build_page.py                Renders edition.json → today's HTML pages + archive
   notify.py                    (Optional) sends ntfy.sh push notification to user's phone
+  publish_gh_pages.sh          Safely publishes output/ to gh-pages via temp clone
+  run_daily.sh                 Scripted-pipeline entrypoint (mode B) for unattended cron
+  preflight.py                 Mode B: fetch + shortlist + backup old edition.json before LLM step
+  validate_edition.py          Mode B: hard checks on edition.json (catches re-stamps, fabrications)
+  agent-invoke.sh.template     Mode B: copy + edit to wire your LLM (openclaw / claude / etc.)
+PROMPT.md                      Mode B: short curation prompt the LLM reads instead of SKILL.md
 notify.yaml.example            Sample notification config; copy to notify.yaml (gitignored)
 output/                        Generated site (this is what you serve)
   index.html                   Today's news edition

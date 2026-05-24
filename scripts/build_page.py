@@ -60,6 +60,23 @@ def e(s: str | None) -> str:
     return html.escape(s or "", quote=True)
 
 
+def bilingual(field: dict | None) -> tuple[str, str]:
+    """Return (en, zh) from a {"en": ..., "zh": ...} field, with fallback
+    behavior for weak LLMs that emit empty zh.
+
+    Rule: if zh is missing or empty, fall back to en. The 中文 toggle then
+    shows English rather than blank. (Better UX than punishing users who
+    happen to be reading in zh mode when an upstream LLM skipped translation.)
+    """
+    if not field:
+        return "", ""
+    en = (field.get("en") or "").strip()
+    zh = (field.get("zh") or "").strip()
+    if not zh:
+        zh = en
+    return en, zh
+
+
 def relative_time(iso: str | None, now: dt.datetime) -> tuple[str, str]:
     """Return (english, chinese) relative time strings, e.g. ("4h ago", "4小时前")."""
     if not iso:
@@ -90,8 +107,8 @@ def relative_time(iso: str | None, now: dt.datetime) -> tuple[str, str]:
 
 def render_story(story: dict, now: dt.datetime) -> str:
     featured = " featured" if story.get("featured") else ""
-    t = story.get("title", {})
-    s = story.get("summary", {})
+    title_en, title_zh = bilingual(story.get("title"))
+    sum_en, sum_zh = bilingual(story.get("summary"))
     rel_en, rel_zh = relative_time(story.get("published"), now)
     url = story.get("url", "#")
     src = story.get("source", "")
@@ -100,8 +117,8 @@ def render_story(story: dict, now: dt.datetime) -> str:
     return f"""    <article class="story{featured}">
       <h3>
         <a href="{e(url)}" target="_blank" rel="noopener">
-          <span class="en">{e(t.get("en", ""))}</span>
-          <span class="zh">{e(t.get("zh", ""))}</span>
+          <span class="en">{e(title_en)}</span>
+          <span class="zh">{e(title_zh)}</span>
         </a>
       </h3>
       <div class="meta">
@@ -109,15 +126,15 @@ def render_story(story: dict, now: dt.datetime) -> str:
         <span class="zh">{meta_zh}</span>
       </div>
       <p class="summary">
-        <span class="en">{e(s.get("en", ""))}</span>
-        <span class="zh">{e(s.get("zh", ""))}</span>
+        <span class="en">{e(sum_en)}</span>
+        <span class="zh">{e(sum_zh)}</span>
       </p>
     </article>"""
 
 
 def render_paper(p: dict) -> str:
-    t = p.get("title", {})
-    s = p.get("summary", {})
+    title_en, title_zh = bilingual(p.get("title"))
+    sum_en, sum_zh = bilingual(p.get("summary"))
     authors = p.get("authors", "")
     affil = p.get("affiliation", "")
     venue = p.get("venue", "")
@@ -137,16 +154,16 @@ def render_paper(p: dict) -> str:
     return f"""    <article class="paper">
       <h3>
         <a href="{e(venue_url)}" target="_blank" rel="noopener">
-          <span class="en">{e(t.get("en", ""))}</span>
-          <span class="zh">{e(t.get("zh", ""))}</span>
+          <span class="en">{e(title_en)}</span>
+          <span class="zh">{e(title_zh)}</span>
         </a>{tag_html}
       </h3>
       <p class="authors">{e(authors)}</p>
       {affil_block}
       <p class="venue">{venue_line}</p>
       <p class="summary">
-        <span class="en">{e(s.get("en", ""))}</span>
-        <span class="zh">{e(s.get("zh", ""))}</span>
+        <span class="en">{e(sum_en)}</span>
+        <span class="zh">{e(sum_zh)}</span>
       </p>
     </article>"""
 
@@ -155,13 +172,13 @@ def render_area(area: dict) -> str:
     papers = area.get("papers") or []
     if not papers:
         return ""
-    title = area.get("title", {})
+    title_en, title_zh = bilingual(area.get("title"))
     aid = area.get("id", "")
     body = "\n".join(render_paper(p) for p in papers)
     return f"""  <section class="area" id="{e(aid)}">
     <h2>
-      <span class="en">{e(title.get("en", ""))}</span>
-      <span class="zh">{e(title.get("zh", ""))}</span>
+      <span class="en">{e(title_en)}</span>
+      <span class="zh">{e(title_zh)}</span>
     </h2>
 {body}
   </section>"""
@@ -171,8 +188,8 @@ def render_research_page(edition: dict, template: str, now: dt.datetime) -> str:
     research = edition.get("research") or {}
     date_str = edition.get("date") or now.date().isoformat()
     date_obj = dt.date.fromisoformat(date_str)
-    theme = research.get("theme", {})
-    dek = research.get("dek", {})
+    theme_en, theme_zh = bilingual(research.get("theme"))
+    dek_en, dek_zh = bilingual(research.get("dek"))
 
     date_long_en = (date_obj.strftime("%A, %B %-d, %Y")
                     if sys.platform != "win32"
@@ -195,10 +212,10 @@ def render_research_page(edition: dict, template: str, now: dt.datetime) -> str:
             .replace("{{DATE}}", e(date_str))
             .replace("{{DATE_LONG_EN}}", e(date_long_en))
             .replace("{{DATE_LONG_ZH}}", e(date_long_zh))
-            .replace("{{RESEARCH_THEME_EN}}", e(theme.get("en", "")))
-            .replace("{{RESEARCH_THEME_ZH}}", e(theme.get("zh", "")))
-            .replace("{{RESEARCH_DEK_EN}}", e(dek.get("en", "")))
-            .replace("{{RESEARCH_DEK_ZH}}", e(dek.get("zh", "")))
+            .replace("{{RESEARCH_THEME_EN}}", e(theme_en))
+            .replace("{{RESEARCH_THEME_ZH}}", e(theme_zh))
+            .replace("{{RESEARCH_DEK_EN}}", e(dek_en))
+            .replace("{{RESEARCH_DEK_ZH}}", e(dek_zh))
             .replace("{{RESEARCH_AREAS}}", areas_html)
             .replace("{{RESEARCH_WINDOW_EN}}", e(win_en))
             .replace("{{RESEARCH_WINDOW_ZH}}", e(win_zh))
@@ -210,13 +227,13 @@ def render_section(section: dict, now: dt.datetime) -> str:
     stories = section.get("stories") or []
     if not stories:
         return ""
-    title = section.get("title", {})
+    title_en, title_zh = bilingual(section.get("title"))
     sid = section.get("id", "")
     body = "\n".join(render_story(s, now) for s in stories)
     return f"""  <section class="cat" id="{e(sid)}">
     <h2>
-      <span class="en">{e(title.get("en", ""))}</span>
-      <span class="zh">{e(title.get("zh", ""))}</span>
+      <span class="en">{e(title_en)}</span>
+      <span class="zh">{e(title_zh)}</span>
     </h2>
 {body}
   </section>"""
@@ -225,8 +242,8 @@ def render_section(section: dict, now: dt.datetime) -> str:
 def render_page(edition: dict, template: str, now: dt.datetime) -> str:
     date_str = edition.get("date") or now.date().isoformat()
     date_obj = dt.date.fromisoformat(date_str)
-    theme = edition.get("theme", {})
-    dek = edition.get("dek", {})
+    theme_en, theme_zh = bilingual(edition.get("theme"))
+    dek_en, dek_zh = bilingual(edition.get("dek"))
 
     date_long_en = date_obj.strftime("%A, %B %-d, %Y") if sys.platform != "win32" else date_obj.strftime("%A, %B %d, %Y")
     date_long_zh = f"{date_obj.year}年{ZH_MONTHS[date_obj.month - 1]}{date_obj.day}日 {ZH_WEEKDAYS[date_obj.weekday()]}"
@@ -240,10 +257,10 @@ def render_page(edition: dict, template: str, now: dt.datetime) -> str:
             .replace("{{DATE}}", e(date_str))
             .replace("{{DATE_LONG_EN}}", e(date_long_en))
             .replace("{{DATE_LONG_ZH}}", e(date_long_zh))
-            .replace("{{THEME_EN}}", e(theme.get("en", "")))
-            .replace("{{THEME_ZH}}", e(theme.get("zh", "")))
-            .replace("{{DEK_EN}}", e(dek.get("en", "")))
-            .replace("{{DEK_ZH}}", e(dek.get("zh", "")))
+            .replace("{{THEME_EN}}", e(theme_en))
+            .replace("{{THEME_ZH}}", e(theme_zh))
+            .replace("{{DEK_EN}}", e(dek_en))
+            .replace("{{DEK_ZH}}", e(dek_zh))
             .replace("{{SECTIONS}}", sections_html)
             .replace("{{GENERATED_AT}}", e(generated)))
 
