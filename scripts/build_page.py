@@ -248,9 +248,56 @@ def render_page(edition: dict, template: str, now: dt.datetime) -> str:
             .replace("{{GENERATED_AT}}", e(generated)))
 
 
+def rewrite_nav_for_archive(html_text: str, date: str, kind: str) -> str:
+    """Rewrite the Headlines/Research/Archive cross-nav links so they still
+    resolve correctly when the page lives under archive/.
+
+    Without this, an archived edition's `href="research.html"` resolves to
+    `archive/research.html` (404). After rewriting:
+
+      kind='news'     (page at archive/<date>.html):
+        href="index.html"      → "../index.html"      (today's news)
+        href="research.html"   → "research/<date>.html" if sibling exists,
+                                  else "../research.html" (today's research)
+        href="archive.html"    → "../archive.html"
+
+      kind='research' (page at archive/research/<date>.html):
+        href="index.html"      → "../<date>.html" if sibling exists,
+                                  else "../../index.html"
+        href="research.html"   → "../../research.html"
+        href="archive.html"    → "../../archive.html"
+    """
+    if kind == "news":
+        sibling_research = ARCHIVE_DIR / "research" / f"{date}.html"
+        research_href = (f"research/{date}.html"
+                         if sibling_research.exists()
+                         else "../research.html")
+        replacements = {
+            'href="index.html"':    'href="../index.html"',
+            'href="research.html"': f'href="{research_href}"',
+            'href="archive.html"':  'href="../archive.html"',
+        }
+    elif kind == "research":
+        sibling_news = ARCHIVE_DIR / f"{date}.html"
+        news_href = (f"../{date}.html"
+                     if sibling_news.exists()
+                     else "../../index.html")
+        replacements = {
+            'href="index.html"':    f'href="{news_href}"',
+            'href="research.html"': 'href="../../research.html"',
+            'href="archive.html"':  'href="../../archive.html"',
+        }
+    else:
+        return html_text
+    for old, new in replacements.items():
+        html_text = html_text.replace(old, new)
+    return html_text
+
+
 def rotate_to_archive(index_path: Path, today: str) -> Path | None:
     """If output/index.html exists with a different date than `today`, move it
-    to archive/<that-date>.html. Returns the archived path, or None."""
+    to archive/<that-date>.html (with cross-nav links rewritten for the
+    archive path). Returns the archived path, or None."""
     if not index_path.exists():
         return None
     text = index_path.read_text(encoding="utf-8", errors="ignore")
@@ -262,7 +309,7 @@ def rotate_to_archive(index_path: Path, today: str) -> Path | None:
         return None
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     dest = ARCHIVE_DIR / f"{prev_date}.html"
-    shutil.copyfile(index_path, dest)
+    dest.write_text(rewrite_nav_for_archive(text, prev_date, "news"), encoding="utf-8")
     return dest
 
 
@@ -282,26 +329,65 @@ def extract_edition_metadata(html_path: Path) -> dict:
     return {"date": date, "theme_en": theme_en, "theme_zh": theme_zh, "href": html_path.name}
 
 
-def regenerate_archive_index(today_file: Path) -> None:
-    items: list[dict] = []
-    # Today
-    if today_file.exists():
-        meta = extract_edition_metadata(today_file)
-        meta["href"] = "index.html"
-        items.append(meta)
-    # Older
+def regenerate_archive_index(today_news_file: Path, today_research_file: Path | None = None) -> None:
+    """Rebuild output/archive.html as a per-date list that links to both the
+    news and research editions for each date (when present).
+
+    Older signature accepted only the news file; the research file is now
+    listed alongside it. Days that only have one of the two are still
+    listed — the other slot is just omitted.
+    """
+    by_date: dict[str, dict[str, tuple[str, str, str]]] = {}
+
+    def add(meta: dict, href: str, kind: str) -> None:
+        if not meta["date"]:
+            return
+        by_date.setdefault(meta["date"], {})[kind] = (href, meta["theme_en"], meta["theme_zh"])
+
+    # Today's pages
+    if today_news_file.exists():
+        add(extract_edition_metadata(today_news_file), "index.html", "news")
+    if today_research_file and today_research_file.exists():
+        add(extract_edition_metadata(today_research_file), "research.html", "research")
+    # Archived news
     if ARCHIVE_DIR.exists():
-        for p in sorted(ARCHIVE_DIR.glob("*.html"), reverse=True):
-            meta = extract_edition_metadata(p)
-            meta["href"] = f"archive/{p.name}"
-            items.append(meta)
-    # Render a simple list page, sharing the template's CSS palette for visual continuity.
-    rows = "\n".join(
-        f'    <li><a href="{e(it["href"])}"><span class="date">{e(it["date"])}</span>'
-        f'<span class="en"> — {e(it["theme_en"])}</span>'
-        f'<span class="zh"> — {e(it["theme_zh"])}</span></a></li>'
-        for it in items if it["date"]
-    )
+        for p in ARCHIVE_DIR.glob("*.html"):
+            if p.is_file():
+                add(extract_edition_metadata(p), f"archive/{p.name}", "news")
+    # Archived research
+    if RESEARCH_ARCHIVE_DIR.exists():
+        for p in RESEARCH_ARCHIVE_DIR.glob("*.html"):
+            if p.is_file():
+                add(extract_edition_metadata(p), f"archive/research/{p.name}", "research")
+
+    rows_html_parts: list[str] = []
+    for date in sorted(by_date.keys(), reverse=True):
+        entry = by_date[date]
+        link_parts: list[str] = []
+        if "news" in entry:
+            href, en, zh = entry["news"]
+            link_parts.append(
+                f'<a class="edition" href="{e(href)}">'
+                f'<span class="kind">News</span>'
+                f'<span class="en">{e(en)}</span>'
+                f'<span class="zh">{e(zh)}</span></a>'
+            )
+        if "research" in entry:
+            href, en, zh = entry["research"]
+            link_parts.append(
+                f'<a class="edition research" href="{e(href)}">'
+                f'<span class="kind">Research</span>'
+                f'<span class="en">{e(en)}</span>'
+                f'<span class="zh">{e(zh)}</span></a>'
+            )
+        rows_html_parts.append(
+            f'    <li>\n'
+            f'      <span class="date">{e(date)}</span>\n'
+            f'      <span class="editions">\n        ' +
+            '\n        '.join(link_parts) +
+            f'\n      </span>\n    </li>'
+        )
+    rows = "\n".join(rows_html_parts)
     page = f"""<!doctype html>
 <html lang="en" data-lang="en">
 <head>
@@ -318,15 +404,26 @@ def regenerate_archive_index(today_file: Path) -> None:
     :root {{ --bg:#14130f;--fg:#ece9e1;--muted:#9a9690;--rule:#2b2925;--accent:#e88a55; }}
   }}
   body {{ background:var(--bg);color:var(--fg);font-family:var(--sans);
-         max-width:720px;margin:0 auto;padding:48px 20px 80px;line-height:1.55; }}
+         max-width:760px;margin:0 auto;padding:48px 20px 80px;line-height:1.55; }}
   h1 {{ font-family:var(--serif);font-weight:600;font-size:32px;margin:0 0 28px; }}
   .top {{ font-size:13px;color:var(--muted);margin-bottom:8px; }}
   .top a {{ color:var(--muted); }}
   ul {{ list-style:none;padding:0;margin:0; }}
-  li {{ padding:14px 0;border-bottom:1px solid var(--rule); }}
-  li a {{ color:var(--fg);text-decoration:none;display:flex;gap:14px;align-items:baseline; }}
-  li a:hover .date {{ color:var(--accent); }}
-  .date {{ font-family:var(--serif);font-variant-numeric:tabular-nums;color:var(--muted);min-width:104px; }}
+  li {{ padding:16px 0;border-bottom:1px solid var(--rule);
+        display:flex;gap:14px;align-items:baseline; }}
+  .date {{ font-family:var(--serif);font-variant-numeric:tabular-nums;
+           color:var(--muted);min-width:110px;flex-shrink:0; }}
+  .editions {{ display:flex;flex-direction:column;gap:6px;flex:1; }}
+  a.edition {{ color:var(--fg);text-decoration:none;display:flex;
+               gap:10px;align-items:baseline; }}
+  a.edition:hover {{ color:var(--accent); }}
+  a.edition .kind {{ font-family:ui-monospace,Menlo,monospace;font-size:11px;
+                     text-transform:uppercase;letter-spacing:0.08em;
+                     color:var(--accent);min-width:60px; }}
+  a.edition.research .kind {{ color:#2b6a3f; }}
+  @media (prefers-color-scheme: dark) {{
+    a.edition.research .kind {{ color:#7ec896; }}
+  }}
   body[data-lang="en"] .zh {{ display:none; }}
   body[data-lang="zh"] .en {{ display:none; }}
 </style>
@@ -403,7 +500,7 @@ def rotate_research_to_archive(research_path: Path, today: str) -> Path | None:
         return None
     RESEARCH_ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     dest = RESEARCH_ARCHIVE_DIR / f"{prev_date}.html"
-    shutil.copyfile(research_path, dest)
+    dest.write_text(rewrite_nav_for_archive(text, prev_date, "research"), encoding="utf-8")
     return dest
 
 
@@ -462,7 +559,7 @@ def main() -> int:
         print(f"no research papers in edition; leaving existing {research_path} as-is",
               file=sys.stderr)
 
-    regenerate_archive_index(index_path)
+    regenerate_archive_index(index_path, research_path)
     print(f"refreshed archive index → {OUT_DIR / 'archive.html'}", file=sys.stderr)
 
     added, pruned = update_seen_urls(edition, today)
