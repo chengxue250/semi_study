@@ -81,6 +81,79 @@ phone gets:
 
 ---
 
+## Running on a weak/cheap LLM (openclaw, ollama, etc.)
+
+The default skill workflow assumes a capable agent that can read SKILL.md, plan, and execute multi-step tasks. Weaker LLMs (small open-source models, GPT-3.5-class, anything where the per-day cost matters) tend to fail in a specific way: they read SKILL.md, see that `output/edition.json` exists, decide nothing needs to change, and just bump the date field. The site then publishes yesterday's content under today's date. We confirmed this empirically on 2026-05-{22..24}.
+
+The fix is the **scripted pipeline**: `scripts/run_daily.sh`. It runs every deterministic step (fetch, dedup, shortlist, render, archive, publish) in bash and only invokes the LLM for one narrow task — writing `output/edition.json` from pre-fetched JSON candidate files. The LLM cannot accidentally skip the work because the work is happening around it, not inside it.
+
+### Pipeline shape
+
+```
+scripts/run_daily.sh  (cron triggers this once a day)
+  1. git pull origin main
+  2. scripts/preflight.py
+       - moves output/edition.json → output/edition.json.previous
+       - runs fetch_rss.py and fetch_arxiv.py with --exclude-seen
+       - shortlists ~80 newest items into /tmp/preflight/{news,arxiv}.json
+       - aborts the whole run if fetches returned too few items
+  3. scripts/agent-invoke.sh    ← the LLM's only job (writes edition.json)
+  4. scripts/validate_edition.py
+       - date == today
+       - ≥ 5 stories total, fields populated
+       - every URL came from /tmp/preflight/{news,arxiv}.json
+         (so a re-stamp of yesterday is impossible — yesterday's URLs aren't
+         in today's fetch)
+       - ≥ 50% of URLs are new vs yesterday's edition
+       - if any check fails, abort: do NOT render, do NOT commit, do NOT publish
+  5. python3 scripts/build_page.py     (render index.html + research.html)
+  6. git add output/ && git commit && git push origin main
+  7. scripts/publish_gh_pages.sh main  (safe via temp clone)
+```
+
+If step 3 or 4 fails, the live site keeps yesterday's content. Better stale than wrong.
+
+### Setup (one time, ~5 minutes)
+
+1. **Wire your LLM to `scripts/agent-invoke.sh`**:
+
+   ```bash
+   cp scripts/agent-invoke.sh.template scripts/agent-invoke.sh
+   chmod +x scripts/agent-invoke.sh
+   $EDITOR scripts/agent-invoke.sh
+   ```
+
+   The template shows four worked examples (Claude Code, openclaw-style agent, Aider, plain OpenAI HTTP). Pick one, fill in your model name and key.
+
+   `scripts/agent-invoke.sh` is gitignored on purpose — each operator's invocation is local.
+
+2. **Smoke-test the pipeline once**:
+
+   ```bash
+   DRY_RUN=1 scripts/run_daily.sh   # does everything except git push
+   ```
+
+   You should see the six section headers fire in order. If preflight or validation aborts, the error message tells you which rule was violated.
+
+3. **Schedule it.** Pick your scheduler — launchd / cron / GitHub Actions / systemd timer. The wrapper is just `scripts/run_daily.sh` from the project directory. See the platform-specific sections below.
+
+### Why this works for weak LLMs
+
+The PROMPT.md file the agent reads is short (~80 lines) and tightly focused:
+
+- "Read these two JSON files."
+- "Pick N stories and M papers."
+- "Write to this exact JSON structure."
+- "Chinese is optional. If you can't write good Chinese, leave `zh: ""` and the renderer will fall back to English."
+
+No process steps, no shell commands, no decisions about what to fetch or where to publish. The LLM never sees `SKILL.md` (the longer file) at all.
+
+### Catching the openclaw failure mode specifically
+
+The validator's `check_urls_in_candidates` rule is the single most important defense: every URL in `output/edition.json` must appear in the just-fetched `/tmp/preflight/news.json` or `/tmp/preflight/arxiv.json`. If the agent re-stamped yesterday's edition, the URLs would be from yesterday's fetch and wouldn't appear in today's. Validation fails. Site stays at yesterday's content.
+
+The `check_not_a_restamp` rule provides a second layer: ≥50% of URLs must differ from the previous edition. Catches the case where some URLs do persist legitimately (e.g., a follow-on story) but the agent reused too many.
+
 ## macOS — launchd
 
 Recommended on macOS because cron quietly stopped being the supported path.

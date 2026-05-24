@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+#
+# Wrapper that calls your LLM to write output/edition.json from PROMPT.md.
+#
+# COPY this file to scripts/agent-invoke.sh, then edit. The renamed file is
+# gitignored on purpose so each operator can wire it to their own LLM /
+# credentials without leaking into the repo.
+#
+# CONTRACT
+# ========
+# Input:
+#   - PROMPT.md at the project root (the curation prompt)
+#   - /tmp/preflight/news.json   (pre-fetched, pre-shortlisted news candidates)
+#   - /tmp/preflight/arxiv.json  (pre-fetched, pre-shortlisted paper candidates)
+#   - /tmp/preflight/instructions.txt (a tiny pointer note)
+#
+# Output:
+#   - output/edition.json (the LLM writes this)
+#
+# Exit code:
+#   - 0 if the LLM completed (run_daily.sh will then validate the file)
+#   - nonzero if the LLM CLI itself failed
+#
+# Below are example invocations for several agents. Keep one, delete the
+# rest, and adjust the model name.
+
+set -euo pipefail
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$REPO_ROOT"
+PROMPT_FILE="$REPO_ROOT/PROMPT.md"
+
+
+# ---------------------------------------------------------------------------
+# Example 1: Claude Code (uses ANTHROPIC_API_KEY from env or keychain)
+# ---------------------------------------------------------------------------
+# claude -p "$(cat "$PROMPT_FILE")" \
+#   --permission-mode acceptEdits \
+#   --max-turns 30
+
+
+# ---------------------------------------------------------------------------
+# Example 2: openclaw (cheap-LLM open-source agent — adjust to your install)
+# ---------------------------------------------------------------------------
+# Most openclaw-style agents take a prompt and an allowed-tools list.
+# openclaw \
+#   --prompt-file "$PROMPT_FILE" \
+#   --working-dir "$REPO_ROOT" \
+#   --model gpt-3.5-turbo \
+#   --allow file_read,file_write \
+#   --max-iterations 20
+
+
+# ---------------------------------------------------------------------------
+# Example 3: aider (works with any LLM provider via LiteLLM)
+# ---------------------------------------------------------------------------
+# aider \
+#   --read PROMPT.md \
+#   --read /tmp/preflight/news.json \
+#   --read /tmp/preflight/arxiv.json \
+#   --message "Write output/edition.json per PROMPT.md. Exit when done." \
+#   --model gpt-4o-mini \
+#   --yes
+
+
+# ---------------------------------------------------------------------------
+# Example 4: a plain curl to the OpenAI API + a small Python parser
+# (useful if your LLM has no agent framework and just an HTTP endpoint)
+# ---------------------------------------------------------------------------
+# python3 - <<'PY'
+# import json, os, urllib.request
+# prompt = open("PROMPT.md").read()
+# news = open("/tmp/preflight/news.json").read()
+# arxiv = open("/tmp/preflight/arxiv.json").read()
+# body = json.dumps({
+#   "model": "gpt-4o-mini",
+#   "messages": [
+#     {"role": "system", "content": prompt},
+#     {"role": "user", "content": f"NEWS:\n{news}\n\nARXIV:\n{arxiv}\n\nWrite output/edition.json now."},
+#   ],
+#   "response_format": {"type": "json_object"},
+# }).encode()
+# req = urllib.request.Request(
+#   "https://api.openai.com/v1/chat/completions",
+#   data=body,
+#   headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}",
+#            "Content-Type": "application/json"},
+# )
+# r = json.load(urllib.request.urlopen(req))
+# edition_json = r["choices"][0]["message"]["content"]
+# json.loads(edition_json)  # parse-check
+# with open("output/edition.json", "w") as f:
+#     f.write(edition_json)
+# print("edition.json written")
+# PY
+
+
+echo "ERROR: scripts/agent-invoke.sh is the template; copy and edit it." >&2
+echo "       cp scripts/agent-invoke.sh.template scripts/agent-invoke.sh" >&2
+exit 1
