@@ -9,7 +9,9 @@ other files. The orchestrator handles everything else.
 
 - News candidates: `/tmp/preflight/news.json` (~80 most-recent items, all
   guaranteed new — duplicates with past editions are already filtered out)
-- Paper candidates: `/tmp/preflight/arxiv.json` (~80 most-recent papers)
+- Research candidates: `/tmp/preflight/research.json` (~80 most-recent items,
+  merged across arXiv, Semantic Scholar, and research RSS feeds —
+  covers preprints, IEEE/conference papers, and journal articles)
 - Yesterday's edition is at `output/edition.json.previous`. **Do not reuse
   any URL from it.** The validator will reject your work if you do.
 
@@ -26,7 +28,7 @@ other files. The orchestrator handles everything else.
    - `challengers` — Cerebras, Groq, Tenstorrent, SambaNova, etc.
    Mark **1–3** of the highest-materiality stories as `"featured": true`.
 
-2. **6–10 research papers** from `/tmp/preflight/arxiv.json`. Across:
+2. **6–10 research papers** from `/tmp/preflight/research.json`. Across:
    - `devices` — fabrication, materials, transistor work
    - `circuits` — circuit design, architecture, reliability
    - `accelerators` — AI accelerators, compute-in-memory, near-memory
