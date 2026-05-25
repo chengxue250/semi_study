@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-23",
+  "date": "2026-05-24",
   "theme": {
     "en": "US Memory Fabs Light Up as Huawei Bypasses NAND Sanctions",
     "zh": "美国存储产能上线,华为绕开NAND管制"
@@ -11,7 +11,10 @@
   "sections": [
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储器"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储器"
+      },
       "stories": [
         {
           "featured": true,
@@ -57,7 +60,10 @@
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "title": {
@@ -76,7 +82,10 @@
     },
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
           "title": {
@@ -95,7 +104,10 @@
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘"
+      },
       "stories": [
         {
           "featured": true,
@@ -141,7 +153,10 @@
     },
     {
       "id": "challengers",
-      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
       "stories": [
         {
           "title": {
@@ -172,7 +187,10 @@
     "areas": [
       {
         "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
         "papers": [
           {
             "title": {
@@ -188,7 +206,10 @@
               "zh": "作者建立了一个自主实验室,可在沉积过程中实时融合来自多台仪器的异构非同步数据,并在线引导下一步实验,而非事后批量分析。以相变存储候选材料为示范;贡献在于'合成↔工艺↔结构↔性能'的编排层,而非材料本身。该方法可推广到任意薄膜器件的搜索。"
             },
             "published": "2026-05-18",
-            "tags": ["device-fab", "autonomous-lab"]
+            "tags": [
+              "device-fab",
+              "autonomous-lab"
+            ]
           },
           {
             "title": {
@@ -204,13 +225,19 @@
               "zh": "分子场耦合纳米计算(MolFCN)通过静电而非电荷输运传播信息,有望在CMOS之后实现超低功耗逻辑,但长期受限于'稳定逻辑态、洁净时钟场开关、可靠传播'三者兼具的分子稀缺。LUFFY提供一个分层评估框架,可同时对三项指标打分。仅为计算层成果,尚无合成器件。"
             },
             "published": "2026-05-21",
-            "tags": ["theory", "beyond-CMOS"]
+            "tags": [
+              "theory",
+              "beyond-CMOS"
+            ]
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Circuits & Architecture", "zh": "电路与体系结构"},
+        "title": {
+          "en": "Circuits & Architecture",
+          "zh": "电路与体系结构"
+        },
         "papers": [
           {
             "title": {
@@ -226,13 +253,19 @@
               "zh": "基于振荡器的Ising机(OIM)需要严格整数倍于节点频率的亚谐波注入锁定(SHIL)信号才能正常收敛。片外生成SHIL无法规模化;片上生成则因工艺偏差导致频率偏离整数倍。本文以片上旋转行波振荡器(RTWO)阵列作为SHIL源,利用其固有频率稳定性。给出具体电路方案与仿真扩展性结果,本文未含流片。"
             },
             "published": "2026-05-18",
-            "tags": ["architecture", "Ising-machine"]
+            "tags": [
+              "architecture",
+              "Ising-machine"
+            ]
           }
         ]
       },
       {
         "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
         "papers": [
           {
             "title": {
@@ -248,7 +281,11 @@
               "zh": "RAG驱动的LLM服务越来越多的时间花在近似最近邻搜索(ANNS)上;该负载受内存带宽约束,CPU和GPU都早早被带宽顶住而非算力。NasZip提出软硬件协同设计,将距离计算下沉到DIMM内的近数据处理单元,仅通过内存总线返回top-k索引。宏观层意义在于:随着RAG语料库扩大,下一个内存带宽天花板将是ANNS而非注意力。"
             },
             "published": "2026-05-21",
-            "tags": ["near-memory", "RAG", "LLM-serving"]
+            "tags": [
+              "near-memory",
+              "RAG",
+              "LLM-serving"
+            ]
           },
           {
             "title": {
@@ -264,7 +301,10 @@
               "zh": "现有GPU功耗管理把整卡当作单一旋钮调节。作者观察到:卡内不同部件(SM簇、HBM堆栈、片上网络)的功耗-吞吐曲线差异很大,若强制收敛到整卡上限,会损失实测可达的能效。本文提出按部件独立调节的运行时方案。当前为仿真级,与上期PALS式机柜级工作互补。"
             },
             "published": "2026-05-21",
-            "tags": ["GPU", "power"]
+            "tags": [
+              "GPU",
+              "power"
+            ]
           },
           {
             "title": {
@@ -280,13 +320,19 @@
               "zh": "现有所有KV缓存压缩方法(token丢弃、INT量化、淘汰)均为有损,且与全量缓存的偏差在解码步上累积——短对话尚可,代码生成和工具调用则灾难性。VeriCache在压缩缓存之上增加一个验证器,识别即将出错的步骤并临时回退到全缓存。'默认有损、关键时刻无损'的框架是架构上的关键贡献,验证器只是实现细节。"
             },
             "published": "2026-05-17",
-            "tags": ["LLM-serving", "KV-cache"]
+            "tags": [
+              "LLM-serving",
+              "KV-cache"
+            ]
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Research (hardware-relevant)", "zh": "AI研究(与硬件相关)"},
+        "title": {
+          "en": "AI Research (hardware-relevant)",
+          "zh": "AI研究(与硬件相关)"
+        },
         "papers": [
           {
             "title": {
@@ -302,7 +348,11 @@
               "zh": "通用旋转变换(如Hadamard)可降低离群值、支撑INT4 KV缓存量化,但因忽视下游注意力对key的实际使用方式,在INT2精度下显著退化。OSCAR离线一次性估计注意力感知的协方差,并据此同时导出旋转矩阵与裁剪阈值,得到一个无运行时开销的固定变换,使INT2达到可部署精度。这是'通过离线分析做协同设计'范式的清晰范例,该范式正在悄然成为超低比特服务的主流路径。"
             },
             "published": "2026-05-18",
-            "tags": ["quantization", "KV-cache", "LLM-serving"]
+            "tags": [
+              "quantization",
+              "KV-cache",
+              "LLM-serving"
+            ]
           },
           {
             "title": {
@@ -318,7 +368,11 @@
               "zh": "MoE服务系统通常把专家在GPU间均匀分布,默认所有GPU可互换。实际并非如此——散热限频、硅彩票、机柜位置效应会带来稳定的卡间性能差异。GEM显式测量并将专家偏置至更快的卡,在每层MoE的锁步同步壁前绕开较慢的卡。其重要性不在算法,而在于首次把'GPU不是独立同分布'当作服务系统的核心约束公开讨论。"
             },
             "published": "2026-05-19",
-            "tags": ["MoE", "LLM-serving", "scheduling"]
+            "tags": [
+              "MoE",
+              "LLM-serving",
+              "scheduling"
+            ]
           },
           {
             "title": {
@@ -334,13 +388,20 @@
               "zh": "扩散LLM(dLLM)以并行块解码而非自回归,其MoE变体过大,无法在边缘设备本地承载。从AR LLM移植的卸载策略要么牺牲延迟(I/O密集)要么牺牲吞吐(算力密集)。TIDE根据dLLM自身的I/O访问模式(比AR更可预测)调度专家卸载。实现量不大,但指出一个重要分叉:dLLM需要自己的服务系统,而非AR系统的改装版。"
             },
             "published": "2026-05-19",
-            "tags": ["MoE", "diffusion-LLM", "edge"]
+            "tags": [
+              "MoE",
+              "diffusion-LLM",
+              "edge"
+            ]
           }
         ]
       },
       {
         "id": "quantum",
-        "title": {"en": "Quantum Devices", "zh": "量子器件"},
+        "title": {
+          "en": "Quantum Devices",
+          "zh": "量子器件"
+        },
         "papers": [
           {
             "title": {
@@ -356,7 +417,11 @@
               "zh": "Transmon约瑟夫森结的特征尺寸通常用电子束光刻定义,因为量子比特相关结面积(~10⁴ nm²)低于大多数光刻分辨率。作者通过双层光刻胶+双角度铝蒸镀的方法,仅靠光刻就进入该面积区间,SEM与室温电阻分布均给出验证。若低温下的量子比特性能站得住,该工艺将直接挑战阻碍规模化的'每量子比特成本'天花板——瓶颈一直是电子束,而非低温平台。"
             },
             "published": "2026-05-19",
-            "tags": ["device-fab", "transmon", "quantum-hardware"]
+            "tags": [
+              "device-fab",
+              "transmon",
+              "quantum-hardware"
+            ]
           }
         ]
       }
