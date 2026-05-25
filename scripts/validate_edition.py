@@ -148,14 +148,19 @@ def check_urls_in_candidates(news_urls: set[str], paper_urls: set[str]) -> list[
     """Every URL in edition.json must be in the preflight candidate files.
 
     This is the core anti-re-stamp check. The preflight script wrote
-    /tmp/preflight/news.json and arxiv.json with deduped, fetched URLs.
-    Any URL in edition.json that's NOT in those files is either:
+    /tmp/preflight/news.json and research.json with deduped, fetched URLs
+    (research.json is the merged union of arXiv + Semantic Scholar + research
+    RSS feeds). Any URL in edition.json that's NOT in those files is either:
       - fabricated (the LLM made it up), OR
       - from a previous edition (the LLM reused yesterday's content)
     Both are failures.
     """
     news_cand = PREFLIGHT / "news.json"
-    arxiv_cand = PREFLIGHT / "arxiv.json"
+    research_cand = PREFLIGHT / "research.json"
+    # Back-compat: older preflight versions wrote arxiv.json instead of
+    # research.json. Fall back to it if research.json is missing.
+    if not research_cand.exists():
+        research_cand = PREFLIGHT / "arxiv.json"
     out = []
 
     if not news_cand.exists():
@@ -164,8 +169,8 @@ def check_urls_in_candidates(news_urls: set[str], paper_urls: set[str]) -> list[
 
     cand_news = {it["link"] for it in json.loads(news_cand.read_text(encoding="utf-8"))}
     cand_papers: set[str] = set()
-    if arxiv_cand.exists():
-        cand_papers = {it["link"] for it in json.loads(arxiv_cand.read_text(encoding="utf-8"))}
+    if research_cand.exists():
+        cand_papers = {it["link"] for it in json.loads(research_cand.read_text(encoding="utf-8"))}
 
     rogue_news = news_urls - cand_news
     if rogue_news:
@@ -183,7 +188,7 @@ def check_urls_in_candidates(news_urls: set[str], paper_urls: set[str]) -> list[
     if rogue_papers and cand_papers:
         out.append((False,
                     f"{len(rogue_papers)} paper URL(s) in edition.json are NOT in "
-                    f"the preflight arxiv candidates:"))
+                    f"the preflight research candidates ({research_cand.name}):"))
         for u in sorted(rogue_papers)[:5]:
             out.append((False, f"    - {u}"))
     elif paper_urls:
