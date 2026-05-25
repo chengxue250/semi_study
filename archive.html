@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archive — Semi News Daily</title>
+<style>
+  :root {
+    --bg:#fbfaf7;--fg:#18181b;--muted:#6b6b6b;--rule:#e7e3da;--accent:#b1370b;
+    --serif:"Newsreader","Charter","Iowan Old Style",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue","PingFang SC",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14130f;--fg:#ece9e1;--muted:#9a9690;--rule:#2b2925;--accent:#e88a55; }
+  }
+  body { background:var(--bg);color:var(--fg);font-family:var(--sans);
+         max-width:760px;margin:0 auto;padding:48px 20px 80px;line-height:1.55; }
+  h1 { font-family:var(--serif);font-weight:600;font-size:32px;margin:0 0 28px; }
+  .top { font-size:13px;color:var(--muted);margin-bottom:8px; }
+  .top a { color:var(--muted); }
+  ul { list-style:none;padding:0;margin:0; }
+  li { padding:16px 0;border-bottom:1px solid var(--rule);
+        display:flex;gap:14px;align-items:baseline; }
+  .date { font-family:var(--serif);font-variant-numeric:tabular-nums;
+           color:var(--muted);min-width:110px;flex-shrink:0; }
+  .editions { display:flex;flex-direction:column;gap:6px;flex:1; }
+  a.edition { color:var(--fg);text-decoration:none;display:flex;
+               gap:10px;align-items:baseline; }
+  a.edition:hover { color:var(--accent); }
+  a.edition .kind { font-family:ui-monospace,Menlo,monospace;font-size:11px;
+                     text-transform:uppercase;letter-spacing:0.08em;
+                     color:var(--accent);min-width:60px; }
+  a.edition.research .kind { color:#2b6a3f; }
+  @media (prefers-color-scheme: dark) {
+    a.edition.research .kind { color:#7ec896; }
+  }
+  body[data-lang="en"] .zh { display:none; }
+  body[data-lang="zh"] .en { display:none; }
+</style>
+</head>
+<body>
+  <div class="top"><a href="index.html">← <span class="en">today</span><span class="zh">今日</span></a></div>
+  <h1><span class="en">Archive</span><span class="zh">往期</span></h1>
+  <ul>
+    <li>
+      <span class="date">2026-05-24</span>
+      <span class="editions">
+        <a class="edition" href="index.html"><span class="kind">News</span><span class="en">AI Chip Boom Continues: Micron Hits Record Margins, Nvidia Eyes China</span><span class="zh">AI芯片热潮持续：美光创纪录利润率，Nvidia押注中国</span></a>
+        <a class="edition research" href="research.html"><span class="kind">Research</span><span class="en">Data Movement Is the New Compute</span><span class="zh">数据搬移就是新的算力</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-23</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-23.html"><span class="kind">News</span><span class="en">US Memory Fabs Light Up as Huawei Bypasses NAND Sanctions</span><span class="zh">美国存储产能上线,华为绕开NAND管制</span></a>
+        <a class="edition research" href="archive/research/2026-05-23.html"><span class="kind">Research</span><span class="en">Specialization Sharpens: Near-Memory, Per-Component, Per-Expert</span><span class="zh">专用化加深:近存储、按部件、按专家</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-22</span>
+      <span class="editions">
+        <a class="edition research" href="archive/research/2026-05-22.html"><span class="kind">Research</span><span class="en">Physics Limits Below, Scaling Infrastructure Above</span><span class="zh">下层逼近物理极限,上层架设扩展基础设施</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-21</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-21.html"><span class="kind">News</span><span class="en">AMD Doubles Down on Taiwan as Nvidia Yields China</span><span class="zh">AMD加码押注台湾,英伟达让出中国</span></a>
+        <a class="edition research" href="archive/research/2026-05-21.html"><span class="kind">Research</span><span class="en">Compute-in-Memory Comes of Age While LLM Serving Treats Hardware as a First-Class Variable</span><span class="zh">存算一体走向系统,LLM服务把硬件当作一等变量</span></a>
+      </span>
+    </li>
+  </ul>
+</body>
+</html>

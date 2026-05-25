@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-24">
+<meta name="generator" content="semi-news-daily">
+<title>AI Chip Boom Continues: Micron Hits Record Margins, Nvidia Eyes China — Semi News 2026-05-24</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Lang visibility — pure CSS off the body[data-lang] */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Sunday, May 24, 2026</span>
+      <span class="zh">2026年5月24日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">AI Chip Boom Continues: Micron Hits Record Margins, Nvidia Eyes China</span>
+      <span class="zh">AI芯片热潮持续：美光创纪录利润率，Nvidia押注中国</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Micron&#x27;s HBM dominance, Nvidia&#x27;s China strategy, TSMC Arizona expansion, and more</span>
+      <span class="zh">美光HBM主导地位，Nvidia中国战略，台积电亚利桑那扩张</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-chips">
+    <h2>
+      <span class="en">AI Chips &amp; Accelerators</span>
+      <span class="zh">AI芯片与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Nvidia Sees China as Long Term AI Opportunity and Data Center Market - HOKANEWS.COM</span>
+          <span class="zh">Nvidia Sees China as Long Term AI Opportunity and Data Center Market - HOKANEWS.COM</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span></span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia Sees China as Long Term AI Opportunity and Data Center Market - HOKANEWS.COM... [Source: GNews — Chip export controls]</span>
+        <span class="zh">Nvidia Sees China as Long Term AI Opportunity and Data Center Market - HOKANEWS.... [来源: GNews — Chip export controls]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Nvidia (NVDA) CEO Warns Super Micro (SMCI) as AI Chip Smuggling Scrutiny Grows - TipRanks</span>
+          <span class="zh">Nvidia (NVDA) CEO Warns Super Micro (SMCI) as AI Chip Smuggling Scrutiny Grows - TipRanks</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span></span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia (NVDA) CEO Warns Super Micro (SMCI) as AI Chip Smuggling Scrutiny Grows - TipRanks... [Source: GNews — Chip export controls]</span>
+        <span class="zh">Nvidia (NVDA) CEO Warns Super Micro (SMCI) as AI Chip Smuggling Scrutiny Grows -... [来源: GNews — Chip export controls]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">ARK Fund Sells AMD Amid Semiconductor Sector Concerns - GuruFocus</span>
+          <span class="zh">ARK Fund Sells AMD Amid Semiconductor Sector Concerns - GuruFocus</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span></span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">ARK Fund Sells AMD Amid Semiconductor Sector Concerns - GuruFocus... [Source: Reuters Technology (Google News)]</span>
+        <span class="zh">ARK Fund Sells AMD Amid Semiconductor Sector Concerns - GuruFocus... [来源: Reuters Technology (Google News)]</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory &amp; HBM</span>
+      <span class="zh">内存与HBM</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Micron Technology Stock Soars to $804 Amid AI Demand - Intellectia AI</span>
+          <span class="zh">Micron Technology Stock Soars to $804 Amid AI Demand - Intellectia AI</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span></span>
+        <span class="zh"><span class="source">GNews — HBM</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron Technology Stock Soars to $804 Amid AI Demand - Intellectia AI... [Source: GNews — HBM]</span>
+        <span class="zh">Micron Technology Stock Soars to $804 Amid AI Demand - Intellectia AI... [来源: GNews — HBM]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Micron Technology Shares Surge as AI Demand Drives Growth - Intellectia AI</span>
+          <span class="zh">Micron Technology Shares Surge as AI Demand Drives Growth - Intellectia AI</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span></span>
+        <span class="zh"><span class="source">GNews — HBM</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron Technology Shares Surge as AI Demand Drives Growth - Intellectia AI... [Source: GNews — HBM]</span>
+        <span class="zh">Micron Technology Shares Surge as AI Demand Drives Growth - Intellectia AI... [来源: GNews — HBM]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Samsung to use Galaxy Z Fold 8 and Z Fold 8 Ultra branding for upcoming foldable lineup - SamMobile</span>
+          <span class="zh">Samsung to use Galaxy Z Fold 8 and Z Fold 8 Ultra branding for upcoming foldable lineup - SamMobile</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span></span>
+        <span class="zh"><span class="source">GNews — TSMC</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung to use Galaxy Z Fold 8 and Z Fold 8 Ultra branding for upcoming foldable lineup - SamMobile... [Source: GNews — TSMC]</span>
+        <span class="zh">Samsung to use Galaxy Z Fold 8 and Z Fold 8 Ultra branding for upcoming foldable... [来源: GNews — TSMC]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Micron Technology, Inc. stock (US5951121038): AI memory boom meets fresh earnings momentum - AD HOC NEWS</span>
+          <span class="zh">Micron Technology, Inc. stock (US5951121038): AI memory boom meets fresh earnings momentum - AD HOC NEWS</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span></span>
+        <span class="zh"><span class="source">GNews — HBM</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron Technology, Inc. stock (US5951121038): AI memory boom meets fresh earnings momentum - AD HOC ... [Source: GNews — HBM]</span>
+        <span class="zh">Micron Technology, Inc. stock (US5951121038): AI memory boom meets fresh earning... [来源: GNews — HBM]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Prediction: Micron Technology Stock Will Be Worth at Least $1,500 in 1 Year. - The Globe and Mail</span>
+          <span class="zh">Prediction: Micron Technology Stock Will Be Worth at Least $1,500 in 1 Year. - The Globe and Mail</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span></span>
+        <span class="zh"><span class="source">GNews — HBM</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Prediction: Micron Technology Stock Will Be Worth at Least $1,500 in 1 Year. - The Globe and Mail... [Source: GNews — HBM]</span>
+        <span class="zh">Prediction: Micron Technology Stock Will Be Worth at Least $1,500 in 1 Year. - T... [来源: GNews — HBM]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Forget the Memory Chip Arms Race. The Real Trade Is the 3 Equipment Companies Every Chipmaker Must Pay First - AOL.com</span>
+          <span class="zh">Forget the Memory Chip Arms Race. The Real Trade Is the 3 Equipment Companies Every Chipmaker Must Pay First - AOL.com</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span></span>
+        <span class="zh"><span class="source">GNews — HBM</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Forget the Memory Chip Arms Race. The Real Trade Is the 3 Equipment Companies Every Chipmaker Must P... [Source: GNews — HBM]</span>
+        <span class="zh">Forget the Memory Chip Arms Race. The Real Trade Is the 3 Equipment Companies Ev... [来源: GNews — HBM]</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">代工厂与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">TSMC chip forecast points to AI demand and chip supply shifts - AD HOC NEWS</span>
+          <span class="zh">TSMC chip forecast points to AI demand and chip supply shifts - AD HOC NEWS</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span></span>
+        <span class="zh"><span class="source">GNews — TSMC</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC chip forecast points to AI demand and chip supply shifts - AD HOC NEWS... [Source: GNews — TSMC]</span>
+        <span class="zh">TSMC chip forecast points to AI demand and chip supply shifts - AD HOC NEWS... [来源: GNews — TSMC]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Jensen Huang’s schedule in Taiwan is packed, meeting with TSMC’s founder tonight - Bitget</span>
+          <span class="zh">Jensen Huang’s schedule in Taiwan is packed, meeting with TSMC’s founder tonight - Bitget</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span></span>
+        <span class="zh"><span class="source">GNews — TSMC</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Jensen Huang’s schedule in Taiwan is packed, meeting with TSMC’s founder tonight - Bitget... [Source: GNews — TSMC]</span>
+        <span class="zh">Jensen Huang’s schedule in Taiwan is packed, meeting with TSMC’s founder tonight... [来源: GNews — TSMC]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Commercial satellite supplying intel to Ukraine is cornered by four Russian spacecraft — US Space Force can only watch as Russia threatens &#x27;quasi-civilian&#x27; targets</span>
+          <span class="zh">Commercial satellite supplying intel to Ukraine is cornered by four Russian spacecraft — US Space Force can only watch as Russia threatens &#x27;quasi-civilian&#x27; targets</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span></span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Commercial satellite supplying intel to Ukraine is cornered by four Russian spacecraft — US Space Fo... [Source: Tom&#x27;s Hardware]</span>
+        <span class="zh">Commercial satellite supplying intel to Ukraine is cornered by four Russian spac... [来源: Tom&#x27;s Hardware]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">Taiwan Semiconductor Manufacturing Company Ltd. $TSM Position Trimmed by William Blair Investment Management LLC - MarketBeat</span>
+          <span class="zh">Taiwan Semiconductor Manufacturing Company Ltd. $TSM Position Trimmed by William Blair Investment Management LLC - MarketBeat</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span></span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwan Semiconductor Manufacturing Company Ltd. $TSM Position Trimmed by William Blair Investment Ma... [Source: Reuters Technology (Google News)]</span>
+        <span class="zh">Taiwan Semiconductor Manufacturing Company Ltd. $TSM Position Trimmed by William... [来源: Reuters Technology (Google News)]</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">TSMC allocates $20 billion to Arizona expansion - MSN</span>
+          <span class="zh">TSMC allocates $20 billion to Arizona expansion - MSN</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span></span>
+        <span class="zh"><span class="source">GNews — TSMC</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC allocates $20 billion to Arizona expansion - MSN... [Source: GNews — TSMC]</span>
+        <span class="zh">TSMC allocates $20 billion to Arizona expansion - MSN... [来源: GNews — TSMC]</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="" target="_blank" rel="noopener">
+          <span class="en">ASML Holding N.V. stock (NL0010273215): Q1 2026 AI boom keeps chip-tool giant in focus - AD HOC NEWS</span>
+          <span class="zh">ASML Holding N.V. stock (NL0010273215): Q1 2026 AI boom keeps chip-tool giant in focus - AD HOC NEWS</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — ASML</span></span>
+        <span class="zh"><span class="source">GNews — ASML</span></span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML Holding N.V. stock (NL0010273215): Q1 2026 AI boom keeps chip-tool giant in focus - AD HOC NEWS... [Source: GNews — ASML]</span>
+        <span class="zh">ASML Holding N.V. stock (NL0010273215): Q1 2026 AI boom keeps chip-tool giant in... [来源: GNews — ASML]</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-26 00:03 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-05-26 00:03 UTC · <a href="archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
