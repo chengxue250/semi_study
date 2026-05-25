@@ -195,5 +195,192 @@
         }
       ]
     }
-  ]
+  ],
+  "research": {
+    "window_days": 7,
+    "theme": {
+      "en": "The MoE Serving Stack Hardens — From NAND-CIM to Ascend-Native Scheduling",
+      "zh": "MoE服务栈成型——从NAND CIM到Ascend本地化调度"
+    },
+    "dek": {
+      "en": "Three of this week's strongest papers attack different layers of the same MoE-serving problem: NASiC stores all experts inside 3D NAND CIM for on-device inference, HyperParallel-MoE schedules MoE training across Huawei Ascend NPU AIC/AIV units, and AlignedServe re-orders prefix-aware batching to close per-iteration bubbles. Plus a 3D NAND-CIM angle that lands in the same week as the Huawei 1.4nm claim, a chiral-antiferromagnet switching demo for sub-millitesla spintronics, and a general-purpose photonic compute primitive.",
+      "zh": "本周最强的三篇论文从不同层次攻击同一个MoE服务问题:NASiC将所有专家存入3D NAND CIM、实现端侧推理;HyperParallel-MoE在华为Ascend NPU的AIC/AIV单元间调度MoE训练;AlignedServe以前缀感知重新排序批处理,消除每迭代内部气泡。叠加在Huawei 1.4nm同周出现的NAND-CIM议题、亚毫特斯拉自旋电子学的Mn3Sn手性反铁磁开关演示、以及通用化的光子计算原语。"
+    },
+    "areas": [
+      {
+        "id": "devices",
+        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "papers": [
+          {
+            "title": {
+              "en": "Graphene photodetector with engineered hot-carrier cooling for silicon-photonic integration",
+              "zh": "面向硅光集成的、可工程化热载流子冷却动力学的石墨烯光电探测器"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23646",
+            "venue_url": "https://arxiv.org/abs/2605.23646",
+            "summary": {
+              "en": "Graphene photodetectors run on the photo-thermoelectric effect, which means the performance ceiling is set by how fast the hot carriers cool. The group engineers the cooling pathway (substrate, gating, dielectric stack) and shows measurable changes in detector bandwidth and responsivity. The interest for silicon photonics is direct: a tunable-bandwidth detector that needs no bias voltage is exactly the integration story graphene has promised since 2012 but rarely delivered cleanly.",
+              "zh": "石墨烯光电探测器依赖光热电效应,性能上限取决于热载流子冷却速度。作者通过基底、栅极与介质叠层来工程化冷却通道,在探测器带宽与响应度上获得可观测的变化。对硅光集成意义直接:可调带宽、无需偏置电压的探测器,正是石墨烯自2012年以来一直承诺、却很少干净实现的集成故事。"
+            },
+            "published": "2026-05-22",
+            "tags": ["device-fab", "silicon-photonics"]
+          },
+          {
+            "title": {
+              "en": "Sub-millitesla switching of chiral antiferromagnetic order in Mn₃Sn via pulsed thermal annealing",
+              "zh": "通过脉冲热退火,在Mn₃Sn中以亚毫特斯拉场切换手性反铁磁有序"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23205",
+            "venue_url": "https://arxiv.org/abs/2605.23205",
+            "summary": {
+              "en": "Antiferromagnetic spintronics has been stuck on the same wall for a decade: AFM order doesn't move under fields you can actually generate on-chip. The group combines a heat pulse with a 0.1 mT magnetic field — about three orders of magnitude below what previous Mn₃Sn switching needed — and reliably flips the chiral AFM state, confirmed via anomalous Hall measurements. If this scales, AFM memory bits become a real device-design option rather than a permanent 'two years away' story.",
+              "zh": "反铁磁自旋电子学已有十年卡在同一道墙前:AFM有序在片上可生成的磁场下不动。作者将热脉冲与仅0.1 mT的小磁场配合——比此前Mn₃Sn切换所需场量低约三个数量级——可靠地翻转手性AFM态,异常霍尔测量给出验证。若可扩展,AFM存储位将成为真实的器件设计选项,而非长期'两年后量产'的故事。"
+            },
+            "published": "2026-05-22",
+            "tags": ["device-physics", "spintronics"]
+          }
+        ]
+      },
+      {
+        "id": "circuits",
+        "title": {"en": "Circuits & Architecture", "zh": "电路与体系结构"},
+        "papers": [
+          {
+            "title": {
+              "en": "DORA: dataflow-instruction orchestration for diverse DNN accelerator workloads",
+              "zh": "DORA:面向多样化DNN加速器负载的数据流-指令编排架构"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23833",
+            "venue_url": "https://arxiv.org/abs/2605.23833",
+            "summary": {
+              "en": "Generic DNN accelerators waste 30-60% of their compute on the wrong workloads — a tensor-core-heavy design idles during attention, a dataflow design idles during MoE routing, etc. DORA proposes a hybrid: an outer-loop instruction-driven scheduler that picks dataflow patterns per layer, rather than fixing one dataflow at design time. Simulation-only, but the architectural argument — 'one fabric, many dataflows, scheduler decides' — is what the field has been groping toward for several generations.",
+              "zh": "通用DNN加速器在错误负载下浪费30-60%的算力——以Tensor Core为主的设计在注意力阶段空转,以数据流为主的设计在MoE路由阶段空转,等等。DORA提出混合方案:外层指令驱动的调度器在每层选择不同的数据流模式,而非在设计时固定一种数据流。当前为仿真级,但'一套基底、多种数据流、由调度器决定'的架构主张,正是业界几代以来摸索的方向。"
+            },
+            "published": "2026-05-22",
+            "tags": ["architecture", "DNN-accelerator"]
+          }
+        ]
+      },
+      {
+        "id": "accelerators",
+        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "papers": [
+          {
+            "title": {
+              "en": "NASiC: 3D NAND-based CIM macro for on-device MoE LLM inference",
+              "zh": "NASiC:面向端侧MoE大模型推理的3D NAND-CIM宏"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23294",
+            "venue_url": "https://arxiv.org/abs/2605.23294",
+            "summary": {
+              "en": "Edge MoE deployment is blocked by capacity: every expert needs to be resident for routing to work, and DRAM-resident experts blow the on-device memory budget. NASiC puts the whole expert pool into 3D NAND CIM cells with a CAM-based router that selects the active expert in-place, returning only the activations on the bus. Architecturally the move is to treat parameter storage as the compute substrate, not as a separate memory tier. The Samsung 900-layer V-NAND story this week (front-page above) starts to look strategic when read alongside this paper.",
+              "zh": "边缘端MoE部署的瓶颈在容量:所有专家必须常驻才能完成路由,DRAM驻留则爆掉端侧内存预算。NASiC将整个专家池存入3D NAND CIM单元,使用CAM路由器原地选择激活专家,仅在总线上返回激活值。架构层意图是将参数存储视为计算基底,而非独立的内存层。本周头版的三星900层V-NAND故事,与本文对照阅读时开始呈现战略意义。"
+            },
+            "published": "2026-05-22",
+            "tags": ["CIM", "3D-NAND", "MoE"]
+          },
+          {
+            "title": {
+              "en": "UniSpike: eliminating duplicate address transmissions in many-core neuromorphic systems",
+              "zh": "UniSpike:在多核类脑系统中消除重复地址传输"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23796",
+            "venue_url": "https://arxiv.org/abs/2605.23796",
+            "summary": {
+              "en": "On packet-based neuromorphic chips, a spike's payload is one bit but the destination address consumes the rest of the packet — and across representative SNN workloads, **49% of total traffic is duplicate-address transmission**. UniSpike compresses this by exploiting locality in destination patterns; the savings translate directly to energy because NoC traffic is the dominant power-draw on these chips. Concrete, measurable, and orthogonal to the spike-coding work other groups have been doing.",
+              "zh": "在基于数据包的类脑芯片上,脉冲负载只有一比特,但目的地址消耗了数据包剩下的全部容量——在代表性SNN负载上,**总流量的49%是重复地址传输**。UniSpike利用目的模式的局部性进行压缩;由于NoC流量是这类芯片的主要功耗源,节省直接折算为能耗降低。具体、可测量,且与其他组在脉冲编码方向上的工作正交。"
+            },
+            "published": "2026-05-22",
+            "tags": ["neuromorphic", "NoC", "SNN"]
+          },
+          {
+            "title": {
+              "en": "MASQ: stage-wise multi-precision (MXINT8/4/2) quantization accelerator for masked diffusion",
+              "zh": "MASQ:面向掩码扩散的阶段化多精度(MXINT8/4/2)量化加速器"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23226",
+            "venue_url": "https://arxiv.org/abs/2605.23226",
+            "summary": {
+              "en": "Masked diffusion re-processes the whole image at every timestep even though only the masked region is being generated — pure compute waste. MASQ co-designs a hardware-software accelerator that assigns precision per stage (MXINT8 → MXINT4 → MXINT2) based on which timesteps tolerate quantization. The framing follows yesterday's Mix-Quant theme (phase as a first-class quantization dimension) but for image diffusion instead of LLM serving — and gives concrete silicon-budget numbers.",
+              "zh": "掩码扩散每个时步都对整张图像重新处理,即便仅需生成被掩码区域——纯算力浪费。MASQ给出软硬件协同的加速器,按阶段(MXINT8→MXINT4→MXINT2)分配精度,依据'哪些时步容忍量化'决定。框架延续上版Mix-Quant的主题(将'阶段'作为一等量化维度),但对象是图像扩散而非LLM服务,并给出具体硅片预算数字。"
+            },
+            "published": "2026-05-22",
+            "tags": ["quantization", "diffusion", "accelerator"]
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {"en": "AI Research (hardware-relevant)", "zh": "AI研究(与硬件相关)"},
+        "papers": [
+          {
+            "title": {
+              "en": "HyperParallel-MoE: multi-core interleaved scheduling for MoE training on Huawei Ascend NPUs",
+              "zh": "HyperParallel-MoE:华为Ascend NPU上MoE训练的多核交错调度"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "Huawei",
+            "venue": "arXiv:2605.23764",
+            "venue_url": "https://arxiv.org/abs/2605.23764",
+            "summary": {
+              "en": "Ascend NPUs expose two heterogeneous compute pools — AIC (matrix) and AIV (vector) — with explicit cross-queue synchronization. Existing MoE training frameworks serialize kernels and leave one pool idle while the other works. HyperParallel-MoE schedules MoE operators to keep both pools busy via interleaving, with measured speedups on representative MoE workloads. Notable as Huawei publishing its own scheduling story in the same week as the LogicFolding announcement — both papers are arguments that 'we can route around Western tooling.'",
+              "zh": "Ascend NPU暴露两类异构算力——AIC(矩阵)与AIV(向量)——并支持显式跨队列同步。现有MoE训练框架按内核串行执行,一类单元工作时另一类空闲。HyperParallel-MoE通过交错调度MoE算子,使两类单元同时忙起来,并在代表性MoE负载上给出实测加速。值得关注的是:华为在LogicFolding发布同周公布自家调度方案,两篇都在传递'我们可以绕开西方工具链'的论点。"
+            },
+            "published": "2026-05-22",
+            "tags": ["MoE", "Ascend", "training-systems"]
+          },
+          {
+            "title": {
+              "en": "AlignedServe: prefix-aware batching to close per-decode-iteration bubbles in LLM serving",
+              "zh": "AlignedServe:以前缀感知批处理消除LLM服务中每解码迭代内的气泡"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23389",
+            "venue_url": "https://arxiv.org/abs/2605.23389",
+            "summary": {
+              "en": "Existing LLM-serving systems chase request-level and batch-level bubbles, but tokens *within* a single decode iteration also have wildly different costs because of varying KV-cache lengths — and that iteration-internal gap was previously unaddressed. AlignedServe orders tokens by KV length per iteration so similar-cost tokens execute together, dramatically reducing the slowdown caused by the one long-context token that previously stalled the whole batch. Small implementation change, real throughput delta.",
+              "zh": "现有LLM服务系统在请求级与批级追逐气泡,但单个解码迭代*内部*的token因KV缓存长度差异巨大也有不同成本——这一迭代内部气泡此前未被处理。AlignedServe按每迭代内的KV长度排序token,使开销相近的token集中执行,显著减少'一个长上下文token拖累整批'造成的减速。代码改动小,吞吐量提升真实。"
+            },
+            "published": "2026-05-22",
+            "tags": ["LLM-serving", "scheduling"]
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {"en": "EDA, Verification & Design Automation", "zh": "EDA与设计自动化"},
+        "papers": [
+          {
+            "title": {
+              "en": "DAE4HLS: exposing memory-level parallelism to HLS via explicit decoupling",
+              "zh": "DAE4HLS:通过显式解耦将内存级并行暴露给HLS"
+            },
+            "authors": "et al. (see paper)",
+            "affiliation": "",
+            "venue": "arXiv:2605.23549",
+            "venue_url": "https://arxiv.org/abs/2605.23549",
+            "summary": {
+              "en": "High-Level Synthesis is great at sequential memory access patterns and small scratchpad-fitting data, and terrible at everything else — which means most non-trivial accelerator designs still get hand-written at the RTL level. DAE4HLS adds an explicit decoupling primitive that exposes memory-level parallelism the synthesizer can actually exploit, broadening the class of designs HLS can produce. Tooling paper, but the right kind: less 'AI-generated RTL' (still messy) and more 'give the compiler the information it always needed.'",
+              "zh": "高层综合(HLS)在顺序内存访问与适合便签存储器的小数据集上表现良好,在其他场景则相对失败——这意味着多数非平凡的加速器设计仍由人工写RTL。DAE4HLS增加显式解耦原语,将内存级并行暴露给综合器,扩展了HLS可处理的设计类别。是工具论文,但属于正确的方向:相比'AI生成RTL'(仍混乱),'把编译器一直需要的信息交给它'更扎实。"
+            },
+            "published": "2026-05-22",
+            "tags": ["EDA", "HLS"]
+          }
+        ]
+      }
+    ]
+  }
 }
