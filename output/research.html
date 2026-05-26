@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-05-25">
+<meta name="edition-date" content="2026-05-26">
 <meta name="generator" content="semi-news-daily (research)">
-<title>The MoE Serving Stack Hardens — From NAND-CIM to Ascend-Native Scheduling — Semi Research 2026-05-25</title>
+<title>The Memory Hierarchy Goes Analog, Ferroelectric, and Photonic — Semi Research 2026-05-26</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -218,20 +218,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, May 25, 2026</span>
-      <span class="zh">研究摘要 · 2026年5月25日 星期一</span>
+      <span class="en">Research digest · Tuesday, May 26, 2026</span>
+      <span class="zh">研究摘要 · 2026年5月26日 星期二</span>
     </div>
     <h1>
-      <span class="en">The MoE Serving Stack Hardens — From NAND-CIM to Ascend-Native Scheduling</span>
-      <span class="zh">MoE服务栈成型——从NAND CIM到Ascend本地化调度</span>
+      <span class="en">The Memory Hierarchy Goes Analog, Ferroelectric, and Photonic</span>
+      <span class="zh">存储层级转向模拟、铁电与光子化</span>
     </h1>
     <p class="dek">
-      <span class="en">Three of this week&#x27;s strongest papers attack different layers of the same MoE-serving problem: NASiC stores all experts inside 3D NAND CIM for on-device inference, HyperParallel-MoE schedules MoE training across Huawei Ascend NPU AIC/AIV units, and AlignedServe re-orders prefix-aware batching to close per-iteration bubbles. Plus a 3D NAND-CIM angle that lands in the same week as the Huawei 1.4nm claim, a chiral-antiferromagnet switching demo for sub-millitesla spintronics, and a general-purpose photonic compute primitive.</span>
-      <span class="zh">本周最强的三篇论文从不同层次攻击同一个MoE服务问题:NASiC将所有专家存入3D NAND CIM、实现端侧推理;HyperParallel-MoE在华为Ascend NPU的AIC/AIV单元间调度MoE训练;AlignedServe以前缀感知重新排序批处理,消除每迭代内部气泡。叠加在Huawei 1.4nm同周出现的NAND-CIM议题、亚毫特斯拉自旋电子学的Mn3Sn手性反铁磁开关演示、以及通用化的光子计算原语。</span>
+      <span class="en">This week&#x27;s literature converges on a single theme: as silicon scaling slows, the cheapest path to AI throughput is changing where computation happens — moving it into memory, into ferroelectric devices, into photonic stacks, and even into probabilistic Ising hardware.</span>
+      <span class="zh">本周文献汇聚于一个主题：硅工艺微缩放缓后，AI吞吐量最便宜的增长路径正在改变 — 计算正在被搬入存储、铁电器件、光子堆叠，乃至概率Ising硬件之中。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 12 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 12篇</span>
     </div>
   </header>
 
@@ -242,169 +242,214 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.23646" target="_blank" rel="noopener">
-          <span class="en">Graphene photodetector with engineered hot-carrier cooling for silicon-photonic integration</span>
-          <span class="zh">面向硅光集成的、可工程化热载流子冷却动力学的石墨烯光电探测器</span>
-        </a><span class="tag">device-fab</span><span class="tag">silicon-photonics</span>
+        <a href="https://doi.org/10.1038/s41467-026-72103-6" target="_blank" rel="noopener">
+          <span class="en">Hybrid ferroelectric-ionic memristive hardware for high-scalability in-memory computing</span>
+          <span class="zh">用于高可扩展存内计算的铁电-离子复合忆阻器硬件</span>
+        </a><span class="tag">journal</span><span class="tag">in-memory computing</span><span class="tag">ferroelectric</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23646" target="_blank" rel="noopener">arXiv:2605.23646</a> · 2026-05-22</p>
+      <p class="authors">Tian et al.</p>
+      <p class="affil">multi-institution (CN/EU)</p>
+      <p class="venue"><a href="https://doi.org/10.1038/s41467-026-72103-6" target="_blank" rel="noopener">Nature Communications</a> · 2026-05-21</p>
       <p class="summary">
-        <span class="en">Graphene photodetectors run on the photo-thermoelectric effect, which means the performance ceiling is set by how fast the hot carriers cool. The group engineers the cooling pathway (substrate, gating, dielectric stack) and shows measurable changes in detector bandwidth and responsivity. The interest for silicon photonics is direct: a tunable-bandwidth detector that needs no bias voltage is exactly the integration story graphene has promised since 2012 but rarely delivered cleanly.</span>
-        <span class="zh">石墨烯光电探测器依赖光热电效应,性能上限取决于热载流子冷却速度。作者通过基底、栅极与介质叠层来工程化冷却通道,在探测器带宽与响应度上获得可观测的变化。对硅光集成意义直接:可调带宽、无需偏置电压的探测器,正是石墨烯自2012年以来一直承诺、却很少干净实现的集成故事。</span>
+        <span class="en">The team integrates a ferroelectric switching layer with ionic-modulation conductance tuning to break the precision/retention trade-off that has dogged single-mechanism memristors. They report 8-bit analog programmability with retention measured in months at array-relevant temperatures and demonstrate a 64×64 crossbar running matrix-vector products at energy/op figures competitive with leading PCM and ReRAM benchmarks. Caveat: the work is still cell-array scale; tape-out-grade variability statistics (cycle-to-cycle, device-to-device) at million-cell density are not in this paper.</span>
+        <span class="zh">团队将铁电开关层与离子调制电导调节相结合，打破了单机制忆阻器中精度与保持的折中。他们报告了8位模拟可编程性，阵列相关温度下保持时间以月计，并在64×64交叉阵列上演示矩阵-向量乘法，每次操作能耗指标可与领先PCM和ReRAM对标。需注意：该工作仍是单元阵列层级，关于百万单元密度下的量产级波动统计（cycle-to-cycle，device-to-device）尚未在本文给出。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.23205" target="_blank" rel="noopener">
-          <span class="en">Sub-millitesla switching of chiral antiferromagnetic order in Mn₃Sn via pulsed thermal annealing</span>
-          <span class="zh">通过脉冲热退火,在Mn₃Sn中以亚毫特斯拉场切换手性反铁磁有序</span>
-        </a><span class="tag">device-physics</span><span class="tag">spintronics</span>
+        <a href="https://doi.org/10.1002/adma.73440" target="_blank" rel="noopener">
+          <span class="en">Stable analog weight programming in single-crystalline van der Waals ferroelectric transistors</span>
+          <span class="zh">单晶范德华铁电晶体管中的稳定模拟权重编程</span>
+        </a><span class="tag">journal</span><span class="tag">ferroelectric</span><span class="tag">2D materials</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23205" target="_blank" rel="noopener">arXiv:2605.23205</a> · 2026-05-22</p>
+      <p class="authors">Park, Lee, Kim et al.</p>
+      <p class="affil">KAIST / partners</p>
+      <p class="venue"><a href="https://doi.org/10.1002/adma.73440" target="_blank" rel="noopener">Advanced Materials</a> · 2026-05-20</p>
       <p class="summary">
-        <span class="en">Antiferromagnetic spintronics has been stuck on the same wall for a decade: AFM order doesn&#x27;t move under fields you can actually generate on-chip. The group combines a heat pulse with a 0.1 mT magnetic field — about three orders of magnitude below what previous Mn₃Sn switching needed — and reliably flips the chiral AFM state, confirmed via anomalous Hall measurements. If this scales, AFM memory bits become a real device-design option rather than a permanent &#x27;two years away&#x27; story.</span>
-        <span class="zh">反铁磁自旋电子学已有十年卡在同一道墙前:AFM有序在片上可生成的磁场下不动。作者将热脉冲与仅0.1 mT的小磁场配合——比此前Mn₃Sn切换所需场量低约三个数量级——可靠地翻转手性AFM态,异常霍尔测量给出验证。若可扩展,AFM存储位将成为真实的器件设计选项,而非长期&#x27;两年后量产&#x27;的故事。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与体系结构</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2605.23833" target="_blank" rel="noopener">
-          <span class="en">DORA: dataflow-instruction orchestration for diverse DNN accelerator workloads</span>
-          <span class="zh">DORA:面向多样化DNN加速器负载的数据流-指令编排架构</span>
-        </a><span class="tag">architecture</span><span class="tag">DNN-accelerator</span>
-      </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23833" target="_blank" rel="noopener">arXiv:2605.23833</a> · 2026-05-22</p>
-      <p class="summary">
-        <span class="en">Generic DNN accelerators waste 30-60% of their compute on the wrong workloads — a tensor-core-heavy design idles during attention, a dataflow design idles during MoE routing, etc. DORA proposes a hybrid: an outer-loop instruction-driven scheduler that picks dataflow patterns per layer, rather than fixing one dataflow at design time. Simulation-only, but the architectural argument — &#x27;one fabric, many dataflows, scheduler decides&#x27; — is what the field has been groping toward for several generations.</span>
-        <span class="zh">通用DNN加速器在错误负载下浪费30-60%的算力——以Tensor Core为主的设计在注意力阶段空转,以数据流为主的设计在MoE路由阶段空转,等等。DORA提出混合方案:外层指令驱动的调度器在每层选择不同的数据流模式,而非在设计时固定一种数据流。当前为仿真级,但&#x27;一套基底、多种数据流、由调度器决定&#x27;的架构主张,正是业界几代以来摸索的方向。</span>
+        <span class="en">Most analog-weight ferroelectric FETs degrade rapidly under repeated programming because polycrystalline domains drift. This work uses an exfoliated single-crystalline 2D ferroelectric channel to lock in 6-bit weight states with &lt;2% drift over 10⁶ write cycles. The result is one of the cleanest demonstrations to date that 2D ferroelectrics can hit the endurance numbers compute-in-memory accelerators actually need — but practical foundry integration (uniformity across 300 mm wafers) remains an open problem.</span>
+        <span class="zh">多数模拟权重铁电FET在反复编程下因多晶畴漂移而迅速退化。本文采用剥离单晶2D铁电沟道，将6位权重在10⁶次写入循环后漂移控制在&lt;2%。这是迄今为止最干净的演示之一：2D铁电材料能达到存内计算加速器所需的耐久性指标 — 但量产代工集成（300 mm晶圆均匀性）仍是悬而未决的问题。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="accelerators">
+  <section class="area" id="memory">
     <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
+      <span class="en">Memory &amp; Storage</span>
+      <span class="zh">存储</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.23294" target="_blank" rel="noopener">
-          <span class="en">NASiC: 3D NAND-based CIM macro for on-device MoE LLM inference</span>
-          <span class="zh">NASiC:面向端侧MoE大模型推理的3D NAND-CIM宏</span>
-        </a><span class="tag">CIM</span><span class="tag">3D-NAND</span><span class="tag">MoE</span>
+        <a href="https://arxiv.org/abs/2605.21912" target="_blank" rel="noopener">
+          <span class="en">Emerging memory technologies at room and cryogenic temperatures</span>
+          <span class="zh">室温与低温下的新兴存储技术综述</span>
+        </a><span class="tag">preprint</span><span class="tag">survey</span><span class="tag">MRAM</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23294" target="_blank" rel="noopener">arXiv:2605.23294</a> · 2026-05-22</p>
+      <p class="authors">review chapter, multi-author</p>
+      <p class="affil">academic consortium</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21912" target="_blank" rel="noopener">arXiv:2605.21912</a> · 2026-05-21</p>
       <p class="summary">
-        <span class="en">Edge MoE deployment is blocked by capacity: every expert needs to be resident for routing to work, and DRAM-resident experts blow the on-device memory budget. NASiC puts the whole expert pool into 3D NAND CIM cells with a CAM-based router that selects the active expert in-place, returning only the activations on the bus. Architecturally the move is to treat parameter storage as the compute substrate, not as a separate memory tier. The Samsung 900-layer V-NAND story this week (front-page above) starts to look strategic when read alongside this paper.</span>
-        <span class="zh">边缘端MoE部署的瓶颈在容量:所有专家必须常驻才能完成路由,DRAM驻留则爆掉端侧内存预算。NASiC将整个专家池存入3D NAND CIM单元,使用CAM路由器原地选择激活专家,仅在总线上返回激活值。架构层意图是将参数存储视为计算基底,而非独立的内存层。本周头版的三星900层V-NAND故事,与本文对照阅读时开始呈现战略意义。</span>
+        <span class="en">A book-chapter-style survey covering volatile and non-volatile candidates across both regimes — STT/SOT-MRAM, FeRAM, PCM, RRAM at room temperature, and superconducting/quantum-compatible memories at cryogenic. The value here isn&#x27;t novel results but the side-by-side framing: which technologies actually move into HBM-class roles vs. which stay tied to neuromorphic or quantum-control niches. Useful as a reference for arguing why cryo-CMOS work has bifurcated from mainstream memory roadmaps despite a decade of cross-pollination claims.</span>
+        <span class="zh">一篇章节体例的综述，覆盖室温与低温两种环境下的易失/非易失候选 — 室温侧的STT/SOT-MRAM、FeRAM、PCM、RRAM，低温侧的超导/量子兼容存储。本文价值不在原创结果，而在并排对比的框架：哪些技术真正能进入HBM类角色、哪些注定停留在神经形态或量子控制利基。对于解释为何低温CMOS研究在十年互相借鉴后仍与主流存储路线图分叉，是一份有用的引用文献。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.23796" target="_blank" rel="noopener">
-          <span class="en">UniSpike: eliminating duplicate address transmissions in many-core neuromorphic systems</span>
-          <span class="zh">UniSpike:在多核类脑系统中消除重复地址传输</span>
-        </a><span class="tag">neuromorphic</span><span class="tag">NoC</span><span class="tag">SNN</span>
+        <a href="https://doi.org/10.1142/s0218126626502324" target="_blank" rel="noopener">
+          <span class="en">CIM-AD: hardware-efficient SRAM-based computing-in-memory accelerator with sparse matrix in diagonal shift</span>
+          <span class="zh">CIM-AD：基于SRAM的硬件高效存内计算加速器（对角移位稀疏矩阵）</span>
+        </a><span class="tag">journal</span><span class="tag">in-memory computing</span><span class="tag">SRAM</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23796" target="_blank" rel="noopener">arXiv:2605.23796</a> · 2026-05-22</p>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">CN academic team</p>
+      <p class="venue"><a href="https://doi.org/10.1142/s0218126626502324" target="_blank" rel="noopener">Journal of Circuits, Systems and Computers</a> · 2026-05-22</p>
       <p class="summary">
-        <span class="en">On packet-based neuromorphic chips, a spike&#x27;s payload is one bit but the destination address consumes the rest of the packet — and across representative SNN workloads, **49% of total traffic is duplicate-address transmission**. UniSpike compresses this by exploiting locality in destination patterns; the savings translate directly to energy because NoC traffic is the dominant power-draw on these chips. Concrete, measurable, and orthogonal to the spike-coding work other groups have been doing.</span>
-        <span class="zh">在基于数据包的类脑芯片上,脉冲负载只有一比特,但目的地址消耗了数据包剩下的全部容量——在代表性SNN负载上,**总流量的49%是重复地址传输**。UniSpike利用目的模式的局部性进行压缩;由于NoC流量是这类芯片的主要功耗源,节省直接折算为能耗降低。具体、可测量,且与其他组在脉冲编码方向上的工作正交。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2605.23226" target="_blank" rel="noopener">
-          <span class="en">MASQ: stage-wise multi-precision (MXINT8/4/2) quantization accelerator for masked diffusion</span>
-          <span class="zh">MASQ:面向掩码扩散的阶段化多精度(MXINT8/4/2)量化加速器</span>
-        </a><span class="tag">quantization</span><span class="tag">diffusion</span><span class="tag">accelerator</span>
-      </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23226" target="_blank" rel="noopener">arXiv:2605.23226</a> · 2026-05-22</p>
-      <p class="summary">
-        <span class="en">Masked diffusion re-processes the whole image at every timestep even though only the masked region is being generated — pure compute waste. MASQ co-designs a hardware-software accelerator that assigns precision per stage (MXINT8 → MXINT4 → MXINT2) based on which timesteps tolerate quantization. The framing follows yesterday&#x27;s Mix-Quant theme (phase as a first-class quantization dimension) but for image diffusion instead of LLM serving — and gives concrete silicon-budget numbers.</span>
-        <span class="zh">掩码扩散每个时步都对整张图像重新处理,即便仅需生成被掩码区域——纯算力浪费。MASQ给出软硬件协同的加速器,按阶段(MXINT8→MXINT4→MXINT2)分配精度,依据&#x27;哪些时步容忍量化&#x27;决定。框架延续上版Mix-Quant的主题(将&#x27;阶段&#x27;作为一等量化维度),但对象是图像扩散而非LLM服务,并给出具体硅片预算数字。</span>
+        <span class="en">An SRAM CIM macro that handles sparse-matrix MAC by storing weights in a diagonal-shifted layout, eliminating the index-table overhead that has historically eaten the energy savings sparse CIM was meant to deliver. The authors report ~2× energy/op improvement on Transformer MHA workloads vs. dense-baseline CIM, with no accuracy loss at typical 70-90% block sparsity. Caveat: SRAM-CIM still loses to DRAM-anchored solutions on capacity per mm², so this remains a near-cache play, not a main-memory replacement.</span>
+        <span class="zh">一种SRAM存内计算宏，通过对角移位布局存储权重处理稀疏矩阵MAC，消除了原本侵蚀稀疏CIM能耗优势的索引表开销。作者报告在Transformer MHA工作负载上每次操作能耗较密集基线CIM改善约2倍，在70-90%典型块稀疏度下精度无损。需注意：SRAM-CIM在每平方毫米容量上仍输给以DRAM为锚的方案，因此仍只是靠近缓存的方案，并非主存替代。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="ai-research">
+  <section class="area" id="architecture">
     <h2>
-      <span class="en">AI Research (hardware-relevant)</span>
-      <span class="zh">AI研究(与硬件相关)</span>
+      <span class="en">Architecture &amp; Accelerators</span>
+      <span class="zh">架构与加速器</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.23764" target="_blank" rel="noopener">
-          <span class="en">HyperParallel-MoE: multi-core interleaved scheduling for MoE training on Huawei Ascend NPUs</span>
-          <span class="zh">HyperParallel-MoE:华为Ascend NPU上MoE训练的多核交错调度</span>
-        </a><span class="tag">MoE</span><span class="tag">Ascend</span><span class="tag">training-systems</span>
+        <a href="https://arxiv.org/abs/2605.24461" target="_blank" rel="noopener">
+          <span class="en">Provisioning to runtime optimization of a +100 MW AI cluster</span>
+          <span class="zh">百兆瓦级AI集群从规划到运行时的功率优化</span>
+        </a><span class="tag">preprint</span><span class="tag">datacenter</span><span class="tag">GB200</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
-      <p class="affil">Huawei</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23764" target="_blank" rel="noopener">arXiv:2605.23764</a> · 2026-05-22</p>
+      <p class="authors">industry infra team</p>
+      <p class="affil">hyperscaler (anonymized)</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.24461" target="_blank" rel="noopener">arXiv:2605.24461</a> · 2026-05-23</p>
       <p class="summary">
-        <span class="en">Ascend NPUs expose two heterogeneous compute pools — AIC (matrix) and AIV (vector) — with explicit cross-queue synchronization. Existing MoE training frameworks serialize kernels and leave one pool idle while the other works. HyperParallel-MoE schedules MoE operators to keep both pools busy via interleaving, with measured speedups on representative MoE workloads. Notable as Huawei publishing its own scheduling story in the same week as the LogicFolding announcement — both papers are arguments that &#x27;we can route around Western tooling.&#x27;</span>
-        <span class="zh">Ascend NPU暴露两类异构算力——AIC(矩阵)与AIV(向量)——并支持显式跨队列同步。现有MoE训练框架按内核串行执行,一类单元工作时另一类空闲。HyperParallel-MoE通过交错调度MoE算子,使两类单元同时忙起来,并在代表性MoE负载上给出实测加速。值得关注的是:华为在LogicFolding发布同周公布自家调度方案,两篇都在传递&#x27;我们可以绕开西方工具链&#x27;的论点。</span>
+        <span class="en">First end-to-end public description of power management for a hyperscale AI datacenter — covering 6-12 month pre-GA capacity planning for next-gen accelerators, deployment-time tuning, and dynamic runtime power capping for evolving workloads. The paper publishes detailed power telemetry for a 150 MW datacenter running 83K GB200 GPUs, including the gap between nameplate TDP and actual sustained draw under real training mixes. For anyone modeling datacenter capex or grid impact: this is the first time the inside view has been made citable.</span>
+        <span class="zh">首次端到端公开描述超大规模AI数据中心的电源管理过程 — 涵盖下一代加速器GA前6-12个月的容量规划、部署期调优，以及面向不断变化负载的运行时动态限功。论文公布了运行83K GB200 GPU的150 MW数据中心的详细功率遥测，包括铭牌TDP与真实训练负载下持续功耗之间的差距。对于建模数据中心资本开支或电网影响的人：内部视角首次以可引用形式公开。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.23389" target="_blank" rel="noopener">
-          <span class="en">AlignedServe: prefix-aware batching to close per-decode-iteration bubbles in LLM serving</span>
-          <span class="zh">AlignedServe:以前缀感知批处理消除LLM服务中每解码迭代内的气泡</span>
-        </a><span class="tag">LLM-serving</span><span class="tag">scheduling</span>
+        <a href="https://arxiv.org/abs/2605.24391" target="_blank" rel="noopener">
+          <span class="en">MX-SAFE: versatile inference- and training-proof microscaling format with on-the-fly exponent/mantissa allocation</span>
+          <span class="zh">MX-SAFE：兼顾推理与训练的可变指数/尾数微缩放格式</span>
+        </a><span class="tag">preprint</span><span class="tag">numerical formats</span><span class="tag">OCP MX</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23389" target="_blank" rel="noopener">arXiv:2605.23389</a> · 2026-05-22</p>
+      <p class="authors">Korean academic team</p>
+      <p class="affil">Yonsei University and partners</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.24391" target="_blank" rel="noopener">arXiv:2605.24391</a> · 2026-05-23</p>
       <p class="summary">
-        <span class="en">Existing LLM-serving systems chase request-level and batch-level bubbles, but tokens *within* a single decode iteration also have wildly different costs because of varying KV-cache lengths — and that iteration-internal gap was previously unaddressed. AlignedServe orders tokens by KV length per iteration so similar-cost tokens execute together, dramatically reducing the slowdown caused by the one long-context token that previously stalled the whole batch. Small implementation change, real throughput delta.</span>
-        <span class="zh">现有LLM服务系统在请求级与批级追逐气泡,但单个解码迭代*内部*的token因KV缓存长度差异巨大也有不同成本——这一迭代内部气泡此前未被处理。AlignedServe按每迭代内的KV长度排序token,使开销相近的token集中执行,显著减少&#x27;一个长上下文token拖累整批&#x27;造成的减速。代码改动小,吞吐量提升真实。</span>
+        <span class="en">Builds on OCP&#x27;s MX format by letting each block dynamically choose between MXINT-style (precision-favored) and MXFP-style (range-favored) bit allocation, with the routing decided per block from the actual distribution. Claims training stability comparable to FP8 and inference accuracy matching MXINT8, in a single hardware unit. If this lands in OCP&#x27;s next revision, it removes the format split that has been a source of friction between training-side and inference-side accelerator design.</span>
+        <span class="zh">在OCP的MX格式基础上，让每个块依据实际分布动态在MXINT（重精度）与MXFP（重动态范围）之间分配位数，在单一硬件单元中同时实现。论文称其训练稳定性可比FP8，推理精度匹配MXINT8。若该方案进入OCP下一版规范，将消除训练侧与推理侧加速器设计之间因格式分裂带来的摩擦。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.24144" target="_blank" rel="noopener">
+          <span class="en">EVA: accelerating LLM decoding via an efficient vector-quantization architecture</span>
+          <span class="zh">EVA：面向LLM解码的高效向量量化架构</span>
+        </a><span class="tag">preprint</span><span class="tag">LLM inference</span><span class="tag">quantization</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.24144" target="_blank" rel="noopener">arXiv:2605.24144</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Targets the GEMV-bound decode stage of LLM inference with a vector-quantization (VQ) datapath that combines on-chip codebook reuse with a memory-conflict-avoiding access scheduler. The reported 2-bit weight compression matches accuracy of 4-bit RTN baselines on Llama-3 70B while delivering ~1.7× tokens/sec on the same memory bandwidth. The architecture is silicon-implementable as an inference-pod accelerator front-end; how it integrates with KV-cache pressure at long-context settings (&gt;32k tokens) is the next open question.</span>
+        <span class="zh">针对LLM推理中受GEMV带宽约束的解码阶段，提出向量量化（VQ）数据通路，结合片上码本复用与避免访存冲突的调度器。论文报告在Llama-3 70B上，2位权重压缩可媲美4位RTN基线的精度，同等存储带宽下token吞吐量提升约1.7倍。架构可作为推理pod前端硅化实现；其在长上下文（&gt;32k token）下与KV缓存压力的协同，是下一个待解问题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.25798" target="_blank" rel="noopener">
+          <span class="en">DiSC: resolution-scalable acceleration of diffusion models via sparsity and cached-token reuse</span>
+          <span class="zh">DiSC：通过稀疏与缓存token复用实现分辨率可扩展的扩散模型加速</span>
+        </a><span class="tag">preprint</span><span class="tag">diffusion</span><span class="tag">ASIC</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.25798" target="_blank" rel="noopener">arXiv:2605.25798</a> · 2026-05-25</p>
+      <p class="summary">
+        <span class="en">Two intertwined contributions: Cached Token Reuse uses inter-step latent similarity to skip token recomputation, and Softmax Thresholding propagates sparsity masks across iterations to bypass redundant attention work. Together they cut diffusion model inference cost ~3× at high resolutions with negligible FID loss. Notable because it attacks both the iterative-step bottleneck and the quadratic-attention bottleneck at the architecture level rather than as a software optimization, suggesting a clean ASIC target for text-to-image inference at scale.</span>
+        <span class="zh">两项相互嵌入的贡献：缓存token复用（CTR）利用步间隐空间相似性跳过token重计算，Softmax阈值化（ST）将稀疏掩码跨迭代传播以绕过冗余注意力计算。两者结合可在高分辨率下将扩散模型推理成本下降约3倍，FID几乎无损。值得关注之处在于：该工作在架构层而非软件层同时打击迭代步骤瓶颈与二次注意力瓶颈，提示了规模化文生图推理ASIC的清晰目标。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="eda">
+  <section class="area" id="photonics">
     <h2>
-      <span class="en">EDA, Verification &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
+      <span class="en">Photonics &amp; Interconnects</span>
+      <span class="zh">光子学与互连</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.23549" target="_blank" rel="noopener">
-          <span class="en">DAE4HLS: exposing memory-level parallelism to HLS via explicit decoupling</span>
-          <span class="zh">DAE4HLS:通过显式解耦将内存级并行暴露给HLS</span>
-        </a><span class="tag">EDA</span><span class="tag">HLS</span>
+        <a href="https://arxiv.org/abs/2605.22704" target="_blank" rel="noopener">
+          <span class="en">All-band photonic-integrated optical parametric amplification</span>
+          <span class="zh">全波段光子集成参量放大</span>
+        </a><span class="tag">preprint</span><span class="tag">silicon photonics</span><span class="tag">amplifier</span>
       </h3>
-      <p class="authors">et al. (see paper)</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2605.23549" target="_blank" rel="noopener">arXiv:2605.23549</a> · 2026-05-22</p>
+      <p class="authors">EPFL Photonic Systems Lab and partners</p>
+      <p class="affil">EPFL</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.22704" target="_blank" rel="noopener">arXiv:2605.22704</a> · 2026-05-21</p>
       <p class="summary">
-        <span class="en">High-Level Synthesis is great at sequential memory access patterns and small scratchpad-fitting data, and terrible at everything else — which means most non-trivial accelerator designs still get hand-written at the RTL level. DAE4HLS adds an explicit decoupling primitive that exposes memory-level parallelism the synthesizer can actually exploit, broadening the class of designs HLS can produce. Tooling paper, but the right kind: less &#x27;AI-generated RTL&#x27; (still messy) and more &#x27;give the compiler the information it always needed.&#x27;</span>
-        <span class="zh">高层综合(HLS)在顺序内存访问与适合便签存储器的小数据集上表现良好,在其他场景则相对失败——这意味着多数非平凡的加速器设计仍由人工写RTL。DAE4HLS增加显式解耦原语,将内存级并行暴露给综合器,扩展了HLS可处理的设计类别。是工具论文,但属于正确的方向:相比&#x27;AI生成RTL&#x27;(仍混乱),&#x27;把编译器一直需要的信息交给它&#x27;更扎实。</span>
+        <span class="en">Demonstrates a chip-integrated optical parametric amplifier with usable gain spanning the O-, S-, C-, L- and U-bands — covering essentially all telecom and datacom wavelength windows on one device. Pump-power and chip-length requirements are within commercial silicon-photonics process windows, which is the interesting part: prior OPAs at this breadth needed bulk crystals or kilometers of nonlinear fiber. If this productizes, it would let co-packaged optics scale wavelength count without stacking multiple gain materials.</span>
+        <span class="zh">演示了一种芯片集成光参量放大器，可用增益带宽覆盖O、S、C、L、U波段 — 在单一器件上几乎覆盖所有电信与数通波长窗口。泵浦功率与芯片长度需求处于商业硅光子工艺窗口之内，这正是关键之处：以往达到同等带宽的OPA需要体材料晶体或公里级非线性光纤。若实现产品化，将使共封装光学能够在不堆叠多种增益材料的前提下扩展波长数。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.24199" target="_blank" rel="noopener">
+          <span class="en">Wideband balanced photodetectors for classical and quantum light detection from optical to EUV/X-rays</span>
+          <span class="zh">覆盖光学至EUV/X射线波段的宽带平衡光电探测器</span>
+        </a><span class="tag">preprint</span><span class="tag">EUV</span><span class="tag">photodetector</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.24199" target="_blank" rel="noopener">arXiv:2605.24199</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Solves the junction-capacitance / noise trade-off that has kept balanced photodetection out of the EUV and soft X-ray regimes — exactly the wavelengths that matter for next-gen lithography metrology and EUV-source diagnostics. A bootstrapped transimpedance amplifier feeding a low-noise JFET front-end pushes the noise floor down enough to enable quantum-limited measurements at sub-100 nm wavelengths. Direct relevance to ASML/Zeiss metrology stacks for High-NA EUV nodes.</span>
+        <span class="zh">解决了将平衡光电探测扩展至EUV与软X射线波段时一直存在的结电容/噪声折中 — 这正是下一代光刻计量与EUV光源诊断关注的波长范围。自举式跨阻放大器配合低噪声JFET前端，将噪声底降低到足以在亚100 nm波长实现量子极限测量。对ASML/蔡司在High-NA EUV节点的计量栈具有直接相关性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="emerging">
+    <h2>
+      <span class="en">Emerging Computing</span>
+      <span class="zh">新兴计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.24408" target="_blank" rel="noopener">
+          <span class="en">P-dit probabilistic Ising machine for solving the quadratic assignment problem</span>
+          <span class="zh">用p-dit概率Ising机求解二次分配问题</span>
+        </a><span class="tag">preprint</span><span class="tag">probabilistic computing</span><span class="tag">Ising</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.24408" target="_blank" rel="noopener">arXiv:2605.24408</a> · 2026-05-23</p>
+      <p class="summary">
+        <span class="en">Extends probabilistic-bit (p-bit) Ising machines to multi-state probabilistic d-dimensional variables, mapping the quadratic assignment problem onto silicon-implementable p-dit hardware. Reports time-to-solution improvements over GPU-based simulated annealing on benchmark instances. Notable as part of a broader trend: probabilistic-computing hardware is starting to clear the bar where the energy/answer ratio actually beats von-Neumann + SA for NP-hard combinatorial workloads — the next 18 months will tell whether this translates into supply-chain or routing problems anyone in industry actually runs.</span>
+        <span class="zh">将概率比特（p-bit）Ising机扩展为多状态、多维概率变量（p-dit），把二次分配问题映射到可硅化实现的p-dit硬件上。基准实例上较GPU模拟退火（SA）在求解时间上有明显改进。意义在于一个更大趋势：概率计算硬件开始在NP难组合问题上实现&#x27;每个答案能耗&#x27;低于冯诺依曼+SA的门槛 — 未来18个月将验证这是否能落地为工业界真正在跑的供应链或路由问题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.24569" target="_blank" rel="noopener">
+          <span class="en">Energy-aware computing in the year 2026</span>
+          <span class="zh">2026年的能耗感知计算</span>
+        </a><span class="tag">preprint</span><span class="tag">energy</span><span class="tag">HPC</span>
+      </h3>
+      <p class="authors">European HPC consortium</p>
+      <p class="affil">multi-institution EU</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.24569" target="_blank" rel="noopener">arXiv:2605.24569</a> · 2026-05-23</p>
+      <p class="summary">
+        <span class="en">A position-and-survey paper that argues the carbon and grid-side constraints on HPC and generative AI have crossed a threshold where energy-aware scheduling, not raw FLOPS, is now the binding optimization target. Walks through job-level, system-level and continuum-level (edge-cloud-HPC) levers and where each has measurable impact. Most useful as ammunition for budget conversations with procurement and energy teams; the technical detail is survey-grade rather than novel.</span>
+        <span class="zh">一篇立场+综述论文，主张HPC与生成式AI面临的碳排与电网约束已越过门槛，能耗感知调度（而非裸FLOPS）已成为绑定型的优化目标。文章梳理了任务级、系统级以及边-云-HPC连续体层级的杠杆，及各自可量化的影响。其最大价值是为采购与能源团队的预算对话提供弹药；技术细节属综述层级而非原创。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-05-25 14:00 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-05-25 14:00 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-05-26 13:50 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-05-26 13:50 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
