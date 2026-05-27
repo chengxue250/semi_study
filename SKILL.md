@@ -42,7 +42,7 @@ Follow these steps in order. Each step has a clear handoff so a fresh agent can 
 
 ### 1. Resolve today's date and prior context
 
-- Use the system date (the agent's current date). Format as `YYYY-MM-DD`.
+- **Read the actual system date — do not infer it.** Run `date +%Y-%m-%d` (or equivalent) and use that string as the edition date. **Do not** assume "today = (date in yesterday's edition.json) + 1" — that breaks whenever the previous run was skipped, ran multiple times, or was itself misdated. The 2026-05-27 run hit this bug: the previous edition was 2026-05-25, the agent inferred today = 2026-05-26, but the real system date was 2026-05-27. Always read the clock.
 - If `output/index.html` already exists with today's date in its `<meta name="edition-date">`, ask the user whether to **refresh** (re-run today) or **skip**. Default to refresh.
 - **`output/.seen_urls.json`** is the source of truth for "what we've already published." It's a flat `{url: first-seen-date}` map covering both news story URLs and research paper venue URLs. The next steps use it to filter candidates so daily runs don't repeat the same items. Same-day re-runs are explicitly supported — only URLs first seen on a *previous* day are filtered out.
 - Read `output/archive/` to see what shape yesterday's edition took (sections, themes) — useful for choosing a complementary theme today.
@@ -117,7 +117,7 @@ See `references/style-guide.md` for tone, common pitfalls (e.g., conflating wafe
 
 ### 6. Assemble the structured edition
 
-Build a JSON object matching this shape and write it to `output/edition.json`:
+Build a JSON object matching this shape and write it to `output/edition.json`. **Quoting gotcha for Chinese summaries:** never use ASCII straight quotes (`"…"`) to mark inline emphasis or quotations inside a Chinese string — they will be parsed as JSON string terminators and break the file. Use Chinese curly quotes (`「…」` or `"…"`) instead. The 2026-05-27 run hit this with text like `作为"副驾驶"` and had to repair the JSON after writing.
 
 ```json
 {
@@ -149,9 +149,11 @@ Build a JSON object matching this shape and write it to `output/edition.json`:
 }
 ```
 
-### 7. Optionally, build the research block
+### 7. Build the research block (mandatory — run this every day)
 
-If the user asks for or implies research/academic coverage — or simply if it's been ≥ 5 days since the last `research.html` update — add a `research` block to `edition.json`. See `references/research-guide.md` for the full editorial guide; the short version:
+Every daily run produces **both** `output/index.html` (news) and `output/research.html` (research). Do not skip the research block on the basis that yesterday's edition already had one — the de-dup via `.seen_urls.json` prevents repeating papers, so daily research is safe and is the publication's convention. (Previous wording here described research as a "weekly cadence" / "≥ 5 days since last update"; that is obsolete — the user explicitly corrected it on 2026-05-26.)
+
+See `references/research-guide.md` for the full editorial guide; the short version:
 
 1. Pull from three complementary sources — run all three; they cover different layers of the literature and each handles weekend/holiday gaps differently:
 
@@ -228,7 +230,30 @@ The script is idempotent — running it twice on the same day overwrites cleanly
 - If research was built, open `output/research.html` and confirm: papers render in the right areas, every paper has a venue link, EN/中文 toggle works, "back to today's headlines" footer link works.
 - Confirm `output/archive.html` lists today's edition at the top.
 
-### 10. (Optional) Push to the user's phone
+### 10. Commit and publish to GitHub Pages
+
+This site is published to GitHub Pages at the URL given in `notify.yaml` → `site.public_url` (currently https://chengxue250.github.io/semi_study/). After every successful run, commit the new files and update `gh-pages`. Do not skip this — the rendered HTML in `output/` is the deliverable; if it isn't on `gh-pages`, no one can read it.
+
+```bash
+# 1. Stage today's outputs (specific files, not `git add -A` — keeps notify.yaml & .env out).
+git add output/edition.json output/index.html output/research.html \
+        output/archive.html output/.seen_urls.json \
+        output/archive/$(date +%Y-%m-%d -d 'yesterday' 2>/dev/null || date -v-1d +%Y-%m-%d).html \
+        output/archive/research/$(date +%Y-%m-%d -d 'yesterday' 2>/dev/null || date -v-1d +%Y-%m-%d).html
+
+# 2. Commit and push main.
+git commit -m "edition $(date +%Y-%m-%d): <one-line headline>"
+git push origin main
+
+# 3. Publish output/ to gh-pages via the safe-clone script (avoids leaking notify.yaml / .env).
+bash scripts/publish_gh_pages.sh main
+```
+
+The `publish_gh_pages.sh` script clones the repo into a temp dir before doing any orphan-branch work — this is structural protection against the `git add -A` secret-leak bug that hit twice on 2026-05-23. Do not bypass it with a manual orphan-branch flow.
+
+GitHub Pages typically rebuilds within ~30 seconds of the push.
+
+### 11. (Optional) Push to the user's phone
 
 If `notify.yaml` exists at the project root, run:
 
@@ -236,7 +261,7 @@ If `notify.yaml` exists at the project root, run:
 python3 scripts/notify.py
 ```
 
-This sends the theme headline + dek as a push notification through whichever channels are configured (currently: ntfy.sh). When the user taps the notification, it opens the public URL of the rendered page (typically GitHub Pages).
+This sends the theme headline + dek as a push notification through whichever channels are configured (currently: ntfy.sh). When the user taps the notification, it opens the public URL of the rendered page (typically GitHub Pages — which is why step 10 must run *before* this step; otherwise the link 404s).
 
 Setup is documented in `notify.yaml.example` and `references/automation.md` § "Pushing to your phone." Required capabilities for this step: `python3` and outbound HTTPS (which any platform that runs the rest of the skill already has). No API key needed for ntfy.sh on public topics — the security model is a long, unguessable topic name.
 
