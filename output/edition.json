@@ -1,47 +1,14 @@
 {
-  "date": "2026-05-27",
+  "date": "2026-05-28",
   "theme": {
-    "en": "Memory Crosses the $1 Trillion Line; Taiwan Cracks the Smuggling Pipe",
-    "zh": "存储跨入万亿俱乐部，台湾撬开走私管道"
+    "en": "Inference Money Lands; Chip Diplomacy Whiplashes",
+    "zh": "推理融资落地，芯片外交剧烈摇摆"
   },
   "dek": {
-    "en": "Micron and SK hynix both crossed $1 trillion in market value on AI memory demand, TSMC's CEO defused the bonus revolt with a 30%-plus pledge, and Taiwan made its first arrests in a network smuggling Nvidia GPUs to China via Japan.",
-    "zh": "美光与SK海力士同日跨过万亿美元市值门槛——由AI存储需求驱动；台积电CEO以30%+奖金涨幅承诺化解员工不满；台湾警方对经日本转运英伟达GPU至中国的走私网络展开首次抓捕。"
+    "en": "Groq raises $650M and Sandisk debuts a high-bandwidth flash for AI inference, just as Trump tells Taiwan it 'stole our chip industry' and Jensen Huang takes a seat on a Beijing university board — a single news day in which both the capital and the geopolitics of compute moved hard.",
+    "zh": "Groq完成6.5亿美元融资、闪迪发布面向AI推理的高带宽闪存，与此同时特朗普称台湾「偷走了我们的芯片产业」、黄仁勋加入北京清华大学顾问委员会——单日之内，算力的资金面与地缘面同步剧烈位移。"
   },
   "sections": [
-    {
-      "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
-      "stories": [
-        {
-          "featured": true,
-          "title": {
-            "en": "Micron and SK hynix both cross $1 trillion market cap on AI memory demand",
-            "zh": "美光与SK海力士同日跨入万亿美元市值俱乐部，AI存储需求驱动"
-          },
-          "summary": {
-            "en": "Two memory chipmakers — Micron and SK hynix — became the first pure-play DRAM/HBM vendors to cross a $1 trillion market capitalisation, joining Nvidia, TSMC and a handful of others. SK hynix is up ~250% year-to-date, Micron's HBM order book is reportedly sold out through 2026, and Micron's data-center revenue grew 150% YoY in its most recent quarter. The crossing reframes a long-running argument: in this AI cycle, memory is no longer the cyclical commodity sidecar to logic — it is co-equal infrastructure, and the buyers are pricing it that way. The risk angle: the same digitimes-cited analysts who validate the move are also asking when (not whether) cyclicality returns.",
-            "zh": "存储芯片厂美光和SK海力士同日跨入万亿美元市值门槛，成为首批进入万亿俱乐部的纯DRAM/HBM厂商，与英伟达、台积电等少数公司并列。SK海力士年初至今涨幅约250%，美光的HBM订单据称已售罄至2026年，最近一季数据中心收入同比增长150%。这一里程碑改写了一个延续多年的争论：在本轮AI周期中，存储不再是逻辑芯片的周期性附属品，而是同等重要的基础设施，市场也在按此定价。风险面：肯定本轮的分析师同时在问——周期性回归是什么时候、而非是否会发生。"
-          },
-          "source": "Yahoo Finance",
-          "url": "https://finance.yahoo.com/sectors/technology/articles/sk-hynix-joins-micron-in-1-trillion-club-as-ai-memory-chip-rally-accelerates",
-          "published": "2026-05-27T02:45:00Z"
-        },
-        {
-          "title": {
-            "en": "Rambus launches DDR5-9600 client chipset aimed at next-gen AI PCs",
-            "zh": "Rambus推出面向下一代AI PC的DDR5-9600客户端芯片组"
-          },
-          "summary": {
-            "en": "Rambus unveiled a DDR5-9600 client chipset — the fastest mainstream-PC memory interface part shipping to date — explicitly positioned for on-device AI workloads where bandwidth-per-watt at the client edge has become a real constraint. The launch matters because client memory has lagged datacenter HBM by ~2 generations on bandwidth; closing that gap is what lets a NPU-equipped consumer PC actually run multi-billion-parameter models locally without thrashing against DRAM. Watch for AMD's and Intel's 2026 client roadmaps to validate the spec as a default rather than premium tier.",
-            "zh": "Rambus发布DDR5-9600客户端芯片组——目前出货的主流PC存储接口部件中速率最高——明确瞄准设备端AI负载，其中边缘带宽每瓦已成为真实瓶颈。意义在于：客户端存储在带宽上已落后数据中心HBM约2个代际，弥合这一差距是让搭载NPU的消费PC在本地运行多十亿参数模型而不被DRAM拖死的关键。后续关注AMD与英特尔2026年客户端路线图是否将此规格作为默认配置而非高端选项。"
-          },
-          "source": "Embedded.com",
-          "url": "https://www.embedded.com/rambus-launches-ddr5-9600-client-chipset-for-next-gen-ai-pcs/",
-          "published": "2026-05-27T13:12:00Z"
-        }
-      ]
-    },
     {
       "id": "ai-accelerators",
       "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
@@ -49,29 +16,62 @@
         {
           "featured": true,
           "title": {
-            "en": "Broadcom adds South Korea's FuriosaAI to its custom-ASIC empire",
-            "zh": "博通将韩国FuriosaAI纳入其定制ASIC版图"
+            "en": "Groq raises $650M to fund its second act in inference compute",
+            "zh": "Groq完成6.5亿美元融资，开启推理算力业务第二阶段"
           },
           "summary": {
-            "en": "Broadcom announced a development partnership with Seoul-based FuriosaAI for next-generation AI inference chips — the latest addition to a stable that already includes hyperscaler XPU work for Google, Meta and OpenAI. For Broadcom, FuriosaAI brings a non-US partner with a usable RNGD architecture and a credible LPDDR-anchored inference cost story; for FuriosaAI, it brings access to Broadcom's CoWoS allocation and Tomahawk fabric stack. The move continues the broader pattern of 2026: every credible non-Nvidia inference startup needs a foundry-services or networking gatekeeper as a co-pilot.",
-            "zh": "博通宣布与韩国首尔的FuriosaAI在下一代AI推理芯片上建立开发合作——这是博通定制ASIC业务的最新一站，此前已包括谷歌、Meta、OpenAI的XPU项目。对博通而言，FuriosaAI带来了一家拥有可用RNGD架构、以LPDDR为锚的推理成本叙事可信的非美系合作方；对FuriosaAI而言，则换来了博通CoWoS产能与Tomahawk网络栈的入场券。这延续了2026年的更大模式：每一家可信的非英伟达推理初创，都需要一家代工服务或网络厂商作为「副驾驶」。"
+            "en": "Axios scooped that Groq, the LPU-based inference startup, is raising approximately $650 million in fresh capital — its largest single round to date and a clear signal that the post-Cerebras-IPO funding window for non-Nvidia inference silicon is fully open. The new capital is reportedly earmarked for capacity (more Groq Cloud regions, more LPU production with its US foundry partners) rather than R&D into a successor architecture. Combined with Cerebras's $63B IPO valuation and Marvell's lifted AI guidance this week, the message to the market is that inference — not training — is where the next phase of accelerator economics gets fought.",
+            "zh": "Axios独家报道：基于LPU架构的推理初创公司Groq正在以约6.5亿美元规模融资——为公司迄今最大单轮融资，亦明确信号——继Cerebras IPO之后，非英伟达推理芯片的融资窗口已完全打开。资金据称用于扩容（更多Groq Cloud区域、与美国代工伙伴扩大LPU生产），而非投入下一代架构研发。叠加本周Cerebras 630亿美元IPO估值与Marvell上调AI业务指引，市场已获得清晰信号：加速器经济学的下一阶段战场是推理，而非训练。"
           },
-          "source": "The Register",
-          "url": "https://www.theregister.com/2026/05/27/broadcom_furiosa_ai_deal/",
-          "published": "2026-05-27T13:00:00Z"
+          "source": "Axios (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX1BLZ3JvcWdyb3FhMzVtaWxsaW9uYXhpb3M_oc=5",
+          "published": "2026-05-28T13:31:00Z"
         },
         {
           "title": {
-            "en": "Nvidia's Rubin CPX launch wobbles as memory and substrate orders fail to materialize",
-            "zh": "英伟达Rubin CPX发布生变：存储与基板订单未如期落地"
+            "en": "Marvell Q1 lifts AI growth targets as custom-silicon revenue continues to scale",
+            "zh": "Marvell财报Q1上调AI业务目标，定制硅片收入持续放量"
           },
           "summary": {
-            "en": "Korea's TheElec reports that the launch of Nvidia's Rubin CPX — the compute-heavy variant of the Rubin generation targeted at the prefill stage of LLM inference — has become uncertain because the bill-of-materials orders for its memory and advanced substrate haven't arrived at the expected suppliers. The signal cuts against the broader narrative that Nvidia's roadmap is on autopilot: at the bleeding edge, BOM placement is now the practical schedule constraint, not silicon design. If true, the slip would also reshuffle the implied 2026-Q4 / 2027-Q1 hyperscaler accelerator mix.",
-            "zh": "韩国TheElec报道，英伟达Rubin CPX——Rubin代号面向LLM推理预填充阶段、计算密度更高的变体——的发布出现不确定性，原因是其存储与先进基板的BOM订单未按预期到达对应供应商。这一信号与「英伟达路线图自动驾驶」的主流叙事相悖：在尖端节点，BOM下单已实质成为日程瓶颈，而非硅设计本身。若属实，延后还将重新洗牌2026年Q4 / 2027年Q1超大规模客户的加速器组合。"
+            "en": "Marvell's Q1 earnings call materially raised the company's AI-related growth targets, with management pointing to ramping custom-silicon programs (almost certainly including the AWS Trainium 3 implementation work) plus higher attach rates for its DSP and optical-DSP portfolio in CoWoS-packaged accelerators. The narrative is consistent with what Broadcom signaled last week: the hyperscaler-ASIC opportunity is materializing faster than the analyst consensus has updated for, and the merchant-DSP layer (Marvell + Astera + MaxLinear) is the second-derivative beneficiary of every custom-XPU socket that lands.",
+            "zh": "Marvell Q1电话会议实质性上调AI业务增长目标——管理层指向正在爬坡的定制硅片项目（几乎可以确认包括AWS Trainium 3的实施工作），以及其DSP与光DSP产品组合在CoWoS封装加速器中更高的搭配率。这一叙事与博通上周释放的信号一致：超大规模客户的ASIC机会落地速度，快于分析师共识更新的速度；而商用DSP层（Marvell + Astera + MaxLinear）是每个定制XPU socket落地的二阶受益者。"
           },
-          "source": "TheElec",
-          "url": "https://www.thelec.net/news/articleView.html?idxno=33417",
-          "published": "2026-05-27T10:43:00Z"
+          "source": "TradingView (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5fbWFydmVsbF9xMV9haV9ncm93dGhfdGFyZ2V0c_oc=5",
+          "published": "2026-05-28T09:05:00Z"
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "title": {"en": "Memory", "zh": "存储"},
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "Sandisk debuts High-Bandwidth Flash (HBF) for AI inference",
+            "zh": "Sandisk推出面向AI推理的High-Bandwidth Flash（HBF）"
+          },
+          "summary": {
+            "en": "Sandisk's CTO confirmed the company is bringing a new high-bandwidth flash product class — branded HBF — to market, explicitly framed as the tier that sits between HBM (capacity-limited, hot) and conventional NAND (cold, slow) for AI inference workloads. The pitch is that long-context KV-cache footprints and retrieval-heavy inference don't actually need DRAM-class bandwidth on every byte; they need a tier that delivers ~10× DRAM capacity per dollar with bandwidth a few-x below HBM. If HBF lands with serious bandwidth numbers and a clean PCIe / CXL controller, it reshapes the memory stack: Micron and SK hynix would no longer have the only credible answer for HBM-adjacent demand.",
+            "zh": "Sandisk首席技术官确认公司将推出新的高带宽闪存品类——名为HBF——明确定位为AI推理负载中介于HBM（容量受限、发热高）与传统NAND（冷、慢）之间的中间层。逻辑是：长上下文KV缓存与重检索推理实际上并不需要每个字节都享有DRAM级带宽；它们需要的是单位美元容量为DRAM约10倍、带宽较HBM低数倍的层级。若HBF以严肃的带宽指标与干净的PCIe / CXL控制器面世，将重塑存储栈：美光与SK海力士将不再是HBM相邻需求的唯一可信答案。"
+          },
+          "source": "Seeking Alpha (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9zYW5kaXNrX2hpZ2hfYmFuZHdpZHRoX2ZsYXNoX2FpX2luZmVyZW5jZQ?oc=5",
+          "published": "2026-05-28T13:14:00Z"
+        },
+        {
+          "title": {
+            "en": "China's CXMT accelerates IPO as DRAM-market challenge gathers pace",
+            "zh": "中国长鑫存储CXMT加快IPO进程，DRAM市场挑战加速"
+          },
+          "summary": {
+            "en": "Reports from Chosun and Bloomberg confirm that ChangXin Memory Technologies (CXMT) — China's largest indigenous DRAM maker — has accelerated its IPO timeline, with bankers reportedly targeting a Shanghai listing within the next two quarters. The move lands directly on top of memory's $1T-club moment for SK hynix and Micron: CXMT's capacity, even at trailing nodes, is the structural relief valve that prevents the current global DDR5 shortage from becoming a multi-year squeeze. The strategic question is whether US export-control posture treats CXMT's IPO proceeds as legitimately Chinese capital or as a forcing function for new sanctions.",
+            "zh": "Chosun与彭博消息显示，中国最大本土DRAM厂长鑫存储（CXMT）已加快IPO时间表，承销行据称瞄准未来两个季度内在上海挂牌。事件正叠加于SK海力士与美光跨入万亿俱乐部的时间节点：CXMT的产能——即便处于落后节点——也是结构性的「减压阀」，防止当前全球DDR5短缺演变为多年挤压。战略问题在于：美国出口管制将把CXMT的IPO募资视为合法的中国资本，还是视为触发新一轮制裁的导火索。"
+          },
+          "source": "Bloomberg (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5jeG10X2lwb19jaGluYV9kcmFt?oc=5",
+          "published": "2026-05-28T01:17:00Z"
         }
       ]
     },
@@ -80,31 +80,30 @@
       "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
       "stories": [
         {
-          "featured": true,
           "title": {
-            "en": "TSMC CEO Wei pledges 30%-plus bonus increase, Samsung workers vote yes on $340k deal",
-            "zh": "台积电CEO魏哲家承诺奖金涨幅30%+，三星员工以多数票通过约34万美元奖金方案"
+            "en": "AMD begins ramping next-gen EPYC 'Venice' on TSMC 2nm",
+            "zh": "AMD启动下一代EPYC「Venice」于台积电2nm节点的产能爬坡"
           },
           "summary": {
-            "en": "Twin labor outcomes resolved this week's flashpoints. TSMC CEO C.C. Wei publicly pledged employee bonus growth above 30% in 2026 if performance holds — directly responding to the strike-threat reports from earlier in the week. Separately, Samsung's chip-division union voted 74% in favor of an average bonus equivalent to ~10.5% of operating profit (about $340-400k per senior engineer), formally ending months of strike-threat tension. The outcomes matter because the Asian leading-edge fabs' single biggest 2026 risk — beyond geopolitics — was talent flight; both companies have now bought another year of stability at a known cost.",
-            "zh": "本周两大劳资紧张同时落地。台积电CEO魏哲家公开承诺：若业绩维持，2026年员工奖金涨幅将超过30%——直接回应本周早些时候的罢工威胁报道。另一边，三星芯片部门工会以74%多数票通过平均约相当于营业利润10.5%的奖金方案（资深工程师人均约34-40万美元），正式结束持续数月的罢工威胁。意义在于：除地缘政治外，2026年亚洲先进制程代工的最大单一风险就是人才流失；两家公司均以已知代价为自己又买到了一年稳定。"
+            "en": "AMD's next-generation EPYC server CPU, codenamed Venice, has formally entered ramp on TSMC's N2 (2nm) node — making AMD an early high-volume N2 customer alongside Apple and putting it ahead of Intel's competing Clearwater Forest Xeon timeline. The choice is notable because EPYC volumes give TSMC strong incentive to prioritize N2 yield-curve work on a server-validation workload (vs. mobile SoCs), which then feeds back as faster maturation for the rest of the N2 ecosystem (including Nvidia's Rubin successor and Broadcom's custom AI ASICs).",
+            "zh": "AMD下一代EPYC服务器CPU（代号「Venice」）正式启动台积电N2（2nm）节点产能爬坡——使AMD成为继苹果之后的高量级N2早期客户，并领先于英特尔Clearwater Forest Xeon竞品的时间表。意义在于：EPYC的出货量给了台积电充分动机，将N2的良率曲线优化优先投放在服务器验证负载（而非移动SoC）上，进而反哺整个N2生态（包括英伟达Rubin后继与博通自研AI ASIC）的成熟节奏。"
           },
-          "source": "Bloomberg",
-          "url": "https://www.bloomberg.com/news/articles/2026-05-27/tsmc-ceo-pledges-30-incentive-bump-as-ai-profits-soar",
-          "published": "2026-05-27T10:45:00Z"
+          "source": "MSN (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5fYW1kX2VweWNfdmVuaWNlX3RzbWNfMm5t?oc=5",
+          "published": "2026-05-28T08:01:00Z"
         },
         {
           "title": {
-            "en": "TSMC to raise 3nm wafer prices by up to 15% in H2 2026; further 5-10% in 2027",
-            "zh": "台积电2026年下半年3nm晶圆涨价至多15%，2027年再涨5-10%"
+            "en": "Broadcom-FuriosaAI 2nm chip on TSMC: 1H 2028 sampling target",
+            "zh": "博通-FuriosaAI 2nm芯片走台积电，预计2028年上半年送样"
           },
           "summary": {
-            "en": "TrendForce reports TSMC will hike 3nm wafer prices by as much as 15% in 2H 2026 and pencil in another 5-10% in 2027, driven by AI and custom-ASIC demand that has now saturated Fab 18 and the early N3-family capacity. The increase will flow straight into Apple, Qualcomm, MediaTek, AMD and Nvidia bill-of-materials — and the news lands on the same day TSMC's stock hit a 52-week high. The structural read: TSMC is finally collecting the pricing premium that node leadership theoretically commanded since 2020, now that competitive 3nm alternatives are at least 12-18 months behind.",
-            "zh": "TrendForce报道，受AI与定制ASIC需求拉动、Fab 18及N3家族早期产能已饱和，台积电将于2026年下半年对3nm晶圆涨价至多15%，并预留2027年再涨5-10%。涨幅将直接转入苹果、高通、联发科、AMD与英伟达的物料成本；新闻发布当日台积电股价同步创下52周新高。结构性解读：在自2020年以来理论上属于工艺领先者的「溢价」，终于由台积电真正收取——前提是竞争性3nm替代方案至少落后12-18个月。"
+            "en": "TrendForce filled in the specifics on yesterday's Broadcom-FuriosaAI announcement: the chip will be fabricated on TSMC 2nm with sampling targeted for 1H 2028 — a deliberately conservative schedule that puts the part one node behind Nvidia's 2027 Rubin generation but in line with hyperscaler refresh cycles. FuriosaAI's value proposition isn't to beat Nvidia on raw FLOPs at the leading edge; it's to land a credibly cheaper inference part with co-packaged optics readiness, leveraging Broadcom's Tomahawk-fabric story to win Korean and Asia-Pacific hyperscaler deployments where Nvidia faces export-control friction.",
+            "zh": "TrendForce补全了昨日博通-FuriosaAI合作的细节：芯片将在台积电2nm节点制造，目标2028年上半年送样——这是一个刻意保守的时间表，使该产品较英伟达2027年的Rubin代落后一代，但与超大规模客户的换机周期相符。FuriosaAI的卖点不是在最先进节点上以裸FLOPs击败英伟达，而是落地一颗价格更可信、已为共封装光学做好准备的推理芯片——借力博通的Tomahawk网络叙事，去拿下韩国与亚太超大规模客户中英伟达受出口管制影响的部署机会。"
           },
           "source": "TrendForce (via Google News)",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4yX0VBd2xLRDF6cWVKWUEzNDdaSXdQQk1mLU0za0lBVTRtQTRRdVRfMVotaW1lZ2RGTHRBSEdKczFBVjJsM0FjUERnVjBPbXVlNXNIaW9Wb2xudXk1ZGdpdmtUZG43RkU2YzN5eHo4RVc4dVRDOUk?oc=5",
-          "published": "2026-05-27T07:15:00Z"
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5fYnJvYWRjb21fZnVyaW9zYWFpXzJubV90c21j?oc=5",
+          "published": "2026-05-28T09:06:00Z"
         }
       ]
     },
@@ -113,30 +112,31 @@
       "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘"},
       "stories": [
         {
+          "featured": true,
           "title": {
-            "en": "Taiwan arrests three over Nvidia chip smuggling network — Japan used as transshipment",
-            "zh": "台湾首次依英伟达走私案抓捕3人，日本作为转运地"
+            "en": "Trump says Taiwan 'stole our chip industry'; Taiwan's Lai delivers Morris Chang's autobiography to the White House",
+            "zh": "特朗普称台湾「偷走了我们的芯片产业」；台湾赖清德向白宫递送张忠谋自传作为回应"
           },
           "summary": {
-            "en": "Taiwan authorities arrested three individuals in connection with smuggling Nvidia AI GPUs to China via Japan — the first formal criminal crackdown on this trade route. The case builds on the Supermicro-channel allegations from earlier in the month, but adds a new wrinkle: routing through Japan to obscure the final destination. Practically, it means the BIS and Taiwan's MOEA now have a documented network rather than just theory, which raises the compliance bar for OEM partners and increases the cost of grey-market diversion across the entire region.",
-            "zh": "台湾警方依涉嫌将英伟达AI GPU经日本走私至中国的案件抓捕3名嫌疑人——这是该走私路径首次正式刑事追诉。该案在本月早些时候涉Supermicro渠道的指控之上又添新层：通过日本转运以掩盖最终目的地。实质意义：美国商务部BIS与台湾经济部如今手中是有据可查的走私网络而非理论模型，这提高了OEM合作方的合规门槛，并增加了整个亚太区灰色市场转运的成本。"
+            "en": "President Trump's renewed claim that Taiwan 'stole our chip industry' lands in tension with the historical record — TSMC was founded by Morris Chang, a 25-year Texas Instruments veteran and US citizen — and Taiwan's President Lai responded by formally presenting Chang's autobiography to the White House along with a request for reassurances on rumored semiconductor tariffs. The episode matters less as rhetoric and more as a leading indicator: tariff threats now reliably move TSM and the entire SOX index intraday, and Taiwan's Ministry of Economic Affairs is treating tariff posture as a sovereign-risk variable that requires diplomatic counter-programming.",
+            "zh": "特朗普重申台湾「偷走了我们的芯片产业」的说法与历史记录形成张力——台积电由德州仪器25年老兵、美国公民张忠谋所创立——台湾总统赖清德的回应是正式向白宫递送张忠谋自传，同时要求就传闻中的半导体关税获得保证。该事件作为修辞不重要，作为先行指标则关键：关税威胁如今已能在日内可靠地驱动TSM股价与整个SOX指数，台湾经济部正将关税立场视为需要外交反制的主权风险变量。"
           },
           "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/semiconductors/taiwan-authorities-arrest-three-on-suspicion-of-smuggling-nvidia-chips-to-china-operation-allegedly-used-japan-as-transshipment-point",
-          "published": "2026-05-27T11:10:00Z"
+          "url": "https://www.tomshardware.com/tech-industry/semiconductors/trump-says-taiwan-stole-our-chip-industry-but-tsmc-was-built-by-a-us-citizen-and-25-year-texas-instruments-veteran",
+          "published": "2026-05-28T10:25:00Z"
         },
         {
           "title": {
-            "en": "China adds nine homegrown AI chips to 'secure and reliable' procurement list for the first time",
-            "zh": "中国首次将9款国产AI芯片纳入「安全可靠」采购目录"
+            "en": "Jensen Huang joins Tsinghua University advisory board, plans Seoul visit next week",
+            "zh": "黄仁勋加入清华大学顾问委员会，下周访问首尔"
           },
           "summary": {
-            "en": "Nine domestically designed AI accelerators — spanning Huawei Ascend, Cambricon, Hygon and others — have been formally added to China's 'secure and reliable' procurement list, a status that effectively mandates them as the default choice for state-owned enterprises, central banks and government IT buyers. This is the first time AI accelerators have been included in that list, and is a direct policy mirror to the US Commerce Department's export-control regime. The practical effect: a large baseline order book gets locked in for Huawei et al. regardless of what happens with US H200 licensing.",
-            "zh": "9款国产AI加速器——涵盖华为昇腾、寒武纪、海光等——正式进入中国「安全可靠」采购目录；该地位实质上把它们设定为国企、央行与政府IT采购的默认选项。这是AI加速器首次进入该目录，与美国商务部出口管制制度形成镜像。实质效果：无论美国H200许可走向如何，华为等国产芯片厂都将获得一笔较大的基线订单。"
+            "en": "Nvidia CEO Jensen Huang accepted a seat on the advisory board of Tsinghua University — the Beijing institution whose alumni network anchors the Chinese AI hardware ecosystem (including Huawei's chip leadership) — and confirmed a Seoul visit for next week. The Tsinghua appointment drew immediate criticism from US activist investors as a 'security risk', but Huang's signal is hard to misread: he is publicly hedging against the scenario where US export-control posture costs Nvidia the China data-center market permanently. The Seoul leg is the corollary — keeping SK hynix and Samsung tightly aligned to Nvidia's roadmap as the alternative-customer base.",
+            "zh": "英伟达CEO黄仁勋接受清华大学顾问委员会席位——这所北京高校的校友网络支撑着中国AI硬件生态（包括华为芯片业务领导层）——同时确认下周访问首尔。清华任命立刻被美国激进派投资者抨击为「安全风险」，但黄仁勋的信号难以误读：他在公开对冲——以防美国出口管制立场最终让英伟达永久失去中国数据中心市场。首尔之行是该对冲的另一面——把SK海力士与三星紧密绑定在英伟达的路线图上，作为客户基本盘的备选。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/semiconductors/china-adds-homegrown-ai-chips-to-secure-and-reliable-procurement-list-for-the-first-time",
-          "published": "2026-05-27T12:28:00Z"
+          "source": "Crypto Briefing (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9odWFuZ190c2luZ2h1YV9hZHZpc29yeV9ib2FyZA?oc=5",
+          "published": "2026-05-28T11:13:00Z"
         }
       ]
     },
@@ -146,61 +146,61 @@
       "stories": [
         {
           "title": {
-            "en": "Entegris and JSR/Inpria sign EUV photoresist cross-licensing deal",
-            "zh": "Entegris与JSR/Inpria签署EUV光刻胶交叉许可协议"
+            "en": "ASML stock dips after TSMC reportedly declines latest lithography systems",
+            "zh": "ASML股价下挫——传台积电拒绝其最新光刻系统"
           },
           "summary": {
-            "en": "Entegris and JSR's Inpria subsidiary signed a cross-licensing agreement covering metal-oxide and chemically-amplified EUV photoresist IP — the two technology families that together cover essentially all leading-edge EUV resist designs in production today. The deal removes a long-running IP overhang on Inpria's metal-oxide resist roadmap (which TSMC, Samsung and Intel are increasingly relying on for High-NA EUV at A14/A10) and gives Entegris a clear path to scale its material-supply business into the same node window. ASML's High-NA install base is the customer that wins from cleaner IP plumbing.",
-            "zh": "Entegris与JSR子公司Inpria签署交叉许可协议，覆盖金属氧化物与化学放大型EUV光刻胶IP——这两大技术家族几乎涵盖了目前量产中的所有先进EUV光刻胶设计。协议消除了Inpria金属氧化物光刻胶路线长期存在的IP风险（台积电、三星、英特尔在A14/A10的High-NA EUV节点上对其依赖加深），同时让Entegris获得了将材料供应业务扩展到同代节点的清晰路径。最终受益者是ASML的High-NA装机客户群——更清晰的IP水管。"
+            "en": "ASML's share price slipped on a Korean report that TSMC has declined a batch of ASML's newest High-NA EUV systems for the current procurement cycle, with TSMC reportedly preferring to extend its existing low-NA EUV stack through one more node before committing to High-NA's tool-per-fab economics. If accurate, the news puts ASML's revenue mix back-loaded toward 2027 and beyond, and validates Intel Foundry's earlier-than-TSMC bet on High-NA as a near-term differentiator at 18A / 14A. ASML's daily €16M buyback program continues to provide a partial floor, but the AI rally's beneficiaries are being re-sorted in real time.",
+            "zh": "ASML股价因一则韩国报道下挫——该报道称台积电在本采购周期内拒绝了一批ASML最新的High-NA EUV系统；台积电据称倾向于将既有低NA EUV栈再用一个节点，然后再承担High-NA每厂一台的投资经济学。若属实，该消息将ASML的收入结构后移至2027年及以后，同时也验证了英特尔代工早于台积电押注High-NA作为18A / 14A近期差异化优势的策略。ASML每日1600万欧元回购计划继续提供部分托底，但AI行情受益者的排序正在被实时重新洗牌。"
           },
-          "source": "EE Times Asia",
-          "url": "https://www.eetasia.com/entegris-and-jsr-inpria-ink-cross-licensing-agreement-on-euv-lithography/",
-          "published": "2026-05-27T01:48:00Z"
+          "source": "MSN (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9fYXNtbF9zdG9ja19kcm9wX3RzbWNfaGlnaG5h?oc=5",
+          "published": "2026-05-28T00:30:00Z"
         },
         {
           "title": {
-            "en": "TATA Electronics signs MoU with ASML for India semiconductor manufacturing",
-            "zh": "塔塔电子与ASML签署谅解备忘录，推进印度半导体制造"
+            "en": "Tower Semiconductor announces $1.3 billion silicon-photonics agreements",
+            "zh": "Tower半导体公布13亿美元硅光子合作协议"
           },
           "summary": {
-            "en": "TATA Electronics signed a memorandum of understanding with ASML covering future-node lithography tools and service support for the company's planned Gujarat fab — India's first announced 28nm/22nm-class facility, currently in equipment-installation phase. The MoU itself is non-binding but materially de-risks tool delivery slots, which had been the principal open question for India's semi build-out. The strategic read: even at trailing-edge nodes, ASML capacity is now a sovereign procurement matter, and India has secured its place in the queue.",
-            "zh": "塔塔电子与ASML签署谅解备忘录，覆盖其位于古吉拉特邦规划晶圆厂的未来节点光刻设备与服务支持——这是印度首座正式宣布的28nm/22nm级工厂，目前处于设备进场阶段。MoU本身不具法律约束力，但实质上降低了设备交付排期的风险，而这正是印度半导体建设此前最大的悬而未决问题。战略解读：即便是成熟节点，ASML产能如今也是主权采购议题；印度已在排队序列中锁定位置。"
+            "en": "Israel's Tower Semiconductor disclosed cumulative silicon-photonics customer agreements worth approximately $1.3 billion — a meaningful inflection for a foundry historically positioned around analog and RF processes rather than leading-edge logic. The bookings reflect demand for Tower's BiCMOS-anchored silicon-photonics platform from data-center optical-engine suppliers who need a non-TSMC, non-Samsung path to volume. Combined with this week's Lightmatter / TSMC COUPE news and the FuriosaAI CPO mention, the picture is clear: every credible 2027 AI accelerator now has a co-packaged optics story, and the foundry capacity behind those stories is finally being booked rather than projected.",
+            "zh": "以色列Tower半导体披露硅光子客户合作累计金额约13亿美元——对于一家历史上聚焦模拟与射频工艺、并非先进逻辑节点的代工厂而言，这是一次有意义的拐点。订单反映出数据中心光引擎供应商对Tower以BiCMOS为基础的硅光子平台的需求——它们需要一条非台积电、非三星的量产路径。结合本周的Lightmatter/台积电COUPE消息与FuriosaAI共封装光学（CPO）提法，图景清晰：每一个可信的2027 AI加速器如今都有了共封装光学的故事，而支撑这些故事的代工产能终于从规划变为实际订单。"
           },
-          "source": "MSN (via Google News)",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB6N1FYNl9rNGZBQ0NEUlV0Y0w3eEpSV2hWNFFOZlpYRTRFdmlsR0lvZThlNTdRcF9oNVlqRGwwcmZUZG5OQUFINUVoNXJxVjB2QmJqSGZ4SHZPZkVMQ2NRQUR1clVOWVZjdkRtbHIyT3JtT2c?oc=5",
-          "published": "2026-05-27T02:29:00Z"
+          "source": "Yahoo Finance (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9fdG93ZXJfc2VtaWNvbmR1Y3Rvcl9zaWxpY29uX3Bob3Rvbmljc18xLjNCX2FncmVlbWVudHM?oc=5",
+          "published": "2026-05-28T11:33:00Z"
         }
       ]
     },
     {
-      "id": "packaging",
-      "title": {"en": "Packaging & Advanced Nodes", "zh": "封装与先进节点"},
+      "id": "china-custom-silicon",
+      "title": {"en": "China & Custom Silicon", "zh": "中国与自研芯片"},
       "stories": [
         {
           "title": {
-            "en": "ASE accelerates AI innovation with automated 310mm panel-level packaging",
-            "zh": "日月光以自动化310mm面板级封装加速AI创新"
+            "en": "ByteDance starts building custom server CPUs to reduce chip dependence",
+            "zh": "字节跳动启动自研服务器CPU以降低芯片依赖"
           },
           "summary": {
-            "en": "Outsourced-assembly leader ASE detailed its automated 310×310 mm panel-level packaging (PLP) line — the same panel format TSMC is targeting for its CoPoS pilot. The differentiator is automation: ASE has built a continuous-flow PLP cell that targets >85% utilisation on AI accelerator packaging volumes that previously bottlenecked at hand-tuned wafer-level steps. The signal worth tracking: panel-level packaging is graduating from RD demonstrators to industrial-scale assembly, and the OSAT incumbents are positioning to absorb the AI accelerator volume that TSMC's in-house CoPoS won't take.",
-            "zh": "封测龙头日月光（ASE）详述其自动化310×310 mm面板级封装（PLP）产线——所采用面板规格与台积电CoPoS试产线相同。差异点在于自动化：ASE构建了连续流式PLP工艺单元，目标AI加速器封装产能利用率超过85%，此前同等步骤需手工调校、效率受限。值得关注的信号：面板级封装正从研发演示阶段毕业，进入工业化量产；而封测厂正在卡位——准备接收台积电自有CoPoS消化不下的AI加速器封装需求。"
+            "en": "ByteDance has confirmed an internal program to build custom server CPUs — the latest Chinese hyperscaler to vertically integrate down to silicon after Alibaba's T-Head and Baidu's Kunlun trajectories. The CPU focus (not AI accelerator) is what makes this news noteworthy: it implies ByteDance is preparing for a scenario where general-purpose x86 / Arm server CPU supply also becomes constrained, not just AI GPUs. Practically, the design is likely RISC-V or licensed Arm; whether SMIC can fab it at a competitive node will determine how much of the program is real engineering versus optionality hedge.",
+            "zh": "字节跳动确认内部正在自研服务器CPU——继阿里平头哥与百度昆仑之后，又一家中国超大规模厂商向硅片层做垂直整合。CPU（而非AI加速器）作为切入点令该消息值得关注：意味着字节为通用x86 / Arm服务器CPU供应同样受限——而不只是AI GPU受限——的场景做准备。从工程上看，设计大概率为RISC-V或授权Arm；而中芯国际能否以有竞争力的节点流片，将决定该项目究竟是真实工程，还是一项可选性对冲。"
           },
-          "source": "EE Times Asia",
-          "url": "https://www.eetasia.com/ase-accelerates-ai-innovation-with-automated-310mm-plp/",
-          "published": "2026-05-27T02:11:00Z"
+          "source": "Crypto Briefing (via Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiYUFVX3lxTE5fYnl0ZWRhbmNlX2N1c3RvbV9jcHVz?oc=5",
+          "published": "2026-05-28T11:15:00Z"
         },
         {
           "title": {
-            "en": "Samsung plans $1.5 billion chip testing plant in Vietnam",
-            "zh": "三星计划在越南投资15亿美元建芯片测试厂"
+            "en": "Chinese university releases 3D chip-design tool tailored to Huawei's LogicFolding architecture",
+            "zh": "中国高校发布面向华为「LogicFolding」架构的3D芯片设计工具"
           },
           "summary": {
-            "en": "Reuters obtained a Samsung internal document outlining a $1.5 billion semiconductor testing plant in Vietnam's Thai Nguyen province — an extension of the company's existing Vietnamese assembly footprint, but a meaningful first step into back-end test that has historically been Korea-anchored. The geographic spread matters: combined with the Vietnam plant, Samsung's HBM+DRAM test workflow now has three regional anchors (Korea, China, Vietnam), reducing single-point exposure if any one of them faces export-control or labor disruption.",
-            "zh": "路透获取的三星内部文件显示，公司将在越南太原省投资15亿美元建设半导体测试工厂——这是公司既有越南封装业务的延伸，但向后端测试环节迈出了实质性一步（此前后端测试主要锚定在韩国本部）。地理分布意义重大：加上新越南厂后，三星的HBM+DRAM测试流程将拥有韩国、中国、越南三个区域锚点，降低任一节点因出口管制或劳资中断带来的单点风险。"
+            "en": "Researchers at a Chinese university released an open 3D chip-design toolkit explicitly tailored to Huawei's LogicFolding architecture — the same architecture Huawei used last week to claim a path to '1.4nm-equivalent' density without EUV. The toolkit is meant to lower the design-side barrier for partners trying to actually target LogicFolding nodes, which until now had no Cadence/Synopsys-flow equivalent. The signal: China's domestic EDA gap is being attacked from the university side with workflows narrowly tied to a single domestic architecture, rather than as a general-purpose flow. Whether the toolkit reaches industrial reliability is the open question.",
+            "zh": "一所中国高校发布了面向华为「LogicFolding」架构定制的开放3D芯片设计工具——上周华为正是以该架构宣称可在不依赖EUV的情况下实现「1.4nm级」密度的路径。该工具旨在降低希望真正瞄准LogicFolding节点的合作方在设计侧的进入门槛——此前并无Cadence / Synopsys工具流的对应物。信号意义：中国本土EDA短板正从高校端被以「窄绑定单一国产架构、而非通用流程」的方式攻克。该工具能否达到工业级可靠性，是悬而未决的问题。"
           },
-          "source": "Reuters",
-          "url": "https://www.reuters.com/technology/exclusive-samsung-plans-15-billion-chip-testing-plant-vietnam-document-shows-2026-05-27/",
-          "published": "2026-05-27T12:35:00Z"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/semiconductors/chinese-university-builds-3d-chip-design-tool-tailored-to-huaweis-logicfolding-architecture",
+          "published": "2026-05-28T11:10:00Z"
         }
       ]
     }
@@ -208,201 +208,163 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "After Scaling: 2D Channels, Orbital Currents, and Photonic Tensorcores",
-      "zh": "工艺微缩之后：2D沟道、轨道电流与光子张量核"
+      "en": "Open Buses, Ferroelectric Attention, Mechanical Logic",
+      "zh": "开放总线、铁电注意力、机械逻辑"
     },
     "dek": {
-      "en": "This week's literature is unusually device-physics-heavy — Ta/W spin-orbit torque MRAM, 2D semiconductor circuit integration, domain-free negative capacitance — alongside system-level work that ties AI supercomputers to grid response and pushes interconnect networks past Fat-Tree limits.",
-      "zh": "本周文献异常偏向器件物理——Ta/W自旋轨道力矩MRAM、2D半导体电路集成、无畴负电容——同时也有系统级工作：将AI超算与电网响应耦合，并把互连网络推过Fat-Tree拓扑的极限。"
+      "en": "This week the research stack pushes on three axes at once: open re-implementations of vendor-specific interconnects (Huawei UB), in-memory architectures aimed directly at the transformer KV-cache, and non-electronic logic — nanomechanical, Josephson, altermagnetic — moving from physics demos toward design-tool territory.",
+      "zh": "本周研究栈在三条轴上同时推进：对厂商专属互连的开源克隆（华为UB）、直接瞄准Transformer KV缓存的存内架构，以及非电子逻辑——纳米机械、Josephson、交错磁——从物理演示向设计工具阵地推进。"
     },
     "areas": [
       {
-        "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
-        "papers": [
-          {
-            "title": {
-              "en": "Orbital and spin-orbit torque interplay in Ta/W magnetic tunnel junctions with vertical non-local switching",
-              "zh": "Ta/W磁隧道结中轨道与自旋轨道力矩的相互作用与垂直非局域开关"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "MRAM research consortium",
-            "venue": "arXiv:2605.27215",
-            "venue_url": "https://arxiv.org/abs/2605.27215",
-            "summary": {
-              "en": "SOT-MRAM has been stalled at ~45% charge-to-spin conversion efficiency (ξ_DL), well below the ~80% needed to compete with advanced transistor nodes for cache memory. This work reports a four-fold increase in spin-orbit torque from a Ta/W bilayer system by exploiting orbital current contributions from Ta — moving the technology meaningfully closer to the write-energy figures cache-level MRAM actually needs. The result is a device-physics step, not a tape-out, but it changes which materials systems show up in mainstream SOT-MRAM roadmaps over the next 24 months.",
-              "zh": "SOT-MRAM长期卡在约45%的电荷-自旋转换效率（ξ_DL），远低于与先进晶体管节点竞争所需的约80%（用于缓存级存储）。本文报告利用Ta层的轨道电流贡献，Ta/W双层体系将自旋轨道力矩提升4倍——使该技术显著靠近缓存级MRAM真正需要的写入能耗指标。这是器件物理层级的进展、并非量产流片，但会改变未来24个月主流SOT-MRAM路线图上出现的材料体系。"
-            },
-            "published": "2026-05-26",
-            "tags": ["preprint", "MRAM", "device physics"]
-          },
-          {
-            "title": {
-              "en": "Chips in the Flatland: 2D semiconductors for future computing electronics",
-              "zh": "Flatland中的芯片：面向未来计算电子学的2D半导体"
-            },
-            "authors": "review, multi-author",
-            "affiliation": "academic consortium",
-            "venue": "arXiv:2605.26555",
-            "venue_url": "https://arxiv.org/abs/2605.26555",
-            "summary": {
-              "en": "Honest review of the 2D-semiconductor circuit-integration gap — the 'valley of death' between elegant single-device demos (MoS2, WSe2, hBN gate stacks) and actually-fab-able functional integrated circuits at sub-Angstrom-era nodes. The paper tracks where each material family has stalled (contact resistance, dielectric integration, wafer-scale uniformity) and where it's moved (5-stage logic in MoS2, single-flake DRAM cells). Useful as a calibration against vendor 2D-semi marketing — the bottleneck is rarely the channel material itself.",
-              "zh": "对2D半导体电路集成「鸿沟」的一次诚实综述——介于单器件优雅演示（MoS2、WSe2、hBN栅堆）与亚埃米代际可实际流片的功能集成电路之间的「死亡之谷」。文章追踪了各材料体系卡在哪里（接触电阻、介质集成、晶圆级均匀性）以及取得了哪些进展（MoS2中5级逻辑、单片DRAM单元）。可作为校准2D半导体厂商营销话术的参照——瓶颈很少是沟道材料本身。"
-            },
-            "published": "2026-05-26",
-            "tags": ["preprint", "2D materials", "review"]
-          },
-          {
-            "title": {
-              "en": "Conditions for domain-free negative capacitance",
-              "zh": "无畴负电容的条件"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "academic team",
-            "venue": "arXiv:2605.26536",
-            "venue_url": "https://arxiv.org/abs/2605.26536",
-            "summary": {
-              "en": "Negative-capacitance FETs have been a perpetually-promising route to sub-60-mV/dec subthreshold slope, but every NC-FET demonstration to date shows ferroelectric domain formation — which the original theory said should be absent. This paper derives the critical domain-wall energy parameter above which a ferroelectric-dielectric heterostructure stabilizes in a true domain-free NC state. The practical contribution: a clear materials selection criterion (which HfZrO compositions and which dielectric pairings will work) rather than just another fitting attempt. Closer to a foundry-relevant integration recipe than most prior NC-FET work.",
-              "zh": "负电容FET长期被视为通往亚60 mV/dec亚阈值斜率的可能路径，但迄今为止所有NC-FET演示都显示存在铁电畴——而原始理论认为应不存在。本文推导出临界畴壁能参数：高于该值时铁电-介质异质结将稳定在真正的无畴NC态。实质贡献：给出明确的材料选择准则（哪种HfZrO组分与哪种介质配对能用），而不只是又一次拟合。比此前多数NC-FET工作更接近代工厂相关的集成配方。"
-            },
-            "published": "2026-05-26",
-            "tags": ["preprint", "negative capacitance", "ferroelectric"]
-          }
-        ]
-      },
-      {
         "id": "architecture",
-        "title": {"en": "Architecture & Accelerators", "zh": "架构与加速器"},
+        "title": {"en": "Architecture & Chiplets", "zh": "架构与chiplet"},
         "papers": [
           {
             "title": {
-              "en": "Cassandra: enabling reasoning LLMs at the edge via self-speculative decoding",
-              "zh": "Cassandra：通过自我推测解码在边缘运行推理型LLM"
+              "en": "OpenURMA: a clean-room open implementation of Huawei's Unified Bus protocol",
+              "zh": "OpenURMA：华为UB协议的洁净室开源实现"
             },
             "authors": "co-authors not extracted",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.26558",
-            "venue_url": "https://arxiv.org/abs/2605.26558",
+            "venue": "arXiv:2605.28717",
+            "venue_url": "https://arxiv.org/abs/2605.28717",
             "summary": {
-              "en": "Reasoning-style LLMs (the o1 / deepseek-R1 family) suffer disproportionately at decode time because their long chain-of-thought traces multiply per-token overhead. Cassandra proposes an algorithm-hardware co-design where the draft model is constructed by selectively skipping layers of the target — eliminating the need for a separate draft model entirely — and validates that this preserves accuracy while delivering meaningful speedups on consumer-class accelerator hardware. The implication: reasoning models may become deployable on phone-class NPUs sooner than the parameter count suggests, if the decode-side bottleneck is attacked directly.",
-              "zh": "推理型LLM（o1 / deepseek-R1家族）由于长思维链导致每token开销倍增，在解码阶段尤其受拖累。Cassandra提出算法-硬件协同设计：通过选择性跳过目标模型的层来构建草稿模型，从而完全省去独立草稿模型；论文验证该方案在保持精度的同时，在消费级加速器硬件上带来可观加速。含义：如果解码侧瓶颈被直接攻击，推理型模型或许会比参数规模所暗示的更早可在手机级NPU上部署。"
+              "en": "Huawei published the Unified Bus (UB) spec in 2025 as an RDMA alternative that decouples per-application endpoint state from per-host transport state — directly attacking the PCIe four-traversal latency penalty that RoCE inherits from InfiniBand. This paper is the first publicly-documented clean-room implementation of UB outside Huawei, and reports comparable wire-rate latency on a generic NIC. Even if UB never becomes a US-vendor product, the existence of an open implementation matters: it makes UB a real competitive option that hyperscalers can prototype against, rather than a Huawei-only specification.",
+              "zh": "华为在2025年发布Unified Bus（UB）规范，作为RDMA的替代方案——通过将「应用级端点状态」与「主机级传输状态」解耦，直接攻击RoCE从InfiniBand继承的PCIe四次穿越延迟惩罚。本论文是华为之外首个公开文档化的UB洁净室实现，并在通用网卡上报告了可比的线速延迟。即使UB最终未成为美国厂商的产品，开源实现的存在仍有意义：它把UB从「华为专属规范」变成了超大规模客户可以原型验证的真实竞争选项。"
             },
-            "published": "2026-05-26",
-            "tags": ["preprint", "LLM inference", "edge"]
+            "published": "2026-05-27",
+            "tags": ["preprint", "interconnect", "open hardware"]
           },
           {
             "title": {
-              "en": "Architectural limits of cloud TPUs in finite-field cryptography",
-              "zh": "云TPU在有限域密码学中的架构极限"
+              "en": "CLIPGen: a chiplet-link IP modeling and generation framework for 2.5D architecture exploration",
+              "zh": "CLIPGen：面向2.5D架构探索的chiplet链路IP建模与生成框架"
             },
             "authors": "co-authors not extracted",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.25367",
-            "venue_url": "https://arxiv.org/abs/2605.25367",
+            "venue": "arXiv:2605.27757",
+            "venue_url": "https://arxiv.org/abs/2605.27757",
             "summary": {
-              "en": "Empirically characterizes a 5,558×-6,908× cost-efficiency deficit for TPUs vs A100 GPUs on finite-field cryptography (the workload behind zero-knowledge proofs and modern PKI). Roots the gap analytically in the absence of wide-integer ALUs on TPU silicon, plus a spatial penalty in multi-tenant Montgomery reduction. The paper matters because it's the first principled statement of a hardware category where Google's most expensive in-house silicon is structurally uncompetitive — useful evidence for anyone modelling whether custom-silicon design teams should generalize their datapaths or stay narrowly AI-focused.",
-              "zh": "实证刻画了TPU相对A100 GPU在有限域密码学（零知识证明与现代PKI背后的负载）上5,558-6,908倍的成本效率差距。分析层面将该差距归因为TPU硅片缺乏宽整数ALU，以及多租户Montgomery规约带来的空间惩罚。论文意义在于：这是首次有原则地指明一类硬件场景——谷歌最贵的自有硅片在结构上不具备竞争力。对于思考定制硅片设计团队应通用化数据通路还是专注AI的人，这是有用证据。"
+              "en": "System architects evaluating 2.5D chiplet partitions today choose between detailed interconnect models that require deep packaging expertise and high-level models too coarse to drive real architectural decisions. CLIPGen sits in the gap with a parameterized chiplet-link IP generator that consumes high-level packaging choices (substrate, bump pitch, lane width) and produces concrete latency / energy / area numbers. The framework matters because UCIe-class chiplet-link decisions are now happening before tape-out commitments — the silicon is fixed but the partition isn't, and a usable open framework changes who can run those experiments.",
+              "zh": "评估2.5D chiplet分区时，系统架构师当下只能在「需要深度封装专家知识的详细互连模型」与「粗到无法驱动真实架构决策的高层模型」之间二选一。CLIPGen补上了这一空缺：参数化的chiplet链路IP生成器以高层封装选项（基板、bump pitch、lane宽度）为输入，输出具体的延迟/能耗/面积数字。意义在于：UCIe级chiplet链路决策如今发生在流片承诺之前——硅片已固定但分区未定——一个可用的开源框架，改变了能跑这类实验的群体范围。"
             },
-            "published": "2026-05-25",
-            "tags": ["preprint", "TPU", "cryptography"]
+            "published": "2026-05-26",
+            "tags": ["preprint", "chiplet", "design space exploration"]
           }
         ]
       },
       {
-        "id": "datacenter",
-        "title": {"en": "Datacenter & Systems", "zh": "数据中心与系统"},
+        "id": "memory",
+        "title": {"en": "Memory & Disaggregation", "zh": "存储与解耦"},
         "papers": [
           {
             "title": {
-              "en": "GridPilot: real-time grid-responsive control for AI supercomputers",
-              "zh": "GridPilot：面向AI超算的实时电网响应控制"
+              "en": "CXL-ClusterSim: modeling CXL-based disaggregated memory clusters for pooling and sharing",
+              "zh": "CXL-ClusterSim：面向池化与共享的CXL解耦存储集群建模"
             },
             "authors": "co-authors not extracted",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.26384",
-            "venue_url": "https://arxiv.org/abs/2605.26384",
+            "venue": "arXiv:2605.27745",
+            "venue_url": "https://arxiv.org/abs/2605.27745",
             "summary": {
-              "en": "Implements a three-tier predictive controller (millisecond / second / hour scales) that translates grid operator requests into actual GPU power changes at the facility meter — with a deterministic safety-island bypass for fast-response events. Validated on real hardware on a three-stage testbed. The contribution is that this is the first published end-to-end measurement of how fast an AI/HPC datacenter can actually deliver grid-flexibility services, which is increasingly a precondition for interconnection at sites above ~100 MW. Direct relevance to anyone building hyperscale capacity in PJM, ERCOT or the UK grid.",
-              "zh": "实现一个三层预测控制器（毫秒/秒/小时三种时间尺度），将电网调度请求转化为机房计量表处实际GPU功率变化——并配有用于快速响应事件的确定性安全岛旁路。论文在真实硬件三阶段测试床上验证。意义在于：这是首次端到端测量AI/HPC数据中心实际可提供电网灵活性服务的速度——而在装机容量超过约100 MW的站点，这正在成为电网接入的前置条件。与在PJM、ERCOT或英国电网建设超大规模产能的团队直接相关。"
+              "en": "Couples gem5 (host-side) with SST (fabric-side) to produce the first cycle-accurate simulator for CXL-disaggregated DRAM clusters at cluster scale — addressing the under-utilization problem that motivates CXL pooling in the first place (modern cloud DRAM allocations show peak-to-average ratios that justify pooling). The contribution is tooling rather than novel architecture, but it matters: every hyperscaler is now sizing CXL fabrics on their own internal estimates, and a public simulator gives the rest of the field a calibration target.",
+              "zh": "将gem5（主机侧）与SST（织物侧）耦合，构建出首个集群规模、面向CXL解耦DRAM集群的周期级精确模拟器——直接回应了驱动CXL池化的根本问题（现代云上DRAM分配峰均比之高，足以证成池化）。贡献在工具而非新架构，但仍有意义：每家超大规模客户当下都在用自家内部估算来调整CXL织物规模，而公开模拟器让业界其余玩家有了校准基准。"
             },
-            "published": "2026-05-25",
-            "tags": ["preprint", "grid integration", "HPC"]
+            "published": "2026-05-26",
+            "tags": ["preprint", "CXL", "memory disaggregation"]
           },
           {
             "title": {
-              "en": "Extreme-scale interconnection networks: Multipass Random Leaf-Spine beats Fat-Tree",
-              "zh": "极大规模互连网络：多通路随机叶脊网络优于Fat-Tree"
+              "en": "Nonvolatile charge-domain attention with HZO ferroelectric capacitors",
+              "zh": "基于HZO铁电电容的非易失电荷域注意力计算"
             },
             "authors": "co-authors not extracted",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.26960",
-            "venue_url": "https://arxiv.org/abs/2605.26960",
+            "venue": "arXiv:2605.28208",
+            "venue_url": "https://arxiv.org/abs/2605.28208",
             "summary": {
-              "en": "Argues — with simulation data — that Multipass Random Leaf-Spine (MRLS) topologies, which combine Orthogonal Fat-Tree and Random Folded Clos ideas, outperform Fat-Tree at the endpoint counts (>1M GPUs) that hyperscalers now actually plan for. Reports better throughput at lower wiring cost, plus higher flexibility under partial-failure conditions. Practical relevance: this is the kind of paper that quietly shows up two years later as the design rationale in the next Broadcom or Nvidia switch-fabric reference design. Worth tracking, even if the specific topology doesn't win.",
-              "zh": "通过仿真数据论证：多通路随机叶脊（MRLS）拓扑结合了正交Fat-Tree与随机折叠Clos的设计，在超大规模客户实际规划的端点数（>1M GPU）下优于Fat-Tree。论文报告更高吞吐量、更低布线成本，以及在部分故障下更强的灵活性。实际意义：这类论文通常会在两年后悄然出现在博通或英伟达下一代交换织物参考设计的设计依据中。即便该特定拓扑最终未被采用，本文也值得跟踪。"
+              "en": "Proposes the Ferroelectric Charge-Domain Compute Cell (FCDC) — a hafnium-zirconium-oxide memcapacitor with an access transistor that stores analog state nonvolatilely and performs charge-domain VMM for attention. Two deployment modes are evaluated: full-substrate (Q/K/V/O projections plus both attention matmuls) and KV-coprocessor (KV storage + the two attention matmuls only). The work is device-to-system simulation rather than measured silicon, but the framing — treat attention compute and KV-cache movement as a joint problem at the device level — is exactly the unit of analysis the field needs now that KV-cache pressure dominates inference cost.",
+              "zh": "提出铁电电荷域计算单元（FCDC）：一种带访问晶体管的氧化铪锆（HZO）忆容器，以非易失方式存储模拟状态，并执行注意力的电荷域向量-矩阵乘（VMM）。论文评估两种部署模式：全衬底模式（Q/K/V/O投影 + 两次注意力矩阵乘）与KV协处理器模式（仅承担KV存储 + 两次注意力矩阵乘）。该工作是器件到系统级仿真而非实测硅片，但其「把注意力计算与KV缓存搬运视作器件级联合问题」的视角，正是KV缓存压力主导推理成本之后该领域所需的分析单元。"
             },
-            "published": "2026-05-26",
-            "tags": ["preprint", "interconnect", "network topology"]
+            "published": "2026-05-27",
+            "tags": ["preprint", "in-memory computing", "ferroelectric", "attention"]
           }
         ]
       },
       {
-        "id": "photonics",
-        "title": {"en": "Photonics & Interconnects", "zh": "光子学与互连"},
+        "id": "efficiency",
+        "title": {"en": "Compute Efficiency & Telemetry", "zh": "算力效率与遥测"},
         "papers": [
           {
             "title": {
-              "en": "DUET: a general-purpose photonic computing primitive for contemporary AI",
-              "zh": "DUET：面向当代AI的通用光子计算原语"
+              "en": "The energy blind spot: Nvidia's flagship edge AI hardware cannot support process-level energy attribution",
+              "zh": "能耗盲点：英伟达旗舰边缘AI硬件无法支持进程级能耗归因"
             },
             "authors": "co-authors not extracted",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.23051",
-            "venue_url": "https://arxiv.org/abs/2605.23051",
+            "venue": "arXiv:2605.27599",
+            "venue_url": "https://arxiv.org/abs/2605.27599",
             "summary": {
-              "en": "Proposes Dynamic Universal Encoding Tensorcore (DUET), a photonic computing paradigm built on vectorized operand differential interferometric cells (VODICs). The interesting move is supporting dynamic arbitrary matrix operations — the thing optical neural networks have historically struggled with — by exploiting structural symmetry to cut the hardware overhead that has kept ONNs from scaling. If the silicon-photonics process windows hold, this is a candidate for the kind of photonic primitive that finally puts optical compute into a co-packaged AI accelerator stack rather than a research demo.",
-              "zh": "提出动态通用编码张量核（DUET），一种基于向量化操作数差分干涉单元（VODIC）的光子计算范式。亮点在于支持动态任意矩阵运算——这正是光神经网络（ONN）此前最难突破的能力——利用结构对称性削减让ONN长期无法规模化的硬件开销。若硅光子工艺窗口能够支撑，这有望成为真正把光计算放入共封装AI加速器堆栈、而非只是研究演示的光子原语候选。"
+              "en": "Empirical study showing that the GB10-based edge AI desktops shipping in 2026 (Nvidia DGX Spark, plus Dell / HP / ASUS / MSI / Acer / Gigabyte variants) lack the telemetry primitives needed to attribute energy at the process level — making agentic AI workloads, where one user goal triggers many orchestrated steps, fundamentally un-instrumentable for cost-per-task analysis. The authors connect this to their earlier finding that workflow orchestration dominates agentic energy (4-7× over linear baselines), and argue Nvidia's edge silicon is shipping a measurement gap, not a feature gap. Direct relevance for anyone evaluating edge-AI TCO honestly.",
+              "zh": "实证研究表明：2026年发货的GB10系列边缘AI台式机（Nvidia DGX Spark以及戴尔/惠普/华硕/微星/宏碁/技嘉等版本）缺乏进程级能耗归因所需的遥测原语——这使得「一个用户目标触发多步骤编排」的agentic AI负载，在每任务成本分析上根本无法被测量。作者将其与此前发现（工作流编排在agentic能耗中占主导，较线性基线高4-7倍）相连，论证英伟达边缘硅片当前出货的是测量能力缺口，而非功能缺口。对所有正经评估边缘AI TCO的人具有直接相关性。"
             },
-            "published": "2026-05-21",
-            "tags": ["preprint", "photonic compute", "ONN"]
+            "published": "2026-05-26",
+            "tags": ["preprint", "edge AI", "energy telemetry"]
           },
           {
             "title": {
-              "en": "Alignment-free ultra-broadband parametric frequency conversion in lead-halide perovskites",
-              "zh": "无对准、超宽带的卤化物钙钛矿参量频率转换"
+              "en": "Range, not precision: block-floating-point half-precision FFT and SAR imaging on Apple Silicon",
+              "zh": "动态范围才是关键：Apple Silicon上的块浮点半精度FFT与SAR成像"
             },
             "authors": "co-authors not extracted",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.25718",
-            "venue_url": "https://arxiv.org/abs/2605.25718",
+            "venue": "arXiv:2605.28451",
+            "venue_url": "https://arxiv.org/abs/2605.28451",
             "summary": {
-              "en": "Demonstrates four-wave mixing across an exceptionally wide near-IR / mid-IR tuning range in thick single-crystal lead-halide perovskite, with no phase-matching engineering, no angular alignment, and no dispersion optimization required. The practical implication for chip-scale photonics: if perovskite blocks can be integrated as wavelength-conversion stages without the alignment / dispersion plumbing that today's silicon photonics demands, the wavelength count usable per CPO link could go up substantially. Still single-crystal lab work, but unusually friendly to scale-up.",
-              "zh": "在厚单晶卤化物钙钛矿中演示近红外/中红外极宽带四波混频——无需相位匹配工程、无需角度对准、无需色散优化。对芯片级光子学的实际意义：若钙钛矿模块可作为波长转换级被集成，而不需要当下硅光子所要求的对准/色散水管，则共封装光学（CPO）链路上可用波长数可显著上升。目前仍是单晶实验室级别的工作，但少见地对规模化友好。"
+              "en": "Shows empirically that for FFT and synthetic-aperture-radar pipelines, the binding constraint of FP16 is not the 10-bit mantissa but the 5-bit exponent's dynamic range — and that block-floating-point reframing recovers radar-grade SQNR (56-61 dB) at full FP16 throughput on Apple Silicon GPUs. This is a numerical-format paper that quietly maps onto the OCP-MX direction the entire AI accelerator industry is moving: shared-exponent formats keep beating naive lower-precision both for accuracy and for hardware cost. Worth tracking as a methodology cousin to the MX-SAFE work from last week.",
+              "zh": "实证表明：在FFT与合成孔径雷达（SAR）流水线中，FP16的约束并非10位尾数，而是5位指数能表示的动态范围；通过块浮点（BFP）重构，可在Apple Silicon GPU上以FP16全吞吐量恢复雷达级SQNR（56-61 dB）。这是一篇数值格式论文，但悄然映射到整个AI加速器行业向OCP-MX方向的迁移：共享指数格式在精度与硬件成本两端都持续打败朴素的低精度。可作为上周MX-SAFE工作的方法论近亲来跟踪。"
             },
-            "published": "2026-05-25",
-            "tags": ["preprint", "perovskite", "frequency conversion"]
+            "published": "2026-05-27",
+            "tags": ["preprint", "numerical formats", "Apple Silicon"]
           }
         ]
       },
       {
         "id": "emerging",
-        "title": {"en": "Emerging Computing", "zh": "新兴计算"},
+        "title": {"en": "Emerging Devices & Computing", "zh": "新兴器件与计算"},
         "papers": [
           {
             "title": {
-              "en": "Co-designing graph-based approximate nearest-neighbor search at billion scale for processing-in-memory",
-              "zh": "面向存内计算的十亿级图近似最近邻搜索协同设计"
+              "en": "Magneto-optical detection of anisotropic spin currents in altermagnetic RuO2",
+              "zh": "交错磁RuO2中各向异性自旋流的磁光检测"
             },
             "authors": "co-authors not extracted",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.25522",
-            "venue_url": "https://arxiv.org/abs/2605.25522",
+            "venue": "arXiv:2605.27830",
+            "venue_url": "https://arxiv.org/abs/2605.27830",
             "summary": {
-              "en": "Graph-based ANNS is fundamentally bandwidth-bound — exactly the workload PIM was designed for — but every prior attempt to port it hit the same architectural mismatches: tiny per-PU memory, costly inter-PU communication, host coordination overhead. This work treats PIM and ANNS as a joint design target rather than software-on-hardware, and reports a usable billion-scale PIM-ANNS pipeline. Most useful as a concrete answer to 'when does PIM actually beat host-DRAM by enough margin to justify the integration headache?' for AI-retrieval workloads.",
-              "zh": "基于图的近似最近邻搜索（ANNS）本质上受带宽约束——正是PIM被设计来处理的负载——但此前每次将其移植到PIM都遇到相同的架构错配：单处理单元内存太小、跨单元通信开销高、主机协调开销大。本文将PIM与ANNS视为联合设计目标，而非「硬件上的软件」，并报告了可用的十亿级PIM-ANNS流水线。对「在AI检索负载下，PIM到底何时能以足够幅度跑赢主机DRAM以抵消集成代价」这个问题，是难得的具体答案。"
+              "en": "Altermagnets — recently identified collinear antiferromagnets that host large spin-split electronic bands — are a candidate platform for efficient spin-current generation that could feed next-generation SOT-MRAM with higher charge-to-spin conversion efficiency. This paper resolves an open question about whether RuO2, the leading altermagnet candidate, sustains robust magnetic order beyond ultrathin films: a 12-nm-thick (101)-oriented RuO2 layer on sapphire shows altermagnetic spin splitting strong enough to detect via polarization-resolved second-harmonic generation. Practical step toward usable altermagnetic devices, not just theoretical work.",
+              "zh": "交错磁（altermagnets）是最近被识别的一类共线反铁磁体——具有大自旋劈裂电子带，是高效自旋流产生的候选平台，可为下一代SOT-MRAM提供更高的电荷-自旋转换效率。本文回答了一个悬而未决的问题：RuO2作为领先的交错磁候选材料，超薄膜以外能否保持稳健磁序。结果显示，蓝宝石上12 nm厚(101)取向RuO2薄膜的交错磁自旋劈裂可被偏振分辨二次谐波生成检测到。这是面向可用交错磁器件的实质性一步，而非纯理论工作。"
+            },
+            "published": "2026-05-27",
+            "tags": ["preprint", "altermagnet", "spintronics"]
+          },
+          {
+            "title": {
+              "en": "Programming nanomechanical computation with light",
+              "zh": "以光编程纳米机械计算"
+            },
+            "authors": "co-authors not extracted",
+            "affiliation": "academic team",
+            "venue": "arXiv:2605.26319",
+            "venue_url": "https://arxiv.org/abs/2605.26319",
+            "summary": {
+              "en": "Demonstrates a complete set of digital logic gates with level restoration and controlled mechanical coupling — built from cavity-optomechanical interactions where laser drive controls the nonlinearity. The gates work on nanomechanical degrees of freedom rather than electrons, opening a route to computation that uses thermal noise and topology as resources rather than nuisances. Still a physics demo, not a competitive substrate; the interesting question is whether nanomechanical logic can hit useful clock rates without burning the laser-power budget that currently dominates the noise floor.",
+              "zh": "演示了完整的数字逻辑门集合——具备电平恢复与可控机械耦合——基于腔光机相互作用构建，由激光驱动控制非线性。这些门工作在纳米机械自由度而非电子上，开辟了一条以热噪声与拓扑作为计算资源（而非困扰）的路径。仍是物理学层级演示而非有竞争力的衬底；有趣的问题是：纳米机械逻辑能否在不烧光当前主导噪声底的激光功率预算的前提下，达到有用的时钟速率。"
             },
             "published": "2026-05-25",
-            "tags": ["preprint", "PIM", "ANN search"]
+            "tags": ["preprint", "optomechanics", "unconventional computing"]
           }
         ]
       }
