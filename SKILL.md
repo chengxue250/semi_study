@@ -112,6 +112,7 @@ For every selected story, write:
 - **Title** — keep the publisher's title unless it's misleading. Translate to 中文 too.
 - **Summary** — 2–4 sentences. Lead with the *news* (what changed), not the company's framing. Add one sentence of context (why it matters / who else is affected) if the wire copy doesn't include it.
 - **Meta** — source name, publish time (relative: "4h ago" / "4小时前").
+- **URL — copy verbatim from the RSS fetch output. Never write a URL from memory and never generate one that "looks plausible."** The 2026-05-27 and 2026-05-28 editions both shipped fabricated URLs (made-up Google News redirect IDs and SEO-plausible publisher slugs) because the agent guessed rather than looked up. After picking each story, find its entry in `/tmp/semi_rss.json` (or the targeted fetch output) and paste the `link` field exactly. If the URL is a Google News redirect, that's fine — they resolve correctly. If you do not have the canonical URL in the fetch output, run a web search and verify the result returns HTTP 200 before using it. **Treat URLs the same way you treat numbers in headlines: copy or verify, never invent.**
 
 See `references/style-guide.md` for tone, common pitfalls (e.g., conflating wafer-start capacity with chip output), and translation conventions for technical terms.
 
