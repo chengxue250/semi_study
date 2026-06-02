@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-01">
+<meta name="edition-date" content="2026-06-02">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memristive SNNs Get Practical; FP4 Variants Multiply; Physical AI Reframes the Bottleneck — Semi Research 2026-06-01</title>
+<title>Low-Bit Inference Meets Real Edge Silicon — Semi Research 2026-06-02</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -218,172 +218,181 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, June 1, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月1日 星期一</span>
+      <span class="en">Research digest · Tuesday, June 2, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月2日 星期二</span>
     </div>
     <h1>
-      <span class="en">Memristive SNNs Get Practical; FP4 Variants Multiply; Physical AI Reframes the Bottleneck</span>
-      <span class="zh">忆阻SNN走向实用、FP4变体不断分化、物理AI重新定义推理瓶颈</span>
+      <span class="en">Low-Bit Inference Meets Real Edge Silicon</span>
+      <span class="zh">低比特推理遇上真实边缘硅片</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s arXiv push centers on three concrete movements: memristor + spiking-neural-network designs reaching deployable form factors, mixed FP4/INT4 micro-format work right after NVFP4 hit silicon, and a tightening focus on batch-1 inference where the bottleneck story is more nuanced than &#x27;memory-bandwidth-bound.&#x27;</span>
-      <span class="zh">本周arXiv主线聚焦三条具体推进：忆阻器+脉冲神经网络（SNN）设计达到可部署形态；NVFP4登陆硅片后混合FP4/INT4微格式工作密集出现；以及对batch-1推理的关注收紧——其瓶颈叙事远比「内存带宽受限」更细致。</span>
+      <span class="en">This week&#x27;s research queue is unusually hardware-grounded: an AI-MCU with transformer acceleration, multiple low-bit inference papers that discuss kernels or failure modes, and photonic / neuromorphic device work aimed at packaging real systems rather than only simulations.</span>
+      <span class="zh">本周研究队列明显更贴近硬件：带Transformer加速器的AI-MCU，多篇讨论内核或失效模式的低比特推理论文，以及面向真实系统封装而非纯仿真的光子与神经形态器件工作。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 8篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="accelerators">
     <h2>
-      <span class="en">Devices &amp; Materials</span>
-      <span class="zh">器件与材料</span>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.31358" target="_blank" rel="noopener">
-          <span class="en">Sharp periodic Ge concentration modulations beyond the valley wavevector k₀ in nuclear-spin-free Si quantum wells</span>
-          <span class="zh">在无核自旋Si量子阱中实现超过价电谷波矢k₀的尖锐Ge周期调制</span>
-        </a><span class="tag">preprint</span><span class="tag">Si spin qubits</span><span class="tag">MBE</span>
+        <a href="https://arxiv.org/abs/2606.02358" target="_blank" rel="noopener">
+          <span class="en">CHIMERA: A 3.1 TOPS/W AI-MCU with Transformer Accelerator</span>
+          <span class="zh">CHIMERA：3.1 TOPS/W、带Transformer加速器的AI-MCU</span>
+        </a><span class="tag">AI-MCU</span><span class="tag">transformer</span><span class="tag">edge inference</span>
       </h3>
-      <p class="authors">co-authors not extracted</p>
+      <p class="authors">Lorenzo Leone, Philip Wiese, Gamze Islamoglu, Michael Rogenmoser, Davide Rossi, Francesco Conti, Luca Benini</p>
       <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.31358" target="_blank" rel="noopener">arXiv:2605.31358</a> · 2026-05-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.02358" target="_blank" rel="noopener">arXiv:2606.02358</a> · 2026-06-01T15:06:09Z</p>
       <p class="summary">
-        <span class="en">Deterministic valley splitting in Si quantum wells is one of the gating problems for scalable silicon spin-qubit quantum computing — and it requires Ge concentration modulations on the order of the Si valley wavevector k₀ (≈ 9.7 nm⁻¹), which means near-monolayer growth control. This work uses ²⁸Si and ⁷²Ge molecular beam epitaxy to demonstrate Ge-modulated Si quantum wells at periods down to ~2 nm with sharp, well-defined modulations. Practically: the materials growth bottleneck on silicon spin-qubit roadmaps just moved measurably.</span>
-        <span class="zh">Si量子阱中确定性的谷劈裂，是可扩展硅自旋量子比特计算的瓶颈问题之一——其要求Ge浓度调制达到Si价电谷波矢k₀（约9.7 nm⁻¹）量级，即需要近单层级的生长控制。本工作以²⁸Si和⁷²Ge分子束外延，演示了周期可低至约2 nm、调制界面清晰的Ge调制Si量子阱。实质意义：硅自旋量子比特路线图上的材料生长瓶颈，发生了可量化的位移。</span>
+        <span class="en">CHIMERA implements a 22nm FDX microcontroller with nine RV32IMA cores, a transformer accelerator and a shared-L2 subsystem delivering 563 Gb/s aggregate bandwidth. The headline number is 3.1 TOPS/W, but the more useful contribution is the QoS-managed memory hierarchy, which targets real-time edge inference rather than a narrow benchmark. It is a good example of transformer acceleration moving into MCU power envelopes instead of staying in phone-class NPUs.</span>
+        <span class="zh">CHIMERA采用22nm FDX工艺，实现了包含9个RV32IMA核心、Transformer加速器和共享L2子系统的微控制器，L2聚合带宽为563 Gb/s。标题指标是3.1 TOPS/W，但更有价值的贡献是带QoS管理的存储层次结构，目标是真时边缘推理而非狭窄基准测试。它说明Transformer加速正在进入MCU功耗包络，而不再只停留在手机级NPU。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.31299" target="_blank" rel="noopener">
-          <span class="en">Memristor-based spiking neural network accelerator for bio-inspired interception tasks</span>
-          <span class="zh">面向仿生拦截任务的忆阻器脉冲神经网络加速器</span>
-        </a><span class="tag">preprint</span><span class="tag">memristor</span><span class="tag">SNN</span>
+        <a href="https://arxiv.org/abs/2606.01776" target="_blank" rel="noopener">
+          <span class="en">A 32-Channel 3.53-uW/Channel Brain-Machine Interface SoC</span>
+          <span class="zh">32通道、每通道3.53微瓦的脑机接口SoC</span>
+        </a><span class="tag">SoC</span><span class="tag">neuromorphic</span><span class="tag">implantable</span>
       </h3>
-      <p class="authors">co-authors not extracted</p>
+      <p class="authors">Ye Ke, Zhengnan Fu, Pao-Sheng Vincent Sun, An Guo, Shuai Dong, Junyi Yang, Yahan Yang, Abdelrahman B. M. Eldaly, Xin Si, Leanne Chan, Arindam Basu</p>
       <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.31299" target="_blank" rel="noopener">arXiv:2605.31299</a> · 2026-05-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.01776" target="_blank" rel="noopener">arXiv:2606.01776</a> · 2026-06-01T06:58:57Z</p>
       <p class="summary">
-        <span class="en">Proposes an analog memristor SNN accelerator that integrates in-memory synaptic computation with analog integrate-and-fire neurons — eliminating the multi-transistor CMOS neuron block that has historically dominated SNN-accelerator area. Demonstrated on a bio-inspired interception task (the kind of low-power, event-driven inference where SNNs theoretically dominate). The interesting move is the device-system pairing: by accepting an SNN-shaped workload rather than trying to run general DNNs, the memristor variability problem becomes manageable rather than fatal.</span>
-        <span class="zh">提出一种模拟忆阻器SNN加速器：将存内突触计算与模拟积分-发放神经元集成，消除历来主导SNN加速器面积的多晶体管CMOS神经元单元。论文在仿生拦截任务（SNN理论上占优的低功耗、事件驱动推理类型）上演示。亮点在器件-系统的搭配：通过接受「SNN形状的负载」，而非试图运行通用DNN，忆阻器器件波动问题从致命变为可控。</span>
+        <span class="en">The chip combines a dual-threshold delta-modulation frontend, in-memory spike detection and a bipolar LIF SNN decoder in 65nm CMOS. Its 3.53 uW per-channel power and 26x frontend compression are the practical points: implantable systems need to cut data movement before wireless or digital processing dominates the budget. The caveat is task scope, but the design is unusually complete as a sensing-to-decoding neuromorphic pipeline.</span>
+        <span class="zh">该芯片在65nm CMOS中集成双阈值delta调制前端、存内脉冲检测和双极LIF SNN解码器。每通道3.53微瓦功耗和26倍前端压缩是实际重点：植入式系统必须先削减数据搬移，否则无线传输或数字处理会吞掉功耗预算。局限在于任务范围，但作为从感测到解码的神经形态流水线，它的完整度较高。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.00365" target="_blank" rel="noopener">
+          <span class="en">SPARQLe: Sub-Precision Activation Representation for Quantized LLM Inference</span>
+          <span class="zh">SPARQLe：面向量化LLM推理的子精度激活表示</span>
+        </a><span class="tag">LLM inference</span><span class="tag">quantization</span><span class="tag">accelerator</span>
+      </h3>
+      <p class="authors">Aradhana Mohan Parvathy, Soumendu Kumar Ghosh, Shamik Kundu, Arnab Raha, Souvik Kundu, Deepak A. Mathaikutty, Anand Raghunathan</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.00365" target="_blank" rel="noopener">arXiv:2606.00365</a> · 2026-05-29T21:07:27Z</p>
+      <p class="summary">
+        <span class="en">SPARQLe attacks activation precision rather than only weight precision by splitting each activation tensor into dense low bits and sparse high bits. That matters for hardware because activations often force wider datapaths even when weights are 4-bit. The proposed hybrid format and accelerator path are relevant to inference chips trying to preserve accuracy without paying full 8-bit activation traffic.</span>
+        <span class="zh">SPARQLe不只处理权重量化，而是把每个激活张量拆成密集低位和稀疏高位。其硬件意义在于，即便权重做到4 bit，激活往往仍迫使数据通路保持更高精度。该混合格式和加速器路径适合那些希望保留精度、又不想支付完整8 bit激活流量的推理芯片。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="in-memory">
+  <section class="area" id="ai-research">
     <h2>
-      <span class="en">In-Memory Computing</span>
-      <span class="zh">存内计算</span>
+      <span class="en">Inference Systems &amp; Quantization</span>
+      <span class="zh">推理系统与量化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.30814" target="_blank" rel="noopener">
-          <span class="en">A reconfigurable computing-in-memory macro with charge-sharing-based weighted accumulator</span>
-          <span class="zh">基于电荷共享加权累加器的可重构存内计算宏</span>
-        </a><span class="tag">preprint</span><span class="tag">SRAM-CIM</span><span class="tag">ADC</span>
+        <a href="https://arxiv.org/abs/2606.02011" target="_blank" rel="noopener">
+          <span class="en">Extreme Low-Bit Inference in Reasoning Models</span>
+          <span class="zh">推理模型中的极低比特推理</span>
+        </a><span class="tag">2-bit</span><span class="tag">reasoning</span><span class="tag">inference control</span>
       </h3>
-      <p class="authors">co-authors not extracted</p>
+      <p class="authors">Ekaterina Alimaskina, Darya Rudas, Denis Shveykin, Gleb Molodtsov, Pavel Vasiliev, Aleksandr Beznosikov</p>
       <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.30814" target="_blank" rel="noopener">arXiv:2605.30814</a> · 2026-05-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.02011" target="_blank" rel="noopener">arXiv:2606.02011</a> · 2026-06-01T10:04:09Z</p>
       <p class="summary">
-        <span class="en">An SRAM-CIM macro that addresses the three usual blockers — large ADC overhead, multi-bit input latency, and limited read-bitline voltage swing — via three innovations: an IMADC that occupies just 3% area (a 9× improvement), a bit-serial charge-sharing accumulator that cuts latency, and a configurable 1-7b/2-4b/1-7b in/wt/out format envelope. The contribution isn&#x27;t a single record-setting metric; it&#x27;s that all three blockers move simultaneously, which is what&#x27;s required for an SRAM-CIM macro to actually displace a digital MAC array in practice.</span>
-        <span class="zh">一种SRAM-CIM宏，针对长期以来的三大瓶颈——ADC开销大、多比特输入延迟高、读位线电压摆幅受限——给出三项创新：仅占3%面积的IMADC（较此前方案改进9倍）、基于位串行电荷共享的累加器（降低延迟）、以及1-7b/2-4b/1-7b的输入/权重/输出可配置位宽包络。贡献不在单项极限指标，而在三大瓶颈同时被推进——这正是SRAM-CIM宏在实际场景中真正取代数字MAC阵列所需要的。</span>
+        <span class="en">The paper shows that 2-bit reasoning-model inference can lose speedups because unstable traces inflate the token count. The useful insight is process-level: low-bit failures include loops, delayed commitment and unclosed reasoning, not only lower answer accuracy. FP16 planning and loop rescue are lightweight controls that make quantization an inference-policy problem as well as a kernel problem.</span>
+        <span class="zh">该论文指出，2 bit推理模型不一定带来端到端加速，因为不稳定的推理轨迹会膨胀token数量。关键洞见在过程层面：低比特失效包括循环、迟迟不提交答案和未闭合推理，而不只是答案准确率下降。FP16规划和循环救援说明，量化不仅是内核问题，也是推理策略问题。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.31004" target="_blank" rel="noopener">
-          <span class="en">HE²: a communication-light heterogeneous architecture for efficient fully homomorphic encryption</span>
-          <span class="zh">HE²：面向高效全同态加密的通信轻量化异构架构</span>
-        </a><span class="tag">preprint</span><span class="tag">FHE</span><span class="tag">heterogeneous</span>
+        <a href="https://arxiv.org/abs/2606.02288" target="_blank" rel="noopener">
+          <span class="en">Massive Spikes in LLMs are Bias Vectors</span>
+          <span class="zh">LLM中的巨大激活尖峰是偏置向量</span>
+        </a><span class="tag">activation</span><span class="tag">PTQ</span><span class="tag">low-bit</span>
       </h3>
-      <p class="authors">co-authors not extracted</p>
+      <p class="authors">Yung-Chin Chen, Chung Peng Lee, Ze-Wei Liou, Naveen Verma</p>
       <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.31004" target="_blank" rel="noopener">arXiv:2605.31004</a> · 2026-05-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.02288" target="_blank" rel="noopener">arXiv:2606.02288</a> · 2026-06-01T14:09:35Z</p>
       <p class="summary">
-        <span class="en">CKKS-style FHE workloads split cleanly into compute-heavy operators (ComOps) and memory-heavy operators (MemOps); existing ASIC-only and NMP-only acceleration efforts hit overhead walls because they optimize for only one. HE² proposes a heterogeneous architecture that places ComOps on a compute-dense ASIC and MemOps on near-memory tiles, with a light-weight on-chip interconnect tuned so the inter-operator data movement doesn&#x27;t dominate. Relevant to the broader privacy-preserving-AI inference build-out where FHE has been compute-prohibitive for so long that hardware redesign is finally being taken seriously.</span>
-        <span class="zh">CKKS型FHE负载可干净地拆分为计算密集型算子（ComOps）与内存密集型算子（MemOps）；现有的纯ASIC或纯NMP加速方案因为只优化其中之一而撞上开销墙。HE²提出异构架构：把ComOps放在计算密集的ASIC上，MemOps放在近存储tile上，并以轻量化片上互连调优——使算子间的数据搬运不会成为新瓶颈。意义在于：在隐私保护AI推理的更大建设浪潮中，FHE长期算力代价过高，硬件重设计终于被严肃对待。</span>
+        <span class="en">This work reframes activation spikes as structural vector biases tied to attention-sink and value-drain mechanisms. The proposed INSERTQUANT clamps spikes and restores their function with precomputed templates, targeting a common reason low-bit activation quantization breaks. The hardware relevance is direct: taming activation dynamic range is one of the cleanest routes to narrower datapaths.</span>
+        <span class="zh">这项工作把激活尖峰重新解释为与attention sink和value drain机制相关的结构性向量偏置。其INSERTQUANT方法先钳制尖峰，再用预计算模板恢复其功能，瞄准低比特激活量化失效的常见原因。硬件相关性很直接：控制激活动态范围，是收窄数据通路最清晰的路径之一。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.01556" target="_blank" rel="noopener">
+          <span class="en">TwinQuant: Learnable Subspace Decomposition for 4-Bit LLM Quantization</span>
+          <span class="zh">TwinQuant：面向4 bit LLM量化的可学习子空间分解</span>
+        </a><span class="tag">4-bit</span><span class="tag">kernel</span><span class="tag">LLM</span>
+      </h3>
+      <p class="authors">Haodong Wang, Junjie Liu, Zicong Hong, Qianli Liu, Jian Lin, Song Guo, Xu Chen</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.01556" target="_blank" rel="noopener">arXiv:2606.01556</a> · 2026-06-01T02:02:12Z</p>
+      <p class="summary">
+        <span class="en">TwinQuant learns quantization-friendly decomposed subspaces instead of relying on energy-minimizing decompositions that may not minimize post-quantization error. The paper also describes a fused dual-component kernel, which keeps the work relevant to deployed inference rather than only offline compression. The main caveat is added optimization complexity, but the direction matches the industry&#x27;s need for 4-bit accuracy without separate slow paths.</span>
+        <span class="zh">TwinQuant学习对量化友好的分解子空间，而不是依赖未必最小化量化后误差的能量最小分解。论文还描述了融合双组件内核，使其更接近部署推理而非单纯离线压缩。主要代价是优化复杂度上升，但方向符合行业对4 bit精度且不引入慢路径的需求。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="numerical-inference">
+  <section class="area" id="devices">
     <h2>
-      <span class="en">Numerical Formats &amp; Inference</span>
-      <span class="zh">数值格式与推理</span>
+      <span class="en">Devices &amp; Photonics</span>
+      <span class="zh">器件与光子</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.31035" target="_blank" rel="noopener">
-          <span class="en">MixFP4: enhancing NVFP4 with adaptive FP4/INT4 block representations</span>
-          <span class="zh">MixFP4：用FP4/INT4自适应块表示增强NVFP4</span>
-        </a><span class="tag">preprint</span><span class="tag">NVFP4</span><span class="tag">quantization</span>
+        <a href="https://doi.org/10.1109/JLT.2026.3674601" target="_blank" rel="noopener">
+          <span class="en">Silicon Photonics CW Radar with Spectrum Predistortion</span>
+          <span class="zh">带频谱预失真的硅光连续波雷达</span>
+        </a><span class="tag">silicon photonics</span><span class="tag">radar</span><span class="tag">RF</span>
       </h3>
-      <p class="authors">co-authors not extracted</p>
+      <p class="authors">Yicheng Du, Meng Chao, Xiuyou Han, X. Su, Xuan Li, Changjun Liu, Guanchao Wang, Mingshan Zhao</p>
       <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.31035" target="_blank" rel="noopener">arXiv:2605.31035</a> · 2026-05-29</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JLT.2026.3674601" target="_blank" rel="noopener">Journal of Lightwave Technology</a> · 2026-06-01</p>
       <p class="summary">
-        <span class="en">NVFP4 — Nvidia&#x27;s block-scaled FP4 micro-format now landed in Blackwell — uses a single FP4 micro-format (E2M1) per block, which often mismatches the per-block tensor statistics in real LLM weights. MixFP4 extends this by letting each block dynamically choose between E2M1 (range-favored) and E1M2 (precision-favored), reusing the existing NVFP4 scale hierarchy and MMA execution path. The implication is practical: existing NVFP4 silicon can support MixFP4 with software-level changes, which makes the format substantially more deployable than a clean-slate FP4 alternative.</span>
-        <span class="zh">NVFP4——英伟达已在Blackwell落地的块缩放FP4微格式——每块只使用单一FP4微格式（E2M1），常与真实LLM权重的块级张量统计不匹配。MixFP4扩展此格式：让每块动态在E2M1（重动态范围）与E1M2（重精度）之间选择，沿用既有的NVFP4标度层级与MMA执行路径。实际意义重要：已有NVFP4硅片可通过软件层改动支持MixFP4——比一种全新清单FP4替代方案更可部署。</span>
+        <span class="en">The paper demonstrates leakage-interference cancellation for CW radar using a silicon photonics integrated chip and spectrum predistortion. Reported cancellation depths of roughly 40 dB over 300 MHz and 37 dB over 1 GHz show why photonic RF processing keeps appearing in sensing and defense-adjacent systems. The device angle is practical: delay and amplitude control move into the optical domain, reducing pressure on purely electronic cancellation chains.</span>
+        <span class="zh">该论文用硅光集成芯片和频谱预失真实现连续波雷达的泄漏干扰抵消。约40 dB/300 MHz和37 dB/1 GHz的抵消深度，解释了为什么光子RF处理持续出现在传感和防务相邻系统中。其器件意义较实际：延迟与幅度控制转移到光域，降低了纯电子抵消链路的压力。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.30571" target="_blank" rel="noopener">
-          <span class="en">Memory-bound but not bandwidth-limited: the physical-AI inference gap in batch-1 LLM decode</span>
-          <span class="zh">受存储约束但并非带宽受限：物理AI在batch-1 LLM解码中的推理鸿沟</span>
-        </a><span class="tag">preprint</span><span class="tag">edge AI</span><span class="tag">LLM decode</span>
+        <a href="https://doi.org/10.1002/lpor.71344" target="_blank" rel="noopener">
+          <span class="en">BEOL Integration of Thin-Film Lithium Niobate on Active Silicon Photonics</span>
+          <span class="zh">薄膜铌酸锂在有源硅光平台上的后段异质集成</span>
+        </a><span class="tag">TFLN</span><span class="tag">silicon photonics</span><span class="tag">transceiver</span>
       </h3>
-      <p class="authors">co-authors not extracted</p>
+      <p class="authors">Lingfeng Wu, Zhonghao Zhou, Weilong Ma, Haohua Wang, Ziliang Ruan, Shiqing Gao, Zhishan Huang, Lu Qi, Jie Liu, Jing Feng, Changjian Guo, Dapeng Liu</p>
       <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.30571" target="_blank" rel="noopener">arXiv:2605.30571</a> · 2026-05-28</p>
+      <p class="venue"><a href="https://doi.org/10.1002/lpor.71344" target="_blank" rel="noopener">Laser &amp; Photonics Reviews</a> · 2026-05-25</p>
       <p class="summary">
-        <span class="en">Robotics, autonomous-vehicle stacks, and embodied agents typically run single-stream batch-1 LLM decode — a different beast from cloud serving&#x27;s batched workloads. The standard framing &#x27;batch-1 is memory-bandwidth bound&#x27; is true but incomplete: this paper measures three 7-8B-class models on edge accelerators and shows non-bandwidth contributions (KV-cache access patterns, kernel launch overhead, control-flow latency) dominate at the millisecond scale that physical-AI applications actually need. Important re-framing for whether to optimize the silicon for HBM bandwidth or for low-latency dispatch.</span>
-        <span class="zh">机器人、自动驾驶栈与具身代理通常运行单流batch-1 LLM解码——与云端服务的批处理负载本质不同。常见框架「batch-1 受存储带宽约束」是对的但不完整：本文在边缘加速器上测量三款7-8B级模型，证明非带宽因素（KV缓存访问模式、kernel启动开销、控制流延迟）在物理AI应用真正需要的毫秒级时间尺度上占主导。对「硅片应优化HBM带宽还是低延迟分发」这一问题的关键重定义。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="performance-photonics">
-    <h2>
-      <span class="en">Performance &amp; Photonics</span>
-      <span class="zh">性能与光子学</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2605.29752" target="_blank" rel="noopener">
-          <span class="en">From roofline to ruggedness: decomposing and smoothing the GEMM performance landscape</span>
-          <span class="zh">从Roofline到粗糙度：分解并平滑GEMM性能曲面</span>
-        </a><span class="tag">preprint</span><span class="tag">GEMM</span><span class="tag">performance modeling</span>
-      </h3>
-      <p class="authors">co-authors not extracted</p>
-      <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.29752" target="_blank" rel="noopener">arXiv:2605.29752</a> · 2026-05-28</p>
-      <p class="summary">
-        <span class="en">Demonstrates empirically that adjacent GEMM problems differing by a single 128-element step in N can show 30% different throughput on the same GPU — a &#x27;performance ruggedness&#x27; that the roofline model and peak-FLOPs intuition both miss. Proposes treating the full multidimensional performance surface as the analytical object, decomposing its texture rather than summarizing it with a scalar bound. The methodology matters because non-peak workloads dominate real serving, and tuning kernels against a ruggedness model is qualitatively different from tuning against a scalar bound.</span>
-        <span class="zh">实证表明：相邻GEMM问题——仅在N维度上相差128个元素的步长——在同一GPU上可表现出30%的吞吐量差异，这种「性能粗糙度」既被Roofline模型也被峰值FLOPs直觉所忽略。论文提出把完整的多维性能曲面作为分析对象——分解其纹理，而非以标量上界总结。方法论意义在于：真实服务由非峰值负载主导，针对粗糙度模型调优kernel，与针对标量上界调优在性质上不同。</span>
+        <span class="en">This work reports trench-based die-to-wafer bonding of thin-film lithium niobate onto a completed active silicon photonics platform. The point is process sequencing: TFLN is introduced after the CMOS-compatible silicon photonics flow, avoiding some of the incompatibility that has kept high-performance modulators separate from active Si photonics. That is directly relevant to optical transceivers for AI clusters, where bandwidth density and power are now system bottlenecks.</span>
+        <span class="zh">这项工作报道了通过沟槽式die-to-wafer键合，将薄膜铌酸锂集成到已完成的有源硅光平台上。关键在工艺顺序：TFLN在CMOS兼容硅光流程完成后引入，绕开了部分让高性能调制器与有源硅光分离的工艺不兼容问题。这与AI集群光收发器直接相关，因为带宽密度和功耗已成为系统瓶颈。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2605.30820" target="_blank" rel="noopener">
-          <span class="en">Binary amplitude modulation suppresses noise up-conversion in coherent diffractive optical networks</span>
-          <span class="zh">二元幅度调制可抑制相干衍射光网络中的噪声上变频</span>
-        </a><span class="tag">preprint</span><span class="tag">photonic computing</span><span class="tag">D2NN</span>
+        <a href="https://arxiv.org/abs/2605.31141" target="_blank" rel="noopener">
+          <span class="en">Compact Memristive Spiking Neuromorphic Accelerator</span>
+          <span class="zh">紧凑型忆阻脉冲神经形态加速器</span>
+        </a><span class="tag">memristor</span><span class="tag">SNN</span><span class="tag">SKY130</span>
       </h3>
-      <p class="authors">co-authors not extracted</p>
+      <p class="authors">Qianhou Qu, Sheng Lu, Sungyong Jung, Qilian Liang, Chenyun Pan</p>
       <p class="affil">academic team</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2605.30820" target="_blank" rel="noopener">arXiv:2605.30820</a> · 2026-05-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.31141" target="_blank" rel="noopener">arXiv:2605.31141</a> · 2026-05-29T10:49:47Z</p>
       <p class="summary">
-        <span class="en">Establishes a counter-intuitive &#x27;less-is-more&#x27; robustness law for coherent optical computing: restricting the modulation manifold from continuous complex-valued amplitudes to binary amplitudes actually suppresses stochastic-noise up-conversion while preserving classification accuracy. Seven-layer binary-amplitude D2NN achieves 90.9% on MNIST and 81.9% on Fashion-MNIST — within 2-4 pp of continuous-modulation D2NN. Practical relevance: binary-amplitude optical components are dramatically cheaper to fabricate than continuous-modulation equivalents, so a robustness law in their favor is a deployment unlock.</span>
-        <span class="zh">为相干光计算建立了反直觉的「以少胜多」鲁棒性定律：将调制流形从连续复振幅限制为二元幅度，反而抑制了随机噪声上变频，同时保持分类精度。七层二元幅度D2NN在MNIST达到90.9%、在Fashion-MNIST达到81.9%——与连续调制D2NN相差仅2-4个百分点。实际意义：二元幅度光学器件的制造成本远低于连续调制对应方案，因此一条对其有利的鲁棒性定律就是部署解锁。</span>
+        <span class="en">The authors implement a 1T1R memristive crossbar and integrate-and-fire neuron in SkyWater SKY130 for bio-inspired interception tasks. The reported 10.67 pJ/spike neuron and 96% interception success rate make it more concrete than many SNN papers that stop at algorithmic simulation. The caveat is narrow workload scope, but it is a useful silicon-adjacent data point for in-memory neuromorphic designs.</span>
+        <span class="zh">作者在SkyWater SKY130中实现1T1R忆阻交叉阵列和积分发放神经元，用于仿生拦截任务。10.67 pJ/spike的神经元和96%拦截成功率，使其比许多停留在算法仿真的SNN论文更具体。局限是工作负载较窄，但它为存内神经形态设计提供了有价值的近硅片数据点。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-01 14:50 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-01 14:50 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-02 07:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-02 07:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

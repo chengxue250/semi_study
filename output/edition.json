@@ -1,83 +1,60 @@
 {
-  "date": "2026-06-01",
+  "date": "2026-06-02",
   "theme": {
-    "en": "Computex Opens; Nvidia Lands on the PC; US Closes the Loophole",
-    "zh": "Computex开幕：英伟达登陆PC，美国关闭芯片豁免漏洞"
+    "en": "AI Capacity Moves Into Packaging and Memory",
+    "zh": "AI产能瓶颈转向封装与存储"
   },
   "dek": {
-    "en": "Nvidia's RTX Spark puts Grace Blackwell silicon into Windows PCs, Supermicro debuts a Vera Rubin NVL72 rack with a new coolant, Intel ships Xeon 6+ Clearwater Forest — all on the same Computex Day 1 the US closes the loophole that let Chinese-owned foreign subsidiaries buy regulated AI chips.",
-    "zh": "Computex第一天：英伟达RTX Spark把Grace Blackwell带进Windows PC，美超微发布配新型冷却液的Vera Rubin NVL72机架，英特尔出货Xeon 6+「Clearwater Forest」——同日美国关闭了中资境外子公司绕道购买受控AI芯片的漏洞。"
+    "en": "Computex turns the AI hardware story from raw GPU supply toward CoWoS, CPO, HBM5 and factory automation. Export-control enforcement and China-linked accelerator efforts add a second constraint layer around the same capacity race.",
+    "zh": "Computex把AI硬件叙事从GPU本身转向CoWoS、CPO、HBM5和晶圆厂自动化。出口管制执行与中国相关加速器项目，则给同一场产能竞赛叠加了第二层约束。"
   },
   "sections": [
     {
-      "id": "ai-accelerators",
+      "id": "packaging-advanced-nodes",
       "title": {
-        "en": "AI & Accelerators",
-        "zh": "AI与加速器"
+        "en": "Packaging & Advanced Nodes",
+        "zh": "先进封装与先进制程"
       },
       "stories": [
         {
           "featured": true,
           "title": {
-            "en": "Nvidia launches RTX Spark — Grace Blackwell Arm SoC for Windows PCs",
-            "zh": "英伟达发布RTX Spark：面向Windows PC的Grace Blackwell Arm SoC"
+            "en": "TSMC races to expand AI chip capacity as CPO and CoWoS move to center stage",
+            "zh": "TSMC加速扩张AI芯片产能，CPO与CoWoS站到中心"
           },
           "summary": {
-            "en": "At Computex 2026 Day 0, Nvidia launched RTX Spark — a Grace Blackwell-derived Arm SoC for Windows PCs, with first notebook partners disclosed and developer-workload benchmarks claiming a 54% lead over Apple's M5 on selected workloads. The strategic move matters more than the silicon: this is Nvidia's first deliberate push into the general-purpose Windows PC processor market, exactly the segment Qualcomm has been trying to establish with Snapdragon X / C platforms. RTX Spark forces AMD and Intel to defend their CPU sockets against a vendor that already owns the discrete-GPU pipeline. Intel's response (covered separately below): 'a healthy dose of paranoia.'",
-            "zh": "Computex 2026 Day 0英伟达发布RTX Spark——基于Grace Blackwell的Windows PC用Arm SoC，首批笔记本合作伙伴同时披露，开发者负载基准测试声称在部分场景下较苹果M5领先54%。意义在战略而非硅本身：这是英伟达首次有意识地切入通用Windows PC处理器市场，正是高通过去几年用Snapdragon X／C平台试图建立的地盘。RTX Spark迫使AMD和英特尔在CPU socket上对抗一家已经掌握独立GPU管线的厂商。英特尔的回应（下文单列）：「健康剂量的偏执」。"
+            "en": "TSMC is pushing AI-chip capacity expansion while co-packaged optics and CoWoS become the bottleneck language around Computex. The important shift is not another node announcement; it is the packaging and optical-I/O stack becoming the gating item for rack-scale accelerator output. That keeps TSMC's advanced backend capacity as strategically important as its front-end wafer starts.",
+            "zh": "TSMC正加速AI芯片产能扩张，而CPO和CoWoS在Computex期间成为瓶颈叙事的核心。关键变化不是又一个制程节点发布，而是封装与光I/O堆栈正在成为机架级加速器出货的门槛。由此，TSMC先进后段产能的战略重要性已接近前段晶圆投片。"
           },
-          "source": "ServeTheHome",
-          "url": "https://www.servethehome.com/nvida-introduces-rtx-spark-an-arm-soc-for-windows-pcs/",
-          "published": "2026-06-01T12:00:00Z"
+          "source": "DigiTimes via Google News",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQeUhsaG5CUG5RMUk4MTBhSXdaNlFmN2hGVmNjdmgxMTltQnNNb0hnZlRNYm0weW43b2hLYlVwSjNrVWg5MGM3S2tJcFk2a1lIc3d6VUdqZXpkdF9WbnBadlFrTjY1ZURmMHJJbEFJMFYtMkNMRVNyblVHRkM1NkxNamRra0tXQQ?oc=5",
+          "published": "2026-06-02T06:15:00+00:00"
         },
         {
           "title": {
-            "en": "Supermicro shows Vera Rubin NVL72 rack with new coolant — 1,000× the thermal headroom claim",
-            "zh": "美超微展示配新型冷却液的Vera Rubin NVL72机架——号称散热裕度提升1,000倍"
+            "en": "Advanced packaging shifts from TSMC dominance toward broader industry collaboration",
+            "zh": "先进封装从TSMC主导走向更广泛产业协作"
           },
           "summary": {
-            "en": "Supermicro debuted a Vera Rubin NVL72 reference rack at Computex, with a new immersion-style coolant the company claims delivers roughly 1,000× the thermal headroom of conventional single-phase liquids — important because the Vera Rubin parts' TDPs were already pushing established water-cooled solutions to their limit. The launch is also notable as Supermicro's first major product event after the co-founder's arrest last weekend in the $2.5B Nvidia GPU smuggling case: the company is signaling continuity, and Nvidia is signaling that the OEM relationship continues despite the headline risk.",
-            "zh": "美超微在Computex上展示Vera Rubin NVL72参考机架，采用一种新型浸没式冷却液，公司宣称散热裕度较传统单相液冷高出约1,000倍——重要之处在于Vera Rubin系列TDP已经把现有水冷方案推到极限。这场发布也是上周末该公司联合创始人因25亿美元英伟达GPU走私案被捕之后的首次重大产品活动：公司在传递「业务连续」的信号，英伟达则在传递「尽管头条风险存在，OEM合作仍在继续」的信号。"
+            "en": "DigiTimes frames advanced packaging as moving from a TSMC-dominated constraint toward a more collaborative supply chain. That is the natural response to CoWoS scarcity: OSATs, substrate vendors, optics suppliers and foundries are all being pulled into one capacity plan. The practical question for customers is whether alternative flows can qualify fast enough to matter before Rubin-era demand arrives.",
+            "zh": "DigiTimes将先进封装描述为从TSMC主导的瓶颈转向更协作化的供应链。这是CoWoS短缺的自然结果：OSAT、载板厂、光互连供应商和晶圆代工厂都被拉进同一张产能计划表。对客户而言，实际问题是替代流程能否在Rubin时代需求到来前完成认证并形成有效产能。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/desktops/servers/supermicro-shows-off-vera-rubin-nvl72-rack-with-all-new-type-of-coolant-company-claims-coolant-offers-1-000-times-higher-electrical-impedance-over-standard-cooling",
-          "published": "2026-06-01T12:02:00Z"
-        }
-      ]
-    },
-    {
-      "id": "foundry-manufacturing",
-      "title": {
-        "en": "Foundry & Manufacturing",
-        "zh": "晶圆代工与制造"
-      },
-      "stories": [
-        {
-          "featured": true,
-          "title": {
-            "en": "Intel ships Xeon 6+ Clearwater Forest — Intel 18A's first major commercial volume",
-            "zh": "英特尔出货Xeon 6+「Clearwater Forest」——Intel 18A的首次重大商用量产"
-          },
-          "summary": {
-            "en": "Intel formally launched Xeon 6+ Clearwater Forest, its all-E-core server CPU and the first high-volume part on Intel 18A with backside power delivery (PowerVia). ServeTheHome's launch coverage notes the part lands with usable hyperscaler customer references rather than a vendor-only narrative, which is the meaningful difference from past Intel server-CPU launches. The combination of an actual 18A ramp and Clearwater Forest going GA puts Intel Foundry's 2H26 narrative on its first real footing in years — and gives the Apple-Intel rapprochement story (covered yesterday) a credible silicon backdrop.",
-            "zh": "英特尔正式发布Xeon 6+「Clearwater Forest」——其全E-core服务器CPU，也是Intel 18A工艺（带PowerVia背面供电）的首款高量级产品。ServeTheHome的发布报道指出，该产品上市时已附带可用的超大规模客户参考案例，而非以往「只剩供应商一家叙事」的局面——这是与英特尔此前服务器CPU发布相比最实质的区别。真实的18A爬坡叠加Clearwater Forest正式上市，让英特尔代工2026下半年的叙事多年来首次站在真实基础上；昨日报道的苹果-英特尔回暖故事，也由此获得可信的硅片背景。"
-          },
-          "source": "ServeTheHome",
-          "url": "https://www.servethehome.com/intel-xeon-6-clearwater-forest-is-out/",
-          "published": "2026-06-01T13:50:00Z"
+          "source": "DigiTimes via Google News",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdzd5cUExVEdVYjJDZzdZSFY2ZTlUSlBMbXp5Q2xaaUtqQ1FYbW9DS1RjMEJQamRKendWeENDNnZ4UnJhUlNlU0ZuTHg1dmN0UzhmbGFpeGdMNkRPVmlMeDN3ZTNjdDMzdXBGWl9CR1dLanhKSjBRanRLSmIydGNRMkhyTQ?oc=5",
+          "published": "2026-06-01T22:59:37+00:00"
         },
         {
           "title": {
-            "en": "Nvidia and TSMC deploy AI in chip fabs to improve yields",
-            "zh": "英伟达与台积电将AI部署到晶圆厂，用以提升良率"
+            "en": "Ayar Labs and Wiwynn push co-packaged optics into rack-scale AI systems",
+            "zh": "Ayar Labs与Wiwynn把CPO推向机架级AI系统"
           },
           "summary": {
-            "en": "Quartz reports a joint Nvidia-TSMC initiative deploying Nvidia accelerator-trained models directly into TSMC's fab process-control loop, aimed at yield improvement on advanced nodes (N2 and below). The framing matters: it's not 'AI assists humans planning experiments'; it's AI inference embedded in the production-control feedback loop. For the broader semi industry this is the more interesting AI-in-fab data point because the customer is also the silicon supplier — the alignment of incentives is tight, and the yield-curve evidence (if it materializes) will be hard to dismiss as marketing.",
-            "zh": "Quartz报道英伟达与台积电的一项联合计划：将英伟达加速器训练的模型直接部署到台积电晶圆厂的工艺控制回路，目标提升先进节点（N2及以下）的良率。叙事关键在于：这不是「AI辅助人类设计实验」，而是把AI推理嵌入产线控制反馈回路。对更广义半导体行业而言，这是关于「AI进入晶圆厂」更有意思的数据点——因为客户同时是硅片的供应商，激励高度对齐；若良率曲线证据真的出现，将很难被当作营销叙事被打发。"
+            "en": "Ayar Labs highlighted a co-packaged-optics partnership with Wiwynn for rack-scale AI systems. The story matters because optical I/O is moving from a research roadmap item into the server-OEM integration layer, where thermals, serviceability and switch topology decide whether it ships. CPO will not displace electrical links everywhere, but AI rack bandwidth is making the first real production wedges visible.",
+            "zh": "Ayar Labs披露与Wiwynn围绕机架级AI系统的共封装光学合作。其意义在于，光I/O正从研究路线图进入服务器OEM集成层，而热设计、可维护性和交换拓扑会决定它是否真正出货。CPO不会在所有场景取代电互连，但AI机架带宽需求正在让第一批生产切入口变得清晰。"
           },
-          "source": "qz.com (via Google News)",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1EN0ozWG5RUzZZSk1VTktmVlZERlJtU01qLVB1TzM0QV93cU5Va09mNi1BTVlwTGFvNm5BTWh1bS0tSXNodjVhZ2FQQXBoX19fQURpZ2NDNFdmODN4ai1HbUxsSDZrNWc3NFE?oc=5",
-          "published": "2026-06-01T13:52:00Z"
+          "source": "TipRanks via Google News",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPRmNLMTFCMnJlNkZUQzVwWXBaY0FwYlZLcUZyZXBUbTNNMVFVLUNhSWhGcnI0WFctbm56Mjlic3cwRmh3WnhsX2Z2bElUc1VoVnk2QzU3MnoyamtTYlQtc1hOYmNzNjF4bmpzbXZmVF8yU0pqVERNRGxnUEtiWlpMSjJKOW9ZUTJLeDlIbW5kVnpFZEpRVXNQQXlMWGhTMWJMMEt3dWZMenVTdTNNWGxSaFY3MThOSktUTFM1VERkNkJycWlRNVpyQXhCbGVNMWFRTEd3?oc=5",
+          "published": "2026-06-02T06:12:52+00:00"
         }
       ]
     },
@@ -89,30 +66,140 @@
       },
       "stories": [
         {
+          "featured": true,
           "title": {
-            "en": "Toxic gas fire at SK hynix Cheongju memory plant — 7 hospitalized",
-            "zh": "SK海力士清州存储厂发生有毒气体起火事故——7人送医"
+            "en": "Samsung shows its first HBM5 physical mock-up with a 2nm base die",
+            "zh": "三星首次展示采用2nm基底裸片的HBM5实体模型"
           },
           "summary": {
-            "en": "An incident at SK hynix's Cheongju 4th-campus advanced-memory plant sent seven workers to the hospital after a toxic-gas fire today. The early reporting frames it as a safety-systems failure rather than a production-disrupting event, but the plant houses HBM-relevant capacity at a moment when supply discipline is already tight. The market read will hinge on whether plant output is meaningfully interrupted — Cheongju's 4th campus is one of the production lines feeding the HBM3E and HBM4 ramps, so even a several-day production hit is materially visible at the contract-pricing level.",
-            "zh": "SK海力士清州第四园区先进存储工厂今日发生有毒气体起火事故，7名工人送医。早期报道将其定性为安全系统失效而非产线中断事件，但该厂区在供给纪律已经紧张的当下承载着HBM相关产能。市场解读将取决于产线是否实质中断——清州第四园区是支撑HBM3E与HBM4爬坡的产线之一，即便几天的产量损失，也会在合约定价层面被实质看到。"
+            "en": "Samsung used Computex to show a first physical HBM5 mock-up, emphasizing thermal-management changes and a 2nm base die. The signal is competitive positioning as much as product disclosure: Samsung wants customers to see its HBM roadmap beyond the current HBM3E qualification fight. If HBM5 moves onto a 2nm logic base, base-die process access and thermal stack design become part of the memory-vendor differentiation story.",
+            "zh": "三星在Computex首次展示HBM5实体模型，重点提到热管理技术和2nm基底裸片。这个信号既是产品披露，也是竞争定位：三星希望客户看到其HBM路线图不止于当前HBM3E认证战。若HBM5转向2nm逻辑基底，基底裸片制程能力和热堆栈设计将成为存储厂商差异化的一部分。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/semiconductors/seven-hospitalized-after-toxic-gas-fire-at-sk-hynix-advanced-memory-plant-cheongju-4th-campus-incident-today-led-to-all-3-600-staff-being-evacuated",
-          "published": "2026-06-01T14:04:00Z"
+          "source": "Asia Economy via Google News",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9VVWZJc1dTOENRMVlQOHFUTVl4SVdqUEp4TEFYZkFldUNvekgtWVNWQUNiaFYwWXJYbXZuOXhtdTZ1VHFaYk9aWjZULXktQ2Q4c3dzeF9tNmRZSkFJdVhrM3Q1UEk?oc=5",
+          "published": "2026-06-02T05:42:15+00:00"
         },
         {
           "title": {
-            "en": "DRAM revenue soars 81% to $97B as AI demand and supply constraints push prices higher",
-            "zh": "DRAM收入年增81%至970亿美元——AI需求与供应紧张共同推升价格"
+            "en": "SK and Nvidia chiefs meet again as the AI memory race tightens",
+            "zh": "SK与Nvidia高层再次会面，AI存储竞赛继续收紧"
           },
           "summary": {
-            "en": "Industry data shows DRAM revenue jumped roughly 81% year-over-year to about $97B, with the bulk of the gain coming from contract-price reset combined with HBM mix shift rather than unit growth. Three-vendor concentration (Samsung, SK hynix, Micron) plus the P4-line HBM conversion (covered last week) plus today's Cheongju incident together translate to a 2H26 contract negotiation cycle where memory makers hold visible leverage. Buyers are starting to sign multi-year LTAs with price caps that historically would have been impossible to negotiate from the supplier side.",
-            "zh": "行业数据显示DRAM年度收入同比上涨约81%至约970亿美元，增量主要来自合约价重置叠加HBM组合切换，而非出货量增长。三家厂商集中（三星、SK海力士、美光）+ P4厂HBM产能转换（上周报道）+ 今日清州事故，叠加成2026下半年合约谈判周期——存储厂商手中议价权可见。买方开始签下带价格上限的多年LTA，而这类条款历史上对供应方而言根本谈不下来。"
+            "en": "SK Group and Nvidia leadership met again in Taipei as HBM supply remains central to AI accelerator ramps. The meeting is not a purchase order, but it reinforces SK hynix's leverage as Nvidia's key HBM supplier while Samsung and Micron try to close the gap. For hyperscalers, the practical takeaway is that GPU availability still depends on memory allocation and packaging slots, not only wafer starts at TSMC.",
+            "zh": "SK集团与Nvidia管理层在台北再次会面，HBM供应仍是AI加速器爬坡的核心。会面本身不是采购订单，但强化了SK hynix作为Nvidia关键HBM供应商的议价地位，同时三星和美光仍在追赶。对超大规模客户而言，实际结论是GPU可得性仍取决于存储分配和封装槽位，而不只是TSMC晶圆投片量。"
           },
-          "source": "TelecomLead (via Google News)",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOM1BQRHFFcHExandRT01Ya01oa0hjcm1hdzlwZGVVMXlWUk9vcTJ2Tk1McEZfaWZEQmJmZG11NHpzY09fV2dwa3JCdkt6bEpQc2tUVTlmVl9idzhmSC1PaWNrdUZTaERGWThGeU9FbWlFYkJNTHpxaW5ZY0ZmOHhLUkE5cUFxZHZvRy1HZkpiWHp2SWVSRUowSDh1M2RkekVDV0FxaDlxOG1FRGlaaHFKZnJtc0dPRlhfbC1zaXZNXy1KLUR3NWtvWjRlYVZYeXR2cDU5UkdHNy1HT29Rb1JqS1RsbjLSAeQBQVVfeXFMTjNQUERxRXBxMWp3UU9NWGtNaGtIY3JtYXc5cGRlVTF5VlJPb3Eydk5NTHBGX2lmREJiZmRtdTR6c2NPX1dncGtyQnZLemxKUHNrVFU5ZlZfYnc4ZkgtT2lja3VGU2hERlk4RnlPRW1pRWJCTUx6cWluWWNGZjh4S1JBOXFBcWR2b0ctR2ZKYlh6dkllUkVKMEg4dTNkZHpFQ1dBcWg5cThtRURpWmhxSmZybXNHT0ZYX2wtc2l2TV8tSi1EdzVrb1o0ZWFWWHl0dnA1OVJHRzctR09vUW9SaktUbG4y?oc=5",
-          "published": "2026-06-01T10:43:00Z"
+          "source": "The Investor via Google News",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBuRDl6N1RQeTh5enF0T3kzVWFqWDhnR25laFZpOXhHc3I0SlV0ajRoU2dKcUFZc004Y1IzbDVQYXNIbWxfMmotTVhobGt1ckx5QVpaS2gwS0Ridw?oc=5",
+          "published": "2026-06-02T06:55:01+00:00"
+        },
+        {
+          "title": {
+            "en": "Micron lays out its AI memory and storage roadmap at Computex",
+            "zh": "美光在Computex展示AI存储与内存路线图"
+          },
+          "summary": {
+            "en": "Micron's Computex roadmap pushes beyond HBM into high-capacity RDIMMs, SOCAMM2, GDDR7, LPDDR5X, client SSDs and automotive UFS. The broader point is that AI memory demand is fragmenting across server, workstation, PC and edge tiers rather than sitting in one HBM bucket. Micron's ability to pair HBM with commodity-memory recovery is why its equity story is increasingly treated as an AI infrastructure story, not just a DRAM cycle.",
+            "zh": "美光的Computex路线图不只覆盖HBM，还包括高容量RDIMM、SOCAMM2、GDDR7、LPDDR5X、客户端SSD和车规UFS。更大的变化是，AI存储需求正在服务器、工作站、PC和边缘端之间分化，而不是全部落在HBM一个篮子里。美光能够把HBM与通用存储复苏绑定起来，这也是其资本市场叙事越来越像AI基础设施公司、而不仅是DRAM周期股的原因。"
+          },
+          "source": "DigiTimes via Google News",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQlBOdFJNN3o5eVdNNktPVE5ET0hiaG1MeVZ5SDZhMEN0aElzYjRtdXpfdEhxSklwRWZ1QmNwT0lkS2xnX2p1RmNSellsclZyQ2RMcFItMUpPNWU0bTBoR25RQkRXLU9YdXplc3YwelNmakJwUVU4cG5KdFk0VEFLM2tLTUw3V3V6Ymh1QXFRWQ?oc=5",
+          "published": "2026-06-02T03:26:19+00:00"
+        },
+        {
+          "title": {
+            "en": "YC wins a 93B won HBM inspection-equipment deal with Samsung",
+            "zh": "YC拿下三星930亿韩元HBM检测设备订单"
+          },
+          "summary": {
+            "en": "Korean reports say YC will supply HBM inspection equipment to Samsung Electronics in a 93 billion won deal. Inspection capacity is a quiet but material limiter for HBM ramps because stacked memory yields depend on known-good die discipline across many layers. The order points to Samsung expanding the manufacturing control stack around HBM, not merely adding assembly capacity.",
+            "zh": "韩国媒体报道称，YC将向三星电子供应HBM检测设备，交易金额为930亿韩元。检测能力是HBM爬坡中低调但实质的限制项，因为堆叠存储良率依赖多层裸片的已知良品管理。该订单说明三星扩张的不只是组装能力，也在补齐HBM制造控制堆栈。"
+          },
+          "source": "TheElec via Google News",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFByUFFhdmhzNU5CTHB0T2V1RnhBYUstM1YwNVJGNnZITmZ6N21ybkpyREZCaWxJWGVIMlJ4MDZaQVU2YTJ4bmpQdENMdDVPNXlUMmNiaUM1ZERCTGo5aWVYcjNYT2VON0k?oc=5",
+          "published": "2026-06-01T10:32:23+00:00"
+        }
+      ]
+    },
+    {
+      "id": "ai-accelerators",
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
+      "stories": [
+        {
+          "title": {
+            "en": "Intel frames Computex around chip-to-rack AI systems",
+            "zh": "英特尔在Computex把AI叙事推进到芯片到机架"
+          },
+          "summary": {
+            "en": "Intel announced new AI initiatives at Computex under a chip-to-rackscale framing, leaning on partners rather than a single heroic silicon launch. That is the correct strategic lane for Intel: AI infrastructure buyers increasingly care about CPU, accelerator, networking, memory and deployment software as one system. The challenge is execution cadence, because Nvidia already sells that system narrative with a stronger software default.",
+            "zh": "英特尔在Computex以芯片到机架级方案为框架发布新的AI举措，依靠合作伙伴而非单一明星硅片。这是英特尔较合理的战略位置：AI基础设施买家越来越把CPU、加速器、网络、内存和部署软件视为一个系统来采购。挑战仍是执行节奏，因为Nvidia已经用更强的软件默认选项销售同一套系统叙事。"
+          },
+          "source": "Yahoo Finance Singapore via Google News",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWC1ncmN1b1ZxbGQ3Q0phUTdyR1dmZmxUTVctTlUxSk5wUUs0aVF3dWxrTV8wdDJBbXBsUXEtMTZEUXBiSVVpbUowOW9LTWdBRG5lUVNvaUJ3X0JveXlDZUgwUFhOdXFuem5VbndBLTVYTjFXcFhlVHNKSjkyQkkyUEZpWHVYSERlbEJob21mb3hwUQ?oc=5",
+          "published": "2026-06-02T06:30:00+00:00"
+        },
+        {
+          "title": {
+            "en": "ByteDance is reportedly developing a Groq-style inference chip with InnoStar",
+            "zh": "报道称字节跳动正与InnoStar开发Groq风格推理芯片"
+          },
+          "summary": {
+            "en": "DigiTimes reports ByteDance is working with InnoStar on a Groq-style inference chip. If accurate, the project fits the broader Chinese pattern of optimizing for inference availability under export-control uncertainty rather than trying to clone Nvidia's full training stack. The important test will be whether ByteDance can pair custom silicon with model and serving-stack changes, because Groq-style deterministic dataflow only pays off when software is designed around it.",
+            "zh": "DigiTimes报道称，字节跳动正与InnoStar开发一款Groq风格推理芯片。若消息属实，该项目符合中国厂商在出口管制不确定性下优先优化推理可得性、而非完整复制Nvidia训练堆栈的路线。关键检验在于字节能否把自研硅片与模型和服务栈改造绑定，因为Groq式确定性数据流只有在软件围绕它设计时才真正释放价值。"
+          },
+          "source": "DigiTimes via Google News",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOY1JiV0lOMWlBLTNkUmc5alVhTDM3a0xkd0tfY3NpcmhGU3lPWmZvMmFOVkcyc3VnaFFMaUltaG1JY1hXMHJyUUV5M2VYcThLbU5ZRXF4VWkxbURLVUVvUFh5OTJISEhOQUFwcU9xOEdKbFlUTm95Slg4X0FQbE82OXhLVUtTcHlxR3ZjU1ZuMlZpeGVJS3NIcnJTY25YdFN5bzZXQWJ4anI?oc=5",
+          "published": "2026-06-01T07:12:36+00:00"
+        },
+        {
+          "title": {
+            "en": "Groq reportedly seeks $650M to scale its inference cloud",
+            "zh": "报道称Groq寻求6.5亿美元融资扩张推理云"
+          },
+          "summary": {
+            "en": "Groq is reportedly pursuing a $650 million fundraise to scale its inference cloud after a wave of licensing and deployment activity in the accelerator market. The signal is that inference-specialist economics are still being funded even as Nvidia absorbs most training-cluster spend. Groq's constraint remains conversion from benchmark appeal to durable customer workloads with enough volume to justify dedicated silicon capacity.",
+            "zh": "报道称Groq正寻求6.5亿美元融资，以在加速器市场一轮授权和部署活动后扩张其推理云。这个信号说明，即便Nvidia吸收了大部分训练集群开支，专注推理的经济模型仍在获得融资支持。Groq的约束仍是从基准测试吸引力转化为可持续客户负载，并形成足够规模来支撑专用硅片产能。"
+          },
+          "source": "MSN via Google News",
+          "url": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxPMWF4UGNGeUdmdEl2SjkxVjB5TDMtQzhxaE1keEZuQWNMSHlNNlJfZXAtMU5vczNmSE5OeDBDSGxUNnVNOGtaeHVBZk01aVVDSVpzaFd6UGR0eHF1MGtiX0JZeTloeGRfZHNYXzFNYjJZcVg2MDlzV2h2aHd1VGl3eEhSYTBEd3ptRWNvSVFDc3FhWlFXb2JKcENYZS1FYXBhNklyc0ZaY1FRYkZJSGw0bzVlUElOanlnR1JsUVpMLWVCSlBLbWxiMl9DNldacURrcm10Y0lkRG1TTkRpV1QxM0JYOFp1NTd5UmVzQ05BcmdMSXR2RVpKUzNHa240Tk1DLTI1clVJTlBwTnJkLXpDb3hsdEtLNmVhX1g4QVNUOEVtcnRjSGo3cnY1OXBTeTRkZTVKQkwwRnplSG1XbFB2ckpEVFJsSEFiQkRMYTE1MDYycmZoMzF2d0RPX3h1Yzg1RW1MUGNB?oc=5",
+          "published": "2026-06-02T00:27:50+00:00"
+        }
+      ]
+    },
+    {
+      "id": "equipment-materials",
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
+      "stories": [
+        {
+          "title": {
+            "en": "Nikon leans on ArF scanner pricing to challenge ASML",
+            "zh": "尼康用ArF光刻机价格挑战ASML"
+          },
+          "summary": {
+            "en": "EE Times reports Nikon is using ArF scanner pricing as a wedge against ASML. This is not a direct EUV threat, but it matters because mature and specialty nodes still consume a large tool budget, especially in power, image-sensor and automotive lines. If customers can pressure ASML in non-EUV layers, more capex can be reserved for the EUV and advanced packaging bottlenecks that cannot be substituted as easily.",
+            "zh": "EE Times报道称，尼康正以ArF光刻机价格作为切入口挑战ASML。这并不是对EUV的直接威胁，但成熟与特色制程仍消耗大量设备预算，尤其在功率器件、图像传感器和汽车产线上。若客户能在非EUV层面对ASML施压，就能把更多资本开支留给更难替代的EUV和先进封装瓶颈。"
+          },
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/nikon-leveraging-arf-scanner-price-to-challenge-asml/",
+          "published": "2026-06-01T11:57:55+00:00"
+        },
+        {
+          "title": {
+            "en": "Invisix raises EUR20M for soft X-ray semiconductor metrology",
+            "zh": "Invisix融资2,000万欧元推进软X射线半导体计量"
+          },
+          "summary": {
+            "en": "Invisix raised EUR20 million to advance soft X-ray metrology for semiconductor manufacturing. The funding is small by tool-industry standards, but the target is real: High-NA EUV and 3D structures are straining optical and e-beam inspection trade-offs. Soft X-ray techniques remain early, yet the financing shows investors are looking for metrology options that can see buried and high-aspect-ratio features without collapsing throughput.",
+            "zh": "Invisix融资2,000万欧元，用于推进面向半导体制造的软X射线计量技术。按设备行业标准这笔钱不大，但目标是真实存在的：High-NA EUV和3D结构正在拉紧光学与电子束检测之间的取舍。软X射线技术仍偏早期，但这轮融资显示投资者正在寻找能观察埋入式和高深宽比特征、同时不牺牲吞吐量的计量方案。"
+          },
+          "source": "Metrology and Quality News via Google News",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZ3JfRWQzcnJEUGctbXpCMUhwWEVST2RLR0RyOUlMT2tjQjFZZWozVUxQZzFGTjBFYVhibjl4OVo0cFFJN3EtSEROTGIwY284bGdYZ0RCWHd0Qll5SEdqUHZ5b2ZjS3FjUjg3NS11dkhlZlBlZHo3Tk5LekZRcE5BSnl0bS1xT3pEbjgteEtrSzlZS1UxVHl0TDAyVHZmN004VXc?oc=5",
+          "published": "2026-06-02T05:00:29+00:00"
         }
       ]
     },
@@ -126,99 +213,16 @@
         {
           "featured": true,
           "title": {
-            "en": "US closes loophole that let Chinese-owned foreign subsidiaries buy regulated AI chips",
-            "zh": "美国关闭中资境外子公司绕道购买受控AI芯片的漏洞"
+            "en": "US senators press Nvidia over China export-control claims",
+            "zh": "美国参议员就中国出口管制说法施压Nvidia"
           },
           "summary": {
-            "en": "The US Commerce Department finalized a rule closing the long-standing loophole that allowed Chinese-owned subsidiaries located outside China — e.g., Hong Kong, Singapore, or Cayman-domiciled entities controlled from the mainland — to buy regulated US-origin AI chips. The change brings the export-control perimeter in line with end-use-control intent rather than nameplate-shipment destination. Practical effect: every reseller, OEM, and channel partner in Southeast Asia must now reassess know-your-customer obligations on Chinese-linked buyers, and the volume of grey-market diversion routed through Asian intermediaries should compress meaningfully.",
-            "zh": "美国商务部最终敲定一项规则，关闭长期存在的漏洞：此前中资境外子公司——如设在香港、新加坡或开曼但由大陆控制的实体——可以购买受控的美国原产AI芯片。新规则把出口管制的边界与「最终用途控制」意图对齐，而非仅以「出货目的地名义」为标准。实际效果：东南亚每一家分销商、OEM与渠道伙伴，都必须重新评估针对中资关联买家的KYC义务；通过亚洲中间方的灰色市场转运总量将出现明显压缩。"
+            "en": "US senators are questioning Nvidia's claims and compliance posture around China-linked AI chip access after Washington tightened treatment of overseas Chinese subsidiaries. The enforcement focus has moved from formal shipment destination toward beneficial ownership and end-use. For Nvidia, AMD, OEMs and resellers, the operational burden is now channel diligence as much as product-bin compliance.",
+            "zh": "在华盛顿收紧对中资境外子公司的处理后，美国参议员正质疑Nvidia围绕中国相关AI芯片获取的说法与合规姿态。执法焦点已从名义出货目的地转向实际受益所有人与最终用途。对Nvidia、AMD、OEM和分销商而言，运营负担现在不只是产品档位合规，也包括渠道尽调。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/us-closes-loophole-that-allowed-chinese-owned-subsidiaries-located-outside-china-to-buy-ai-chips-report-claims-that-hundreds-of-thousands-of-advanced-ai-chips-have-been-acquired-through-bis-blind-spot",
-          "published": "2026-06-01T11:32:00Z"
-        },
-        {
-          "title": {
-            "en": "Intel + 3DGS announce $3.3B India semiconductor facility in Odisha",
-            "zh": "英特尔与3DGS宣布在印度奥迪沙建设33亿美元半导体设施"
-          },
-          "summary": {
-            "en": "Intel and Indian partner 3DGS announced a $3.3B semiconductor facility in Odisha — likely an OSAT/packaging line rather than wafer fab, but materially relevant given India's parallel Tata-ASML / Tata-Gujarat fab build. The deal supports Intel Foundry's broader pitch that 'foundry + packaging at non-TSMC geography' is a real offering, not a press release. Combined with yesterday's Apple-Intel volume signal, Intel's 2H26 capacity narrative has more concrete data points behind it than at any time since the foundry strategy was announced.",
-            "zh": "英特尔与印度本土合作伙伴3DGS宣布在奥迪沙建设33亿美元半导体设施——更可能是OSAT/封装产线而非晶圆厂，但在印度并行推进的Tata-ASML/Tata古吉拉特晶圆厂建设的背景下意义重大。该交易支撑英特尔代工的更大叙事：「非台积电地理位置的代工+封装」是真实供货能力、而非新闻稿。叠加昨日苹果-英特尔的出货信号，英特尔2026下半年产能叙事拥有的具体数据点，比代工战略发布以来任何时候都多。"
-          },
-          "source": "Yahoo Finance (via Google News)",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQjRXZ3Q1ZTZWaUlDN0ZoMTRPOGpDeGxJeUx5SURjQ2dxWXdoTXRYNlF0ODNZNlNqZG9kNzhpYWhlRTh4eTVUNF9NWXlrR3hRVmlvY2llSi1HZGxMRnRtN3NlcExWd09rc013RGR4Tll6aDhSb0xtajFYcHBHelljcXRfX3piajQ5YlFpYXJ1ZjhYUzY2a2k0aWRVcw?oc=5",
-          "published": "2026-06-01T11:22:00Z"
-        }
-      ]
-    },
-    {
-      "id": "equipment-materials",
-      "title": {
-        "en": "Equipment & Materials",
-        "zh": "设备与材料"
-      },
-      "stories": [
-        {
-          "title": {
-            "en": "Tessalia plans €250M advanced packaging site in France",
-            "zh": "Tessalia计划在法国投资2.5亿欧元建设先进封装基地"
-          },
-          "summary": {
-            "en": "French startup Tessalia disclosed plans for a €250M advanced semiconductor packaging facility in France — a small line by Asian-OSAT standards but materially relevant for the European AI Act / Chips Act regulatory environment that increasingly conditions sovereign-relevant compute on EU-located packaging steps. Tessalia's pitch is not to compete with ASE/Amkor on cost but to position as a regulatory-compliant supplier for European AI accelerator startups. Watch for whether any of the Mistral / Cerebras-Europe / VSORA peer set commits to a Tessalia tape-out — that's the validation step that turns the announcement into supply.",
-            "zh": "法国创业公司Tessalia披露在法国投资2.5亿欧元建设先进半导体封装基地——按亚洲OSAT标准属于小型产线，但在欧洲AI法案／Chips Act监管环境下意义重大——该监管环境正越来越多地要求与主权相关的算力在欧盟境内完成封装。Tessalia的卖点不是在成本上挑战ASE/Amkor，而是定位为欧洲AI加速器初创的合规供应商。后续关注：Mistral／Cerebras-Europe／VSORA同类公司中，是否有人承诺在Tessalia流片——那将是把这条新闻从「公告」变为「真实供应」的验证步骤。"
-          },
-          "source": "gasworld (via Google News)",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOcDkyYlktaTF0cXNITHpjcGJocnN3LVlnUXZjMmR0Y1FSVE5nWEpodDVQRVpfSDExeExobjVfN3hXOS1Kbi1GZUZuY3VNRUtUQ2Q2aUd2WjdXa0VoX1ptUWlsNXFXX05KTU0yNEhpeEl4OEtraDM4aDN0OUphNDhuQ0taajNpYlQ3UGxrN0FaOGhIa2dQMnkzLU5uVXJWazNZS19MZVJQdnphMk50V1NKLTNtVWl3dWc?oc=5",
-          "published": "2026-06-01T13:43:00Z"
-        },
-        {
-          "title": {
-            "en": "Invisix raises €20M for soft X-ray metrology — AI-era chip-manufacturing inspection",
-            "zh": "Invisix完成2,000万欧元融资——面向AI时代芯片制造的软X射线计量"
-          },
-          "summary": {
-            "en": "European metrology startup Invisix raised €20M in seed funding to advance soft X-ray-based inspection technology for AI-era chip manufacturing — explicitly positioned for the High-NA EUV node window where conventional CD-SEM and OCD optical metrology are running into resolution and throughput limits. The same arXiv physics.app-ph community publishing the Wideband Balanced Photodetector work earlier this month produces the underlying device-physics chain that makes soft X-ray metrology newly viable. Watch for whether ASML or Lam Research takes a strategic stake — that's the route from seed funding to actual tool integration.",
-            "zh": "欧洲计量初创公司Invisix完成2,000万欧元种子轮融资，推进面向AI时代芯片制造的软X射线检测技术——明确瞄准High-NA EUV节点窗口，该窗口下传统CD-SEM与OCD光学计量已遭遇分辨率与吞吐量瓶颈。本月早些时候发布Wideband Balanced Photodetector工作的arXiv physics.app-ph社区，正是支撑软X射线计量从可能走向可行的底层器件物理链。后续关注ASML或Lam Research是否会战略入股——那才是从种子轮到真正工具集成的路径。"
-          },
-          "source": "Pulse 2.0 (via Google News)",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOMlB5OU1MaFNrSGVGUEpsRjZPMlh5NW9YX1RJUXE1WmVXTDVPclZSdktrQlR3Z2ZCZlRkQ0FBQUxXb3E1RFVVNHpuLXpZZ0NNc2hpZzd5MWRPNFpPYi1TMFg5ZmRiZUsyREhDNnZCaEk4R09rZVU2dzFNSG5fVkhHZ3JsSkZHakxXY1k2MjFsWnVZN1lheko1RnViUld0Q3RsTUxKWDloY1cyOEt0SG1rdmUzYkctWm5YNUxwVnhDeWTSAcABQVVfeXFMTjJQeTlNTGhTa0hlRlBKbEY2TzJYeTVvWF9USVFxNVplV0w1T3JWUnZLa0JUd2dmQmZUZENBQUFMV29xNURVVTR6bi16WWdDTXNoaWc3eTFkTzRaT2ItUzBYOWZkYmVLMkRIQzZ2QmhJOEdPa2VVNncxTUhuX1ZIR2dybEpGR2pMV2NZNjIxbFp1WTdZYXpKNUZ1YlJXdEN0bE1MSlg5aGNXMjhLdEhta3ZlM2JHLVpuWDVMcFZ4Q3lk?oc=5",
-          "published": "2026-06-01T11:38:00Z"
-        }
-      ]
-    },
-    {
-      "id": "markets-roadmaps",
-      "title": {
-        "en": "Roadmaps & Markets",
-        "zh": "路线图与市场"
-      },
-      "stories": [
-        {
-          "title": {
-            "en": "Intel admits 'a healthy dose of paranoia' over Nvidia entering PCs — RTX Spark is 'great'",
-            "zh": "英特尔承认对英伟达进军PC「有一份健康的偏执」——称RTX Spark「不错」"
-          },
-          "summary": {
-            "en": "Asked about RTX Spark, Intel's executive team publicly admitted 'a healthy dose of paranoia' and called the Nvidia product 'great' — a notable departure from past Intel responses to Arm-on-Windows competitors. The framing is strategically useful for Intel: acknowledging Nvidia as a genuine threat domestically helps justify the 18A / Xeon 6+ ramp investments and the Apple foundry win as part of a coherent counter-narrative. It also subtly contrasts with Qualcomm's current Snapdragon C selloff (covered yesterday): Intel is treating the PC-CPU competitive dynamic seriously while Qualcomm is taking a positioning hit.",
-            "zh": "在被问及RTX Spark时，英特尔高管层公开承认「有一份健康的偏执」，并称这款英伟达产品「不错」——这与英特尔此前对Arm-on-Windows竞争者的回应风格明显不同。这种表态对英特尔战略上有用：把英伟达定性为真实威胁，有助于把18A／Xeon 6+爬坡投入与苹果代工赢单纳入一致的反击叙事。同时也微妙对照高通当下的Snapdragon C抛售（昨日报道）：英特尔正认真对待PC CPU竞争动态，而高通在仓位上受挫。"
-          },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/cpus/intel-warns-it-has-a-healthy-dose-of-paranoia-over-nvidia-entrance-into-pc-market-company-says-rtx-spark-is-great-for-the-market-while-touting-the-virtues-of-x86",
-          "published": "2026-06-01T10:30:00Z"
-        },
-        {
-          "title": {
-            "en": "Computex 2026 opens — every Day 1 update from Taipei",
-            "zh": "Computex 2026开幕——台北Day 1全更新"
-          },
-          "summary": {
-            "en": "Computex 2026 opened today in Taipei with Tom's Hardware running rolling coverage. Beyond Nvidia RTX Spark and the Supermicro Vera Rubin rack, day 1 highlights include Intel's Crescent Island AI GPU launch plans, AMD's EXPO Ultra Low Latency DDR5 (13% uplift), 256GB dual-channel CUDIMM (Origin Code) hitting mass-market, and Asus rolling out ROG Edition 20 SKUs. The aggregate signal: Computex 2026 is shaping up as the year the PC platform finally absorbs the AI-accelerator economics that have until now lived on rack-scale infrastructure.",
-            "zh": "Computex 2026今日在台北开幕，Tom's Hardware开启滚动报道。除了英伟达RTX Spark与美超微Vera Rubin机架之外，Day 1亮点还包括英特尔Crescent Island AI GPU发布计划、AMD EXPO Ultra Low Latency DDR5（13%提升）、256GB双通道CUDIMM（Origin Code）走向大众市场，以及华硕ROG Edition 20系列SKU上市。综合信号：Computex 2026正在成为「PC平台终于吸纳了此前只存在于机架级基础设施上的AI加速器经济学」的一年。"
-          },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/news/live/computex-2026-",
-          "published": "2026-06-01T10:39:00Z"
+          "source": "Social News XYZ via Google News",
+          "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxONHZUbHZRTWVzYVAtY3F1Rjk5WWtJU2J0ZTJONjZXVUNhMHNGQmpWc1JqRTNaQ2Nzdmh6ZnNiWVZwRHU5UXAzVWtiUUhFU1hQS2RvUFpaeEtxTWRSMTBvQko4RmdCbWNndGtJXy1UYjh0bWFvdzNDVmJEbnRCZDlBcGNwWUFzQzFDQ01ZbWE0M1BLdWpxcGEzdWJLWWVqVTM3OHVsSDZDNGhyUlBDTkZFYXN1c0xHZWYyc3lyU3NZSlljX1FKWk10YnlkbFZFVHV1RkhEM1lERWo0bHc4UV9pRzhhY0ZNYmhlLWRTN2EtWmdabjZvT2xFetIB-AFBVV95cUxONHZUbHZRTWVzYVAtY3F1Rjk5WWtJU2J0ZTJONjZXVUNhMHNGQmpWc1JqRTNaQ2Nzdmh6ZnNiWVZwRHU5UXAzVWtiUUhFU1hQS2RvUFpaeEtxTWRSMTBvQko4RmdCbWNndGtJXy1UYjh0bWFvdzNDVmJEbnRCZDlBcGNwWUFzQzFDQ01ZbWE0M1BLdWpxcGEzdWJLWWVqVTM3OHVsSDZDNGhyUlBDTkZFYXN1c0xHZWYyc3lyU3NZSlljX1FKWk10YnlkbFZFVHV1RkhEM1lERWo0bHc4UV9pRzhhY0ZNYmhlLWRTN2EtWmdabjZvT2xFeg?oc=5",
+          "published": "2026-06-02T06:04:08+00:00"
         }
       ]
     }
@@ -226,206 +230,217 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Memristive SNNs Get Practical; FP4 Variants Multiply; Physical AI Reframes the Bottleneck",
-      "zh": "忆阻SNN走向实用、FP4变体不断分化、物理AI重新定义推理瓶颈"
+      "en": "Low-Bit Inference Meets Real Edge Silicon",
+      "zh": "低比特推理遇上真实边缘硅片"
     },
     "dek": {
-      "en": "This week's arXiv push centers on three concrete movements: memristor + spiking-neural-network designs reaching deployable form factors, mixed FP4/INT4 micro-format work right after NVFP4 hit silicon, and a tightening focus on batch-1 inference where the bottleneck story is more nuanced than 'memory-bandwidth-bound.'",
-      "zh": "本周arXiv主线聚焦三条具体推进：忆阻器+脉冲神经网络（SNN）设计达到可部署形态；NVFP4登陆硅片后混合FP4/INT4微格式工作密集出现；以及对batch-1推理的关注收紧——其瓶颈叙事远比「内存带宽受限」更细致。"
+      "en": "This week's research queue is unusually hardware-grounded: an AI-MCU with transformer acceleration, multiple low-bit inference papers that discuss kernels or failure modes, and photonic / neuromorphic device work aimed at packaging real systems rather than only simulations.",
+      "zh": "本周研究队列明显更贴近硬件：带Transformer加速器的AI-MCU，多篇讨论内核或失效模式的低比特推理论文，以及面向真实系统封装而非纯仿真的光子与神经形态器件工作。"
     },
     "areas": [
       {
+        "id": "accelerators",
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "CHIMERA: A 3.1 TOPS/W AI-MCU with Transformer Accelerator",
+              "zh": "CHIMERA：3.1 TOPS/W、带Transformer加速器的AI-MCU"
+            },
+            "authors": "Lorenzo Leone, Philip Wiese, Gamze Islamoglu, Michael Rogenmoser, Davide Rossi, Francesco Conti, Luca Benini",
+            "affiliation": "academic team",
+            "venue": "arXiv:2606.02358",
+            "venue_url": "https://arxiv.org/abs/2606.02358",
+            "summary": {
+              "en": "CHIMERA implements a 22nm FDX microcontroller with nine RV32IMA cores, a transformer accelerator and a shared-L2 subsystem delivering 563 Gb/s aggregate bandwidth. The headline number is 3.1 TOPS/W, but the more useful contribution is the QoS-managed memory hierarchy, which targets real-time edge inference rather than a narrow benchmark. It is a good example of transformer acceleration moving into MCU power envelopes instead of staying in phone-class NPUs.",
+              "zh": "CHIMERA采用22nm FDX工艺，实现了包含9个RV32IMA核心、Transformer加速器和共享L2子系统的微控制器，L2聚合带宽为563 Gb/s。标题指标是3.1 TOPS/W，但更有价值的贡献是带QoS管理的存储层次结构，目标是真时边缘推理而非狭窄基准测试。它说明Transformer加速正在进入MCU功耗包络，而不再只停留在手机级NPU。"
+            },
+            "published": "2026-06-01T15:06:09Z",
+            "tags": [
+              "AI-MCU",
+              "transformer",
+              "edge inference"
+            ]
+          },
+          {
+            "title": {
+              "en": "A 32-Channel 3.53-uW/Channel Brain-Machine Interface SoC",
+              "zh": "32通道、每通道3.53微瓦的脑机接口SoC"
+            },
+            "authors": "Ye Ke, Zhengnan Fu, Pao-Sheng Vincent Sun, An Guo, Shuai Dong, Junyi Yang, Yahan Yang, Abdelrahman B. M. Eldaly, Xin Si, Leanne Chan, Arindam Basu",
+            "affiliation": "academic team",
+            "venue": "arXiv:2606.01776",
+            "venue_url": "https://arxiv.org/abs/2606.01776",
+            "summary": {
+              "en": "The chip combines a dual-threshold delta-modulation frontend, in-memory spike detection and a bipolar LIF SNN decoder in 65nm CMOS. Its 3.53 uW per-channel power and 26x frontend compression are the practical points: implantable systems need to cut data movement before wireless or digital processing dominates the budget. The caveat is task scope, but the design is unusually complete as a sensing-to-decoding neuromorphic pipeline.",
+              "zh": "该芯片在65nm CMOS中集成双阈值delta调制前端、存内脉冲检测和双极LIF SNN解码器。每通道3.53微瓦功耗和26倍前端压缩是实际重点：植入式系统必须先削减数据搬移，否则无线传输或数字处理会吞掉功耗预算。局限在于任务范围，但作为从感测到解码的神经形态流水线，它的完整度较高。"
+            },
+            "published": "2026-06-01T06:58:57Z",
+            "tags": [
+              "SoC",
+              "neuromorphic",
+              "implantable"
+            ]
+          },
+          {
+            "title": {
+              "en": "SPARQLe: Sub-Precision Activation Representation for Quantized LLM Inference",
+              "zh": "SPARQLe：面向量化LLM推理的子精度激活表示"
+            },
+            "authors": "Aradhana Mohan Parvathy, Soumendu Kumar Ghosh, Shamik Kundu, Arnab Raha, Souvik Kundu, Deepak A. Mathaikutty, Anand Raghunathan",
+            "affiliation": "academic team",
+            "venue": "arXiv:2606.00365",
+            "venue_url": "https://arxiv.org/abs/2606.00365",
+            "summary": {
+              "en": "SPARQLe attacks activation precision rather than only weight precision by splitting each activation tensor into dense low bits and sparse high bits. That matters for hardware because activations often force wider datapaths even when weights are 4-bit. The proposed hybrid format and accelerator path are relevant to inference chips trying to preserve accuracy without paying full 8-bit activation traffic.",
+              "zh": "SPARQLe不只处理权重量化，而是把每个激活张量拆成密集低位和稀疏高位。其硬件意义在于，即便权重做到4 bit，激活往往仍迫使数据通路保持更高精度。该混合格式和加速器路径适合那些希望保留精度、又不想支付完整8 bit激活流量的推理芯片。"
+            },
+            "published": "2026-05-29T21:07:27Z",
+            "tags": [
+              "LLM inference",
+              "quantization",
+              "accelerator"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {
+          "en": "Inference Systems & Quantization",
+          "zh": "推理系统与量化"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Extreme Low-Bit Inference in Reasoning Models",
+              "zh": "推理模型中的极低比特推理"
+            },
+            "authors": "Ekaterina Alimaskina, Darya Rudas, Denis Shveykin, Gleb Molodtsov, Pavel Vasiliev, Aleksandr Beznosikov",
+            "affiliation": "academic team",
+            "venue": "arXiv:2606.02011",
+            "venue_url": "https://arxiv.org/abs/2606.02011",
+            "summary": {
+              "en": "The paper shows that 2-bit reasoning-model inference can lose speedups because unstable traces inflate the token count. The useful insight is process-level: low-bit failures include loops, delayed commitment and unclosed reasoning, not only lower answer accuracy. FP16 planning and loop rescue are lightweight controls that make quantization an inference-policy problem as well as a kernel problem.",
+              "zh": "该论文指出，2 bit推理模型不一定带来端到端加速，因为不稳定的推理轨迹会膨胀token数量。关键洞见在过程层面：低比特失效包括循环、迟迟不提交答案和未闭合推理，而不只是答案准确率下降。FP16规划和循环救援说明，量化不仅是内核问题，也是推理策略问题。"
+            },
+            "published": "2026-06-01T10:04:09Z",
+            "tags": [
+              "2-bit",
+              "reasoning",
+              "inference control"
+            ]
+          },
+          {
+            "title": {
+              "en": "Massive Spikes in LLMs are Bias Vectors",
+              "zh": "LLM中的巨大激活尖峰是偏置向量"
+            },
+            "authors": "Yung-Chin Chen, Chung Peng Lee, Ze-Wei Liou, Naveen Verma",
+            "affiliation": "academic team",
+            "venue": "arXiv:2606.02288",
+            "venue_url": "https://arxiv.org/abs/2606.02288",
+            "summary": {
+              "en": "This work reframes activation spikes as structural vector biases tied to attention-sink and value-drain mechanisms. The proposed INSERTQUANT clamps spikes and restores their function with precomputed templates, targeting a common reason low-bit activation quantization breaks. The hardware relevance is direct: taming activation dynamic range is one of the cleanest routes to narrower datapaths.",
+              "zh": "这项工作把激活尖峰重新解释为与attention sink和value drain机制相关的结构性向量偏置。其INSERTQUANT方法先钳制尖峰，再用预计算模板恢复其功能，瞄准低比特激活量化失效的常见原因。硬件相关性很直接：控制激活动态范围，是收窄数据通路最清晰的路径之一。"
+            },
+            "published": "2026-06-01T14:09:35Z",
+            "tags": [
+              "activation",
+              "PTQ",
+              "low-bit"
+            ]
+          },
+          {
+            "title": {
+              "en": "TwinQuant: Learnable Subspace Decomposition for 4-Bit LLM Quantization",
+              "zh": "TwinQuant：面向4 bit LLM量化的可学习子空间分解"
+            },
+            "authors": "Haodong Wang, Junjie Liu, Zicong Hong, Qianli Liu, Jian Lin, Song Guo, Xu Chen",
+            "affiliation": "academic team",
+            "venue": "arXiv:2606.01556",
+            "venue_url": "https://arxiv.org/abs/2606.01556",
+            "summary": {
+              "en": "TwinQuant learns quantization-friendly decomposed subspaces instead of relying on energy-minimizing decompositions that may not minimize post-quantization error. The paper also describes a fused dual-component kernel, which keeps the work relevant to deployed inference rather than only offline compression. The main caveat is added optimization complexity, but the direction matches the industry's need for 4-bit accuracy without separate slow paths.",
+              "zh": "TwinQuant学习对量化友好的分解子空间，而不是依赖未必最小化量化后误差的能量最小分解。论文还描述了融合双组件内核，使其更接近部署推理而非单纯离线压缩。主要代价是优化复杂度上升，但方向符合行业对4 bit精度且不引入慢路径的需求。"
+            },
+            "published": "2026-06-01T02:02:12Z",
+            "tags": [
+              "4-bit",
+              "kernel",
+              "LLM"
+            ]
+          }
+        ]
+      },
+      {
         "id": "devices",
         "title": {
-          "en": "Devices & Materials",
-          "zh": "器件与材料"
+          "en": "Devices & Photonics",
+          "zh": "器件与光子"
         },
         "papers": [
           {
             "title": {
-              "en": "Sharp periodic Ge concentration modulations beyond the valley wavevector k₀ in nuclear-spin-free Si quantum wells",
-              "zh": "在无核自旋Si量子阱中实现超过价电谷波矢k₀的尖锐Ge周期调制"
+              "en": "Silicon Photonics CW Radar with Spectrum Predistortion",
+              "zh": "带频谱预失真的硅光连续波雷达"
             },
-            "authors": "co-authors not extracted",
+            "authors": "Yicheng Du, Meng Chao, Xiuyou Han, X. Su, Xuan Li, Changjun Liu, Guanchao Wang, Mingshan Zhao",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.31358",
-            "venue_url": "https://arxiv.org/abs/2605.31358",
+            "venue": "Journal of Lightwave Technology",
+            "venue_url": "https://doi.org/10.1109/JLT.2026.3674601",
             "summary": {
-              "en": "Deterministic valley splitting in Si quantum wells is one of the gating problems for scalable silicon spin-qubit quantum computing — and it requires Ge concentration modulations on the order of the Si valley wavevector k₀ (≈ 9.7 nm⁻¹), which means near-monolayer growth control. This work uses ²⁸Si and ⁷²Ge molecular beam epitaxy to demonstrate Ge-modulated Si quantum wells at periods down to ~2 nm with sharp, well-defined modulations. Practically: the materials growth bottleneck on silicon spin-qubit roadmaps just moved measurably.",
-              "zh": "Si量子阱中确定性的谷劈裂，是可扩展硅自旋量子比特计算的瓶颈问题之一——其要求Ge浓度调制达到Si价电谷波矢k₀（约9.7 nm⁻¹）量级，即需要近单层级的生长控制。本工作以²⁸Si和⁷²Ge分子束外延，演示了周期可低至约2 nm、调制界面清晰的Ge调制Si量子阱。实质意义：硅自旋量子比特路线图上的材料生长瓶颈，发生了可量化的位移。"
+              "en": "The paper demonstrates leakage-interference cancellation for CW radar using a silicon photonics integrated chip and spectrum predistortion. Reported cancellation depths of roughly 40 dB over 300 MHz and 37 dB over 1 GHz show why photonic RF processing keeps appearing in sensing and defense-adjacent systems. The device angle is practical: delay and amplitude control move into the optical domain, reducing pressure on purely electronic cancellation chains.",
+              "zh": "该论文用硅光集成芯片和频谱预失真实现连续波雷达的泄漏干扰抵消。约40 dB/300 MHz和37 dB/1 GHz的抵消深度，解释了为什么光子RF处理持续出现在传感和防务相邻系统中。其器件意义较实际：延迟与幅度控制转移到光域，降低了纯电子抵消链路的压力。"
             },
-            "published": "2026-05-29",
+            "published": "2026-06-01",
             "tags": [
-              "preprint",
-              "Si spin qubits",
-              "MBE"
+              "silicon photonics",
+              "radar",
+              "RF"
             ]
           },
           {
             "title": {
-              "en": "Memristor-based spiking neural network accelerator for bio-inspired interception tasks",
-              "zh": "面向仿生拦截任务的忆阻器脉冲神经网络加速器"
+              "en": "BEOL Integration of Thin-Film Lithium Niobate on Active Silicon Photonics",
+              "zh": "薄膜铌酸锂在有源硅光平台上的后段异质集成"
             },
-            "authors": "co-authors not extracted",
+            "authors": "Lingfeng Wu, Zhonghao Zhou, Weilong Ma, Haohua Wang, Ziliang Ruan, Shiqing Gao, Zhishan Huang, Lu Qi, Jie Liu, Jing Feng, Changjian Guo, Dapeng Liu",
             "affiliation": "academic team",
-            "venue": "arXiv:2605.31299",
-            "venue_url": "https://arxiv.org/abs/2605.31299",
+            "venue": "Laser & Photonics Reviews",
+            "venue_url": "https://doi.org/10.1002/lpor.71344",
             "summary": {
-              "en": "Proposes an analog memristor SNN accelerator that integrates in-memory synaptic computation with analog integrate-and-fire neurons — eliminating the multi-transistor CMOS neuron block that has historically dominated SNN-accelerator area. Demonstrated on a bio-inspired interception task (the kind of low-power, event-driven inference where SNNs theoretically dominate). The interesting move is the device-system pairing: by accepting an SNN-shaped workload rather than trying to run general DNNs, the memristor variability problem becomes manageable rather than fatal.",
-              "zh": "提出一种模拟忆阻器SNN加速器：将存内突触计算与模拟积分-发放神经元集成，消除历来主导SNN加速器面积的多晶体管CMOS神经元单元。论文在仿生拦截任务（SNN理论上占优的低功耗、事件驱动推理类型）上演示。亮点在器件-系统的搭配：通过接受「SNN形状的负载」，而非试图运行通用DNN，忆阻器器件波动问题从致命变为可控。"
+              "en": "This work reports trench-based die-to-wafer bonding of thin-film lithium niobate onto a completed active silicon photonics platform. The point is process sequencing: TFLN is introduced after the CMOS-compatible silicon photonics flow, avoiding some of the incompatibility that has kept high-performance modulators separate from active Si photonics. That is directly relevant to optical transceivers for AI clusters, where bandwidth density and power are now system bottlenecks.",
+              "zh": "这项工作报道了通过沟槽式die-to-wafer键合，将薄膜铌酸锂集成到已完成的有源硅光平台上。关键在工艺顺序：TFLN在CMOS兼容硅光流程完成后引入，绕开了部分让高性能调制器与有源硅光分离的工艺不兼容问题。这与AI集群光收发器直接相关，因为带宽密度和功耗已成为系统瓶颈。"
             },
-            "published": "2026-05-29",
+            "published": "2026-05-25",
             "tags": [
-              "preprint",
+              "TFLN",
+              "silicon photonics",
+              "transceiver"
+            ]
+          },
+          {
+            "title": {
+              "en": "Compact Memristive Spiking Neuromorphic Accelerator",
+              "zh": "紧凑型忆阻脉冲神经形态加速器"
+            },
+            "authors": "Qianhou Qu, Sheng Lu, Sungyong Jung, Qilian Liang, Chenyun Pan",
+            "affiliation": "academic team",
+            "venue": "arXiv:2605.31141",
+            "venue_url": "https://arxiv.org/abs/2605.31141",
+            "summary": {
+              "en": "The authors implement a 1T1R memristive crossbar and integrate-and-fire neuron in SkyWater SKY130 for bio-inspired interception tasks. The reported 10.67 pJ/spike neuron and 96% interception success rate make it more concrete than many SNN papers that stop at algorithmic simulation. The caveat is narrow workload scope, but it is a useful silicon-adjacent data point for in-memory neuromorphic designs.",
+              "zh": "作者在SkyWater SKY130中实现1T1R忆阻交叉阵列和积分发放神经元，用于仿生拦截任务。10.67 pJ/spike的神经元和96%拦截成功率，使其比许多停留在算法仿真的SNN论文更具体。局限是工作负载较窄，但它为存内神经形态设计提供了有价值的近硅片数据点。"
+            },
+            "published": "2026-05-29T10:49:47Z",
+            "tags": [
               "memristor",
-              "SNN"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "in-memory",
-        "title": {
-          "en": "In-Memory Computing",
-          "zh": "存内计算"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "A reconfigurable computing-in-memory macro with charge-sharing-based weighted accumulator",
-              "zh": "基于电荷共享加权累加器的可重构存内计算宏"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "academic team",
-            "venue": "arXiv:2605.30814",
-            "venue_url": "https://arxiv.org/abs/2605.30814",
-            "summary": {
-              "en": "An SRAM-CIM macro that addresses the three usual blockers — large ADC overhead, multi-bit input latency, and limited read-bitline voltage swing — via three innovations: an IMADC that occupies just 3% area (a 9× improvement), a bit-serial charge-sharing accumulator that cuts latency, and a configurable 1-7b/2-4b/1-7b in/wt/out format envelope. The contribution isn't a single record-setting metric; it's that all three blockers move simultaneously, which is what's required for an SRAM-CIM macro to actually displace a digital MAC array in practice.",
-              "zh": "一种SRAM-CIM宏，针对长期以来的三大瓶颈——ADC开销大、多比特输入延迟高、读位线电压摆幅受限——给出三项创新：仅占3%面积的IMADC（较此前方案改进9倍）、基于位串行电荷共享的累加器（降低延迟）、以及1-7b/2-4b/1-7b的输入/权重/输出可配置位宽包络。贡献不在单项极限指标，而在三大瓶颈同时被推进——这正是SRAM-CIM宏在实际场景中真正取代数字MAC阵列所需要的。"
-            },
-            "published": "2026-05-29",
-            "tags": [
-              "preprint",
-              "SRAM-CIM",
-              "ADC"
-            ]
-          },
-          {
-            "title": {
-              "en": "HE²: a communication-light heterogeneous architecture for efficient fully homomorphic encryption",
-              "zh": "HE²：面向高效全同态加密的通信轻量化异构架构"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "academic team",
-            "venue": "arXiv:2605.31004",
-            "venue_url": "https://arxiv.org/abs/2605.31004",
-            "summary": {
-              "en": "CKKS-style FHE workloads split cleanly into compute-heavy operators (ComOps) and memory-heavy operators (MemOps); existing ASIC-only and NMP-only acceleration efforts hit overhead walls because they optimize for only one. HE² proposes a heterogeneous architecture that places ComOps on a compute-dense ASIC and MemOps on near-memory tiles, with a light-weight on-chip interconnect tuned so the inter-operator data movement doesn't dominate. Relevant to the broader privacy-preserving-AI inference build-out where FHE has been compute-prohibitive for so long that hardware redesign is finally being taken seriously.",
-              "zh": "CKKS型FHE负载可干净地拆分为计算密集型算子（ComOps）与内存密集型算子（MemOps）；现有的纯ASIC或纯NMP加速方案因为只优化其中之一而撞上开销墙。HE²提出异构架构：把ComOps放在计算密集的ASIC上，MemOps放在近存储tile上，并以轻量化片上互连调优——使算子间的数据搬运不会成为新瓶颈。意义在于：在隐私保护AI推理的更大建设浪潮中，FHE长期算力代价过高，硬件重设计终于被严肃对待。"
-            },
-            "published": "2026-05-29",
-            "tags": [
-              "preprint",
-              "FHE",
-              "heterogeneous"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "numerical-inference",
-        "title": {
-          "en": "Numerical Formats & Inference",
-          "zh": "数值格式与推理"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "MixFP4: enhancing NVFP4 with adaptive FP4/INT4 block representations",
-              "zh": "MixFP4：用FP4/INT4自适应块表示增强NVFP4"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "academic team",
-            "venue": "arXiv:2605.31035",
-            "venue_url": "https://arxiv.org/abs/2605.31035",
-            "summary": {
-              "en": "NVFP4 — Nvidia's block-scaled FP4 micro-format now landed in Blackwell — uses a single FP4 micro-format (E2M1) per block, which often mismatches the per-block tensor statistics in real LLM weights. MixFP4 extends this by letting each block dynamically choose between E2M1 (range-favored) and E1M2 (precision-favored), reusing the existing NVFP4 scale hierarchy and MMA execution path. The implication is practical: existing NVFP4 silicon can support MixFP4 with software-level changes, which makes the format substantially more deployable than a clean-slate FP4 alternative.",
-              "zh": "NVFP4——英伟达已在Blackwell落地的块缩放FP4微格式——每块只使用单一FP4微格式（E2M1），常与真实LLM权重的块级张量统计不匹配。MixFP4扩展此格式：让每块动态在E2M1（重动态范围）与E1M2（重精度）之间选择，沿用既有的NVFP4标度层级与MMA执行路径。实际意义重要：已有NVFP4硅片可通过软件层改动支持MixFP4——比一种全新清单FP4替代方案更可部署。"
-            },
-            "published": "2026-05-29",
-            "tags": [
-              "preprint",
-              "NVFP4",
-              "quantization"
-            ]
-          },
-          {
-            "title": {
-              "en": "Memory-bound but not bandwidth-limited: the physical-AI inference gap in batch-1 LLM decode",
-              "zh": "受存储约束但并非带宽受限：物理AI在batch-1 LLM解码中的推理鸿沟"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "academic team",
-            "venue": "arXiv:2605.30571",
-            "venue_url": "https://arxiv.org/abs/2605.30571",
-            "summary": {
-              "en": "Robotics, autonomous-vehicle stacks, and embodied agents typically run single-stream batch-1 LLM decode — a different beast from cloud serving's batched workloads. The standard framing 'batch-1 is memory-bandwidth bound' is true but incomplete: this paper measures three 7-8B-class models on edge accelerators and shows non-bandwidth contributions (KV-cache access patterns, kernel launch overhead, control-flow latency) dominate at the millisecond scale that physical-AI applications actually need. Important re-framing for whether to optimize the silicon for HBM bandwidth or for low-latency dispatch.",
-              "zh": "机器人、自动驾驶栈与具身代理通常运行单流batch-1 LLM解码——与云端服务的批处理负载本质不同。常见框架「batch-1 受存储带宽约束」是对的但不完整：本文在边缘加速器上测量三款7-8B级模型，证明非带宽因素（KV缓存访问模式、kernel启动开销、控制流延迟）在物理AI应用真正需要的毫秒级时间尺度上占主导。对「硅片应优化HBM带宽还是低延迟分发」这一问题的关键重定义。"
-            },
-            "published": "2026-05-28",
-            "tags": [
-              "preprint",
-              "edge AI",
-              "LLM decode"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "performance-photonics",
-        "title": {
-          "en": "Performance & Photonics",
-          "zh": "性能与光子学"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "From roofline to ruggedness: decomposing and smoothing the GEMM performance landscape",
-              "zh": "从Roofline到粗糙度：分解并平滑GEMM性能曲面"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "academic team",
-            "venue": "arXiv:2605.29752",
-            "venue_url": "https://arxiv.org/abs/2605.29752",
-            "summary": {
-              "en": "Demonstrates empirically that adjacent GEMM problems differing by a single 128-element step in N can show 30% different throughput on the same GPU — a 'performance ruggedness' that the roofline model and peak-FLOPs intuition both miss. Proposes treating the full multidimensional performance surface as the analytical object, decomposing its texture rather than summarizing it with a scalar bound. The methodology matters because non-peak workloads dominate real serving, and tuning kernels against a ruggedness model is qualitatively different from tuning against a scalar bound.",
-              "zh": "实证表明：相邻GEMM问题——仅在N维度上相差128个元素的步长——在同一GPU上可表现出30%的吞吐量差异，这种「性能粗糙度」既被Roofline模型也被峰值FLOPs直觉所忽略。论文提出把完整的多维性能曲面作为分析对象——分解其纹理，而非以标量上界总结。方法论意义在于：真实服务由非峰值负载主导，针对粗糙度模型调优kernel，与针对标量上界调优在性质上不同。"
-            },
-            "published": "2026-05-28",
-            "tags": [
-              "preprint",
-              "GEMM",
-              "performance modeling"
-            ]
-          },
-          {
-            "title": {
-              "en": "Binary amplitude modulation suppresses noise up-conversion in coherent diffractive optical networks",
-              "zh": "二元幅度调制可抑制相干衍射光网络中的噪声上变频"
-            },
-            "authors": "co-authors not extracted",
-            "affiliation": "academic team",
-            "venue": "arXiv:2605.30820",
-            "venue_url": "https://arxiv.org/abs/2605.30820",
-            "summary": {
-              "en": "Establishes a counter-intuitive 'less-is-more' robustness law for coherent optical computing: restricting the modulation manifold from continuous complex-valued amplitudes to binary amplitudes actually suppresses stochastic-noise up-conversion while preserving classification accuracy. Seven-layer binary-amplitude D2NN achieves 90.9% on MNIST and 81.9% on Fashion-MNIST — within 2-4 pp of continuous-modulation D2NN. Practical relevance: binary-amplitude optical components are dramatically cheaper to fabricate than continuous-modulation equivalents, so a robustness law in their favor is a deployment unlock.",
-              "zh": "为相干光计算建立了反直觉的「以少胜多」鲁棒性定律：将调制流形从连续复振幅限制为二元幅度，反而抑制了随机噪声上变频，同时保持分类精度。七层二元幅度D2NN在MNIST达到90.9%、在Fashion-MNIST达到81.9%——与连续调制D2NN相差仅2-4个百分点。实际意义：二元幅度光学器件的制造成本远低于连续调制对应方案，因此一条对其有利的鲁棒性定律就是部署解锁。"
-            },
-            "published": "2026-05-29",
-            "tags": [
-              "preprint",
-              "photonic computing",
-              "D2NN"
+              "SNN",
+              "SKY130"
             ]
           }
         ]
