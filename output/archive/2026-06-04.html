@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-04">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Meets Supply Discipline — Semi News 2026-06-04</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Lang visibility — pure CSS off the body[data-lang] */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, June 4, 2026</span>
+      <span class="zh">2026年6月4日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Meets Supply Discipline</span>
+      <span class="zh">AI需求撞上供应纪律</span>
+    </h1>
+    <p class="dek">
+      <span class="en">TSMC says AI-chip supply will stay tight for years, while HBM, packaging, cooling, accelerator alternatives and policy controls all turn into system-level constraints.</span>
+      <span class="zh">TSMC称AI芯片供应紧张会持续多年；与此同时，HBM、先进封装、散热、替代加速器和政策管制都变成系统级约束。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="foundry-manufacturing">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOU1NaWEVzV3N2QTVEZk9md3Z5RXhJVHZ5VlJnVERyWllPZ1pITGdZY0pPcDlRMmd6VlJ0Q2lGUWlSQ2gzMEtOUUpNR21oVGVweGRtTHVDS05TdUI3ZndiUF93dV9QSEJMRHBNNWZKSXhYZTJ5U0c1V1RtN3VRN01Gd0JJTGJ6ZkItSUxUVHg1SVowSlZ4dUtLaDV0OHVuZUJoS0U3SElMdGVKRW84V0dfNHVzVm9Tdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC warns AI-chip supply will trail demand for years</span>
+          <span class="zh">TSMC警告AI芯片供应将多年追不上需求</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Bloomberg via Google News</span> · 6h ago</span>
+        <span class="zh"><span class="source">Bloomberg via Google News</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bloomberg reports that TSMC&#x27;s CEO expects chip supply to remain unable to meet AI-fueled demand for years. This is the cleanest signal of the day: the bottleneck is no longer only a near-term CoWoS or HBM allocation issue, but a longer manufacturing-capacity problem. The pricing angle also matters because customers are asking TSMC to expand while the foundry wants a return profile that justifies the capital intensity.</span>
+        <span class="zh">Bloomberg报道称，TSMC CEO预计芯片供应在未来多年都难以满足AI驱动的需求。这是今天最清晰的信号：瓶颈不再只是短期CoWoS或HBM配额，而是更长期的制造产能问题。价格信号同样重要，因为客户要求TSMC扩产，而代工厂需要足以支撑高资本开支的回报。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNS2NuS0t6c2wyY1ZvSUwxelYxTHpROW5Qc0VmbjktT2g0R2JKMTZvcUt3QjBPYW9UMDNUWTcyS01BNjQ1cllLbzdPS0dTYkE2WGllQ0ZUQXo0M3AxeWhJNmhtT3pTVlhWcEhRSTA4WGt2VHlxdVlsOEw4OTFzRVBpR3V6YlVJREZNXzJZaTFsRVgtRlpFaVJMZTVUREhUcE4zN0JV?oc=5" target="_blank" rel="noopener">
+          <span class="en">Reuters: TSMC is working to meet demand and would like higher prices</span>
+          <span class="zh">Reuters：TSMC努力满足需求，也希望提高价格</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters via Google News</span> · 11h ago</span>
+        <span class="zh"><span class="source">Reuters via Google News</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Reuters says TSMC is working hard to meet chip demand and would like to raise prices. Read together with the supply warning, this frames advanced-node capacity as a scarce industrial resource rather than a commodity service. For AI customers, the practical question is not only whether a node is available, but whether enough wafers, packaging slots and long-term commitments can be secured at acceptable margins.</span>
+        <span class="zh">Reuters称TSMC正努力满足芯片需求，并希望提高价格。与供应警告放在一起看，先进节点产能更像稀缺工业资源，而不是普通代工服务。对AI客户而言，实际问题不只是某个节点是否可用，而是能否以可接受的利润结构锁定足够晶圆、封装槽位和长期承诺。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxNc2hlWldianhzV0w2UHhtSXUtUUlVQXRDUHY3blBMLTREeXk0N1MzVlBWQUs5bVRXbkJRY1VIQy1VYk9KdXVvU3I1NmZpQlVXYVVWMVVTY295ek10bm93U2VqMU9IRG0zUEpTQ3lpNG9OdE9wZ3Nmc0c1X0JxZTZ1U0FodVR3WHJ0MzRn?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC says CoPoS could scale within years</span>
+          <span class="zh">TSMC称CoPoS有望在数年内扩大规模</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 8h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes reports that TSMC&#x27;s chair said CoPoS could scale within years while downplaying the risk from Intel&#x27;s Terafab packaging challenge. The strategic point is that TSMC is treating advanced packaging as a roadmap with multiple form factors, not a single CoWoS capacity line. If CoPoS scales, the competitive boundary shifts from process nodes alone to who can turn large-package integration into repeatable manufacturing.</span>
+        <span class="zh">DigiTimes报道称，TSMC董事长表示CoPoS可能在数年内扩大规模，同时淡化Intel Terafab封装挑战带来的风险。战略重点在于，TSMC正在把先进封装视作多形态路线图，而不是单一CoWoS产能线。如果CoPoS走向规模化，竞争边界将从单纯制程节点转向谁能把大封装集成做成可复制制造。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory-packaging">
+    <h2>
+      <span class="en">Memory &amp; Packaging</span>
+      <span class="zh">存储与封装</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi9wFBVV95cUxPZUdEMTBpaU1vSy0yN1FKa3pmaHQ1UWkxRGwxemdCTGw5WUxLcVFnQWJfOW12bWszVjhxR1BaenJMNUppOWwxbGF0VjVVSEVITTVSMmtvRzVySmRaWXBYR0JtWmdzc1VPRlFZSk1XcHZrT1dheXFuRVA5R2JLekVmaGhrc2RPT2gtTlVwUTFnUUhBaFJBTkdXdWRLZ2htR2lLdi1uNWh3TUhnTmd4TVZFcUhvdHl3eXpCUlFaczgtU3hILWhNVGlNLTBsOUpXdmM5bG4xVEhURnhvX21QempVWF9aQXU1SDQ0YnZvVWFvS3ZRYkE1UkVn?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK Group and TSMC broaden HBM and advanced-packaging cooperation</span>
+          <span class="zh">SK集团与TSMC扩大HBM和先进封装合作</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingView via Google News</span> · 6h ago</span>
+        <span class="zh"><span class="source">TradingView via Google News</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK Group&#x27;s chair met TSMC&#x27;s CEO to broaden cooperation on HBM memory development and advanced packaging. This is not a cosmetic partnership: HBM4 and AI-package roadmaps increasingly require memory vendors and foundries to co-design electrical, thermal and mechanical constraints earlier. The meeting underscores how the AI supply chain is becoming a set of paired commitments, not a spot market for interchangeable parts.</span>
+        <span class="zh">SK集团董事长与TSMC CEO会面，扩大在HBM存储开发和先进封装上的合作。这不是表面合作：HBM4和AI封装路线图越来越要求存储厂与代工厂更早共同设计电气、热和机械约束。这次会面说明AI供应链正在变成一组配对承诺，而不是可随时替换零件的现货市场。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/ram/production-of-ddr4-memory-and-motherboards-is-restarting-amid-unprecedented-memory-shortages-pc-industry-preparing-for-a-world-without-ddr5" target="_blank" rel="noopener">
+          <span class="en">DDR4 production restarts as memory shortages ripple through PCs</span>
+          <span class="zh">DDR4生产重启，存储短缺波及PC供应链</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 2h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tom&#x27;s Hardware reports that DDR4 memory and motherboard production is restarting amid severe memory shortages. That matters because AI-driven capacity allocation is feeding back into older, lower-margin parts that the PC ecosystem still needs. The industry is preparing for a strange transition period: DDR5 is the strategic direction, but DDR4 shortages can still disrupt mainstream systems and repair channels.</span>
+        <span class="zh">Tom&#x27;s Hardware报道称，在严重存储短缺背景下，DDR4内存和主板生产正在重启。这很重要，因为AI驱动的产能分配正在反过来影响PC生态仍然需要的旧制程、低利润部件。行业正进入一个有点反直觉的过渡期：DDR5是战略方向，但DDR4短缺仍会扰动主流系统和维修渠道。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxObTM3cnVOOWpwZjhyYlBiVUNFNENmN3hlQlNTZHFCazBlX0V2b05fZlcyN3E4M3ljUGhOVUY4TnprQ0VtNUNPamFidW9jamZldXhqN1JrZTdGOHByYlNSMXpCdmNWSmdMdDRxLTlNeFBHSnM0cmd3US1LeFRIUlZvOEJpenZ2YWw5a01fcTlvMFpJbmQxc1dlM2lhaW1vSHRkdWxqal9rVE0yM0VKbWpQb3pkYmdEUzVwYktlN3lfNWRFMFnSAcMBQVVfeXFMTm0zN3J1TjlqcGY4cmJQYlVDRTRDZjd4ZUJTU2RxQmswZV9Fdm9OX2ZXMjdxODN5Y1BoTlVGOE56a0NFbTVDT2phYnVvY2pmZXV4ajdSa2U3RjhwcmJTUjF6QnZjVkpnTHQ0cS05TXhQR0pzNHJnd1EtS3hUSFJWbzhCaXp2dmFsOWtNX3E5bzBaSW5kMXNXZTNpYWltb0h0ZHVsampfa1RNMjNFSm1qUG96ZGJnRFM1cGJLZTd5XzVkRTBZ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cooling design becomes a battleground for next-gen AI memory</span>
+          <span class="zh">散热设计成为下一代AI存储竞争战场</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Korea Times via Google News</span> · 7h ago</span>
+        <span class="zh"><span class="source">The Korea Times via Google News</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Korea Times says cooling design is emerging as a battleground for next-generation AI memory. This is the HBM4 story beneath the bandwidth headline: higher stacks and tighter packages only ship if heat can be removed predictably. Thermal architecture is becoming part of memory differentiation, especially where memory vendors, foundries and accelerator designers must agree on package-level limits.</span>
+        <span class="zh">The Korea Times称，散热设计正在成为下一代AI存储的竞争战场。这是HBM4带宽标题之下的真实问题：更高堆叠和更紧封装只有在热量能被稳定带走时才会出货。热架构正在成为存储差异化的一部分，尤其是在存储厂、代工厂和加速器设计方必须共同接受封装级限制的场景。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPS2xCS2tVM2hRZFFXQktGMXlzN3N5TVg3WWxsblVOR1RCQm40VlFxdm1DR1RVM2lnU0IzeU14eDFrSTQwc0lyckhJT0NqZlI4YlhjZnhMN1pJNUFJR3FHQjQ2M1NUUWFXazNfc1ZMdXRRVzdQeG5PQ29QeEg1TzNEVEFaU2NGYmM0ZDc4WWRB0gGOAUFVX3lxTE9LbEJLa1UzaFFkUVdCS0YxeXM3c3lNWDdZbGxuVU5HVEJCbjRWUXF2bUNHVFUzaWdTQjN5TXh4MWtJNDBzSXJySElPQ2pmUjhiWGNmeEw3Wkk1QUlHcUdCNDYzU1RRYVdrM19zVkx1dFFXN1B4bk9Db1B4SDVPM0RUQVpTY0ZiYzRkNzhZZEE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Hanmi shows HBM4 and 2.5D AI packaging equipment at Computex</span>
+          <span class="zh">Hanmi在Computex展示HBM4与2.5D AI封装设备</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosunbiz via Google News</span> · 12h ago</span>
+        <span class="zh"><span class="source">Chosunbiz via Google News</span> · 12小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Hanmi Semiconductor debuted at Computex with HBM4 and 2.5D AI packaging equipment. The timing fits the broader shift in spending from chip designs toward the manufacturing tools that determine whether those designs can be built at volume. Equipment vendors serving bonding, inspection and package assembly are moving closer to the center of the AI hardware cycle.</span>
+        <span class="zh">Hanmi Semiconductor在Computex首秀，并展示HBM4和2.5D AI封装设备。这个时间点契合更大的投资转向：资金不只追逐芯片设计，也追逐决定这些设计能否规模制造的工具。服务键合、检测和封装组装的设备供应商，正在靠近AI硬件周期中心。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/amds-helios-mi455x-ai-platform-breaks-cover-initial-systems-use-ualink-over-ethernet-interconnects-amds-vera-rubin-rival-surfaces-but-the-downsides-of-ethernet-could-hamstring-performance" target="_blank" rel="noopener">
+          <span class="en">AMD&#x27;s Helios MI455X platform surfaces with UALink-over-Ethernet</span>
+          <span class="zh">AMD Helios MI455X平台曝光，采用UALink-over-Ethernet</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 1h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD&#x27;s Helios MI455X AI platform has surfaced, with initial systems reportedly using UALink-over-Ethernet interconnects. The design shows AMD trying to answer Nvidia&#x27;s rack-scale platform story, not just ship a faster accelerator. The caveat is also in the headline: Ethernet-based scale-up could broaden openness, but latency and software maturity will decide whether it competes cleanly with tighter proprietary fabrics.</span>
+        <span class="zh">AMD Helios MI455X AI平台曝光，早期系统据称采用UALink-over-Ethernet互连。这个设计显示AMD想回应Nvidia的机架级平台叙事，而不只是推出更快加速器。限制也写在标题里：基于Ethernet的scale-up可能带来更开放生态，但延迟和软件成熟度会决定它能否真正挑战更紧耦合的专有fabric。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPZWhuYmxUUVVLRGhDQVBmcG5pNTd1bE11SzcteV94N1VxOFROU0VRa2VhTWFSSzhIdG1PZGthNzQ3amtveDE2LXpyd0g4U0hyVkZWOEtqaEZhbjdybE9ZSl9FTWZrNjlJc3pwVTVpSW5GZFVsRmJPQkpiRlRUejJQdTVYUG9pOEJYWkUydU9JY0I1ZmZqaGo4ZnRid0JiOVBfSnJ6TjQ5WXFzazFjSjVENWY0TlIzUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras says it is working with all AI gear makers except Nvidia</span>
+          <span class="zh">Cerebras称正与除Nvidia外的AI设备厂合作</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Bloomberg via Google News</span> · 8h ago</span>
+        <span class="zh"><span class="source">Bloomberg via Google News</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bloomberg reports that Cerebras is working with all AI gear makers except Nvidia. The line is blunt, but strategically coherent: Cerebras is selling itself as the alternative compute layer for vendors and customers that want leverage against Nvidia&#x27;s full-stack position. The challenge is whether those partnerships translate into deployable systems, software support and supply commitments rather than only anti-incumbent sentiment.</span>
+        <span class="zh">Bloomberg报道称，Cerebras正在与除Nvidia外的所有AI设备厂合作。这个说法很直接，但战略上说得通：Cerebras把自己定位为希望制衡Nvidia全栈地位的供应商和客户的替代计算层。挑战在于，这些合作能否转化为可部署系统、软件支持和供应承诺，而不只是反主导厂商情绪。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxOZGM0dW9RMDMwdl9kb0lieE1SM2NWTmNlWjhMbmNZWWlSaFhkMkdMaXZWcHB2WHYyeFlrbGVndmFiVXBVNENHeWFJUWhhY3pNVkNmM3lXNkJya2FJX2JxcjdNU1VfSjMxYjEtUlZydHRNaDlqdXFEV2pNUFROVE9WVXdIT1dlbkJqc1loQ19Fc3cwOHRPVjdpTXhFbHdZNzR3cFY3TjJLVQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">KT Cloud launches public-sector NPU servers using Rebellions chips</span>
+          <span class="zh">KT Cloud推出采用Rebellions芯片的公共部门NPU服务器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Seoul Economic Daily via Google News</span> · 12h ago</span>
+        <span class="zh"><span class="source">Seoul Economic Daily via Google News</span> · 12小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">KT Cloud launched a public-sector NPU server using chips from Rebellions. This is a smaller story than the TSMC and HBM headlines, but it shows sovereign and regional AI infrastructure moving from subsidy language toward specific deployments. For Korean AI-silicon vendors, public-sector procurement can be an early production testbed for software support, utilization and local-stack credibility.</span>
+        <span class="zh">KT Cloud推出采用Rebellions芯片的公共部门NPU服务器。这条新闻规模小于TSMC和HBM主线，但它显示主权和区域AI基础设施正在从补贴语言走向具体部署。对韩国AI芯片厂商而言，公共部门采购可以成为软件支持、利用率和本地技术栈可信度的早期量产试验场。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/liquid-cooling/frore-shows-off-liquidjet-nexus-coldplate-for-nvidia-vera-rubin-other-ai-accelerators-offers-up-claimed-10-percent-token-generation-boost-over-rival-liquid-cooling-solutions" target="_blank" rel="noopener">
+          <span class="en">Frore shows a coldplate for Nvidia Vera Rubin-class accelerators</span>
+          <span class="zh">Frore展示面向Nvidia Vera Rubin级加速器的冷板</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 2h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Frore showed its LiquidJet Nexus coldplate for Nvidia Vera Rubin and other AI accelerators, claiming a token-generation boost over rival liquid-cooling approaches. The important part is not the exact percentage; it is that cooling vendors are now making performance claims in AI workload language. As accelerator power rises, thermal hardware becomes part of throughput economics rather than a facilities afterthought.</span>
+        <span class="zh">Frore展示了面向Nvidia Vera Rubin及其他AI加速器的LiquidJet Nexus冷板，并声称相较其他液冷方案可提升token生成表现。重点不在具体百分比，而在于散热供应商已经开始用AI工作负载语言表达性能。随着加速器功耗上升，热硬件正在变成吞吐经济性的一部分，而不是机房后置配套。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy-materials">
+    <h2>
+      <span class="en">Policy, Materials &amp; Standards</span>
+      <span class="zh">政策、材料与标准</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9zdnlDamtFczVLOFhuZnVfalFQYS0za2UyeHkweXNxeHowd3VmYW82OGNzTGthaWdzZDFZNGk3NGJIeDg4bjZaZnBJUmtQZ29fVmQ2SUx1SzVha0JRbzVVMThFYWhPaTk4T0VScWkzSQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">EU proposes Chips Act 2.0 to strengthen its semiconductor ecosystem</span>
+          <span class="zh">欧盟提出Chips Act 2.0强化半导体生态</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Digital Watch Observatory via Google News</span> · 1h ago</span>
+        <span class="zh"><span class="source">Digital Watch Observatory via Google News</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The EU proposed a Chips Act 2.0 aimed at strengthening the semiconductor ecosystem. The policy signal is that Europe is not treating the first Chips Act as a finished industrial plan; it is already adjusting for AI demand, supply-chain resilience and competition for leading-edge investment. Watch whether the second phase adds faster permitting, clearer demand aggregation or more targeted support for packaging and materials.</span>
+        <span class="zh">欧盟提出Chips Act 2.0，目标是强化半导体生态。政策信号在于，欧洲并没有把第一版Chips Act视为已经完成的产业计划，而是在针对AI需求、供应链韧性和先进投资竞争继续调整。后续要看第二阶段是否加入更快审批、更清晰的需求聚合，或更聚焦封装与材料的支持。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBDVzVvR25qT21JWmlmcUFuUDVRcGpibTVJQlpFTm9saDNsMDdBTHZSbkQzUHFkUHViTzZhQmFfSWd5bDdBbmJfaHBGdTkwMjJ5blFNWW9hcXJrYWFaT2l6S3ZFVkg1WDlrcXkzYXl2YVhVeWxMUk8xMVJnTFg?oc=5" target="_blank" rel="noopener">
+          <span class="en">China says US export controls disrupt global semiconductor supply chains</span>
+          <span class="zh">中国称美国出口管制扰乱全球半导体供应链</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Xinhua via Google News</span> · 21m ago</span>
+        <span class="zh"><span class="source">Xinhua via Google News</span> · 21分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Xinhua reports that China criticized US export controls as disruptive to global semiconductor industrial and supply chains. The statement is predictable, but it lands on a day when supply scarcity is already the industry theme. Export-control compliance is now another allocation constraint layered on top of wafer capacity, packaging slots, HBM availability and regional customer access.</span>
+        <span class="zh">新华社报道称，中国批评美国滥用出口管制，扰乱全球半导体产业链和供应链。这个表态并不意外，但它出现的同一天，供应稀缺已经是行业主线。出口管制合规如今是叠加在晶圆产能、封装槽位、HBM可得性和区域客户准入之上的又一层分配约束。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxNTkh2NU1JWWxmUVBuZkhxMzQ3b2xqZXVqRHRmTlpPQUFUcWYxWjNEVklIZ2FwQTZoRWtZUks5RUc1ZERidm5DNjNiTEZOQ0RZbW9JRTdqU2NnRlRGMk5Gb2hHNkF2VmF2X2tTN003R1kxNXIxYng1WDM0ZGtZQ0ZhY3pET2p1akJCZFE?oc=5" target="_blank" rel="noopener">
+          <span class="en">JEDEC releases new SiC guidelines</span>
+          <span class="zh">JEDEC发布新的SiC指南</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Compound Semiconductor via Google News</span> · 3h ago</span>
+        <span class="zh"><span class="source">Compound Semiconductor via Google News</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">JEDEC released new guidelines for silicon-carbide technology. Standards work rarely moves markets in a single day, but it lowers integration friction for a wide-bandgap supply chain that is still maturing across substrates, devices, modules and qualification. As SiC moves deeper into automotive and power infrastructure, shared guidelines become part of scaling the ecosystem, not just documenting it.</span>
+        <span class="zh">JEDEC发布了新的碳化硅技术指南。标准工作通常不会在单日推动市场，但它能降低宽禁带供应链在衬底、器件、模块和认证之间的集成摩擦。随着SiC更深入汽车和电力基础设施，共同指南会成为扩大生态的一部分，而不只是记录生态。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-04 13:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-04 13:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

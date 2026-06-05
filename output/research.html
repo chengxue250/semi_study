@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-04">
+<meta name="edition-date" content="2026-06-05">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Tensor Cores, Thermal Pixels and Quantized Experts — Semi Research 2026-06-04</title>
+<title>Inference Systems Meet New Memory Devices — Semi Research 2026-06-05</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -218,181 +218,196 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, June 4, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月4日 星期四</span>
+      <span class="en">Research digest · Friday, June 5, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月5日 星期五</span>
     </div>
     <h1>
-      <span class="en">Tensor Cores, Thermal Pixels and Quantized Experts</span>
-      <span class="zh">张量核、热像素与量化专家</span>
+      <span class="en">Inference Systems Meet New Memory Devices</span>
+      <span class="zh">推理系统遇上新型存储器件</span>
     </h1>
     <p class="dek">
-      <span class="en">Today&#x27;s research queue leans toward practical AI-infrastructure efficiency: using tensor cores for irregular graph work, generating GPU kernels, quantizing MoE and diffusion models, and instrumenting heat at chip scale.</span>
-      <span class="zh">今天的研究队列偏向实际AI基础设施效率：用张量核处理不规则图计算、生成GPU内核、量化MoE与扩散大模型，并在芯片尺度测量热行为。</span>
+      <span class="en">With arXiv rate-limited today, the research queue leans on Semantic Scholar. The useful through-line is still strong: LLM serving is fighting KV-cache and scheduling overheads while device papers push FeFET, ReRAM, 2T0C DRAM and measured accelerator silicon.</span>
+      <span class="zh">今天arXiv被限流，研究队列主要来自Semantic Scholar。主线仍然清楚：LLM服务正在处理KV缓存和调度开销，而器件论文则推进FeFET、ReRAM、2T0C DRAM和实测加速器硅片。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
-    <section class="area" id="accelerators-systems">
+    <section class="area" id="ai-research">
     <h2>
-      <span class="en">Accelerators &amp; Systems</span>
-      <span class="zh">加速器与系统</span>
+      <span class="en">LLM Inference Systems</span>
+      <span class="zh">大模型推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.05081" target="_blank" rel="noopener">
-          <span class="en">Graph Traversal on Tensor Cores: A BFS Framework for Modern GPUs</span>
-          <span class="zh">在张量核上做图遍历：面向现代GPU的BFS框架</span>
-        </a><span class="tag">GPU</span><span class="tag">tensor cores</span><span class="tag">graph analytics</span>
+        <a href="http://arxiv.org/abs/2606.04511" target="_blank" rel="noopener">
+          <span class="en">SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference</span>
+          <span class="zh">SparDA：面向长上下文LLM推理的稀疏解耦注意力</span>
+        </a><span class="tag">LLM inference</span><span class="tag">KV cache</span><span class="tag">sparse attention</span>
       </h3>
-      <p class="authors">Deniz Elbek, Kamer Kaya</p>
+      <p class="authors">Yaosheng Fu, Guangxuan Xiao, Xin Dong, Song Han, Oreste Villa</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.05081" target="_blank" rel="noopener">arXiv:2606.05081</a> · 2026-06-03</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.04511" target="_blank" rel="noopener">arXiv:2606.04511</a> · 2026-06-03</p>
       <p class="summary">
-        <span class="en">This paper reformulates breadth-first search so parts of the irregular graph workload can run on GPU tensor cores. The contribution is useful because tensor cores are abundant but often idle for non-dense-linear-algebra tasks. The caveat is that graph traversal remains memory- and synchronization-sensitive, so the practical value depends on when the framework can switch back to conventional CUDA execution without overhead.</span>
-        <span class="zh">这篇论文把广度优先搜索重新表述，让不规则图工作负载的一部分能够运行在GPU张量核上。它的价值在于，张量核数量充足，但在非密集线性代数任务中经常闲置。局限是图遍历仍然受内存访问和同步开销限制，因此实际价值取决于框架能否在合适时机低开销切回传统CUDA执行。</span>
+        <span class="en">SparDA adds a forecast projection to predict which KV blocks the next layer will need, allowing sparse-attention offload to overlap CPU-to-GPU prefetch with current-layer execution. The reported gains, including up to 1.7x decode speedup over a sparse-attention offload baseline, are directly relevant to the long-context memory wall. The caveat is that the method assumes model changes and training of the forecast projection, so deployment friction depends on how easily serving teams can adopt modified checkpoints.</span>
+        <span class="zh">SparDA增加forecast投影来预测下一层需要哪些KV块，使稀疏注意力卸载能把CPU到GPU的预取与当前层执行重叠。论文报告相对稀疏注意力卸载基线最高1.7倍decode加速，直接对应长上下文内存墙。局限是该方法需要模型结构改动并训练forecast投影，因此部署摩擦取决于服务团队能否接受修改后的checkpoint。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.04847" target="_blank" rel="noopener">
-          <span class="en">MusaCoder: Native GPU Kernel Generation with Full-Stack Training on Moore Threads GPU</span>
-          <span class="zh">MusaCoder：在摩尔线程GPU上训练原生GPU内核生成模型</span>
-        </a><span class="tag">GPU</span><span class="tag">compiler</span><span class="tag">kernel generation</span>
+        <a href="http://arxiv.org/abs/2606.04415" target="_blank" rel="noopener">
+          <span class="en">FlexNPU: Transparent NPU Virtualization for Dynamic LLM Prefill-Decode Co-location</span>
+          <span class="zh">FlexNPU：用于LLM prefill-decode动态共置的透明NPU虚拟化</span>
+        </a><span class="tag">NPU</span><span class="tag">virtualization</span><span class="tag">LLM serving</span>
       </h3>
-      <p class="authors">Kun Cheng, Songshuo Lu, Sicong Liao, Tankun Li, Yafei Zhang, Dong Yang, Qiheng Lv, Hua Wang, Zhi Chen, Yaohua Tang</p>
+      <p class="authors">Jiongjiong Gu, Jianfeng Wang, Zidong Han, Yongqiao Wang, Pengfei Xia, Mingjie Zhang, Hong Liu, Yuanyi Xia, Jiajia Chu, Yifeng Tang, Hui Zang, Xin Yao</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.04847" target="_blank" rel="noopener">arXiv:2606.04847</a> · 2026-06-03</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.04415" target="_blank" rel="noopener">arXiv:2606.04415</a> · 2026-06-03</p>
       <p class="summary">
-        <span class="en">MusaCoder targets native GPU kernel generation across CUDA and MUSA backends, using execution feedback and a distributed verifier to train code-generation models. The hardware angle is important: compiler automation is becoming part of accelerator competitiveness, especially for non-CUDA ecosystems that need credible developer leverage. The main caveat is benchmark transfer, because kernel-generation wins only matter if they hold on messy real workloads.</span>
-        <span class="zh">MusaCoder面向CUDA和MUSA后端生成原生GPU内核，并使用执行反馈和分布式验证器训练代码生成模型。硬件意义很强：编译器自动化正在成为加速器竞争力的一部分，尤其是非CUDA生态需要可信的开发者杠杆。主要限制是基准迁移，因为内核生成优势只有在真实复杂工作负载上保持成立才有意义。</span>
+        <span class="en">FlexNPU inserts a user-space virtualization layer around Ascend NPUs to schedule LLM prefill and decode phases without modifying model code, frameworks or drivers. That matters because prefill is compute-heavy while decode is memory/KV-cache-heavy, and static disaggregation can waste resources. The work is a useful reminder that accelerator utilization is now a runtime systems problem as much as a chip architecture problem.</span>
+        <span class="zh">FlexNPU在Ascend NPU周围加入用户态虚拟化层，在不修改模型代码、框架或驱动的前提下调度LLM prefill和decode阶段。这很重要，因为prefill偏计算密集，而decode偏内存和KV缓存密集，静态拆分容易造成资源浪费。该工作提醒我们，加速器利用率现在既是芯片架构问题，也是运行时系统问题。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.04850" target="_blank" rel="noopener">
-          <span class="en">Uncertainty-Aware End-to-End Co-Design of Neural Network Processors</span>
-          <span class="zh">带不确定性感知的神经网络处理器端到端协同设计</span>
-        </a><span class="tag">AI processor</span><span class="tag">co-design</span><span class="tag">fabrication</span>
+        <a href="http://arxiv.org/abs/2606.03910" target="_blank" rel="noopener">
+          <span class="en">NetKV: Network-Aware Decode Instance Selection for Disaggregated LLM Inference</span>
+          <span class="zh">NetKV：面向解耦LLM推理的网络感知decode实例选择</span>
+        </a><span class="tag">LLM serving</span><span class="tag">networking</span><span class="tag">KV cache</span>
       </h3>
-      <p class="authors">Yuyang Du, Yujun Huang, Gioele Zardini</p>
+      <p class="authors">M. Ojewale</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.04850" target="_blank" rel="noopener">arXiv:2606.04850</a> · 2026-06-03</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.03910" target="_blank" rel="noopener">arXiv:2606.03910</a> · 2026-06-02</p>
       <p class="summary">
-        <span class="en">The paper frames neural-network processor design as an end-to-end co-design problem spanning training, mapping and fabrication uncertainty. That is the right abstraction for AI silicon because model accuracy, compiler mapping and physical implementation cannot be optimized independently forever. The caveat is that co-design frameworks can become too abstract unless they expose concrete tradeoffs for area, yield, timing and workload mix.</span>
-        <span class="zh">这篇论文把神经网络处理器设计表述为横跨训练、映射和制造不确定性的端到端协同设计问题。这个抽象适合AI芯片，因为模型精度、编译映射和物理实现无法永远独立优化。局限在于，协同设计框架如果不能给出面积、良率、时序和工作负载组合上的具体取舍，就容易停留在过抽象层面。</span>
+        <span class="en">NetKV treats network transfer of KV cache as part of the time-to-first-token budget in disaggregated LLM serving. The scheduler uses a network cost oracle and reports up to 21.2% lower mean TTFT in a 64-GPU fat-tree simulation. The paper is important because disaggregation only helps if the datacenter network does not become the new hidden memory bus.</span>
+        <span class="zh">NetKV把解耦LLM服务中KV缓存跨网络传输纳入首token延迟预算。其调度器使用网络成本oracle，并在64-GPU fat-tree仿真中报告平均TTFT最高降低21.2%。这篇论文重要，因为解耦架构只有在数据中心网络不变成新的隐藏内存总线时才真正有收益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3666193" target="_blank" rel="noopener">
+          <span class="en">DayPQ: Dynamic Layerwise Pruning and Quantization for LLM Inference Acceleration</span>
+          <span class="zh">DayPQ：用于LLM推理加速的动态逐层剪枝与量化</span>
+        </a><span class="tag">quantization</span><span class="tag">VLSI</span><span class="tag">LLM acceleration</span>
+      </h3>
+      <p class="authors">Yongchao Xu, Mingxuan Li, Ziying Zhuo, Qinzhe Zhi, Tianyu Jia, Meiqi Wang</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3666193" target="_blank" rel="noopener">IEEE Transactions on VLSI Systems</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">DayPQ co-designs adaptive pruning and FP8-style quantization with a multiplication-free shift-add PE array and switchable dataflow. The point is not just compression; it is dynamic compression with low hardware overhead and negligible extra latency. This is the kind of algorithm-hardware coupling likely to matter as LLM inference moves onto more constrained accelerators.</span>
+        <span class="zh">DayPQ把自适应剪枝和类似FP8的量化，与无乘法shift-add PE阵列和可切换数据流协同设计。重点不只是压缩，而是在低硬件开销和几乎无额外延迟下做动态压缩。随着LLM推理进入更多受限加速器，这类算法-硬件耦合会变得重要。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="model-compression">
+  <section class="area" id="accelerators">
     <h2>
-      <span class="en">Model Compression &amp; Efficient Inference</span>
-      <span class="zh">模型压缩与高效推理</span>
+      <span class="en">Measured Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">实测加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.04980" target="_blank" rel="noopener">
-          <span class="en">AlphaQ: Calibration-Free Bit Allocation for Mixture-of-Experts Quantization</span>
-          <span class="zh">AlphaQ：无需校准数据的MoE量化比特分配</span>
-        </a><span class="tag">MoE</span><span class="tag">quantization</span><span class="tag">memory footprint</span>
+        <a href="https://doi.org/10.1109/TCASAI.2026.3658593" target="_blank" rel="noopener">
+          <span class="en">A 40-nm Sub-mJ/Transfer HDC-SNN Hybrid Processor for On-Chip Few-Shot Transfer Learning</span>
+          <span class="zh">40nm亚毫焦HDC-SNN混合处理器，用于片上少样本迁移学习</span>
+        </a><span class="tag">measured silicon</span><span class="tag">SNN</span><span class="tag">IoT</span>
       </h3>
-      <p class="authors">Wanqi Yang, Yuexiao Ma, Alexander Conzelmann, Xiawu Zheng, Michael W. Mahoney, T. Konstantin Rusch, Shiwei Liu</p>
+      <p class="authors">Anqin Xiao, Jinqiao Yang, Wanlin Yang, Xin Zhang, Yuhan He, Ziyi Yang, Lirong Zheng, Zhuo Zou</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.04980" target="_blank" rel="noopener">arXiv:2606.04980</a> · 2026-06-03</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TCASAI.2026.3658593" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems for Artificial Intelligence</a> · 2026-06-01</p>
       <p class="summary">
-        <span class="en">AlphaQ proposes calibration-free bit allocation for Mixture-of-Experts models, using weight-spectrum signals rather than representative calibration data. That is relevant because frontier MoE deployment is memory-bound and the true training distribution is often unavailable to downstream deployers. The caveat is that spectral quality proxies must survive across architectures and routing patterns, not only selected MoE benchmarks.</span>
-        <span class="zh">AlphaQ提出无需校准数据的MoE量化比特分配方法，用权重谱信号替代代表性校准集。这很实用，因为前沿MoE部署受内存约束，而下游部署方通常拿不到真实训练分布。局限在于，谱质量代理指标必须能跨架构和路由模式成立，而不只是在特定MoE基准上有效。</span>
+        <span class="en">This paper reports a fabricated 40-nm hybrid processor combining hyperdimensional computing and spiking neural networks for on-chip few-shot transfer learning. The measured-silicon angle makes it stronger than a pure architecture proposal, and the sub-mJ/transfer claim points at small IoT workloads where retraining in the cloud is unattractive. The question is how broadly the HDC-SNN representation transfers beyond the evaluated neuromorphic datasets.</span>
+        <span class="zh">这篇论文报道了一颗40nm实测混合处理器，结合超维计算和脉冲神经网络，用于片上少样本迁移学习。实测硅片让它比纯架构方案更有分量，亚毫焦级迁移能耗也指向不适合云端重训练的小型IoT工作负载。后续问题是HDC-SNN表示能否扩展到评估数据集之外的更多任务。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.04945" target="_blank" rel="noopener">
-          <span class="en">STaR-Quant: State-Time Consistent Post-Training Quantization for Diffusion Large Language Models</span>
-          <span class="zh">STaR-Quant：面向扩散大语言模型的状态-时间一致PTQ</span>
-        </a><span class="tag">DLLM</span><span class="tag">PTQ</span><span class="tag">inference</span>
+        <a href="https://doi.org/10.1109/JSSC.2025.3628249" target="_blank" rel="noopener">
+          <span class="en">A 16-nm FinFET CNN Processor for Small-Object Detection on High-Resolution Video</span>
+          <span class="zh">16nm FinFET CNN处理器，用于高分辨率视频小目标检测</span>
+        </a><span class="tag">JSSC</span><span class="tag">vision accelerator</span><span class="tag">FinFET</span>
       </h3>
-      <p class="authors">Xin Yan, Aqiang Wang, Zhenglin Wan, Xingrui Yuand Ivor Tsang</p>
+      <p class="authors">Yu-Chun Ding, Chia-Yu Chang, Hui-Yun Tsai, Chun-Yeh Lin, Hao-Jiun Tu, Yu-Ching Su, Kai-Feng Chang, Tsung-Han Hsieh, Wen-Ching Chen, Nian-Shyang Chang, Chun-Pin Lin, Chi-Shi Chen</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.04945" target="_blank" rel="noopener">arXiv:2606.04945</a> · 2026-06-03</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2025.3628249" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-06-01</p>
       <p class="summary">
-        <span class="en">STaR-Quant targets post-training quantization for diffusion large language models, where iterative denoising creates state-dependent activations and temporal error accumulation. The paper is worth tracking because DLLMs promise different latency and generation tradeoffs from autoregressive models, but only if their compute and memory overheads can be reduced. The caveat is ecosystem maturity: DLLMs are still early compared with mainstream serving stacks.</span>
-        <span class="zh">STaR-Quant面向扩散大语言模型的训练后量化，处理迭代去噪带来的状态相关激活差异和时间误差累积。这篇论文值得关注，因为DLLM承诺与自回归模型不同的延迟和生成取舍，但前提是其计算和内存开销能降下来。局限是生态成熟度：与主流服务栈相比，DLLM仍处于较早阶段。</span>
+        <span class="en">This JSSC paper presents a 16-nm FinFET processor optimized for high-resolution small-object detection, with BiFPN-aware dataflow and memory scheduling. The relevance is practical: ADAS and robotics need high-resolution perception, but off-chip memory traffic can dominate energy and latency. The design&#x27;s value is in tailoring the processor to the feature-pyramid workload instead of treating vision inference as generic convolution.</span>
+        <span class="zh">这篇JSSC论文提出一颗16nm FinFET处理器，针对高分辨率小目标检测优化，并包含面向BiFPN的数据流和存储调度。其实用性很强：ADAS和机器人需要高分辨率感知，但片外存储访问会主导能耗和延迟。该设计的价值在于针对特征金字塔工作负载定制处理器，而不是把视觉推理当作通用卷积。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.04920" target="_blank" rel="noopener">
-          <span class="en">Toward Multi-Domain and Long-Tailed Quantization via Feature Alignment and Scaling</span>
-          <span class="zh">通过特征对齐与缩放实现多域和长尾量化</span>
-        </a><span class="tag">quantization</span><span class="tag">edge AI</span><span class="tag">domain shift</span>
+        <a href="https://doi.org/10.1109/JSSC.2025.3629758" target="_blank" rel="noopener">
+          <span class="en">NeRF-Learner: A 22-nm NeRF-SLAM Accelerator With Unified Inference and Training Compute-in-Memory</span>
+          <span class="zh">NeRF-Learner：22nm NeRF-SLAM加速器，统一推理与训练存算一体</span>
+        </a><span class="tag">JSSC</span><span class="tag">compute-in-memory</span><span class="tag">robotics</span>
       </h3>
-      <p class="authors">Chin-Yuan Yeh, Ting-An Chen, De-Nian Yang, Ming-Syan Chen</p>
+      <p class="authors">Yiqi Jing, Jiaqi Zhou, Yiyang Sun, Meng Wu, Yufei Ma, Tianyu Jia, Le Ye</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.04920" target="_blank" rel="noopener">arXiv:2606.04920</a> · 2026-06-03</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2025.3629758" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-06-01</p>
       <p class="summary">
-        <span class="en">This work studies quantization under domain shift and long-tailed data, two conditions that are common in edge and enterprise deployments. The hardware relevance is straightforward: low-bit inference only helps if accuracy survives the data distribution actually seen in production. The caveat is that the paper focuses on benchmark settings, so deployment value will depend on how well the alignment and scaling ideas transfer to larger models.</span>
-        <span class="zh">这项工作研究域迁移和长尾数据下的量化，而这两种情况在边缘和企业部署中很常见。硬件相关性很直接：低比特推理只有在真实生产分布下保持准确率才有价值。局限是论文主要基于基准设置，因此部署价值取决于对齐和缩放方法能否迁移到更大模型。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.05004" target="_blank" rel="noopener">
-          <span class="en">SharedRequest: Privacy-Preserving Model-Agnostic Inference for Large Language Models</span>
-          <span class="zh">SharedRequest：模型无关的隐私保护大模型推理</span>
-        </a><span class="tag">LLM inference</span><span class="tag">privacy</span><span class="tag">batching</span>
-      </h3>
-      <p class="authors">Peihua Mai, Xuanrong Gao, Youlong Ding, Xianglong Du, Wei Liu, Yan Pang</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.05004" target="_blank" rel="noopener">arXiv:2606.05004</a> · 2026-06-03</p>
-      <p class="summary">
-        <span class="en">SharedRequest protects prompt privacy by batching original prompts with noisy variants and semantically equivalent instructions, without modifying the target model. The systems angle is useful because privacy techniques often lose deployment traction when they require model access or heavy cryptography. The caveat is that batching changes latency and workload shape, so serving economics need to be evaluated alongside privacy gains.</span>
-        <span class="zh">SharedRequest通过把原始提示、噪声变体和语义等价指令放入批处理中保护提示隐私，并且不需要修改目标模型。系统意义在于，隐私技术如果要求访问模型或引入重型密码学，常常难以部署。局限是批处理会改变延迟和工作负载形态，因此需要把服务成本与隐私收益一起评估。</span>
+        <span class="en">NeRF-Learner reports a 22-nm accelerator for simultaneous neural rendering and SLAM, using unified inference/training compute-in-memory and memory-aware ray scheduling. The measured numbers, including 42.6 FPS rendering and 11.47 TFLOPS/W at BF16 precision, make it a serious edge-robotics silicon result. It also shows how training-in-the-loop workloads are pushing CIM beyond static inference.</span>
+        <span class="zh">NeRF-Learner报道了一颗22nm加速器，用于同步神经渲染和SLAM，并采用统一推理/训练存算一体和存储感知ray调度。42.6 FPS渲染和BF16下11.47 TFLOPS/W等实测数字，让它成为严肃的边缘机器人硅片结果。它也说明，带在线训练的工作负载正在把CIM推过静态推理场景。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="devices-sensors">
+  <section class="area" id="devices">
     <h2>
-      <span class="en">Devices, Photonics &amp; Sensing</span>
-      <span class="zh">器件、光子与传感</span>
+      <span class="en">Memory Devices</span>
+      <span class="zh">存储器件</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.04902" target="_blank" rel="noopener">
-          <span class="en">ThermoPix: A High-Spatial-Resolution ElectronicPhotonic Temperature Sensor Array With Microsecond Row Readout</span>
-          <span class="zh">ThermoPix：微秒行读出的高空间分辨率电子光子温度传感阵列</span>
-        </a><span class="tag">thermal sensing</span><span class="tag">photonics</span><span class="tag">CMOS</span>
+        <a href="https://doi.org/10.1109/LED.2026.3683806" target="_blank" rel="noopener">
+          <span class="en">Multi-Level GAA FeFET by Multi-Ferroelectric/Dielectric Gate Stacks</span>
+          <span class="zh">通过多铁电/介电栅堆栈实现多级GAA FeFET</span>
+        </a><span class="tag">FeFET</span><span class="tag">GAA</span><span class="tag">nonvolatile memory</span>
       </h3>
-      <p class="authors">Md Rahatul Islam Udoy, Dharanidhar Dang, Wantong Li, Sumeet Kumar Gupta, Suman Datta, Ahmedullah Aziz</p>
+      <p class="authors">Wei-Jen Chen, Tao Chou, Ching-Wang Yao, B. Huang, Min-Kuan Lin, Yun-Wen Chen, Yu-Rui Chen, Jhih-Yuan Liang, F. I. C. W. Liu</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.04902" target="_blank" rel="noopener">arXiv:2606.04902</a> · 2026-06-03</p>
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3683806" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-06-01</p>
       <p class="summary">
-        <span class="en">ThermoPix proposes a CMOS-compatible electronic-photonic temperature sensor array with microsecond row readout. The timing is good: AI packages and dense accelerators increasingly need spatially resolved thermal observability, not just board-level temperature telemetry. The caveat is that the reported work is simulation-driven, so integration complexity, calibration drift and optical power distribution still need measured silicon evidence.</span>
-        <span class="zh">ThermoPix提出一种兼容CMOS的电子光子温度传感阵列，具备微秒级行读出。这个方向很应景：AI封装和高密度加速器越来越需要空间分辨的热观测，而不只是板级温度遥测。局限是当前结果主要来自仿真，因此集成复杂度、校准漂移和光功率分配仍需要实测硅验证。</span>
+        <span class="en">This IEEE EDL paper demonstrates a gate-all-around FeFET with four threshold-voltage levels, a 3 V memory window, 20 ns write time and endurance above 1e8 cycles. The use of multi-ferroelectric/dielectric stacks within a 400 C thermal budget makes it relevant to advanced integration discussions. Multi-level FeFETs remain challenging, but the combination of speed, endurance and GAA geometry is a meaningful device result.</span>
+        <span class="zh">这篇IEEE EDL论文展示了一种GAA FeFET，实现四级阈值电压、3 V存储窗口、20 ns写入时间和超过1e8次循环耐久。多铁电/介电堆栈并保持400 C热预算，使其与先进集成讨论相关。多级FeFET仍很困难，但速度、耐久和GAA几何结构的组合是有意义的器件结果。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.04914" target="_blank" rel="noopener">
-          <span class="en">Tunable Resonator Integrated Magnetometry</span>
-          <span class="zh">集成可调谐谐振器磁力计</span>
-        </a><span class="tag">sensor</span><span class="tag">resonator</span><span class="tag">magnetometry</span>
+        <a href="https://doi.org/10.1109/TCASAI.2026.3661436" target="_blank" rel="noopener">
+          <span class="en">NanoCiM: Nano-ReRAM Computation-in-Memory With Weight-Aware X-Address Scrambling</span>
+          <span class="zh">NanoCiM：采用权重感知X地址扰动的纳米ReRAM存算一体</span>
+        </a><span class="tag">ReRAM</span><span class="tag">CIM</span><span class="tag">IR drop</span>
       </h3>
-      <p class="authors">Colin Stack, Brian Sears, Aruna Ramanayaka, David Ferguson, Ilya Sochnikov, Tony X. Zhou</p>
+      <p class="authors">C. Matsui, Ayumu Yamada, Shota Suzuki, Naoko Misawa, Ken Takeuchi</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.04914" target="_blank" rel="noopener">arXiv:2606.04914</a> · 2026-06-03</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TCASAI.2026.3661436" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems for Artificial Intelligence</a> · 2026-06-01</p>
       <p class="summary">
-        <span class="en">This applied-physics paper explores tunable resonator integrated magnetometry, a sensing direction relevant to compact instrumentation and potentially integrated diagnostic systems. It is not a near-term semiconductor manufacturing story, but it fits the broader move toward smaller, more integrated physical sensors. The caveat is application pull: the device concept needs clear advantages over existing magnetometry approaches in size, noise and operating conditions.</span>
-        <span class="zh">这篇应用物理论文探索集成可调谐谐振器磁力计，方向上与紧凑仪器和潜在集成诊断系统相关。它不是短期半导体制造新闻，但符合物理传感器小型化、集成化的大趋势。局限在于应用牵引：这种器件概念需要在尺寸、噪声和工作条件上相对现有磁力计体现明确优势。</span>
+        <span class="en">NanoCiM attacks IR-drop-induced bit-line current variation in nanoscale ReRAM computation-in-memory arrays by scrambling row addresses based on neural-network weights. That is a very practical circuit problem: analog CIM accuracy often falls apart because interconnect and pattern-dependent current errors are not idealized away in silicon. The paper is useful because it treats mapping and circuit non-idealities as one problem.</span>
+        <span class="zh">NanoCiM通过基于神经网络权重扰动行地址，抑制纳米ReRAM存算一体阵列中由IR drop导致的位线电流变化。这是非常实际的电路问题：模拟CIM精度常常因为互连和数据模式相关电流误差而在硅片上崩掉。该论文的价值在于把映射和电路非理想性作为一个问题处理。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1126/sciadv.aec3934" target="_blank" rel="noopener">
+          <span class="en">Unlocking the Performance Limits of 2T0C DRAM With Omega-Gated Single-Crystal In2O3 FETs</span>
+          <span class="zh">用Omega栅单晶In2O3 FET突破2T0C DRAM性能限制</span>
+        </a><span class="tag">2T0C DRAM</span><span class="tag">oxide semiconductor</span><span class="tag">memory</span>
+      </h3>
+      <p class="authors">Shiyue Zuo, Z. Xie, Xu Zhao, Lin Tang, Yidan Zhao, Yu Zeng, Wencheng Niu, Sen Liu, Qingjiang Li, Guanhua Yang, Ling Li, Zhipeng Wei</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1126/sciadv.aec3934" target="_blank" rel="noopener">Science Advances</a> · 2026-05-29</p>
+      <p class="summary">
+        <span class="en">This Science Advances paper reports omega-gated single-crystal In2O3 FETs and uses them to build capacitorless 2T0C DRAM. The reported cell metrics include 5 ns access, 1e12-cycle endurance, 1e5 s retention and 3-bit storage, which makes it one of the stronger memory-device entries in today&#x27;s queue. The caveat is manufacturability: impressive device metrics still need a credible path to array yield and process integration.</span>
+        <span class="zh">这篇Science Advances论文报道Omega栅单晶In2O3 FET，并用其构建无电容2T0C DRAM。论文给出的单元指标包括5 ns访问、1e12次耐久、1e5 s保持和3-bit存储，是今天研究队列中较强的存储器件结果之一。局限在可制造性：亮眼器件指标仍需要可信的阵列良率和工艺集成路径。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-04 13:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-04 13:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-05 14:13 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-05 14:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
