@@ -110,35 +110,54 @@ def check_min_counts(edition: dict, min_stories: int, min_papers: int) -> list[t
 
 def check_required_fields(edition: dict) -> list[tuple[bool, str]]:
     """Spot-check that each story/paper has the minimum fields the renderer
-    expects. We don't lint *everything* — that's the renderer's job — but we
-    catch the common 'forgot a field' cases."""
+    expects, including complete English and Chinese copy."""
     fails = []
+
+    def require_bilingual(value: object, path: str) -> None:
+        if not isinstance(value, dict):
+            fails.append((False, f"{path} must be an object with en and zh fields"))
+            return
+        for language in ("en", "zh"):
+            text = value.get(language)
+            if not isinstance(text, str) or not text.strip():
+                fails.append((False, f"{path}.{language} is empty"))
+
+    require_bilingual(edition.get("theme"), "theme")
+    require_bilingual(edition.get("dek"), "dek")
+
     for s_idx, section in enumerate(edition.get("sections") or []):
+        section_path = f"sections[{s_idx}]"
+        require_bilingual(section.get("title"), f"{section_path}.title")
         for st_idx, st in enumerate(section.get("stories") or []):
             path = f"sections[{s_idx}].stories[{st_idx}]"
             for field in ("url", "title", "summary"):
                 if not st.get(field):
                     fails.append((False, f"{path}: missing '{field}'"))
             t = st.get("title") or {}
-            if not t.get("en"):
-                fails.append((False, f"{path}.title.en is empty"))
+            require_bilingual(t, f"{path}.title")
             su = st.get("summary") or {}
-            if not su.get("en"):
-                fails.append((False, f"{path}.summary.en is empty"))
+            require_bilingual(su, f"{path}.summary")
             if su.get("en") and len(su["en"]) < 60:
                 fails.append((False, f"{path}.summary.en is suspiciously short "
                                      f"({len(su['en'])} chars)"))
     research = edition.get("research") or {}
+    if research:
+        require_bilingual(research.get("theme"), "research.theme")
+        require_bilingual(research.get("dek"), "research.dek")
     for a_idx, area in enumerate(research.get("areas") or []):
+        area_path = f"research.areas[{a_idx}]"
+        require_bilingual(area.get("title"), f"{area_path}.title")
         for p_idx, p in enumerate(area.get("papers") or []):
             path = f"research.areas[{a_idx}].papers[{p_idx}]"
             url = p.get("venue_url") or p.get("url")
             if not url:
                 fails.append((False, f"{path}: missing venue_url/url"))
-            if not (p.get("title") or {}).get("en"):
-                fails.append((False, f"{path}.title.en is empty"))
-            if not (p.get("summary") or {}).get("en"):
-                fails.append((False, f"{path}.summary.en is empty"))
+            require_bilingual(p.get("title"), f"{path}.title")
+            summary = p.get("summary") or {}
+            require_bilingual(summary, f"{path}.summary")
+            if summary.get("en") and len(summary["en"]) < 60:
+                fails.append((False, f"{path}.summary.en is suspiciously short "
+                                     f"({len(summary['en'])} chars)"))
     if not fails:
         return [(True, "required fields present")]
     return fails

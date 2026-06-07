@@ -43,17 +43,18 @@ other files. The orchestrator handles everything else.
 - 2–4 sentences each.
 - Lead with the news / result. Then why it matters. Avoid PR-speak ("game-
   changing," "revolutionary"). Use specific numbers when the source has them.
-- **English is required.** Chinese is optional — if you cannot write
-  fluent technical Chinese, set `"zh": ""` and the page will fall back to
-  the English text in the 中文 toggle. Do not output low-quality Chinese.
+- **English and fluent technical Chinese are both required.** Every bilingual
+  field must contain non-empty `en` and `zh` values. Never set `"zh": ""`.
+  Translate titles and summaries accurately; keep product names and standard
+  technical terms in English where that is clearer.
 
 ## Save to `output/edition.json` using EXACTLY this structure
 
 ```json
 {
   "date": "YYYY-MM-DD",
-  "theme": {"en": "Short present-tense phrase", "zh": ""},
-  "dek":   {"en": "1-2 sentence elaboration of the theme.", "zh": ""},
+  "theme": {"en": "Short present-tense phrase", "zh": "简短的中文主题"},
+  "dek":   {"en": "1-2 sentence elaboration of the theme.", "zh": "一到两句中文说明。"},
   "sections": [
     {
       "id": "ai-accelerators",
@@ -61,8 +62,8 @@ other files. The orchestrator handles everything else.
       "stories": [
         {
           "featured": true,
-          "title":   {"en": "Story title", "zh": ""},
-          "summary": {"en": "2-4 sentences.", "zh": ""},
+          "title":   {"en": "Story title", "zh": "新闻标题"},
+          "summary": {"en": "2-4 sentences.", "zh": "两到四句中文摘要。"},
           "source":  "Publisher name",
           "url":     "https://… (copied verbatim from news.json's 'link' field)",
           "published": "2026-..."
@@ -72,8 +73,8 @@ other files. The orchestrator handles everything else.
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Short phrase", "zh": ""},
-    "dek":   {"en": "1-2 sentences.", "zh": ""},
+    "theme": {"en": "Short phrase", "zh": "简短的中文主题"},
+    "dek":   {"en": "1-2 sentences.", "zh": "一到两句中文说明。"},
     "areas": [
       {
         "id": "accelerators",
@@ -81,12 +82,12 @@ other files. The orchestrator handles everything else.
                   "zh": "AI加速器与存算一体"},
         "papers": [
           {
-            "title":      {"en": "Paper title (you may rephrase for clarity)", "zh": ""},
+            "title":      {"en": "Paper title (you may rephrase for clarity)", "zh": "论文中文标题"},
             "authors":    "L. Chen, K. Park, et al.",
             "affiliation": "",
             "venue":      "arXiv:2605.…",
             "venue_url":  "https://arxiv.org/abs/… (copied verbatim from arxiv.json's 'link' field)",
-            "summary":    {"en": "2-4 sentences.", "zh": ""},
+            "summary":    {"en": "2-4 sentences.", "zh": "两到四句中文摘要。"},
             "published":  "2026-..."
           }
         ]
@@ -108,7 +109,9 @@ other files. The orchestrator handles everything else.
 4. ≥50% of URLs in your edition must NOT appear in
    `output/edition.json.previous`. This catches re-stamping yesterday's
    edition with a new date.
-5. Don't leave any summary empty or shorter than ~60 characters.
+5. Every bilingual `theme`, `dek`, section/area `title`, item `title`, and
+   item `summary` must have non-empty `en` and `zh` values.
+6. Don't leave any English summary empty or shorter than ~60 characters.
 
 ## After you're done
 

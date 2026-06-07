@@ -1,48 +1,61 @@
 {
   "date": "2026-06-06",
   "theme": {
-    "en": "AI Demand Tightens Every Layer of Supply",
-    "zh": ""
+    "en": "AI Hardware Meets Heat, Materials and Permits",
+    "zh": "AI硬件撞上散热、材料与审批"
   },
   "dek": {
-    "en": "TSMC warns that accelerator demand will remain ahead of supply while SK hynix prepares a major DRAM expansion. The pressure is spreading from foundry and memory into optical links, materials, and export policy.",
-    "zh": ""
+    "en": "The AI buildout is becoming a physical-infrastructure story: 1000-watt cooling, HBM thermal design, critical-material recovery, local data-center limits and export rules now shape how fast compute can scale.",
+    "zh": "AI建设正在变成物理基础设施问题：1000瓦散热、HBM热设计、关键材料回收、地方数据中心限制和出口规则，共同决定算力扩张速度。"
   },
   "sections": [
     {
-      "id": "foundry",
+      "id": "ai-accelerators",
       "title": {
-        "en": "Foundry & Manufacturing",
-        "zh": "晶圆代工与制造"
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
       },
       "stories": [
         {
           "featured": true,
           "title": {
-            "en": "TSMC says fully meeting AI-chip demand remains a long way off",
-            "zh": ""
+            "en": "A 1000-watt GPU cooler previews the thermal direction of next-generation accelerators",
+            "zh": "1000瓦GPU冷却器预示下一代加速器的热设计方向"
           },
           "summary": {
-            "en": "TSMC's chief executive says it will take a long time for the foundry to fully satisfy demand for AI chips. The warning indicates that leading-edge wafer capacity and advanced packaging will remain constraints even as TSMC continues expanding its manufacturing footprint.",
-            "zh": ""
+            "en": "AURAS displayed a dual-360mm liquid cooler designed for GPUs with a 1000-watt thermal envelope. The product is a vendor forecast rather than confirmation of a specific Nvidia card, but it captures the direction of travel: accelerator performance is pulling cooling hardware into the product architecture. At this power level, rack density, serviceability and facility design become as important as the silicon specification.",
+            "zh": "AURAS展示了一款双360mm液冷方案，面向热设计功耗达到1000瓦的GPU。这是供应商预判，并非对某款Nvidia显卡的确认，但方向很明确：加速器性能正在把散热硬件拉入产品架构核心。在这个功耗级别，机架密度、可维护性和机房设计会与硅片规格同样重要。"
           },
-          "source": "MSN",
-          "url": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxQd0ZkYUN3ak5yOTFFTVRab0F4SzZhZ1lhSDhJSHVyZ3RGemtLMVZudTliV25SYkRGb3VjTTA4YW15NWxzc0dIcExHeHgwZDNqV0wta1JmU1R5T2FtcVoxM21LOVI2aURCOU03ejN4aWVKSDkwTjF1YmQzY3VEZkxvQktaQW9Xa2lWeHVkeDFJYlhJcEtvc1hSMFI0YkxzeENPWmVCUnpUWWdsLVEtX2YwZnZFdVZndllnT2VWZXlwbXVQeVBaS2ZJMHA2aEI1cWdLUHEwWDktVmtBYXhEa1pRVmtpcXhWUllRS25mcVduNWxnSGtEY1FwVjR1VHdwVVNING5ocEdIdzVpWmdLaS1ibXpWRjdlc3lZLXBoMUtoU3A1LU85QnpyMHVVQm02TW1fQ3FXZTQyQVdkdVRBOFd2bERsdDNDNXhQNUdGT1k5aktjRndXdW1zbWR5aXZIMWpkOEx0WEVOa21Rc2ZPNC1J?oc=5",
-          "published": "2026-06-06T14:55:58+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/cooler-manufacturer-doubles-down-on-1000w-gpus-with-twin-360mm-aio-monster/",
+          "published": "2026-06-06T12:40:39+00:00"
         },
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "TSMC is reportedly set to manufacture Tesla's next FSD chip",
-            "zh": ""
+            "en": "Huawei-led team says 1,000 Ascend 910C chips post-trained a 1.6-trillion-parameter DeepSeek model",
+            "zh": "华为团队称用1000颗Ascend 910C完成1.6万亿参数DeepSeek模型后训练"
           },
           "summary": {
-            "en": "TSMC is reportedly lined up to manufacture Tesla's next-generation Full Self-Driving hardware. A production commitment would add another large custom-accelerator program to TSMC's AI and automotive pipeline, increasing competition for advanced-node capacity.",
-            "zh": ""
+            "en": "A Huawei-linked research group says it completed full-parameter post-training of DeepSeek V4-Pro, a 1.6-trillion-parameter model, using 1,000 Ascend 910C accelerators. The claim matters because it is a system-scale demonstration of China's domestic AI stack under restricted access to leading US GPUs. Independent detail on efficiency and training quality remains important, but the cluster itself shows that local hardware is moving beyond isolated benchmark claims.",
+            "zh": "一个与华为相关的研究团队称，使用1000颗Ascend 910C加速器完成了DeepSeek V4-Pro这一1.6万亿参数模型的全参数后训练。这很重要，因为它展示了在先进美国GPU受限背景下，中国本土AI技术栈的系统级能力。效率和训练质量仍需更多独立细节，但该集群已说明本土硬件正在越过孤立基准测试阶段。"
           },
-          "source": "Not a Tesla App",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5OLTh2VU10cXhmSkFmWjNzekdRZFBiUU0yaE9RaUNDS3BmVTdkc2FlTVBSX1VCT2JrdVZlUF9pRVFncEVWNmpEY1ZTeGFhdF83al9RRTY1dDVFMGR1ck1n?oc=5",
-          "published": "2026-06-06T13:17:24+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-led-team-claims-it-post-trained-deepseeks-1-6-trillion-parameter-models-on-ascend-910c-chips",
+          "published": "2026-06-06T12:00:00+00:00"
+        },
+        {
+          "title": {
+            "en": "Groq reportedly seeks $650 million to expand its inference cloud",
+            "zh": "Groq据报寻求融资6.5亿美元扩展推理云"
+          },
+          "summary": {
+            "en": "Groq is reportedly raising $650 million to scale its inference-cloud business. The fundraising target reflects a market opening created by inference workloads that value deterministic latency and token throughput, not only training-scale FLOPS. Capital remains the difficult part for accelerator challengers because cloud capacity, compiler software and customer migration all have to be funded together.",
+            "zh": "据报道，Groq正在寻求6.5亿美元融资，以扩大其推理云业务。这个融资目标反映了推理市场的机会：客户看重确定性延迟和token吞吐，而不只是训练级FLOPS。对加速器挑战者而言，资本仍是难点，因为云容量、编译器软件和客户迁移需要同时投入。"
+          },
+          "source": "Bitcoin World via Google News",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBoNktld0pEa0J4c2RyUVZPN0paYkVpWi1ZcF9sNzd3LU1zeTdrRllPU0dsNVZRMDRWTFBNeHppYmNza0t6UDM4MUFqTTVnQVhZZmMtSG10M01EOHIwOGJMQ1pYOUlJQWQzazhZOWZTcF9vdEZHa3hlVmJJM1Y?oc=5",
+          "published": "2026-06-06T04:20:11+00:00"
         }
       ]
     },
@@ -56,141 +69,147 @@
         {
           "featured": true,
           "title": {
-            "en": "SK hynix roadmap puts Yongin at 360,000 DRAM wafers a month",
-            "zh": ""
+            "en": "Thermal management becomes a core HBM battleground",
+            "zh": "热管理成为下一代HBM核心战场"
           },
           "summary": {
-            "en": "SK hynix's disclosed capacity roadmap assigns its Yongin cluster an eventual 360,000 DRAM wafer starts per month. The scale shows how aggressively the company is preparing for sustained HBM and server-memory demand, although wafer starts do not translate directly into finished-chip output.",
-            "zh": ""
+            "en": "The three leading memory manufacturers are reportedly intensifying R&D around thermal management for next-generation HBM. Higher stacks and faster interfaces make heat removal a first-order constraint on yield, reliability and package performance. The competitive unit is no longer the memory die alone; it is the complete thermal and packaging solution delivered with the accelerator platform.",
+            "zh": "据报道，三大存储厂商正在加大下一代HBM热管理研发。更高堆叠和更快接口让散热成为良率、可靠性和封装性能的一阶约束。竞争单元已经不再只是存储裸片，而是与加速器平台共同交付的完整热与封装方案。"
           },
-          "source": "Tech Times",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNTTkzWjZ6c0tXc0RhUXVtNS1vU0Fxemw0dDduQmtCQ2dYMTNla0tzRFJaX2d4T2dtOHBLOVZZNVM3S3I3R0tRMVladDYzZGhrVDNrRDNINzFDT1had3pIam51aG5pZTdaUk1IaXZoLVNSQUpabzNQWDVIYjdwUzFvZnlNUGVWZ01JSHdNSU9JM0xITXdEMEtucHdCQjJzbmY1NHlPQ2M5VVdsYmpnNE9YUmNyM0tEZXdzODZyZWZOTy1nWERodFJGV3hLdWw?oc=5",
-          "published": "2026-06-06T19:30:20+00:00"
+          "source": "Moomoo via Google News",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPcUFGUVJIWjdxTEFxd1VKQjU4N1pmNjlLRnRDbXFjRzN1bW9DV191dy1ZOUczTHhmNG1mUFMzckNxVWJOYkJVNUxkR2JPZUZLS0NyNUE2YXhGX3IzVlVYZmJVS3BxcWlCenhzb29OVnZhVVN1UmdFUm5iaFE1NFRjVTlKZWs1STVFM2tTTHdUZTZKQ0hzUUVHSXNHdjFsbmphYkkwek42aUctaUltQ3c?oc=5",
+          "published": "2026-06-06T07:00:34+00:00"
         },
         {
-          "featured": false,
           "title": {
-            "en": "Lexar manager expects RAM prices to double by year-end",
-            "zh": ""
+            "en": "Nvidia says all three HBM4 suppliers are in production for Rubin's third-quarter shipment",
+            "zh": "Nvidia称三家HBM4供应商均已为Rubin第三季度出货进入生产"
           },
           "summary": {
-            "en": "A Lexar regional manager says RAM prices could double by the end of 2026 as supply remains tight for another eight to nine months. Current discounts may reflect distributors clearing older inventory or moving stock across regions rather than a durable easing in DRAM pricing.",
-            "zh": ""
+            "en": "Jensen Huang reportedly confirmed that all three HBM suppliers are in production for Vera Rubin systems scheduled to ship in the third quarter. Multiple qualified sources reduce single-supplier risk, but production status does not guarantee equal volume, yield or economics. HBM4 availability remains inseparable from advanced packaging and thermal qualification.",
+            "zh": "据报道，黄仁勋确认三家HBM供应商都已为计划第三季度出货的Vera Rubin系统进入生产。多个合格来源可以降低单一供应商风险，但进入生产并不代表出货量、良率或经济性相同。HBM4可得性仍与先进封装和热认证不可分割。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/ram/lexar-regional-manager-says-that-ram-prices-are-expected-to-double-by-the-end-of-the-year-discounts-and-stabilized-prices-result-from-distributors-getting-rid-of-old-stock-or-sourcing-products-from-other-regions",
-          "published": "2026-06-06T13:00:00+00:00"
+          "source": "Tech Times via Google News",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNUERSSlpTOTByNHJwUUlwMGNyS2NNd183VlBxTVA4ODhPU1YxSGF6Q0VLanRmMk5OSlRVbG5rUWp2TGFQZTd0ZzZBRkRrR2FtRDNJN00xVFNwWFdfdmF6RGNqU3dKeXJ5cFVyNWVQVnRlSmMyU3pwNnRUOEMyb09nQWdaSkFDNF9MdEROVzhhYlZOODVLakk0bGlRU3ZPbmZGTkpkYS1SbW40UE1wd1VuNEk2WGNWTlU1eUFHLU5jaDVpUFpqR3g5TWNjeGVNMDM0b0ZfNA?oc=5",
+          "published": "2026-06-05T20:48:27+00:00"
         },
         {
-          "featured": false,
           "title": {
-            "en": "AMD EXPO ULL adds memory subtiming controls to one-click profiles",
-            "zh": ""
+            "en": "Memory vendors say CXMT's DDR5 pricing matches established suppliers",
+            "zh": "存储厂商称长鑫DDR5价格与主流供应商相近"
           },
           "summary": {
-            "en": "AMD's EXPO Ultra Low Latency program lets memory vendors include subtiming adjustments in validated profiles for the first time. The change gives desktop users a simpler route to lower latency, while shifting more tuning responsibility to module makers and their qualification process.",
-            "zh": ""
+            "en": "Memory vendors at Computex told Wccftech that CXMT's DDR5 is not substantially cheaper than products from Samsung, SK hynix and Micron. CXMT's practical advantage may be available client-market supply rather than price disruption. That distinction matters in a shortage: incremental capacity can change allocation even when it does not reset the market's price floor.",
+            "zh": "Computex上的存储厂商向Wccftech表示，长鑫DDR5并没有显著低于Samsung、SK hynix和Micron的产品价格。长鑫的实际优势可能是面向客户端市场的可用供应，而不是价格颠覆。在短缺环境中，即使不改变市场价格底部，新增产能也会改变配额分配。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/ram/g-skill-explains-how-amd-expo-ull-unlocks-additional-performance-expanded-profiles-allow-memory-makers-to-include-subtiming-tweaks-for-the-first-time",
-          "published": "2026-06-06T12:20:00+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/cxmt-cheap-ddr5-is-a-myth-memory-vendors-tell-us-prices-match-samsung-sk-hynix-micron/",
+          "published": "2026-06-06T11:30:12+00:00"
         }
       ]
     },
     {
-      "id": "equipment",
+      "id": "foundry",
       "title": {
-        "en": "Equipment & Materials",
-        "zh": "设备与材料"
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
       },
       "stories": [
         {
-          "featured": false,
           "title": {
-            "en": "OSI Systems wins a $10 million semiconductor-equipment order",
-            "zh": ""
+            "en": "TSMC expands Nvidia AI technology across chip-production operations",
+            "zh": "TSMC扩大Nvidia AI技术在芯片生产运营中的应用"
           },
           "summary": {
-            "en": "OSI Systems secured a semiconductor-equipment order valued at $10 million. The award is modest beside leading-edge fab tool budgets, but it provides a concrete demand signal for the specialized inspection and manufacturing equipment supplied below the largest tool vendors.",
-            "zh": ""
+            "en": "TSMC is expanding the use of Nvidia AI technologies across semiconductor production operations. AI is therefore acting on both sides of the cycle: it drives demand for advanced chips while becoming a tool for design, simulation and fab optimization. The strategic advantage will depend on whether these systems improve cycle time, yield learning and equipment utilization rather than merely adding compute.",
+            "zh": "TSMC正在扩大Nvidia AI技术在半导体生产运营中的应用。AI因此作用于周期两端：既推动先进芯片需求，也成为设计、仿真和晶圆厂优化工具。其战略价值取决于这些系统能否改善生产周期、良率学习和设备利用率，而不只是增加计算量。"
           },
-          "source": "MSN",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQOXMwOFByTnVjeVl0QTRlNGp5NmZyWFBtSFQ4LVNZZWZHdU80bURvUjNqVXBXdVhlNDdDZkFXZ2RJb2NXX2xlcU1mbm9qVmFtZWxzeVVHUDdEUjEwalRRZ0VBV2RvSnZtU1pGU292MzRkSTBsRkdEUGVVb0JqaE9jS240cDVXTF9VTzU1Y3NpVTN5aFFhTV8zLVQ1STJZRVBnQldfUHhxLTlUNjQ?oc=5",
-          "published": "2026-06-06T21:11:12+00:00"
+          "source": "MSN via Google News",
+          "url": "https://news.google.com/rss/articles/CBMiogNBVV95cUxPNVgwbDJ3U3p3NS1CcUxLcDRNa0dkbm5RUk5MbTdwN0psV1oyQlJZYkgyc0VxWjZROUhjUDBhaU5hZkVOa2F6akMyYllCUndpZDZESWdoU0o4VFlCNVJ4cnJTTDAycGFnS0VHS0R3cDN3TWJYWjc2Qmo4OGlkRG1ZVWxfV2E4aW5FYzFDbkFReUU3amRMMnVnc2FEYXhDcDdCRnlVVVo3czdiOEJ3VE5SY1F6eTcxeWpmUVVqNFZaTHJzanJ1LTNWbHpDY3cySFdjSWRUYjk4eXAwTHVBbUNJbkZtUXVSem0zRHViWVNPbEJzcFNlWVpRUkFKaHFETF9NMV8yWmMwTWJHSnNsUGFsM1VTbWVwR2RuMVJBR0I3Y2xQQnRRSDFyRkxUU0QyY1ZmdUlLbFBqcjBkdFJsd00tSDlXRjYxdmRmTUltUGF6a3p5eW9ULXQzMzFlajhvQTZoX2c4UkRJQ1EtVDNPaDd2TUFybWRMdmdOSmN4Smk1T0d6WF9ydGRfczgycnFLMHN3cE9rSjJyRnYwdTFIU29MQzJB?oc=5",
+          "published": "2026-06-05T20:37:42+00:00"
         },
         {
-          "featured": false,
           "title": {
-            "en": "Soulbrain receives a $12 million state grant",
-            "zh": ""
+            "en": "US partnership targets semiconductor materials recovery from aluminum waste",
+            "zh": "美国合作项目计划从铝废料中回收半导体关键材料"
           },
           "summary": {
-            "en": "Soulbrain received a $12 million state grant connected to its semiconductor supply-chain operations. The award directs public funding toward a materials supplier, but the candidate report does not specify the production capacity or commissioning schedule that the grant will support.",
-            "zh": ""
+            "en": "A new US partnership aims to recover critical semiconductor materials from aluminum waste. The project connects circular-economy processing with chip supply-chain resilience, where specialty inputs can be strategically important despite relatively small volumes. Its industrial value will depend on purity, recovery cost and whether the output qualifies for semiconductor-grade uses.",
+            "zh": "一个新的美国合作项目计划从铝废料中回收半导体关键材料。该项目把循环经济处理与芯片供应链韧性连接起来，因为某些特种材料即使体量不大也具有战略重要性。其产业价值将取决于纯度、回收成本，以及产出能否达到半导体级用途要求。"
           },
-          "source": "Taylor Press",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOWUFIU3FITmZ2SFZ3VmpTN2I0cmhSX0l3bWlCbkRTM1l4ZEFJVlVjMVZqRWNhcUdoVXNpU0FmLVBWVktEcUVaQW1BNEdDOGFFQzZWUGVFcE5SNExuSml3amRhbmEtcTRHYzVkeDJvM0VReGdCWmN2V0FrbmY5b1hud2gwMEUwUQ?oc=5",
-          "published": "2026-06-06T19:31:53+00:00"
+          "source": "Interesting Engineering via Google News",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNcTZtZGMxTzZ0N21lak1jSVVIUEJiSzdmLWwyZ1U0a0RGOFBYT2NyaGZqVGdhYWxEUFJMZ2JiNHh5ZUNiejZnR0drZGRrTEJzLUVKX0lTNzNucWpMaHdHZWJNWFRrTFdMWndwcjA4TnktcThVWXFjR1hXZmMzTlJJZElPVmNjQlVWYzlGWF9YSGs2OWlTcjBJ?oc=5",
+          "published": "2026-06-06T12:12:00+00:00"
         }
       ]
     },
     {
       "id": "policy",
       "title": {
-        "en": "Policy & Geopolitics",
-        "zh": "政策与地缘政治"
+        "en": "Policy & Infrastructure",
+        "zh": "政策与基础设施"
       },
       "stories": [
         {
-          "featured": true,
           "title": {
-            "en": "Nvidia's China chip sales move into Congress's sights",
-            "zh": ""
+            "en": "Seattle advances a one-year moratorium on AI data centers",
+            "zh": "西雅图推进为期一年的AI数据中心暂停令"
           },
           "summary": {
-            "en": "US Senator Elizabeth Warren is pressing Nvidia chief Jensen Huang to testify about the company's chip sales to China. The scrutiny raises the political risk around future accelerator export licenses and could narrow Nvidia's room to design market-specific products for Chinese customers.",
-            "zh": ""
+            "en": "Seattle council committees approved a one-year data-center moratorium and a resolution to study the community impact of AI buildouts, with a full council vote expected next. This is a local permitting signal with broader relevance: power, water, land use and public acceptance can slow capacity even when chips are available. Datacenter expansion is becoming a municipal-policy issue, not only a hyperscaler capital plan.",
+            "zh": "西雅图市议会委员会通过了一项为期一年的数据中心暂停令和相关决议，以研究AI建设对社区的影响，下一步将提交全体议会表决。这是一个具有更广泛意义的地方审批信号：即使芯片可用，电力、水、土地使用和公众接受度仍可能拖慢产能。数据中心扩张正在成为市政政策问题，而不只是云厂商资本计划。"
           },
-          "source": "Startup Fortune",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTG03RjhjSlNMTkM2SHNXd0FZTk5OMTd4bENlYTJGbEpYb2ZRLWhiZnRIWDJidHlrTEItWUZCdkZpd1JsMzMtMUh6QlBKOEtmdWdzWW9pWGhVMFFubDg4dUpGRUs0b0JYQUl3U0t1bGd3aG1JcUhHcFdXb0tpVzBTYnN3VUl5SGhtWEgwUXBtNlNHSEkydVphVkNn?oc=5",
-          "published": "2026-06-06T13:31:54+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/seattle-to-pass-one-year-ai-data-center-moratorium-next-week-will-use-window-to-study-community-impact-of-ai-buildouts",
+          "published": "2026-06-05T15:29:37+00:00"
         },
         {
-          "featured": false,
           "title": {
-            "en": "India and the Netherlands deepen semiconductor cooperation",
-            "zh": ""
+            "en": "Washington's latest AI-chip guidance tightens the operating environment for Chinese technology firms",
+            "zh": "华盛顿最新AI芯片指引收紧中国科技公司的运营环境"
           },
           "summary": {
-            "en": "India and the Netherlands upgraded bilateral ties with a stronger semiconductor partnership. The pairing links India's push to build a domestic chip ecosystem with Dutch strengths in lithography and semiconductor equipment, although the report does not specify new fab or tool commitments.",
-            "zh": ""
+            "en": "New US guidance on AI-chip exports is forcing Chinese technology firms to reassess overseas subsidiaries, procurement channels and access to advanced compute. The operational issue is no longer simply the destination country; ownership and end-use are increasingly central to compliance. That pushes companies toward domestic accelerators while raising costs for global distributors and cloud providers.",
+            "zh": "美国最新AI芯片出口指引迫使中国科技公司重新评估境外子公司、采购渠道和先进算力获取。操作层面的问题已不只是目的地国家，所有权和最终用途正越来越成为合规核心。这会推动企业转向本土加速器，同时提高全球分销商和云服务商的成本。"
           },
-          "source": "MSN",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPZ0w4R3p1blR4akwtUHNobm8zMi1BTHpzTmkwMUtoaE44R2p2ZlFvczROaTEzNTc0UzZDM0l5eC1ob3IxcTI2UzRJSXJ1YWhSdzAyZGJwcjZkV0ZiMlNJX3hRbm9ubWdaa01BT1pJUzZMU2c4NUlrbXhPREpoWHMzQW9DckFUaW52eGRLWXRGVDdfWWlZOVFJTl9HbGRLYjVPSnhGVFFTY09VT0xLTHg3QXpxV1pGYThzT1otOE5kTkI3dFB1UVJoVWZ0N2dIR3NsUmxaX3k3Qm13dE9YVk9zWXN3?oc=5",
-          "published": "2026-06-06T17:47:18+00:00"
+          "source": "South China Morning Post via Google News",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQUHBFUVJ5LVZyN3lnOHVEVlVhdEluUjJGc2M5YUFCNzdtOWFlWHhqZW5VVFd0SEI1WVBYN1JId3dUSDB2R1hwb3VBb2hYUXZQT21KOG1oRnhhNUpfalZacmF0VUtaYXp3dmhNZDVjenVqTWJYVG5NRXdMTVBhd0RSQXJiNkZpLXg3UTBUZHlic0JvNlM2WkNOSTRRZDMzZ2NSS0JqWm0tRU1KeWtNam5NMnlRbUhraXl3V1HSAboBQVVfeXFMUFBwRVFSeS1Wcjd5Zzh1RFZVYXRJblIyRnNjOWFBQjc3bTlhZVh4amVuVVRXdEhCNVlQWDdSSHd3VEgwdkdYcG91QW9oWFF2UE9tSjhtaEZ4YTVKX2pWWnJhdFVLWmF6d3ZoTWQ1Y3p1ak1iWFRuTUV3TE1QYXdEUkFyYjZGaS14N1EwVGR5YnNCbzZTNlpDTkk0UWQzM2djUktCalptLUVNSnlrTWpuTTJ5UW1Ia2l5d1dR?oc=5",
+          "published": "2026-06-06T07:00:07+00:00"
+        },
+        {
+          "title": {
+            "en": "ASML warning tests Europe's technology-sovereignty push",
+            "zh": "ASML警告考验欧洲技术主权战略"
+          },
+          "summary": {
+            "en": "An ASML warning has exposed tension inside Brussels' technology-sovereignty agenda. Europe wants strategic control over critical technologies, but its semiconductor champion depends on a globally distributed customer, supplier and research network. Policy that fragments those networks too aggressively can weaken the industrial asset it is intended to protect.",
+            "zh": "ASML的警告暴露了布鲁塞尔技术主权议程内部的张力。欧洲希望掌控关键技术，但其半导体旗舰企业依赖全球分布的客户、供应商和研究网络。若政策过度切割这些网络，可能反而削弱原本想保护的工业资产。"
+          },
+          "source": "EU Today via Google News",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOc25PZTRyanpXaFVvd1pjNXRWOUhBMXZXUHpSc2tkZzdGY0E2bENpTnVMbE43Z0QtZFFmNGxNT1RTTWY1RG9LMG1mTkNxZjBmSWl1bXpMeVJkWktnU1RMOWxIeHRnMHl1bm5jZm9YRk5TV1RxaWF4LWdtcUZBOWxjZ2hmdHpIZDNIY1d2bnBuM1R2dGJRZDZLSw?oc=5",
+          "published": "2026-06-06T08:15:15+00:00"
         }
       ]
     },
     {
-      "id": "challengers",
+      "id": "earnings",
       "title": {
-        "en": "Challengers & New Silicon",
-        "zh": "新势力与新硅"
+        "en": "Markets",
+        "zh": "市场"
       },
       "stories": [
         {
-          "featured": false,
           "title": {
-            "en": "Ayar Labs deepens Nvidia and Wiwynn work on co-packaged optics",
-            "zh": ""
+            "en": "Global semiconductor sales rose 11% month over month in April",
+            "zh": "全球半导体4月销售额环比增长11%"
           },
           "summary": {
-            "en": "Ayar Labs is expanding its work with Nvidia and server maker Wiwynn on co-packaged optical links for AI infrastructure. The relationships matter because electrical I/O power and reach are becoming system limits as accelerator clusters scale, though the report does not identify a production deployment.",
-            "zh": ""
+            "en": "The Semiconductor Industry Association reported that global chip sales increased 11% month over month in April. The rebound gives the industry a broad demand signal beyond individual AI winners, though monthly comparisons can be volatile. The key question is how much of the expansion reaches mature-node, analog and consumer suppliers rather than remaining concentrated in AI compute and memory.",
+            "zh": "美国半导体行业协会报告称，全球芯片销售额4月环比增长11%。这为行业提供了一个超越个别AI赢家的广泛需求信号，但月度比较可能波动较大。关键问题是增长有多少能传导到成熟制程、模拟和消费芯片供应商，而不是继续集中在AI计算与存储。"
           },
-          "source": "TipRanks",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOdXpQTm0xSjF0NzIxMFM1M00xaGdVc2pPS3dOOThud2hOb0F5NVg4V3BNSEZjSmFLVXF0MkU0WGl1cE9vWk1vYl8tYWVHMjYyNEpsaVpoRnE0aHpmZVJHTEVza2hPS3lKN3pweEJhUldBVHZTQ1hlSWhSUEQ2NWNCN2FDWU9kdWhiLVI5X1dfc0JDSWV0Ukh2WGhHcVZBdVdnWDlVbkdsSnNwMFVJWWZKb1JhY3d4MktFamdJNXNLS095LWNVck4xeGdEeFUzOGlUd1UyX1ZCWQ?oc=5",
-          "published": "2026-06-06T16:11:03+00:00"
+          "source": "Semiconductor Industry Association via Google News",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNaE0tSlBRRDRDbXZsUHF3MGtEUEppdW5qd1gwWk1ILU92YWRqU21VRnBZSDUtc2hEZGViVXFjZXlkVUswN1FGREVsa0gtNVVXSWVaZlJDcC05NGdkOFlfbS1qVmpGVXJuRFhKVTFldlFlV0tKTjY0OHk2WUNuQ3IwMTYyaTNuSWFiSERmMUVranZwaVNxcEh5eVZB?oc=5",
+          "published": "2026-06-05T21:02:23+00:00"
         }
       ]
     }
@@ -198,167 +217,218 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Long-Context AI Moves Into Systems Engineering",
-      "zh": ""
+      "en": "Packaging Becomes a Compute Architecture",
+      "zh": "封装正在变成计算架构"
     },
     "dek": {
-      "en": "This week's strongest papers treat attention routing, KV-cache layout, and persistent agent memory as systems problems rather than isolated model tricks. The supporting work extends from GPU arithmetic to multi-die FPGA routing and quantum rare-event sampling.",
-      "zh": ""
+      "en": "Today's research queue follows the physical limits behind AI scaling: package metrology, warpage, low-temperature bonding, backside-power thermals, chiplet routing and co-packaged optics.",
+      "zh": "今天的研究队列聚焦AI扩展背后的物理限制：封装量测、翘曲、低温键合、背面供电热问题、chiplet路由和共封装光学。"
     },
     "areas": [
       {
+        "id": "devices",
+        "title": {
+          "en": "Packaging Materials & Metrology",
+          "zh": "封装材料与量测"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Dual-Band Scatterometry for Advanced-Packaging Critical-Dimension Metrology",
+              "zh": "用于先进封装关键尺寸量测的双波段散射测量"
+            },
+            "authors": "Fu-Sheng Yang, Tan-Phuc Le, Surajit Das, Min-Ru Wu, Liang-Chia Chen",
+            "affiliation": "",
+            "venue": "Measurement Science and Technology",
+            "venue_url": "https://doi.org/10.1088/1361-6501/ae7745",
+            "summary": {
+              "en": "This paper combines deep-ultraviolet and short-wave-infrared scatterometry to separate coupled packaging dimensions during non-destructive measurement. Its sequential optimization reportedly cuts simulation time by more than 90% while matching copper-trench measurements against atomic-force microscopy. Faster inverse metrology matters because heterogeneous integration adds more structures that must be controlled without destructive cross-sectioning.",
+              "zh": "这篇论文结合深紫外和短波红外散射测量，在无损量测中分离相互耦合的封装尺寸。其顺序优化方法据称将仿真时间降低90%以上，并使铜沟槽结果与原子力显微镜量测吻合。更快的反演量测很重要，因为异构集成增加了更多必须在不破坏截面的情况下控制的结构。"
+            },
+            "published": "2026-06-03",
+            "tags": [
+              "metrology",
+              "advanced packaging",
+              "scatterometry"
+            ]
+          },
+          {
+            "title": {
+              "en": "Cure-Dependent Thermo-Mechanical Modeling for Package Warpage Prediction",
+              "zh": "用于封装翘曲预测的固化相关热机械建模"
+            },
+            "authors": "J. Baek, Woong-Kyoo Yoo, W. An, Jun-Seop Song, Gyung-Hwan Oh, Ji-Hye Shim, Hak-Sung Kim",
+            "affiliation": "",
+            "venue": "Materials Today Advances",
+            "venue_url": "https://doi.org/10.1016/j.mtadv.2026.100781",
+            "summary": {
+              "en": "The work integrates in-situ characterization with multiscale modeling of epoxy molding compounds as they cure. That targets a persistent advanced-packaging problem: material properties evolve during processing, so static parameters can produce poor warpage predictions. Better cure-aware models can shorten process tuning, but production value depends on transfer across package sizes and material lots.",
+              "zh": "该研究把原位表征与环氧模塑料固化过程的多尺度建模结合起来，针对先进封装中的长期难题：材料属性会在加工过程中变化，静态参数容易导致翘曲预测失准。更准确的固化感知模型可以缩短工艺调试，但量产价值取决于能否跨封装尺寸和材料批次迁移。"
+            },
+            "published": "2026-06-01",
+            "tags": [
+              "warpage",
+              "molding compound",
+              "modeling"
+            ]
+          },
+          {
+            "title": {
+              "en": "Glass-Fiber BT Composites for Dimensionally Stable High-Frequency Packaging",
+              "zh": "面向高频封装的高尺寸稳定性玻纤BT复合材料"
+            },
+            "authors": "Hao Wang, Kang Luo, Enzhu Li, Bin Tang, Ying Yuan",
+            "affiliation": "",
+            "venue": "Journal of Alloys and Compounds",
+            "venue_url": "https://doi.org/10.1016/j.jallcom.2026.189032",
+            "summary": {
+              "en": "This materials paper develops glass-fiber-reinforced bismaleimide-triazine composites aimed at better dimensional stability and high-frequency dielectric performance. Those properties matter for large AI substrates where thermal cycling, fine routing and signal integrity interact. The next question is whether the material can meet cost, processability and reliability requirements at substrate-panel scale.",
+              "zh": "这篇材料论文开发玻璃纤维增强双马来酰亚胺-三嗪复合材料，以改善尺寸稳定性和高频介电性能。这些属性对大型AI载板很重要，因为热循环、精细布线和信号完整性相互影响。下一步问题是该材料能否在载板面板尺度满足成本、加工性和可靠性要求。"
+            },
+            "published": "2026-06-01",
+            "tags": [
+              "substrate",
+              "dielectric",
+              "materials"
+            ]
+          },
+          {
+            "title": {
+              "en": "Nanocopper Low-Temperature Interconnects for Advanced Packaging",
+              "zh": "面向先进封装的纳米铜低温互连"
+            },
+            "authors": "Ye Tian, Haojie Chen, Lushan Ma, Chao Wang, Ziqiang Li, Lei Ma, Yongfeng Dong, Xing Chen",
+            "affiliation": "",
+            "venue": "Soldering & Surface Mount Technology",
+            "venue_url": "https://doi.org/10.1108/ssmt-01-2026-0006",
+            "summary": {
+              "en": "This review compares copper nanoparticles, nanoporous copper and one-dimensional nanocopper arrays for low-temperature interconnection. Copper offers conductivity and cost advantages, but oxidation, densification and joint reliability remain central barriers. Lower-temperature bonding is especially relevant to heterogeneous stacks that cannot tolerate conventional thermal budgets.",
+              "zh": "这篇综述比较铜纳米颗粒、多孔铜和一维纳米铜阵列在低温互连中的应用。铜具有导电性和成本优势，但氧化、致密化和接头可靠性仍是核心障碍。低温键合对无法承受传统热预算的异构堆叠尤其重要。"
+            },
+            "published": "2026-06-01",
+            "tags": [
+              "copper bonding",
+              "low temperature",
+              "interconnect"
+            ]
+          }
+        ]
+      },
+      {
         "id": "accelerators",
         "title": {
-          "en": "AI Accelerators & Compute-in-Memory",
-          "zh": "AI加速器与存算一体"
+          "en": "Chiplet Networks & Accelerator Architecture",
+          "zh": "Chiplet网络与加速器架构"
         },
         "papers": [
           {
             "title": {
-              "en": "GPU implementation of multi-precision integer division",
-              "zh": ""
+              "en": "BuffeRS: Buffer-Reservation Scheduling for NoCs and Multichiplet Networks",
+              "zh": "BuffeRS：面向NoC与多chiplet网络的缓冲区预留调度"
             },
-            "authors": "M. B. Marchioro, A. N. Raahauge, M. I. Lovenskjold, et al.",
+            "authors": "Zixuan Liu, Xiaomao Wu, Yaoyao Ye",
             "affiliation": "",
-            "venue": "arXiv:2606.06386",
-            "venue_url": "https://arxiv.org/abs/2606.06386",
+            "venue": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+            "venue_url": "https://doi.org/10.1109/TCAD.2025.3624677",
             "summary": {
-              "en": "This work maps Newton-iteration integer division to CUDA for precisions from 2^15 to 2^18 bits, beyond the division range supported by CGBN. Its integer-only, data-parallel formulation and multiplication-based cost model are relevant to cryptography and symbolic workloads on GPUs. The evidence is an implementation study rather than new silicon.",
-              "zh": ""
+              "en": "BuffeRS coordinates destination-buffer availability so packets can bypass routers without complex protocols or unsafe contention. The method extends the same idea across chiplet boundaries, where every extra hop makes communication more expensive. Its importance is architectural: modular accelerators need network efficiency to preserve the yield and reuse benefits of chiplets.",
+              "zh": "BuffeRS协调目标缓冲区可用性，使数据包无需复杂协议或不安全争用即可绕过路由器。该方法还扩展到chiplet边界，而跨chiplet的每一跳通信代价都更高。其架构意义在于，模块化加速器必须保持网络效率，才能保住chiplet带来的良率和复用优势。"
             },
-            "published": "2026-06-04"
+            "published": "2026-06-01",
+            "tags": [
+              "NoC",
+              "chiplet",
+              "routing"
+            ]
+          },
+          {
+            "title": {
+              "en": "HiRe: Hierarchical Reconfigurable Networks for Large Multichiplet DNN Accelerators",
+              "zh": "HiRe：面向大规模多chiplet DNN加速器的分层可重构网络"
+            },
+            "authors": "Zhihong Chen, Jinming Zhang, Dongxu Lyu, Hao Chen, Jianfei Jiang, Weiguang Sheng, Chen Zhang, Guanghui He",
+            "affiliation": "",
+            "venue": "IEEE Transactions on VLSI Systems",
+            "venue_url": "https://doi.org/10.1109/TVLSI.2026.3676552",
+            "summary": {
+              "en": "HiRe co-designs a hierarchical reconfigurable network and deadlock-free routing for large multichiplet DNN accelerators. It targets rising hop count and poor link utilization as fixed fabrics encounter diverse neural-network dataflows. Active-interposer reconfiguration can improve flexibility, though implementation cost and control complexity remain key tradeoffs.",
+              "zh": "HiRe为大规模多chiplet DNN加速器协同设计分层可重构网络和无死锁路由，针对固定互连面对多样神经网络数据流时跳数增加和链路利用率下降的问题。主动中介层重构可以提高灵活性，但实现成本和控制复杂度仍是关键取舍。"
+            },
+            "published": "2026-06-01",
+            "tags": [
+              "DNN accelerator",
+              "active interposer",
+              "reconfigurable network"
+            ]
+          },
+          {
+            "title": {
+              "en": "MARCA-v2: A Reconfigurable Accelerator for Sparse Mamba State-Space Models",
+              "zh": "MARCA-v2：面向稀疏Mamba状态空间模型的可重构加速器"
+            },
+            "authors": "Jinhao Li, Shan Huang, Jiaming Xu, Jun Liu, Ningyi Xu, Guohao Dai",
+            "affiliation": "",
+            "venue": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+            "venue_url": "https://doi.org/10.1109/TCAD.2025.3624278",
+            "summary": {
+              "en": "MARCA-v2 targets the memory-heavy element-wise operations that dominate Mamba state-space-model execution at longer sequences. The design adds sparse support and reconfigurable processing to reduce the bottleneck left by earlier dense-focused accelerators. It is a useful counterpoint to Transformer-only hardware work, though application value depends on Mamba's continued adoption.",
+              "zh": "MARCA-v2针对长序列Mamba状态空间模型中占主导的内存密集逐元素操作，增加稀疏支持和可重构处理，以缓解早期偏密集计算加速器留下的瓶颈。它为只关注Transformer的硬件研究提供了有用对照，但应用价值取决于Mamba能否继续扩大采用。"
+            },
+            "published": "2026-06-01",
+            "tags": [
+              "Mamba",
+              "state-space model",
+              "accelerator"
+            ]
           }
         ]
       },
       {
-        "id": "ai-research",
+        "id": "circuits",
         "title": {
-          "en": "AI Research & Inference Systems",
-          "zh": "AI研究与推理系统"
+          "en": "Thermals & Optical I/O",
+          "zh": "热设计与光I/O"
         },
         "papers": [
           {
             "title": {
-              "en": "You Only Index Once: Cross-layer sparse attention with shared routing",
-              "zh": ""
+              "en": "Thermal Analysis of 3-D Backside-Power Cloud Server SoCs",
+              "zh": "三维背面供电云服务器SoC热分析"
             },
-            "authors": "Y. Sun, Y. Zhang, L. Dong, et al.",
+            "authors": "Nitish Kumar, Subrat Mishra, H. Oprins, J. Myers, J. Ryckaert, P. Woltgens, D. Biswas",
             "affiliation": "",
-            "venue": "arXiv:2606.06467",
-            "venue_url": "https://arxiv.org/abs/2606.06467",
+            "venue": "IEEE Transactions on VLSI Systems",
+            "venue_url": "https://doi.org/10.1109/TVLSI.2026.3673227",
             "summary": {
-              "en": "Cross-Layer Sparse Attention computes token-level top-k routing once and reuses the index across decoder layers in KV-sharing architectures such as YOCO. That amortizes a cost that often erases the practical benefit of token-sparse attention while also reducing prefill, cache, and decode pressure. The result depends on architectures that already share KV state, so portability to conventional transformers remains the key caveat.",
-              "zh": ""
+              "en": "This TCAD study models backside power delivery in 3-D memory-on-logic and logic-on-memory server SoCs. It reports a substantial thermal penalty for memory-on-logic, while reversing the stack and improving cooling reduces temperature significantly at 320-core scale. The result makes the integration tradeoff explicit: backside power can improve electrical delivery while making stack orientation and cooling decisive.",
+              "zh": "这项TCAD研究模拟三维memory-on-logic和logic-on-memory服务器SoC中的背面供电。结果显示memory-on-logic存在显著热惩罚，而反转堆叠并改善冷却可在320核规模明显降低温度。它把集成取舍说得很清楚：背面供电能改善电气供给，但会让堆叠方向和冷却方案变得决定性。"
             },
-            "published": "2026-06-04"
+            "published": "2026-06-01",
+            "tags": [
+              "backside power",
+              "3D integration",
+              "thermal"
+            ]
           },
           {
             "title": {
-              "en": "Vortex: Programmable sparse-attention serving for AI agents",
-              "zh": ""
+              "en": "High-Density Co-Packaged Optics With TSV and TGV Interposers",
+              "zh": "基于TSV与TGV中介层的高密度共封装光学"
             },
-            "authors": "Z. Chen, X. Zhong, Q. Feng, et al.",
+            "authors": "Chang Ge, Jiangbing Du, Yihan Liu, Yixiao Zhang, Zuyuan He",
             "affiliation": "",
-            "venue": "arXiv:2606.06453",
-            "venue_url": "https://arxiv.org/abs/2606.06453",
+            "venue": "Advanced Photonics Nexus",
+            "venue_url": "https://doi.org/10.1117/1.apn.5.3.036019",
             "summary": {
-              "en": "Vortex combines a Python-embedded sparse-attention language with a page-centric tensor abstraction and a serving-stack backend. Algorithms generated and refined through the system reach up to 3.46 times the throughput of full attention while preserving accuracy in the reported tests. The preprint's main contribution is deployability and iteration speed, not a new attention rule.",
-              "zh": ""
+              "en": "This work studies high-density co-packaged optical interconnection using through-silicon-via and through-glass-via interposers. The packaging choice affects density, electrical parasitics, optical alignment and thermal behavior together. CPO adoption will depend on solving that combined manufacturing problem, not simply placing optics closer to compute.",
+              "zh": "该研究探索使用硅通孔和玻璃通孔中介层实现高密度共封装光互连。封装选择会同时影响密度、电气寄生、光学对准和热行为。CPO能否普及取决于解决这个综合制造问题，而不只是把光学器件放得更靠近计算芯片。"
             },
-            "published": "2026-06-04"
-          },
-          {
-            "title": {
-              "en": "Agent Memory: System implications of stateful long-horizon workloads",
-              "zh": ""
-            },
-            "authors": "Y. Omri, Z. Gan, Z. Broveak, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.06448",
-            "venue_url": "https://arxiv.org/abs/2606.06448",
-            "summary": {
-              "en": "This paper profiles ten agent-memory systems and attributes cost separately to memory construction, retrieval, and generation. The characterization shows that design choices move work between read and write paths, producing different scheduling, freshness, and fleet-management requirements. It is a systems taxonomy and benchmark study, so its value depends on how representative the selected frameworks and workloads are.",
-              "zh": ""
-            },
-            "published": "2026-06-04"
-          },
-          {
-            "title": {
-              "en": "TokenMizer: Graph-structured memory for long LLM sessions",
-              "zh": ""
-            },
-            "authors": "S. Mishra",
-            "affiliation": "",
-            "venue": "arXiv:2606.06337",
-            "venue_url": "https://arxiv.org/abs/2606.06337",
-            "summary": {
-              "en": "TokenMizer stores session history as a typed knowledge graph and serializes it into compact resume blocks rather than carrying flat transcripts forward. On 21 controlled sessions, the blocks average 78 tokens versus 159 to 170 for the evaluated baselines while improving decision recall by 9 to 17 percentage points. The benchmark is small and controlled, so production-scale extraction cost and error accumulation remain open questions.",
-              "zh": ""
-            },
-            "published": "2026-06-04"
-          },
-          {
-            "title": {
-              "en": "Tangram makes non-uniform KV caches practical for multi-turn serving",
-              "zh": ""
-            },
-            "authors": "H. Kim, M. Kim, H. Kim, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.06302",
-            "venue_url": "https://arxiv.org/abs/2606.06302",
-            "summary": {
-              "en": "Tangram assigns deterministic per-head cache budgets, groups heads with similar retention needs into vectorized page tables, and balances work ahead of time. The design targets fragmentation, scheduling overhead, and poor kernel utilization that can cancel the memory savings of non-uniform KV compression. It is a serving-system proposal, and the supplied abstract does not expose the full end-to-end benchmark results.",
-              "zh": ""
-            },
-            "published": "2026-06-04"
-          }
-        ]
-      },
-      {
-        "id": "quantum",
-        "title": {
-          "en": "Quantum Computing",
-          "zh": "量子计算"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "Quantum-enhanced rare-event discovery and sampling",
-              "zh": ""
-            },
-            "authors": "N. Guo, P.-W. Huang, Q. Wang, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.06316",
-            "venue_url": "https://arxiv.org/abs/2606.06316",
-            "summary": {
-              "en": "The algorithm discovers and samples events below a probability threshold without requiring the rare outcomes to be identified in advance. The authors derive optimal quantum scaling with the rarity threshold, including quadratic speedup for certain heavy-tailed systems and polynomial gains for stationary processes. These are theoretical complexity results; practical advantage will depend on state preparation and fault-tolerant execution costs.",
-              "zh": ""
-            },
-            "published": "2026-06-04"
-          }
-        ]
-      },
-      {
-        "id": "eda",
-        "title": {
-          "en": "EDA & Design Automation",
-          "zh": "EDA与设计自动化"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "Modeling and optimizing multi-die FPGA routing architectures",
-              "zh": ""
-            },
-            "authors": "A. Poolad, S. G. Shahrouz, A. Boutros, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.06421",
-            "venue_url": "https://arxiv.org/abs/2606.06421",
-            "summary": {
-              "en": "The work extends VTR and VPR to model, place, and route a wider range of 2.5D and 3D FPGA inter-die fabrics. HSPICE models cover active dice at 7 nm and a 45 nm silicon interposer, enabling design-space exploration across die-crossing technologies. The study improves open EDA support for multi-die FPGAs, but its conclusions remain simulation-based rather than measured on fabricated hardware.",
-              "zh": ""
-            },
-            "published": "2026-06-04"
+            "published": "2026-05-25",
+            "tags": [
+              "co-packaged optics",
+              "TSV",
+              "TGV"
+            ]
           }
         ]
       }
