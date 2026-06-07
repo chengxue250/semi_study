@@ -49,11 +49,13 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "output"
 SEEN_URLS = OUTPUT / ".seen_urls.json"
 PREFLIGHT = Path("/tmp/preflight")
+EDITION_TIMEZONE = ZoneInfo("Asia/Shanghai")
 
 
 def step(msg: str) -> None:
@@ -139,7 +141,7 @@ def main() -> int:
                     help="skip the role=research RSS fetch (Nature Electronics etc)")
     args = ap.parse_args()
 
-    today = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    today = dt.datetime.now(EDITION_TIMEZONE).date().isoformat()
     print(f"preflight for {today}")
 
     # ----- 1. Backup any existing edition.json --------------------------------
@@ -260,7 +262,7 @@ def main() -> int:
     # ----- 6. Write a minimal "agent, do this" pointer -----------------------
     (PREFLIGHT / "instructions.txt").write_text(
         "\n".join([
-            f"Today's date (UTC): {today}",
+            f"Today's date (Asia/Shanghai): {today}",
             f"News candidates:     {news_final}  ({len(news_short)} items)",
             f"Research candidates: {research_final}  ({len(research_short)} items, merged across arXiv + Semantic Scholar + research RSS)",
             f"Yesterday's edition (do NOT reuse): {backup}",

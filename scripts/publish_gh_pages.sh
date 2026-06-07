@@ -120,7 +120,7 @@ touch .nojekyll
 echo "==> committing"
 git -c user.name="semi-news-publish" -c user.email="publish@local" \
     add -A
-TODAY=$(date -u +%F)
+TODAY=$(TZ=Asia/Shanghai date +%F)
 git -c user.name="semi-news-publish" -c user.email="publish@local" \
     commit -m "pages: edition $TODAY (from $SOURCE_REF@${LOCAL_SHA:0:7})" \
     --allow-empty >/dev/null

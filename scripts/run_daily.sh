@@ -26,6 +26,8 @@
 
 set -euo pipefail
 
+export TZ="${TZ:-Asia/Shanghai}"
+
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 
@@ -37,7 +39,7 @@ SKIP_PUBLISH="${SKIP_PUBLISH:-0}"
 section() { echo; echo "======== $* ========"; }
 
 # Useful for tracking how long the agent step takes (often the slowest part).
-now() { date -u +%s; }
+now() { date +%s; }
 elapsed() { local s=$1; echo "$(($(now) - s))s"; }
 
 
@@ -98,7 +100,7 @@ git add output/
 if git diff --staged --quiet; then
   echo "no diff in output/ — nothing to commit"
 else
-  git commit -m "edition $(date -u +%F)"
+  git commit -m "edition $(date +%F)"
   if [ "$DRY_RUN" = "1" ]; then
     echo "(DRY_RUN=1: skipping git push)"
   else

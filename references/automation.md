@@ -177,8 +177,8 @@ Save as `~/Library/LaunchAgents/news.seminews.daily.plist`:
 
   <key>StartCalendarInterval</key>
   <dict>
-    <key>Hour</key><integer>7</integer>
-    <key>Minute</key><integer>30</integer>
+    <key>Hour</key><integer>9</integer>
+    <key>Minute</key><integer>0</integer>
   </dict>
 
   <key>StandardOutPath</key>
@@ -208,7 +208,7 @@ python3 scripts/notify.py
 
 # Commit & push so GitHub Pages picks it up (optional — comment out if local-only)
 git add output/
-git commit -m "edition $(date -u +%F)" || echo "no changes"
+git commit -m "edition $(TZ=Asia/Shanghai date +%F)" || echo "no changes"
 git push origin main
 
 # Publish output/ to the gh-pages branch (safe — clones into /tmp first).

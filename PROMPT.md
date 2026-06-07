@@ -99,7 +99,7 @@ other files. The orchestrator handles everything else.
 
 ## Hard rules (the validator will catch these and abort the publish)
 
-1. The `date` field must be **today's UTC date**. Look at the top of
+1. The `date` field must be **today's Asia/Shanghai date**. Look at the top of
    `/tmp/preflight/instructions.txt` for it.
 2. Every story's `url` and every paper's `venue_url` **must be copied
    verbatim** from the candidate JSON files. Do not paraphrase URLs. Do

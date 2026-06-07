@@ -29,12 +29,14 @@ import datetime as dt
 import json
 import sys
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "output"
 EDITION = OUTPUT / "edition.json"
 PREVIOUS = OUTPUT / "edition.json.previous"
 PREFLIGHT = Path("/tmp/preflight")
+EDITION_TIMEZONE = ZoneInfo("Asia/Shanghai")
 
 # Default thresholds. Override via CLI flags.
 DEFAULT_MIN_STORIES = 5
@@ -66,7 +68,7 @@ def check_date(edition: dict, today: str) -> tuple[bool, str]:
     if not d:
         return False, "edition.date is missing"
     if d != today:
-        return False, f"edition.date is '{d}' but today (UTC) is '{today}'"
+        return False, f"edition.date is '{d}' but today (Asia/Shanghai) is '{today}'"
     return True, f"edition.date == {today}"
 
 
@@ -253,7 +255,7 @@ def main() -> int:
                     help="min fraction of URLs that must be new vs the previous edition")
     args = ap.parse_args()
 
-    today = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    today = dt.datetime.now(EDITION_TIMEZONE).date().isoformat()
     results: list[tuple[bool, str]] = []
 
     ok, msg = check_file_exists()
