@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-06">
+<meta name="edition-date" content="2026-06-07">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Packaging Becomes a Compute Architecture — Semi Research 2026-06-06</title>
+<title>Inference Efficiency Moves Into System Design — Semi Research 2026-06-07</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -218,181 +218,172 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Saturday, June 6, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月6日 星期六</span>
+      <span class="en">Research digest · Sunday, June 7, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月7日 星期日</span>
     </div>
     <h1>
-      <span class="en">Packaging Becomes a Compute Architecture</span>
-      <span class="zh">封装正在变成计算架构</span>
+      <span class="en">Inference Efficiency Moves Into System Design</span>
+      <span class="zh">推理效率进入系统级设计</span>
     </h1>
     <p class="dek">
-      <span class="en">Today&#x27;s research queue follows the physical limits behind AI scaling: package metrology, warpage, low-temperature bonding, backside-power thermals, chiplet routing and co-packaged optics.</span>
-      <span class="zh">今天的研究队列聚焦AI扩展背后的物理限制：封装量测、翘曲、低温键合、背面供电热问题、chiplet路由和共封装光学。</span>
+      <span class="en">This week&#x27;s strongest papers attack long-context costs through shared routing, programmable sparse attention, and non-uniform KV caches. EDA and GPU work extend the same theme by making inter-die routing and extreme-precision arithmetic more explicit optimization targets.</span>
+      <span class="zh">本周最值得关注的论文通过共享路由、可编程稀疏注意力与非均匀KV cache降低长上下文成本。EDA与GPU方向也延续了这一主题，将跨裸片布线和超高精度算术变成更明确的优化目标。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="accelerators">
     <h2>
-      <span class="en">Packaging Materials &amp; Metrology</span>
-      <span class="zh">封装材料与量测</span>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1088/1361-6501/ae7745" target="_blank" rel="noopener">
-          <span class="en">Dual-Band Scatterometry for Advanced-Packaging Critical-Dimension Metrology</span>
-          <span class="zh">用于先进封装关键尺寸量测的双波段散射测量</span>
-        </a><span class="tag">metrology</span><span class="tag">advanced packaging</span><span class="tag">scatterometry</span>
+        <a href="https://arxiv.org/abs/2606.06386" target="_blank" rel="noopener">
+          <span class="en">GPU Multi-Precision Integer Division at Extreme Bit Widths</span>
+          <span class="zh">面向超高位宽的GPU多精度整数除法</span>
+        </a>
       </h3>
-      <p class="authors">Fu-Sheng Yang, Tan-Phuc Le, Surajit Das, Min-Ru Wu, Liang-Chia Chen</p>
-
-      <p class="venue"><a href="https://doi.org/10.1088/1361-6501/ae7745" target="_blank" rel="noopener">Measurement Science and Technology</a> · 2026-06-03</p>
-      <p class="summary">
-        <span class="en">This paper combines deep-ultraviolet and short-wave-infrared scatterometry to separate coupled packaging dimensions during non-destructive measurement. Its sequential optimization reportedly cuts simulation time by more than 90% while matching copper-trench measurements against atomic-force microscopy. Faster inverse metrology matters because heterogeneous integration adds more structures that must be controlled without destructive cross-sectioning.</span>
-        <span class="zh">这篇论文结合深紫外和短波红外散射测量，在无损量测中分离相互耦合的封装尺寸。其顺序优化方法据称将仿真时间降低90%以上，并使铜沟槽结果与原子力显微镜量测吻合。更快的反演量测很重要，因为异构集成增加了更多必须在不破坏截面的情况下控制的结构。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1016/j.mtadv.2026.100781" target="_blank" rel="noopener">
-          <span class="en">Cure-Dependent Thermo-Mechanical Modeling for Package Warpage Prediction</span>
-          <span class="zh">用于封装翘曲预测的固化相关热机械建模</span>
-        </a><span class="tag">warpage</span><span class="tag">molding compound</span><span class="tag">modeling</span>
-      </h3>
-      <p class="authors">J. Baek, Woong-Kyoo Yoo, W. An, Jun-Seop Song, Gyung-Hwan Oh, Ji-Hye Shim, Hak-Sung Kim</p>
+      <p class="authors">Martin B. Marchioro, Aske N. Raahauge, Marc I. Løvenskjold, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1016/j.mtadv.2026.100781" target="_blank" rel="noopener">Materials Today Advances</a> · 2026-06-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06386" target="_blank" rel="noopener">arXiv:2606.06386</a> · 2026-06-04T16:51:22Z</p>
       <p class="summary">
-        <span class="en">The work integrates in-situ characterization with multiscale modeling of epoxy molding compounds as they cure. That targets a persistent advanced-packaging problem: material properties evolve during processing, so static parameters can produce poor warpage predictions. Better cure-aware models can shorten process tuning, but production value depends on transfer across package sizes and material lots.</span>
-        <span class="zh">该研究把原位表征与环氧模塑料固化过程的多尺度建模结合起来，针对先进封装中的长期难题：材料属性会在加工过程中变化，静态参数容易导致翘曲预测失准。更准确的固化感知模型可以缩短工艺调试，但量产价值取决于能否跨封装尺寸和材料批次迁移。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1016/j.jallcom.2026.189032" target="_blank" rel="noopener">
-          <span class="en">Glass-Fiber BT Composites for Dimensionally Stable High-Frequency Packaging</span>
-          <span class="zh">面向高频封装的高尺寸稳定性玻纤BT复合材料</span>
-        </a><span class="tag">substrate</span><span class="tag">dielectric</span><span class="tag">materials</span>
-      </h3>
-      <p class="authors">Hao Wang, Kang Luo, Enzhu Li, Bin Tang, Ying Yuan</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1016/j.jallcom.2026.189032" target="_blank" rel="noopener">Journal of Alloys and Compounds</a> · 2026-06-01</p>
-      <p class="summary">
-        <span class="en">This materials paper develops glass-fiber-reinforced bismaleimide-triazine composites aimed at better dimensional stability and high-frequency dielectric performance. Those properties matter for large AI substrates where thermal cycling, fine routing and signal integrity interact. The next question is whether the material can meet cost, processability and reliability requirements at substrate-panel scale.</span>
-        <span class="zh">这篇材料论文开发玻璃纤维增强双马来酰亚胺-三嗪复合材料，以改善尺寸稳定性和高频介电性能。这些属性对大型AI载板很重要，因为热循环、精细布线和信号完整性相互影响。下一步问题是该材料能否在载板面板尺度满足成本、加工性和可靠性要求。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1108/ssmt-01-2026-0006" target="_blank" rel="noopener">
-          <span class="en">Nanocopper Low-Temperature Interconnects for Advanced Packaging</span>
-          <span class="zh">面向先进封装的纳米铜低温互连</span>
-        </a><span class="tag">copper bonding</span><span class="tag">low temperature</span><span class="tag">interconnect</span>
-      </h3>
-      <p class="authors">Ye Tian, Haojie Chen, Lushan Ma, Chao Wang, Ziqiang Li, Lei Ma, Yongfeng Dong, Xing Chen</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1108/ssmt-01-2026-0006" target="_blank" rel="noopener">Soldering &amp; Surface Mount Technology</a> · 2026-06-01</p>
-      <p class="summary">
-        <span class="en">This review compares copper nanoparticles, nanoporous copper and one-dimensional nanocopper arrays for low-temperature interconnection. Copper offers conductivity and cost advantages, but oxidation, densification and joint reliability remain central barriers. Lower-temperature bonding is especially relevant to heterogeneous stacks that cannot tolerate conventional thermal budgets.</span>
-        <span class="zh">这篇综述比较铜纳米颗粒、多孔铜和一维纳米铜阵列在低温互连中的应用。铜具有导电性和成本优势，但氧化、致密化和接头可靠性仍是核心障碍。低温键合对无法承受传统热预算的异构堆叠尤其重要。</span>
+        <span class="en">The paper implements integer-domain Newton division on CUDA for precisions from 2^15 to 2^18 bits, a range not supported by CGBN division. Prefix-sum and multiplication refinements bring measured performance close to the authors&#x27; operation-count cost model. The result is specialized rather than a general AI kernel, but it is relevant to GPU workloads in cryptography and symbolic computation that exceed standard big-integer libraries.</span>
+        <span class="zh">该论文在CUDA上实现了全整数域的Newton除法，覆盖2^15至2^18位精度，这一范围不受CGBN除法支持。通过前缀和与多精度乘法优化，实测性能接近作者基于运算次数建立的成本模型。该成果并非通用AI内核，但对超出标准大整数库能力的密码学与符号计算GPU工作负载具有价值。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="accelerators">
+  <section class="area" id="ai-research">
     <h2>
-      <span class="en">Chiplet Networks &amp; Accelerator Architecture</span>
-      <span class="zh">Chiplet网络与加速器架构</span>
+      <span class="en">AI Research &amp; Inference Systems</span>
+      <span class="zh">AI研究与推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCAD.2025.3624677" target="_blank" rel="noopener">
-          <span class="en">BuffeRS: Buffer-Reservation Scheduling for NoCs and Multichiplet Networks</span>
-          <span class="zh">BuffeRS：面向NoC与多chiplet网络的缓冲区预留调度</span>
-        </a><span class="tag">NoC</span><span class="tag">chiplet</span><span class="tag">routing</span>
+        <a href="https://arxiv.org/abs/2606.06479" target="_blank" rel="noopener">
+          <span class="en">Pretraining Recurrent Networks Without Unrolling Them</span>
+          <span class="zh">无需循环展开的循环网络预训练</span>
+        </a>
       </h3>
-      <p class="authors">Zixuan Liu, Xiaomao Wu, Yaoyao Ye</p>
+      <p class="authors">Akarsh Kumar, Phillip Isola</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2025.3624677" target="_blank" rel="noopener">IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</a> · 2026-06-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06479" target="_blank" rel="noopener">arXiv:2606.06479</a> · 2026-06-04T17:57:33Z</p>
       <p class="summary">
-        <span class="en">BuffeRS coordinates destination-buffer availability so packets can bypass routers without complex protocols or unsafe contention. The method extends the same idea across chiplet boundaries, where every extra hop makes communication more expensive. Its importance is architectural: modular accelerators need network efficiency to preserve the yield and reuse benefits of chiplets.</span>
-        <span class="zh">BuffeRS协调目标缓冲区可用性，使数据包无需复杂协议或不安全争用即可绕过路由器。该方法还扩展到chiplet边界，而跨chiplet的每一跳通信代价都更高。其架构意义在于，模块化加速器必须保持网络效率，才能保住chiplet带来的良率和复用优势。</span>
+        <span class="en">Supervised Memory Training uses a Transformer encoder to generate one-step memory-transition labels, then trains a nonlinear RNN without backpropagation through time. This creates a time-parallel training path with O(1) gradient length between tokens and outperforms BPTT in the reported language and pixel-sequence experiments. The preprint could make recurrent inference architectures easier to train, but broader model-scale and hardware-efficiency results are still needed.</span>
+        <span class="zh">Supervised Memory Training先用Transformer编码器生成单步记忆状态转移标签，再训练非线性RNN，从而避免时间反向传播。该方法形成可按时间并行的训练路径，使任意token间的梯度路径长度为O(1)，并在论文报告的语言与像素序列实验中优于BPTT。这项预印本可能降低循环推理架构的训练难度，但仍需更大模型规模与硬件效率数据。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TVLSI.2026.3676552" target="_blank" rel="noopener">
-          <span class="en">HiRe: Hierarchical Reconfigurable Networks for Large Multichiplet DNN Accelerators</span>
-          <span class="zh">HiRe：面向大规模多chiplet DNN加速器的分层可重构网络</span>
-        </a><span class="tag">DNN accelerator</span><span class="tag">active interposer</span><span class="tag">reconfigurable network</span>
+        <a href="https://arxiv.org/abs/2606.06467" target="_blank" rel="noopener">
+          <span class="en">Cross-Layer Sparse Attention Shares One Routing Index</span>
+          <span class="zh">跨层稀疏注意力共享单一路由索引</span>
+        </a>
       </h3>
-      <p class="authors">Zhihong Chen, Jinming Zhang, Dongxu Lyu, Hao Chen, Jianfei Jiang, Weiguang Sheng, Chen Zhang, Guanghui He</p>
+      <p class="authors">Yutao Sun, Yanqi Zhang, Li Dong, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3676552" target="_blank" rel="noopener">IEEE Transactions on VLSI Systems</a> · 2026-06-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06467" target="_blank" rel="noopener">arXiv:2606.06467</a> · 2026-06-04T17:54:04Z</p>
       <p class="summary">
-        <span class="en">HiRe co-designs a hierarchical reconfigurable network and deadlock-free routing for large multichiplet DNN accelerators. It targets rising hop count and poor link utilization as fixed fabrics encounter diverse neural-network dataflows. Active-interposer reconfiguration can improve flexibility, though implementation cost and control complexity remain key tradeoffs.</span>
-        <span class="zh">HiRe为大规模多chiplet DNN加速器协同设计分层可重构网络和无死锁路由，针对固定互连面对多样神经网络数据流时跳数增加和链路利用率下降的问题。主动中介层重构可以提高灵活性，但实现成本和控制复杂度仍是关键取舍。</span>
+        <span class="en">Cross-Layer Sparse Attention computes token-level top-k routing once and reuses the index across decoder layers in a YOCO-style KV-sharing architecture. Sharing both KV state and routing attacks prefill cost, cache capacity, and decode overhead without falling back to coarse block sparsity. The paper reports quality across short- and long-context benchmarks, but the preprint still needs independent end-to-end serving validation.</span>
+        <span class="zh">Cross-Layer Sparse Attention在YOCO式KV共享架构中只计算一次token级top-k路由，并在多个解码层复用该索引。同时共享KV状态与路由，可共同降低prefill成本、cache容量和解码开销，又无需退回到较粗粒度的块稀疏。论文在短上下文与长上下文基准上报告了质量结果，但仍需独立的端到端服务验证。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCAD.2025.3624278" target="_blank" rel="noopener">
-          <span class="en">MARCA-v2: A Reconfigurable Accelerator for Sparse Mamba State-Space Models</span>
-          <span class="zh">MARCA-v2：面向稀疏Mamba状态空间模型的可重构加速器</span>
-        </a><span class="tag">Mamba</span><span class="tag">state-space model</span><span class="tag">accelerator</span>
+        <a href="https://arxiv.org/abs/2606.06453" target="_blank" rel="noopener">
+          <span class="en">Vortex Turns Sparse-Attention Ideas Into Serving Kernels</span>
+          <span class="zh">Vortex将稀疏注意力设计转化为服务内核</span>
+        </a>
       </h3>
-      <p class="authors">Jinhao Li, Shan Huang, Jiaming Xu, Jun Liu, Ningyi Xu, Guohao Dai</p>
+      <p class="authors">Zhuoming Chen, Xinrui Zhong, Qilong Feng, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2025.3624278" target="_blank" rel="noopener">IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</a> · 2026-06-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06453" target="_blank" rel="noopener">arXiv:2606.06453</a> · 2026-06-04T17:48:17Z</p>
       <p class="summary">
-        <span class="en">MARCA-v2 targets the memory-heavy element-wise operations that dominate Mamba state-space-model execution at longer sequences. The design adds sparse support and reconfigurable processing to reduce the bottleneck left by earlier dense-focused accelerators. It is a useful counterpoint to Transformer-only hardware work, though application value depends on Mamba&#x27;s continued adoption.</span>
-        <span class="zh">MARCA-v2针对长序列Mamba状态空间模型中占主导的内存密集逐元素操作，增加稀疏支持和可重构处理，以缓解早期偏密集计算加速器留下的瓶颈。它为只关注Transformer的硬件研究提供了有用对照，但应用价值取决于Mamba能否继续扩大采用。</span>
+        <span class="en">Vortex combines a Python-embedded sparse-attention language with a page-centric tensor abstraction and a backend integrated into LLM serving stacks. Algorithms generated and refined through the system reach up to 3.46x the throughput of full attention while preserving accuracy in the reported tests. The useful contribution is programmability plus deployment, although the best results depend on the paper&#x27;s benchmark and serving environment.</span>
+        <span class="zh">Vortex将嵌入Python的稀疏注意力描述语言、以页面为中心的张量抽象，以及集成到LLM服务栈的后端结合起来。通过该系统生成并优化的算法，在论文测试中可达到完整注意力最高3.46倍的吞吐量，同时保持准确率。其关键贡献是把可编程性与部署结合，但最佳结果仍依赖论文所用基准和服务环境。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06448" target="_blank" rel="noopener">
+          <span class="en">Agent Memory Gets a Systems-Level Cost Model</span>
+          <span class="zh">Agent记忆获得系统级成本模型</span>
+        </a>
+      </h3>
+      <p class="authors">Yasmine Omri, Ziyu Gan, Zachary Broveak, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06448" target="_blank" rel="noopener">arXiv:2606.06448</a> · 2026-06-04T17:44:18Z</p>
+      <p class="summary">
+        <span class="en">This study profiles ten agent-memory systems across two benchmark suites and separates construction, retrieval, and generation costs. Its four-axis taxonomy and ten system recommendations expose how designs move work between read and write paths, including scheduling, freshness, and amortization tradeoffs. The characterization is useful for storage-tier and fleet planning, but conclusions may shift as agent workloads and memory implementations mature.</span>
+        <span class="zh">该研究在两套基准上分析了10种Agent记忆系统，并将构建、检索与生成成本分别归因。其四维分类法与10项系统建议揭示了不同设计如何在读写路径之间转移工作，包括调度、新鲜度与成本摊销权衡。这些结果有助于存储分层与集群规划，但随着Agent负载和记忆实现演进，结论仍可能变化。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06302" target="_blank" rel="noopener">
+          <span class="en">Tangram Makes Non-Uniform KV Caches Practical</span>
+          <span class="zh">Tangram让非均匀KV cache走向实用</span>
+        </a>
+      </h3>
+      <p class="authors">Hyungmin Kim, Minsoo Kim, Hongseok Kim, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06302" target="_blank" rel="noopener">arXiv:2606.06302</a> · 2026-06-04T15:41:27Z</p>
+      <p class="summary">
+        <span class="en">Tangram assigns a deterministic memory budget to each attention head, groups heads with similar retention needs into vectorized page tables, and balances work ahead of time. These choices target the fragmentation, scheduling, and kernel-utilization penalties that have limited non-uniform KV-cache compression in multi-turn serving. The architecture is well matched to GPU memory constraints, though the available abstract does not expose enough end-to-end numbers to judge deployment gains.</span>
+        <span class="zh">Tangram为每个注意力头分配确定性的内存预算，将保留需求相近的头组织进向量化页表，并提前完成负载均衡。这些设计针对多轮服务中限制非均匀KV cache压缩的内存碎片、调度复杂度与内核利用率损失。其架构与GPU内存约束高度相关，但现有摘要缺少足够的端到端数据，尚难判断实际部署收益。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="circuits">
+  <section class="area" id="quantum">
     <h2>
-      <span class="en">Thermals &amp; Optical I/O</span>
-      <span class="zh">热设计与光I/O</span>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TVLSI.2026.3673227" target="_blank" rel="noopener">
-          <span class="en">Thermal Analysis of 3-D Backside-Power Cloud Server SoCs</span>
-          <span class="zh">三维背面供电云服务器SoC热分析</span>
-        </a><span class="tag">backside power</span><span class="tag">3D integration</span><span class="tag">thermal</span>
+        <a href="https://arxiv.org/abs/2606.06316" target="_blank" rel="noopener">
+          <span class="en">Quantum Discovery of Rare Events Without Prior Labels</span>
+          <span class="zh">无需预先标记的量子稀有事件发现</span>
+        </a>
       </h3>
-      <p class="authors">Nitish Kumar, Subrat Mishra, H. Oprins, J. Myers, J. Ryckaert, P. Woltgens, D. Biswas</p>
+      <p class="authors">Naixu Guo, Po-Wei Huang, Qisheng Wang, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3673227" target="_blank" rel="noopener">IEEE Transactions on VLSI Systems</a> · 2026-06-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06316" target="_blank" rel="noopener">arXiv:2606.06316</a> · 2026-06-04T15:54:53Z</p>
       <p class="summary">
-        <span class="en">This TCAD study models backside power delivery in 3-D memory-on-logic and logic-on-memory server SoCs. It reports a substantial thermal penalty for memory-on-logic, while reversing the stack and improving cooling reduces temperature significantly at 320-core scale. The result makes the integration tradeoff explicit: backside power can improve electrical delivery while making stack orientation and cooling decisive.</span>
-        <span class="zh">这项TCAD研究模拟三维memory-on-logic和logic-on-memory服务器SoC中的背面供电。结果显示memory-on-logic存在显著热惩罚，而反转堆叠并改善冷却可在320核规模明显降低温度。它把集成取舍说得很清楚：背面供电能改善电气供给，但会让堆叠方向和冷却方案变得决定性。</span>
+        <span class="en">The proposed quantum algorithm discovers and samples events below a probability threshold without first identifying which outcomes are rare. It achieves optimal quantum scaling with the threshold, including a quadratic speedup for heavy-tailed systems with nonzero tail mass and a polynomial speedup for stationary stochastic processes. The result is algorithmic rather than an experimental hardware demonstration, so practical advantage depends on state preparation and fault-tolerant resources.</span>
+        <span class="zh">该量子算法无需预先知道哪些结果属于稀有事件，就能发现并采样概率低于阈值的事件。其复杂度随稀有度阈值达到最优量子缩放，对尾部质量非零的重尾系统可获得二次加速，对平稳随机过程则可获得多项式加速。该成果属于算法研究而非实验硬件演示，实际优势仍取决于量子态制备与容错资源。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Methods</span>
+      <span class="zh">EDA与设计方法</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1117/1.apn.5.3.036019" target="_blank" rel="noopener">
-          <span class="en">High-Density Co-Packaged Optics With TSV and TGV Interposers</span>
-          <span class="zh">基于TSV与TGV中介层的高密度共封装光学</span>
-        </a><span class="tag">co-packaged optics</span><span class="tag">TSV</span><span class="tag">TGV</span>
+        <a href="https://arxiv.org/abs/2606.06421" target="_blank" rel="noopener">
+          <span class="en">Routing Models for 2.5D and 3D Multi-Die FPGAs</span>
+          <span class="zh">面向2.5D与3D多裸片FPGA的布线模型</span>
+        </a>
       </h3>
-      <p class="authors">Chang Ge, Jiangbing Du, Yihan Liu, Yixiao Zhang, Zuyuan He</p>
+      <p class="authors">Amirhossein Poolad, Soheil Gholami Shahrouz, Andrew Boutros, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1117/1.apn.5.3.036019" target="_blank" rel="noopener">Advanced Photonics Nexus</a> · 2026-05-25</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06421" target="_blank" rel="noopener">arXiv:2606.06421</a> · 2026-06-04T17:26:46Z</p>
       <p class="summary">
-        <span class="en">This work studies high-density co-packaged optical interconnection using through-silicon-via and through-glass-via interposers. The packaging choice affects density, electrical parasitics, optical alignment and thermal behavior together. CPO adoption will depend on solving that combined manufacturing problem, not simply placing optics closer to compute.</span>
-        <span class="zh">该研究探索使用硅通孔和玻璃通孔中介层实现高密度共封装光互连。封装选择会同时影响密度、电气寄生、光学对准和热行为。CPO能否普及取决于解决这个综合制造问题，而不只是把光学器件放得更靠近计算芯片。</span>
+        <span class="en">The authors extend VTR and VPR to model, place, and route a broad range of 2.5D and 3D FPGA inter-die fabrics. Their design-space exploration uses HSPICE models for 7 nm active dies and a 45 nm silicon interposer to quantify how die-crossing technologies affect density and latency. This gives FPGA architects a more realistic open-source path for evaluating stacked designs, but the evidence is simulation-based rather than measured multi-die silicon.</span>
+        <span class="zh">作者扩展了VTR与VPR，使其能够对多种2.5D和3D FPGA跨裸片互连结构进行建模、布局与布线。设计空间探索采用7 nm有源裸片和45 nm硅中介层的HSPICE模型，量化不同跨裸片技术对密度与延迟的影响。这为FPGA架构师评估堆叠设计提供了更真实的开源路径，但证据来自仿真而非多裸片实测硅片。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-06 13:27 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-06 13:27 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-07 11:20 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-07 11:20 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
