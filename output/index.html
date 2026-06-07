@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -51,12 +51,14 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 12px;
     font-size: 13px;
     color: var(--muted);
     margin-bottom: 36px;
     letter-spacing: 0.02em;
   }
-  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
   .brand .dot { color: var(--accent); }
   .lang-toggle button {
     background: none; border: none; color: var(--muted);
@@ -142,13 +144,40 @@
   article.story .meta .source { color: var(--accent); }
   article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
 
-  /* Lang visibility — pure CSS off the body[data-lang] */
+  /* Language visibility and bilingual layout. */
   body[data-lang="en"] .zh { display: none; }
   body[data-lang="zh"] .en { display: none; }
   body[data-lang="zh"] { font-family: var(--sans); }
   body[data-lang="zh"] .masthead h1,
   body[data-lang="zh"] article.story h3 {
     font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
   }
 
   /* Footer */
@@ -167,7 +196,7 @@
   footer a:hover { color: var(--fg); }
 </style>
 </head>
-<body>
+<body data-lang="both">
 <main>
 
   <div class="top-bar">
@@ -179,7 +208,9 @@
         <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
-        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
         <span class="sep">/</span>
         <button data-set-lang="zh" aria-pressed="false">中文</button>
       </span>
@@ -236,8 +267,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">MSN</span> · 3h ago</span>
-        <span class="zh"><span class="source">MSN</span> · 3小时前</span>
+        <span class="en"><span class="source">MSN</span> · 4h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 4小时前</span>
       </div>
       <p class="summary">
         <span class="en">TSMC is reportedly struggling to meet rising chip demand and is considering price increases as available capacity remains tight. Sustained pricing power at the leading foundry would raise costs across AI accelerators and other advanced-node products while signaling that customers still lack easy alternatives.</span>
@@ -258,8 +289,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">The Times of India</span> · 35m ago</span>
-        <span class="zh"><span class="source">The Times of India</span> · 35分钟前</span>
+        <span class="en"><span class="source">The Times of India</span> · 1h ago</span>
+        <span class="zh"><span class="source">The Times of India</span> · 1小时前</span>
       </div>
       <p class="summary">
         <span class="en">TSMC chief C.C. Wei publicly criticized RAM makers for raising prices and remarked that he envied their position. The comment highlights how memory has become a separate cost and supply constraint even for customers already paying more for leading-edge logic manufacturing.</span>
@@ -274,8 +305,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Wccftech</span> · 3h ago</span>
-        <span class="zh"><span class="source">Wccftech</span> · 3小时前</span>
+        <span class="en"><span class="source">Wccftech</span> · 4h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 4小时前</span>
       </div>
       <p class="summary">
         <span class="en">V-Color introduced DDR5 MRDIMM configurations reaching 2 TB and refreshed its OLED-equipped desktop memory line. The new XOT1 modules include AMD EXPO ULL profiles up to 6000 MT/s at CL26, showing vendors are pushing both server-class capacity and latency-tuned enthusiast products.</span>
@@ -290,8 +321,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">IoT News</span> · 4h ago</span>
-        <span class="zh"><span class="source">IoT News</span> · 4小时前</span>
+        <span class="en"><span class="source">IoT News</span> · 5h ago</span>
+        <span class="zh"><span class="source">IoT News</span> · 5小时前</span>
       </div>
       <p class="summary">
         <span class="en">ChangXin Memory Technologies is reportedly making aggressive pricing moves in the RAM market. Lower-priced Chinese DRAM could pressure incumbent margins and broaden domestic supply, but it may also intensify scrutiny of subsidies, market access, and technology restrictions.</span>
@@ -312,8 +343,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">NL Times</span> · 2h ago</span>
-        <span class="zh"><span class="source">NL Times</span> · 2小时前</span>
+        <span class="en"><span class="source">NL Times</span> · 3h ago</span>
+        <span class="zh"><span class="source">NL Times</span> · 3小时前</span>
       </div>
       <p class="summary">
         <span class="en">ASML invited Elon Musk to an internal technology event, prompting objections from some employees. The dispute is not a lithography roadmap change, but it shows the sensitivity around granting influential external executives access to the culture and technical discussion inside Europe&#x27;s most strategically important chip-equipment company.</span>
@@ -334,8 +365,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">AOL</span> · 6h ago</span>
-        <span class="zh"><span class="source">AOL</span> · 6小时前</span>
+        <span class="en"><span class="source">AOL</span> · 7h ago</span>
+        <span class="zh"><span class="source">AOL</span> · 7小时前</span>
       </div>
       <p class="summary">
         <span class="en">Arm&#x27;s chief executive says the United States would have difficulty banning exports of AI-oriented CPU technology to China. Arm&#x27;s licensing model and the broad use of its instruction-set ecosystem make control more complex than restricting shipments of a specific accelerator, underscoring the enforcement challenge for wider technology rules.</span>
@@ -350,8 +381,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">AOL</span> · 7h ago</span>
-        <span class="zh"><span class="source">AOL</span> · 7小时前</span>
+        <span class="en"><span class="source">AOL</span> · 8h ago</span>
+        <span class="zh"><span class="source">AOL</span> · 8小时前</span>
       </div>
       <p class="summary">
         <span class="en">Senator Elizabeth Warren is calling on the Trump administration to close a loophole that she says allows AI chips to reach overseas units of Chinese companies. If converted into policy, the proposal would extend compliance checks beyond direct shipments and force vendors and cloud operators to track corporate ownership more closely.</span>
@@ -372,8 +403,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">FXLeaders</span> · 3h ago</span>
-        <span class="zh"><span class="source">FXLeaders</span> · 3小时前</span>
+        <span class="en"><span class="source">FXLeaders</span> · 4h ago</span>
+        <span class="zh"><span class="source">FXLeaders</span> · 4小时前</span>
       </div>
       <p class="summary">
         <span class="en">Marvell is being added to the S&amp;P 500 as demand for AI infrastructure raises the chip designer&#x27;s market profile. Index inclusion can create incremental buying from passive funds, although it does not by itself change Marvell&#x27;s revenue outlook or execution risks.</span>
@@ -388,8 +419,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">The Business Times</span> · 8h ago</span>
-        <span class="zh"><span class="source">The Business Times</span> · 8小时前</span>
+        <span class="en"><span class="source">The Business Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">The Business Times</span> · 9小时前</span>
       </div>
       <p class="summary">
         <span class="en">Chinese memory-chip producers are preparing major initial public offerings as they seek capital for capacity and technology expansion. The listings could deepen domestic funding for DRAM and NAND challengers, while prospectuses may give investors a clearer view of subsidies, losses, utilization, and dependence on restricted equipment.</span>
@@ -400,8 +431,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-07 11:20 UTC · <a href="archive.html">Archive</a></span>
-      <span class="zh">生成于 2026-06-07 11:20 UTC · <a href="archive.html">往期</a></span>
+      <span class="en">Built 2026-06-07 12:11 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-07 12:11 UTC · <a href="archive.html">往期</a></span>
     </div>
     <div>
       <span class="en">Semi News Daily — a curated chip-industry digest.</span>
@@ -414,17 +445,25 @@
 <script>
   (function () {
     var body = document.body;
-    var saved = null;
-    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
-    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
     document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        var lang = btn.getAttribute("data-set-lang");
-        body.setAttribute("data-lang", lang);
-        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
-        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
-          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
-        });
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
       });
     });
   })();

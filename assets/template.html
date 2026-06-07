@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -51,12 +51,14 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 12px;
     font-size: 13px;
     color: var(--muted);
     margin-bottom: 36px;
     letter-spacing: 0.02em;
   }
-  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
   .brand .dot { color: var(--accent); }
   .lang-toggle button {
     background: none; border: none; color: var(--muted);
@@ -142,13 +144,40 @@
   article.story .meta .source { color: var(--accent); }
   article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
 
-  /* Lang visibility — pure CSS off the body[data-lang] */
+  /* Language visibility and bilingual layout. */
   body[data-lang="en"] .zh { display: none; }
   body[data-lang="zh"] .en { display: none; }
   body[data-lang="zh"] { font-family: var(--sans); }
   body[data-lang="zh"] .masthead h1,
   body[data-lang="zh"] article.story h3 {
     font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
   }
 
   /* Footer */
@@ -167,7 +196,7 @@
   footer a:hover { color: var(--fg); }
 </style>
 </head>
-<body>
+<body data-lang="both">
 <main>
 
   <div class="top-bar">
@@ -179,7 +208,9 @@
         <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
-        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
         <span class="sep">/</span>
         <button data-set-lang="zh" aria-pressed="false">中文</button>
       </span>
@@ -219,17 +250,25 @@
 <script>
   (function () {
     var body = document.body;
-    var saved = null;
-    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
-    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
     document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        var lang = btn.getAttribute("data-set-lang");
-        body.setAttribute("data-lang", lang);
-        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
-        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
-          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
-        });
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
       });
     });
   })();

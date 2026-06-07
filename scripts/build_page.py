@@ -406,7 +406,7 @@ def regenerate_archive_index(today_news_file: Path, today_research_file: Path | 
         )
     rows = "\n".join(rows_html_parts)
     page = f"""<!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -443,9 +443,12 @@ def regenerate_archive_index(today_news_file: Path, today_research_file: Path | 
   }}
   body[data-lang="en"] .zh {{ display:none; }}
   body[data-lang="zh"] .en {{ display:none; }}
+  body[data-lang="both"] h1 .zh::before,
+  body[data-lang="both"] .top .zh::before,
+  body[data-lang="both"] a.edition .zh::before {{ content:" / "; }}
 </style>
 </head>
-<body>
+<body data-lang="both">
   <div class="top"><a href="index.html">← <span class="en">today</span><span class="zh">今日</span></a></div>
   <h1><span class="en">Archive</span><span class="zh">往期</span></h1>
   <ul>
