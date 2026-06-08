@@ -278,6 +278,25 @@ def synthesize(script_path, out_path, voice, rate):
     return True
 
 
+def synthesize_clone(text_path, out_path, ref, lang, clone_python, device, speed):
+    """Delegate to scripts/clone_tts.py running in the TTS venv (which has the
+    model). Kept in a subprocess so build_podcast.py itself needs no heavy deps.
+    Output streams through so the user sees per-chunk progress on long runs."""
+    if not os.path.exists(clone_python):
+        sys.stderr.write(
+            f"  ! clone interpreter not found: {clone_python}\n"
+            "    set up once with:\n"
+            "      python3 -m venv .venv-tts\n"
+            "      .venv-tts/bin/pip install coqui-tts\n")
+        return False
+    script = os.path.join(ROOT, "scripts", "clone_tts.py")
+    cmd = [clone_python, script, "--text", text_path, "--ref", ref,
+           "--lang", lang, "--out", out_path, "--device", device]
+    if speed and speed != 1.0:
+        cmd += ["--speed", str(speed)]
+    return subprocess.run(cmd).returncode == 0
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -292,6 +311,20 @@ def main():
     ap.add_argument("--voice-zh", default=DEFAULT_VOICE["zh"])
     ap.add_argument("--rate", type=int, default=None,
                     help="speaking rate in words/min (passed to `say -r`)")
+    ap.add_argument("--engine", choices=["say", "clone"], default="say",
+                    help="say = macOS built-in voices (default); "
+                         "clone = your own voice via local XTTS (needs --ref-*)")
+    ap.add_argument("--ref-en", default=None,
+                    help="reference recording of YOUR voice for the EN episode")
+    ap.add_argument("--ref-zh", default=None,
+                    help="reference recording of YOUR voice for the 中文 episode")
+    ap.add_argument("--clone-python",
+                    default=os.path.join(ROOT, ".venv-tts", "bin", "python"),
+                    help="python interpreter that has coqui-tts installed")
+    ap.add_argument("--device", default="cpu", choices=["cpu", "mps"],
+                    help="clone synthesis device (mps faster, experimental)")
+    ap.add_argument("--clone-speed", type=float, default=1.0,
+                    help="speaking-rate multiplier for the cloned voice")
     ap.add_argument("--site-url", default=DEFAULT_SITE)
     args = ap.parse_args()
 
@@ -307,9 +340,10 @@ def main():
     langs = ["en", "zh"] if args.lang == "both" else [args.lang]
     include_research = not args.news_only
     voices = {"en": args.voice_en, "zh": args.voice_zh}
+    refs = {"en": args.ref_en, "zh": args.ref_zh}
 
     have_say = shutil.which("say") is not None
-    if not args.no_audio and not have_say:
+    if not args.no_audio and not have_say and args.engine == "say":
         sys.stderr.write("note: `say` not found (non-macOS?). Writing scripts + "
                          "notes only; re-run on macOS for audio.\n")
 
@@ -327,11 +361,28 @@ def main():
         print(f"  [{lang}] script {base}.txt  (~{mins:.1f} min)")
         print(f"  [{lang}] notes  {base}.notes.md")
 
-        if not args.no_audio and have_say:
-            ok = synthesize(base + ".txt", base + ".m4a", voices[lang], args.rate)
-            if ok:
-                size = os.path.getsize(base + ".m4a") / 1_000_000
-                print(f"  [{lang}] audio  {base}.m4a  ({size:.1f} MB, voice={voices[lang]})")
+        if not args.no_audio:
+            done = False
+            if args.engine == "clone":
+                ref = refs.get(lang)
+                if ref and os.path.exists(ref):
+                    print(f"  [{lang}] cloning your voice (this is slower than say)…")
+                    done = synthesize_clone(base + ".txt", base + ".m4a", ref, lang,
+                                            args.clone_python, args.device,
+                                            args.clone_speed)
+                    if done:
+                        size = os.path.getsize(base + ".m4a") / 1_000_000
+                        print(f"  [{lang}] audio  {base}.m4a  ({size:.1f} MB, cloned voice)")
+                    else:
+                        print(f"  [{lang}] clone failed — falling back to `say`")
+                else:
+                    print(f"  [{lang}] no reference clip (pass --ref-{lang} PATH) — "
+                          f"using `say`")
+            if not done and have_say:
+                ok = synthesize(base + ".txt", base + ".m4a", voices[lang], args.rate)
+                if ok:
+                    size = os.path.getsize(base + ".m4a") / 1_000_000
+                    print(f"  [{lang}] audio  {base}.m4a  ({size:.1f} MB, voice={voices[lang]})")
 
     print("Done. Upload the .m4a files to your podcast platforms; paste the "
           ".notes.md as the episode description.")
