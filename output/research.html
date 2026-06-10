@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-08">
+<meta name="edition-date" content="2026-06-10">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Efficiency Moves From Models Into Systems — Semi Research 2026-06-08</title>
+<title>Move Less Data, Use Hardware Better — Semi Research 2026-06-10</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, June 8, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月8日 星期一</span>
+      <span class="en">Research digest · Wednesday, June 10, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月10日 星期三</span>
     </div>
     <h1>
-      <span class="en">Efficiency Moves From Models Into Systems</span>
-      <span class="zh">效率优化从模型延伸至系统</span>
+      <span class="en">Move Less Data, Use Hardware Better</span>
+      <span class="zh">少搬数据，更高效地使用硬件</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s work attacks cost at several layers: measured 65 nm edge-AI chips, one-pass EDA optimization, sparse expert designs, and scheduling for constrained inference backends. The strongest results pair algorithmic efficiency with implementation details that expose where latency, memory, and robustness are actually won.</span>
-      <span class="zh">本周研究从多个层面压低成本：实测65 nm边缘AI芯片、单次前向的EDA优化、稀疏专家结构，以及面向受限推理后端的调度。最有价值的成果把算法效率与实现细节结合起来，明确展示延迟、内存和鲁棒性究竟从何处获得改善。</span>
+      <span class="en">This week&#x27;s systems papers attack overhead at the boundaries: CPU-to-accelerator transfers, fixed-width FPGA datapaths, distributed-training communication, and long-context KV caches. Several results turn architectural constraints into scheduling, packing, or compiler problems rather than demanding new silicon.</span>
+      <span class="zh">本周系统研究集中削减边界开销，包括CPU到加速器的数据传输、FPGA固定宽度数据通路、分布式训练通信以及长上下文KV cache。多项工作把硬件限制转化为调度、打包或编译问题，而不是直接要求新芯片。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 8篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
@@ -273,53 +273,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.07455" target="_blank" rel="noopener">
-          <span class="en">A 65 nm Hypoglycemia Forecasting Engine at 11.3 nJ per Inference</span>
-          <span class="zh">单次推理11.3 nJ的65 nm低血糖预测芯片</span>
+        <a href="https://arxiv.org/abs/2606.11163" target="_blank" rel="noopener">
+          <span class="en">ITD-Aware CPU Thermal Control Finds Cooling Can Go Too Far</span>
+          <span class="zh">考虑ITD的CPU温控表明降温也可能过度</span>
         </a>
       </h3>
-      <p class="authors">B. Cheng, J. Liu, P. Ren, et al.</p>
+      <p class="authors">J. Crop, H. Moore, S. Pasricha</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07455" target="_blank" rel="noopener">arXiv:2606.07455</a> · 2026-06-05T17:01:12Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11163" target="_blank" rel="noopener">arXiv:2606.11163</a> · 2026-06-09T17:44:12Z</p>
       <p class="summary">
-        <span class="en">The authors fabricated a 65 nm probabilistic decision-tree engine that performs 30-minute hypoglycemia forecasting at 11.3 nJ per inference and reports an F1 score of 0.825. A hybrid exact-and-sampling architecture supports trees up to depth 12, while an on-chip RISC-V core manages a reconfigurable node array. Reported robustness to sensor noise and missing data improves by 4.1x to 16.1x over conventional tree baselines, making reliability rather than raw throughput the central contribution.</span>
-        <span class="zh">研究团队采用65 nm工艺流片了一款概率决策树引擎，用于提前30分钟预测低血糖，单次推理能耗为11.3 nJ，F1分数达到0.825。芯片以精确计算与采样混合架构支持最大深度12的树，并由片上RISC-V核心管理可重构节点阵列。相较传统决策树基线，其对传感器噪声和数据缺失的鲁棒性提高4.1至16.1倍，核心贡献更偏向可靠性而非单纯吞吐率。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.07439" target="_blank" rel="noopener">
-          <span class="en">A 65 nm Bayesian Compute-in-Memory Engine for Skin-Lesion Screening</span>
-          <span class="zh">面向皮肤病变筛查的65 nm贝叶斯存算一体引擎</span>
-        </a>
-      </h3>
-      <p class="authors">S. Davis, L. Pei, J. Liu, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07439" target="_blank" rel="noopener">arXiv:2606.07439</a> · 2026-06-05T16:38:02Z</p>
-      <p class="summary">
-        <span class="en">This 65 nm compute-in-memory chip performs multimodal Bayesian inference for fully on-device skin-lesion screening. Its calibration-free Gaussian random-number generator reaches 16.3 fJ per sample and 168.6 GSa/s/mm², while mixture-of-Gaussian sampling improves equal-risk coverage by 1.4x and process-variation resilience by 5.5x. The result is notable for treating uncertainty generation and hardware variation as first-class circuit problems rather than software post-processing.</span>
-        <span class="zh">这款65 nm存算一体芯片执行多模态贝叶斯推理，用于完全端侧的皮肤病变筛查。其免校准高斯随机数发生器达到16.3 fJ/样本和168.6 GSa/s/mm²；高斯混合采样使等风险覆盖率提升1.4倍、工艺波动鲁棒性提升5.5倍。该工作将不确定性生成与硬件波动视为核心电路问题，而非依赖软件后处理，这是其主要价值。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.07463" target="_blank" rel="noopener">
-          <span class="en">One-Pass Neural Optimization for Pre-Layout Signal Integrity</span>
-          <span class="zh">用于布局前信号完整性的单次神经优化</span>
-        </a>
-      </h3>
-      <p class="authors">J. Withöft, W. John, E. Ecik, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07463" target="_blank" rel="noopener">arXiv:2606.07463</a> · 2026-06-05T17:13:44Z</p>
-      <p class="summary">
-        <span class="en">The paper proposes amortized neural optimization for pre-layout signal-integrity exploration, replacing repeated black-box searches with a learned policy that emits near-optimal design parameters in one deterministic forward pass. The policy is trained from analytical gradients through a differentiable surrogate and evaluated on three complex SI scenarios. The approach could make multi-corner sweeps substantially cheaper, although its practical value depends on how well the surrogate and policy generalize beyond their training space.</span>
-        <span class="zh">论文提出用于布局前信号完整性探索的摊销神经优化，以学习到的策略替代反复黑盒搜索，并通过一次确定性前向计算给出近似最优设计参数。该策略利用可微代理模型的解析梯度训练，并在三个复杂SI场景中验证。它有望显著降低多工况扫描成本，但实际价值仍取决于代理模型与策略能否泛化到训练空间之外。</span>
+        <span class="en">Measurements on production Intel Xeon CPUs show that inverse temperature dependence creates a part-specific efficiency optimum above typical operating temperatures. Roughly half of the high-power CPUs observed on Amazon and Equinix platforms ran about 10°C below that point, and an ITD-aware grouping and inlet-control case study reduced total data-center energy by 4-13%. The result challenges blanket low-temperature policies, though savings will depend on processor mix and facility conditions.</span>
+        <span class="zh">对量产Intel Xeon CPU的测量显示，反温度效应会形成因芯片型号而异的能效最优温度，而且往往高于常见运行温度。在Amazon和Equinix平台观察到的高功耗CPU中，约一半运行温度比该最优点低约10°C；采用ITD感知的分组和进风温度控制后，案例研究将数据中心总能耗降低了4%至13%。这一结果挑战了统一追求低温的策略，但实际收益仍取决于处理器组合和机房条件。</span>
       </p>
     </article>
   </section>
@@ -330,68 +294,113 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.07404" target="_blank" rel="noopener">
-          <span class="en">Training a 120B Sparse MoE on One Eight-GPU Node</span>
-          <span class="zh">在单个八GPU节点训练120B稀疏MoE</span>
+        <a href="https://arxiv.org/abs/2606.11158" target="_blank" rel="noopener">
+          <span class="en">AXI4MLIR Eliminates a Redundant CPU-to-Accelerator Copy</span>
+          <span class="zh">AXI4MLIR消除CPU到加速器的冗余拷贝</span>
         </a>
       </h3>
-      <p class="authors">R. Shravan</p>
+      <p class="authors">E. Cohavi, N. B. Agostini, J. Haris, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07404" target="_blank" rel="noopener">arXiv:2606.07404</a> · 2026-06-05T15:48:42Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11158" target="_blank" rel="noopener">arXiv:2606.11158</a> · 2026-06-09T17:40:13Z</p>
       <p class="summary">
-        <span class="en">LightningLM 0.1V grows a dense seed through 5B and 9B stages into a 120B sparse MoE with 460 routed experts and top-12 routing, all on a single eight-GPU node. Only 5.93B of 118.67B stored parameters are active, and reversible recurrence reconstructs activations during backpropagation to control memory. This is explicitly a systems experience report, so its value lies in reproducible scaling disciplines and failure modes rather than a broad claim of frontier model quality.</span>
-        <span class="zh">LightningLM 0.1V从稠密种子模型逐步扩展，经5B与9B阶段形成120B稀疏MoE，包含460个路由专家并采用top-12路由，整个流程均在单个八GPU节点完成。118.67B存储参数中仅5.93B处于激活状态，可逆递归结构在反向传播时重建激活值以控制内存。论文明确定位为系统经验报告，其价值在于可复现的扩展方法与失败案例，而非宣称达到前沿模型质量。</span>
+        <span class="en">The authors extend AXI4MLIR so host buffers are allocated directly in DMA-mapped memory, removing the staging copy from heap memory before accelerator transfers. On a configurable matrix-multiplication accelerator, the change cuts main-memory data movement by as much as 2x and raises accelerator utilization. The work shows that compiler and runtime plumbing can recover performance otherwise lost outside the compute kernel.</span>
+        <span class="zh">作者扩展AXI4MLIR，使主机缓冲区直接分配在DMA映射内存中，从而消除加速器传输前从堆内存进行的中转拷贝。在可配置矩阵乘加速器上，该改动最多将主存数据搬运量降低2倍，并提高了加速器利用率。研究说明，编译器和运行时的数据通路优化可以收回原本损失在计算内核之外的性能。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11117" target="_blank" rel="noopener">
+          <span class="en">SECDA-DSE Uses LLMs to Explore FPGA Accelerator Designs</span>
+          <span class="zh">SECDA-DSE利用LLM探索FPGA加速器设计</span>
+        </a>
+      </h3>
+      <p class="authors">V. Sharma, X. Fu, J. Haris, J. Cano</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11117" target="_blank" rel="noopener">arXiv:2606.11117</a> · 2026-06-09T17:14:44Z</p>
+      <p class="summary">
+        <span class="en">SECDA-DSE combines a structured design-space explorer with an LLM stack using retrieval and iterative feedback to generate FPGA accelerator configurations. The evaluation covers element-wise multiplication, 2D convolution, and matrix transpose through end-to-end SystemC and FPGA execution. The approach could reduce manual search effort, but its value depends on whether generated designs remain reproducible and competitive across larger workloads.</span>
+        <span class="zh">SECDA-DSE将结构化设计空间探索器与采用检索和迭代反馈的LLM模块结合，用于生成FPGA加速器配置。评估覆盖逐元素乘法、二维卷积和矩阵转置，并完成SystemC与FPGA端到端执行。该方法有望减少人工搜索成本，但其价值仍取决于生成设计在更大工作负载上的可复现性和竞争力。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11065" target="_blank" rel="noopener">
+          <span class="en">Dynamic Arithmetic Packing Raises FPGA DSP Utilization</span>
+          <span class="zh">动态算术打包提升FPGA DSP利用率</span>
+        </a>
+      </h3>
+      <p class="authors">T. Borntrager, S. Fleming, P. Holzinger, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11065" target="_blank" rel="noopener">arXiv:2606.11065</a> · 2026-06-09T16:24:59Z</p>
+      <p class="summary">
+        <span class="en">This work packs arbitrary-width signed and unsigned low-precision operands into wide FPGA multiplier paths by using the DSP block&#x27;s internal pre-adder. Integrated into AMD FINN, the method reduces LUT use by 21% and improves frames per second per DSP by 36% on UltraNet versus the reference implementation. It directly addresses the mismatch between quantized neural networks and fixed-width FPGA arithmetic resources.</span>
+        <span class="zh">该工作利用DSP模块内部的预加器，将任意位宽的有符号和无符号低精度操作数动态打包到宽乘法数据通路中。该方法集成进AMD FINN后，在UltraNet上相较参考实现将LUT占用降低21%，并把每个DSP对应的FPS提高36%。它直接缓解了量化神经网络与FPGA固定宽度算术资源之间的不匹配。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Models &amp; Inference Systems</span>
-      <span class="zh">AI模型与推理系统</span>
+      <span class="en">Efficient AI Training &amp; Inference</span>
+      <span class="zh">高效AI训练与推理</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.07414" target="_blank" rel="noopener">
-          <span class="en">Sparsely Gated Single-Neuron Experts</span>
-          <span class="zh">稀疏门控的单神经元专家</span>
+        <a href="https://arxiv.org/abs/2606.11169" target="_blank" rel="noopener">
+          <span class="en">Piper Makes Distributed Training Strategies Programmable</span>
+          <span class="zh">Piper让分布式训练策略可编程</span>
         </a>
       </h3>
-      <p class="authors">S. Schug</p>
+      <p class="authors">M. Frisella, S. Tiwari, A. Ruan, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07414" target="_blank" rel="noopener">arXiv:2606.07414</a> · 2026-06-05T16:06:47Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11169" target="_blank" rel="noopener">arXiv:2606.11169</a> · 2026-06-09T17:48:41Z</p>
       <p class="summary">
-        <span class="en">The work shrinks each MoE expert to a single linear neuron and activates only a small fraction of a large expert pool. In isoflop comparisons, replacing Transformer feed-forward layers with these sparsely gated linear neurons improves language-model perplexity across compute budgets. The linear and highly sparse circuits also expose semantically structured expert clusters, though the evidence is still based on relatively small interpretability studies.</span>
-        <span class="zh">该工作将每个MoE专家缩小为单个线性神经元，并只激活大规模专家池中的极少部分。在等FLOP比较中，用这种稀疏门控线性神经元替换Transformer前馈层，可在不同算力预算下改善语言模型困惑度。其线性、高稀疏电路还呈现语义结构化的专家簇，但可解释性证据目前仍主要来自小规模实验。</span>
+        <span class="en">Piper separates high-level distributed-training strategy from runtime implementation through annotations, scheduling directives, and a global training-DAG intermediate representation. It compiles that representation into per-device execution plans, allowing combinations of data, pipeline, expert, and ZeRO-style parallelism without hard-coding each strategy. The abstraction could shorten experimentation cycles, although the supplied candidate abstract does not expose full comparative performance results.</span>
+        <span class="zh">Piper通过模型注解、调度指令和全局训练DAG中间表示，将高层分布式训练策略与运行时实现分离。系统把该表示编译为逐设备执行计划，从而组合数据并行、流水线并行、专家并行和ZeRO类优化，而无需为每种策略硬编码实现。这一抽象可能缩短实验周期，但候选摘要未给出完整的对比性能结果。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.07362" target="_blank" rel="noopener">
-          <span class="en">A CPU-Bound Breakdown of vLLM Cold Starts</span>
-          <span class="zh">vLLM冷启动的CPU瓶颈分析</span>
+        <a href="https://arxiv.org/abs/2606.11164" target="_blank" rel="noopener">
+          <span class="en">ReasonAlloc Assigns KV-Cache Budgets by Layer and Head</span>
+          <span class="zh">ReasonAlloc按层和注意力头分配KV Cache预算</span>
         </a>
       </h3>
-      <p class="authors">H. S. Kabakibo, A. Trivedi, L. Wang</p>
+      <p class="authors">W. Liu, H. Shi, Y. Li, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07362" target="_blank" rel="noopener">arXiv:2606.07362</a> · 2026-06-05T15:07:22Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11164" target="_blank" rel="noopener">arXiv:2606.11164</a> · 2026-06-09T17:44:23Z</p>
       <p class="summary">
-        <span class="en">This study decomposes vLLM startup into six stages and finds that cold-start latency is predominantly CPU-bound, including in newer configurations using the V1 API and torch.compile. The authors derive an analytical model that predicts startup time for a given hardware configuration and release their profiling data and tools. The result matters for autoscaling and serverless inference, where model execution speed does not compensate for slow process initialization.</span>
-        <span class="zh">该研究将vLLM启动过程拆分为六个阶段，发现冷启动延迟主要受CPU限制，包括采用V1 API与torch.compile的新配置。作者进一步建立可根据硬件配置预测启动时间的解析模型，并开放分析数据与工具。该结果对自动扩缩容和无服务器推理尤为重要，因为模型运行再快也无法抵消缓慢的进程初始化。</span>
+        <span class="en">ReasonAlloc is a training-free method that allocates decoding-time KV-cache capacity hierarchically instead of applying a uniform token-eviction budget. It combines offline layer allocation based on a reported reasoning-demand pattern with online reallocation toward information-rich attention heads. Tests on MATH-500 and AIME 2024 span three reasoning models, but the candidate abstract truncates before the full numerical gains.</span>
+        <span class="zh">ReasonAlloc是一种免训练方法，在解码阶段分层分配KV cache容量，而不是对所有位置采用统一的Token淘汰预算。它结合基于推理需求模式的离线逐层预分配，以及面向高信息量注意力头的在线重分配。测试覆盖MATH-500、AIME 2024和三种推理模型，但候选摘要未完整提供数值提升。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.07248" target="_blank" rel="noopener">
-          <span class="en">Predictive Shortest-Job Scheduling for Serial LLM Backends</span>
-          <span class="zh">面向串行LLM后端的预测式最短作业调度</span>
+        <a href="https://arxiv.org/abs/2606.11052" target="_blank" rel="noopener">
+          <span class="en">CoT Fine-Tuning Can Break Long-Range Recall in Hybrid LLMs</span>
+          <span class="zh">CoT微调可能破坏混合LLM的长程召回</span>
         </a>
       </h3>
-      <p class="authors">A. Sundaresan</p>
+      <p class="authors">X. Zhou, B. Zhu, Y. Xu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07248" target="_blank" rel="noopener">arXiv:2606.07248</a> · 2026-06-05T13:19:05Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11052" target="_blank" rel="noopener">arXiv:2606.11052</a> · 2026-06-09T16:17:19Z</p>
       <p class="summary">
-        <span class="en">Clairvoyant is a sidecar proxy that predicts response length and applies shortest-job-first scheduling to serial OpenAI-compatible backends such as Ollama and llama.cpp. Its XGBoost predictor uses 19 lexical features and adds 0.029 ms per request, targeting head-of-line blocking without the KV-cache memory cost of continuous batching. Ranking accuracy falls from 62-96% in-distribution to 52-66% across distributions, so robustness to workload shift remains the key caveat.</span>
-        <span class="zh">Clairvoyant是一个sidecar代理，通过预测响应长度并采用最短作业优先调度，为Ollama和llama.cpp等串行OpenAI兼容后端缓解队首阻塞。其XGBoost预测器使用19个词法特征，每个请求仅增加0.029 ms开销，同时避免连续批处理带来的KV-cache内存成本。排序准确率从分布内的62%至96%下降到跨分布的52%至66%，因此对工作负载变化的鲁棒性仍是主要限制。</span>
+        <span class="en">The paper finds that chain-of-thought supervised fine-tuning can sharply degrade long-context retrieval in hybrid linear-attention models; HypeNet-9B falls from 67.2% to 9.4% on NIAH-S2 at 256K. The authors trace the failure to short-range-biased updates in query and key projections, then propose QK-Restore, which restores those weights from the pre-fine-tuning checkpoint without retraining. The reported recovery preserves reasoning performance, suggesting post-training evaluations must test memory and reasoning together.</span>
+        <span class="zh">论文发现，思维链监督微调会显著削弱混合线性注意力模型的长上下文检索能力；HypeNet-9B在256K长度的NIAH-S2上从67.2%降至9.4%。作者将问题归因于查询和键投影受到偏向短程模式的更新，并提出QK-Restore，从微调前检查点恢复这些权重而无需重新训练。结果显示该方法可在保留推理能力的同时恢复长程召回，说明后训练评估必须同时检查记忆与推理。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.10944" target="_blank" rel="noopener">
+          <span class="en">Express Converts Non-Causal Attention Approximations for Efficient Decoding</span>
+          <span class="zh">Express将非因果注意力近似转换为高效解码方案</span>
+        </a>
+      </h3>
+      <p class="authors">A. Gong, A. M. Carrell, R. Dwivedi, L. Mackey</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.10944" target="_blank" rel="noopener">arXiv:2606.10944</a> · 2026-06-09T14:48:56Z</p>
+      <p class="summary">
+        <span class="en">Express converts a non-causal attention approximation into a causal one while retaining matching approximation guarantees. Combined with Thinformer, it uses O(s) memory with O(s^2 log^2(n)) compression overhead and an I/O-aware Triton implementation that reportedly outperforms FlashAttention 2. The authors apply it to long-context prefill, KV-cache compression, and memory- or compute-constrained decoding.</span>
+        <span class="zh">Express把非因果注意力近似转换为因果形式，同时保持相匹配的近似保证。与Thinformer结合后，它只需O(s)内存和O(s^2 log^2(n))压缩开销，并通过I/O感知的Triton实现取得了相对FlashAttention 2的加速。作者将其用于长上下文Prefill、KV cache压缩以及内存或算力受限的解码。</span>
       </p>
     </article>
   </section>
@@ -402,25 +411,25 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.07314" target="_blank" rel="noopener">
-          <span class="en">QBugLM Benchmarks LLM Agents on Quantum Software Debugging</span>
-          <span class="zh">QBugLM评测LLM智能体的量子软件调试能力</span>
+        <a href="https://arxiv.org/abs/2606.11076" target="_blank" rel="noopener">
+          <span class="en">Coset Ensemble Decoder Co-Designs QEC Algorithms and Hardware</span>
+          <span class="zh">陪集集成解码器协同设计量子纠错算法与硬件</span>
         </a>
       </h3>
-      <p class="authors">A. B. B. Pham, H. T. Nguyen, M. Usman</p>
+      <p class="authors">S. Liang, J. Xu, G. Bassanino, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.07314" target="_blank" rel="noopener">arXiv:2606.07314</a> · 2026-06-05T14:34:46Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11076" target="_blank" rel="noopener">arXiv:2606.11076</a> · 2026-06-09T16:37:13Z</p>
       <p class="summary">
-        <span class="en">QBugLM automates bug injection, LLM-based detection and repair, and simulation validation for framework-agnostic OpenQASM 3.0 programs. In tests with Claude 4.6 Sonnet and Qwen3 Coder Next, one retry raises Pass@1 from below 25% to above 80%, and simple structured prompts can outperform Chain-of-Thought and ReAct under fixed resources. The large retry effect also shows why quantum-debugging benchmarks must validate repaired programs rather than trust first-pass textual explanations.</span>
-        <span class="zh">QBugLM面向框架无关的OpenQASM 3.0程序，自动执行缺陷注入、基于LLM的检测与修复，以及仿真验证。在Claude 4.6 Sonnet与Qwen3 Coder Next测试中，增加一次重试可将Pass@1从低于25%提升至80%以上；在固定资源下，简单结构化提示甚至可优于Chain-of-Thought与ReAct。重试带来的巨大增益也说明，量子调试评测必须验证修复后的程序，而不能只相信首轮文字解释。</span>
+        <span class="en">The proposed quantum-error-correction decoder explores multiple coset-consistent Union-Find candidates and aggregates them toward coset-level maximum-likelihood decoding. Reverse-order elimination and lossless graph compression reduce compute and memory, while a domain-specific architecture reuses resources over time instead of scaling hardware spatially with code distance. The design targets the difficult combination of low logical error and real-time decoding latency required by fault-tolerant systems.</span>
+        <span class="zh">该量子纠错解码器探索多个满足陪集一致性的Union-Find候选，并进行聚合以逼近陪集级最大似然解码。逆序消元和无损图压缩降低了计算与内存开销，专用硬件架构则通过时间复用资源，避免硬件规模随码距进行空间扩张。该设计瞄准容错量子系统同时要求低逻辑错误率和实时解码延迟的难题。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-08 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-08 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-10 13:45 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-10 13:45 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
