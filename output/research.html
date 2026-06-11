@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-10">
+<meta name="edition-date" content="2026-06-11">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Move Less Data, Use Hardware Better — Semi Research 2026-06-10</title>
+<title>Data Movement Becomes the Design Variable — Semi Research 2026-06-11</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Wednesday, June 10, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月10日 星期三</span>
+      <span class="en">Research digest · Thursday, June 11, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月11日 星期四</span>
     </div>
     <h1>
-      <span class="en">Move Less Data, Use Hardware Better</span>
-      <span class="zh">少搬数据，更高效地使用硬件</span>
+      <span class="en">Data Movement Becomes the Design Variable</span>
+      <span class="zh">数据移动成为核心设计变量</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s systems papers attack overhead at the boundaries: CPU-to-accelerator transfers, fixed-width FPGA datapaths, distributed-training communication, and long-context KV caches. Several results turn architectural constraints into scheduling, packing, or compiler problems rather than demanding new silicon.</span>
-      <span class="zh">本周系统研究集中削减边界开销，包括CPU到加速器的数据传输、FPGA固定宽度数据通路、分布式训练通信以及长上下文KV cache。多项工作把硬件限制转化为调度、打包或编译问题，而不是直接要求新芯片。</span>
+      <span class="en">This week&#x27;s papers attack remote HBM traffic, KV and RAG prefill overhead, in-memory lookup cost, and DRAM disturbance. Across hardware and software, the strongest gains come from changing where data lives and when it moves.</span>
+      <span class="zh">本周论文集中处理远端HBM流量、KV与RAG预填充开销、存内查表成本以及DRAM扰动问题。无论硬件还是软件，最显著的收益都来自重新设计数据的存放位置和移动时机。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
@@ -273,17 +273,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11163" target="_blank" rel="noopener">
-          <span class="en">ITD-Aware CPU Thermal Control Finds Cooling Can Go Too Far</span>
-          <span class="zh">考虑ITD的CPU温控表明降温也可能过度</span>
+        <a href="https://arxiv.org/abs/2606.08947" target="_blank" rel="noopener">
+          <span class="en">NeuDW-CIM: A 65-nm Reconfigurable Neuromorphic CIM Macro</span>
+          <span class="zh">NeuDW-CIM：65纳米可重构神经形态存算一体宏</span>
         </a>
       </h3>
-      <p class="authors">J. Crop, H. Moore, S. Pasricha</p>
+      <p class="authors">J. Yang, Y. Yang, S. Dong, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11163" target="_blank" rel="noopener">arXiv:2606.11163</a> · 2026-06-09T17:44:12Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08947" target="_blank" rel="noopener">arXiv:2606.08947</a> · 2026-06-08T02:50:04Z</p>
       <p class="summary">
-        <span class="en">Measurements on production Intel Xeon CPUs show that inverse temperature dependence creates a part-specific efficiency optimum above typical operating temperatures. Roughly half of the high-power CPUs observed on Amazon and Equinix platforms ran about 10°C below that point, and an ITD-aware grouping and inlet-control case study reduced total data-center energy by 4-13%. The result challenges blanket low-temperature policies, though savings will depend on processor mix and facility conditions.</span>
-        <span class="zh">对量产Intel Xeon CPU的测量显示，反温度效应会形成因芯片型号而异的能效最优温度，而且往往高于常见运行温度。在Amazon和Equinix平台观察到的高功耗CPU中，约一半运行温度比该最优点低约10°C；采用ITD感知的分组和进风温度控制后，案例研究将数据中心总能耗降低了4%至13%。这一结果挑战了统一追求低温的策略，但实际收益仍取决于处理器组合和机房条件。</span>
+        <span class="en">NeuDW-CIM implements nonlinear dendrite and K-winner modes in a measured 65-nm compute-in-memory macro using twin 9T ternary bit cells and a reconfigurable nonlinear in-memory ADC. It reports 0.8 pJ per synaptic operation, 97.2% accuracy on N-MNIST, and a 30% reduction in ADC conversion latency through early stopping, providing silicon evidence for more adaptable spiking-network primitives.</span>
+        <span class="zh">NeuDW-CIM采用双9T三值存储单元和可重构非线性存内ADC，在实测65纳米存算一体宏中实现非线性树突与K-winner两种模式。芯片达到每次突触操作0.8 pJ，在N-MNIST上取得97.2%准确率，并通过提前停止将ADC转换延迟降低30%，为更灵活的脉冲神经网络计算原语提供了硅验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.07761" target="_blank" rel="noopener">
+          <span class="en">ScaleDisturb Amplifies Read Disturbance in Modern DRAM</span>
+          <span class="zh">ScaleDisturb放大现代DRAM读扰动</span>
+        </a>
+      </h3>
+      <p class="authors">J. Wang, H. Luo, A. Olgun, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.07761" target="_blank" rel="noopener">arXiv:2606.07761</a> · 2026-06-05T18:21:16Z</p>
+      <p class="summary">
+        <span class="en">ScaleDisturb uses asymmetric open times for two aggressor rows to trigger read-disturbance bit flips with fewer activations than prior access patterns. Tests across 196 DDR4 and three HBM2 chips found increased vulnerability in every device examined, underscoring that RowHammer defenses must account for timing patterns beyond simple activation counts.</span>
+        <span class="zh">ScaleDisturb通过让两个攻击行保持非对称的开启时间，以比既有访问模式更少的激活次数触发读扰动位翻转。对196颗DDR4和3颗HBM2芯片的测试显示，所有受测器件的脆弱性均有所增加，说明RowHammer防护不能只统计激活次数，还必须覆盖更复杂的时序模式。</span>
       </p>
     </article>
   </section>
@@ -294,142 +309,142 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11158" target="_blank" rel="noopener">
-          <span class="en">AXI4MLIR Eliminates a Redundant CPU-to-Accelerator Copy</span>
-          <span class="zh">AXI4MLIR消除CPU到加速器的冗余拷贝</span>
+        <a href="https://arxiv.org/abs/2606.11718" target="_blank" rel="noopener">
+          <span class="en">Page-Compatible Locality-Aware GEMM for Chiplet GPUs</span>
+          <span class="zh">面向Chiplet GPU的页粒度兼容局部性感知GEMM</span>
         </a>
       </h3>
-      <p class="authors">E. Cohavi, N. B. Agostini, J. Haris, et al.</p>
+      <p class="authors">E. Chung, J. H. Ju, H. Kim</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11158" target="_blank" rel="noopener">arXiv:2606.11158</a> · 2026-06-09T17:40:13Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11718" target="_blank" rel="noopener">arXiv:2606.11718</a> · 2026-06-10T06:47:27Z</p>
       <p class="summary">
-        <span class="en">The authors extend AXI4MLIR so host buffers are allocated directly in DMA-mapped memory, removing the staging copy from heap memory before accelerator transfers. On a configurable matrix-multiplication accelerator, the change cuts main-memory data movement by as much as 2x and raises accelerator utilization. The work shows that compiler and runtime plumbing can recover performance otherwise lost outside the compute kernel.</span>
-        <span class="zh">作者扩展AXI4MLIR，使主机缓冲区直接分配在DMA映射内存中，从而消除加速器传输前从堆内存进行的中转拷贝。在可配置矩阵乘加速器上，该改动最多将主存数据搬运量降低2倍，并提高了加速器利用率。研究说明，编译器和运行时的数据通路优化可以收回原本损失在计算内核之外的性能。</span>
+        <span class="en">Chiplet-Contiguous Layout stores chiplet-local GEMM data contiguously so locality-aware placement remains compatible with ordinary page-granularity mapping and requires no OS or hardware changes. Across Qwen 3 30B and Llama 3.1 70B GEMMs, it reduces remote HBM traffic by 24.7x and 19.2x on average versus 4 KB interleaving, making memory layout a practical control point for multi-chiplet GPUs.</span>
+        <span class="zh">Chiplet-Contiguous Layout将各chiplet的本地GEMM数据连续存放，使局部性感知放置能够兼容常规页粒度映射，且无需修改操作系统或硬件。在Qwen 3 30B和Llama 3.1 70B的GEMM负载上，相比4 KB交错映射，远端HBM流量平均分别降低24.7倍和19.2倍，表明内存布局可成为多chiplet GPU的重要优化手段。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11117" target="_blank" rel="noopener">
-          <span class="en">SECDA-DSE Uses LLMs to Explore FPGA Accelerator Designs</span>
-          <span class="zh">SECDA-DSE利用LLM探索FPGA加速器设计</span>
+        <a href="https://arxiv.org/abs/2606.10822" target="_blank" rel="noopener">
+          <span class="en">A 185 TOPS/W/mm2 FeFET Bayesian Inference Engine</span>
+          <span class="zh">185 TOPS/W/mm²的FeFET贝叶斯推理引擎</span>
         </a>
       </h3>
-      <p class="authors">V. Sharma, X. Fu, J. Haris, J. Cano</p>
+      <p class="authors">Z. M. Enciso, X. Niu, X. Wang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11117" target="_blank" rel="noopener">arXiv:2606.11117</a> · 2026-06-09T17:14:44Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.10822" target="_blank" rel="noopener">arXiv:2606.10822</a> · 2026-06-09T13:04:02Z</p>
       <p class="summary">
-        <span class="en">SECDA-DSE combines a structured design-space explorer with an LLM stack using retrieval and iterative feedback to generate FPGA accelerator configurations. The evaluation covers element-wise multiplication, 2D convolution, and matrix transpose through end-to-end SystemC and FPGA execution. The approach could reduce manual search effort, but its value depends on whether generated designs remain reproducible and competitive across larger workloads.</span>
-        <span class="zh">SECDA-DSE将结构化设计空间探索器与采用检索和迭代反馈的LLM模块结合，用于生成FPGA加速器配置。评估覆盖逐元素乘法、二维卷积和矩阵转置，并完成SystemC与FPGA端到端执行。该方法有望减少人工搜索成本，但其价值仍取决于生成设计在更大工作负载上的可复现性和竞争力。</span>
+        <span class="en">This FeFET compute-in-memory engine embeds a write-free Gaussian random-number generator for uncertainty-aware Bayesian inference. The generator consumes 640 aJ per sample and the CIM tile reaches 185 TOPS/W/mm2, addressing the sampling energy and endurance costs that make Bayesian models difficult to deploy on battery-limited platforms.</span>
+        <span class="zh">该FeFET存算一体引擎内置免写入高斯随机数发生器，用于支持具备不确定性感知能力的贝叶斯推理。随机数发生器每个样本仅消耗640 aJ，CIM计算单元达到185 TOPS/W/mm²，针对贝叶斯模型在电池受限平台上的采样能耗与器件耐久性瓶颈提出了硬件方案。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11065" target="_blank" rel="noopener">
-          <span class="en">Dynamic Arithmetic Packing Raises FPGA DSP Utilization</span>
-          <span class="zh">动态算术打包提升FPGA DSP利用率</span>
+        <a href="https://arxiv.org/abs/2606.08891" target="_blank" rel="noopener">
+          <span class="en">PALUTE Uses Monolithic 3D DRAM Lookups for Edge LLMs</span>
+          <span class="zh">PALUTE利用单片3D DRAM查表加速端侧LLM</span>
         </a>
       </h3>
-      <p class="authors">T. Borntrager, S. Fleming, P. Holzinger, et al.</p>
+      <p class="authors">R. Tian, Y. Chen, W. Xu, T. S. Rosing</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11065" target="_blank" rel="noopener">arXiv:2606.11065</a> · 2026-06-09T16:24:59Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08891" target="_blank" rel="noopener">arXiv:2606.08891</a> · 2026-06-08T00:33:44Z</p>
       <p class="summary">
-        <span class="en">This work packs arbitrary-width signed and unsigned low-precision operands into wide FPGA multiplier paths by using the DSP block&#x27;s internal pre-adder. Integrated into AMD FINN, the method reduces LUT use by 21% and improves frames per second per DSP by 36% on UltraNet versus the reference implementation. It directly addresses the mismatch between quantized neural networks and fixed-width FPGA arithmetic resources.</span>
-        <span class="zh">该工作利用DSP模块内部的预加器，将任意位宽的有符号和无符号低精度操作数动态打包到宽乘法数据通路中。该方法集成进AMD FINN后，在UltraNet上相较参考实现将LUT占用降低21%，并把每个DSP对应的FPS提高36%。它直接缓解了量化神经网络与FPGA固定宽度算术资源之间的不匹配。</span>
+        <span class="en">PALUTE places lookup-table queries inside monolithic 3D DRAM and generates tables near memory for GEMM and nonlinear operators. Cycle-accurate simulation and RTL synthesis report 1,264 tokens per second at 0.16 W and 12.8x higher energy efficiency than CHIME, though the result remains a modeled design rather than measured silicon.</span>
+        <span class="zh">PALUTE将查表操作放入单片3D DRAM，并在近存储位置为GEMM和非线性算子生成查找表。周期精确仿真与RTL综合显示，其在0.16 W功耗下达到每秒1,264个token，能效较CHIME提升12.8倍；但这些结果仍来自建模与综合，而非实测芯片。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Efficient AI Training &amp; Inference</span>
-      <span class="zh">高效AI训练与推理</span>
+      <span class="en">Efficient AI Inference Systems</span>
+      <span class="zh">高效AI推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11169" target="_blank" rel="noopener">
-          <span class="en">Piper Makes Distributed Training Strategies Programmable</span>
-          <span class="zh">Piper让分布式训练策略可编程</span>
+        <a href="https://arxiv.org/abs/2606.11357" target="_blank" rel="noopener">
+          <span class="en">TileFuse Brings AWQ-Style Low-Bit Inference to AMD XDNA2</span>
+          <span class="zh">TileFuse将AWQ式低比特推理引入AMD XDNA2</span>
         </a>
       </h3>
-      <p class="authors">M. Frisella, S. Tiwari, A. Ruan, et al.</p>
+      <p class="authors">W. Pang, G. H. Jun, F. Liu, D. Chen</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11169" target="_blank" rel="noopener">arXiv:2606.11169</a> · 2026-06-09T17:48:41Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11357" target="_blank" rel="noopener">arXiv:2606.11357</a> · 2026-06-09T18:33:14Z</p>
       <p class="summary">
-        <span class="en">Piper separates high-level distributed-training strategy from runtime implementation through annotations, scheduling directives, and a global training-DAG intermediate representation. It compiles that representation into per-device execution plans, allowing combinations of data, pipeline, expert, and ZeRO-style parallelism without hard-coding each strategy. The abstraction could shorten experimentation cycles, although the supplied candidate abstract does not expose full comparative performance results.</span>
-        <span class="zh">Piper通过模型注解、调度指令和全局训练DAG中间表示，将高层分布式训练策略与运行时实现分离。系统把该表示编译为逐设备执行计划，从而组合数据并行、流水线并行、专家并行和ZeRO类优化，而无需为每种策略硬编码实现。这一抽象可能缩短实验周期，但候选摘要未给出完整的对比性能结果。</span>
+        <span class="en">TileFuse fuses unpacking, dequantization, and GEMM/GEMV into close-to-metal kernels for W4A16 and W8A16 inference on AMD XDNA2 NPUs. Its layouts support GEMM dimensions up to 32K and use the full 4x8 AIE array for GEMV, reducing the software mismatch that often prevents standard quantization formats from running efficiently on client NPUs.</span>
+        <span class="zh">TileFuse面向AMD XDNA2 NPU，将解包、反量化和GEMM/GEMV融合为贴近硬件的W4A16与W8A16内核。其数据布局支持最大32K维GEMM，并让GEMV利用完整的4x8 AIE阵列，从而缓解通用量化格式与客户端NPU软件栈之间的适配低效问题。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11164" target="_blank" rel="noopener">
-          <span class="en">ReasonAlloc Assigns KV-Cache Budgets by Layer and Head</span>
-          <span class="zh">ReasonAlloc按层和注意力头分配KV Cache预算</span>
+        <a href="http://arxiv.org/abs/2606.08761" target="_blank" rel="noopener">
+          <span class="en">APEX4 Rebalances Tensor and CUDA Cores for Pure W4A4 Inference</span>
+          <span class="zh">APEX4重平衡Tensor Core与CUDA Core以实现纯W4A4推理</span>
         </a>
       </h3>
-      <p class="authors">W. Liu, H. Shi, Y. Li, et al.</p>
+      <p class="authors">H. Guo, N. Guo, W. Wang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11164" target="_blank" rel="noopener">arXiv:2606.11164</a> · 2026-06-09T17:44:23Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.08761" target="_blank" rel="noopener">arXiv:2606.08761</a> · 2026-06-07</p>
       <p class="summary">
-        <span class="en">ReasonAlloc is a training-free method that allocates decoding-time KV-cache capacity hierarchically instead of applying a uniform token-eviction budget. It combines offline layer allocation based on a reported reasoning-demand pattern with online reallocation toward information-rich attention heads. Tests on MATH-500 and AIME 2024 span three reasoning models, but the candidate abstract truncates before the full numerical gains.</span>
-        <span class="zh">ReasonAlloc是一种免训练方法，在解码阶段分层分配KV cache容量，而不是对所有位置采用统一的Token淘汰预算。它结合基于推理需求模式的离线逐层预分配，以及面向高信息量注意力头的在线重分配。测试覆盖MATH-500、AIME 2024和三种推理模型，但候选摘要未完整提供数值提升。</span>
+        <span class="en">APEX4 shows that pure W4A4 performance depends on the ratio between Tensor Core and CUDA Core throughput because group dequantization can shift the bottleneck onto CUDA cores. Its hardware-aware kernels deliver up to 1.66x end-to-end speedup on L40S and 1.78x on RTX 3090 in unmodified vLLM, while the same baseline can slow down on GPUs with a less favorable compute balance.</span>
+        <span class="zh">APEX4指出，纯W4A4推理性能取决于Tensor Core与CUDA Core的吞吐比例，因为分组反量化可能把瓶颈转移到CUDA Core。其硬件感知内核在未经修改的vLLM中，使L40S端到端最高加速1.66倍、RTX 3090最高加速1.78倍；而在计算比例不利的GPU上，同类基线甚至可能变慢。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11052" target="_blank" rel="noopener">
-          <span class="en">CoT Fine-Tuning Can Break Long-Range Recall in Hybrid LLMs</span>
-          <span class="zh">CoT微调可能破坏混合LLM的长程召回</span>
+        <a href="https://arxiv.org/abs/2606.09441" target="_blank" rel="noopener">
+          <span class="en">SIFT Reuses Attention Structure to Accelerate RAG Prefill</span>
+          <span class="zh">SIFT复用注意力结构以加速RAG预填充</span>
         </a>
       </h3>
-      <p class="authors">X. Zhou, B. Zhu, Y. Xu, et al.</p>
+      <p class="authors">R. Sanovar, S. Bharadwaj, H. Taneja, M. Qureshi</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11052" target="_blank" rel="noopener">arXiv:2606.11052</a> · 2026-06-09T16:17:19Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.09441" target="_blank" rel="noopener">arXiv:2606.09441</a> · 2026-06-08T12:50:13Z</p>
       <p class="summary">
-        <span class="en">The paper finds that chain-of-thought supervised fine-tuning can sharply degrade long-context retrieval in hybrid linear-attention models; HypeNet-9B falls from 67.2% to 9.4% on NIAH-S2 at 256K. The authors trace the failure to short-range-biased updates in query and key projections, then propose QK-Restore, which restores those weights from the pre-fine-tuning checkpoint without retraining. The reported recovery preserves reasoning performance, suggesting post-training evaluations must test memory and reasoning together.</span>
-        <span class="zh">论文发现，思维链监督微调会显著削弱混合线性注意力模型的长上下文检索能力；HypeNet-9B在256K长度的NIAH-S2上从67.2%降至9.4%。作者将问题归因于查询和键投影受到偏向短程模式的更新，并提出QK-Restore，从微调前检查点恢复这些权重而无需重新训练。结果显示该方法可在保留推理能力的同时恢复长程召回，说明后训练评估必须同时检查记忆与推理。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.10944" target="_blank" rel="noopener">
-          <span class="en">Express Converts Non-Causal Attention Approximations for Efficient Decoding</span>
-          <span class="zh">Express将非因果注意力近似转换为高效解码方案</span>
-        </a>
-      </h3>
-      <p class="authors">A. Gong, A. M. Carrell, R. Dwivedi, L. Mackey</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.10944" target="_blank" rel="noopener">arXiv:2606.10944</a> · 2026-06-09T14:48:56Z</p>
-      <p class="summary">
-        <span class="en">Express converts a non-causal attention approximation into a causal one while retaining matching approximation guarantees. Combined with Thinformer, it uses O(s) memory with O(s^2 log^2(n)) compression overhead and an I/O-aware Triton implementation that reportedly outperforms FlashAttention 2. The authors apply it to long-context prefill, KV-cache compression, and memory- or compute-constrained decoding.</span>
-        <span class="zh">Express把非因果注意力近似转换为因果形式，同时保持相匹配的近似保证。与Thinformer结合后，它只需O(s)内存和O(s^2 log^2(n))压缩开销，并通过I/O感知的Triton实现取得了相对FlashAttention 2的加速。作者将其用于长上下文Prefill、KV cache压缩以及内存或算力受限的解码。</span>
+        <span class="en">SIFT precomputes fine-grained high-attention locations in reusable RAG documents and selectively recomputes them during online prefill. The approach targets a practical failure of KV reuse: transferring cached tensors from disk can be slower than recomputation, while coarse reuse can damage accuracy.</span>
+        <span class="zh">SIFT离线提取可复用RAG文档中的细粒度高注意力位置，并在在线预填充阶段选择性重算。该方法针对KV复用的实际问题：从磁盘传输缓存张量可能比重新计算更慢，而粗粒度复用又可能损害准确率。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="quantum">
+  <section class="area" id="eda">
     <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11076" target="_blank" rel="noopener">
-          <span class="en">Coset Ensemble Decoder Co-Designs QEC Algorithms and Hardware</span>
-          <span class="zh">陪集集成解码器协同设计量子纠错算法与硬件</span>
+        <a href="https://arxiv.org/abs/2606.09129" target="_blank" rel="noopener">
+          <span class="en">OpenOpt Jointly Tunes SRAM Architecture and Transistor Sizing</span>
+          <span class="zh">OpenOpt联合优化SRAM架构与晶体管尺寸</span>
         </a>
       </h3>
-      <p class="authors">S. Liang, J. Xu, G. Bassanino, et al.</p>
+      <p class="authors">Y. Wang, Y. Wu, C. Wang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11076" target="_blank" rel="noopener">arXiv:2606.11076</a> · 2026-06-09T16:37:13Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.09129" target="_blank" rel="noopener">arXiv:2606.09129</a> · 2026-06-08T07:26:06Z</p>
       <p class="summary">
-        <span class="en">The proposed quantum-error-correction decoder explores multiple coset-consistent Union-Find candidates and aggregates them toward coset-level maximum-likelihood decoding. Reverse-order elimination and lossless graph compression reduce compute and memory, while a domain-specific architecture reuses resources over time instead of scaling hardware spatially with code distance. The design targets the difficult combination of low logical error and real-time decoding latency required by fault-tolerant systems.</span>
-        <span class="zh">该量子纠错解码器探索多个满足陪集一致性的Union-Find候选，并进行聚合以逼近陪集级最大似然解码。逆序消元和无损图压缩降低了计算与内存开销，专用硬件架构则通过时间复用资源，避免硬件规模随码距进行空间扩张。该设计瞄准容错量子系统同时要求低逻辑错误率和实时解码延迟的难题。</span>
+        <span class="en">OpenOpt replaces inactive SRAM cells with equivalent RC and static-power models, accelerating simulation by up to 61.4x while keeping delay error below 0.22% and power error below 1.68%. On FreePDK45, its joint architecture and device-sizing search reports a 73.6% area reduction and 42.3% lower peak power, though validation on newer process design kits remains an open step.</span>
+        <span class="zh">OpenOpt用等效RC负载和静态功耗模型替代非活动SRAM单元，在读写延迟误差低于0.22%、功耗误差低于1.68%的同时，将仿真速度最高提升61.4倍。在FreePDK45上，联合架构与器件尺寸搜索实现73.6%的面积缩减和42.3%的峰值功耗下降，但仍需在更先进的工艺设计套件上验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.08161" target="_blank" rel="noopener">
+          <span class="en">AttentionCap Learns Multi-Node Full-Chip Capacitance Matrices</span>
+          <span class="zh">AttentionCap学习跨工艺节点的全芯片电容矩阵</span>
+        </a>
+      </h3>
+      <p class="authors">J. Huang, H. R. Rodriguez, D. Yang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08161" target="_blank" rel="noopener">arXiv:2606.08161</a> · 2026-06-06T13:20:09Z</p>
+      <p class="summary">
+        <span class="en">AttentionCap uses a physics-aligned Transformer to predict self and coupling capacitance across multiple metal stacks and process nodes. On unseen real designs it reports 0.67% self-capacitance error, 3.99% coupling-capacitance error, and 192x faster inference than CNN-Cap, suggesting a path beyond fixed-node learned extraction models.</span>
+        <span class="zh">AttentionCap采用符合物理结构的Transformer，在多种金属层组合和工艺节点之间预测自电容与耦合电容。在未见过的真实设计上，其自电容误差为0.67%、耦合电容误差为3.99%，推理速度较CNN-Cap快192倍，为突破固定工艺节点的学习式寄生参数提取提供了路径。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-10 13:45 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-10 13:45 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-11 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-11 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

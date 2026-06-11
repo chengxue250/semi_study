@@ -1,425 +1,324 @@
 {
-  "date": "2026-06-10",
-  "theme": {
-    "en": "Capacity Expands as Supply Controls Tighten",
-    "zh": "产能扩张与供应管控同步收紧"
-  },
+  "date": "2026-06-11",
+  "theme": {"en": "Capacity Pressure Rewrites the Chip Map", "zh": "产能压力正在重绘芯片版图"},
   "dek": {
-    "en": "TSMC is widening its N2 and advanced-packaging footprint while China, Europe, and the UK pursue more sovereign compute capacity. The expansion is colliding with tighter export scrutiny and persistent constraints in memory and substrates.",
-    "zh": "台积电正扩大N2与先进封装布局，中国、欧洲和英国也在推进更自主的算力产能。与此同时，出口审查趋严，存储与封装基板的供应约束仍未消退。"
+    "en": "AI demand is pushing buyers toward new foundry commitments, memory makers toward larger capacity plans, and governments toward tighter control of strategic supply. The pressure now reaches from 2028 production contracts to export policy and fab expansion.",
+    "zh": "AI需求正推动客户签订新的代工订单、存储厂商扩大产能规划，也促使政府收紧对战略供应链的管控。压力已从2028年的生产合约延伸至出口政策和晶圆厂扩张。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {
-        "en": "AI & Accelerators",
-        "zh": "AI与加速器"
-      },
+      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
       "stories": [
         {
           "featured": false,
-          "title": {
-            "en": "Disaggregated AI Compute Targets the Token-Throughput Barrier",
-            "zh": "解耦式AI计算瞄准Token吞吐瓶颈"
-          },
+          "title": {"en": "Nvidia Brings Day-One DiffusionGemma Support to RTX and DGX", "zh": "Nvidia为RTX与DGX首日适配DiffusionGemma"},
           "summary": {
-            "en": "SemiWiki examines disaggregating AI compute as a way to raise token throughput without simply building ever-larger monolithic data centers. The approach matters because power, water, land, and interconnect limits are becoming first-order constraints on scaling inference infrastructure.",
-            "zh": "SemiWiki探讨通过解耦AI计算来提升Token吞吐，而不是一味建设更庞大的单体数据中心。其意义在于，电力、用水、土地和互连能力正成为推理基础设施扩张的一阶约束。"
+            "en": "Nvidia has added launch-day support for Google DeepMind's DiffusionGemma open model across its RTX and DGX platforms, with DGX Spark reported at 150 tokens per second. The release shows how quickly accelerator vendors are turning model-specific software optimization into a hardware adoption tool.",
+            "zh": "Nvidia已在RTX和DGX平台首日支持Google DeepMind的开源模型DiffusionGemma，报道称DGX Spark可达到每秒150个token。此次适配显示，加速器厂商正把针对具体模型的软件优化转化为推动硬件采用的重要手段。"
           },
-          "source": "SemiWiki",
-          "url": "https://semiwiki.com/artificial-intelligence/369947-disaggregating-ai-compute-to-break-the-tokens-barrier/",
-          "published": "2026-06-10T13:00:21+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/nvidia-delivers-day-1-support-for-deepminds-diffusiongemma-open-model-across-rtx-dgx-platforms/",
+          "published": "2026-06-10T20:15:27+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {
-        "en": "Foundry & Manufacturing",
-        "zh": "晶圆代工与制造"
-      },
+      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
       "stories": [
         {
           "featured": true,
-          "title": {
-            "en": "TSMC Coordinates Multi-Fab N2 Ramp with CoWoS and SoIC Expansion",
-            "zh": "台积电协同推进多厂N2量产与CoWoS、SoIC扩产"
-          },
+          "title": {"en": "Google Reportedly Books More Than Three Million Intel-Made TPUs for 2028", "zh": "报道称Google预订逾300万颗Intel代工TPU"},
           "summary": {
-            "en": "TSMC is pursuing simultaneous N2 ramps across multiple fabs while expanding CoWoS and SoIC capacity for AI accelerators. Coordinating leading-edge wafers with advanced packaging is critical because packaging, rather than transistor supply alone, has repeatedly limited accelerator shipments.",
-            "zh": "台积电正同步推进多座晶圆厂的N2量产，并扩大面向AI加速器的CoWoS与SoIC产能。先进制程晶圆必须与先进封装协同扩张，因为限制加速器出货的往往不只是晶体管产能，还包括封装能力。"
+            "en": "Google has reportedly ordered Intel Foundry to manufacture more than three million TPUs for 2028 as advanced capacity at TSMC remains tight. If confirmed, the commitment would give Intel a major external AI-silicon customer and show hyperscalers using foundry diversification to secure long-range supply.",
+            "zh": "报道称，在TSMC先进制程产能持续紧张之际，Google已向Intel Foundry下单，计划于2028年生产超过300万颗TPU。若消息得到证实，这将为Intel带来重要的外部AI芯片客户，也说明云厂商正通过分散代工来源来锁定长期供应。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/semiconductors/analyzing-tsmcs-fab-expansion-roadmap-multi-fab-n2-ramp-cowos-soic-and-uncorking-bottlenecks",
-          "published": "2026-06-10T11:41:11+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "GlobalFoundries and Qualinx Demonstrate a European Secure-Chip Manufacturing Flow",
-            "zh": "GlobalFoundries与Qualinx展示欧洲安全芯片制造流程"
-          },
-          "summary": {
-            "en": "GlobalFoundries and Qualinx announced a European manufacturing flow for security-critical semiconductors. The demonstration is a concrete step in Europe's effort to keep sensitive chip design and production within a regionally controlled supply chain.",
-            "zh": "GlobalFoundries与Qualinx宣布完成面向安全关键型半导体的欧洲制造流程展示。这一进展为欧洲将敏感芯片的设计与生产保留在区域可控供应链内提供了更具体的落点。"
-          },
-          "source": "Business Wire",
-          "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNWFFwY2xQMHpSbXdjdUNJTm9OcllrWjlod21pNEJYa0lkTXlOS09YQVVGeFVmQWtJU29WazR5RmVCSjFQQ0lxLUpWai1Zc0Zjb1NKQW1EZmRwUWozai01TzVqM2VBaXltVl9Ya05XS04zNk8yRUNiZ0dhMnBkT2lCekxBMUhhUEFqdHBkMzRraWIxdGZSMzI0b0FaSm5aU1gtTWxUNERLR3J3dTRhWU55RWY1UmlFQTBTNWpmcC1ZWWZHOHJPZ25oNzJLSDRhWFJrWjNyOHNnS3hjSFJyakJZeEl2QUR3MkRRQkdjY1gzT2RNMGpvQ0ZfVF9PbVFtUlY5ZlBSeUNiRQ?oc=5",
-          "published": "2026-06-10T11:35:00+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Intel Positions Xeon 6+ as Its First Efficient-Core Server Chip on 18A",
-            "zh": "Intel将Xeon 6+定位为首款采用18A的能效核服务器芯片"
-          },
-          "summary": {
-            "en": "Intel's Xeon 6+ is presented as the first efficient-core Xeon processor manufactured on the company's 18A process. A successful server-product ramp would give Intel Foundry an important internal proof point for 18A yield, performance, and manufacturing readiness.",
-            "zh": "Intel的Xeon 6+被定位为首款采用公司18A工艺制造的能效核Xeon处理器。若服务器产品能够顺利放量，将为Intel Foundry验证18A的良率、性能和制造成熟度提供重要的内部样板。"
-          },
-          "source": "Data Centre Magazine",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQN28xMVVPeklmdVFBSTE5dFFtNzE1aW1XY0ZlVlJRQlNoX044aGdoZkRmbFZFOFc0YjZlN0RrR2taX1NOS1N2SXNtdlB5ZllQTi1zSVFTWlhyQngzZ1lFbkhFajZMSmxWVF9lT1hYWmhESXRFYXFHNTJGR0VWZzh3SWZNNHl3THN6WkdQSHFISlJzZk1BbkZhQQ?oc=5",
-          "published": "2026-06-10T10:01:57+00:00"
+          "source": "TweakTown",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNUWFvWXhSeXFLTW5DamVqVHl3Zy05UzllYk1DbFB3OXJ0cDRCdmhCQVYyX1o3VmE0bGZBWXhCMFVucEgtblFtTnlQUFJoSHNWRzlqUHVYVktwY28taUkyVWwtdVFvVElKcXpSckxKWmNwcUd0WGpkd2dBS3U4cUp1YzZESGUxRXJuUnZJcGZTdWNkTHMwdXpXX1p0U04yWHNGdThPQ2l4RmZZT0gwVWx4ZldzUUtna3QteVF0TzN5U0ZHb3o5N19OU2p6ZURid3JLYXZYbmxiVF9idEdKa3Bv?oc=5",
+          "published": "2026-06-10T23:10:04+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {
-        "en": "Memory",
-        "zh": "存储"
-      },
+      "title": {"en": "Memory", "zh": "存储"},
       "stories": [
         {
           "featured": false,
-          "title": {
-            "en": "Substrate Supply Tightens Alongside HBM and Memory",
-            "zh": "HBM与存储趋紧之际，封装基板也出现短缺"
-          },
+          "title": {"en": "SK Hynix Weighs a U.S. Listing as Early as August", "zh": "SK hynix最早或于8月赴美上市"},
           "summary": {
-            "en": "A Maeil Business Newspaper report says substrate availability is tightening alongside HBM and other memory, with large technology buyers offering funding in exchange for volume. The pattern shows that AI supply constraints are spreading beyond chips into the packaging materials needed to assemble them.",
-            "zh": "《每日经济新闻》报道称，在HBM及其他存储供应趋紧的同时，封装基板也开始短缺，大型科技买家甚至提出以资金换取产量。该趋势表明，AI供应瓶颈正从芯片本身扩散至组装芯片所需的封装材料。"
+            "en": "SK Hynix is reportedly considering a U.S. listing as early as August. A second listing could broaden access for global investors as HBM demand raises the strategic and market profile of the Korean memory supplier.",
+            "zh": "报道称，SK hynix正考虑最早于8月在美国上市。随着HBM需求提升这家韩国存储厂商的战略地位和市场关注度，第二上市地有望扩大其对全球投资者的覆盖。"
           },
-          "source": "Maeil Business Newspaper",
-          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9XVnpUVDhtSk5NRFo5dmExMnJBM19CVUtaSWE0YURQdV91ekoyNmQ1NGZSYkhZV0VGQXlvNEVnSTlEU1VraExZTW5LWWU4bm54TlJN?oc=5",
-          "published": "2026-06-10T08:53:31+00:00"
+          "source": "Tech Times",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPS1h1V0xBU25fbi1EaGdEdXhOdnFJa3ZEMEJjS3d0NndvS2ZWbnN3R1BaN3EzQnY3ZXZYV25IM2Jsd2ZFdUhOM19nTWtLam9VeGZxSVpGZnZyMTV6NXkxdWY1VjRsQUJnMXFfbkJXZE50T2RxemI0bVdjWkRSSV82RXNocXJQdlNIYVVQMm5jTndnMU13ZENpX2dlVkZfTXR5RV9RTkJJb0EyYTA1ZUZnYzdJbWVwN25YbEQ0SmZNTVZWM2wteUFjbg?oc=5",
+          "published": "2026-06-11T00:54:15+00:00"
+        },
+        {
+          "featured": true,
+          "title": {"en": "SK Hynix Plans to Triple Wafer Capacity by 2034", "zh": "SK hynix计划到2034年将晶圆产能增至三倍"},
+          "summary": {
+            "en": "SK Hynix Chairman Chey Tae-won says the company plans to triple wafer capacity by 2034. The long-range target reflects an expectation that AI-driven HBM and DRAM demand will require sustained investment well beyond the current memory upcycle.",
+            "zh": "SK hynix会长崔泰源表示，公司计划到2034年将晶圆产能扩大至目前的三倍。这一长期目标表明，公司预计AI带动的HBM和DRAM需求将要求其在本轮存储上行周期之后继续维持高强度投资。"
+          },
+          "source": "Nikkei Asia",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOQTVIYkZMT19lMUgyMmZYaTZnUGMxUjNuNWgwdm05RG1YWThRREVCUFpXc05iTThxRnpTa2E2aEltVTNmUzhTM3BBTEh3QkphNlpONHlKd09KYlhEaEZIN1ZOWkJ4SGh6OUNCNjFYVHc0ZGgtcW84NHNXbXFRalVHOVJCWWpKQmc5TWRNbUNPVklxbVVzNFowdXlnS3BOSDNlMGZwLWxHVjhCMFJu?oc=5",
+          "published": "2026-06-10T20:01:00+00:00"
         },
         {
           "featured": false,
-          "title": {
-            "en": "AI-Driven Memory Shortage Forces IT Budget Revisions",
-            "zh": "AI驱动的存储短缺迫使IT预算重新调整"
-          },
+          "title": {"en": "Chip Export Volume Falls 12% as Value Jumps 2.7-Fold", "zh": "芯片出口量下降12%，出口额却增至2.7倍"},
           "summary": {
-            "en": "Surging memory prices and shortages are making servers and PCs harder for enterprise IT departments to procure. The impact is moving upstream demand from an infrastructure issue into corporate budgets, where higher component costs can delay refresh cycles and data-center deployments.",
-            "zh": "存储价格上涨和供应短缺正使企业IT部门更难采购服务器与PC。影响已从基础设施供应问题传导至企业预算，更高的部件成本可能推迟设备更新周期和数据中心部署。"
+            "en": "Chip export volume fell 12%, while export value rose 2.7-fold as DRAM prices surged. The divergence shows that pricing and product mix, especially premium memory, are currently outweighing unit growth in semiconductor trade.",
+            "zh": "随着DRAM价格大幅上涨，芯片出口量下降12%，但出口额增至原来的2.7倍。量价背离说明，当前半导体贸易的增长更多由价格和高端存储产品结构推动，而非单纯依靠出货数量。"
           },
-          "source": "EE Times",
-          "url": "https://www.eetimes.com/ai-driven-memory-shortage-upends-it-budgets/",
-          "published": "2026-06-10T07:47:11+00:00"
+          "source": "Seoul Economic Daily",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMnJLeWpqTGNEekFqTDBUNzdwME1jZWg5SllxbzJvMzNtNjZ3SDBKME83WkNPQkpPUzZIcUtRdWp2QThJRGVsZ1UtSWNtcElIVldGUW9Dcm1fSXNfXzRxSEhBMU5VZ0gtcGhuYjBxdDhBRFptUWNUQUR5NWRJcWdIdXk1aUt0YTNDLVA1S1hSR0VUUG5WYnZyVFBOdHdHTkxCa09V?oc=5",
+          "published": "2026-06-10T22:20:09+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {
-        "en": "Equipment & Materials",
-        "zh": "设备与材料"
-      },
+      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
       "stories": [
         {
           "featured": false,
-          "title": {
-            "en": "Chinese Optical-Chip Process Claims to Avoid UV Lithography",
-            "zh": "中国光芯片工艺声称绕开紫外光刻"
-          },
+          "title": {"en": "ASML Reduces Planned Job Cuts After Union Talks", "zh": "ASML在工会谈判后缩减裁员计划"},
           "summary": {
-            "en": "A Chinese company reportedly manufactured optical chips without ultraviolet lithography equipment. If the process proves scalable, it could reduce dependence on restricted lithography tools for a specialized class of photonic devices, though it does not imply a substitute for leading-edge logic lithography.",
-            "zh": "报道称，一家中国公司在不使用紫外光刻设备的情况下制造出光芯片。如果该工艺能够规模化，它可能降低特定光子器件对受限光刻工具的依赖，但这并不意味着其可替代先进逻辑芯片所需的光刻技术。"
+            "en": "ASML will cut fewer jobs than initially planned after negotiations with labor unions. The revision moderates the restructuring of a critical lithography supplier while chipmakers continue committing capital to advanced-node capacity.",
+            "zh": "ASML在与工会谈判后，将减少原计划的裁员人数。此次调整缓和了这家关键光刻设备供应商的重组力度，而芯片制造商仍在持续投入先进制程产能。"
           },
-          "source": "GIGAZINE",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBwWUxKNE1HRXZNdmtvUWExV1lqa2Fmc2hGZDd4bzU0U2lkWmdUTC1RTk9tazgtVkdXWW01YVVUZ0VNbWlCRWMtNi11TklEc2gzMU1QcDlZUV9SNmh0RHVxZGJ3c2pxTk9uMi0xZ19Zb2RDZXJfQS0wR0VnOV9NVkU?oc=5",
-          "published": "2026-06-10T10:42:22+00:00"
+          "source": "The Business Times",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOLWpyZGhDY00xYXAwNUEtT0tHSGU2aExxdjZJcHRtWjVxRGljektHSFVlYzNOQkJPVDVQUHpIQkZqdmdmVTdWOU41YzRQV1VFak5FSDdvTUtDa1B1UTNGcWtKQjI4YVczVnRUQXdHTVIxNnh0bUwyampEVEhjdFdfQ0lyT0hyZHlYZnRTYVMzWUdqWGdfSE5xeXVTTDJ0VGVHaXdwYTZoN3ZEUQ?oc=5",
+          "published": "2026-06-10T22:46:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Qnity Introduces Optivision Max CMP Pads", "zh": "Qnity推出Optivision Max CMP抛光垫"},
+          "summary": {
+            "en": "Qnity has launched its Optivision Max family of chemical-mechanical planarization pads for next-generation semiconductor manufacturing. CMP consumables directly affect surface uniformity and yield, so new pad designs matter as process stacks add more layers and tighter tolerances.",
+            "zh": "Qnity面向下一代半导体制造推出Optivision Max化学机械平坦化抛光垫系列。CMP耗材直接影响晶圆表面均匀性和良率，因此在工艺层数增加、容差收紧的背景下，新型抛光垫设计具有实际意义。"
+          },
+          "source": "Pulse 2.0",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1LMnFLaGxFQ08wbWR0RGdKdlk2VzFZdVgtaFJaNVFnc0RLb0pWYnQyNjZPNW5TQ0pJLWlwb2FaQzBkcGU2OXBVQ0hoOG5GSnRzTUlTZ2ZXZklLRWNWZl9SSDhMTVAwbGN5VkJ1c1hUUmJqUdIBd0FVX3lxTE1peFdETWZyX3NLTi1fR0phSmNpUUxlVlJvSnVfUC1HYkY4SnlJQWVDUTlzTnlrNnVWZk1PX1c1T0Z0a2hpalpNVnFjblUzYUpuSlQ0Zkh4SzRZTXoyekxJUFZpSl9RYjlRdjBfWlRleTZsVlJ6R1Nr?oc=5",
+          "published": "2026-06-10T19:01:29+00:00"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {
-        "en": "Policy & Geopolitics",
-        "zh": "政策与地缘政治"
-      },
+      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
       "stories": [
         {
+          "featured": true,
+          "title": {"en": "Taiwan Weighs Tighter Controls on AI Chip Exports to China", "zh": "台湾考虑收紧对中国大陆的AI芯片出口管制"},
+          "summary": {
+            "en": "Taiwan is considering tighter restrictions on AI chip exports to China. A stricter regime would deepen alignment with U.S. controls and place more compliance responsibility on the jurisdiction that hosts the world's leading advanced-chip manufacturing base.",
+            "zh": "台湾正在考虑收紧对中国大陆的AI芯片出口限制。更严格的制度将进一步与美国管制措施接轨，并让全球最先进芯片制造基地承担更多出口合规责任。"
+          },
+          "source": "UPI",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNcTI4RmZjMzJfamg1V1dyN2psekFrTzE4MzRwTVBpZmRqUG5VelNLMlQyTWRyR3VWbU4zQU9VRmFueURsanV0TUxtVzhJX29Da2NWVnl5Y1p5OFpvNlFDZVB3WjZHeVplc3dNaUh3QkJwRXNWMC1ENG5naE1CXzBoN196US1nVW96M1FqMTgybjBkWVIySVM3dzNrRGRxQ1VqdmNwZlc3Q1PSAa4BQVVfeXFMTXdpd3IzZlpZVE96bURvMFVVXzZBQkR2akF5T3NRQW1fMXgxTnM5dTc1VkRQLUJBcXNIdW1adWlnbEM4WVpLU255NElucEhVdmhMOTBuZVJmelp6TVYzQWpkUmhyVFZydjJpeHZRNy0yZzhnZU0yLTk2a3R1NTZrUzNGdjNUeXZMZTBmV2U0SURmcnMtOUJ1dFdFYWxaOFYyNWhjQTdxLWEyRjRSR2hR?oc=5",
+          "published": "2026-06-10T23:42:54+00:00"
+        },
+        {
           "featured": false,
-          "title": {
-            "en": "UK Commits £1.1 Billion to AI and Semiconductors",
-            "zh": "英国向AI与半导体投入11亿英镑"
-          },
+          "title": {"en": "Republican Lawmakers Challenge TSMC's Washington Influence", "zh": "美国共和党议员质疑TSMC在华盛顿的影响力"},
           "summary": {
-            "en": "The UK is investing £1.1 billion in its AI and semiconductor sectors. The commitment adds public capital to the competition for domestic compute, chip expertise, and research capacity, although execution will determine how much manufacturing depth it creates.",
-            "zh": "英国将向AI与半导体产业投入11亿英镑。这笔公共资金将用于争夺本土算力、芯片人才和研发能力，但最终能形成多深的制造基础，仍取决于具体执行。"
+            "en": "Republican lawmakers are challenging TSMC's growing influence in Washington. The scrutiny adds political risk around a foreign company that is simultaneously central to U.S. chip subsidies, domestic fab construction, and advanced-node supply.",
+            "zh": "美国共和党议员正在质疑TSMC在华盛顿日益扩大的影响力。TSMC同时关系到美国芯片补贴、本土晶圆厂建设和先进制程供应，此次审视为其在美扩张增加了政治风险。"
           },
-          "source": "Open Access Government",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSk5QdUYyWmI4VEh6MGtwQmpRbmRnUG5mQjdqUzNqUElQVDBjNG1qcXBZQ0dnMlV2UTI3QjhyX2lmdF9ST203dG41X1c0WlpBclJiMkV3ZG1nTEExakRtOGlpWWNKc1Y1NEZYdFdubjJZRTJNTURuNmNfaHZBanYyenhjSll0aVIyNTBzX3BnZERqSVpwUVlTcXBtaDEzemt3Q3FWeXpMNks?oc=5",
-          "published": "2026-06-10T11:10:06+00:00"
-        },
-        {
-          "featured": true,
-          "title": {
-            "en": "US Lawmakers Target TSMC Supply Loopholes Using Chinese Shell Companies",
-            "zh": "美国议员瞄准中国空壳公司获取台积电供应的漏洞"
-          },
-          "summary": {
-            "en": "US lawmakers are scrutinizing whether Chinese shell companies can circumvent restrictions to obtain chips made by TSMC. Closing that route would increase customer-screening and traceability obligations across foundries, distributors, and design firms.",
-            "zh": "美国议员正审查中国空壳公司是否能够绕过限制，获得台积电制造的芯片。若这一渠道被封堵，晶圆代工厂、分销商和芯片设计公司的客户审查与供应链追踪义务都将增加。"
-          },
-          "source": "Taiwan News",
-          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5MZ182b21wN1F4QWhCWDNpa2pEN2liY1gxcjBGamt1MDFZRi15TWNsU1hsY2ZXbFRoZ2F3TEVlZlFMcVZjVVVhX1VLcmlxRWFzV1Fxa2JHUUc?oc=5",
-          "published": "2026-06-10T10:02:00+00:00"
-        },
-        {
-          "featured": true,
-          "title": {
-            "en": "China Drafts $295 Billion AI Data-Center Grid Built Around Domestic Chips",
-            "zh": "中国拟建2950亿美元国产芯片AI数据中心网络"
-          },
-          "summary": {
-            "en": "China is drafting a roughly 2 trillion yuan, or $295 billion, five-year plan for a national AI data-center grid targeting 80% domestic silicon by 2028. The scale would create a major demand anchor for local accelerators, networking, memory, and power equipment, but domestic chip production may limit the timetable.",
-            "zh": "中国正拟定一项约2万亿元人民币、折合2950亿美元的五年计划，建设全国AI数据中心网络，并争取到2028年实现80%的国产芯片占比。其规模将为本土加速器、网络、存储和电力设备创造巨大需求，但国内芯片产能可能制约进度。"
-          },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/china-drafts-295-billion-plan-to-build-a-national-ai-data-center-grid-running-on-80-percent-domestic-chips",
-          "published": "2026-06-10T10:00:00+00:00"
+          "source": "Axios",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPVWhyS2FZMmFqS0NyUzhETlVMLVhjWC1EczEyZ0dEMmw0VUdMem41NUt0Nk1rV05hcjlfYjNTOGYxMWk2eVFPc2FkRTFHY3ExMlRXejNzYzJBRXFpQVFLTm5oQ09zZFNwVzI0WlI0WWdacGVrNkRGcWNpTmJOcmduWG5mYW0?oc=5",
+          "published": "2026-06-10T23:43:44+00:00"
         }
       ]
     },
     {
       "id": "earnings",
-      "title": {
-        "en": "Earnings & Markets",
-        "zh": "财报与市场"
-      },
+      "title": {"en": "Earnings & Markets", "zh": "财报与市场"},
       "stories": [
         {
           "featured": false,
-          "title": {
-            "en": "TSMC Posts Record May Revenue Above NT$416.9 Billion",
-            "zh": "台积电5月营收突破4169亿新台币创纪录"
-          },
+          "title": {"en": "TSMC's May Sales Rise 30%", "zh": "TSMC五月销售额增长30%"},
           "summary": {
-            "en": "TSMC reported record May sales exceeding NT$416.9 billion as AI-related chip demand remained strong. The result supports the case that leading-edge foundry and advanced-packaging demand is still expanding even as investors debate the durability of the AI capital-spending cycle.",
-            "zh": "在AI相关芯片需求保持强劲之际，台积电公布5月营收超过4169亿新台币，创下纪录。该数据表明，先进制程代工与先进封装需求仍在扩张，尽管市场仍在讨论AI资本开支周期能持续多久。"
+            "en": "TSMC's May sales rose 30% from a year earlier, keeping the foundry on track against its current targets. The result indicates that AI accelerator and advanced-node demand remains strong despite concern about capacity constraints and a broader semiconductor stock pullback.",
+            "zh": "TSMC五月销售额同比增长30%，整体进度仍符合当前目标。这一结果表明，尽管市场担忧产能紧张且半导体股出现回调，AI加速器和先进制程需求依然强劲。"
           },
-          "source": "Focus Taiwan",
-          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9vMjFOLVpvZncwc1l0VVVRQWtEbWR5WC12QmEydkNsTElaMTFkNzJPMlhYWFZjWkNINXpaZDU3QjBPb28ySEdtLXc0UUg3NkxFanY2blh3aw?oc=5",
-          "published": "2026-06-10T08:05:00+00:00"
+          "source": "Investor's Business Daily",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9fMEJiMlVBQWE3aVlvTFpQc1RjQ3RWbW1hTWUwdWNtVTFBVWVqTGphWFY5RG1iS1Vsdk9SenFQenZ3STNrNWNWREt1UklQWXB4a05BVGdMd19PNmNQYnZNVXRaQ1ZRUXgtbmpHeHJGeW1KUUU1VEFCZDl6WUw?oc=5",
+          "published": "2026-06-10T20:22:00+00:00"
         }
       ]
     },
     {
       "id": "challengers",
-      "title": {
-        "en": "Challengers",
-        "zh": "挑战者"
-      },
+      "title": {"en": "Challengers", "zh": "新锐挑战者"},
       "stories": [
         {
           "featured": false,
-          "title": {
-            "en": "SpacemiT Demonstrates a Practical RVA23 RISC-V Mini Desktop",
-            "zh": "进迭时空展示可实用的RVA23 RISC-V迷你桌面机"
-          },
+          "title": {"en": "Ricursive Builds an End-to-End AI Model for Chip Design", "zh": "Ricursive开发端到端芯片设计AI模型"},
           "summary": {
-            "en": "SpacemiT demonstrated a mini desktop based on actual RVA23-class RISC-V hardware with performance described as usable. A credible desktop system broadens RISC-V's position beyond embedded devices, while price and software compatibility remain decisive for adoption.",
-            "zh": "进迭时空展示了一款基于RVA23级RISC-V硬件的迷你桌面机，其性能已被描述为具备实用性。可信的桌面系统可推动RISC-V走出嵌入式设备，但价格和软件兼容性仍将决定其采用速度。"
+            "en": "Startup Ricursive is developing an end-to-end AI model for chip design while explicitly positioning itself outside the conventional EDA category. The effort tests whether a model spanning more of the design workflow can reduce handoffs between specialized tools rather than merely adding another point assistant.",
+            "zh": "初创公司Ricursive正在开发面向芯片设计的端到端AI模型，并明确表示自身并非传统EDA公司。该项目试图验证，覆盖更大设计流程的模型能否减少专业工具之间的交接，而不仅是增加一个单点辅助工具。"
           },
-          "source": "The Register",
-          "url": "https://www.theregister.com/systems/2026/06/10/spacemit-shows-off-usably-quick-risc-v-mini-desktop/5252935",
-          "published": "2026-06-10T09:33:00+00:00"
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/startup-ricursive-to-create-an-end-to-end-ai-model-for-chip-design/",
+          "published": "2026-06-10T16:26:51+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {
-      "en": "Move Less Data, Use Hardware Better",
-      "zh": "少搬数据，更高效地使用硬件"
-    },
+    "theme": {"en": "Data Movement Becomes the Design Variable", "zh": "数据移动成为核心设计变量"},
     "dek": {
-      "en": "This week's systems papers attack overhead at the boundaries: CPU-to-accelerator transfers, fixed-width FPGA datapaths, distributed-training communication, and long-context KV caches. Several results turn architectural constraints into scheduling, packing, or compiler problems rather than demanding new silicon.",
-      "zh": "本周系统研究集中削减边界开销，包括CPU到加速器的数据传输、FPGA固定宽度数据通路、分布式训练通信以及长上下文KV cache。多项工作把硬件限制转化为调度、打包或编译问题，而不是直接要求新芯片。"
+      "en": "This week's papers attack remote HBM traffic, KV and RAG prefill overhead, in-memory lookup cost, and DRAM disturbance. Across hardware and software, the strongest gains come from changing where data lives and when it moves.",
+      "zh": "本周论文集中处理远端HBM流量、KV与RAG预填充开销、存内查表成本以及DRAM扰动问题。无论硬件还是软件，最显著的收益都来自重新设计数据的存放位置和移动时机。"
     },
     "areas": [
       {
         "id": "circuits",
-        "title": {
-          "en": "Circuits, Architecture & Reliability",
-          "zh": "电路、架构与可靠性"
-        },
+        "title": {"en": "Circuits, Architecture & Reliability", "zh": "电路、架构与可靠性"},
         "papers": [
           {
-            "title": {
-              "en": "ITD-Aware CPU Thermal Control Finds Cooling Can Go Too Far",
-              "zh": "考虑ITD的CPU温控表明降温也可能过度"
-            },
-            "authors": "J. Crop, H. Moore, S. Pasricha",
+            "title": {"en": "NeuDW-CIM: A 65-nm Reconfigurable Neuromorphic CIM Macro", "zh": "NeuDW-CIM：65纳米可重构神经形态存算一体宏"},
+            "authors": "J. Yang, Y. Yang, S. Dong, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.11163",
-            "venue_url": "https://arxiv.org/abs/2606.11163",
+            "venue": "arXiv:2606.08947",
+            "venue_url": "https://arxiv.org/abs/2606.08947",
             "summary": {
-              "en": "Measurements on production Intel Xeon CPUs show that inverse temperature dependence creates a part-specific efficiency optimum above typical operating temperatures. Roughly half of the high-power CPUs observed on Amazon and Equinix platforms ran about 10°C below that point, and an ITD-aware grouping and inlet-control case study reduced total data-center energy by 4-13%. The result challenges blanket low-temperature policies, though savings will depend on processor mix and facility conditions.",
-              "zh": "对量产Intel Xeon CPU的测量显示，反温度效应会形成因芯片型号而异的能效最优温度，而且往往高于常见运行温度。在Amazon和Equinix平台观察到的高功耗CPU中，约一半运行温度比该最优点低约10°C；采用ITD感知的分组和进风温度控制后，案例研究将数据中心总能耗降低了4%至13%。这一结果挑战了统一追求低温的策略，但实际收益仍取决于处理器组合和机房条件。"
+              "en": "NeuDW-CIM implements nonlinear dendrite and K-winner modes in a measured 65-nm compute-in-memory macro using twin 9T ternary bit cells and a reconfigurable nonlinear in-memory ADC. It reports 0.8 pJ per synaptic operation, 97.2% accuracy on N-MNIST, and a 30% reduction in ADC conversion latency through early stopping, providing silicon evidence for more adaptable spiking-network primitives.",
+              "zh": "NeuDW-CIM采用双9T三值存储单元和可重构非线性存内ADC，在实测65纳米存算一体宏中实现非线性树突与K-winner两种模式。芯片达到每次突触操作0.8 pJ，在N-MNIST上取得97.2%准确率，并通过提前停止将ADC转换延迟降低30%，为更灵活的脉冲神经网络计算原语提供了硅验证。"
             },
-            "published": "2026-06-09T17:44:12Z"
+            "published": "2026-06-08T02:50:04Z"
+          },
+          {
+            "title": {"en": "ScaleDisturb Amplifies Read Disturbance in Modern DRAM", "zh": "ScaleDisturb放大现代DRAM读扰动"},
+            "authors": "J. Wang, H. Luo, A. Olgun, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.07761",
+            "venue_url": "https://arxiv.org/abs/2606.07761",
+            "summary": {
+              "en": "ScaleDisturb uses asymmetric open times for two aggressor rows to trigger read-disturbance bit flips with fewer activations than prior access patterns. Tests across 196 DDR4 and three HBM2 chips found increased vulnerability in every device examined, underscoring that RowHammer defenses must account for timing patterns beyond simple activation counts.",
+              "zh": "ScaleDisturb通过让两个攻击行保持非对称的开启时间，以比既有访问模式更少的激活次数触发读扰动位翻转。对196颗DDR4和3颗HBM2芯片的测试显示，所有受测器件的脆弱性均有所增加，说明RowHammer防护不能只统计激活次数，还必须覆盖更复杂的时序模式。"
+            },
+            "published": "2026-06-05T18:21:16Z"
           }
         ]
       },
       {
         "id": "accelerators",
-        "title": {
-          "en": "AI Accelerators & Compute-in-Memory",
-          "zh": "AI加速器与存算一体"
-        },
+        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
         "papers": [
           {
-            "title": {
-              "en": "AXI4MLIR Eliminates a Redundant CPU-to-Accelerator Copy",
-              "zh": "AXI4MLIR消除CPU到加速器的冗余拷贝"
-            },
-            "authors": "E. Cohavi, N. B. Agostini, J. Haris, et al.",
+            "title": {"en": "Page-Compatible Locality-Aware GEMM for Chiplet GPUs", "zh": "面向Chiplet GPU的页粒度兼容局部性感知GEMM"},
+            "authors": "E. Chung, J. H. Ju, H. Kim",
             "affiliation": "",
-            "venue": "arXiv:2606.11158",
-            "venue_url": "https://arxiv.org/abs/2606.11158",
+            "venue": "arXiv:2606.11718",
+            "venue_url": "https://arxiv.org/abs/2606.11718",
             "summary": {
-              "en": "The authors extend AXI4MLIR so host buffers are allocated directly in DMA-mapped memory, removing the staging copy from heap memory before accelerator transfers. On a configurable matrix-multiplication accelerator, the change cuts main-memory data movement by as much as 2x and raises accelerator utilization. The work shows that compiler and runtime plumbing can recover performance otherwise lost outside the compute kernel.",
-              "zh": "作者扩展AXI4MLIR，使主机缓冲区直接分配在DMA映射内存中，从而消除加速器传输前从堆内存进行的中转拷贝。在可配置矩阵乘加速器上，该改动最多将主存数据搬运量降低2倍，并提高了加速器利用率。研究说明，编译器和运行时的数据通路优化可以收回原本损失在计算内核之外的性能。"
+              "en": "Chiplet-Contiguous Layout stores chiplet-local GEMM data contiguously so locality-aware placement remains compatible with ordinary page-granularity mapping and requires no OS or hardware changes. Across Qwen 3 30B and Llama 3.1 70B GEMMs, it reduces remote HBM traffic by 24.7x and 19.2x on average versus 4 KB interleaving, making memory layout a practical control point for multi-chiplet GPUs.",
+              "zh": "Chiplet-Contiguous Layout将各chiplet的本地GEMM数据连续存放，使局部性感知放置能够兼容常规页粒度映射，且无需修改操作系统或硬件。在Qwen 3 30B和Llama 3.1 70B的GEMM负载上，相比4 KB交错映射，远端HBM流量平均分别降低24.7倍和19.2倍，表明内存布局可成为多chiplet GPU的重要优化手段。"
             },
-            "published": "2026-06-09T17:40:13Z"
+            "published": "2026-06-10T06:47:27Z"
           },
           {
-            "title": {
-              "en": "SECDA-DSE Uses LLMs to Explore FPGA Accelerator Designs",
-              "zh": "SECDA-DSE利用LLM探索FPGA加速器设计"
-            },
-            "authors": "V. Sharma, X. Fu, J. Haris, J. Cano",
+            "title": {"en": "A 185 TOPS/W/mm2 FeFET Bayesian Inference Engine", "zh": "185 TOPS/W/mm²的FeFET贝叶斯推理引擎"},
+            "authors": "Z. M. Enciso, X. Niu, X. Wang, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.11117",
-            "venue_url": "https://arxiv.org/abs/2606.11117",
+            "venue": "arXiv:2606.10822",
+            "venue_url": "https://arxiv.org/abs/2606.10822",
             "summary": {
-              "en": "SECDA-DSE combines a structured design-space explorer with an LLM stack using retrieval and iterative feedback to generate FPGA accelerator configurations. The evaluation covers element-wise multiplication, 2D convolution, and matrix transpose through end-to-end SystemC and FPGA execution. The approach could reduce manual search effort, but its value depends on whether generated designs remain reproducible and competitive across larger workloads.",
-              "zh": "SECDA-DSE将结构化设计空间探索器与采用检索和迭代反馈的LLM模块结合，用于生成FPGA加速器配置。评估覆盖逐元素乘法、二维卷积和矩阵转置，并完成SystemC与FPGA端到端执行。该方法有望减少人工搜索成本，但其价值仍取决于生成设计在更大工作负载上的可复现性和竞争力。"
+              "en": "This FeFET compute-in-memory engine embeds a write-free Gaussian random-number generator for uncertainty-aware Bayesian inference. The generator consumes 640 aJ per sample and the CIM tile reaches 185 TOPS/W/mm2, addressing the sampling energy and endurance costs that make Bayesian models difficult to deploy on battery-limited platforms.",
+              "zh": "该FeFET存算一体引擎内置免写入高斯随机数发生器，用于支持具备不确定性感知能力的贝叶斯推理。随机数发生器每个样本仅消耗640 aJ，CIM计算单元达到185 TOPS/W/mm²，针对贝叶斯模型在电池受限平台上的采样能耗与器件耐久性瓶颈提出了硬件方案。"
             },
-            "published": "2026-06-09T17:14:44Z"
+            "published": "2026-06-09T13:04:02Z"
           },
           {
-            "title": {
-              "en": "Dynamic Arithmetic Packing Raises FPGA DSP Utilization",
-              "zh": "动态算术打包提升FPGA DSP利用率"
-            },
-            "authors": "T. Borntrager, S. Fleming, P. Holzinger, et al.",
+            "title": {"en": "PALUTE Uses Monolithic 3D DRAM Lookups for Edge LLMs", "zh": "PALUTE利用单片3D DRAM查表加速端侧LLM"},
+            "authors": "R. Tian, Y. Chen, W. Xu, T. S. Rosing",
             "affiliation": "",
-            "venue": "arXiv:2606.11065",
-            "venue_url": "https://arxiv.org/abs/2606.11065",
+            "venue": "arXiv:2606.08891",
+            "venue_url": "https://arxiv.org/abs/2606.08891",
             "summary": {
-              "en": "This work packs arbitrary-width signed and unsigned low-precision operands into wide FPGA multiplier paths by using the DSP block's internal pre-adder. Integrated into AMD FINN, the method reduces LUT use by 21% and improves frames per second per DSP by 36% on UltraNet versus the reference implementation. It directly addresses the mismatch between quantized neural networks and fixed-width FPGA arithmetic resources.",
-              "zh": "该工作利用DSP模块内部的预加器，将任意位宽的有符号和无符号低精度操作数动态打包到宽乘法数据通路中。该方法集成进AMD FINN后，在UltraNet上相较参考实现将LUT占用降低21%，并把每个DSP对应的FPS提高36%。它直接缓解了量化神经网络与FPGA固定宽度算术资源之间的不匹配。"
+              "en": "PALUTE places lookup-table queries inside monolithic 3D DRAM and generates tables near memory for GEMM and nonlinear operators. Cycle-accurate simulation and RTL synthesis report 1,264 tokens per second at 0.16 W and 12.8x higher energy efficiency than CHIME, though the result remains a modeled design rather than measured silicon.",
+              "zh": "PALUTE将查表操作放入单片3D DRAM，并在近存储位置为GEMM和非线性算子生成查找表。周期精确仿真与RTL综合显示，其在0.16 W功耗下达到每秒1,264个token，能效较CHIME提升12.8倍；但这些结果仍来自建模与综合，而非实测芯片。"
             },
-            "published": "2026-06-09T16:24:59Z"
+            "published": "2026-06-08T00:33:44Z"
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {
-          "en": "Efficient AI Training & Inference",
-          "zh": "高效AI训练与推理"
-        },
+        "title": {"en": "Efficient AI Inference Systems", "zh": "高效AI推理系统"},
         "papers": [
           {
-            "title": {
-              "en": "Piper Makes Distributed Training Strategies Programmable",
-              "zh": "Piper让分布式训练策略可编程"
-            },
-            "authors": "M. Frisella, S. Tiwari, A. Ruan, et al.",
+            "title": {"en": "TileFuse Brings AWQ-Style Low-Bit Inference to AMD XDNA2", "zh": "TileFuse将AWQ式低比特推理引入AMD XDNA2"},
+            "authors": "W. Pang, G. H. Jun, F. Liu, D. Chen",
             "affiliation": "",
-            "venue": "arXiv:2606.11169",
-            "venue_url": "https://arxiv.org/abs/2606.11169",
+            "venue": "arXiv:2606.11357",
+            "venue_url": "https://arxiv.org/abs/2606.11357",
             "summary": {
-              "en": "Piper separates high-level distributed-training strategy from runtime implementation through annotations, scheduling directives, and a global training-DAG intermediate representation. It compiles that representation into per-device execution plans, allowing combinations of data, pipeline, expert, and ZeRO-style parallelism without hard-coding each strategy. The abstraction could shorten experimentation cycles, although the supplied candidate abstract does not expose full comparative performance results.",
-              "zh": "Piper通过模型注解、调度指令和全局训练DAG中间表示，将高层分布式训练策略与运行时实现分离。系统把该表示编译为逐设备执行计划，从而组合数据并行、流水线并行、专家并行和ZeRO类优化，而无需为每种策略硬编码实现。这一抽象可能缩短实验周期，但候选摘要未给出完整的对比性能结果。"
+              "en": "TileFuse fuses unpacking, dequantization, and GEMM/GEMV into close-to-metal kernels for W4A16 and W8A16 inference on AMD XDNA2 NPUs. Its layouts support GEMM dimensions up to 32K and use the full 4x8 AIE array for GEMV, reducing the software mismatch that often prevents standard quantization formats from running efficiently on client NPUs.",
+              "zh": "TileFuse面向AMD XDNA2 NPU，将解包、反量化和GEMM/GEMV融合为贴近硬件的W4A16与W8A16内核。其数据布局支持最大32K维GEMM，并让GEMV利用完整的4x8 AIE阵列，从而缓解通用量化格式与客户端NPU软件栈之间的适配低效问题。"
             },
-            "published": "2026-06-09T17:48:41Z"
+            "published": "2026-06-09T18:33:14Z"
           },
           {
-            "title": {
-              "en": "ReasonAlloc Assigns KV-Cache Budgets by Layer and Head",
-              "zh": "ReasonAlloc按层和注意力头分配KV Cache预算"
-            },
-            "authors": "W. Liu, H. Shi, Y. Li, et al.",
+            "title": {"en": "APEX4 Rebalances Tensor and CUDA Cores for Pure W4A4 Inference", "zh": "APEX4重平衡Tensor Core与CUDA Core以实现纯W4A4推理"},
+            "authors": "H. Guo, N. Guo, W. Wang, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.11164",
-            "venue_url": "https://arxiv.org/abs/2606.11164",
+            "venue": "arXiv:2606.08761",
+            "venue_url": "http://arxiv.org/abs/2606.08761",
             "summary": {
-              "en": "ReasonAlloc is a training-free method that allocates decoding-time KV-cache capacity hierarchically instead of applying a uniform token-eviction budget. It combines offline layer allocation based on a reported reasoning-demand pattern with online reallocation toward information-rich attention heads. Tests on MATH-500 and AIME 2024 span three reasoning models, but the candidate abstract truncates before the full numerical gains.",
-              "zh": "ReasonAlloc是一种免训练方法，在解码阶段分层分配KV cache容量，而不是对所有位置采用统一的Token淘汰预算。它结合基于推理需求模式的离线逐层预分配，以及面向高信息量注意力头的在线重分配。测试覆盖MATH-500、AIME 2024和三种推理模型，但候选摘要未完整提供数值提升。"
+              "en": "APEX4 shows that pure W4A4 performance depends on the ratio between Tensor Core and CUDA Core throughput because group dequantization can shift the bottleneck onto CUDA cores. Its hardware-aware kernels deliver up to 1.66x end-to-end speedup on L40S and 1.78x on RTX 3090 in unmodified vLLM, while the same baseline can slow down on GPUs with a less favorable compute balance.",
+              "zh": "APEX4指出，纯W4A4推理性能取决于Tensor Core与CUDA Core的吞吐比例，因为分组反量化可能把瓶颈转移到CUDA Core。其硬件感知内核在未经修改的vLLM中，使L40S端到端最高加速1.66倍、RTX 3090最高加速1.78倍；而在计算比例不利的GPU上，同类基线甚至可能变慢。"
             },
-            "published": "2026-06-09T17:44:23Z"
+            "published": "2026-06-07"
           },
           {
-            "title": {
-              "en": "CoT Fine-Tuning Can Break Long-Range Recall in Hybrid LLMs",
-              "zh": "CoT微调可能破坏混合LLM的长程召回"
-            },
-            "authors": "X. Zhou, B. Zhu, Y. Xu, et al.",
+            "title": {"en": "SIFT Reuses Attention Structure to Accelerate RAG Prefill", "zh": "SIFT复用注意力结构以加速RAG预填充"},
+            "authors": "R. Sanovar, S. Bharadwaj, H. Taneja, M. Qureshi",
             "affiliation": "",
-            "venue": "arXiv:2606.11052",
-            "venue_url": "https://arxiv.org/abs/2606.11052",
+            "venue": "arXiv:2606.09441",
+            "venue_url": "https://arxiv.org/abs/2606.09441",
             "summary": {
-              "en": "The paper finds that chain-of-thought supervised fine-tuning can sharply degrade long-context retrieval in hybrid linear-attention models; HypeNet-9B falls from 67.2% to 9.4% on NIAH-S2 at 256K. The authors trace the failure to short-range-biased updates in query and key projections, then propose QK-Restore, which restores those weights from the pre-fine-tuning checkpoint without retraining. The reported recovery preserves reasoning performance, suggesting post-training evaluations must test memory and reasoning together.",
-              "zh": "论文发现，思维链监督微调会显著削弱混合线性注意力模型的长上下文检索能力；HypeNet-9B在256K长度的NIAH-S2上从67.2%降至9.4%。作者将问题归因于查询和键投影受到偏向短程模式的更新，并提出QK-Restore，从微调前检查点恢复这些权重而无需重新训练。结果显示该方法可在保留推理能力的同时恢复长程召回，说明后训练评估必须同时检查记忆与推理。"
+              "en": "SIFT precomputes fine-grained high-attention locations in reusable RAG documents and selectively recomputes them during online prefill. The approach targets a practical failure of KV reuse: transferring cached tensors from disk can be slower than recomputation, while coarse reuse can damage accuracy.",
+              "zh": "SIFT离线提取可复用RAG文档中的细粒度高注意力位置，并在在线预填充阶段选择性重算。该方法针对KV复用的实际问题：从磁盘传输缓存张量可能比重新计算更慢，而粗粒度复用又可能损害准确率。"
             },
-            "published": "2026-06-09T16:17:19Z"
-          },
-          {
-            "title": {
-              "en": "Express Converts Non-Causal Attention Approximations for Efficient Decoding",
-              "zh": "Express将非因果注意力近似转换为高效解码方案"
-            },
-            "authors": "A. Gong, A. M. Carrell, R. Dwivedi, L. Mackey",
-            "affiliation": "",
-            "venue": "arXiv:2606.10944",
-            "venue_url": "https://arxiv.org/abs/2606.10944",
-            "summary": {
-              "en": "Express converts a non-causal attention approximation into a causal one while retaining matching approximation guarantees. Combined with Thinformer, it uses O(s) memory with O(s^2 log^2(n)) compression overhead and an I/O-aware Triton implementation that reportedly outperforms FlashAttention 2. The authors apply it to long-context prefill, KV-cache compression, and memory- or compute-constrained decoding.",
-              "zh": "Express把非因果注意力近似转换为因果形式，同时保持相匹配的近似保证。与Thinformer结合后，它只需O(s)内存和O(s^2 log^2(n))压缩开销，并通过I/O感知的Triton实现取得了相对FlashAttention 2的加速。作者将其用于长上下文Prefill、KV cache压缩以及内存或算力受限的解码。"
-            },
-            "published": "2026-06-09T14:48:56Z"
+            "published": "2026-06-08T12:50:13Z"
           }
         ]
       },
       {
-        "id": "quantum",
-        "title": {
-          "en": "Quantum Computing",
-          "zh": "量子计算"
-        },
+        "id": "eda",
+        "title": {"en": "EDA & Design Automation", "zh": "EDA与设计自动化"},
         "papers": [
           {
-            "title": {
-              "en": "Coset Ensemble Decoder Co-Designs QEC Algorithms and Hardware",
-              "zh": "陪集集成解码器协同设计量子纠错算法与硬件"
-            },
-            "authors": "S. Liang, J. Xu, G. Bassanino, et al.",
+            "title": {"en": "OpenOpt Jointly Tunes SRAM Architecture and Transistor Sizing", "zh": "OpenOpt联合优化SRAM架构与晶体管尺寸"},
+            "authors": "Y. Wang, Y. Wu, C. Wang, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.11076",
-            "venue_url": "https://arxiv.org/abs/2606.11076",
+            "venue": "arXiv:2606.09129",
+            "venue_url": "https://arxiv.org/abs/2606.09129",
             "summary": {
-              "en": "The proposed quantum-error-correction decoder explores multiple coset-consistent Union-Find candidates and aggregates them toward coset-level maximum-likelihood decoding. Reverse-order elimination and lossless graph compression reduce compute and memory, while a domain-specific architecture reuses resources over time instead of scaling hardware spatially with code distance. The design targets the difficult combination of low logical error and real-time decoding latency required by fault-tolerant systems.",
-              "zh": "该量子纠错解码器探索多个满足陪集一致性的Union-Find候选，并进行聚合以逼近陪集级最大似然解码。逆序消元和无损图压缩降低了计算与内存开销，专用硬件架构则通过时间复用资源，避免硬件规模随码距进行空间扩张。该设计瞄准容错量子系统同时要求低逻辑错误率和实时解码延迟的难题。"
+              "en": "OpenOpt replaces inactive SRAM cells with equivalent RC and static-power models, accelerating simulation by up to 61.4x while keeping delay error below 0.22% and power error below 1.68%. On FreePDK45, its joint architecture and device-sizing search reports a 73.6% area reduction and 42.3% lower peak power, though validation on newer process design kits remains an open step.",
+              "zh": "OpenOpt用等效RC负载和静态功耗模型替代非活动SRAM单元，在读写延迟误差低于0.22%、功耗误差低于1.68%的同时，将仿真速度最高提升61.4倍。在FreePDK45上，联合架构与器件尺寸搜索实现73.6%的面积缩减和42.3%的峰值功耗下降，但仍需在更先进的工艺设计套件上验证。"
             },
-            "published": "2026-06-09T16:37:13Z"
+            "published": "2026-06-08T07:26:06Z"
+          },
+          {
+            "title": {"en": "AttentionCap Learns Multi-Node Full-Chip Capacitance Matrices", "zh": "AttentionCap学习跨工艺节点的全芯片电容矩阵"},
+            "authors": "J. Huang, H. R. Rodriguez, D. Yang, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.08161",
+            "venue_url": "https://arxiv.org/abs/2606.08161",
+            "summary": {
+              "en": "AttentionCap uses a physics-aligned Transformer to predict self and coupling capacitance across multiple metal stacks and process nodes. On unseen real designs it reports 0.67% self-capacitance error, 3.99% coupling-capacitance error, and 192x faster inference than CNN-Cap, suggesting a path beyond fixed-node learned extraction models.",
+              "zh": "AttentionCap采用符合物理结构的Transformer，在多种金属层组合和工艺节点之间预测自电容与耦合电容。在未见过的真实设计上，其自电容误差为0.67%、耦合电容误差为3.99%，推理速度较CNN-Cap快192倍，为突破固定工艺节点的学习式寄生参数提取提供了路径。"
+            },
+            "published": "2026-06-06T13:20:09Z"
           }
         ]
       }
