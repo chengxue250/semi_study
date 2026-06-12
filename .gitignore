@@ -11,6 +11,17 @@ output/launchd.err.log
 # The small .txt scripts and .notes.md show notes ARE kept (not ignored).
 output/podcast/*.m4a
 output/podcast/*.aiff
+output/podcast/*.wav
+
+# Local voice-clone model environment (multi-GB; recreate via the venv steps
+# in references/voice-clone-guide.md). Never committed.
+.venv-tts/
+
+# Your recorded reference voice — personal data; never commit it.
+assets/voice/*.wav
+assets/voice/*.m4a
+assets/voice/*.mp3
+assets/voice/*.aiff
 
 # Editor / OS noise.
 .DS_Store

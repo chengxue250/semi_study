@@ -98,6 +98,38 @@ on-device neural voices Apple ships for free; they're just a large one-time down
 See `references/podcast-guide.md` for the editorial voice, what gets read aloud vs.
 left to the show notes, and the text-normalization rules.
 
+## Use your own voice (local clone, still no API/fees)
+
+`say` is clear but robotic. To narrate the podcast in **your own voice**, the skill
+supports a local zero-shot clone via Coqui XTTS-v2 — it runs on your Mac, so there's
+still **no cloud TTS, no API key, and no per-use fee** (only a one-time model
+download). Full setup, recording scripts, and the license note are in
+[`references/voice-clone-guide.md`](../../references/voice-clone-guide.md). Short version:
+
+```bash
+# 1. One-time: install the local model into an isolated venv (~3 GB).
+python3 -m venv .venv-tts
+.venv-tts/bin/pip install -r references/voice-clone-requirements.txt
+
+# 2. One-time: record ~30–60 s of your voice per language (read the scripts in
+#    the guide) and save as assets/voice/myvoice.en.wav and myvoice.zh.wav
+
+# 3. Each day: build the podcast in your voice.
+python3 scripts/build_podcast.py --engine clone \
+  --ref-en assets/voice/myvoice.en.wav \
+  --ref-zh assets/voice/myvoice.zh.wav
+```
+
+Notes:
+- `--engine clone` falls back to `say` for any language whose reference clip is
+  missing, so a run never hard-fails.
+- Cloning is a neural model on CPU — **much slower than `say`** (a 15-min episode
+  can take 15–40 min). Fine for an unattended daily job; use `--lang en` or
+  `--news-only` for a quick check, or `--device mps` to try Apple-GPU acceleration.
+- **License:** XTTS-v2 is non-commercial (CPML). Fine for a personal podcast; for
+  monetized use, swap to an MIT model — the guide explains how.
+- Your recordings and the `.venv-tts/` model env are git-ignored — never committed.
+
 ## Honest tradeoff
 
 macOS `say` is **clear and correct but recognizably synthetic** — fine for a daily
@@ -121,7 +153,10 @@ It is idempotent — re-running on the same day overwrites that day's files clea
 ## Files
 
 ```
-scripts/build_podcast.py        the generator (stdlib only; no pip, no network)
+scripts/build_podcast.py         the generator (stdlib only; no pip, no network)
+scripts/clone_tts.py             local voice-clone engine (XTTS-v2; runs in .venv-tts)
 references/podcast-guide.md      editorial + normalization notes
+references/voice-clone-guide.md  how to clone your own voice (setup + record scripts)
+assets/voice/                    your reference recordings (git-ignored; README kept)
 output/podcast/                  generated episodes (.m4a gitignored; .txt/.notes.md kept)
 ```

@@ -1,0 +1,22 @@
+# Local voice-clone dependencies — verified on macOS arm64 (Apple Silicon),
+# Python 3.10. Install into the project venv:
+#
+#   python3 -m venv .venv-tts
+#   .venv-tts/bin/pip install --upgrade pip wheel
+#   .venv-tts/bin/pip install -r references/voice-clone-requirements.txt
+#
+# The pins matter — they avoid two real breakages:
+#   * coqui-tts declares `transformers>=4.57` with no ceiling, so pip pulls
+#     transformers 5.x, which removed an API XTTS still imports. 4.57.1 is the
+#     last 4.x and works.
+#   * torch >= 2.9 forces the torchcodec backend, which needs system ffmpeg.
+#     torch 2.5.1 uses the soundfile backend instead — no ffmpeg required.
+#   * pypinyin + jieba are required for the Chinese (zh-cn) path but are not
+#     pulled in automatically.
+
+coqui-tts==0.27.5
+transformers==4.57.1
+torch==2.5.1
+torchaudio==2.5.1
+pypinyin>=0.50
+jieba>=0.42
