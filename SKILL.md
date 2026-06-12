@@ -268,6 +268,17 @@ Setup is documented in `notify.yaml.example` and `references/automation.md` § "
 
 If `notify.yaml` does not exist, skip this step. The skill never refuses to run because notification is unconfigured.
 
+### 12. (Optional) Generate the bilingual podcast
+
+If the user wants an audio edition, produce a daily EN + 中文 podcast straight from
+the `edition.json` you just built:
+
+```bash
+python3 scripts/build_podcast.py
+```
+
+This is a separate, self-contained skill — see [`skills/podcast-daily/SKILL.md`](skills/podcast-daily/SKILL.md). It assembles the spoken script *deterministically* from the already-bilingual `edition.json` (no LLM tokens) and synthesizes audio with macOS's built-in `say` (no third-party TTS API), writing `output/podcast/YYYY-MM-DD.{en,zh}.{m4a,txt,notes.md}`. The English `.m4a` is for Apple Podcasts / Spotify; the 中文 `.m4a` for 小宇宙 / 喜马拉雅. Run it *after* step 8 (it needs `edition.json`); order vs. publishing doesn't matter since audio is uploaded to the podcast platforms, not to GitHub Pages.
+
 ## Editorial defaults the agent should preserve
 
 These keep the publication recognizable day-to-day:
