@@ -1,277 +1,368 @@
 {
   "date": "2026-06-13",
-  "theme": {"en": "AI Scarcity Reprices the Chip Stack", "zh": "AI稀缺性重估芯片供应链"},
+  "theme": {
+    "en": "Capacity Pressure Reprices the Chip Stack",
+    "zh": "产能压力重估芯片供应链"
+  },
   "dek": {
-    "en": "Tight advanced-node capacity is pushing foundry prices higher while memory suppliers plan long-cycle expansion. Export controls and China-specific product strategies are also reshaping where that capacity can be sold.",
-    "zh": "先进制程产能趋紧，推动晶圆代工价格上行，存储厂商则启动跨周期扩产。与此同时，出口管制与面向中国市场的产品策略正在重塑这些产能的销售去向。"
+    "en": "Advanced-node constraints are pushing prospective customers toward alternative foundries, while HBM demand lifts costs for equipment buyers and professional GPUs. Export reviews and material controls add another layer of uncertainty.",
+    "zh": "先进制程产能受限，推动潜在客户转向其他晶圆代工厂；HBM需求则抬高设备采购与专业GPU的成本。出口审查和关键材料管制又增加了一层不确定性。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "Nvidia Offers Vera CPUs to Chinese Customers as GPU Sales Remain Frozen", "zh": "GPU销售仍受阻，Nvidia向中国客户推介Vera CPU"},
+          "featured": false,
+          "title": {
+            "en": "Nvidia Raises RTX Pro 6000 Blackwell Price to $13,250",
+            "zh": "Nvidia将RTX Pro 6000 Blackwell价格上调至$13,250"
+          },
           "summary": {
-            "en": "Nvidia has told Chinese customers that its Arm-based Vera server CPU could be available as early as August, while sales of its H200 GPU remain frozen. A CPU-led entry would give Nvidia a product path into Chinese AI infrastructure without resolving the larger accelerator restriction, and it tests whether customers will adopt Vera independently of the full rack platform.",
-            "zh": "Nvidia已告知中国客户，其基于Arm的Vera服务器CPU最快可于8月供应，而H200 GPU销售仍处于冻结状态。以CPU切入可为Nvidia重返中国AI基础设施市场提供一条产品路径，但并未解决加速器受限的问题，也将检验客户是否愿意脱离完整机架平台单独采用Vera。"
+            "en": "Nvidia is now selling the RTX Pro 6000 Blackwell for $13,250, 55% above its original MSRP, while partner cards start at $11,359.99. The increase shows that supply and workstation-AI demand are still supporting unusually high prices a year after launch, raising deployment costs for professional visualization and local AI systems.",
+            "zh": "Nvidia现将RTX Pro 6000 Blackwell售价定为$13,250，较最初建议零售价高55%，合作伙伴版本起价为$11,359.99。上市一年后仍能大幅提价，说明供应状况与工作站AI需求继续支撑高价，也将推高专业可视化和本地AI系统的部署成本。"
           },
           "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/cpus/nvidia-offers-china-early-access-to-vera-cpus-as-h200-sales-stay-frozen",
-          "published": "2026-06-12T16:17:42+00:00"
+          "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-raises-rtx-pro-6000-blackwell-gpu-pricing-to-usd13-250-55-percent-increase-over-msrp-in-a-years-time",
+          "published": "2026-06-13T12:30:00+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "AWS Reportedly Weighs Qualcomm AI200 for Lower-Cost Inference", "zh": "报道称AWS考虑采用Qualcomm AI200降低推理成本"},
-          "summary": {
-            "en": "AWS could deepen its work with Qualcomm around the AI200 accelerator, which is described as offering 768GB of memory, according to a Wells Fargo report cited by Wccftech. The idea is aimed at reducing inference hardware costs and improving cloud margins, but it remains analyst reporting rather than a customer announcement or confirmed deployment.",
-            "zh": "据Wccftech援引Wells Fargo报告，AWS可能围绕配备768GB内存的Qualcomm AI200加速器深化合作。其目标是降低推理硬件成本并改善云业务利润率，但目前仍属于分析师报告，并非客户公告或已确认的部署。"
+          "title": {
+            "en": "Senao Shows an Intel Xeon 6 SoC DPU on a PCIe Card",
+            "zh": "Senao展示基于Intel Xeon 6 SoC的PCIe DPU卡"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/amazon-could-turn-to-qualcomms-768gb-ai200-chips-as-aws-races-to-slash-inference-costs-choking-margins/",
-          "published": "2026-06-12T17:15:07+00:00"
+          "summary": {
+            "en": "Senao showed the SX906, a PCIe card built around an Intel Xeon 6 SoC and positioned as a next-generation SmartNIC/DPU. Putting a server-class SoC on an add-in card gives operators another route to offload networking and infrastructure services without redesigning the host platform, though the report does not provide performance or availability details.",
+            "zh": "Senao展示了SX906，这是一款采用Intel Xeon 6 SoC的PCIe扩展卡，定位为新一代SmartNIC/DPU。把服务器级SoC放到扩展卡上，可让运营商在不重构主机平台的情况下卸载网络与基础设施服务，但报道尚未给出性能或上市时间。"
+          },
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/this-is-an-intel-xeon-6-soc-dpu-on-a-pcie-card-from-senao-at-computex-2026/",
+          "published": "2026-06-13T00:33:58+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "featured": true,
-          "title": {"en": "TSMC Reportedly Considers a 15% Price Increase for 3nm", "zh": "报道称台积电考虑将3nm价格上调15%"},
+          "title": {
+            "en": "TSMC Capacity Limits Reportedly Push Google Toward Samsung 2nm",
+            "zh": "据报TSMC产能受限，Google转向接洽Samsung 2nm"
+          },
           "summary": {
-            "en": "TSMC is reportedly considering a 15% increase in 3nm wafer pricing as AI demand tightens leading-edge capacity. If implemented, the increase would pass scarcity costs to accelerator and premium-compute customers and reinforce TSMC's pricing power, though the candidate report does not establish a final customer notice or effective date.",
-            "zh": "报道称，随着AI需求压紧先进制程产能，台积电正考虑将3nm晶圆价格上调15%。若落地，稀缺成本将进一步传导至加速器和高端计算客户，并强化台积电的定价权；但候选报道尚未确认正式客户通知或生效日期。"
+            "en": "Google has reportedly approached Samsung about 2nm foundry capacity after TSMC cited limited availability, according to Seoul Economic Daily. If it results in a production order, the move would give Samsung an important advanced-node customer and show how constrained capacity can loosen TSMC's grip on leading-edge designs; no contract has been confirmed.",
+            "zh": "据《首尔经济日报》报道，在TSMC表示先进制程产能有限后，Google已就2nm晶圆代工与Samsung接洽。若最终形成量产订单，这将为Samsung带来重要的先进制程客户，也表明产能约束可能削弱TSMC对高端设计的控制力；目前尚无已确认合同。"
+          },
+          "source": "Seoul Economic Daily",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQa1c5d0x2ancwMFJ0NnZDbkUtZkwtWVo5TU1IVFd3SmxLckFBYXRLT0pPeWxmVmduWHhvd2c5NEktaTByb2VjYndfclVnRFF5d0d4U2VkYkNGVm9PZUJOQlltUjEwUHpEem5EQ1o1X1QwX2NlSFJNXzd5S3lmaTRvSWdoN0g5UnMtcHBqSHJZX1J5aGlyQktQSnFkU1JJMS1Wdmc?oc=5",
+          "published": "2026-06-13T02:09:49+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "TSMC CEO Calls Talent the Company's Biggest AI-Era Constraint",
+            "zh": "TSMC CEO称人才短缺是AI时代最大挑战"
+          },
+          "summary": {
+            "en": "TSMC's chief executive identified talent shortages as the company's biggest challenge as AI demand drives expansion. The warning shifts attention from fab construction budgets to the engineers and technicians required to ramp and operate new capacity, a constraint that can slow both Taiwan and overseas projects.",
+            "zh": "TSMC首席执行官表示，在AI需求推动扩张之际，人才短缺是公司面临的最大挑战。这一表态把关注点从厂房投资转向新产能爬坡和运营所需的工程师与技术人员；该瓶颈可能同时拖慢台湾及海外项目。"
           },
           "source": "MSN",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVXNORWpIM0dhejBKd2VuUnFKZVVmdTJjd0g0SnBQbHBqQ0JvZVZGeG42ZFNiYUx4Mmp0Z3BoajMxWkhDc2VvRkdiMHBaZ2ZXRUFWVHo5ZlNWMXpSNE83SFdSUWk4aTF1eS1kWG9MMzFkUXZuT0ZVYThndHcwQk4yU3kxQTVreTg5UkhmeVc0MHJ6OUhZTUJaMGkySEVyYzhMLU5LYWdXZHJTcFQ2cjhnZzRMNmxNVnpWR0ZTTlJLWFQxVklvRC1xY2syekR1Xzlz?oc=5",
-          "published": "2026-06-12T21:51:49+00:00"
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRk5qUDZXMUlESXhwekJ5WWtrZzdBWUJNenJfenFKckZRdVNDdFVtSHFIcHNZMEtnTDJxRjVablB3X2JTcE43OFhkWXYxVGpZendaUFcyRnZLeTE5eGo4UXRpWTN4TnFBYWxLWVBrXzE4SXpxZmZFanNmUXFiU1ktdFI2elNTN3JBN3c4ZmFqSUlOTWowTGxEdUdrSUx2bFZZMFB2WlFTRlc5X2w0RXE3dlFB?oc=5",
+          "published": "2026-06-13T05:29:39+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "Top-Ten Foundry Revenue Rises 3.7% in the First Quarter", "zh": "第一季度全球前十大晶圆代工厂营收增长3.7%"},
-          "summary": {
-            "en": "Revenue at the world's ten largest foundries rose 3.7% in the first quarter as AI demand offset softer smartphone conditions, according to TrendForce data cited by Wccftech. Utilization improved at some previously underused nodes, and a further second-quarter tightening could support broader wafer-price increases later in 2026.",
-            "zh": "据Wccftech援引TrendForce数据，AI需求抵消了智能手机市场的疲软，全球前十大晶圆代工厂第一季度营收增长3.7%。部分此前利用率偏低的制程已出现改善，若第二季度继续收紧，2026年后续晶圆价格可能获得更广泛的上行动力。"
+          "title": {
+            "en": "Micron Opens Its Sanand Semiconductor Plant in Gujarat",
+            "zh": "Micron在古吉拉特邦启用Sanand半导体工厂"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/ai-chip-frenzy-drags-foundry-revenue-up-3-7-in-q1-yet-wafer-prices-are-about-to-hit-customers-next/",
-          "published": "2026-06-12T19:46:30+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "Samsung Foundry Reportedly Pursues Google AI-Chip Production", "zh": "报道称Samsung Foundry争取Google AI芯片代工订单"},
           "summary": {
-            "en": "Samsung Foundry is reportedly seeking a production agreement for a Google AI chip. A confirmed design win would give Samsung a strategically important hyperscaler customer and strengthen its challenge to TSMC in advanced logic, but the candidate item describes negotiations rather than a signed manufacturing award.",
-            "zh": "报道称，Samsung Foundry正在争取Google AI芯片的生产协议。若确认获得设计订单，Samsung将新增一个具有战略意义的超大规模云客户，并增强其在先进逻辑制程上挑战台积电的能力；但候选报道描述的是洽谈，而非已签署的制造合同。"
+            "en": "Indian Prime Minister Narendra Modi inaugurated Micron's semiconductor plant in Sanand, Gujarat. The opening gives India's chip-manufacturing policy a tangible operating asset and expands Micron's geographic footprint, although the candidate report does not specify the site's ramp schedule or production capacity.",
+            "zh": "印度总理纳伦德拉·莫迪为Micron位于古吉拉特邦Sanand的半导体工厂揭幕。该项目为印度的芯片制造政策提供了实体运营资产，也扩大了Micron的地域布局，但候选报道未披露产能爬坡时间或生产规模。"
           },
-          "source": "Chosun Ilbo",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPajJRckJBRlVTdklBOFFYdzVOZThYenZMOGVjQmI0QjRyTHNDcEM3WE1zZWJRbU1TMXNwVm82V2g4U3lXdmNJd2xuU2lpd2ZkMkxxejVqQUdQSzJ1MmZaYXBxVF9udTRFOVRaN01tTHphTDZuWDdRSEhoQ3lvUnFnOG1MMVc0cHkx?oc=5",
-          "published": "2026-06-12T15:46:28+00:00"
+          "source": "News On AIR",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPUWVjSlFkVko4c2Ytd0V1cXZtN0kzbWxXNktTYTZEV2RTTUpNWmtiMXVNT3lwUVcyWGZaaUk5M001SjdMOU1aV185VWl6TVQtOWdsaWdXNngxcmg1TkppV2JIQ3lDOHJBWHJYZ3J4MWZWTTR2OWo1aHZ3ZEd2dVR4c2pYSkgwbVZJNUd3ejB4bkpHYzktYVNBT0Z0NldfZmxFUkQ1dmpUOTBUb083V2h3Q0NKeFhnT2RlZUpLREdzQQ?oc=5",
+          "published": "2026-06-13T10:17:03+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "SK Hynix Targets a Threefold Increase in Memory Wafer Capacity by 2034", "zh": "SK hynix计划到2034年将存储晶圆产能提高至三倍"},
-          "summary": {
-            "en": "SK Hynix plans to triple memory wafer capacity by 2034 as AI systems drive sustained demand for DRAM and HBM. The eight-year horizon shows how slowly cleanrooms, equipment, and process ramps translate into usable supply, so near-term HBM constraints will not disappear simply because long-range capacity targets are rising.",
-            "zh": "SK hynix计划到2034年将存储晶圆产能提高至目前的三倍，以应对AI系统对DRAM和HBM的持续需求。长达八年的建设周期说明，洁净室、设备导入和制程爬坡转化为有效供给需要很长时间，因此长期扩产目标上调并不意味着近期HBM瓶颈会迅速消失。"
+          "featured": false,
+          "title": {
+            "en": "Intel Reportedly Plans a DDR4 Return With Raptor Lake Next",
+            "zh": "据报Intel计划以Raptor Lake Next重返DDR4平台"
           },
-          "source": "The Register",
-          "url": "https://www.theregister.com/systems/2026/06/12/sk-hynix-to-triple-wafer-capacity-by-2034/5255151",
-          "published": "2026-06-12T21:05:22+00:00"
+          "summary": {
+            "en": "Intel is reportedly preparing a Raptor Lake Next platform for LGA 1700 and DDR4 systems in the first half of 2027, although the company declined to comment. Extending an older socket and memory standard would target price-sensitive PCs and preserve demand for DDR4, but the roadmap remains an unconfirmed Computex report.",
+            "zh": "据报Intel正准备在2027年上半年推出面向LGA 1700和DDR4系统的Raptor Lake Next，但公司拒绝置评。延长旧插槽和内存标准的生命周期可覆盖价格敏感型PC，并维持DDR4需求，不过这一规划目前仍只是Computex期间未经确认的消息。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/cpus/intel-reportedly-preparing-surprise-return-to-ddr4-systems-with-raptor-lake-next-ddr4-platform-slated-for-the-first-half-of-2027-on-the-lga-1700-socket-takes-a-page-from-amds-book-by-extending-budget-platform-longevity",
+          "published": "2026-06-13T11:30:00+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "SK Hynix Reportedly Plans a $14 Billion Nasdaq Listing", "zh": "报道称SK hynix计划推进140亿美元Nasdaq上市"},
-          "summary": {
-            "en": "SK Hynix is reportedly pursuing a Nasdaq listing tied to a $14 billion AI-driven capital push. A US listing could broaden the memory maker's investor base and provide another financing channel for expensive HBM capacity, although the candidate item does not specify the security structure, timing, or final regulatory status.",
-            "zh": "报道称，SK hynix正推进Nasdaq上市，并与一项140亿美元的AI相关资本计划相联系。美国上市可扩大其投资者基础，并为高成本HBM扩产提供新的融资渠道；但候选信息未说明证券结构、时间安排或最终监管状态。"
+          "title": {
+            "en": "Samsung Reviews Strategy as the Memory Boom Squeezes Devices",
+            "zh": "存储景气挤压终端业务，Samsung重新评估战略"
           },
-          "source": "MSN",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOcER5WWEwQmc0ZWd4N1JTVFV0U3ZtYThmV1Q4OWFKMXVWNWJsX1R3SXI0Tm83cHlCdmRoblRkdl9tU0ZJdmFicERhWjdfdkJVZWR5c0ZITDV5V0pjckxTZUFpbkZySmcyNUUweFo3cmVyb3Z5SEFzVTg1X1BpcHJrek9ZQzJDTTg0bU1CRHFMOVBtcUdzak9peHJta0RlTlYtZEJSVFB5YVlZcXhjUFRrQmlxeEI5YzFzVEdVT09vZEpiaXk4T0JN?oc=5",
-          "published": "2026-06-12T18:43:01+00:00"
+          "summary": {
+            "en": "Samsung is reviewing its strategy as stronger memory conditions raise pressure on its device businesses, according to DigiTimes. Higher component prices improve semiconductor profitability but can compress margins in phones and other electronics, forcing Samsung to balance gains as a memory supplier against costs inside its own products.",
+            "zh": "据DigiTimes报道，随着存储市场走强对终端设备业务形成压力，Samsung正在重新评估战略。元件涨价有利于半导体部门盈利，却会压缩手机等电子产品的利润率，迫使Samsung在存储供应商收益与自有产品成本之间重新平衡。"
+          },
+          "source": "DigiTimes",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQSjNTWFFZYlM3WnZ1bkdyck9xZDJMX0FwZG0wMlJCVTJLQU8yS1dSZU9QaVpzc180OUFDekxuWUhITzRuanVLTENWOEdzNDF0U1RIZEhsRUZJc1FZOXlHUFFobzdTSDZpdF94WmpXcC1fNTZybE14MHJhalZGSGlwWG1ya2NlMUliN205TXZSdTR0dWtWQzM0NkVn?oc=5",
+          "published": "2026-06-13T01:00:46+00:00"
+        },
+        {
+          "featured": true,
+          "title": {
+            "en": "SK Hynix Weighs Supplier Price Increases as HBM Demand Surges",
+            "zh": "HBM需求激增，SK hynix考虑接受供应商涨价"
+          },
+          "summary": {
+            "en": "SK hynix is weighing price increases from equipment suppliers as the HBM boom lifts tool demand and supplier bargaining power, DigiTimes reports. The shift indicates that AI-memory economics are spreading upstream: higher tool costs can raise the capital intensity of capacity additions even while HBM margins remain strong.",
+            "zh": "据DigiTimes报道，随着HBM热潮推高设备需求和供应商议价能力，SK hynix正考虑接受设备供应商涨价。这表明AI存储的经济效应正向上游扩散：即使HBM利润率保持强劲，设备成本上升仍会提高新增产能的资本强度。"
+          },
+          "source": "DigiTimes",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQUnppTTRpZkliNXY4TUl3U2FDZk5pWXRJekktTkJOVElrem4yYUdPXzFNTk5FMHMxaHI1LTZSMVdIV3NjT2M2RjlQNzg4TlpnbmNjejdnYmROZVBVaEVkMXNjZ252M2ticWRSX1BiOWVKZ2cyc2hjRER2Rkh5YzlOS1E5b3RkN0ZmVkhtRzBPYmhkQQ?oc=5",
+          "published": "2026-06-13T00:55:23+00:00"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "ASML Secures Union Backing for Job Cuts",
+            "zh": "ASML裁员计划获得工会支持"
+          },
+          "summary": {
+            "en": "ASML has secured union backing for planned job cuts even as its shares approach a record amid the chip-equipment boom. The contrast suggests the lithography leader is tightening selected costs rather than responding to a broad demand collapse, but the candidate report does not disclose the number or location of affected roles.",
+            "zh": "在芯片设备景气推动股价接近纪录高位之际，ASML的裁员计划已获得工会支持。这一反差更像是光刻设备龙头在收紧特定成本，而非应对全面需求下滑；不过候选报道未披露受影响岗位数量和地点。"
+          },
+          "source": "AD HOC NEWS",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPb2VMOFZzc0NTbnhmNGZmTVNWRnQzQjRXWjNSOER3VzJjLU1BUUpnTTVQQy1JSVZEUG5YRXJmcnZTY2tYbTg2ZGVEMmh1ZGFjcExhYmNqSFM5VWpRY0J2TG9qdmNyWmpJV09vX0tkWkhuVEpyUDJqUjJDQWlRS2FxdGlRc05BVDdPZVVTdHE0VDlqWTlkU3VwdmlKbFd5T21oYWVTZFMtaWp6SXBvVWJMcEZ3Zko2eUJyMVA3TUtMMVJWcGNTWHlINnJB?oc=5",
+          "published": "2026-06-12T22:31:06+00:00"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
+      },
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "China's Indium Phosphide Export Controls Pressure AI Supply Chains", "zh": "中国磷化铟出口管制挤压AI供应链"},
-          "summary": {
-            "en": "Chinese export controls on indium phosphide are tightening supply for AI-related photonics and communications components, according to the candidate report. The material sits upstream of high-speed optical links and compound-semiconductor devices, so constrained availability can affect data-center interconnect deployment even when logic-chip supply is adequate.",
-            "zh": "据候选报道，中国对磷化铟实施的出口管制正在收紧AI相关光子与通信器件的供应。该材料位于高速光互连和化合物半导体器件的上游，因此即使逻辑芯片供应充足，材料短缺仍可能影响数据中心互连部署。"
+          "featured": true,
+          "title": {
+            "en": "Taiwan Considers Tighter Controls on AI-Chip Exports to China",
+            "zh": "台湾考虑收紧对中国大陆的AI芯片出口限制"
           },
-          "source": "Discovery Alert",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNRjZ6NzZwNHJldDNzMVJfOUk2MlB5N0ctMTZXdkNYWjYzU053WG9aSUZERDN0cGZoQkFzMWdKMHlaMDhzMHB0ZVFXZTk4VnlUd3RES2tIYTV2N1JVUFhjUEpQVy1JZ041LU9fVTh4ZEwtZmNVdWdadW5ESFNKVkthRWstRmlXTklGeVE?oc=5",
-          "published": "2026-06-12T23:34:31+00:00"
+          "summary": {
+            "en": "Taiwan is considering tougher restrictions on exports of AI chips to China, a prospect that weighed on TSMC shares. A stricter regime could add licensing and customer-screening risk for chips made in Taiwan, but the proposal's product thresholds and implementation timetable have not yet been specified.",
+            "zh": "台湾正考虑收紧对中国大陆的AI芯片出口限制，该消息令TSMC股价承压。更严格的制度可能增加台湾制造芯片的许可与客户审查风险，但提案涉及的产品门槛和实施时间表尚未明确。"
+          },
+          "source": "MSN",
+          "url": "https://news.google.com/rss/articles/CBMijwNBVV95cUxOT2JWSzBxbENnb3RyZU04YnlTMUNFTW9hZVgxMTVLNGsyV2pSM2F3V0pQd210RV91enprQ082WnJuQm1MXzRrZk0ybVV6UkxTamRiamo2Y0t4UXUzNUh5QUx4R0pTN0dZaVFxcjg2SFJybFhFLVRvVGphY3BxanFDRG1DVjVVN2lOdVNlNWFKSjd5Sm9GVlNnbkJ1RHo3Z0dUcUZrUzFXRHlWWkxmMzF1UzNQS0c4UGVNY1NrOU4zcXQzSEtYbDd3VmowWVVOMEE2Y0ZMRVFsV3RpcXFZcEZSRF9meVZIMXJrZXVVS3IxODZQc21LQXRLcUN1djQtNTJpeVRZTFZPWl93cDRzbFpNYXFYZDFndG9YLUVNdzExWlJSYlpDSjV1ZXFFUnZBaW5aVFhaUkVhcFJBR2k2WlY1LTAxQjlJdXBTdXlRNklSLU1Ba2FUM0s3eWN6T3RqQ1JiYXIzT05DNThfSzZVRS01N3pfbWZ0YzV4THhydlpaSFAxdVBmMm9rQTlzR1c5b3M?oc=5",
+          "published": "2026-06-13T09:23:44+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "US Lawmakers Seek CHIPS Funding Eligibility for Space Manufacturing", "zh": "美国议员推动太空制造项目获得CHIPS资金资格"},
-          "summary": {
-            "en": "US lawmakers are seeking to make space-based manufacturers eligible for CHIPS program funding. The proposal would extend semiconductor industrial policy beyond terrestrial fabs into orbital manufacturing, but it is a legislative initiative rather than an awarded subsidy and still faces questions about technical readiness and program scope.",
-            "zh": "美国议员正推动将太空制造企业纳入CHIPS计划的资金支持范围。该提案将半导体产业政策从地面晶圆厂延伸至轨道制造，但目前仍是立法倡议而非已授予的补贴，其技术成熟度和计划边界仍待明确。"
+          "title": {
+            "en": "China's Tungsten Export Curbs Test Japan's AI-Chip Supply Chain",
+            "zh": "中国钨出口限制考验日本AI芯片供应链"
           },
-          "source": "Manufacturing Dive",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMjk3Rmx0UzFjN1FXOFBZMnByX3VETnYtTlV5OGNCWk45aVo2aEN4ZVhPMnBUVnhUVDVCcW9SNGY4MVFUUEg1OWN0LU1ZUE8xOVA1YV9obmxGdEM4UVY0S1hqeEVZOVptVkhzdk9uTzkyQV9BX19QendlSVJ5TlIydzhhc0xxRXR0Um9RQmxsMXpxZzFTTDZUempiWlNKMl9RTmo3UUln?oc=5",
-          "published": "2026-06-12T16:45:17+00:00"
+          "summary": {
+            "en": "China's tungsten export restrictions are raising concern about Japan's AI-chip supply chain, according to the South China Morning Post. Tungsten is used across semiconductor manufacturing and electronics, so tighter availability can create cost and qualification pressure upstream even when finished-chip export rules are unchanged.",
+            "zh": "据《南华早报》报道，中国的钨出口限制正引发日本AI芯片供应链担忧。钨广泛用于半导体制造和电子产业，因此即使成品芯片出口规则不变，供应收紧也可能在上游造成成本上升和材料认证压力。"
+          },
+          "source": "South China Morning Post",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOTjYyVWdHa216eTdhU2lXaXRicmxVY1FMTDhQSzNxdVB4TkJFNmIxalNEZVRRdnpKVGdXMk1wMGh3RFBZcHpVV29PLTVZeGJqS0h4cDJZTVBlckg2YjJZX3h4NmVJSkVTbnZYX0JyM3FoTldNNi1OTFZ4SDVJVzZmbndOaFM3bDBmUWx0d3IxTUFWXy1pSDYzWXVHRWJYQjBVaHF0Yk5XXzd4V0hUUldEQW9Eb2l6VTNsUmYxN1hwWHk1RGF5Z1Aw0gHHAUFVX3lxTE9ianRpeXNzWTA1VldibTV3bmxOYTctNWJXWHhrblFnczE2R2ZwVmp4RWN5TktRc2tVc1BoUUJoclA0WHBsbFNmc1hMbEQ0eGpLRlRaV1dGUloyUkRLb1RWdFVjTVpieGdXSmMxbzlPU3V2VXNfZWR4NGNnREh6ZlhSbHFXbm1VeXNFUVJzTkIzVDg5SHlyZjhCN3BFTXpua2k4NFhHZVJwbHN6cUlOMDM4SkNGT25EWU00eFZYWEZQU25lT3d1ZUk?oc=5",
+          "published": "2026-06-13T07:00:06+00:00"
         }
       ]
     },
     {
       "id": "earnings",
-      "title": {"en": "Earnings & Markets", "zh": "业绩与市场"},
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "财报与市场"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "TSMC's May Sales Rise 30% as Export-Policy Risk Weighs on Shares", "zh": "台积电5月销售额增长30%，出口政策风险压制股价"},
-          "summary": {
-            "en": "TSMC reported 30% year-over-year sales growth in May, extending the revenue benefit from AI and advanced-node demand. The shares nevertheless remained under pressure as Taiwan considered tighter restrictions on AI-chip exports to China, showing that policy risk can offset strong operating momentum in market pricing.",
-            "zh": "台积电5月销售额同比增长30%，继续受益于AI和先进制程需求。尽管经营动能强劲，其股价仍因台湾考虑收紧对中国的AI芯片出口限制而承压，显示政策风险足以抵消基本面利好在市场定价中的影响。"
+          "title": {
+            "en": "SK Hynix Reportedly Chooses Nasdaq for a Planned U.S. Listing",
+            "zh": "据报SK hynix计划赴美在Nasdaq上市"
           },
-          "source": "MSN",
-          "url": "https://news.google.com/rss/articles/CBMikANBVV95cUxQSm95Q0xtQmZoaW1mVDdsYzlpdzRWYlBOLVZabkFWNVNzVFd0YWQ2LV9nVDN2WmdYNmVvUWlDUHBZaVFwQWFsemxqQ002SVpacGRVSE5GdmZpZTVQVEZ1anpRX2xHbjNjLXBGZHJmRVRHUHFqR21PdG5oN1hfOFE0UXlvODZYSGg5VnhzMlB1YWJDaWNUbWZ4ZjV1VHplVkZJRDlKVTNScElqOFV4NWZnbGlTY09oWHd0RGxWcVpxQVJjS3VFZDJjMVNvUk0xRDZqWThESV9TMnZWcHhfS3BQVU5PY05obzEwYzJoWGpxTFNyeTZ0Ml9vWDgwWHRNSHRjTFA3RVIzVE0wdnBzZzU5a080V1ZON25lX1FHTmk1THM0LURtQWF4UHMxM1pmckd2MjFfVDAzdXBBc0lCTHBDWDFLcVJoVWNxT1Q4dU0wcFc2R2FTaTNGcktocHRyRXF3eDVtZkpNX0VzN19JQzBjbGJ3LTlfUklHMHU4eDY1RWY3dnFWMTltVm5saF9Nd1pP?oc=5",
-          "published": "2026-06-12T17:20:50+00:00"
+          "summary": {
+            "en": "SK hynix is reportedly leaning toward Nasdaq for its planned U.S. listing. A U.S. venue could broaden access for global investors and attach a more direct market valuation to the HBM leader, although the report does not specify the instrument, size, or timing of the transaction.",
+            "zh": "据报SK hynix倾向于为计划中的美国上市选择Nasdaq。赴美上市可扩大国际投资者的参与渠道，并让市场更直接地为这家HBM龙头定价，但报道未说明上市工具、规模或时间。"
+          },
+          "source": "ET Telecom",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYVhzbG9fWjVqUEJjbEFiYUlfejhjZjVDMjJGRndhUTdNM0VlWC1vdVNOekdxU1NpTkVkaTFzc2tHdklmS0pDRkQtWFAxTDVTNl9hbnlIT1pOYnNnVlQxUWJEdElnM2poQmxDSTNBU081NFNZdFVxSExyOWZ6WUdkRTZDT2ROX1FLNTFndE1vOUlQTTIzMFFhclFNbkVuTmdRUExqcHNHUlQ2VzBxQlJydGJUb1EtOGFudUU4cQ?oc=5",
+          "published": "2026-06-13T03:33:59+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Efficiency Moves Into Control and Scheduling", "zh": "效率优化进入控制与调度层"},
+    "theme": {
+      "en": "Adaptive Computation Replaces Fixed Resource Budgets",
+      "zh": "自适应计算取代固定资源预算"
+    },
     "dek": {
-      "en": "This week's hardware-relevant papers attack overhead above the arithmetic units: protocol duplication, excess reasoning tokens, static GPU groups, and inflexible neuron datapaths. Device work adds measured views of CdTe field dynamics and micron-scale magnonic non-reciprocity.",
-      "zh": "本周与硬件密切相关的论文把优化重点放在算术单元之上，包括协议重复、冗余推理token、静态GPU分组和不灵活的神经元数据通路。器件研究则带来CdTe电场动态和微米级磁振子非互易性的实测结果。"
+      "en": "This week's strongest systems papers allocate tokens, parameters, decoding steps, or historical state according to the input rather than a fixed schedule. Device work adds new tools for observing internal fields and using ferroelectric polarization at sensing interfaces.",
+      "zh": "本周较有价值的系统论文不再采用固定计划，而是根据输入动态分配token、参数、解码步骤或历史状态。器件研究则带来观测内部电场及利用铁电极化调制传感界面的新方法。"
     },
     "areas": [
       {
         "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
         "papers": [
           {
-            "title": {"en": "Electric-Field Mapping of Optically Perturbed CdTe Radiation Detectors", "zh": "光扰动CdTe辐射探测器的电场映射"},
-            "authors": "A. Cola, L. Dominici, A. Valletta",
-            "affiliation": "",
-            "venue": "arXiv:2606.13622",
-            "venue_url": "https://arxiv.org/abs/2606.13622",
-            "summary": {
-              "en": "The paper maps the two-dimensional electric-field vector and its time evolution inside a Schottky CdTe detector after localized optical exposure, using the Pockels effect and custom image processing. The measured dynamics agree with simulations based on a dominant two-level deep-trap model, giving a compact explanation for space-charge-driven field distortion. This is a device-level diagnostic result rather than a manufacturing demonstration, but it could improve failure analysis and operating models for CdTe radiation sensors.",
-              "zh": "论文利用Pockels效应和定制图像处理，在局部光照后测量Schottky CdTe探测器内部二维电场矢量及其时间演化。实测动态与基于主导双能级深陷阱模型的仿真一致，为空间电荷引起的电场畸变提供了简洁解释。该工作属于器件级诊断，而非制造验证，但可改进CdTe辐射传感器的失效分析和工作模型。"
+            "title": {
+              "en": "Photoelectric-Coupled Ferroelectric Heterojunctions for Polarization-Memory NO2 Sensing",
+              "zh": "用于极化记忆NO2传感的光电耦合铁电异质结"
             },
-            "published": "2026-06-11T17:36:26Z"
+            "authors": "L. Tan, X. Hu, M. Zhou, et al.",
+            "affiliation": "",
+            "venue": "Advanced Science",
+            "venue_url": "https://doi.org/10.1002/advs.75968",
+            "summary": {
+              "en": "The paper reports a photoelectric-coupled ferroelectric heterojunction that uses polarization memory to modulate the sensing interface for NO2 detection. The architecture links nonvolatile ferroelectric state to gas-response control, potentially reducing the need for continuous bias or external calibration. The candidate record contains no abstract or device metrics, so sensitivity, endurance, selectivity, and manufacturability require review in the full paper.",
+              "zh": "论文报道了一种光电耦合铁电异质结，利用极化记忆调制NO2传感界面。该结构把非易失铁电状态与气体响应控制相结合，有望减少持续偏置或外部校准需求。候选记录未提供摘要和器件指标，因此灵敏度、耐久性、选择性与可制造性仍需查阅全文。"
+            },
+            "published": "2026-06-12"
           },
           {
-            "title": {"en": "A Micron-Scale Three-Port Magnonic Circulator", "zh": "微米级三端口磁振子环行器"},
-            "authors": "K. S. Weber, L. Temdie, V. Castel, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.13540",
-            "venue_url": "https://arxiv.org/abs/2606.13540",
-            "summary": {
-              "en": "The authors experimentally demonstrate spin-wave circulation across all three ports of a micron-scale rectilinear magnonic device. Chiral excitation from nanowire gratings produces directional channels, while the operating band can be tuned from 2 to 8GHz with fields up to 100mT and grating geometry. The result is a prototype with a narrow operating band, but it provides measured evidence for integrated non-reciprocal microwave components at dimensions far below conventional circulators.",
-              "zh": "作者在微米级直线型磁振子器件上，通过完整三端口谱学实验验证了端口之间的自旋波环行。纳米线光栅的手性激发形成定向通道，工作频段可借助最高100mT外磁场和光栅几何在2至8GHz范围内调节。该原型的工作带宽仍较窄，但为尺寸远小于传统环行器的集成非互易微波器件提供了实验证据。"
+            "title": {
+              "en": "Temporal Glide Symmetry Selects Photonic Frequency Sidebands by Parity",
+              "zh": "时间滑移对称性按奇偶性选择光子频率边带"
             },
-            "published": "2026-06-11T16:24:59Z"
-          }
-        ]
-      },
-      {
-        "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
-        "papers": [
-          {
-            "title": {"en": "ReSCom: A Reconfigurable Stochastic-Computing SNN Accelerator", "zh": "ReSCom：基于随机计算的可重构SNN加速器"},
-            "authors": "A. A. Fereidani, M. R. Roshanshah, S. Safari",
+            "authors": "M. Camacho",
             "affiliation": "",
-            "venue": "arXiv:2606.13560",
-            "venue_url": "https://arxiv.org/abs/2606.13560",
+            "venue": "arXiv:2606.13609",
+            "venue_url": "https://arxiv.org/abs/2606.13609",
             "summary": {
-              "en": "ReSCom uses stochastic multiplication for neuron dynamics while retaining exact fixed-point addition and subtraction, allowing runtime trade-offs among accuracy, latency, and energy. One unified datapath supports integrate-and-fire, leaky integrate-and-fire, and synaptic neuron models; an Artix-7 FPGA implementation reaches 92.80% MNIST accuracy. The result is useful architectural evidence, but it is an FPGA study on a small benchmark rather than measured ASIC silicon or a modern large-scale SNN workload.",
-              "zh": "ReSCom在神经元动态中采用随机乘法，同时保留精确的定点加减法，从而可在运行时权衡精度、延迟与能耗。统一数据通路支持IF、LIF和Synaptic三类神经元模型，在Artix-7 FPGA上实现92.80%的MNIST准确率。该结果具有架构参考价值，但仍是小型基准上的FPGA研究，并非ASIC实测硅片或现代大规模SNN负载。"
+              "en": "Camacho derives an exact selection rule for a time-modulated trilayer waveguide: odd frequency sidebands switch transverse parity, while even sidebands preserve it. Floquet eigenstate analysis and finite-section time-domain simulations suppress symmetry-forbidden channels to numerically negligible levels. The result offers a design rule for controlled photonic frequency conversion, but it remains simulation-based and has not yet been demonstrated in fabricated hardware.",
+              "zh": "Camacho为时间调制三层波导推导出精确选择规则：奇数频率边带会切换横向模态奇偶性，偶数边带则保持奇偶性。Floquet本征态分析和有限区段时域模拟将对称性禁戒通道压低至数值上可忽略的水平。该结果为可控光子频率转换提供了设计规则，但目前仍基于模拟，尚未在制造出的硬件上验证。"
             },
-            "published": "2026-06-11T16:44:08Z"
-          },
-          {
-            "title": {"en": "Optical Equilibrium Propagation on a Spatial Photonic Ising Machine", "zh": "空间光子Ising机上的光学平衡传播"},
-            "authors": "D. Vanden Abeele, D. Veraldi, D. Pierangeli, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.13454",
-            "venue_url": "https://arxiv.org/abs/2606.13454",
-            "summary": {
-              "en": "The work demonstrates a hybrid optical-digital implementation of equilibrium propagation using a spatial photonic Ising machine. A spatial light modulator encodes continuous neuron states and rank-1 binary trainable patterns as optical phase, with an experimental evaluation on the Wine dataset and numerical scaling work on MNIST. It is a concrete physical implementation, but the larger-task evidence remains simulated and the setup is not yet an integrated photonic accelerator.",
-              "zh": "该工作利用空间光子Ising机实现了混合光电平衡传播。空间光调制器把连续神经元状态和秩1二值可训练模式编码为光学相位，实验部分使用Wine数据集，向MNIST扩展的结果则来自数值研究。它给出了具体的物理实现，但更大任务的证据仍停留在仿真阶段，系统也尚未成为集成光子加速器。"
-            },
-            "published": "2026-06-11T15:12:05Z"
+            "published": "2026-06-11T17:24:05Z"
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Research for Systems & Hardware", "zh": "面向系统与硬件的AI研究"},
+        "title": {
+          "en": "AI Research for Hardware",
+          "zh": "面向硬件的AI研究"
+        },
         "papers": [
           {
-            "title": {"en": "Early Exit at the Commitment Boundary Cuts Reasoning Length", "zh": "在承诺边界提前退出可缩短推理链"},
-            "authors": "D. Scalena, S. Candussio, L. Bortolussi, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.13603",
-            "venue_url": "https://arxiv.org/abs/2606.13603",
-            "summary": {
-              "en": "The paper identifies a commitment boundary where a reasoning model's answer becomes stable, after which many chain-of-thought steps no longer change the answer probability. Attention-based probes predict this transition across unseen tasks, enabling early exit that reduces reasoning length by up to 55% on average with negligible performance loss. The systems payoff is direct in lower token generation and accelerator occupancy, though the approach still depends on probe reliability across model families and deployment distributions.",
-              "zh": "论文识别出一个「承诺边界」：推理模型的答案在此处趋于稳定，之后大量思维链步骤不再改变答案概率。基于注意力的探针可在未见任务上预测这一转折点，使平均推理长度最多降低55%，同时性能损失可忽略。其系统收益是直接减少token生成量和加速器占用，但实际部署仍取决于探针在不同模型家族和数据分布上的可靠性。"
+            "title": {
+              "en": "Dense Supervision Produces Sparse Updates in On-Policy Distillation",
+              "zh": "密集监督在在策略蒸馏中产生稀疏更新"
             },
-            "published": "2026-06-11T17:21:16Z"
+            "authors": "G. Yu, W. Liu, Y. Hu, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.13657",
+            "venue_url": "https://arxiv.org/abs/2606.13657",
+            "summary": {
+              "en": "Across language and vision-language models, on-policy distillation produces small, coordinate-sparse updates distributed across layers and concentrated in feed-forward networks. Training only the identified subnetwork recovers nearly the same performance as full distillation, suggesting a route to lower optimizer-state and communication costs. The updates remain numerically full-rank and AdamW still beats a sparsity-inducing SGD variant, so the result does not reduce cleanly to low-rank adaptation.",
+              "zh": "在语言模型和视觉语言模型上，在策略蒸馏产生幅度较小、坐标稀疏的参数更新，这些更新分布于多层并主要集中在前馈网络。仅训练识别出的子网络即可恢复接近完整蒸馏的性能，为降低优化器状态和通信成本提供了路径。不过更新在数值上仍为满秩，且AdamW优于诱导稀疏的SGD变体，因此该结果不能简单归结为低秩适配。"
+            },
+            "published": "2026-06-11T17:54:09Z"
           },
           {
-            "title": {"en": "GF-DiT Dynamically Reschedules GPU Parallelism for Diffusion Serving", "zh": "GF-DiT为扩散模型服务动态重调度GPU并行度"},
-            "authors": "X. Qiang, Y. Hu, S. Sun, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.13501",
-            "venue_url": "https://arxiv.org/abs/2606.13501",
-            "summary": {
-              "en": "GF-DiT treats GPU parallelism as a schedulable resource instead of fixing one configuration for an entire diffusion-transformer request. Its runtime splits requests into independently schedulable trajectory tasks and uses group-free collectives to re-form execution groups online; the implementation is built in vLLM-Omni. The architecture targets utilization and service-quality losses caused by heterogeneous requests, but the candidate abstract is truncated before quantitative evaluation results, so the magnitude of the gain cannot be assessed here.",
-              "zh": "GF-DiT不再为整个Diffusion Transformer请求固定一种并行配置，而是把GPU并行度视为可调度资源。其运行时将请求拆分为可独立调度的轨迹任务，并通过无固定组collective在线重组执行组，系统实现基于vLLM-Omni。该架构针对异构请求造成的利用率和服务质量损失，但候选摘要在量化评测结果前被截断，因此目前无法判断收益幅度。"
+            "title": {
+              "en": "Adaptive Token Compression Accelerates Time-Series Language Models",
+              "zh": "自适应Token压缩加速时间序列语言模型"
             },
-            "published": "2026-06-11T15:51:10Z"
+            "authors": "J. Gan, X. Qiu, G. Chen, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.13624",
+            "venue_url": "https://arxiv.org/abs/2606.13624",
+            "summary": {
+              "en": "The paper compresses time-series tokens according to frequency-domain contribution and progressively drops prompt tokens as their influence fades with depth. Across forecasting, classification, imputation, and anomaly detection, the method reports up to 7.68x inference acceleration and performance gains in 78% of evaluated settings. The systems value is a variable token budget that reduces attention work, although the evidence is limited to time-series tasks rather than general-purpose LLM serving.",
+              "zh": "论文根据频域贡献压缩时间序列token，并随着提示词影响在深层网络中减弱而逐层减少prompt token。该方法在预测、分类、插补和异常检测任务上最高实现7.68x推理加速，并在78%的评测设置中提升性能。其系统价值在于以可变token预算减少注意力计算，但证据目前仅来自时间序列任务，尚不能直接推广到通用LLM服务。"
+            },
+            "published": "2026-06-11T17:39:26Z"
           },
           {
-            "title": {"en": "Orchestration Reward Modeling Reduces Multi-Agent Training Tokens", "zh": "编排奖励模型降低多智能体训练token开销"},
-            "authors": "K. Y. Tsang, Z. Zhao, V. Venkataramani, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.13598",
-            "venue_url": "https://arxiv.org/abs/2606.13598",
-            "summary": {
-              "en": "OrchRM trains an orchestration-level reward model from intermediate multi-agent artifacts, avoiding repeated costly sub-agent rollouts for supervision. The authors report up to a 10x reduction in training-token use and accuracy gains of up to 8% for multi-agent test-time scaling across reasoning and web tasks. The hardware relevance comes from reducing generated and processed tokens, but the claims are preprint results and do not include energy or accelerator-level measurements.",
-              "zh": "OrchRM利用多智能体执行过程中的中间产物训练编排层奖励模型，避免为监督反复进行高成本子智能体rollout。作者报告训练token用量最多降低10倍，多智能体测试时扩展在推理和Web任务上的准确率最高提升8%。其硬件意义在于减少生成和处理的token，但这些仍是预印本结果，尚无能耗或加速器层面的测量。"
+            "title": {
+              "en": "A2D2 Jointly Tunes Insertion and Unmasking for Adaptive Diffusion Decoding",
+              "zh": "A2D2联合优化插入与去掩码以实现自适应扩散解码"
             },
-            "published": "2026-06-11T17:16:24Z"
-          }
-        ]
-      },
-      {
-        "id": "eda",
-        "title": {"en": "EDA & Verification", "zh": "EDA与验证"},
-        "papers": [
+            "authors": "S. Tang, Y. Zhu, M. Tao, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.13565",
+            "venue_url": "https://arxiv.org/abs/2606.13565",
+            "summary": {
+              "en": "A2D2 jointly fine-tunes token-insertion and unmasking policies for any-length discrete diffusion models, then uses a quality-based adaptive inference schedule. Its derivation targets the reward-tilted sequence distribution without requiring target samples, and experiments report better reward optimization and generation flexibility than fixed-length baselines. Hardware impact depends on whether adaptive schedules reduce real decoding work after accounting for control overhead; no accelerator measurements are reported.",
+              "zh": "A2D2面向任意长度离散扩散模型，联合微调token插入和去掩码策略，并采用基于质量的自适应推理调度。其推导无需目标样本即可逼近奖励倾斜的序列分布，实验显示相较固定长度基线可改善奖励优化和生成灵活性。其硬件价值取决于扣除调度控制开销后能否真正减少解码计算，论文未报告加速器实测结果。"
+            },
+            "published": "2026-06-11T16:50:58Z"
+          },
           {
-            "title": {"en": "A Single Program Specifies Both Hardware Drivers and Monitors", "zh": "用同一程序同时定义硬件驱动器与监视器"},
-            "authors": "E. Ng, N. Shyamsunder, F. Pham, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.13659",
-            "venue_url": "https://arxiv.org/abs/2606.13659",
-            "summary": {
-              "en": "The proposed DSL expresses a hardware communication protocol once and derives both stimulus-driving behavior and transaction monitoring from the same imperative program. Given a waveform, the associated tool infers a transaction-level trace consistent with that specification, which could eliminate mismatches between separately maintained drivers and monitors. The paper is still a design proposal with planned evaluation on Wishbone and AXI-Stream, so real-world coverage, ambiguity handling, and runtime cost remain open.",
-              "zh": "该DSL只需用一个命令式程序描述硬件通信协议，即可同时导出激励驱动行为和事务监视逻辑。配套工具能够根据波形推断与规范一致的事务级轨迹，有望消除驱动器与监视器分开维护造成的不一致。论文目前仍是设计提案，计划在Wishbone和AXI-Stream上评估，因此真实协议覆盖、歧义处理和运行成本仍待验证。"
+            "title": {
+              "en": "Bitwise Residual Editing for Visual Autoregressive Models",
+              "zh": "面向视觉自回归模型的逐比特残差编辑"
             },
-            "published": "2026-06-11T17:56:13Z"
+            "authors": "S. Zhang, R. Liao, V. Tresp, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.13558",
+            "venue_url": "https://arxiv.org/abs/2606.13558",
+            "summary": {
+              "en": "BitResEdit performs training-free image editing by steering per-bit Bernoulli predictions inside a KL trust region and reinjecting localized residual codes across scales. Operating on the generator's native bitwise and residual structures preserves masked-out latent features exactly by code arithmetic, rather than relying only on token-level guidance. The approach is specific to bitwise-residual visual autoregressive models such as Infinity, so its utility depends on adoption of that representation.",
+              "zh": "BitResEdit通过在KL信赖域内引导逐比特Bernoulli预测，并跨尺度重新注入局部残差编码，实现免训练图像编辑。它直接利用生成器原生的逐比特和残差结构，通过编码运算精确保留掩码外的潜在特征，而不是只依赖token级引导。该方法针对Infinity等逐比特残差视觉自回归模型，其价值取决于这类表示方式的采用程度。"
+            },
+            "published": "2026-06-11T16:41:25Z"
+          },
+          {
+            "title": {
+              "en": "Adaptive Memory Gating for Neural Operators",
+              "zh": "神经算子的自适应记忆门控"
+            },
+            "authors": "J. Hur, Y. Kwon, M.-G. Jo, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.13443",
+            "venue_url": "https://arxiv.org/abs/2606.13443",
+            "summary": {
+              "en": "AMGFNO learns how much historical state a neural operator should retain instead of applying a fixed memory weight across observation conditions. On Kuramoto-Sivashinsky and Burgers' equation benchmarks, it reports 55-79% lower normalized RMSE at low resolution, while the learned gate falls from about 0.7 toward zero as resolution rises. The adaptive state budget could reduce unnecessary memory traffic, but results are confined to simulated PDE workloads and do not include hardware measurements.",
+              "zh": "AMGFNO让神经算子学习应保留多少历史状态，而不是在不同观测条件下使用固定记忆权重。在Kuramoto-Sivashinsky和Burgers方程基准上，该方法在低分辨率时将归一化RMSE降低55-79%，并让学习到的门值随分辨率提高从约0.7降至接近0。自适应状态预算可能减少不必要的内存流量，但结果仅限于模拟PDE负载，且没有硬件实测。"
+            },
+            "published": "2026-06-11T15:05:02Z"
           }
         ]
       }
