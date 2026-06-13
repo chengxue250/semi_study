@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-12">
+<meta name="edition-date" content="2026-06-13">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Architectures Push Work Closer to Data — Semi Research 2026-06-12</title>
+<title>Efficiency Moves Into Control and Scheduling — Semi Research 2026-06-13</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,16 +249,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, June 12, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月12日 星期五</span>
+      <span class="en">Research digest · Saturday, June 13, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月13日 星期六</span>
     </div>
     <h1>
-      <span class="en">Architectures Push Work Closer to Data</span>
-      <span class="zh">架构把计算推向数据所在处</span>
+      <span class="en">Efficiency Moves Into Control and Scheduling</span>
+      <span class="zh">效率优化进入控制与调度层</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest hardware papers reduce movement through in-SRAM vector execution, hybrid compute-in-memory, tightly coupled NTT units, and specialized datapaths. The gains are concrete, but several results remain FPGA-based or simulation-only rather than measured custom silicon.</span>
-      <span class="zh">本周较强的硬件论文通过SRAM内向量执行、混合存算一体、紧耦合NTT单元和专用数据通路减少数据搬运。性能收益较为具体，但部分结果仍来自FPGA或仿真，而非实测定制芯片。</span>
+      <span class="en">This week&#x27;s hardware-relevant papers attack overhead above the arithmetic units: protocol duplication, excess reasoning tokens, static GPU groups, and inflexible neuron datapaths. Device work adds measured views of CdTe field dynamics and micron-scale magnonic non-reciprocity.</span>
+      <span class="zh">本周与硬件密切相关的论文把优化重点放在算术单元之上，包括协议重复、冗余推理token、静态GPU分组和不灵活的神经元数据通路。器件研究则带来CdTe电场动态和微米级磁振子非互易性的实测结果。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 8 paper(s)</span>
@@ -266,149 +266,155 @@
     </div>
   </header>
 
-    <section class="area" id="accelerators">
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13622" target="_blank" rel="noopener">
+          <span class="en">Electric-Field Mapping of Optically Perturbed CdTe Radiation Detectors</span>
+          <span class="zh">光扰动CdTe辐射探测器的电场映射</span>
+        </a>
+      </h3>
+      <p class="authors">A. Cola, L. Dominici, A. Valletta</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13622" target="_blank" rel="noopener">arXiv:2606.13622</a> · 2026-06-11T17:36:26Z</p>
+      <p class="summary">
+        <span class="en">The paper maps the two-dimensional electric-field vector and its time evolution inside a Schottky CdTe detector after localized optical exposure, using the Pockels effect and custom image processing. The measured dynamics agree with simulations based on a dominant two-level deep-trap model, giving a compact explanation for space-charge-driven field distortion. This is a device-level diagnostic result rather than a manufacturing demonstration, but it could improve failure analysis and operating models for CdTe radiation sensors.</span>
+        <span class="zh">论文利用Pockels效应和定制图像处理，在局部光照后测量Schottky CdTe探测器内部二维电场矢量及其时间演化。实测动态与基于主导双能级深陷阱模型的仿真一致，为空间电荷引起的电场畸变提供了简洁解释。该工作属于器件级诊断，而非制造验证，但可改进CdTe辐射传感器的失效分析和工作模型。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13540" target="_blank" rel="noopener">
+          <span class="en">A Micron-Scale Three-Port Magnonic Circulator</span>
+          <span class="zh">微米级三端口磁振子环行器</span>
+        </a>
+      </h3>
+      <p class="authors">K. S. Weber, L. Temdie, V. Castel, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13540" target="_blank" rel="noopener">arXiv:2606.13540</a> · 2026-06-11T16:24:59Z</p>
+      <p class="summary">
+        <span class="en">The authors experimentally demonstrate spin-wave circulation across all three ports of a micron-scale rectilinear magnonic device. Chiral excitation from nanowire gratings produces directional channels, while the operating band can be tuned from 2 to 8GHz with fields up to 100mT and grating geometry. The result is a prototype with a narrow operating band, but it provides measured evidence for integrated non-reciprocal microwave components at dimensions far below conventional circulators.</span>
+        <span class="zh">作者在微米级直线型磁振子器件上，通过完整三端口谱学实验验证了端口之间的自旋波环行。纳米线光栅的手性激发形成定向通道，工作频段可借助最高100mT外磁场和光栅几何在2至8GHz范围内调节。该原型的工作带宽仍较窄，但为尺寸远小于传统环行器的集成非互易微波器件提供了实验证据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCSI.2025.3643496" target="_blank" rel="noopener">
-          <span class="en">Hybrid Analog-Digital Compute-in-Memory With Dynamic Weight Division</span>
-          <span class="zh">采用动态权重拆分的模数混合存算一体架构</span>
+        <a href="https://arxiv.org/abs/2606.13560" target="_blank" rel="noopener">
+          <span class="en">ReSCom: A Reconfigurable Stochastic-Computing SNN Accelerator</span>
+          <span class="zh">ReSCom：基于随机计算的可重构SNN加速器</span>
         </a>
       </h3>
-      <p class="authors">J. Wu, L. Jiang, S. Sun, et al.</p>
+      <p class="authors">A. A. Fereidani, M. R. Roshanshah, S. Safari</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2025.3643496" target="_blank" rel="noopener">IEEE TCAS-I</a> · 2026-06-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13560" target="_blank" rel="noopener">arXiv:2606.13560</a> · 2026-06-11T16:44:08Z</p>
       <p class="summary">
-        <span class="en">The design combines a 10T SRAM compute cell, multicycle capacitive weighting, and a reconfigurable SAR ADC that can operate as one 8-bit converter or two 4-bit converters. In 28nm simulation it reaches 15.56 TOPS/W for a 12-bit 8+4 configuration, targeting the efficiency gap between analog and digital CIM. The result is simulation-only, so array nonidealities and measured silicon overhead remain open.</span>
-        <span class="zh">该设计结合10T SRAM计算单元、多周期电容加权，以及可在单个8-bit ADC和两个并行4-bit ADC之间切换的SAR ADC。在28nm仿真中，12-bit的8+4配置达到15.56 TOPS/W，目标是缩小模拟与数字CIM之间的效率差距。结果仅基于仿真，阵列非理想性和实测芯片开销仍待验证。</span>
+        <span class="en">ReSCom uses stochastic multiplication for neuron dynamics while retaining exact fixed-point addition and subtraction, allowing runtime trade-offs among accuracy, latency, and energy. One unified datapath supports integrate-and-fire, leaky integrate-and-fire, and synaptic neuron models; an Artix-7 FPGA implementation reaches 92.80% MNIST accuracy. The result is useful architectural evidence, but it is an FPGA study on a small benchmark rather than measured ASIC silicon or a modern large-scale SNN workload.</span>
+        <span class="zh">ReSCom在神经元动态中采用随机乘法，同时保留精确的定点加减法，从而可在运行时权衡精度、延迟与能耗。统一数据通路支持IF、LIF和Synaptic三类神经元模型，在Artix-7 FPGA上实现92.80%的MNIST准确率。该结果具有架构参考价值，但仍是小型基准上的FPGA研究，并非ASIC实测硅片或现代大规模SNN负载。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3817062" target="_blank" rel="noopener">
-          <span class="en">A Heterogeneous Vector Processor With In-SRAM Computing</span>
-          <span class="zh">集成SRAM内计算的异构向量处理器</span>
+        <a href="https://arxiv.org/abs/2606.13454" target="_blank" rel="noopener">
+          <span class="en">Optical Equilibrium Propagation on a Spatial Photonic Ising Machine</span>
+          <span class="zh">空间光子Ising机上的光学平衡传播</span>
         </a>
       </h3>
-      <p class="authors">R. Wang, D. Zhang, S. Yao, et al.</p>
+      <p class="authors">D. Vanden Abeele, D. Veraldi, D. Pierangeli, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3817062" target="_blank" rel="noopener">ACM TACO</a> · 2026-05-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13454" target="_blank" rel="noopener">arXiv:2606.13454</a> · 2026-06-11T15:12:05Z</p>
       <p class="summary">
-        <span class="en">HVPU couples a conventional vector processing unit with compute-capable SRAM through a common frontend interface, dynamic hazard handling, and concurrent dispatch. Multiple PIM blocks and dual control pipelines aim to expose SRAM-array parallelism without forcing software to manage two disconnected engines. The architectural integration is the main contribution; the candidate record does not provide measured-silicon evidence.</span>
-        <span class="zh">HVPU通过统一前端接口、动态冒险处理和并发分派，把传统向量处理单元与具备计算能力的SRAM连接起来。多个PIM模块和双控制流水线用于释放SRAM阵列并行度，同时避免软件管理两个彼此割裂的执行引擎。论文的主要贡献在于架构集成，候选记录未提供实测芯片证据。</span>
+        <span class="en">The work demonstrates a hybrid optical-digital implementation of equilibrium propagation using a spatial photonic Ising machine. A spatial light modulator encodes continuous neuron states and rank-1 binary trainable patterns as optical phase, with an experimental evaluation on the Wine dataset and numerical scaling work on MNIST. It is a concrete physical implementation, but the larger-task evidence remains simulated and the setup is not yet an integrated photonic accelerator.</span>
+        <span class="zh">该工作利用空间光子Ising机实现了混合光电平衡传播。空间光调制器把连续神经元状态和秩1二值可训练模式编码为光学相位，实验部分使用Wine数据集，向MNIST扩展的结果则来自数值研究。它给出了具体的物理实现，但更大任务的证据仍停留在仿真阶段，系统也尚未成为集成光子加速器。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Hardware-Relevant AI Research</span>
-      <span class="zh">硬件相关AI研究</span>
+      <span class="en">AI Research for Systems &amp; Hardware</span>
+      <span class="zh">面向系统与硬件的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.05627" target="_blank" rel="noopener">
-          <span class="en">Full-Space Quantization for Efficient Nonlinear Activation Approximation</span>
-          <span class="zh">面向高效非线性激活近似的全空间量化</span>
+        <a href="https://arxiv.org/abs/2606.13603" target="_blank" rel="noopener">
+          <span class="en">Early Exit at the Commitment Boundary Cuts Reasoning Length</span>
+          <span class="zh">在承诺边界提前退出可缩短推理链</span>
         </a>
       </h3>
-      <p class="authors">H. Chen, Y. Feng, H. Pan, et al.</p>
+      <p class="authors">D. Scalena, S. Candussio, L. Bortolussi, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.05627" target="_blank" rel="noopener">arXiv:2606.05627</a> · 2026-06-04</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13603" target="_blank" rel="noopener">arXiv:2606.13603</a> · 2026-06-11T17:21:16Z</p>
       <p class="summary">
-        <span class="en">FQA searches quantized coefficient space while accounting for both fractional-bit truncation and coefficient quantization in piecewise polynomial activation units. Two hardware schemes expose different resource-performance trade-offs, while a target-guided bisection window reduces the cost of the enlarged search. The reported benefit is fewer segments at a given maximum absolute error, but the preprint record does not establish measured silicon.</span>
-        <span class="zh">FQA在分段多项式激活单元中同时考虑小数位截断误差和系数量化误差，并搜索完整的量化系数空间。论文给出两种面向不同资源与性能权衡的硬件方案，并用目标引导的二分窗口降低扩展搜索空间的计算成本。结果显示在给定最大绝对误差下可减少分段数量，但该预印本尚未给出实测芯片。</span>
+        <span class="en">The paper identifies a commitment boundary where a reasoning model&#x27;s answer becomes stable, after which many chain-of-thought steps no longer change the answer probability. Attention-based probes predict this transition across unseen tasks, enabling early exit that reduces reasoning length by up to 55% on average with negligible performance loss. The systems payoff is direct in lower token generation and accelerator occupancy, though the approach still depends on probe reliability across model families and deployment distributions.</span>
+        <span class="zh">论文识别出一个「承诺边界」：推理模型的答案在此处趋于稳定，之后大量思维链步骤不再改变答案概率。基于注意力的探针可在未见任务上预测这一转折点，使平均推理长度最多降低55%，同时性能损失可忽略。其系统收益是直接减少token生成量和加速器占用，但实际部署仍取决于探针在不同模型家族和数据分布上的可靠性。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13501" target="_blank" rel="noopener">
+          <span class="en">GF-DiT Dynamically Reschedules GPU Parallelism for Diffusion Serving</span>
+          <span class="zh">GF-DiT为扩散模型服务动态重调度GPU并行度</span>
+        </a>
+      </h3>
+      <p class="authors">X. Qiang, Y. Hu, S. Sun, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13501" target="_blank" rel="noopener">arXiv:2606.13501</a> · 2026-06-11T15:51:10Z</p>
+      <p class="summary">
+        <span class="en">GF-DiT treats GPU parallelism as a schedulable resource instead of fixing one configuration for an entire diffusion-transformer request. Its runtime splits requests into independently schedulable trajectory tasks and uses group-free collectives to re-form execution groups online; the implementation is built in vLLM-Omni. The architecture targets utilization and service-quality losses caused by heterogeneous requests, but the candidate abstract is truncated before quantitative evaluation results, so the magnitude of the gain cannot be assessed here.</span>
+        <span class="zh">GF-DiT不再为整个Diffusion Transformer请求固定一种并行配置，而是把GPU并行度视为可调度资源。其运行时将请求拆分为可独立调度的轨迹任务，并通过无固定组collective在线重组执行组，系统实现基于vLLM-Omni。该架构针对异构请求造成的利用率和服务质量损失，但候选摘要在量化评测结果前被截断，因此目前无法判断收益幅度。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13598" target="_blank" rel="noopener">
+          <span class="en">Orchestration Reward Modeling Reduces Multi-Agent Training Tokens</span>
+          <span class="zh">编排奖励模型降低多智能体训练token开销</span>
+        </a>
+      </h3>
+      <p class="authors">K. Y. Tsang, Z. Zhao, V. Venkataramani, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13598" target="_blank" rel="noopener">arXiv:2606.13598</a> · 2026-06-11T17:16:24Z</p>
+      <p class="summary">
+        <span class="en">OrchRM trains an orchestration-level reward model from intermediate multi-agent artifacts, avoiding repeated costly sub-agent rollouts for supervision. The authors report up to a 10x reduction in training-token use and accuracy gains of up to 8% for multi-agent test-time scaling across reasoning and web tasks. The hardware relevance comes from reducing generated and processed tokens, but the claims are preprint results and do not include energy or accelerator-level measurements.</span>
+        <span class="zh">OrchRM利用多智能体执行过程中的中间产物训练编排层奖励模型，避免为监督反复进行高成本子智能体rollout。作者报告训练token用量最多降低10倍，多智能体测试时扩展在推理和Web任务上的准确率最高提升8%。其硬件意义在于减少生成和处理的token，但这些仍是预印本结果，尚无能耗或加速器层面的测量。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="circuits">
+  <section class="area" id="eda">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">EDA &amp; Verification</span>
+      <span class="zh">EDA与验证</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCAD.2025.3627145" target="_blank" rel="noopener">
-          <span class="en">A Tightly Coupled RISC-V NTT Unit Integrated With the Load-Store Pipeline</span>
-          <span class="zh">与访存流水线紧耦合的RISC-V NTT单元</span>
+        <a href="https://arxiv.org/abs/2606.13659" target="_blank" rel="noopener">
+          <span class="en">A Single Program Specifies Both Hardware Drivers and Monitors</span>
+          <span class="zh">用同一程序同时定义硬件驱动器与监视器</span>
         </a>
       </h3>
-      <p class="authors">Y. Zhao, Z. Xie, R. Zhan, et al.</p>
+      <p class="authors">E. Ng, N. Shyamsunder, F. Pham, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2025.3627145" target="_blank" rel="noopener">IEEE TCAD</a> · 2026-06-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13659" target="_blank" rel="noopener">arXiv:2606.13659</a> · 2026-06-11T17:56:13Z</p>
       <p class="summary">
-        <span class="en">NTT-LSU integrates a configurable number-theoretic-transform engine directly with a RISC-V load-store unit and adds custom NTT and inverse-NTT instructions. A hybrid-width datapath reduces transfer overhead while retaining support for multiple lattice-cryptography parameter sets. The approach attacks data movement rather than only arithmetic latency, which is important for practical post-quantum processors.</span>
-        <span class="zh">NTT-LSU把可配置的数论变换引擎直接集成到RISC-V访存单元，并增加NTT与逆NTT定制指令。混合位宽数据通路降低了数据传输开销，同时支持多种格密码参数配置。该方案不只优化算术延迟，也直接处理数据搬运问题，这对实用后量子处理器尤为重要。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1109/TVLSI.2026.3668770" target="_blank" rel="noopener">
-          <span class="en">A Correlation-Resistant Massive-MIMO Detector With Lower VLSI Cost</span>
-          <span class="zh">降低VLSI开销的抗信道相关大规模MIMO检测器</span>
-        </a>
-      </h3>
-      <p class="authors">Y. Tsai, W. Lin, C. Shen, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3668770" target="_blank" rel="noopener">IEEE TVLSI</a> · 2026-06-01</p>
-      <p class="summary">
-        <span class="en">The detector combines approximate expectation propagation with Chebyshev-accelerated Richardson iteration to preserve near-optimal detection under correlated channels. Its VLSI architecture reports 18.7% lower latency and 17.3% less hardware complexity than a prior design targeting correlated channels. The key result is avoiding channel-specific processing that otherwise raises both area and delay.</span>
-        <span class="zh">该检测器把近似期望传播与Chebyshev加速Richardson迭代结合，在相关信道下维持接近最优的检测性能。其VLSI架构相较此前面向相关信道的设计，延迟降低18.7%，硬件复杂度下降17.3%。核心价值在于避免会同时增加面积和延迟的信道特定处理。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.3390/electronics15112399" target="_blank" rel="noopener">
-          <span class="en">A Convolution-Aware RISC-V Soft Processor for Wearable Inference</span>
-          <span class="zh">面向可穿戴推理的卷积感知RISC-V软核处理器</span>
-        </a>
-      </h3>
-      <p class="authors">F. Pizarro Diaz, B. Robinson, J. Patarroyo Montenegro</p>
-      
-      <p class="venue"><a href="https://doi.org/10.3390/electronics15112399" target="_blank" rel="noopener">Electronics 15(11)</a> · 2026-06-01</p>
-      <p class="summary">
-        <span class="en">This FPGA soft processor adds a two-lane SIMD integer datapath and split-stage floating-point accumulation for one-dimensional convolution workloads. On an Artix-7 Basys3 board it reports a 6x speedup over MicroBlaze-class soft processors at the same 0.073 W static power, with 44% higher dynamic power. The evidence is measured on FPGA rather than ASIC silicon, but the resource-performance trade-off is directly relevant to wearable inference.</span>
-        <span class="zh">这款FPGA软核处理器为一维卷积加入双通道SIMD整数数据通路和分阶段浮点累加流水线。在Artix-7 Basys3平台上，它相对MicroBlaze级软核实现6倍加速，静态功耗同为0.073 W，动态功耗高44%。结果来自FPGA而非ASIC实测，但其资源与性能权衡对可穿戴推理具有直接参考价值。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1109/TCSI.2026.3669396" target="_blank" rel="noopener">
-          <span class="en">Side-Channel-Resilient Midori Hardware for Secure Edge Devices</span>
-          <span class="zh">面向安全边缘设备的抗侧信道Midori硬件</span>
-        </a>
-      </h3>
-      <p class="authors">R. Mishra, M. Okade, K. Mahapatra</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3669396" target="_blank" rel="noopener">IEEE TCAS-I</a> · 2026-06-01</p>
-      <p class="summary">
-        <span class="en">The Midori-64 implementation uses a 16-bit hybrid serial-parallel datapath and masked S-boxes to balance compactness with resistance to power analysis. The paper reports 55.7% lower area, 62.38% lower power, and 78.2% lower energy for the masked S-box implementation against its comparison baseline. System-level security still depends on the complete masking flow and physical implementation, not the S-box alone.</span>
-        <span class="zh">该Midori-64实现采用16-bit串并混合数据通路和掩码S-box，在紧凑面积与抗功耗分析之间取舍。论文称其掩码S-box相对对比基线，面积降低55.7%、功耗降低62.38%、能耗降低78.2%。系统级安全性仍取决于完整掩码流程和物理实现，而不能只由S-box决定。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1088/1748-0221/21/06/P06006" target="_blank" rel="noopener">
-          <span class="en">MultiRad Standardizes Radiation Testing Across Processor Classes</span>
-          <span class="zh">MultiRad统一不同处理器类别的辐射测试</span>
-        </a>
-      </h3>
-      <p class="authors">L. Laurini, L. Ost, S. Cuenca-Asensi, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1088/1748-0221/21/06/P06006" target="_blank" rel="noopener">Journal of Instrumentation 21(06)</a> · 2026-06-01</p>
-      <p class="summary">
-        <span class="en">MultiRad formalizes a radiation-test method that has been applied from 8-bit microcontrollers to 64-bit processors under 14-MeV and thermal-neutron exposure. The platform has supported 20 journal articles since 2020, indicating reuse across multiple devices rather than a one-off setup. Its value is methodological consistency for reliability comparisons, not a new radiation-hardened circuit.</span>
-        <span class="zh">MultiRad形成了一套辐射测试方法，已用于从8-bit微控制器到64-bit处理器，并覆盖14-MeV中子和热中子辐照。自2020年以来，该平台已支持20篇期刊论文，说明它能够跨多种器件复用，而非一次性测试装置。其价值在于为可靠性比较提供一致方法，而不是提出新的抗辐射电路。</span>
+        <span class="en">The proposed DSL expresses a hardware communication protocol once and derives both stimulus-driving behavior and transaction monitoring from the same imperative program. Given a waveform, the associated tool infers a transaction-level trace consistent with that specification, which could eliminate mismatches between separately maintained drivers and monitors. The paper is still a design proposal with planned evaluation on Wishbone and AXI-Stream, so real-world coverage, ambiguity handling, and runtime cost remain open.</span>
+        <span class="zh">该DSL只需用一个命令式程序描述硬件通信协议，即可同时导出激励驱动行为和事务监视逻辑。配套工具能够根据波形推断与规范一致的事务级轨迹，有望消除驱动器与监视器分开维护造成的不一致。论文目前仍是设计提案，计划在Wishbone和AXI-Stream上评估，因此真实协议覆盖、歧义处理和运行成本仍待验证。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-12 04:22 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-12 04:22 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-13 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-13 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
