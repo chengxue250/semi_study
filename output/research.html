@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-13">
+<meta name="edition-date" content="2026-06-14">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Adaptive Computation Replaces Fixed Resource Budgets — Semi Research 2026-06-13</title>
+<title>Efficiency Moves Up the Systems Stack — Semi Research 2026-06-14</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Saturday, June 13, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月13日 星期六</span>
+      <span class="en">Research digest · Sunday, June 14, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月14日 星期日</span>
     </div>
     <h1>
-      <span class="en">Adaptive Computation Replaces Fixed Resource Budgets</span>
-      <span class="zh">自适应计算取代固定资源预算</span>
+      <span class="en">Efficiency Moves Up the Systems Stack</span>
+      <span class="zh">效率优化上移至系统栈</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest systems papers allocate tokens, parameters, decoding steps, or historical state according to the input rather than a fixed schedule. Device work adds new tools for observing internal fields and using ferroelectric polarization at sensing interfaces.</span>
-      <span class="zh">本周较有价值的系统论文不再采用固定计划，而是根据输入动态分配token、参数、解码步骤或历史状态。器件研究则带来观测内部电场及利用铁电极化调制传感界面的新方法。</span>
+      <span class="en">This week&#x27;s strongest results reduce wasted work through memory reuse, sparse model selection, adaptive retrieval, resource-aware orchestration, and speculative execution. Device and circuit papers remain thinner, but the systems work points directly at lower inference and infrastructure cost.</span>
+      <span class="zh">本周较强的成果通过内存复用、稀疏模型选择、自适应检索、资源感知编排和推测执行减少无效计算。器件与电路论文相对偏少，但系统层工作直接指向更低的推理与基础设施成本。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 7篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
@@ -273,32 +273,53 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/advs.75968" target="_blank" rel="noopener">
-          <span class="en">Photoelectric-Coupled Ferroelectric Heterojunctions for Polarization-Memory NO2 Sensing</span>
-          <span class="zh">用于极化记忆NO2传感的光电耦合铁电异质结</span>
+        <a href="https://doi.org/10.1007/s00542-026-06069-2" target="_blank" rel="noopener">
+          <span class="en">Memristor-CMOS Artificial Synapse for Associative Learning</span>
+          <span class="zh">用于联想学习的忆阻器-CMOS人工突触</span>
         </a>
       </h3>
-      <p class="authors">L. Tan, X. Hu, M. Zhou, et al.</p>
+      <p class="authors">P. Dong, L. Wang, D. Zhang, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/advs.75968" target="_blank" rel="noopener">Advanced Science</a> · 2026-06-12</p>
+      <p class="venue"><a href="https://doi.org/10.1007/s00542-026-06069-2" target="_blank" rel="noopener">Microsystem Technologies</a> · 2026-06-13</p>
       <p class="summary">
-        <span class="en">The paper reports a photoelectric-coupled ferroelectric heterojunction that uses polarization memory to modulate the sensing interface for NO2 detection. The architecture links nonvolatile ferroelectric state to gas-response control, potentially reducing the need for continuous bias or external calibration. The candidate record contains no abstract or device metrics, so sensitivity, endurance, selectivity, and manufacturability require review in the full paper.</span>
-        <span class="zh">论文报道了一种光电耦合铁电异质结，利用极化记忆调制NO2传感界面。该结构把非易失铁电状态与气体响应控制相结合，有望减少持续偏置或外部校准需求。候选记录未提供摘要和器件指标，因此灵敏度、耐久性、选择性与可制造性仍需查阅全文。</span>
+        <span class="en">The paper integrates a memristor-based artificial-synapse element with CMOS circuitry to implement Pavlov-style associative-memory learning. It is relevant to compact neuromorphic learning because state storage and synaptic weighting can be colocated. The candidate record provides no array size, process details, energy data, or measured-silicon results, so scalability and hardware efficiency cannot be judged from the available metadata.</span>
+        <span class="zh">该论文将忆阻器人工突触单元与CMOS电路结合，实现巴甫洛夫式联想记忆学习。其意义在于状态存储与突触权重可在紧凑的神经形态硬件中共址。候选记录未提供阵列规模、制程、能耗或实测硅片结果，因此目前无法判断其可扩展性与硬件效率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13623" target="_blank" rel="noopener">
+          <span class="en">Safe Memory Reuse for Task-and-Future Runtimes</span>
+          <span class="zh">面向任务与Future运行时的安全内存复用</span>
+        </a>
+      </h3>
+      <p class="authors">R. Nather</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13623" target="_blank" rel="noopener">arXiv:2606.13623</a> · 2026-06-11T17:36:54Z</p>
+      <p class="summary">
+        <span class="en">The work adds an await_delete construct to future-based runtimes so storage can be safely reused after all consumers finish, addressing a practical limitation of immutable future values. A block-wise symmetric-matrix inversion implementation in an extended Taskflow runtime approaches linear scaling on large matrices. Futures still impose substantial overhead on smaller problems, so the benefit depends on crossing an amortization threshold.</span>
+        <span class="zh">该工作为基于Future的运行时加入await_delete机制，使所有消费者完成后可安全复用存储，解决Future值不可变带来的实际限制。作者在扩展版Taskflow中实现分块对称矩阵求逆，大矩阵上接近线性扩展。小规模问题仍承受明显的Future开销，因此收益取决于能否跨过开销摊销阈值。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13609" target="_blank" rel="noopener">
-          <span class="en">Temporal Glide Symmetry Selects Photonic Frequency Sidebands by Parity</span>
-          <span class="zh">时间滑移对称性按奇偶性选择光子频率边带</span>
+        <a href="https://arxiv.org/abs/2606.13417" target="_blank" rel="noopener">
+          <span class="en">Affine Models Compensate SAR-ADC Non-Idealities in Massive MIMO</span>
+          <span class="zh">仿射模型补偿大规模MIMO中的SAR-ADC非理想效应</span>
         </a>
       </h3>
-      <p class="authors">M. Camacho</p>
+      <p class="authors">J. Guichemerre, C. Studer</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13609" target="_blank" rel="noopener">arXiv:2606.13609</a> · 2026-06-11T17:24:05Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13417" target="_blank" rel="noopener">arXiv:2606.13417</a> · 2026-06-11T14:46:56Z</p>
       <p class="summary">
-        <span class="en">Camacho derives an exact selection rule for a time-modulated trilayer waveguide: odd frequency sidebands switch transverse parity, while even sidebands preserve it. Floquet eigenstate analysis and finite-section time-domain simulations suppress symmetry-forbidden channels to numerically negligible levels. The result offers a design rule for controlled photonic frequency conversion, but it remains simulation-based and has not yet been demonstrated in fabricated hardware.</span>
-        <span class="zh">Camacho为时间调制三层波导推导出精确选择规则：奇数频率边带会切换横向模态奇偶性，偶数边带则保持奇偶性。Floquet本征态分析和有限区段时域模拟将对称性禁戒通道压低至数值上可忽略的水平。该结果为可控光子频率转换提供了设计规则，但目前仍基于模拟，尚未在制造出的硬件上验证。</span>
+        <span class="en">The paper develops two affine models for low-resolution SAR-ADC behavior in massive MU-MIMO, one based on Bussgang decomposition and one optimized for signal-to-distortion ratio. The models explicitly include converter non-idealities that ideal quantization analyses usually omit, then support low-complexity digital mitigation. The available abstract does not report measured converter silicon or system-level power savings, so the result remains a modeling and algorithm contribution.</span>
+        <span class="zh">该论文为大规模MU-MIMO中的低分辨率SAR-ADC建立两种仿射模型，一种基于Bussgang分解，另一种针对信号失真比优化。模型显式纳入理想量化分析常忽略的转换器非理想效应，并据此设计低复杂度数字补偿。现有摘要未报告ADC实测硅片或系统级功耗节省，因此主要贡献仍是建模与算法。</span>
       </p>
     </article>
   </section>
@@ -309,85 +330,106 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13657" target="_blank" rel="noopener">
-          <span class="en">Dense Supervision Produces Sparse Updates in On-Policy Distillation</span>
-          <span class="zh">密集监督在在策略蒸馏中产生稀疏更新</span>
+        <a href="https://arxiv.org/abs/2606.13643" target="_blank" rel="noopener">
+          <span class="en">Recursive Agent Harnesses Scale Long-Context Work</span>
+          <span class="zh">递归Agent Harness扩展长上下文任务</span>
         </a>
       </h3>
-      <p class="authors">G. Yu, W. Liu, Y. Hu, et al.</p>
+      <p class="authors">E. Lumer, S. Sen, K. Paul, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13657" target="_blank" rel="noopener">arXiv:2606.13657</a> · 2026-06-11T17:54:09Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13643" target="_blank" rel="noopener">arXiv:2606.13643</a> · 2026-06-11T17:47:30Z</p>
       <p class="summary">
-        <span class="en">Across language and vision-language models, on-policy distillation produces small, coordinate-sparse updates distributed across layers and concentrated in feed-forward networks. Training only the identified subnetwork recovers nearly the same performance as full distillation, suggesting a route to lower optimizer-state and communication costs. The updates remain numerically full-rank and AdamW still beats a sparsity-inducing SGD variant, so the result does not reduce cleanly to low-rank adaptation.</span>
-        <span class="zh">在语言模型和视觉语言模型上，在策略蒸馏产生幅度较小、坐标稀疏的参数更新，这些更新分布于多层并主要集中在前馈网络。仅训练识别出的子网络即可恢复接近完整蒸馏的性能，为降低优化器状态和通信成本提供了路径。不过更新在数值上仍为满秩，且AdamW优于诱导稀疏的SGD变体，因此该结果不能简单归结为低秩适配。</span>
+        <span class="en">Recursive Agent Harnesses let a parent agent generate executable workflows that spawn tool-using subagents in parallel rather than recursively calling a bare model. With GPT-5 held constant, the approach improves the Codex baseline from 71.75% to 81.36% on 199 Oolong-Synthetic tasks spanning contexts up to 4 million tokens. The gain shifts scaling pressure toward orchestration, parallel inference, and structured communication, but evidence is currently limited to a controlled long-context benchmark.</span>
+        <span class="zh">Recursive Agent Harness让父agent生成可执行工作流，并行启动具备工具能力的子agent，而不是递归调用裸模型。在固定使用GPT-5时，该方法在199个Oolong-Synthetic任务上把Codex基线从71.75%提升至81.36%，上下文长度最高达400万token。它把扩展压力转向编排、并行推理与结构化通信，但当前证据仍局限于受控长上下文基准。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13624" target="_blank" rel="noopener">
-          <span class="en">Adaptive Token Compression Accelerates Time-Series Language Models</span>
-          <span class="zh">自适应Token压缩加速时间序列语言模型</span>
+        <a href="https://arxiv.org/abs/2606.13589" target="_blank" rel="noopener">
+          <span class="en">Sparse Bagging Compresses Ensembles by Up to 96%</span>
+          <span class="zh">稀疏Bagging将集成模型最高压缩96%</span>
         </a>
       </h3>
-      <p class="authors">J. Gan, X. Qiu, G. Chen, et al.</p>
+      <p class="authors">M. S. Preetam, M. Bhaskar</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13624" target="_blank" rel="noopener">arXiv:2606.13624</a> · 2026-06-11T17:39:26Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13589" target="_blank" rel="noopener">arXiv:2606.13589</a> · 2026-06-11T17:11:51Z</p>
       <p class="summary">
-        <span class="en">The paper compresses time-series tokens according to frequency-domain contribution and progressively drops prompt tokens as their influence fades with depth. Across forecasting, classification, imputation, and anomaly detection, the method reports up to 7.68x inference acceleration and performance gains in 78% of evaluated settings. The systems value is a variable token budget that reduces attention work, although the evidence is limited to time-series tasks rather than general-purpose LLM serving.</span>
-        <span class="zh">论文根据频域贡献压缩时间序列token，并随着提示词影响在深层网络中减弱而逐层减少prompt token。该方法在预测、分类、插补和异常检测任务上最高实现7.68x推理加速，并在78%的评测设置中提升性能。其系统价值在于以可变token预算减少注意力计算，但证据目前仅来自时间序列任务，尚不能直接推广到通用LLM服务。</span>
+        <span class="en">Simplex-Constrained Sparse Bagging jointly prunes and calibrates ensemble models using out-of-bag loss plus a concave quadratic sparsity penalty. The method reports up to 96% ensemble compression with linear inference speedups while preserving or improving accuracy and calibration. Results cover bagged model families rather than modern transformer workloads, so transfer to accelerator-heavy inference still needs demonstration.</span>
+        <span class="zh">Simplex-Constrained Sparse Bagging使用袋外损失与凹二次稀疏惩罚，联合完成集成模型剪枝和概率校准。该方法报告最高96%的集成压缩，并获得线性推理加速，同时保持或改善准确率与校准表现。实验面向Bagging模型族而非现代Transformer负载，因此能否迁移到加速器密集型推理仍需验证。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13565" target="_blank" rel="noopener">
-          <span class="en">A2D2 Jointly Tunes Insertion and Unmasking for Adaptive Diffusion Decoding</span>
-          <span class="zh">A2D2联合优化插入与去掩码以实现自适应扩散解码</span>
+        <a href="https://arxiv.org/abs/2606.13550" target="_blank" rel="noopener">
+          <span class="en">Uncertainty-Aware Retrieval Chooses RAG Chunk Granularity Per Query</span>
+          <span class="zh">不确定性感知检索按查询选择RAG分块粒度</span>
         </a>
       </h3>
-      <p class="authors">S. Tang, Y. Zhu, M. Tao, et al.</p>
+      <p class="authors">H. Jung, X. Wang</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13565" target="_blank" rel="noopener">arXiv:2606.13565</a> · 2026-06-11T16:50:58Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13550" target="_blank" rel="noopener">arXiv:2606.13550</a> · 2026-06-11T16:30:45Z</p>
       <p class="summary">
-        <span class="en">A2D2 jointly fine-tunes token-insertion and unmasking policies for any-length discrete diffusion models, then uses a quality-based adaptive inference schedule. Its derivation targets the reward-tilted sequence distribution without requiring target samples, and experiments report better reward optimization and generation flexibility than fixed-length baselines. Hardware impact depends on whether adaptive schedules reduce real decoding work after accounting for control overhead; no accelerator measurements are reported.</span>
-        <span class="zh">A2D2面向任意长度离散扩散模型，联合微调token插入和去掩码策略，并采用基于质量的自适应推理调度。其推导无需目标样本即可逼近奖励倾斜的序列分布，实验显示相较固定长度基线可改善奖励优化和生成灵活性。其硬件价值取决于扣除调度控制开销后能否真正减少解码计算，论文未报告加速器实测结果。</span>
+        <span class="en">UMG-RAG treats retrieval granularity as a query-specific reliability problem, combining dense and sparse retrievers across multiple chunk sizes using entropy-derived confidence. A parent-promotion variant retrieves with fine chunks but returns broader, non-redundant context to the generator. The design is training-free and could reduce wasted context processing, although the candidate abstract does not expose latency, token, or energy savings.</span>
+        <span class="zh">UMG-RAG把检索粒度视为按查询变化的可靠性问题，利用熵生成的置信度融合多种分块尺度上的稠密与稀疏检索器。其parent-promotion变体用细粒度分块定位证据，再向生成器返回更宽且不重复的上下文。该设计无需训练，可能减少无效上下文计算，但候选摘要未给出延迟、token或能耗节省数据。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13558" target="_blank" rel="noopener">
-          <span class="en">Bitwise Residual Editing for Visual Autoregressive Models</span>
-          <span class="zh">面向视觉自回归模型的逐比特残差编辑</span>
+        <a href="https://arxiv.org/abs/2606.13513" target="_blank" rel="noopener">
+          <span class="en">CloudCons Tests Forecasting Models on Real Consolidation Decisions</span>
+          <span class="zh">CloudCons以真实资源整合决策评测预测模型</span>
         </a>
       </h3>
-      <p class="authors">S. Zhang, R. Liao, V. Tresp, et al.</p>
+      <p class="authors">X. Zhang, L. Shen, M. Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13558" target="_blank" rel="noopener">arXiv:2606.13558</a> · 2026-06-11T16:41:25Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13513" target="_blank" rel="noopener">arXiv:2606.13513</a> · 2026-06-11T16:00:51Z</p>
       <p class="summary">
-        <span class="en">BitResEdit performs training-free image editing by steering per-bit Bernoulli predictions inside a KL trust region and reinjecting localized residual codes across scales. Operating on the generator&#x27;s native bitwise and residual structures preserves masked-out latent features exactly by code arithmetic, rather than relying only on token-level guidance. The approach is specific to bitwise-residual visual autoregressive models such as Infinity, so its utility depends on adoption of that representation.</span>
-        <span class="zh">BitResEdit通过在KL信赖域内引导逐比特Bernoulli预测，并跨尺度重新注入局部残差编码，实现免训练图像编辑。它直接利用生成器原生的逐比特和残差结构，通过编码运算精确保留掩码外的潜在特征，而不是只依赖token级引导。该方法针对Infinity等逐比特残差视觉自回归模型，其价值取决于这类表示方式的采用程度。</span>
+        <span class="en">CloudCons evaluates forecasting models by their downstream value in cloud resource consolidation rather than prediction error alone. Its datasets span Huawei Cloud, Microsoft Azure, and Google Borg workloads with periodic, bursty, and noisy demand patterns. This is useful for infrastructure efficiency because a statistically better forecast may not produce a better placement decision; the available abstract, however, truncates before reporting the full comparative results.</span>
+        <span class="zh">CloudCons不只比较预测误差，而是按模型在云资源整合决策中的下游价值进行评测。数据集覆盖Huawei Cloud、Microsoft Azure和Google Borg负载，包含周期型、突发型与高频噪声需求。该基准有助于基础设施效率研究，因为统计上更准的预测未必带来更好的放置决策；但现有候选摘要在完整对比结果前被截断。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13443" target="_blank" rel="noopener">
-          <span class="en">Adaptive Memory Gating for Neural Operators</span>
-          <span class="zh">神经算子的自适应记忆门控</span>
+        <a href="https://arxiv.org/abs/2606.13426" target="_blank" rel="noopener">
+          <span class="en">Block Verification Speeds Speculative Diffusion Sampling</span>
+          <span class="zh">块验证加速推测式扩散采样</span>
         </a>
       </h3>
-      <p class="authors">J. Hur, Y. Kwon, M.-G. Jo, et al.</p>
+      <p class="authors">A. Soen, H. Husain, V. De Bortoli, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13443" target="_blank" rel="noopener">arXiv:2606.13443</a> · 2026-06-11T15:05:02Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13426" target="_blank" rel="noopener">arXiv:2606.13426</a> · 2026-06-11T14:54:13Z</p>
       <p class="summary">
-        <span class="en">AMGFNO learns how much historical state a neural operator should retain instead of applying a fixed memory weight across observation conditions. On Kuramoto-Sivashinsky and Burgers&#x27; equation benchmarks, it reports 55-79% lower normalized RMSE at low resolution, while the learned gate falls from about 0.7 toward zero as resolution rises. The adaptive state budget could reduce unnecessary memory traffic, but results are confined to simulated PDE workloads and do not include hardware measurements.</span>
-        <span class="zh">AMGFNO让神经算子学习应保留多少历史状态，而不是在不同观测条件下使用固定记忆权重。在Kuramoto-Sivashinsky和Burgers方程基准上，该方法在低分辨率时将归一化RMSE降低55-79%，并让学习到的门值随分辨率提高从约0.7降至接近0。自适应状态预算可能减少不必要的内存流量，但结果仅限于模拟PDE负载，且没有硬件实测。</span>
+        <span class="en">The paper adapts block verification from speculative LLM decoding to continuous diffusion sampling while preserving the target distribution through acceptance and rejection. Its training-free Free Drafter reports up to a 6.3% speedup over existing speculative methods with negligible additional overhead. The gain is modest, but the method matters because it avoids training a separate draft model and attacks repeated diffusion steps directly.</span>
+        <span class="zh">该论文把推测式LLM解码中的块验证移植到连续扩散采样，并通过接受-拒绝机制保持目标分布。无需训练的Free Drafter相对现有推测方法最高加速6.3%，额外开销可忽略。增益幅度不大，但其价值在于无需训练独立草稿模型，并直接减少重复扩散步骤。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13422" target="_blank" rel="noopener">
+          <span class="en">Two-Copy Readout Targets Practical Quantum Advantage for Chaotic Systems</span>
+          <span class="zh">双副本读出瞄准混沌系统的实用量子优势</span>
+        </a>
+      </h3>
+      <p class="authors">M. Wang, X. Xue, M. Chung, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13422" target="_blank" rel="noopener">arXiv:2606.13422</a> · 2026-06-11T14:52:38Z</p>
+      <p class="summary">
+        <span class="en">The work encodes higher-order statistical priors for chaotic dynamical systems in entangled quantum states and uses joint Bell measurements on two copies for readout. It proves a copy-complexity separation: the proposed readout is independent of qubit count for selected Pauli functionals, while adaptive single-copy full-Pauli readout requires exponentially many copies. The authors demonstrate the readout in simulation and on IQM superconducting processors, but the broader end-to-end advantage remains tied to the stated data-access and measurement assumptions.</span>
+        <span class="zh">该工作把混沌动力系统的高阶统计先验编码进纠缠量子态，并通过两个副本上的联合Bell测量完成读出。论文证明了副本复杂度分离：对特定Pauli泛函，所提读出与量子比特数无关，而自适应单副本全Pauli读出需要指数级副本。作者在仿真和IQM超导处理器上实现了读出，但端到端优势仍依赖论文设定的数据访问与测量假设。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-13 13:22 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-13 13:22 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-14 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-14 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
