@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-14">
+<meta name="edition-date" content="2026-06-15">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Efficiency Moves Up the Systems Stack — Semi Research 2026-06-14</title>
+<title>Hardware Models Meet Real-System Constraints — Semi Research 2026-06-15</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,158 +249,143 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, June 14, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月14日 星期日</span>
+      <span class="en">Research digest · Monday, June 15, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月15日 星期一</span>
     </div>
     <h1>
-      <span class="en">Efficiency Moves Up the Systems Stack</span>
-      <span class="zh">效率优化上移至系统栈</span>
+      <span class="en">Hardware Models Meet Real-System Constraints</span>
+      <span class="zh">硬件模型直面真实系统约束</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest results reduce wasted work through memory reuse, sparse model selection, adaptive retrieval, resource-aware orchestration, and speculative execution. Device and circuit papers remain thinner, but the systems work points directly at lower inference and infrastructure cost.</span>
-      <span class="zh">本周较强的成果通过内存复用、稀疏模型选择、自适应检索、资源感知编排和推测执行减少无效计算。器件与电路论文相对偏少，但系统层工作直接指向更低的推理与基础设施成本。</span>
+      <span class="en">This week&#x27;s strongest papers test abstractions against calibration data, remote-HBM traffic, ADC limits, cache leakage, and long RTL. The common thread is that useful hardware research increasingly depends on modeling the constraints that simplified benchmarks omit.</span>
+      <span class="zh">本周较有价值的论文把抽象模型放到校准数据、远端HBM流量、ADC限制、缓存泄漏和长篇RTL等真实约束下检验。共同趋势是，硬件研究要产生实际价值，越来越需要建模简化基准所忽略的系统条件。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="circuits">
     <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1007/s00542-026-06069-2" target="_blank" rel="noopener">
-          <span class="en">Memristor-CMOS Artificial Synapse for Associative Learning</span>
-          <span class="zh">用于联想学习的忆阻器-CMOS人工突触</span>
+        <a href="https://arxiv.org/abs/2606.14566" target="_blank" rel="noopener">
+          <span class="en">Re-Evaluating Ramulator 2.0&#x27;s Real-System Accuracy</span>
+          <span class="zh">重新评估Ramulator 2.0的真实系统建模精度</span>
         </a>
       </h3>
-      <p class="authors">P. Dong, L. Wang, D. Zhang, et al.</p>
+      <p class="authors">F. N. Bostanci, H. Luo, A. Olgun, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1007/s00542-026-06069-2" target="_blank" rel="noopener">Microsystem Technologies</a> · 2026-06-13</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.14566" target="_blank" rel="noopener">arXiv:2606.14566</a> · 2026-06-12</p>
       <p class="summary">
-        <span class="en">The paper integrates a memristor-based artificial-synapse element with CMOS circuitry to implement Pavlov-style associative-memory learning. It is relevant to compact neuromorphic learning because state storage and synaptic weighting can be colocated. The candidate record provides no array size, process details, energy data, or measured-silicon results, so scalability and hardware efficiency cannot be judged from the available metadata.</span>
-        <span class="zh">该论文将忆阻器人工突触单元与CMOS电路结合，实现巴甫洛夫式联想记忆学习。其意义在于状态存储与突触权重可在紧凑的神经形态硬件中共址。候选记录未提供阵列规模、制程、能耗或实测硅片结果，因此目前无法判断其可扩展性与硬件效率。</span>
+        <span class="en">The authors argue that earlier negative results for Ramulator 2.0 came from configuration and simulator-usage errors rather than intrinsic model inaccuracy. They identify four practices for evaluating cycle-level DRAM simulators against real systems. Because this is an extended abstract responding to another study, the claims need independent reproduction, but the dispute is directly relevant to memory-system papers built on simulator comparisons.</span>
+        <span class="zh">作者认为，此前针对Ramulator 2.0的负面结果源于配置和模拟器使用错误，而非模型本身不准确。论文总结了评估周期级DRAM模拟器与真实系统一致性的4项实践。由于这是一篇回应既有研究的扩展摘要，其结论仍需独立复现，但这场争议直接影响大量依赖模拟器比较的存储系统论文。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.12259" target="_blank" rel="noopener">
+          <span class="en">Partitioned Tags Preserve Cache Isolation and Shared-Write Coherence</span>
+          <span class="zh">分区标签兼顾缓存隔离与共享写一致性</span>
+        </a>
+      </h3>
+      <p class="authors">K. Ramkrishnan, S. McCamant, A. Zhai, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12259" target="_blank" rel="noopener">arXiv:2606.12259</a> · 2026-06-10</p>
+      <p class="summary">
+        <span class="en">SCP partitions LLC tags while retaining a shared data pool, aiming to combine strict eviction isolation with write-shared coherence. In gem5, the design reduces Prime+Probe, Flush+Reload, and shared-writable-line attacks to random-guessing outcomes with a reported 2.8% LLC SRAM cost. The evidence is simulation-based, so implementation timing and verification on a real cache remain open.</span>
+        <span class="zh">SCP对LLC标签进行分区，同时保留共享数据池，以兼顾严格的驱逐隔离和共享写一致性。在gem5中，该设计使Prime+Probe、Flush+Reload及共享可写缓存行攻击的结果降至接近随机猜测，报告的LLC SRAM开销为2.8%。目前证据来自模拟，真实缓存实现中的时序代价和验证仍待完成。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="circuits">
+  <section class="area" id="accelerators">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13623" target="_blank" rel="noopener">
-          <span class="en">Safe Memory Reuse for Task-and-Future Runtimes</span>
-          <span class="zh">面向任务与Future运行时的安全内存复用</span>
+        <a href="https://arxiv.org/abs/2606.13379" target="_blank" rel="noopener">
+          <span class="en">Positional Encoding Exposes an ADC Bottleneck in Memristor ASR</span>
+          <span class="zh">位置编码暴露忆阻器语音识别中的ADC瓶颈</span>
         </a>
       </h3>
-      <p class="authors">R. Nather</p>
+      <p class="authors">B. Hilmes, N. Rossenbach, R. Schlüter</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13623" target="_blank" rel="noopener">arXiv:2606.13623</a> · 2026-06-11T17:36:54Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13379" target="_blank" rel="noopener">arXiv:2606.13379</a> · 2026-06-11</p>
       <p class="summary">
-        <span class="en">The work adds an await_delete construct to future-based runtimes so storage can be safely reused after all consumers finish, addressing a practical limitation of immutable future values. A block-wise symmetric-matrix inversion implementation in an extended Taskflow runtime approaches linear scaling on large matrices. Futures still impose substantial overhead on smaller problems, so the benefit depends on crossing an amortization threshold.</span>
-        <span class="zh">该工作为基于Future的运行时加入await_delete机制，使所有消费者完成后可安全复用存储，解决Future值不可变带来的实际限制。作者在扩展版Taskflow中实现分块对称矩阵求逆，大矩阵上接近线性扩展。小规模问题仍承受明显的Future开销，因此收益取决于能否跨过开销摊销阈值。</span>
+        <span class="en">Large transformed positional-encoding values are identified as a major source of ADC degradation in memristor-based analog speech-recognition inference. Rebalancing weight and ADC precision bits cuts degradation by about 50% at stable estimated energy, while removing encoding-related linear transforms yields about a 30% reduction when the ADC cannot change. The gains are based on modeled analog execution rather than a reported fabricated array.</span>
+        <span class="zh">论文指出，变换后位置编码产生的大幅值是忆阻器模拟语音识别推理中ADC精度下降的主要来源。重新分配权重位宽与ADC精度位可在估算能耗基本不变时把性能劣化降低约50%；若无法修改ADC，去除与编码相关的线性变换也可降低约30%。这些结果基于模拟执行模型，并未报告已流片阵列。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13417" target="_blank" rel="noopener">
-          <span class="en">Affine Models Compensate SAR-ADC Non-Idealities in Massive MIMO</span>
-          <span class="zh">仿射模型补偿大规模MIMO中的SAR-ADC非理想效应</span>
+        <a href="https://arxiv.org/abs/2606.11716" target="_blank" rel="noopener">
+          <span class="en">GEMM Locality Search Finds 90x Swings in Remote-HBM Traffic</span>
+          <span class="zh">GEMM局部性搜索发现远端HBM流量可相差90倍</span>
         </a>
       </h3>
-      <p class="authors">J. Guichemerre, C. Studer</p>
+      <p class="authors">E. Chung, H. Kim</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13417" target="_blank" rel="noopener">arXiv:2606.13417</a> · 2026-06-11T14:46:56Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11716" target="_blank" rel="noopener">arXiv:2606.11716</a> · 2026-06-10</p>
       <p class="summary">
-        <span class="en">The paper develops two affine models for low-resolution SAR-ADC behavior in massive MU-MIMO, one based on Bussgang decomposition and one optimized for signal-to-distortion ratio. The models explicitly include converter non-idealities that ideal quantization analyses usually omit, then support low-complexity digital mitigation. The available abstract does not report measured converter silicon or system-level power savings, so the result remains a modeling and algorithm contribution.</span>
-        <span class="zh">该论文为大规模MU-MIMO中的低分辨率SAR-ADC建立两种仿射模型，一种基于Bussgang分解，另一种针对信号失真比优化。模型显式纳入理想量化分析常忽略的转换器非理想效应，并据此设计低复杂度数字补偿。现有摘要未报告ADC实测硅片或系统级功耗节省，因此主要贡献仍是建模与算法。</span>
+        <span class="en">A tile-level simulator shows that identical LLM GEMM dimensions can generate up to 90x differences in remote-HBM traffic on multi-chiplet GPUs depending on layout, traversal, and placement choices. An agent-guided search finds a 2D block-swizzle traversal that cuts remote traffic by as much as 5.1x versus the best 1D traversal under round-robin placement. The result elevates CTA traversal to a first-order inter-chiplet design variable, though the study remains simulator-based.</span>
+        <span class="zh">一款tile级模拟器显示，在多chiplet GPU上，相同尺寸的LLM GEMM仅因布局、遍历顺序和数据放置不同，远端HBM流量就可能相差90倍。基于智能体的搜索找到一种2D block-swizzle遍历方式，在轮询放置下相较最佳1D遍历最多降低5.1倍远端流量。结果表明CTA遍历顺序是chiplet间通信的一阶设计变量，但研究仍以模拟为主。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.10303" target="_blank" rel="noopener">
+          <span class="en">Isolation-Aware Scheduling Targets 100 ms Autonomous-Driving Pipelines</span>
+          <span class="zh">隔离感知调度面向100 ms自动驾驶流水线</span>
+        </a>
+      </h3>
+      <p class="authors">C. Zhang, Y. Zhang, C. Xue, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.10303" target="_blank" rel="noopener">arXiv:2606.10303</a> · 2026-06-09</p>
+      <p class="summary">
+        <span class="en">The paper schedules many co-located driving DNNs on tile-based accelerators while accounting for both hardware isolation and the cost of stop-migrate-restart reallocations. It targets end-to-end latency below 100 ms despite reported execution-time variation of up to 3.3x and task rates from 10 to 240 Hz. The approach addresses a practical shared-accelerator problem, but the candidate record does not report measured automotive silicon.</span>
+        <span class="zh">该论文面向tile式加速器上密集共置的多种自动驾驶DNN进行调度，同时考虑硬件隔离以及停止、迁移、重启所带来的重分配成本。目标是在执行时间最多波动3.3倍、任务频率为10至240 Hz的条件下，把端到端延迟控制在100 ms以内。它针对真实的共享加速器问题，但候选记录未显示在汽车芯片实物上完成测量。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research for Hardware</span>
+      <span class="en">Hardware-Relevant AI Research</span>
       <span class="zh">面向硬件的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13643" target="_blank" rel="noopener">
-          <span class="en">Recursive Agent Harnesses Scale Long-Context Work</span>
-          <span class="zh">递归Agent Harness扩展长上下文任务</span>
+        <a href="https://arxiv.org/abs/2606.12638" target="_blank" rel="noopener">
+          <span class="en">Eidola Models Transient Multi-GPU Communication in gem5</span>
+          <span class="zh">Eidola在gem5中建模瞬态多GPU通信</span>
         </a>
       </h3>
-      <p class="authors">E. Lumer, S. Sen, K. Paul, et al.</p>
+      <p class="authors">R. R. Selagamsetty, M. Poremba, B. M. Beckmann, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13643" target="_blank" rel="noopener">arXiv:2606.13643</a> · 2026-06-11T17:47:30Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12638" target="_blank" rel="noopener">arXiv:2606.12638</a> · 2026-06-10</p>
       <p class="summary">
-        <span class="en">Recursive Agent Harnesses let a parent agent generate executable workflows that spawn tool-using subagents in parallel rather than recursively calling a bare model. With GPT-5 held constant, the approach improves the Codex baseline from 71.75% to 81.36% on 199 Oolong-Synthetic tasks spanning contexts up to 4 million tokens. The gain shifts scaling pressure toward orchestration, parallel inference, and structured communication, but evidence is currently limited to a controlled long-context benchmark.</span>
-        <span class="zh">Recursive Agent Harness让父agent生成可执行工作流，并行启动具备工具能力的子agent，而不是递归调用裸模型。在固定使用GPT-5时，该方法在199个Oolong-Synthetic任务上把Codex基线从71.75%提升至81.36%，上下文长度最高达400万token。它把扩展压力转向编排、并行推理与结构化通信，但当前证据仍局限于受控长上下文基准。</span>
+        <span class="en">Eidola extends gem5 with lightweight GPU traffic models driven by annotated timing profiles from real distributed-AI applications. It reproduces fine-grained peer-to-peer writes and synchronization behavior without simulating every GPU detail, enabling larger interconnect studies. Accuracy therefore depends on how representative the captured profiles are when workloads, kernels, or overlap strategies change.</span>
+        <span class="zh">Eidola利用真实分布式AI应用的标注时序轨迹，为gem5加入轻量级GPU流量模型。它无需模拟GPU的全部细节，即可复现细粒度点对点写入与同步行为，从而支持更大规模的互连研究。其准确性因此取决于采集轨迹在工作负载、内核或通信计算重叠策略变化后是否仍具代表性。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13589" target="_blank" rel="noopener">
-          <span class="en">Sparse Bagging Compresses Ensembles by Up to 96%</span>
-          <span class="zh">稀疏Bagging将集成模型最高压缩96%</span>
+        <a href="https://arxiv.org/abs/2606.09686" target="_blank" rel="noopener">
+          <span class="en">A Bit-Exact Catalog Standardizes 84 AI Numeric Formats</span>
+          <span class="zh">位精确目录统一描述84种AI数值格式</span>
         </a>
       </h3>
-      <p class="authors">M. S. Preetam, M. Bhaskar</p>
+      <p class="authors">D. Vasilev</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13589" target="_blank" rel="noopener">arXiv:2606.13589</a> · 2026-06-11T17:11:51Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.09686" target="_blank" rel="noopener">arXiv:2606.09686</a> · 2026-06-08</p>
       <p class="summary">
-        <span class="en">Simplex-Constrained Sparse Bagging jointly prunes and calibrates ensemble models using out-of-bag loss plus a concave quadratic sparsity penalty. The method reports up to 96% ensemble compression with linear inference speedups while preserving or improving accuracy and calibration. Results cover bagged model families rather than modern transformer workloads, so transfer to accelerator-heavy inference still needs demonstration.</span>
-        <span class="zh">Simplex-Constrained Sparse Bagging使用袋外损失与凹二次稀疏惩罚，联合完成集成模型剪枝和概率校准。该方法报告最高96%的集成压缩，并获得线性推理加速，同时保持或改善准确率与校准表现。实验面向Bagging模型族而非现代Transformer负载，因此能否迁移到加速器密集型推理仍需验证。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.13550" target="_blank" rel="noopener">
-          <span class="en">Uncertainty-Aware Retrieval Chooses RAG Chunk Granularity Per Query</span>
-          <span class="zh">不确定性感知检索按查询选择RAG分块粒度</span>
-        </a>
-      </h3>
-      <p class="authors">H. Jung, X. Wang</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13550" target="_blank" rel="noopener">arXiv:2606.13550</a> · 2026-06-11T16:30:45Z</p>
-      <p class="summary">
-        <span class="en">UMG-RAG treats retrieval granularity as a query-specific reliability problem, combining dense and sparse retrievers across multiple chunk sizes using entropy-derived confidence. A parent-promotion variant retrieves with fine chunks but returns broader, non-redundant context to the generator. The design is training-free and could reduce wasted context processing, although the candidate abstract does not expose latency, token, or energy savings.</span>
-        <span class="zh">UMG-RAG把检索粒度视为按查询变化的可靠性问题，利用熵生成的置信度融合多种分块尺度上的稠密与稀疏检索器。其parent-promotion变体用细粒度分块定位证据，再向生成器返回更宽且不重复的上下文。该设计无需训练，可能减少无效上下文计算，但候选摘要未给出延迟、token或能耗节省数据。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.13513" target="_blank" rel="noopener">
-          <span class="en">CloudCons Tests Forecasting Models on Real Consolidation Decisions</span>
-          <span class="zh">CloudCons以真实资源整合决策评测预测模型</span>
-        </a>
-      </h3>
-      <p class="authors">X. Zhang, L. Shen, M. Chen, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13513" target="_blank" rel="noopener">arXiv:2606.13513</a> · 2026-06-11T16:00:51Z</p>
-      <p class="summary">
-        <span class="en">CloudCons evaluates forecasting models by their downstream value in cloud resource consolidation rather than prediction error alone. Its datasets span Huawei Cloud, Microsoft Azure, and Google Borg workloads with periodic, bursty, and noisy demand patterns. This is useful for infrastructure efficiency because a statistically better forecast may not produce a better placement decision; the available abstract, however, truncates before reporting the full comparative results.</span>
-        <span class="zh">CloudCons不只比较预测误差，而是按模型在云资源整合决策中的下游价值进行评测。数据集覆盖Huawei Cloud、Microsoft Azure和Google Borg负载，包含周期型、突发型与高频噪声需求。该基准有助于基础设施效率研究，因为统计上更准的预测未必带来更好的放置决策；但现有候选摘要在完整对比结果前被截断。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.13426" target="_blank" rel="noopener">
-          <span class="en">Block Verification Speeds Speculative Diffusion Sampling</span>
-          <span class="zh">块验证加速推测式扩散采样</span>
-        </a>
-      </h3>
-      <p class="authors">A. Soen, H. Husain, V. De Bortoli, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13426" target="_blank" rel="noopener">arXiv:2606.13426</a> · 2026-06-11T14:54:13Z</p>
-      <p class="summary">
-        <span class="en">The paper adapts block verification from speculative LLM decoding to continuous diffusion sampling while preserving the target distribution through acceptance and rejection. Its training-free Free Drafter reports up to a 6.3% speedup over existing speculative methods with negligible additional overhead. The gain is modest, but the method matters because it avoids training a separate draft model and attacks repeated diffusion steps directly.</span>
-        <span class="zh">该论文把推测式LLM解码中的块验证移植到连续扩散采样，并通过接受-拒绝机制保持目标分布。无需训练的Free Drafter相对现有推测方法最高加速6.3%，额外开销可忽略。增益幅度不大，但其价值在于无需训练独立草稿模型，并直接减少重复扩散步骤。</span>
+        <span class="en">The work catalogs 84 numeric formats across 13 families and supplies bit-exact conformance vectors for BF16, FP8, MXFP4, and related microscaling formats. Cross-checks against ml_dtypes 0.5.4 expose interpretation gaps that can otherwise create silent differences when models move between accelerators. It is reference infrastructure rather than a new arithmetic result, but it could make low-precision validation more reproducible.</span>
+        <span class="zh">该工作整理了13个系列共84种数值格式，并为BF16、FP8、MXFP4及相关微缩放格式提供位精确一致性向量。与ml_dtypes 0.5.4的交叉检查揭示了可能导致模型跨加速器迁移时出现静默差异的解释分歧。它不是新的算术方案，而是一套参考基础设施，有助于提升低精度验证的可复现性。</span>
       </p>
     </article>
   </section>
@@ -411,25 +396,61 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13422" target="_blank" rel="noopener">
-          <span class="en">Two-Copy Readout Targets Practical Quantum Advantage for Chaotic Systems</span>
-          <span class="zh">双副本读出瞄准混沌系统的实用量子优势</span>
+        <a href="https://arxiv.org/abs/2606.12968" target="_blank" rel="noopener">
+          <span class="en">Apollo Integrates 10,000 Room-Temperature p-Qubits in 16 nm CMOS</span>
+          <span class="zh">Apollo以16 nm CMOS集成1万个室温p-qubit</span>
         </a>
       </h3>
-      <p class="authors">M. Wang, X. Xue, M. Chung, et al.</p>
+      <p class="authors">A. Ivanov, S. Rahmeh, E. G. S. Nascimento, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13422" target="_blank" rel="noopener">arXiv:2606.13422</a> · 2026-06-11T14:52:38Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12968" target="_blank" rel="noopener">arXiv:2606.12968</a> · 2026-06-11</p>
       <p class="summary">
-        <span class="en">The work encodes higher-order statistical priors for chaotic dynamical systems in entangled quantum states and uses joint Bell measurements on two copies for readout. It proves a copy-complexity separation: the proposed readout is independent of qubit count for selected Pauli functionals, while adaptive single-copy full-Pauli readout requires exponentially many copies. The authors demonstrate the readout in simulation and on IQM superconducting processors, but the broader end-to-end advantage remains tied to the stated data-access and measurement assumptions.</span>
-        <span class="zh">该工作把混沌动力系统的高阶统计先验编码进纠缠量子态，并通过两个副本上的联合Bell测量完成读出。论文证明了副本复杂度分离：对特定Pauli泛函，所提读出与量子比特数无关，而自适应单副本全Pauli读出需要指数级副本。作者在仿真和IQM超导处理器上实现了读出，但端到端优势仍依赖论文设定的数据访问与测量假设。</span>
+        <span class="en">Apollo is reported as a 10,000-node p-qubit neuromorphic processor fabricated in 16 nm mixed-signal CMOS, operating at room temperature with about 0.5 W of analog-core power. Integrated quantum entropy drives stochastic state transitions, while a high-degree interconnect targets dense Ising and QUBO embeddings without cryogenic control. The scale and power claims are notable, but the preprint&#x27;s quantum-advantage framing requires careful independent benchmarking.</span>
+        <span class="zh">Apollo被报告为一款采用16 nm混合信号CMOS制造的1万节点p-qubit神经形态处理器，可在室温下运行，模拟核心功耗约0.5 W。集成量子熵源驱动随机状态跃迁，高度互连结构则面向稠密Ising与QUBO映射，无需低温控制。其规模和功耗数据值得关注，但预印本关于量子优势的表述仍需严格的独立基准验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.12816" target="_blank" rel="noopener">
+          <span class="en">Calibration-Aware Routing Raises Simulated IBM Heron Fidelity</span>
+          <span class="zh">校准感知路由提升IBM Heron模拟保真度</span>
+        </a>
+      </h3>
+      <p class="authors">Y. V. Tomar, D. Peddireddy, V. Aggarwal</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12816" target="_blank" rel="noopener">arXiv:2606.12816</a> · 2026-06-11</p>
+      <p class="summary">
+        <span class="en">A graph reinforcement-learning router uses same-day IBM Heron r2 calibration data to choose SWAP operations, reaching pooled mean simulated fidelity of 0.727 versus 0.440 for SABRE-best20. The improvement comes with more two-qubit gates and is concentrated in 5- and 8-qubit circuits; all tested 10-qubit families favor SABRE-best20 under the fixed action graph. The results are exact simulations rather than executions on the quantum processor.</span>
+        <span class="zh">一种图强化学习路由器利用IBM Heron r2当日校准数据选择SWAP操作，汇总平均模拟保真度达到0.727，而SABRE-best20为0.440。提升伴随更多双量子比特门，且主要集中在5和8量子比特电路；在固定动作图下，所有测试的10量子比特电路族仍由SABRE-best20占优。结果来自精确模拟，并非量子处理器实机执行。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.08944" target="_blank" rel="noopener">
+          <span class="en">LongRTL Uses Graph Similarity to Optimize Large RTL Designs</span>
+          <span class="zh">LongRTL利用图相似度优化大型RTL设计</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Ye, C.-K. Shen, X. Hu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08944" target="_blank" rel="noopener">arXiv:2606.08944</a> · 2026-06-08</p>
+      <p class="summary">
+        <span class="en">LongRTL divides large RTL designs into AST subtrees, optimizes them with retrieval-guided agents, and reconstructs the design while checking global functional equivalence. Graph similarity supplies reusable structural guidance intended to move LLM-based RTL optimization beyond short toy modules. The abstract does not provide tape-out results or detailed PPA gains, so the main contribution is the workflow architecture rather than demonstrated silicon impact.</span>
+        <span class="zh">LongRTL把大型RTL设计拆分为AST子树，利用检索引导的智能体进行优化，再在检查全局功能等价性的同时完成重构。图相似度为结构复用提供指导，目标是让基于LLM的RTL优化走出短小示例模块。摘要未给出流片结果或详细PPA收益，因此当前主要贡献是工作流架构，而非已验证的硅片效果。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-14 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-14 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-15 01:20 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-15 01:20 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
