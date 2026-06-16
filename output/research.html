@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-15">
+<meta name="edition-date" content="2026-06-16">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Hardware Models Meet Real-System Constraints — Semi Research 2026-06-15</title>
+<title>Memory Bottlenecks Shape Architecture Research — Semi Research 2026-06-16</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,16 +249,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, June 15, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月15日 星期一</span>
+      <span class="en">Research digest · Tuesday, June 16, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月16日 星期二</span>
     </div>
     <h1>
-      <span class="en">Hardware Models Meet Real-System Constraints</span>
-      <span class="zh">硬件模型直面真实系统约束</span>
+      <span class="en">Memory Bottlenecks Shape Architecture Research</span>
+      <span class="zh">存储瓶颈塑造架构研究</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest papers test abstractions against calibration data, remote-HBM traffic, ADC limits, cache leakage, and long RTL. The common thread is that useful hardware research increasingly depends on modeling the constraints that simplified benchmarks omit.</span>
-      <span class="zh">本周较有价值的论文把抽象模型放到校准数据、远端HBM流量、ADC限制、缓存泄漏和长篇RTL等真实约束下检验。共同趋势是，硬件研究要产生实际价值，越来越需要建模简化基准所忽略的系统条件。</span>
+      <span class="en">This week&#x27;s papers cluster around memory pressure, inference efficiency, and using LLMs inside hardware-design workflows. The strongest work is practical: measured DRAM behavior, memory-side execution, compression near the Shannon limit, and formal or power tools that fit real design loops.</span>
+      <span class="zh">本周论文集中在存储压力、推理效率，以及把LLM引入硬件设计流程。最值得关注的工作偏实践：实测DRAM行为、存储侧执行、接近Shannon极限的压缩，以及能嵌入真实设计循环的形式验证和功耗工具。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 10 paper(s)</span>
@@ -266,39 +266,60 @@
     </div>
   </header>
 
-    <section class="area" id="circuits">
+    <section class="area" id="devices">
     <h2>
-      <span class="en">Circuits, Architecture &amp; Reliability</span>
-      <span class="zh">电路、架构与可靠性</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.14566" target="_blank" rel="noopener">
-          <span class="en">Re-Evaluating Ramulator 2.0&#x27;s Real-System Accuracy</span>
-          <span class="zh">重新评估Ramulator 2.0的真实系统建模精度</span>
+        <a href="https://arxiv.org/abs/2606.15470" target="_blank" rel="noopener">
+          <span class="en">In-DRAM Signatures from Simultaneous Multi-Row Activation</span>
+          <span class="zh">利用同时多行激活生成DRAM内签名</span>
         </a>
       </h3>
-      <p class="authors">F. N. Bostanci, H. Luo, A. Olgun, et al.</p>
+      <p class="authors">U. Baser, I. E. Yuksel, F. N. Bostanci, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.14566" target="_blank" rel="noopener">arXiv:2606.14566</a> · 2026-06-12</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.15470" target="_blank" rel="noopener">arXiv:2606.15470</a> · 2026-06-13T20:57:07Z</p>
       <p class="summary">
-        <span class="en">The authors argue that earlier negative results for Ramulator 2.0 came from configuration and simulator-usage errors rather than intrinsic model inaccuracy. They identify four practices for evaluating cycle-level DRAM simulators against real systems. Because this is an extended abstract responding to another study, the claims need independent reproduction, but the dispute is directly relevant to memory-system papers built on simulator comparisons.</span>
-        <span class="zh">作者认为，此前针对Ramulator 2.0的负面结果源于配置和模拟器使用错误，而非模型本身不准确。论文总结了评估周期级DRAM模拟器与真实系统一致性的4项实践。由于这是一篇回应既有研究的扩展摘要，其结论仍需独立复现，但这场争议直接影响大量依赖模拟器比较的存储系统论文。</span>
+        <span class="en">The paper demonstrates a DRAM PUF based on simultaneous multiple-row activation using 112 off-the-shelf DDR4 chips. The reported intra-Jaccard indices reach roughly 89% to 95% while inter-device indices stay near 2% to 4%, indicating repeatability within a chip and uniqueness across chips. The result is useful because it turns a memory disturbance mechanism into an authentication primitive, though deployment would still need controller support and temperature-aware calibration.</span>
+        <span class="zh">论文基于112颗商用DDR4芯片，展示了利用同时多行激活实现DRAM PUF的方法。文中报告的片内Jaccard指数约为89%到95%，片间指数约为2%到4%，说明同一芯片内可重复、不同芯片间可区分。该结果的意义在于把一种存储扰动机制转化为认证原语，但实际部署仍需要内存控制器支持和温度校准。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.12259" target="_blank" rel="noopener">
-          <span class="en">Partitioned Tags Preserve Cache Isolation and Shared-Write Coherence</span>
-          <span class="zh">分区标签兼顾缓存隔离与共享写一致性</span>
+        <a href="https://arxiv.org/abs/2606.13725" target="_blank" rel="noopener">
+          <span class="en">A Large-Scale Laboratory for Modern DRAM Characterization</span>
+          <span class="zh">面向现代DRAM表征的大规模实验平台</span>
         </a>
       </h3>
-      <p class="authors">K. Ramkrishnan, S. McCamant, A. Zhai, et al.</p>
+      <p class="authors">A. Olgun, H. Luo, I. E. Yuksel, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.12259" target="_blank" rel="noopener">arXiv:2606.12259</a> · 2026-06-10</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13725" target="_blank" rel="noopener">arXiv:2606.13725</a> · 2026-06-11T08:49:31Z</p>
       <p class="summary">
-        <span class="en">SCP partitions LLC tags while retaining a shared data pool, aiming to combine strict eviction isolation with write-shared coherence. In gem5, the design reduces Prime+Probe, Flush+Reload, and shared-writable-line attacks to random-guessing outcomes with a reported 2.8% LLC SRAM cost. The evidence is simulation-based, so implementation timing and verification on a real cache remain open.</span>
-        <span class="zh">SCP对LLC标签进行分区，同时保留共享数据池，以兼顾严格的驱逐隔离和共享写一致性。在gem5中，该设计使Prime+Probe、Flush+Reload及共享可写缓存行攻击的结果降至接近随机猜测，报告的LLC SRAM开销为2.8%。目前证据来自模拟，真实缓存实现中的时序代价和验证仍待完成。</span>
+        <span class="en">The authors describe an updated DRAM characterization laboratory built around DRAM Bender, with broader experiment support, more interface standards, and easier large-scale operation. The contribution is infrastructure rather than a single device result, but that matters for finding real failure, refresh, timing, and security behavior in commodity memory. As memory scaling slows and reliability margins tighten, reproducible characterization platforms become a prerequisite for credible DRAM mechanisms.</span>
+        <span class="zh">作者介绍了围绕DRAM Bender更新的大规模DRAM表征实验室，扩展了实验类型、接口标准支持，并降低了大规模使用门槛。该工作的贡献更多是基础设施，而非单一器件结果，但它对发现商用内存中的失效、刷新、时序和安全行为很重要。随着存储缩放放缓、可靠性裕量收紧，可复现实测平台正成为可信DRAM机制研究的前提。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Design</span>
+      <span class="zh">电路与设计</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.15052" target="_blank" rel="noopener">
+          <span class="en">PANDA Links Analog Design Intent to Layout Generation</span>
+          <span class="zh">PANDA把模拟设计意图连接到版图生成</span>
+        </a>
+      </h3>
+      <p class="authors">H. Zhang, W. Fan, X. Gao, B. Liu, R. Wang, Y. Lin</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.15052" target="_blank" rel="noopener">arXiv:2606.15052</a> · 2026-06-13T01:48:52Z</p>
+      <p class="summary">
+        <span class="en">PANDA is an LLM-enhanced analog design framework that carries high-level intent through topology synthesis, sizing, and constraint-driven layout. The authors claim the workflow can reduce analog design turnaround from days or weeks to hours while improving performance. The notable point is the cross-stage dependency handling; analog automation often fails when topology, sizing, and layout are optimized as separate islands.</span>
+        <span class="zh">PANDA是一个LLM增强的模拟电路设计框架，把高层设计意图贯穿拓扑综合、尺寸优化和约束驱动版图生成。作者称该流程可把模拟设计周期从数天或数周缩短到数小时，并改善性能。其关键在于处理跨阶段依赖；模拟自动化常常失败于把拓扑、尺寸和版图当作彼此割裂的环节。</span>
       </p>
     </article>
   </section>
@@ -309,148 +330,127 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13379" target="_blank" rel="noopener">
-          <span class="en">Positional Encoding Exposes an ADC Bottleneck in Memristor ASR</span>
-          <span class="zh">位置编码暴露忆阻器语音识别中的ADC瓶颈</span>
+        <a href="https://arxiv.org/abs/2606.13354" target="_blank" rel="noopener">
+          <span class="en">SupraSNN Exploits Synapse-Level Parallelism in SNN Accelerators</span>
+          <span class="zh">SupraSNN在SNN加速器中利用突触级并行</span>
         </a>
       </h3>
-      <p class="authors">B. Hilmes, N. Rossenbach, R. Schlüter</p>
+      <p class="authors">S. S. Ghavami, M. H. Nikkhah, M. R. Roshanshah, S. Safari</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13379" target="_blank" rel="noopener">arXiv:2606.13379</a> · 2026-06-11</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13354" target="_blank" rel="noopener">arXiv:2606.13354</a> · 2026-06-11T13:41:41Z</p>
       <p class="summary">
-        <span class="en">Large transformed positional-encoding values are identified as a major source of ADC degradation in memristor-based analog speech-recognition inference. Rebalancing weight and ADC precision bits cuts degradation by about 50% at stable estimated energy, while removing encoding-related linear transforms yields about a 30% reduction when the ADC cannot change. The gains are based on modeled analog execution rather than a reported fabricated array.</span>
-        <span class="zh">论文指出，变换后位置编码产生的大幅值是忆阻器模拟语音识别推理中ADC精度下降的主要来源。重新分配权重位宽与ADC精度位可在估算能耗基本不变时把性能劣化降低约50%；若无法修改ADC，去除与编码相关的线性变换也可降低约30%。这些结果基于模拟执行模型，并未报告已流片阵列。</span>
+        <span class="en">SupraSNN proposes a hardware-software co-design for spiking neural network accelerators that treats synaptic events like parallel micro-operations. The architecture separates synaptic and neuronal computation with multicast and merge trees, aiming to expose more parallelism without duplicating expensive neuron-state logic. It is relevant because SNN efficiency claims often depend on whether irregular sparse events can be scheduled efficiently in real hardware.</span>
+        <span class="zh">SupraSNN提出一种面向脉冲神经网络加速器的软硬件协同设计，把突触事件视为可并行执行的微操作。该架构通过多播树和归并树分离突触计算与神经元计算，试图在不重复昂贵神经元状态逻辑的情况下暴露更多并行性。该工作重要，因为SNN的能效优势往往取决于稀疏且不规则的事件能否在真实硬件中高效调度。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.11716" target="_blank" rel="noopener">
-          <span class="en">GEMM Locality Search Finds 90x Swings in Remote-HBM Traffic</span>
-          <span class="zh">GEMM局部性搜索发现远端HBM流量可相差90倍</span>
+        <a href="https://arxiv.org/abs/2606.12235" target="_blank" rel="noopener">
+          <span class="en">BenDi Uses Quasi-Stochastic Systolic Compute for Edge Bioelectronics</span>
+          <span class="zh">BenDi用准随机脉动架构加速边缘生物电子</span>
         </a>
       </h3>
-      <p class="authors">E. Chung, H. Kim</p>
+      <p class="authors">B. Ye, Y. Pan, S. Agwa, T. Prodromakis</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.11716" target="_blank" rel="noopener">arXiv:2606.11716</a> · 2026-06-10</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12235" target="_blank" rel="noopener">arXiv:2606.12235</a> · 2026-06-10T15:42:21Z</p>
       <p class="summary">
-        <span class="en">A tile-level simulator shows that identical LLM GEMM dimensions can generate up to 90x differences in remote-HBM traffic on multi-chiplet GPUs depending on layout, traversal, and placement choices. An agent-guided search finds a 2D block-swizzle traversal that cuts remote traffic by as much as 5.1x versus the best 1D traversal under round-robin placement. The result elevates CTA traversal to a first-order inter-chiplet design variable, though the study remains simulator-based.</span>
-        <span class="zh">一款tile级模拟器显示，在多chiplet GPU上，相同尺寸的LLM GEMM仅因布局、遍历顺序和数据放置不同，远端HBM流量就可能相差90倍。基于智能体的搜索找到一种2D block-swizzle遍历方式，在轮询放置下相较最佳1D遍历最多降低5.1倍远端流量。结果表明CTA遍历顺序是chiplet间通信的一阶设计变量，但研究仍以模拟为主。</span>
+        <span class="en">BenDi is an edge bioelectronics accelerator that combines low supply voltage, quasi-stochastic multiplication, a systolic dataflow, and hardware-aware quantization. In a commercial 22nm implementation, the authors report 3.35x smaller area and 5x higher energy efficiency versus a reference design at 0.5V and 100MHz. The target is practical wearable signal processing, where energy and area budgets are often tighter than raw model accuracy.</span>
+        <span class="zh">BenDi是一种面向边缘生物电子的加速器，结合低供电电压、准随机乘法、脉动数据流和硬件感知量化。作者在商用22nm工艺实现中报告，在0.5V、100MHz条件下，相比参考设计面积缩小3.35倍、能效提高5倍。其目标是实际可穿戴信号处理，这类场景的能耗和面积预算往往比单纯模型精度更苛刻。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.10303" target="_blank" rel="noopener">
-          <span class="en">Isolation-Aware Scheduling Targets 100 ms Autonomous-Driving Pipelines</span>
-          <span class="zh">隔离感知调度面向100 ms自动驾驶流水线</span>
+        <a href="https://arxiv.org/abs/2606.13708" target="_blank" rel="noopener">
+          <span class="en">Tiara Adds a Programmable Line-Rate ISA to Memory-Side NICs</span>
+          <span class="zh">Tiara为存储侧NIC加入可编程线速ISA</span>
         </a>
       </h3>
-      <p class="authors">C. Zhang, Y. Zhang, C. Xue, et al.</p>
+      <p class="authors">B. Li</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.10303" target="_blank" rel="noopener">arXiv:2606.10303</a> · 2026-06-09</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13708" target="_blank" rel="noopener">arXiv:2606.13708</a> · 2026-06-10T05:01:17Z</p>
       <p class="summary">
-        <span class="en">The paper schedules many co-located driving DNNs on tile-based accelerators while accounting for both hardware isolation and the cost of stop-migrate-restart reallocations. It targets end-to-end latency below 100 ms despite reported execution-time variation of up to 3.3x and task rates from 10 to 240 Hz. The approach addresses a practical shared-accelerator problem, but the candidate record does not report measured automotive silicon.</span>
-        <span class="zh">该论文面向tile式加速器上密集共置的多种自动驾驶DNN进行调度，同时考虑硬件隔离以及停止、迁移、重启所带来的重分配成本。目标是在执行时间最多波动3.3倍、任务频率为10至240 Hz的条件下，把端到端延迟控制在100 ms以内。它针对真实的共享加速器问题，但候选记录未显示在汽车芯片实物上完成测量。</span>
+        <span class="en">Tiara introduces a compact, statically verifiable ISA that runs on the memory-side NIC to resolve pointer indirection near remote memory. On an FPGA prototype, it reduces 10-hop graph traversal latency by 2.85x over one-sided RDMA and sustains 3.4x higher throughput. The idea is important for disaggregated memory and paged KV-cache serving, where dependent address lookups can turn network latency into the dominant cost.</span>
+        <span class="zh">Tiara提出一种紧凑、可静态验证的ISA，在存储侧NIC上执行，以便靠近远端内存解析指针间接访问。FPGA原型显示，在10跳图遍历中，相比单边RDMA延迟降低2.85倍、吞吐提高3.4倍。该思路对内存解耦和分页KV-cache服务很重要，因为依赖性地址查找会让网络往返延迟成为主导成本。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Hardware-Relevant AI Research</span>
-      <span class="zh">面向硬件的AI研究</span>
+      <span class="en">AI Systems Research</span>
+      <span class="zh">AI系统研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.12638" target="_blank" rel="noopener">
-          <span class="en">Eidola Models Transient Multi-GPU Communication in gem5</span>
-          <span class="zh">Eidola在gem5中建模瞬态多GPU通信</span>
+        <a href="https://arxiv.org/abs/2606.15789" target="_blank" rel="noopener">
+          <span class="en">Lossless LLM Weight Compression Approaches the Shannon Bound</span>
+          <span class="zh">无损LLM权重压缩接近Shannon极限</span>
         </a>
       </h3>
-      <p class="authors">R. R. Selagamsetty, M. Poremba, B. M. Beckmann, et al.</p>
+      <p class="authors">H. Tan, Y. Chen, G. Alonso, W.-F. Wong, B. He</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.12638" target="_blank" rel="noopener">arXiv:2606.12638</a> · 2026-06-10</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.15789" target="_blank" rel="noopener">arXiv:2606.15789</a> · 2026-06-14T12:43:47Z</p>
       <p class="summary">
-        <span class="en">Eidola extends gem5 with lightweight GPU traffic models driven by annotated timing profiles from real distributed-AI applications. It reproduces fine-grained peer-to-peer writes and synchronization behavior without simulating every GPU detail, enabling larger interconnect studies. Accuracy therefore depends on how representative the captured profiles are when workloads, kernels, or overlap strategies change.</span>
-        <span class="zh">Eidola利用真实分布式AI应用的标注时序轨迹，为gem5加入轻量级GPU流量模型。它无需模拟GPU的全部细节，即可复现细粒度点对点写入与同步行为，从而支持更大规模的互连研究。其准确性因此取决于采集轨迹在工作负载、内核或通信计算重叠策略变化后是否仍具代表性。</span>
+        <span class="en">This paper finds that LLM weights have effective entropy 2x to 10x lower than their stored bitwidth across models from 1.5B to 405B parameters. It then uses tile-level Asymmetric Numeral Systems decompression aligned to GEMM tiling and reports bit rates within 0.01 to 0.1 bits of the Shannon limit. Integrated into SGLang, the approach raises Qwen-14B maximum batch size from 47 to 75, making lossless compression a credible systems lever rather than only an archival trick.</span>
+        <span class="zh">该论文发现，在1.5B到405B参数模型中，LLM权重的有效熵比存储位宽低2倍到10倍。作者随后采用与GEMM分块对齐的tile级Asymmetric Numeral Systems解压，报告码率距离Shannon极限仅0.01到0.1 bit。集成到SGLang后，该方法把Qwen-14B最大批量从47提高到75，说明无损压缩可能成为推理系统手段，而不只是归档技巧。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.09686" target="_blank" rel="noopener">
-          <span class="en">A Bit-Exact Catalog Standardizes 84 AI Numeric Formats</span>
-          <span class="zh">位精确目录统一描述84种AI数值格式</span>
+        <a href="https://arxiv.org/abs/2606.15453" target="_blank" rel="noopener">
+          <span class="en">Spatio-Temporal Expert Prefetching for MoE Inference</span>
+          <span class="zh">面向MoE推理的时空专家预取</span>
         </a>
       </h3>
-      <p class="authors">D. Vasilev</p>
+      <p class="authors">Y. Zhao, R. Bunescu, A. Louri, A. Karanth, K. Wang</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.09686" target="_blank" rel="noopener">arXiv:2606.09686</a> · 2026-06-08</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.15453" target="_blank" rel="noopener">arXiv:2606.15453</a> · 2026-06-13T20:09:54Z</p>
       <p class="summary">
-        <span class="en">The work catalogs 84 numeric formats across 13 families and supplies bit-exact conformance vectors for BF16, FP8, MXFP4, and related microscaling formats. Cross-checks against ml_dtypes 0.5.4 expose interpretation gaps that can otherwise create silent differences when models move between accelerators. It is reference infrastructure rather than a new arithmetic result, but it could make low-precision validation more reproducible.</span>
-        <span class="zh">该工作整理了13个系列共84种数值格式，并为BF16、FP8、MXFP4及相关微缩放格式提供位精确一致性向量。与ml_dtypes 0.5.4的交叉检查揭示了可能导致模型跨加速器迁移时出现静默差异的解释分歧。它不是新的算术方案，而是一套参考基础设施，有助于提升低精度验证的可复现性。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.12968" target="_blank" rel="noopener">
-          <span class="en">Apollo Integrates 10,000 Room-Temperature p-Qubits in 16 nm CMOS</span>
-          <span class="zh">Apollo以16 nm CMOS集成1万个室温p-qubit</span>
-        </a>
-      </h3>
-      <p class="authors">A. Ivanov, S. Rahmeh, E. G. S. Nascimento, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.12968" target="_blank" rel="noopener">arXiv:2606.12968</a> · 2026-06-11</p>
-      <p class="summary">
-        <span class="en">Apollo is reported as a 10,000-node p-qubit neuromorphic processor fabricated in 16 nm mixed-signal CMOS, operating at room temperature with about 0.5 W of analog-core power. Integrated quantum entropy drives stochastic state transitions, while a high-degree interconnect targets dense Ising and QUBO embeddings without cryogenic control. The scale and power claims are notable, but the preprint&#x27;s quantum-advantage framing requires careful independent benchmarking.</span>
-        <span class="zh">Apollo被报告为一款采用16 nm混合信号CMOS制造的1万节点p-qubit神经形态处理器，可在室温下运行，模拟核心功耗约0.5 W。集成量子熵源驱动随机状态跃迁，高度互连结构则面向稠密Ising与QUBO映射，无需低温控制。其规模和功耗数据值得关注，但预印本关于量子优势的表述仍需严格的独立基准验证。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.12816" target="_blank" rel="noopener">
-          <span class="en">Calibration-Aware Routing Raises Simulated IBM Heron Fidelity</span>
-          <span class="zh">校准感知路由提升IBM Heron模拟保真度</span>
-        </a>
-      </h3>
-      <p class="authors">Y. V. Tomar, D. Peddireddy, V. Aggarwal</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.12816" target="_blank" rel="noopener">arXiv:2606.12816</a> · 2026-06-11</p>
-      <p class="summary">
-        <span class="en">A graph reinforcement-learning router uses same-day IBM Heron r2 calibration data to choose SWAP operations, reaching pooled mean simulated fidelity of 0.727 versus 0.440 for SABRE-best20. The improvement comes with more two-qubit gates and is concentrated in 5- and 8-qubit circuits; all tested 10-qubit families favor SABRE-best20 under the fixed action graph. The results are exact simulations rather than executions on the quantum processor.</span>
-        <span class="zh">一种图强化学习路由器利用IBM Heron r2当日校准数据选择SWAP操作，汇总平均模拟保真度达到0.727，而SABRE-best20为0.440。提升伴随更多双量子比特门，且主要集中在5和8量子比特电路；在固定动作图下，所有测试的10量子比特电路族仍由SABRE-best20占优。结果来自精确模拟，并非量子处理器实机执行。</span>
+        <span class="en">The paper targets MoE inference latency by predicting which experts will be needed across adjacent layers and consecutive decoding tokens. Its core observation is that expert requests are not fully random; they show spatio-temporal correlation within application domains. Prefetching matters because MoE models can shift bottlenecks from arithmetic to expert loading, especially when active experts sit across slower memory or devices.</span>
+        <span class="zh">该论文通过预测相邻层和连续解码token所需专家，来降低MoE推理延迟。其核心观察是专家请求并非完全随机，而是在特定应用域内存在时空相关性。预取之所以重要，是因为MoE模型可能把瓶颈从算术计算转移到专家加载，特别是当激活专家分布在较慢内存或不同设备上时。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
+      <span class="en">EDA &amp; Verification</span>
+      <span class="zh">EDA与验证</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.08944" target="_blank" rel="noopener">
-          <span class="en">LongRTL Uses Graph Similarity to Optimize Large RTL Designs</span>
-          <span class="zh">LongRTL利用图相似度优化大型RTL设计</span>
+        <a href="https://arxiv.org/abs/2606.13747" target="_blank" rel="noopener">
+          <span class="en">BigPower Estimates CPU Module Power from Source-Level Design Data</span>
+          <span class="zh">BigPower基于源级设计数据估算CPU模块功耗</span>
         </a>
       </h3>
-      <p class="authors">Y. Ye, C.-K. Shen, X. Hu, et al.</p>
+      <p class="authors">H. Zhu, C. Luo, J. Zhan</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.08944" target="_blank" rel="noopener">arXiv:2606.08944</a> · 2026-06-08</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13747" target="_blank" rel="noopener">arXiv:2606.13747</a> · 2026-06-11T15:05:13Z</p>
       <p class="summary">
-        <span class="en">LongRTL divides large RTL designs into AST subtrees, optimizes them with retrieval-guided agents, and reconstructs the design while checking global functional equivalence. Graph similarity supplies reusable structural guidance intended to move LLM-based RTL optimization beyond short toy modules. The abstract does not provide tape-out results or detailed PPA gains, so the main contribution is the workflow architecture rather than demonstrated silicon impact.</span>
-        <span class="zh">LongRTL把大型RTL设计拆分为AST子树，利用检索引导的智能体进行优化，再在检查全局功能等价性的同时完成重构。图相似度为结构复用提供指导，目标是让基于LLM的RTL优化走出短小示例模块。摘要未给出流片结果或详细PPA收益，因此当前主要贡献是工作流架构，而非已验证的硅片效果。</span>
+        <span class="en">BigPower uses LLM-based representations plus hierarchy, connectivity, configuration, and workload context to estimate module-level CPU power from source-level design information. The paper evaluates the approach on the open-source XiangShan processor family. If robust across designs, this kind of surrogate could reduce reliance on slow simulation loops during architectural power exploration.</span>
+        <span class="zh">BigPower结合LLM表示、层次结构、模块连接、配置参数和工作负载上下文，从源级设计信息估算CPU模块级功耗。论文在开源XiangShan处理器家族上评估该方法。如果能跨设计保持稳健，这类替代模型可降低架构功耗探索对慢速仿真循环的依赖。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13706" target="_blank" rel="noopener">
+          <span class="en">HierSVA Benchmarks LLM-Driven Hierarchical Hardware Formal Verification</span>
+          <span class="zh">HierSVA评测LLM驱动的层次化硬件形式验证</span>
+        </a>
+      </h3>
+      <p class="authors">M. Nie, J. Zhu, J. Zhang, Z. Zeng, J. Wang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13706" target="_blank" rel="noopener">arXiv:2606.13706</a> · 2026-06-09T22:41:44Z</p>
+      <p class="summary">
+        <span class="en">HierSVA provides a data-synthesis pipeline, dataset, and benchmark for LLM-generated SystemVerilog Assertions on hierarchical RTL. On twelve recent LLMs, the paper reports a 67.1% module-level compile rate, 82.1% non-vacuous proof rate among evaluable runs, and 70.2% detection of eligible injected faults. The mixed results are useful: LLMs can help assertion generation, but syntax success and real fault coverage remain separate bars.</span>
+        <span class="zh">HierSVA提供了面向层次化RTL的LLM生成SystemVerilog Assertions数据合成流程、数据集和基准。论文在12个近期LLM上报告模块级编译率67.1%，可评估运行中非空证明率82.1%，对可检测注入故障的覆盖率为70.2%。这些结果有价值，因为它们显示LLM确实能辅助断言生成，但语法成功和真实故障覆盖仍是不同门槛。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-15 01:20 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-15 01:20 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-16 01:11 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-16 01:11 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
