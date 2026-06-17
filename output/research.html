@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-16">
+<meta name="edition-date" content="2026-06-17">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory Bottlenecks Shape Architecture Research — Semi Research 2026-06-16</title>
+<title>Device Physics Meets Deployable AI Hardware — Semi Research 2026-06-17</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,16 +249,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Tuesday, June 16, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月16日 星期二</span>
+      <span class="en">Research digest · Wednesday, June 17, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月17日 星期三</span>
     </div>
     <h1>
-      <span class="en">Memory Bottlenecks Shape Architecture Research</span>
-      <span class="zh">存储瓶颈塑造架构研究</span>
+      <span class="en">Device Physics Meets Deployable AI Hardware</span>
+      <span class="zh">器件物理走向可部署AI硬件</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers cluster around memory pressure, inference efficiency, and using LLMs inside hardware-design workflows. The strongest work is practical: measured DRAM behavior, memory-side execution, compression near the Shannon limit, and formal or power tools that fit real design loops.</span>
-      <span class="zh">本周论文集中在存储压力、推理效率，以及把LLM引入硬件设计流程。最值得关注的工作偏实践：实测DRAM行为、存储侧执行、接近Shannon极限的压缩，以及能嵌入真实设计循环的形式验证和功耗工具。</span>
+      <span class="en">This week&#x27;s stronger papers connect materials and circuit behavior to practical compute paths: ferroelectric devices, PIM for LLMs, FPGA/SNN deployment, and EDA models that compress physical-design feedback loops.</span>
+      <span class="zh">本周更强的论文把材料和电路行为连接到可部署计算路径：铁电器件、面向LLM的PIM、FPGA/SNN部署，以及压缩物理设计反馈周期的EDA模型。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 10 paper(s)</span>
@@ -273,53 +273,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.15470" target="_blank" rel="noopener">
-          <span class="en">In-DRAM Signatures from Simultaneous Multi-Row Activation</span>
-          <span class="zh">利用同时多行激活生成DRAM内签名</span>
+        <a href="https://doi.org/10.1021/acsnano.6c02136" target="_blank" rel="noopener">
+          <span class="en">Ferroelectric Gate-All-Around Transistors for 3D-Integrated Electronics and Neuromorphic Vision</span>
+          <span class="zh">面向3D集成电子与神经形态视觉的铁电环绕栅晶体管</span>
         </a>
       </h3>
-      <p class="authors">U. Baser, I. E. Yuksel, F. N. Bostanci, et al.</p>
+      <p class="authors">W. Chen, D. Tang, C. Luo, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.15470" target="_blank" rel="noopener">arXiv:2606.15470</a> · 2026-06-13T20:57:07Z</p>
+      <p class="venue"><a href="https://doi.org/10.1021/acsnano.6c02136" target="_blank" rel="noopener">ACS Nano</a> · 2026-06-09</p>
       <p class="summary">
-        <span class="en">The paper demonstrates a DRAM PUF based on simultaneous multiple-row activation using 112 off-the-shelf DDR4 chips. The reported intra-Jaccard indices reach roughly 89% to 95% while inter-device indices stay near 2% to 4%, indicating repeatability within a chip and uniqueness across chips. The result is useful because it turns a memory disturbance mechanism into an authentication primitive, though deployment would still need controller support and temperature-aware calibration.</span>
-        <span class="zh">论文基于112颗商用DDR4芯片，展示了利用同时多行激活实现DRAM PUF的方法。文中报告的片内Jaccard指数约为89%到95%，片间指数约为2%到4%，说明同一芯片内可重复、不同芯片间可区分。该结果的意义在于把一种存储扰动机制转化为认证原语，但实际部署仍需要内存控制器支持和温度校准。</span>
+        <span class="en">The paper demonstrates an all-2D ferroelectric gate-all-around FET aimed at low-power 3D-integrated logic and edge neuromorphic computing. Reported device metrics include sub-60 mV/dec switching down to 25.3 mV/dec, an on/off ratio of 10^8, and mobility of 310 cm2/V/s. The important result is the combination of steep switching, compact logic, and leaky-integrate-and-fire neuron behavior on one hardware platform, though manufacturing integration remains the key caveat.</span>
+        <span class="zh">论文展示了一种全二维铁电环绕栅FET，面向低功耗3D集成逻辑和边缘神经形态计算。报道的器件指标包括低至25.3 mV/dec的亚60 mV/dec开关、10^8开关比以及310 cm2/V/s迁移率。关键结果是把陡峭开关、紧凑逻辑和LIF神经元行为结合在同一硬件平台上，但制造集成仍是主要挑战。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13725" target="_blank" rel="noopener">
-          <span class="en">A Large-Scale Laboratory for Modern DRAM Characterization</span>
-          <span class="zh">面向现代DRAM表征的大规模实验平台</span>
+        <a href="https://doi.org/10.1093/nsr/nwag362" target="_blank" rel="noopener">
+          <span class="en">Ferroelectric Gallium Oxide Enables Radiation-Robust Neuromorphic Sensing</span>
+          <span class="zh">铁电氧化镓实现抗辐照神经形态传感</span>
         </a>
       </h3>
-      <p class="authors">A. Olgun, H. Luo, I. E. Yuksel, et al.</p>
+      <p class="authors">K. Xu, Z. Guan, M. Pei, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13725" target="_blank" rel="noopener">arXiv:2606.13725</a> · 2026-06-11T08:49:31Z</p>
+      <p class="venue"><a href="https://doi.org/10.1093/nsr/nwag362" target="_blank" rel="noopener">National Science Review</a> · 2026-06-12</p>
       <p class="summary">
-        <span class="en">The authors describe an updated DRAM characterization laboratory built around DRAM Bender, with broader experiment support, more interface standards, and easier large-scale operation. The contribution is infrastructure rather than a single device result, but that matters for finding real failure, refresh, timing, and security behavior in commodity memory. As memory scaling slows and reliability margins tighten, reproducible characterization platforms become a prerequisite for credible DRAM mechanisms.</span>
-        <span class="zh">作者介绍了围绕DRAM Bender更新的大规模DRAM表征实验室，扩展了实验类型、接口标准支持，并降低了大规模使用门槛。该工作的贡献更多是基础设施，而非单一器件结果，但它对发现商用内存中的失效、刷新、时序和安全行为很重要。随着存储缩放放缓、可靠性裕量收紧，可复现实测平台正成为可信DRAM机制研究的前提。</span>
+        <span class="en">This work reports a kappa-phase Ga2O3 in-sensor reservoir-computing system that combines deep-UV sensing, memory, and neuromorphic computation. The device operates across -270 C to 210 C and under ion irradiation with an average flux of 1 x 10^4 rad/s, while reaching up to 95% classification accuracy on astrophysical-event tasks. It is notable because ultra-wide-bandgap semiconductors are usually valued for harsh-environment electronics, and here they are tied directly to compute-in-sensor functionality.</span>
+        <span class="zh">这项工作报道了基于κ相Ga2O3的传感器内储备计算系统，将深紫外传感、存储和神经形态计算结合起来。器件可在-270 C到210 C范围内工作，并承受平均1 x 10^4 rad/s的离子辐照，同时在天体事件分类任务上达到最高95%准确率。其亮点在于，超宽禁带半导体通常用于严苛环境电子，而这里被直接连接到传感器内计算功能。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/aelm.202500799" target="_blank" rel="noopener">
+          <span class="en">Temperature-Graded HfZrOx Improves Ferroelectric Capacitor Endurance</span>
+          <span class="zh">温度梯度HfZrOx提升铁电电容耐久性</span>
+        </a>
+      </h3>
+      <p class="authors">S.-Y. Zheng, Y.-C. Sun, Y.-C. Kao, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1002/aelm.202500799" target="_blank" rel="noopener">Advanced Electronic Materials</a> · 2026-06-10</p>
+      <p class="summary">
+        <span class="en">The authors use temperature-graded ALD deposition for Hf0.5Zr0.5O2 ferroelectric capacitors to improve polarization and reliability together. They report 2Pr of 39.6 uC/cm2 at +/-3 V, endurance up to 2 x 10^9 cycles, and projected 94.0% polarization retention over 10 years at 85 C. The process angle matters because HZO ferroelectrics need reliability gains before they can move deeper into memory and logic products.</span>
+        <span class="zh">作者采用温度梯度ALD沉积Hf0.5Zr0.5O2铁电电容，同时改善极化和可靠性。论文报道在+/-3 V下2Pr为39.6 uC/cm2，耐久性达到2 x 10^9次循环，并预测在85 C下10年后仍保留94.0%极化。这个工艺路线重要，因为HZO铁电材料要进入更多存储和逻辑产品，可靠性提升是前提。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Design</span>
-      <span class="zh">电路与设计</span>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.15052" target="_blank" rel="noopener">
-          <span class="en">PANDA Links Analog Design Intent to Layout Generation</span>
-          <span class="zh">PANDA把模拟设计意图连接到版图生成</span>
+        <a href="https://doi.org/10.1038/s41598-026-56270-6" target="_blank" rel="noopener">
+          <span class="en">A Low-Power Buffer-Assisted 14T Ternary SRAM</span>
+          <span class="zh">低功耗缓冲辅助14T三值SRAM</span>
         </a>
       </h3>
-      <p class="authors">H. Zhang, W. Fan, X. Gao, B. Liu, R. Wang, Y. Lin</p>
+      <p class="authors">S. Haq, E. Abbasian, A. Darabi, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.15052" target="_blank" rel="noopener">arXiv:2606.15052</a> · 2026-06-13T01:48:52Z</p>
+      <p class="venue"><a href="https://doi.org/10.1038/s41598-026-56270-6" target="_blank" rel="noopener">Scientific Reports</a> · 2026-06-11</p>
       <p class="summary">
-        <span class="en">PANDA is an LLM-enhanced analog design framework that carries high-level intent through topology synthesis, sizing, and constraint-driven layout. The authors claim the workflow can reduce analog design turnaround from days or weeks to hours while improving performance. The notable point is the cross-stage dependency handling; analog automation often fails when topology, sizing, and layout are optimized as separate islands.</span>
-        <span class="zh">PANDA是一个LLM增强的模拟电路设计框架，把高层设计意图贯穿拓扑综合、尺寸优化和约束驱动版图生成。作者称该流程可把模拟设计周期从数天或数周缩短到数小时，并改善性能。其关键在于处理跨阶段依赖；模拟自动化常常失败于把拓扑、尺寸和版图当作彼此割裂的环节。</span>
+        <span class="en">This paper proposes a buffer-assisted 14-transistor ternary SRAM cell for low-power storage. Ternary SRAM is interesting because multi-valued logic can increase information density, but stability, sensing margin, and write energy usually become harder than in binary cells. The contribution is best read as a circuit-level exploration of denser memory primitives rather than a near-term replacement for conventional SRAM.</span>
+        <span class="zh">论文提出一种缓冲辅助14晶体管三值SRAM单元，用于低功耗存储。三值SRAM值得关注，因为多值逻辑可以提高信息密度，但稳定性、感测裕量和写入能耗通常比二值单元更难处理。该贡献更适合作为更高密度存储原语的电路级探索，而不是传统SRAM的近期替代。</span>
       </p>
     </article>
   </section>
@@ -330,127 +345,106 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13354" target="_blank" rel="noopener">
-          <span class="en">SupraSNN Exploits Synapse-Level Parallelism in SNN Accelerators</span>
-          <span class="zh">SupraSNN在SNN加速器中利用突触级并行</span>
+        <a href="https://doi.org/10.1145/3820366" target="_blank" rel="noopener">
+          <span class="en">HyPIM: Hybrid ReRAM/SRAM 3D-PIM for LLM Acceleration</span>
+          <span class="zh">HyPIM：面向LLM加速的ReRAM/SRAM混合3D-PIM架构</span>
         </a>
       </h3>
-      <p class="authors">S. S. Ghavami, M. H. Nikkhah, M. R. Roshanshah, S. Safari</p>
+      <p class="authors">X. Hu, C. Liu, Y. Ding, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13354" target="_blank" rel="noopener">arXiv:2606.13354</a> · 2026-06-11T13:41:41Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3820366" target="_blank" rel="noopener">ACM Transactions on Embedded Computing Systems</a> · 2026-06-10</p>
       <p class="summary">
-        <span class="en">SupraSNN proposes a hardware-software co-design for spiking neural network accelerators that treats synaptic events like parallel micro-operations. The architecture separates synaptic and neuronal computation with multicast and merge trees, aiming to expose more parallelism without duplicating expensive neuron-state logic. It is relevant because SNN efficiency claims often depend on whether irregular sparse events can be scheduled efficiently in real hardware.</span>
-        <span class="zh">SupraSNN提出一种面向脉冲神经网络加速器的软硬件协同设计，把突触事件视为可并行执行的微操作。该架构通过多播树和归并树分离突触计算与神经元计算，试图在不重复昂贵神经元状态逻辑的情况下暴露更多并行性。该工作重要，因为SNN的能效优势往往取决于稀疏且不规则的事件能否在真实硬件中高效调度。</span>
+        <span class="en">HyPIM proposes a 3D processing-in-memory architecture that combines SRAM and ReRAM slices for transformer inference. The motivation is that different transformer-block operations stress compute and memory in different ways, so a single memory technology is a poor fit. The paper is useful because it treats LLM inference as a heterogeneous memory-system problem, while still facing the practical challenge that attention latency can dominate end-to-end performance.</span>
+        <span class="zh">HyPIM提出一种结合SRAM和ReRAM切片的3D存算一体架构，用于Transformer推理。其动机是，Transformer block中的不同操作对计算和存储的压力不同，单一存储技术难以适配。论文价值在于把LLM推理视为异构存储系统问题，但仍需面对attention延迟可能主导端到端性能的实际挑战。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.12235" target="_blank" rel="noopener">
-          <span class="en">BenDi Uses Quasi-Stochastic Systolic Compute for Edge Bioelectronics</span>
-          <span class="zh">BenDi用准随机脉动架构加速边缘生物电子</span>
+        <a href="http://arxiv.org/abs/2606.13560" target="_blank" rel="noopener">
+          <span class="en">ReSCom Uses Stochastic Computing in a Reconfigurable SNN Accelerator</span>
+          <span class="zh">ReSCom在可重构SNN加速器中使用随机计算</span>
         </a>
       </h3>
-      <p class="authors">B. Ye, Y. Pan, S. Agwa, T. Prodromakis</p>
+      <p class="authors">A. A. Fereidani, M. R. Roshanshah, S. Safari</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.12235" target="_blank" rel="noopener">arXiv:2606.12235</a> · 2026-06-10T15:42:21Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.13560" target="_blank" rel="noopener">arXiv:2606.13560</a> · 2026-06-11</p>
       <p class="summary">
-        <span class="en">BenDi is an edge bioelectronics accelerator that combines low supply voltage, quasi-stochastic multiplication, a systolic dataflow, and hardware-aware quantization. In a commercial 22nm implementation, the authors report 3.35x smaller area and 5x higher energy efficiency versus a reference design at 0.5V and 100MHz. The target is practical wearable signal processing, where energy and area budgets are often tighter than raw model accuracy.</span>
-        <span class="zh">BenDi是一种面向边缘生物电子的加速器，结合低供电电压、准随机乘法、脉动数据流和硬件感知量化。作者在商用22nm工艺实现中报告，在0.5V、100MHz条件下，相比参考设计面积缩小3.35倍、能效提高5倍。其目标是实际可穿戴信号处理，这类场景的能耗和面积预算往往比单纯模型精度更苛刻。</span>
+        <span class="en">ReSCom is a reconfigurable spiking-neural-network accelerator that uses stochastic arithmetic for multiplication while keeping fixed-point addition and subtraction exact. The design supports IF, LIF, and synaptic neuron models in one hardware framework and exposes runtime trade-offs between accuracy, latency, and energy. The FPGA result on MNIST reports 92.80% accuracy, making the work a concrete hardware-efficiency study rather than only an algorithm proposal.</span>
+        <span class="zh">ReSCom是一种可重构脉冲神经网络加速器，在乘法中使用随机算术，同时保持定点加减法精确。该设计在同一硬件框架中支持IF、LIF和突触神经元模型，并提供准确率、延迟和能耗之间的运行时权衡。其FPGA MNIST结果报告92.80%准确率，使这项工作更接近具体硬件效率研究，而不只是算法方案。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13708" target="_blank" rel="noopener">
-          <span class="en">Tiara Adds a Programmable Line-Rate ISA to Memory-Side NICs</span>
-          <span class="zh">Tiara为存储侧NIC加入可编程线速ISA</span>
+        <a href="http://arxiv.org/abs/2606.13016" target="_blank" rel="noopener">
+          <span class="en">Otters++ Maps Time-to-First-Spike Transformers onto Optical Synapses</span>
+          <span class="zh">Otters++将首脉冲时间Transformer映射到光电突触</span>
         </a>
       </h3>
-      <p class="authors">B. Li</p>
+      <p class="authors">Z. Yan, J. Mao, K. Tang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13708" target="_blank" rel="noopener">arXiv:2606.13708</a> · 2026-06-10T05:01:17Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.13016" target="_blank" rel="noopener">arXiv:2606.13016</a> · 2026-06-11</p>
       <p class="summary">
-        <span class="en">Tiara introduces a compact, statically verifiable ISA that runs on the memory-side NIC to resolve pointer indirection near remote memory. On an FPGA prototype, it reduces 10-hop graph traversal latency by 2.85x over one-sided RDMA and sustains 3.4x higher throughput. The idea is important for disaggregated memory and paged KV-cache serving, where dependent address lookups can turn network latency into the dominant cost.</span>
-        <span class="zh">Tiara提出一种紧凑、可静态验证的ISA，在存储侧NIC上执行，以便靠近远端内存解析指针间接访问。FPGA原型显示，在10跳图遍历中，相比单边RDMA延迟降低2.85倍、吞吐提高3.4倍。该思路对内存解耦和分页KV-cache服务很重要，因为依赖性地址查找会让网络往返延迟成为主导成本。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="ai-research">
-    <h2>
-      <span class="en">AI Systems Research</span>
-      <span class="zh">AI系统研究</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.15789" target="_blank" rel="noopener">
-          <span class="en">Lossless LLM Weight Compression Approaches the Shannon Bound</span>
-          <span class="zh">无损LLM权重压缩接近Shannon极限</span>
-        </a>
-      </h3>
-      <p class="authors">H. Tan, Y. Chen, G. Alonso, W.-F. Wong, B. He</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.15789" target="_blank" rel="noopener">arXiv:2606.15789</a> · 2026-06-14T12:43:47Z</p>
-      <p class="summary">
-        <span class="en">This paper finds that LLM weights have effective entropy 2x to 10x lower than their stored bitwidth across models from 1.5B to 405B parameters. It then uses tile-level Asymmetric Numeral Systems decompression aligned to GEMM tiling and reports bit rates within 0.01 to 0.1 bits of the Shannon limit. Integrated into SGLang, the approach raises Qwen-14B maximum batch size from 47 to 75, making lossless compression a credible systems lever rather than only an archival trick.</span>
-        <span class="zh">该论文发现，在1.5B到405B参数模型中，LLM权重的有效熵比存储位宽低2倍到10倍。作者随后采用与GEMM分块对齐的tile级Asymmetric Numeral Systems解压，报告码率距离Shannon极限仅0.01到0.1 bit。集成到SGLang后，该方法把Qwen-14B最大批量从47提高到75，说明无损压缩可能成为推理系统手段，而不只是归档技巧。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.15453" target="_blank" rel="noopener">
-          <span class="en">Spatio-Temporal Expert Prefetching for MoE Inference</span>
-          <span class="zh">面向MoE推理的时空专家预取</span>
-        </a>
-      </h3>
-      <p class="authors">Y. Zhao, R. Bunescu, A. Louri, A. Karanth, K. Wang</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.15453" target="_blank" rel="noopener">arXiv:2606.15453</a> · 2026-06-13T20:09:54Z</p>
-      <p class="summary">
-        <span class="en">The paper targets MoE inference latency by predicting which experts will be needed across adjacent layers and consecutive decoding tokens. Its core observation is that expert requests are not fully random; they show spatio-temporal correlation within application domains. Prefetching matters because MoE models can shift bottlenecks from arithmetic to expert loading, especially when active experts sit across slower memory or devices.</span>
-        <span class="zh">该论文通过预测相邻层和连续解码token所需专家，来降低MoE推理延迟。其核心观察是专家请求并非完全随机，而是在特定应用域内存在时空相关性。预取之所以重要，是因为MoE模型可能把瓶颈从算术计算转移到专家加载，特别是当激活专家分布在较慢内存或不同设备上时。</span>
+        <span class="en">Otters++ uses the natural decay of an In2O3 optoelectronic synapse to implement the temporal term in time-to-first-spike coding. The paper then builds a training path for Transformer-style models by linking the SNN computation to an equivalent quantized neural network with distillation. The result is interesting because it converts a device behavior that is often treated as a nuisance into a compute primitive, but scalability depends on device variation and integration.</span>
+        <span class="zh">Otters++利用In2O3光电突触的自然衰减来实现首脉冲时间编码中的时间项。论文进一步通过把SNN计算与等效量化神经网络和蒸馏训练连接，为Transformer类模型建立训练路径。其有趣之处在于把常被视作麻烦的器件行为转化为计算原语，但可扩展性取决于器件变异和集成能力。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Verification</span>
-      <span class="zh">EDA与验证</span>
+      <span class="en">EDA &amp; Hardware Security</span>
+      <span class="zh">EDA与硬件安全</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13747" target="_blank" rel="noopener">
-          <span class="en">BigPower Estimates CPU Module Power from Source-Level Design Data</span>
-          <span class="zh">BigPower基于源级设计数据估算CPU模块功耗</span>
+        <a href="https://doi.org/10.1145/3819824" target="_blank" rel="noopener">
+          <span class="en">CGNet Predicts VLSI Congestion with Lightweight Multimodal Learning</span>
+          <span class="zh">CGNet用轻量多模态学习预测VLSI拥塞</span>
         </a>
       </h3>
-      <p class="authors">H. Zhu, C. Luo, J. Zhan</p>
+      <p class="authors">Y. Li, Y. Xia, G. Zhong, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13747" target="_blank" rel="noopener">arXiv:2606.13747</a> · 2026-06-11T15:05:13Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3819824" target="_blank" rel="noopener">ACM Transactions on Design Automation of Electronic Systems</a> · 2026-06-12</p>
       <p class="summary">
-        <span class="en">BigPower uses LLM-based representations plus hierarchy, connectivity, configuration, and workload context to estimate module-level CPU power from source-level design information. The paper evaluates the approach on the open-source XiangShan processor family. If robust across designs, this kind of surrogate could reduce reliance on slow simulation loops during architectural power exploration.</span>
-        <span class="zh">BigPower结合LLM表示、层次结构、模块连接、配置参数和工作负载上下文，从源级设计信息估算CPU模块级功耗。论文在开源XiangShan处理器家族上评估该方法。如果能跨设计保持稳健，这类替代模型可降低架构功耗探索对慢速仿真循环的依赖。</span>
+        <span class="en">CGNet predicts physical-design congestion by jointly processing feature maps and heterogeneous graphs. The paper emphasizes graph compression and cross-stitch fusion to keep inference light enough for time-critical design-loop use. This matters because early congestion visibility can prevent costly routing iterations, but EDA adoption will depend on robustness across process nodes, design styles, and tool flows.</span>
+        <span class="zh">CGNet通过同时处理特征图和异构图来预测物理设计拥塞。论文强调图压缩和cross-stitch融合，以保持推理足够轻量，可用于时间敏感的设计循环。其重要性在于，早期拥塞可见性可以避免昂贵的布线迭代，但EDA采用仍取决于其跨工艺节点、设计风格和工具流程的稳健性。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.13706" target="_blank" rel="noopener">
-          <span class="en">HierSVA Benchmarks LLM-Driven Hierarchical Hardware Formal Verification</span>
-          <span class="zh">HierSVA评测LLM驱动的层次化硬件形式验证</span>
+        <a href="http://arxiv.org/abs/2606.09213" target="_blank" rel="noopener">
+          <span class="en">SNN-MLIR Compiles Neuromorphic Models from NIR to Bare-Metal C</span>
+          <span class="zh">SNN-MLIR将NIR神经形态模型编译到裸机C</span>
         </a>
       </h3>
-      <p class="authors">M. Nie, J. Zhu, J. Zhang, Z. Zeng, J. Wang, et al.</p>
+      <p class="authors">A. G. Gener, A. Roll&#x27;on de Pinedo</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.13706" target="_blank" rel="noopener">arXiv:2606.13706</a> · 2026-06-09T22:41:44Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.09213" target="_blank" rel="noopener">arXiv:2606.09213</a> · 2026-06-08</p>
       <p class="summary">
-        <span class="en">HierSVA provides a data-synthesis pipeline, dataset, and benchmark for LLM-generated SystemVerilog Assertions on hierarchical RTL. On twelve recent LLMs, the paper reports a 67.1% module-level compile rate, 82.1% non-vacuous proof rate among evaluable runs, and 70.2% detection of eligible injected faults. The mixed results are useful: LLMs can help assertion generation, but syntax success and real fault coverage remain separate bars.</span>
-        <span class="zh">HierSVA提供了面向层次化RTL的LLM生成SystemVerilog Assertions数据合成流程、数据集和基准。论文在12个近期LLM上报告模块级编译率67.1%，可评估运行中非空证明率82.1%，对可检测注入故障的覆盖率为70.2%。这些结果有价值，因为它们显示LLM确实能辅助断言生成，但语法成功和真实故障覆盖仍是不同门槛。</span>
+        <span class="en">SNN-MLIR introduces an out-of-tree MLIR dialect and a NIR-to-MLIR-to-C bridge for spiking neural networks. The goal is to turn framework-neutral SNN descriptions into a transformable compiler representation that can target simulation and hardware-oriented deployment. The paper matters because neuromorphic hardware needs compiler plumbing as much as new neuron circuits; without it, trained SNNs remain difficult to move across backends.</span>
+        <span class="zh">SNN-MLIR提出一个外部MLIR方言，以及面向脉冲神经网络的NIR到MLIR再到C的编译桥。目标是把框架中立的SNN描述转化为可变换的编译器表示，同时服务仿真和面向硬件的部署。这篇论文重要，因为神经形态硬件不仅需要新的神经元电路，也需要编译器基础设施；否则训练好的SNN很难跨后端迁移。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.10163" target="_blank" rel="noopener">
+          <span class="en">GRAFT Attacks GNN-Based Hardware Security with Function-Preserving Graphlets</span>
+          <span class="zh">GRAFT用功能保持graphlet攻击基于GNN的硬件安全系统</span>
+        </a>
+      </h3>
+      <p class="authors">S. K. Abharian, S. M. P. Dinakarrao</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.10163" target="_blank" rel="noopener">arXiv:2606.10163</a> · 2026-06-08</p>
+      <p class="summary">
+        <span class="en">GRAFT studies backdoor attacks against GNN-based hardware-security detectors by embedding graphlet triggers at RTL or gate level while preserving circuit function. That makes the attack more realistic than arbitrary subgraph triggers, because the modified circuit can still behave correctly. The result is a warning for ML-assisted Trojan and IP-theft detection: model accuracy is not enough if the detector can be steered by structure-preserving triggers.</span>
+        <span class="zh">GRAFT研究针对基于GNN的硬件安全检测器的后门攻击，通过在RTL或门级嵌入graphlet触发器，同时保持电路功能不变。与任意子图触发器相比，这让攻击更现实，因为被修改的电路仍可正确运行。其结果提醒ML辅助的木马和IP盗用检测：如果检测器可被保持结构功能的触发器操纵，单纯模型准确率并不足够。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-16 01:11 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-16 01:11 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-17 01:20 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-17 01:20 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

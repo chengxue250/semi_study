@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-16",
+  "date": "2026-06-17",
   "theme": {
-    "en": "AI Demand Stresses Every Layer",
-    "zh": "AI需求拉紧每一层供应链"
+    "en": "Packaging and Memory Set AI's Pace",
+    "zh": "封装与存储决定AI节奏"
   },
   "dek": {
-    "en": "Packaging, memory, power delivery, cooling, and data-center siting are all becoming gating factors for the AI buildout. The day's strongest stories point less to one chip winner than to a broader scramble for capacity around it.",
-    "zh": "封装、存储、供电、散热和数据中心选址都在成为AI扩张的约束。今天最重要的新闻不只是某一家芯片公司的胜负，而是围绕AI基础设施的全链条产能争夺。"
+    "en": "The day's strongest signals sit below the model layer: advanced packaging capacity, HBM4 supply, process-node risk production, and tools that shorten the path to manufacturable AI hardware. Policy and CHIPS incentives are still shaping where that capacity lands.",
+    "zh": "今天最强的信号不在模型层，而在先进封装产能、HBM4供给、制程风险生产以及缩短AI硬件落地周期的工具链。政策与CHIPS激励仍在决定这些产能最终落在哪里。"
   },
   "sections": [
     {
@@ -19,67 +19,95 @@
         {
           "featured": false,
           "title": {
-            "en": "Nvidia's $20 Billion Bond Draws $85 Billion in Orders",
-            "zh": "Nvidia 200亿美元债券获得850亿美元认购"
+            "en": "AMD's Mext Deal Targets AI's Memory-Expansion Problem",
+            "zh": "AMD收购Mext瞄准AI内存扩展难题"
           },
           "summary": {
-            "en": "Nvidia's planned $20 billion bond sale reportedly drew about $85 billion of investor orders. The scale of demand gives the company cheaper financial room as it spends heavily on AI systems, networking, and supply-chain commitments. It also shows that credit investors still treat AI infrastructure as a durable capital cycle, not only an equity-market story.",
-            "zh": "Nvidia计划发行的200亿美元债券据称获得约850亿美元认购。强劲需求为其AI系统、网络和供应链投入提供了更低成本的融资空间。这也说明，信贷投资者仍把AI基础设施视为持续资本开支周期，而不只是股票市场题材。"
+            "en": "AMD's Mext acquisition points at flash-backed memory expansion as a way to ease the DRAM pressure created by larger AI systems. The strategic point is not just capacity, but tiering: if software can hide latency well enough, systems may stretch scarce and expensive RAM across more inference and enterprise workloads. That matters as accelerator platforms increasingly bottleneck on memory footprint rather than raw compute.",
+            "zh": "AMD收购Mext，把基于flash的内存扩展推到AI系统内存压力的解决方案之一。重点不只是容量，而是分层：如果软件能够足够好地掩盖延迟，系统就可能把稀缺且昂贵的RAM覆盖到更多推理和企业工作负载。这对加速器平台很重要，因为瓶颈越来越多来自内存占用，而不是纯算力。"
           },
-          "source": "AD HOC NEWS",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQekFpcmZ5TmE0emhiS3hoU2pycjdsWlVsR0k1WHpKOWh3bGlMRnA5ZXgzMy1tNXlZYzJac3NIa2JjckZRa2trNU9SSTRFcUpOUFdOYWE3LXg1RGFLQ3FIcHlDNFV1QWZTLUltanM1UE94QjlBTFNMY0ZfY294ZlM2djFOVWxUQzU4TUxpN2FfNFlBZWlqSHhjWk5Da3pJaVNMSmZicEV1TU1uaEZrc2RvSlBvM1ZWTlpwTWhQTnVsLU1qdw?oc=5",
-          "published": "2026-06-15T19:44:45+00:00"
+          "source": "The Register",
+          "url": "https://www.theregister.com/systems/2026/06/16/amds-mext-buy-shows-how-ai-could-solve-the-ram-shortage-it-created/5257352",
+          "published": "2026-06-16T22:09:32+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "AMD Buys MEXT to Add Memory Tiering for Data Centers",
-            "zh": "AMD收购MEXT，补强数据中心内存分层"
+            "en": "Tensordyne Uses Log-Domain Math to Push AI Inference",
+            "zh": "Tensordyne用对数域计算推进AI推理"
           },
           "summary": {
-            "en": "AMD acquired MEXT, a company behind Predictive Memory Engine technology that can move colder data from DRAM to NAND while presenting it to applications like memory. The deal targets one of AI infrastructure's practical bottlenecks: DRAM capacity and cost. If AMD can integrate the software cleanly, it could make larger memory footprints more economical for server platforms without waiting for more physical DRAM.",
-            "zh": "AMD收购MEXT，后者的Predictive Memory Engine可把较冷数据从DRAM迁移到NAND，同时让应用把它视作内存使用。这笔交易瞄准AI基础设施的现实瓶颈之一：DRAM容量和成本。如果AMD能顺利整合该软件，服务器平台或可在不单纯增加物理DRAM的情况下获得更经济的大内存空间。"
+            "en": "Tensordyne is pitching an inference approach that converts AI matrix math into logarithmic operations. The attraction is lower-cost arithmetic for workloads where matrix multiply dominates power and silicon area. It is a challenger-chip story, but also a reminder that inference efficiency is being attacked at the numerical representation layer, not only through bigger GPUs.",
+            "zh": "Tensordyne提出一种推理路线，把AI矩阵计算转换为对数运算。其吸引力在于，当矩阵乘法主导功耗和芯片面积时，可以用更低成本的算术单元完成计算。这既是挑战者芯片故事，也说明推理效率的竞争不只靠更大的GPU，还在数值表示层展开。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/cpus/amd-takes-over-mext-to-address-growing-memory-constraints-in-the-data-center-memory-tiering-technology-enables-flash-to-appear-as-dram-to-applications",
-          "published": "2026-06-15T19:00:47+00:00"
+          "source": "The Next Platform",
+          "url": "https://www.nextplatform.com/compute/2026/06/16/tensordyne-converts-ai-matrix-math-to-logs-to-crank-up-inference-oomph/5256558",
+          "published": "2026-06-16T18:52:27+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "SiMa Adds an Agentic Development Environment for Physical AI",
+            "zh": "SiMa为Physical AI推出智能体开发环境"
+          },
+          "summary": {
+            "en": "SiMa launched an agentic development environment aimed at moving models onto its edge AI hardware faster. The company says the tool can compress porting work from months to hours, which is material if robotics, industrial vision, and other physical-AI deployments remain software-integration limited. The story is less about a new chip and more about reducing the friction that keeps accelerators underused outside hyperscale data centers.",
+            "zh": "SiMa推出面向其边缘AI硬件的智能体开发环境，目标是更快把模型迁移到硬件上。公司称该工具可把移植工作从数月压缩到数小时；如果机器人、工业视觉等Physical AI部署仍受软件集成限制，这一点具有实际意义。这条新闻的重点不是新芯片，而是降低加速器在超大规模数据中心之外被采用的摩擦。"
+          },
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/sima-launches-agentic-development-environment-for-physical-ai/",
+          "published": "2026-06-16T17:50:36+00:00"
         }
       ]
     },
     {
       "id": "foundry",
       "title": {
-        "en": "Foundry",
-        "zh": "晶圆代工"
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
       },
       "stories": [
         {
           "featured": true,
           "title": {
-            "en": "TSMC's CoWoS Capacity Push Targets 140,000 Wafers a Month",
-            "zh": "TSMC CoWoS产能推进至每月14万片目标"
+            "en": "TSMC and Amkor Sign a 10-Year Arizona Packaging Deal",
+            "zh": "TSMC与Amkor签署十年亚利桑那封装协议"
           },
           "summary": {
-            "en": "TSMC is reportedly ramping CoWoS advanced-packaging capacity toward 140,000 wafers a month for AI demand. That figure matters because packaging, not only leading-edge wafer starts, has become a hard constraint for GPU and custom-accelerator shipments. A faster CoWoS ramp would relieve some supply pressure for Nvidia, AMD, and hyperscaler ASIC programs, but it also raises the bar for substrate, interposer, and HBM ecosystem capacity.",
-            "zh": "TSMC据称正把CoWoS先进封装产能推向每月14万片，以满足AI需求。这个数字重要，因为限制GPU和定制加速器出货的不只是先进制程晶圆投片，封装也已成为硬约束。CoWoS加速扩产有助于缓解Nvidia、AMD和云厂商ASIC项目的供给压力，但也会继续拉高基板、中介层和HBM生态的配套要求。"
+            "en": "TSMC and Amkor struck a 10-year agreement to build out an advanced semiconductor packaging and test hub in Arizona. The deal extends the U.S. fab story beyond wafer processing into the backend steps needed for AI accelerators and chiplet products. It also ties TSMC's local manufacturing footprint more tightly to a packaging partner that can support U.S.-based customers.",
+            "zh": "TSMC与Amkor达成十年协议，将在亚利桑那建设先进半导体封装与测试中心。这把美国建厂叙事从晶圆制造延伸到AI加速器和chiplet产品所需的后段环节。它也让TSMC在美国的制造布局与可服务本地客户的封装伙伴绑定得更紧。"
           },
-          "source": "AD HOC NEWS",
-          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQTUdtVUJvRlpjY2ZZUmhsV0EyTmt3VUhyNDBUNzV5VFU0ODVmSElpMUZyUWRHYndvSW02bEYxMkpDVVplR0VxTDVBMm9DMU95NkFSLVhnemZQV0RMRGF5dFRHYy1GWGx6c1JZT05qcEVnU2xfVVJrMWdjbklLVTl4RzFvTUJEWG1ISE5meVpMczNKOXhybTZJOEJKYl8wT1ZUb2NWcUxwSWZTLXZ2Sm95dU5SNTR5b040MHA3WFI5cTZhaU1FclNDZmlR?oc=5",
-          "published": "2026-06-16T00:00:19+00:00"
+          "source": "DigiTimes",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1WbFRVTHlYVVBPbmtPNTVmTVk2TkdmcjZScHlmUDVQT0x3aEdyaGZDOG9hcVVCSGtMUUttQ2c2eFlnZTZRRmxuMVRua2U4RTdneGEzQUhhVFZRNHhEMjRZ?oc=5",
+          "published": "2026-06-17T00:51:46+00:00"
+        },
+        {
+          "featured": true,
+          "title": {
+            "en": "Intel 18A-P Enters Risk Production With 9% Iso-Power Gain",
+            "zh": "Intel 18A-P进入风险生产，等功耗性能提升9%"
+          },
+          "summary": {
+            "en": "Intel's performance-enhanced 18A-P process has entered risk production, with the company positioning it as a drop-in upgrade over 18A. The reported targets are a 9% performance improvement at iso-power and a 40% reduction in thermal resistance. For Intel Foundry, the node is important because customer confidence depends on turning 18A momentum into a broader, higher-performance platform.",
+            "zh": "Intel性能增强版18A-P制程已进入风险生产，公司将其定位为18A的可替换升级版。报道给出的目标是在等功耗下性能提升9%，热阻降低40%。对Intel Foundry而言，这个节点很关键，因为客户信心取决于能否把18A的进展扩展成更完整、更高性能的平台。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/semiconductors/intels-performance-enhanced-18a-p-process-enters-risk-production-enhanced-node-promises-9-percent-performance-improvement-at-iso-power",
+          "published": "2026-06-16T21:00:00+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "GlobalFoundries Backs OCI MSA Silicon for AI Scale-Up",
-            "zh": "GlobalFoundries支持面向AI扩展的OCI MSA硅实现"
+            "en": "TSMC Starts Building a Glass-Substrate Supply Chain for CoWoS",
+            "zh": "TSMC开始为CoWoS建立玻璃基板供应链"
           },
           "summary": {
-            "en": "GlobalFoundries says it is the first chipmaker with silicon support for the Optical Communication Interface Multi-Source Agreement, an open standard aimed at AI scale-up links. The move puts a specialty foundry into the interconnect layer of AI data centers rather than only the compute die. Open optical interfaces could matter if cluster growth shifts more bottlenecks from arithmetic throughput to rack-to-rack and board-level bandwidth.",
-            "zh": "GlobalFoundries称其率先提供支持Optical Communication Interface Multi-Source Agreement的硅实现，该开放标准面向AI scale-up连接。此举让特色代工厂进入AI数据中心互连层，而不只是制造计算芯片。如果集群扩张的瓶颈从算力进一步转向机架间和板级带宽，开放光互连接口会更关键。"
+            "en": "TSMC is reportedly expanding its supplier work on glass substrates for advanced CoWoS and chip-on-panel-on-substrate packaging. The material could improve thermal behavior versus organic substrates, but mass production remains distant. The signal is that advanced packaging roadmaps are already pushing beyond today's interposer and substrate limits as AI packages grow larger.",
+            "zh": "报道称TSMC正在扩大面向先进CoWoS和CoPoS封装的玻璃基板供应商合作。与有机基板相比，玻璃基板可能改善热特性，但距离量产仍有时间。其信号是，随着AI封装尺寸扩大，先进封装路线图已经开始越过现有中介层和基板限制。"
           },
-          "source": "EE Times",
-          "url": "https://www.eetimes.com/globalfoundries-first-chipmaker-to-support-open-standard-for-ai-scale-up/",
-          "published": "2026-06-15T22:00:00+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/tsmc-bets-on-glass-for-cowos-as-silicon-mimicking-thermals-beat-organic-substrates-yet-mass-production-stays-distant/",
+          "published": "2026-06-16T17:22:50+00:00"
         }
       ]
     },
@@ -93,44 +121,30 @@
         {
           "featured": false,
           "title": {
-            "en": "SK Hynix Reportedly Readies HBM4E Samples for Nvidia",
-            "zh": "SK hynix据称准备向Nvidia送样HBM4E"
+            "en": "Samsung Leans on Turnkey Manufacturing to Win Back HBM4 Share",
+            "zh": "Samsung押注一站式制造争夺HBM4份额"
           },
           "summary": {
-            "en": "SK hynix is reportedly preparing HBM4E samples for Nvidia while Samsung tries to close the gap in next-generation AI memory. Sampling timing matters because HBM qualification windows can determine who captures early accelerator ramps. The report also underlines that the AI memory race has moved beyond HBM3E supply into HBM4 and HBM4E roadmap credibility.",
-            "zh": "SK hynix据称正准备向Nvidia提供HBM4E样品，同时Samsung也在追赶下一代AI存储。送样节奏重要，因为HBM认证窗口往往决定谁能拿到早期加速器爬坡订单。这一消息也显示，AI存储竞争已经从HBM3E供给延伸到HBM4和HBM4E路线图可信度。"
+            "en": "Samsung Electronics is positioning its turnkey logic, memory, and packaging strategy as a way to regain share in HBM4. The approach matters because HBM4 qualification will depend on tight coordination between memory stacks, base dies, and advanced packaging. If Samsung can make the full stack easier for accelerator customers, it could pressure SK hynix and Micron beyond raw memory performance.",
+            "zh": "Samsung Electronics正把逻辑、存储与封装的一站式策略作为夺回HBM4份额的路径。这个方向很重要，因为HBM4认证将依赖存储堆叠、base die和先进封装之间的紧密协同。如果Samsung能让加速器客户更容易采用完整方案，就可能在单纯存储性能之外对SK hynix和Micron施压。"
           },
-          "source": "DIGITIMES",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOc2tmMVYydVppQ3Z5VXdMM2RjeWNOQTNzRmlkd1QzS2ZJTEpLZjYxV3p3WVN0cFR2YlBVQjJ1RmN2dWRaNlgza1NJa3dWWE5lSWVjMGV0bjV4elJBWW1rdDZwX2lPdTRvdFg5SjhicXlyTXIzYjhScUdtblBVSUE5LWcxQkRPREJWeGtJc0R1NGVpUzd0TXc?oc=5",
-          "published": "2026-06-15T21:54:54+00:00"
+          "source": "Digital Today",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNRGo5XzdVQ1NIYUxPbTZqWnV6MWt3YmNuVWwtdG1NSzg1N2pZdFJNNktFQ0h3aGF5eE00XzlRNURBbHd4UDhZakJCME1PRE93XzE4eFUzMXFYaXFnWGlkZHpJX3VnVWxlNHhXODgzYUhtdUVPQzNaYzRZR0NpOHp4MHdvZnVrLVJ1NHZxV3JlYkxmS0tlTG9mNlF3Ymp3Q2RaMFplNlhkeThuUzZENDJsUlVPRnZFX0l2YXc?oc=5",
+          "published": "2026-06-16T23:00:00+00:00"
         },
         {
           "featured": true,
           "title": {
-            "en": "Aletheia Warns HBM Prices Could Double in 2027",
-            "zh": "Aletheia警告HBM价格2027年或翻倍"
+            "en": "Micron Wins an HBM4 Supplier Role for Nvidia Vera Rubin",
+            "zh": "Micron获得Nvidia Vera Rubin平台HBM4供应角色"
           },
           "summary": {
-            "en": "Aletheia Capital warned that HBM prices could double in 2027 as memory becomes a larger share of AI system value. The call highlights a shift in bargaining power toward Micron, SK hynix, and Samsung as GPU platforms consume more stacked DRAM per rack. The risk for accelerator buyers is that even if compute silicon supply improves, total system cost may remain pinned by HBM availability and pricing.",
-            "zh": "Aletheia Capital警告，随着存储在AI系统价值中的占比上升，HBM价格到2027年可能翻倍。这个判断凸显Micron、SK hynix和Samsung议价能力上升，因为每个机架需要更多堆叠DRAM。对加速器买家而言，即使计算芯片供给改善，整机成本仍可能被HBM供需和价格锁住。"
+            "en": "Micron has reportedly secured an HBM4 supplier role for Nvidia's Vera Rubin AI platform. That would extend Micron's AI-memory recovery from HBM3E into the next platform cycle and reduce the risk that Nvidia's HBM4 supply is concentrated too narrowly. For the market, the takeaway is that HBM4 is becoming a platform-level qualification race, not just a density roadmap.",
+            "zh": "据报道，Micron已获得Nvidia Vera Rubin AI平台的HBM4供应角色。这将把Micron在AI内存中的复苏从HBM3E延伸到下一代平台周期，并降低Nvidia HBM4供应过度集中的风险。对市场来说，关键信号是HBM4正在变成平台级认证竞赛，而不只是密度路线图。"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/aletheia-warns-hbm-prices-will-double-in-2027-as-memory-becomes-ais-most-critical-component/",
-          "published": "2026-06-15T17:59:50+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Low Latency Wide DRAM Rumored for On-Device AI Phones",
-            "zh": "Low Latency Wide DRAM据传将用于端侧AI手机"
-          },
-          "summary": {
-            "en": "A report says Chinese smartphone makers are exploring Low Latency Wide DRAM that borrows from HBM's integrated design, promising 1.5 times higher bandwidth with lower temperatures. The technology would not be true HBM, but it points to mobile AI workloads putting pressure on conventional LPDDR bandwidth. If Xiaomi, Huawei, or peers adopt it around 2027, handset memory packaging could become a more visible part of on-device AI differentiation.",
-            "zh": "报道称，中国智能手机厂商正在探索Low Latency Wide DRAM，借鉴HBM的集成式设计，并号称带宽提升1.5倍、温度更低。该技术并非真正HBM，但说明端侧AI负载正在给传统LPDDR带宽带来压力。如果Xiaomi、Huawei等厂商在2027年前后采用，手机存储封装可能成为端侧AI差异化的更明显环节。"
-          },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/low-latency-wide-dram-adopts-hbm-design-to-bring-on-device-ai-in-smartphones/",
-          "published": "2026-06-15T17:08:28+00:00"
+          "source": "Yahoo Finance Canada",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPci1icS1rZWVQNU1yV1V5aXprREhLVHBNdEVmLTlnUDMxSUN4emRDRXdvVjVSVHRjei1OcEtERHFXMk9yYkJ1LXVIck1RWXRlYmtKQ3JoNzJzUVo1cEU1UnpObGRKZWJ3U2JSWkVkWmx0ZEFfYW5pbC16RjQtSVBlZVVLcHVwUQ?oc=5",
+          "published": "2026-06-16T21:12:05+00:00"
         }
       ]
     },
@@ -144,53 +158,53 @@
         {
           "featured": false,
           "title": {
-            "en": "Chip Cooling Approach Claims 10x Efficiency Record",
-            "zh": "芯片液冷技术称效率达到此前纪录10倍"
+            "en": "GPU-Native Mask Rule Checking Targets Curvilinear OPC Bottlenecks",
+            "zh": "GPU原生掩模规则检查瞄准曲线OPC瓶颈"
           },
           "summary": {
-            "en": "A new liquid-cooling technology for semiconductor chips reportedly achieved 10 times the efficiency of the previous record. Thermal removal is becoming a system-level limiter as AI accelerators push power density higher in packages and racks. Even if the work is still early, cooling efficiency gains can change rack design, power provisioning, and the economics of high-density AI deployments.",
-            "zh": "一项面向半导体芯片的液冷技术据称效率达到此前纪录的10倍。随着AI加速器在封装和机架层面持续提高功率密度，散热已成为系统级限制因素。即便该技术仍处早期，冷却效率提升也可能改变机架设计、供电规划和高密度AI部署成本。"
+            "en": "A SemiWiki write-up highlights GPU-native mask rule checking as a way to remove a bottleneck in curvilinear mask flows. Curvilinear OPC can widen process windows at advanced nodes, but it also makes verification much heavier than Manhattan geometries. Faster checking matters because mask complexity is becoming a direct constraint on cycle time for leading-edge manufacturing.",
+            "zh": "SemiWiki报道了GPU原生掩模规则检查，用于缓解曲线掩模流程中的瓶颈。曲线OPC可以扩大先进节点的工艺窗口，但也让验证负担远高于传统曼哈顿几何。更快的检查很重要，因为掩模复杂度正在直接限制先进制造的开发周期。"
           },
-          "source": "Tech Xplore",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNajVSSVRaUDFWcmkzQW1rb21zMEQzSlMwWXR5YUp5ZHQ4ZHZNYktiNzYxZlVjNnc0azh5elZsYjFVY0tpdHR2Ykl1LVlLRDkwcjJacGVSeWx0NnNIRGJpcE5wTFU1YmV2UTNPZFlKWVc1M09JdkdlWFNVWUY5ZDJKLTVmTFRTaFVpbWk3djBSaw?oc=5",
-          "published": "2026-06-15T22:30:03+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Nvidia and Google Push Toward 800V DC Data-Center Power",
-            "zh": "Nvidia和Google推进800V DC数据中心供电"
-          },
-          "summary": {
-            "en": "Nvidia and Google are reportedly preparing next-generation 800V DC infrastructure for high-density AI data centers by Q3 2026. The shift reflects a basic physics problem: AI racks are drawing enough power that conventional distribution architectures lose efficiency and space. For power-semiconductor suppliers, high-voltage DC conversion is becoming part of the AI hardware stack rather than a back-office facility detail.",
-            "zh": "Nvidia和Google据称正为高密度AI数据中心准备下一代800V DC基础设施，时间点指向2026年第三季度。此举反映出基本物理约束：AI机架功耗已经高到让传统配电架构在效率和空间上承压。对功率半导体供应商而言，高压直流转换正成为AI硬件栈的一部分，而不只是机房后端设施。"
-          },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/datacenters-outstripping-power-grid-forcing-nvidia-google-into-a-radical-800v-dc-overhaul/",
-          "published": "2026-06-15T17:00:37+00:00"
+          "source": "SemiWiki",
+          "url": "https://semiwiki.com/eda/siemens-eda/370278-gpu-native-mask-rule-checking-eliminates-the-curvilinear-mask-rule-check-bottleneck/",
+          "published": "2026-06-16T17:00:56+00:00"
         }
       ]
     },
     {
       "id": "policy",
       "title": {
-        "en": "Policy",
-        "zh": "政策"
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
       },
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "Tennessee Counties Pass Temporary Data-Center Bans",
-            "zh": "田纳西多地通过临时数据中心禁令"
+            "en": "Software Export Controls Remain Hard to Enforce",
+            "zh": "软件出口管制仍难执行"
           },
           "summary": {
-            "en": "Several small Tennessee counties have passed temporary data-center bans, and Nashville approved a near-unanimous moratorium on first reading. The measures show local resistance forming around power, land, and water use as AI infrastructure spreads beyond traditional data-center markets. For chip demand, these siting fights matter because accelerator deployments ultimately need grid connections and local permits, not only silicon supply.",
-            "zh": "田纳西多个小县已通过临时数据中心禁令，Nashville也在一读中以接近全票通过暂停措施。这些行动显示，随着AI基础设施扩展到传统数据中心市场之外，围绕电力、土地和用水的地方阻力正在形成。对芯片需求而言，选址争议同样关键，因为加速器部署最终需要电网接入和地方许可，而不只是芯片供给。"
+            "en": "Politico's item focuses on why software exports are harder to control than physical chip shipments. The policy problem is that models, weights, source code, and cloud access do not move through customs in the same way as lithography tools or GPUs. For AI and semiconductor policy, that complicates any attempt to extend hardware-style restrictions into software and frontier-model access.",
+            "zh": "Politico关注软件出口为何比实体芯片出货更难管控。政策难点在于模型、权重、源代码和云访问不会像光刻设备或GPU那样经过海关。对AI与半导体政策而言，这使得把硬件式限制扩展到软件和前沿模型访问变得更复杂。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/multiple-small-tennessee-counties-pass-temporary-data-center-bans-nashville-also-passed-near-unanimous-moratorium-on-first-reading",
-          "published": "2026-06-15T18:06:33+00:00"
+          "source": "Politico",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOV3RrNVRWOWNnOXhQUXBiMDdQSzU3dzJuekwwWm9zUUxRVEd2eFVmSnNScVdsUUlSaHluVEpLU2F6VWZSN3VpbUh6SjdmZ2dNV2d5Z041WE9kRndRS0ZTQi1EVlRSYnV6TXIxWnVmNGRjNlV3WlM4UU1GYkdyYkR0eWVxNGxpUU5CMnhBczVROTZvQlg1cWVUenhFZnJRdjRaQ0R5NVBpYWtsdGlHRkpWbTNmOUxmUXpEX3c?oc=5",
+          "published": "2026-06-16T20:01:56+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "SIA Backs CHIPS Act Incentives for Coherent",
+            "zh": "SIA支持向Coherent提供CHIPS Act激励"
+          },
+          "summary": {
+            "en": "The Semiconductor Industry Association welcomed CHIPS Act incentives for Coherent, a supplier tied to compound semiconductors, photonics, and materials used across advanced electronics. The item matters because U.S. industrial policy is not only funding fabs; it is also trying to reinforce upstream materials and component suppliers. Those suppliers can become bottlenecks as AI, optical networking, and advanced packaging scale together.",
+            "zh": "美国半导体行业协会欢迎向Coherent提供CHIPS Act激励；Coherent与化合物半导体、光子器件以及先进电子材料供应相关。这条新闻重要之处在于，美国工业政策不只资助晶圆厂，也在补强上游材料和组件供应商。随着AI、光网络和先进封装同步扩张，这些供应商可能成为瓶颈。"
+          },
+          "source": "Semiconductor Industry Association",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNcjVQNDVKTWpVdnUtTi03emc0aFFSWWZNVV8xVWNXX1pzSFVyTmk4bHJ6UzJzR2xPVXQtdFExZG1uc0stazctb01RaUZLdWpnOG0xME8zUFB1U0VzdlBmclR4LXNvYkVoeGlkVnJiTklRNmRGNlBfZUxBVW1lTFpzRzB2eFQ?oc=5",
+          "published": "2026-06-16T19:46:22+00:00"
         }
       ]
     },
@@ -202,32 +216,18 @@
       },
       "stories": [
         {
-          "featured": true,
-          "title": {
-            "en": "Qualcomm Reportedly in Talks to Buy Tenstorrent",
-            "zh": "Qualcomm据称洽购Tenstorrent"
-          },
-          "summary": {
-            "en": "Qualcomm is reportedly in talks to buy Tenstorrent, according to The Information and Reuters-linked coverage. The potential deal would give Qualcomm a route deeper into AI accelerator silicon and Jim Keller's RISC-V-centered design effort. It would also signal that larger chip vendors may prefer buying credible AI hardware teams instead of building every accelerator stack internally.",
-            "zh": "据The Information和Reuters相关报道，Qualcomm正在洽谈收购Tenstorrent。这笔潜在交易将让Qualcomm更深入进入AI加速器硅片领域，并获得Jim Keller主导的RISC-V设计团队。它也表明，大型芯片厂商可能更愿意收购已有可信度的AI硬件团队，而不是完全自建每一层加速器栈。"
-          },
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNR0ljTjZ4bktyVGo3d0ZyVDNITV9ITF8zbEhWcE1TajR6TVpLQ3c2NGU5TS1fdElBekdzLWRsUnp4OVQwYTJ5VC1NVkdxQXR0aV9JZVpJZ0JfMnYwRE1DVE9hbkh1cmk2YjZzOHExWlFsX3RNbHhBSThZc2JfS2dhX054TzFFN3ZyOEQzeVZOenh0WVBVZ2dmT19iSkN6Zw?oc=5",
-          "published": "2026-06-15T21:16:46+00:00"
-        },
-        {
           "featured": false,
           "title": {
-            "en": "Tensordyne Announces Napier AI Processor Built Around Logarithmic Math",
-            "zh": "Tensordyne发布基于对数数学的Napier AI处理器"
+            "en": "Qualcomm-Tenstorrent Deal Talk Puts RISC-V AI Silicon in Focus",
+            "zh": "Qualcomm与Tenstorrent交易传闻让RISC-V AI芯片受关注"
           },
           "summary": {
-            "en": "Tensordyne announced the Napier AI processor, an inference-focused accelerator built around logarithmic math and a 72-accelerator architecture. The design is another attempt to attack AI inference by changing the numeric representation rather than only scaling conventional matrix engines. The commercial question is whether software support and model accuracy can match the claimed efficiency advantages.",
-            "zh": "Tensordyne发布Napier AI处理器，这是一款面向推理的加速器，核心思路是对数数学和72个加速器架构。该设计再次尝试通过改变数值表示来优化AI推理，而不只是扩大传统矩阵引擎。商业化关键在于软件支持和模型精度是否能支撑其宣称的效率优势。"
+            "en": "Benzinga reports that Qualcomm shares are in focus amid talk of a potential Tenstorrent deal. Even as an unconfirmed deal story, the strategic logic is clear: Qualcomm wants more AI compute leverage, while Tenstorrent brings RISC-V processor IP and accelerator ambitions. The report highlights how challenger AI-chip teams are becoming acquisition targets as incumbents try to broaden their silicon roadmaps.",
+            "zh": "Benzinga报道称，在潜在Tenstorrent交易传闻下，Qualcomm股票受到关注。即使这仍是未确认交易，战略逻辑也很清楚：Qualcomm需要更强的AI计算杠杆，而Tenstorrent拥有RISC-V处理器IP和加速器布局。该报道说明，随着既有厂商拓宽芯片路线图，AI芯片挑战者正成为潜在收购目标。"
           },
-          "source": "ServeTheHome",
-          "url": "https://www.servethehome.com/tensordyne-napier-ai-processor-announced-with-logarithmic-math/",
-          "published": "2026-06-16T00:00:08+00:00"
+          "source": "Benzinga",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPc05UbDgycVNHRUk2dFVwbzZVQ2IyUS1sdHd6dVNDV0NfbWF2anFDU1NmWHd2bXRKazVMZU94NkxPQ3ZMejk4Y21YOVRNZEl2czliNEFzckotUnhKUnNjNDI5NlF5bms3NnNxN0R1S21RQ3JXRjFmYlJmMFZnRTRCVjVVcXpwT1JodW5oTTRHVHYyVGlJSGNFZW5Ja01hd0dkRHRGUHFMbF9Qb0NaTFpaeU8zSUJFUzdaYmItMA?oc=5",
+          "published": "2026-06-16T18:11:50+00:00"
         }
       ]
     }
@@ -235,12 +235,12 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Memory Bottlenecks Shape Architecture Research",
-      "zh": "存储瓶颈塑造架构研究"
+      "en": "Device Physics Meets Deployable AI Hardware",
+      "zh": "器件物理走向可部署AI硬件"
     },
     "dek": {
-      "en": "This week's papers cluster around memory pressure, inference efficiency, and using LLMs inside hardware-design workflows. The strongest work is practical: measured DRAM behavior, memory-side execution, compression near the Shannon limit, and formal or power tools that fit real design loops.",
-      "zh": "本周论文集中在存储压力、推理效率，以及把LLM引入硬件设计流程。最值得关注的工作偏实践：实测DRAM行为、存储侧执行、接近Shannon极限的压缩，以及能嵌入真实设计循环的形式验证和功耗工具。"
+      "en": "This week's stronger papers connect materials and circuit behavior to practical compute paths: ferroelectric devices, PIM for LLMs, FPGA/SNN deployment, and EDA models that compress physical-design feedback loops.",
+      "zh": "本周更强的论文把材料和电路行为连接到可部署计算路径：铁电器件、面向LLM的PIM、FPGA/SNN部署，以及压缩物理设计反馈周期的EDA模型。"
     },
     "areas": [
       {
@@ -252,57 +252,72 @@
         "papers": [
           {
             "title": {
-              "en": "In-DRAM Signatures from Simultaneous Multi-Row Activation",
-              "zh": "利用同时多行激活生成DRAM内签名"
+              "en": "Ferroelectric Gate-All-Around Transistors for 3D-Integrated Electronics and Neuromorphic Vision",
+              "zh": "面向3D集成电子与神经形态视觉的铁电环绕栅晶体管"
             },
-            "authors": "U. Baser, I. E. Yuksel, F. N. Bostanci, et al.",
+            "authors": "W. Chen, D. Tang, C. Luo, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.15470",
-            "venue_url": "https://arxiv.org/abs/2606.15470",
+            "venue": "ACS Nano",
+            "venue_url": "https://doi.org/10.1021/acsnano.6c02136",
             "summary": {
-              "en": "The paper demonstrates a DRAM PUF based on simultaneous multiple-row activation using 112 off-the-shelf DDR4 chips. The reported intra-Jaccard indices reach roughly 89% to 95% while inter-device indices stay near 2% to 4%, indicating repeatability within a chip and uniqueness across chips. The result is useful because it turns a memory disturbance mechanism into an authentication primitive, though deployment would still need controller support and temperature-aware calibration.",
-              "zh": "论文基于112颗商用DDR4芯片，展示了利用同时多行激活实现DRAM PUF的方法。文中报告的片内Jaccard指数约为89%到95%，片间指数约为2%到4%，说明同一芯片内可重复、不同芯片间可区分。该结果的意义在于把一种存储扰动机制转化为认证原语，但实际部署仍需要内存控制器支持和温度校准。"
+              "en": "The paper demonstrates an all-2D ferroelectric gate-all-around FET aimed at low-power 3D-integrated logic and edge neuromorphic computing. Reported device metrics include sub-60 mV/dec switching down to 25.3 mV/dec, an on/off ratio of 10^8, and mobility of 310 cm2/V/s. The important result is the combination of steep switching, compact logic, and leaky-integrate-and-fire neuron behavior on one hardware platform, though manufacturing integration remains the key caveat.",
+              "zh": "论文展示了一种全二维铁电环绕栅FET，面向低功耗3D集成逻辑和边缘神经形态计算。报道的器件指标包括低至25.3 mV/dec的亚60 mV/dec开关、10^8开关比以及310 cm2/V/s迁移率。关键结果是把陡峭开关、紧凑逻辑和LIF神经元行为结合在同一硬件平台上，但制造集成仍是主要挑战。"
             },
-            "published": "2026-06-13T20:57:07Z"
+            "published": "2026-06-09"
           },
           {
             "title": {
-              "en": "A Large-Scale Laboratory for Modern DRAM Characterization",
-              "zh": "面向现代DRAM表征的大规模实验平台"
+              "en": "Ferroelectric Gallium Oxide Enables Radiation-Robust Neuromorphic Sensing",
+              "zh": "铁电氧化镓实现抗辐照神经形态传感"
             },
-            "authors": "A. Olgun, H. Luo, I. E. Yuksel, et al.",
+            "authors": "K. Xu, Z. Guan, M. Pei, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.13725",
-            "venue_url": "https://arxiv.org/abs/2606.13725",
+            "venue": "National Science Review",
+            "venue_url": "https://doi.org/10.1093/nsr/nwag362",
             "summary": {
-              "en": "The authors describe an updated DRAM characterization laboratory built around DRAM Bender, with broader experiment support, more interface standards, and easier large-scale operation. The contribution is infrastructure rather than a single device result, but that matters for finding real failure, refresh, timing, and security behavior in commodity memory. As memory scaling slows and reliability margins tighten, reproducible characterization platforms become a prerequisite for credible DRAM mechanisms.",
-              "zh": "作者介绍了围绕DRAM Bender更新的大规模DRAM表征实验室，扩展了实验类型、接口标准支持，并降低了大规模使用门槛。该工作的贡献更多是基础设施，而非单一器件结果，但它对发现商用内存中的失效、刷新、时序和安全行为很重要。随着存储缩放放缓、可靠性裕量收紧，可复现实测平台正成为可信DRAM机制研究的前提。"
+              "en": "This work reports a kappa-phase Ga2O3 in-sensor reservoir-computing system that combines deep-UV sensing, memory, and neuromorphic computation. The device operates across -270 C to 210 C and under ion irradiation with an average flux of 1 x 10^4 rad/s, while reaching up to 95% classification accuracy on astrophysical-event tasks. It is notable because ultra-wide-bandgap semiconductors are usually valued for harsh-environment electronics, and here they are tied directly to compute-in-sensor functionality.",
+              "zh": "这项工作报道了基于κ相Ga2O3的传感器内储备计算系统，将深紫外传感、存储和神经形态计算结合起来。器件可在-270 C到210 C范围内工作，并承受平均1 x 10^4 rad/s的离子辐照，同时在天体事件分类任务上达到最高95%准确率。其亮点在于，超宽禁带半导体通常用于严苛环境电子，而这里被直接连接到传感器内计算功能。"
             },
-            "published": "2026-06-11T08:49:31Z"
+            "published": "2026-06-12"
+          },
+          {
+            "title": {
+              "en": "Temperature-Graded HfZrOx Improves Ferroelectric Capacitor Endurance",
+              "zh": "温度梯度HfZrOx提升铁电电容耐久性"
+            },
+            "authors": "S.-Y. Zheng, Y.-C. Sun, Y.-C. Kao, et al.",
+            "affiliation": "",
+            "venue": "Advanced Electronic Materials",
+            "venue_url": "https://doi.org/10.1002/aelm.202500799",
+            "summary": {
+              "en": "The authors use temperature-graded ALD deposition for Hf0.5Zr0.5O2 ferroelectric capacitors to improve polarization and reliability together. They report 2Pr of 39.6 uC/cm2 at +/-3 V, endurance up to 2 x 10^9 cycles, and projected 94.0% polarization retention over 10 years at 85 C. The process angle matters because HZO ferroelectrics need reliability gains before they can move deeper into memory and logic products.",
+              "zh": "作者采用温度梯度ALD沉积Hf0.5Zr0.5O2铁电电容，同时改善极化和可靠性。论文报道在+/-3 V下2Pr为39.6 uC/cm2，耐久性达到2 x 10^9次循环，并预测在85 C下10年后仍保留94.0%极化。这个工艺路线重要，因为HZO铁电材料要进入更多存储和逻辑产品，可靠性提升是前提。"
+            },
+            "published": "2026-06-10"
           }
         ]
       },
       {
         "id": "circuits",
         "title": {
-          "en": "Circuits & Design",
-          "zh": "电路与设计"
+          "en": "Circuits & Architecture",
+          "zh": "电路与架构"
         },
         "papers": [
           {
             "title": {
-              "en": "PANDA Links Analog Design Intent to Layout Generation",
-              "zh": "PANDA把模拟设计意图连接到版图生成"
+              "en": "A Low-Power Buffer-Assisted 14T Ternary SRAM",
+              "zh": "低功耗缓冲辅助14T三值SRAM"
             },
-            "authors": "H. Zhang, W. Fan, X. Gao, B. Liu, R. Wang, Y. Lin",
+            "authors": "S. Haq, E. Abbasian, A. Darabi, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.15052",
-            "venue_url": "https://arxiv.org/abs/2606.15052",
+            "venue": "Scientific Reports",
+            "venue_url": "https://doi.org/10.1038/s41598-026-56270-6",
             "summary": {
-              "en": "PANDA is an LLM-enhanced analog design framework that carries high-level intent through topology synthesis, sizing, and constraint-driven layout. The authors claim the workflow can reduce analog design turnaround from days or weeks to hours while improving performance. The notable point is the cross-stage dependency handling; analog automation often fails when topology, sizing, and layout are optimized as separate islands.",
-              "zh": "PANDA是一个LLM增强的模拟电路设计框架，把高层设计意图贯穿拓扑综合、尺寸优化和约束驱动版图生成。作者称该流程可把模拟设计周期从数天或数周缩短到数小时，并改善性能。其关键在于处理跨阶段依赖；模拟自动化常常失败于把拓扑、尺寸和版图当作彼此割裂的环节。"
+              "en": "This paper proposes a buffer-assisted 14-transistor ternary SRAM cell for low-power storage. Ternary SRAM is interesting because multi-valued logic can increase information density, but stability, sensing margin, and write energy usually become harder than in binary cells. The contribution is best read as a circuit-level exploration of denser memory primitives rather than a near-term replacement for conventional SRAM.",
+              "zh": "论文提出一种缓冲辅助14晶体管三值SRAM单元，用于低功耗存储。三值SRAM值得关注，因为多值逻辑可以提高信息密度，但稳定性、感测裕量和写入能耗通常比二值单元更难处理。该贡献更适合作为更高密度存储原语的电路级探索，而不是传统SRAM的近期替代。"
             },
-            "published": "2026-06-13T01:48:52Z"
+            "published": "2026-06-11"
           }
         ]
       },
@@ -315,126 +330,102 @@
         "papers": [
           {
             "title": {
-              "en": "SupraSNN Exploits Synapse-Level Parallelism in SNN Accelerators",
-              "zh": "SupraSNN在SNN加速器中利用突触级并行"
+              "en": "HyPIM: Hybrid ReRAM/SRAM 3D-PIM for LLM Acceleration",
+              "zh": "HyPIM：面向LLM加速的ReRAM/SRAM混合3D-PIM架构"
             },
-            "authors": "S. S. Ghavami, M. H. Nikkhah, M. R. Roshanshah, S. Safari",
+            "authors": "X. Hu, C. Liu, Y. Ding, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.13354",
-            "venue_url": "https://arxiv.org/abs/2606.13354",
+            "venue": "ACM Transactions on Embedded Computing Systems",
+            "venue_url": "https://doi.org/10.1145/3820366",
             "summary": {
-              "en": "SupraSNN proposes a hardware-software co-design for spiking neural network accelerators that treats synaptic events like parallel micro-operations. The architecture separates synaptic and neuronal computation with multicast and merge trees, aiming to expose more parallelism without duplicating expensive neuron-state logic. It is relevant because SNN efficiency claims often depend on whether irregular sparse events can be scheduled efficiently in real hardware.",
-              "zh": "SupraSNN提出一种面向脉冲神经网络加速器的软硬件协同设计，把突触事件视为可并行执行的微操作。该架构通过多播树和归并树分离突触计算与神经元计算，试图在不重复昂贵神经元状态逻辑的情况下暴露更多并行性。该工作重要，因为SNN的能效优势往往取决于稀疏且不规则的事件能否在真实硬件中高效调度。"
+              "en": "HyPIM proposes a 3D processing-in-memory architecture that combines SRAM and ReRAM slices for transformer inference. The motivation is that different transformer-block operations stress compute and memory in different ways, so a single memory technology is a poor fit. The paper is useful because it treats LLM inference as a heterogeneous memory-system problem, while still facing the practical challenge that attention latency can dominate end-to-end performance.",
+              "zh": "HyPIM提出一种结合SRAM和ReRAM切片的3D存算一体架构，用于Transformer推理。其动机是，Transformer block中的不同操作对计算和存储的压力不同，单一存储技术难以适配。论文价值在于把LLM推理视为异构存储系统问题，但仍需面对attention延迟可能主导端到端性能的实际挑战。"
             },
-            "published": "2026-06-11T13:41:41Z"
+            "published": "2026-06-10"
           },
           {
             "title": {
-              "en": "BenDi Uses Quasi-Stochastic Systolic Compute for Edge Bioelectronics",
-              "zh": "BenDi用准随机脉动架构加速边缘生物电子"
+              "en": "ReSCom Uses Stochastic Computing in a Reconfigurable SNN Accelerator",
+              "zh": "ReSCom在可重构SNN加速器中使用随机计算"
             },
-            "authors": "B. Ye, Y. Pan, S. Agwa, T. Prodromakis",
+            "authors": "A. A. Fereidani, M. R. Roshanshah, S. Safari",
             "affiliation": "",
-            "venue": "arXiv:2606.12235",
-            "venue_url": "https://arxiv.org/abs/2606.12235",
+            "venue": "arXiv:2606.13560",
+            "venue_url": "http://arxiv.org/abs/2606.13560",
             "summary": {
-              "en": "BenDi is an edge bioelectronics accelerator that combines low supply voltage, quasi-stochastic multiplication, a systolic dataflow, and hardware-aware quantization. In a commercial 22nm implementation, the authors report 3.35x smaller area and 5x higher energy efficiency versus a reference design at 0.5V and 100MHz. The target is practical wearable signal processing, where energy and area budgets are often tighter than raw model accuracy.",
-              "zh": "BenDi是一种面向边缘生物电子的加速器，结合低供电电压、准随机乘法、脉动数据流和硬件感知量化。作者在商用22nm工艺实现中报告，在0.5V、100MHz条件下，相比参考设计面积缩小3.35倍、能效提高5倍。其目标是实际可穿戴信号处理，这类场景的能耗和面积预算往往比单纯模型精度更苛刻。"
+              "en": "ReSCom is a reconfigurable spiking-neural-network accelerator that uses stochastic arithmetic for multiplication while keeping fixed-point addition and subtraction exact. The design supports IF, LIF, and synaptic neuron models in one hardware framework and exposes runtime trade-offs between accuracy, latency, and energy. The FPGA result on MNIST reports 92.80% accuracy, making the work a concrete hardware-efficiency study rather than only an algorithm proposal.",
+              "zh": "ReSCom是一种可重构脉冲神经网络加速器，在乘法中使用随机算术，同时保持定点加减法精确。该设计在同一硬件框架中支持IF、LIF和突触神经元模型，并提供准确率、延迟和能耗之间的运行时权衡。其FPGA MNIST结果报告92.80%准确率，使这项工作更接近具体硬件效率研究，而不只是算法方案。"
             },
-            "published": "2026-06-10T15:42:21Z"
+            "published": "2026-06-11"
           },
           {
             "title": {
-              "en": "Tiara Adds a Programmable Line-Rate ISA to Memory-Side NICs",
-              "zh": "Tiara为存储侧NIC加入可编程线速ISA"
+              "en": "Otters++ Maps Time-to-First-Spike Transformers onto Optical Synapses",
+              "zh": "Otters++将首脉冲时间Transformer映射到光电突触"
             },
-            "authors": "B. Li",
+            "authors": "Z. Yan, J. Mao, K. Tang, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.13708",
-            "venue_url": "https://arxiv.org/abs/2606.13708",
+            "venue": "arXiv:2606.13016",
+            "venue_url": "http://arxiv.org/abs/2606.13016",
             "summary": {
-              "en": "Tiara introduces a compact, statically verifiable ISA that runs on the memory-side NIC to resolve pointer indirection near remote memory. On an FPGA prototype, it reduces 10-hop graph traversal latency by 2.85x over one-sided RDMA and sustains 3.4x higher throughput. The idea is important for disaggregated memory and paged KV-cache serving, where dependent address lookups can turn network latency into the dominant cost.",
-              "zh": "Tiara提出一种紧凑、可静态验证的ISA，在存储侧NIC上执行，以便靠近远端内存解析指针间接访问。FPGA原型显示，在10跳图遍历中，相比单边RDMA延迟降低2.85倍、吞吐提高3.4倍。该思路对内存解耦和分页KV-cache服务很重要，因为依赖性地址查找会让网络往返延迟成为主导成本。"
+              "en": "Otters++ uses the natural decay of an In2O3 optoelectronic synapse to implement the temporal term in time-to-first-spike coding. The paper then builds a training path for Transformer-style models by linking the SNN computation to an equivalent quantized neural network with distillation. The result is interesting because it converts a device behavior that is often treated as a nuisance into a compute primitive, but scalability depends on device variation and integration.",
+              "zh": "Otters++利用In2O3光电突触的自然衰减来实现首脉冲时间编码中的时间项。论文进一步通过把SNN计算与等效量化神经网络和蒸馏训练连接，为Transformer类模型建立训练路径。其有趣之处在于把常被视作麻烦的器件行为转化为计算原语，但可扩展性取决于器件变异和集成能力。"
             },
-            "published": "2026-06-10T05:01:17Z"
-          }
-        ]
-      },
-      {
-        "id": "ai-research",
-        "title": {
-          "en": "AI Systems Research",
-          "zh": "AI系统研究"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "Lossless LLM Weight Compression Approaches the Shannon Bound",
-              "zh": "无损LLM权重压缩接近Shannon极限"
-            },
-            "authors": "H. Tan, Y. Chen, G. Alonso, W.-F. Wong, B. He",
-            "affiliation": "",
-            "venue": "arXiv:2606.15789",
-            "venue_url": "https://arxiv.org/abs/2606.15789",
-            "summary": {
-              "en": "This paper finds that LLM weights have effective entropy 2x to 10x lower than their stored bitwidth across models from 1.5B to 405B parameters. It then uses tile-level Asymmetric Numeral Systems decompression aligned to GEMM tiling and reports bit rates within 0.01 to 0.1 bits of the Shannon limit. Integrated into SGLang, the approach raises Qwen-14B maximum batch size from 47 to 75, making lossless compression a credible systems lever rather than only an archival trick.",
-              "zh": "该论文发现，在1.5B到405B参数模型中，LLM权重的有效熵比存储位宽低2倍到10倍。作者随后采用与GEMM分块对齐的tile级Asymmetric Numeral Systems解压，报告码率距离Shannon极限仅0.01到0.1 bit。集成到SGLang后，该方法把Qwen-14B最大批量从47提高到75，说明无损压缩可能成为推理系统手段，而不只是归档技巧。"
-            },
-            "published": "2026-06-14T12:43:47Z"
-          },
-          {
-            "title": {
-              "en": "Spatio-Temporal Expert Prefetching for MoE Inference",
-              "zh": "面向MoE推理的时空专家预取"
-            },
-            "authors": "Y. Zhao, R. Bunescu, A. Louri, A. Karanth, K. Wang",
-            "affiliation": "",
-            "venue": "arXiv:2606.15453",
-            "venue_url": "https://arxiv.org/abs/2606.15453",
-            "summary": {
-              "en": "The paper targets MoE inference latency by predicting which experts will be needed across adjacent layers and consecutive decoding tokens. Its core observation is that expert requests are not fully random; they show spatio-temporal correlation within application domains. Prefetching matters because MoE models can shift bottlenecks from arithmetic to expert loading, especially when active experts sit across slower memory or devices.",
-              "zh": "该论文通过预测相邻层和连续解码token所需专家，来降低MoE推理延迟。其核心观察是专家请求并非完全随机，而是在特定应用域内存在时空相关性。预取之所以重要，是因为MoE模型可能把瓶颈从算术计算转移到专家加载，特别是当激活专家分布在较慢内存或不同设备上时。"
-            },
-            "published": "2026-06-13T20:09:54Z"
+            "published": "2026-06-11"
           }
         ]
       },
       {
         "id": "eda",
         "title": {
-          "en": "EDA & Verification",
-          "zh": "EDA与验证"
+          "en": "EDA & Hardware Security",
+          "zh": "EDA与硬件安全"
         },
         "papers": [
           {
             "title": {
-              "en": "BigPower Estimates CPU Module Power from Source-Level Design Data",
-              "zh": "BigPower基于源级设计数据估算CPU模块功耗"
+              "en": "CGNet Predicts VLSI Congestion with Lightweight Multimodal Learning",
+              "zh": "CGNet用轻量多模态学习预测VLSI拥塞"
             },
-            "authors": "H. Zhu, C. Luo, J. Zhan",
+            "authors": "Y. Li, Y. Xia, G. Zhong, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.13747",
-            "venue_url": "https://arxiv.org/abs/2606.13747",
+            "venue": "ACM Transactions on Design Automation of Electronic Systems",
+            "venue_url": "https://doi.org/10.1145/3819824",
             "summary": {
-              "en": "BigPower uses LLM-based representations plus hierarchy, connectivity, configuration, and workload context to estimate module-level CPU power from source-level design information. The paper evaluates the approach on the open-source XiangShan processor family. If robust across designs, this kind of surrogate could reduce reliance on slow simulation loops during architectural power exploration.",
-              "zh": "BigPower结合LLM表示、层次结构、模块连接、配置参数和工作负载上下文，从源级设计信息估算CPU模块级功耗。论文在开源XiangShan处理器家族上评估该方法。如果能跨设计保持稳健，这类替代模型可降低架构功耗探索对慢速仿真循环的依赖。"
+              "en": "CGNet predicts physical-design congestion by jointly processing feature maps and heterogeneous graphs. The paper emphasizes graph compression and cross-stitch fusion to keep inference light enough for time-critical design-loop use. This matters because early congestion visibility can prevent costly routing iterations, but EDA adoption will depend on robustness across process nodes, design styles, and tool flows.",
+              "zh": "CGNet通过同时处理特征图和异构图来预测物理设计拥塞。论文强调图压缩和cross-stitch融合，以保持推理足够轻量，可用于时间敏感的设计循环。其重要性在于，早期拥塞可见性可以避免昂贵的布线迭代，但EDA采用仍取决于其跨工艺节点、设计风格和工具流程的稳健性。"
             },
-            "published": "2026-06-11T15:05:13Z"
+            "published": "2026-06-12"
           },
           {
             "title": {
-              "en": "HierSVA Benchmarks LLM-Driven Hierarchical Hardware Formal Verification",
-              "zh": "HierSVA评测LLM驱动的层次化硬件形式验证"
+              "en": "SNN-MLIR Compiles Neuromorphic Models from NIR to Bare-Metal C",
+              "zh": "SNN-MLIR将NIR神经形态模型编译到裸机C"
             },
-            "authors": "M. Nie, J. Zhu, J. Zhang, Z. Zeng, J. Wang, et al.",
+            "authors": "A. G. Gener, A. Roll'on de Pinedo",
             "affiliation": "",
-            "venue": "arXiv:2606.13706",
-            "venue_url": "https://arxiv.org/abs/2606.13706",
+            "venue": "arXiv:2606.09213",
+            "venue_url": "http://arxiv.org/abs/2606.09213",
             "summary": {
-              "en": "HierSVA provides a data-synthesis pipeline, dataset, and benchmark for LLM-generated SystemVerilog Assertions on hierarchical RTL. On twelve recent LLMs, the paper reports a 67.1% module-level compile rate, 82.1% non-vacuous proof rate among evaluable runs, and 70.2% detection of eligible injected faults. The mixed results are useful: LLMs can help assertion generation, but syntax success and real fault coverage remain separate bars.",
-              "zh": "HierSVA提供了面向层次化RTL的LLM生成SystemVerilog Assertions数据合成流程、数据集和基准。论文在12个近期LLM上报告模块级编译率67.1%，可评估运行中非空证明率82.1%，对可检测注入故障的覆盖率为70.2%。这些结果有价值，因为它们显示LLM确实能辅助断言生成，但语法成功和真实故障覆盖仍是不同门槛。"
+              "en": "SNN-MLIR introduces an out-of-tree MLIR dialect and a NIR-to-MLIR-to-C bridge for spiking neural networks. The goal is to turn framework-neutral SNN descriptions into a transformable compiler representation that can target simulation and hardware-oriented deployment. The paper matters because neuromorphic hardware needs compiler plumbing as much as new neuron circuits; without it, trained SNNs remain difficult to move across backends.",
+              "zh": "SNN-MLIR提出一个外部MLIR方言，以及面向脉冲神经网络的NIR到MLIR再到C的编译桥。目标是把框架中立的SNN描述转化为可变换的编译器表示，同时服务仿真和面向硬件的部署。这篇论文重要，因为神经形态硬件不仅需要新的神经元电路，也需要编译器基础设施；否则训练好的SNN很难跨后端迁移。"
             },
-            "published": "2026-06-09T22:41:44Z"
+            "published": "2026-06-08"
+          },
+          {
+            "title": {
+              "en": "GRAFT Attacks GNN-Based Hardware Security with Function-Preserving Graphlets",
+              "zh": "GRAFT用功能保持graphlet攻击基于GNN的硬件安全系统"
+            },
+            "authors": "S. K. Abharian, S. M. P. Dinakarrao",
+            "affiliation": "",
+            "venue": "arXiv:2606.10163",
+            "venue_url": "http://arxiv.org/abs/2606.10163",
+            "summary": {
+              "en": "GRAFT studies backdoor attacks against GNN-based hardware-security detectors by embedding graphlet triggers at RTL or gate level while preserving circuit function. That makes the attack more realistic than arbitrary subgraph triggers, because the modified circuit can still behave correctly. The result is a warning for ML-assisted Trojan and IP-theft detection: model accuracy is not enough if the detector can be steered by structure-preserving triggers.",
+              "zh": "GRAFT研究针对基于GNN的硬件安全检测器的后门攻击，通过在RTL或门级嵌入graphlet触发器，同时保持电路功能不变。与任意子图触发器相比，这让攻击更现实，因为被修改的电路仍可正确运行。其结果提醒ML辅助的木马和IP盗用检测：如果检测器可被保持结构功能的触发器操纵，单纯模型准确率并不足够。"
+            },
+            "published": "2026-06-08"
           }
         ]
       }
