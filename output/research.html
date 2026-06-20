@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-19">
+<meta name="edition-date" content="2026-06-20">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Reliability Moves Into the Accelerator Stack — Semi Research 2026-06-19</title>
+<title>Workloads Redraw the Hardware Boundary — Semi Research 2026-06-20</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, June 19, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月19日 星期五</span>
+      <span class="en">Research digest · Saturday, June 20, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月20日 星期六</span>
     </div>
     <h1>
-      <span class="en">Reliability Moves Into the Accelerator Stack</span>
-      <span class="zh">可靠性进入加速器堆栈</span>
+      <span class="en">Workloads Redraw the Hardware Boundary</span>
+      <span class="zh">工作负载重画硬件边界</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest papers focus less on abstract model scaling and more on the hardware realities behind it: DRAM interference, vector-function accelerators, thermal simulation, RF prototypes, and automated RTL power reduction. The common thread is implementation friction becoming a first-class research target.</span>
-      <span class="zh">本周最强论文较少停留在抽象模型扩展，而更多聚焦其背后的硬件现实：DRAM干扰、向量函数加速器、热仿真、RF原型以及自动RTL降功耗。共同主线是实现摩擦本身正在成为一等研究对象。</span>
+      <span class="en">This week&#x27;s papers move system assumptions into hardware: memory-clock state enters edge governors, privacy and temporal safety gain architectural support, and specialized accelerators reshape arithmetic and dataflow. The strongest results pair those ideas with measured FPGA, 16nm silicon, ferroelectric devices, or deployed accelerator data.</span>
+      <span class="zh">本周论文把更多系统假设下沉到硬件：边缘调度器纳入存储时钟状态，隐私与时间内存安全获得架构支持，专用加速器则重塑算术与数据流。较强的结果还给出了FPGA、16nm芯片、铁电器件或已部署加速器的测量数据。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
@@ -273,68 +273,53 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/adfm.76541" target="_blank" rel="noopener">
-          <span class="en">Ferroelectric-Insulator Organic p-n Synaptic Transistors for Neuromorphic Vision</span>
-          <span class="zh">面向神经形态视觉的铁电绝缘有机p-n突触晶体管</span>
+        <a href="https://doi.org/10.1021/acsnano.6c04950" target="_blank" rel="noopener">
+          <span class="en">Two-Dimensional Semiconductors for Post-Silicon Electronics</span>
+          <span class="zh">面向后硅时代电子学的二维半导体</span>
         </a>
       </h3>
-      <p class="authors">D. Zhang, X. Zhang, Z. Liang, J. Wu, et al.</p>
+      <p class="authors">Yanglin Long, Haozhe Wang, Gangning Lou, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/adfm.76541" target="_blank" rel="noopener">Advanced Functional Materials</a> · 2026-06-16</p>
+      <p class="venue"><a href="https://doi.org/10.1021/acsnano.6c04950" target="_blank" rel="noopener">ACS Nano</a> · 2026-06-16</p>
       <p class="summary">
-        <span class="en">The paper uses a ferroelectric dielectric as an active electrostatic regulator in organic p-n heterojunction optoelectronic synaptic transistors. The switchable polarization field improves exciton dissociation, charge transfer, and recombination suppression, enabling lower-voltage operation for neuromorphic sensing and dynamic machine vision. It is relevant because device-level gain and voltage control are still key barriers for practical in-sensor computing.</span>
-        <span class="zh">该论文在有机p-n异质结光电突触晶体管中使用铁电介质作为主动静电调节器。可切换极化场改善了激子解离、界面电荷转移和复合抑制，从而支持面向神经形态传感和动态机器视觉的低电压工作。其意义在于，器件层面的增益和电压控制仍是实用化传感内计算的关键障碍。</span>
+        <span class="en">This review connects 2D-semiconductor device work to integrated-circuit requirements, organizing progress around contact resistance, gate-dielectric integration, and dimensional scaling. It also tracks the transition from planar devices to FinFET, GAA, and CFET structures alongside memory and RF demonstrations. The paper is a useful device-to-circuit map, but it is a review rather than new measured silicon and does not resolve the manufacturability gap.</span>
+        <span class="zh">这篇综述把二维半导体器件研究与集成电路需求连接起来，围绕接触电阻、栅介质集成和尺寸缩放梳理进展。文章还追踪了从平面器件到FinFET、全环绕栅极(GAA)和CFET结构的演进，并覆盖存储与RF演示。它提供了一张有用的器件到电路路线图，但属于综述，并未给出新的实测芯片，也没有解决可制造性缺口。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/adfm.76577" target="_blank" rel="noopener">
-          <span class="en">Tri-Layer HZO/HfO2/HZO Ferroelectric Diode for Linear Weight Updates</span>
-          <span class="zh">用于线性权重更新的三层HZO/HfO2/HZO铁电二极管</span>
+        <a href="https://doi.org/10.1002/nap2.70165" target="_blank" rel="noopener">
+          <span class="en">Proton-Radiation Hardening of High-Speed Ge/Si Photodetectors</span>
+          <span class="zh">高速Ge/Si集成光电探测器的质子辐射加固</span>
         </a>
       </h3>
-      <p class="authors">J.-G. Park, Y. Lee, S. Kim, K. Min, et al.</p>
+      <p class="authors">Junguo Xu, Yingying Zhong, Xiongping Bao, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/adfm.76577" target="_blank" rel="noopener">Advanced Functional Materials</a> · 2026-06-16</p>
+      <p class="venue"><a href="https://doi.org/10.1002/nap2.70165" target="_blank" rel="noopener">Nanophotonics</a> · 2026-06-12</p>
       <p class="summary">
-        <span class="en">The authors propose a laminated HZO/HfO2/HZO ferroelectric diode for synaptic devices and reservoir computing. The stack suppresses leakage along vertical grain boundaries, expands the memory window, and produces more gradual polarization switching for improved weight-update linearity. That links materials engineering directly to system-level classification behavior, rather than treating the device as an isolated memory element.</span>
-        <span class="zh">作者提出一种用于突触器件和reservoir computing的HZO/HfO2/HZO三层层压铁电二极管。该堆栈抑制沿垂直晶界的漏电，扩大存储窗口，并通过更渐进的极化切换改善权重更新线性度。这把材料工程直接连接到系统级分类表现，而不是只把器件视为孤立存储单元。</span>
+        <span class="en">The work tests high-speed Ge/Si integrated photodetectors under a dose-calibrated broad-spectrum proton beam and evaluates hydrogen loading as a hardening treatment. Untreated devices lose bandwidth and accumulate dark current, while hydrogen-loaded devices retain more bandwidth and limit leakage growth. The measured-device result offers a practical path for space photonics, although long-duration orbital validation is still needed.</span>
+        <span class="zh">该研究在经过剂量标定的宽能谱质子束下测试高速Ge/Si集成光电探测器，并评估氢加载作为辐射加固手段。未经处理的器件出现带宽下降和暗电流累积，而氢加载器件保留了更多带宽并抑制漏电增长。实测器件结果为航天光子学提供了一条可行路径，但仍需长期在轨环境验证。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; RF Systems</span>
-      <span class="zh">电路与射频系统</span>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.19536" target="_blank" rel="noopener">
-          <span class="en">SiGe BiCMOS J-Band Radar TX/RX Chipset with Integrated x16 Multiplier</span>
-          <span class="zh">集成16倍频链的SiGe BiCMOS J-band雷达收发芯片组</span>
+        <a href="https://arxiv.org/abs/2606.19055" target="_blank" rel="noopener">
+          <span class="en">CHERI-D Adds Inline Object IDs for Temporal Memory Safety</span>
+          <span class="zh">CHERI-D以内联对象ID增强时间内存安全</span>
         </a>
       </h3>
-      <p class="authors">S. Hauptmeier, K. Braasch, T. Ziegler-Bellenberg, D. P. Cortes N., et al.</p>
+      <p class="authors">Yuecheng Wang, Jonathan Woodruff, Alfredo Mazzinghi, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.19536" target="_blank" rel="noopener">arXiv:2606.19536</a> · 2026-06-17T19:28:43Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.19055" target="_blank" rel="noopener">arXiv:2606.19055</a> · 2026-06-17T13:24:23Z</p>
       <p class="summary">
-        <span class="en">This work reports a measured multistatic J-band radar transmitter and receiver chipset in SiGe BiCMOS with an integrated x16 frequency multiplier chain. The transmitter reaches 11.2 dBm output power and 41 dBm EIRP at 292 GHz with a PTFE lens, while the receiver reports 43.3 dB conversion gain. The result is a concrete circuit contribution for scalable high-frequency radar rather than only a system simulation.</span>
-        <span class="zh">该工作报告了采用SiGe BiCMOS实现并完成测试的多基地J-band雷达发射机和接收机芯片组，片上集成16倍频链。发射机在292GHz下输出功率达到11.2dBm，配合PTFE透镜时EIRP为41dBm；接收机转换增益为43.3dB。这是面向可扩展高频雷达的具体电路成果，而不只是系统仿真。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.18395" target="_blank" rel="noopener">
-          <span class="en">Inverse-Designed Doherty Power Amplifiers with Pixelated Combiners</span>
-          <span class="zh">采用像素化合路器的逆向设计Doherty功率放大器</span>
-        </a>
-      </h3>
-      <p class="authors">H. Zhou, H. Chang, D. Widen, C. Fager</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.18395" target="_blank" rel="noopener">arXiv:2606.18395</a> · 2026-06-16T18:38:15Z</p>
-      <p class="summary">
-        <span class="en">The paper combines CNNs, genetic algorithms, and dual-state impedance synthesis to design pixelated three-port Doherty combiners. Two fabricated GaN HEMT PA prototypes exceed 44.2 dBm saturated output power, reach over 71.2% peak drain efficiency, and maintain up to 64% efficiency at 6 dB back-off. The measured prototypes make this a useful example of AI-assisted RF layout moving beyond purely simulated inverse design.</span>
-        <span class="zh">该论文结合CNN、遗传算法和双状态阻抗综合，设计像素化三端口Doherty合路器。两个已制造的GaN HEMT功放原型饱和输出功率超过44.2dBm，峰值漏极效率超过71.2%，并在6dB回退下达到最高64%效率。实测原型使其成为AI辅助RF版图从纯仿真逆向设计走向硬件验证的有价值案例。</span>
+        <span class="en">CHERI-D attaches object-ID metadata to capability pointers and stores IDs inline with allocation data to strengthen temporal memory safety. Simulation and hardware evaluation show lower revocation overhead than Cornucopia Reloaded while enabling strict use-after-free mitigation rather than only use-after-reallocation protection. The architecture is promising, but deployment still depends on compiler, operating-system, and allocator integration across the CHERI stack.</span>
+        <span class="zh">CHERI-D把对象ID元数据附加到能力指针，并将ID内联存放在分配数据中，以增强时间内存安全。仿真和硬件评估显示，它相较Cornucopia Reloaded降低了撤销开销，并可实现严格的释放后使用防护，而不只是重新分配后使用防护。该架构具有潜力，但部署仍取决于CHERI软件栈中编译器、操作系统和内存分配器的协同集成。</span>
       </p>
     </article>
   </section>
@@ -345,32 +330,98 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.19119" target="_blank" rel="noopener">
-          <span class="en">PuDGhost Reveals Result Corruption in Processing-using-DRAM</span>
-          <span class="zh">PuDGhost揭示Processing-using-DRAM中的计算结果损坏</span>
+        <a href="https://arxiv.org/abs/2606.20414" target="_blank" rel="noopener">
+          <span class="en">ExSpike Exploits Irregular Sparsity with Full-Event Execution</span>
+          <span class="zh">ExSpike以全事件执行利用不规则稀疏性</span>
         </a>
       </h3>
-      <p class="authors">D. Tokuda, I. E. Yuksel, T. Kubo, A. Olgun, et al.</p>
+      <p class="authors">Yuehai Chen, Farhad Merchant</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.19119" target="_blank" rel="noopener">arXiv:2606.19119</a> · 2026-06-17T14:32:57Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.20414" target="_blank" rel="noopener">arXiv:2606.20414</a> · 2026-06-18T16:01:08Z</p>
       <p class="summary">
-        <span class="en">PuDGhost identifies an interference mechanism that can corrupt computation results in processing-using-DRAM operations on real DDR4 chips. The study characterizes 96 chips from 12 modules and shows that non-activated rows and concurrently computing columns can affect results under simultaneous multiple-row activation. The paper is important because it turns compute-in-DRAM reliability from an assumed circuit detail into a measured systems risk.</span>
-        <span class="zh">PuDGhost揭示了真实DDR4芯片上Processing-using-DRAM操作可能出现计算结果损坏的干扰机制。研究表征了12个模组中的96颗芯片，显示在同时多行激活下，未激活行以及并发计算的其他列都可能影响结果。该论文重要之处在于，它把DRAM内计算可靠性从默认的电路细节变成了已测量的系统风险。</span>
+        <span class="en">ExSpike keeps every SNN layer in spike form, adds adjacent-position event compression, and includes an attention core for spike-driven self-attention. An AMD Xilinx Virtex-7 FPGA implementation is evaluated on classification and segmentation workloads, showing that irregular event sparsity can be converted into practical execution savings. The evidence is FPGA-based, so ASIC area and energy results remain open.</span>
+        <span class="zh">ExSpike让SNN各层始终保持脉冲形式，引入相邻位置事件压缩，并加入用于脉冲驱动自注意力的attention core。研究在AMD Xilinx Virtex-7 FPGA上针对分类和分割负载进行评估，表明不规则事件稀疏性可以转化为实际执行收益。现有证据基于FPGA，ASIC面积与能耗结果仍待验证。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.17781" target="_blank" rel="noopener">
-          <span class="en">MIVE Unifies Softmax, LayerNorm, and RMSNorm in an Integer Vector Engine</span>
-          <span class="zh">MIVE以整数向量引擎统一加速Softmax、LayerNorm与RMSNorm</span>
+        <a href="https://arxiv.org/abs/2606.16896" target="_blank" rel="noopener">
+          <span class="en">Ferroelectric Compute-in-Memory Runs Neural Dynamical Systems</span>
+          <span class="zh">铁电存内计算运行神经动力系统</span>
         </a>
       </h3>
-      <p class="authors">K. Alexandridis, G. Dimitrakopoulos</p>
+      <p class="authors">Keshava Katti, Adithya Selvakumar, Pratik Chaudhari, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.17781" target="_blank" rel="noopener">arXiv:2606.17781</a> · 2026-06-16T10:58:02Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.16896" target="_blank" rel="noopener">arXiv:2606.16896</a> · 2026-06-15T16:07:05Z</p>
       <p class="summary">
-        <span class="en">MIVE proposes a programmable integer vector engine that shares one datapath across Softmax, LayerNorm, and RMSNorm. The target is a real LLM inference bottleneck: nonlinear vector operations that are often handled with separate hardware blocks even when matrix multiply dominates total FLOPs. Physical ASIC implementation results indicate better area and hardware efficiency than many standalone accelerators.</span>
-        <span class="zh">MIVE提出一种可编程整数向量引擎，用同一数据通路支持Softmax、LayerNorm和RMSNorm。它瞄准的是LLM推理中的真实瓶颈：虽然矩阵乘法占据总FLOPs主导，非线性向量操作却常由分散专用硬件处理。物理ASIC实现结果显示，其面积和硬件效率优于许多独立加速器方案。</span>
+        <span class="en">FerroNDS maps continuous-time neural dynamics onto multi-bit ferrodiode compute-in-memory using analog integrator and oscillator primitives. A 128-neuron system forecasts 500 ms ahead at sub-watt power, reporting 0.29–1.64 μJ per neuron per inference and a 25–40× area reduction versus SRAM-based digital systems. The end-to-end ferrodiode integration is notable, but array scaling, process variation, and manufacturability are not yet established.</span>
+        <span class="zh">FerroNDS利用模拟积分器和振荡器原语，把连续时间神经动力系统映射到多比特铁电二极管存内计算硬件。其128神经元系统可在亚瓦功耗下预测未来500 ms，报告每神经元每次推理0.29至1.64 μJ能耗，并较基于SRAM的数字系统缩小25至40倍面积。端到端铁电二极管集成值得关注，但阵列扩展、工艺波动和可制造性尚未得到验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.16148" target="_blank" rel="noopener">
+          <span class="en">AIA Uses a 16nm RISC-V Mesh for Approximate Inference</span>
+          <span class="zh">AIA以16nm RISC-V网格加速近似推理</span>
+        </a>
+      </h3>
+      <p class="authors">Shirui Zhao, Nimish Shah, Wannes Meert, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.16148" target="_blank" rel="noopener">arXiv:2606.16148</a> · 2026-06-15T03:06:00Z</p>
+      <p class="summary">
+        <span class="en">AIA combines a RISC-V host with a 2D mesh of 16 customized RISC-V cores for sampling-based approximate inference. The 16nm SoC reaches 1,277 MSample/s at 0.9 V and 20 GSamples/s/W at 0.7 V by using non-normalized Knuth-Yao sampling and direct inter-core register access. Reported gains reach 2× performance and 1.45× energy efficiency over the prior system, though the comparison is specialized to probabilistic-model workloads.</span>
+        <span class="zh">AIA将RISC-V主机与由16个定制RISC-V核心组成的二维网格结合，用于基于采样的近似推理。这颗16nm SoC通过非归一化Knuth-Yao采样和核心间寄存器直接访问，在0.9 V下达到1,277 MSample/s，在0.7 V下达到20 GSamples/s/W。相较前代系统，其报告性能提升最高2倍、能效提升1.45倍，但比较范围集中于概率模型负载。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.15870" target="_blank" rel="noopener">
+          <span class="en">Five TPU Generations Favor Architectural Stability at Scale</span>
+          <span class="zh">五代TPU以架构稳定性支撑规模扩展</span>
+        </a>
+      </h3>
+      <p class="authors">Norman P. Jouppi, Sridhar Lakshmanamurthy, Cliff Young, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.15870" target="_blank" rel="noopener">arXiv:2606.15870</a> · 2026-06-14T15:44:31Z</p>
+      <p class="summary">
+        <span class="en">Google&#x27;s retrospective from TPU v2 through Ironwood reports 10× growth in HBM capacity and bandwidth per node, 100× higher peak node performance, and 3,600× higher supercomputer performance over eight years. The paper argues that a stable core architecture, optical circuit switching, self-test, and hardware replay absorbed major workload changes without repeated redesign. It is a useful first-party systems history, but not an independent cross-platform benchmark.</span>
+        <span class="zh">Google对TPU v2至Ironwood的回顾显示，八年间单节点HBM容量和带宽提高10倍，节点峰值性能提高100倍，超级计算机性能提高3,600倍。论文认为，稳定的核心架构、光路交换、自测试和硬件重放，使系统能够吸收重大工作负载变化而无需反复重构。它是一份有价值的第一方系统史料，但并非独立的跨平台基准测试。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research &amp; Systems</span>
+      <span class="zh">AI研究与系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.16106" target="_blank" rel="noopener">
+          <span class="en">Edge-Inference Governors Need Memory-Clock State</span>
+          <span class="zh">边缘推理调度器需要感知存储时钟状态</span>
+        </a>
+      </h3>
+      <p class="authors">Jaehoon Kang</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.16106" target="_blank" rel="noopener">arXiv:2606.16106</a> · 2026-06-15T01:43:55Z</p>
+      <p class="summary">
+        <span class="en">Measurements on Jetson Orin NX show that CPU/GPU-only latency models miss the memory-clock state that determines whether edge inference meets a deadline. Under tight deadlines, an EMC-blind model misses 25–28% of cycles, while an EMC-aware governor cuts misses to at most 1.3% under a 2% QoS budget; median latency shifts by as much as about 45% across two Orin SKUs. The result spans CNN, ViT, and LLM decode workloads, making memory-clock observability a deployment requirement rather than a tuning detail.</span>
+        <span class="zh">Jetson Orin NX上的测量表明，只考虑CPU与GPU频率的延迟模型遗漏了决定边缘推理能否按时完成的存储时钟状态。在严格截止时间下，不感知EMC的模型有25%至28%的周期违约，而EMC感知调度器可在2%的QoS违约预算下把违约率降至最高1.3%；在两款Orin SKU上，中位延迟变化最高约45%。结果覆盖CNN、ViT和LLM解码负载，说明存储时钟可观测性是部署要求，而非简单调优项。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.17104" target="_blank" rel="noopener">
+          <span class="en">LLM Accelerator Rankings Change between Prefill and Decode</span>
+          <span class="zh">LLM加速器排名随Prefill与Decode阶段变化</span>
+        </a>
+      </h3>
+      <p class="authors">Shun Usami, Venkatram Vishwanath, E. Wes Bethel</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.17104" target="_blank" rel="noopener">arXiv:2606.17104</a> · 2026-06-14T12:23:29Z</p>
+      <p class="summary">
+        <span class="en">A phase-aware Llama2-7B evaluation finds GPUs consistently stronger in compute-heavy Prefill, while GroqRack delivers lower time per output token in Decode when batching is unavailable. GPUs regain the Decode-throughput advantage as batch size increases, showing that a single tokens-per-second number can invert platform conclusions. The scope is limited to one model and current batching support, so the results should guide methodology more than establish a permanent hardware ranking.</span>
+        <span class="zh">一项面向Llama2-7B的分阶段评估发现，GPU在计算密集的Prefill阶段持续占优，而在不支持批处理时，GroqRack在Decode阶段实现更低的单输出token时间。随着batch size增加，GPU重新取得Decode吞吐优势，说明单一tokens-per-second指标可能会反转平台结论。研究仅覆盖一个模型和当前批处理能力，因此更适合作为评测方法指导，而非固定的硬件排名。</span>
       </p>
     </article>
   </section>
@@ -381,55 +432,25 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.17850" target="_blank" rel="noopener">
-          <span class="en">CUTh-Solver Accelerates High-Resolution 3D IC Thermal Simulation on GPUs</span>
-          <span class="zh">CUTh-Solver用GPU加速高分辨率3D IC热仿真</span>
+        <a href="https://arxiv.org/abs/2606.17128" target="_blank" rel="noopener">
+          <span class="en">Knowledge-Augmented LLM Agent Shifts HLS Verification Left</span>
+          <span class="zh">知识增强LLM智能体将HLS验证前移</span>
         </a>
       </h3>
-      <p class="authors">C. Wang, Z. Zhuang, S. Jiang, S. Liang, et al.</p>
+      <p class="authors">Zhihan Xiao, Hongbing Lang, Zhe Zhao, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.17850" target="_blank" rel="noopener">arXiv:2606.17850</a> · 2026-06-16T12:20:37Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.17128" target="_blank" rel="noopener">arXiv:2606.17128</a> · 2026-06-15T17:46:32Z</p>
       <p class="summary">
-        <span class="en">CUTh-Solver is a GPU-accelerated sparse matrix solver tailored to high-resolution steady-state and transient thermal simulation for 3D ICs. It exploits regular sparsity in the thermal problem through condensed DIA storage, diagonal-wise SpMV, and preconditioning choices tuned for GPU execution. This is directly relevant to advanced packaging because coarse thermal grids can miss localized hotspots in stacked systems.</span>
-        <span class="zh">CUTh-Solver是面向3D IC高分辨率稳态和瞬态热仿真的GPU加速稀疏矩阵求解器。它利用热问题中的规则稀疏性，通过压缩DIA存储、按对角线SpMV以及面向GPU执行调优的预条件策略提升效率。该工作与先进封装直接相关，因为粗粒度热网格可能漏掉堆叠系统中的局部热点。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.17461" target="_blank" rel="noopener">
-          <span class="en">AUTOGATE Uses LLM-Based RTL Rewriting for Automated Clock Gating</span>
-          <span class="zh">AUTOGATE用LLM式RTL重写自动执行时钟门控</span>
-        </a>
-      </h3>
-      <p class="authors">Y. Wang, C. Deng, C.-T. Ho, Y. Zhang, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.17461" target="_blank" rel="noopener">arXiv:2606.17461</a> · 2026-06-16T03:22:54Z</p>
-      <p class="summary">
-        <span class="en">AUTOGATE proposes an agentic RTL power-optimization flow for fine-grain clock gating. Its ML component compresses long toggling traces into structured representations, while LLM agents rewrite hierarchical RTL modules with correctness constraints. The contribution is notable because it addresses two practical blockers for LLM EDA: waveform scale and large-codebase hierarchy.</span>
-        <span class="zh">AUTOGATE提出一种面向细粒度时钟门控的agentic RTL功耗优化流程。其机器学习组件把长时间翻转波形压缩为结构化表示，再由LLM agent在正确性约束下重写层次化RTL模块。该贡献值得关注，因为它处理了LLM用于EDA的两个实际障碍：波形规模和大型代码库层次结构。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.17253" target="_blank" rel="noopener">
-          <span class="en">PDAGENT-BENCH Benchmarks LLM Agents for VLSI Physical Design</span>
-          <span class="zh">PDAGENT-BENCH评测面向VLSI物理设计的LLM Agent</span>
-        </a>
-      </h3>
-      <p class="authors">Q. Li, R. Chen, Q. Cheng, C. Wang, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.17253" target="_blank" rel="noopener">arXiv:2606.17253</a> · 2026-06-15T19:54:57Z</p>
-      <p class="summary">
-        <span class="en">PDAGENT-BENCH introduces a benchmark for evaluating LLM and vision-language agents across VLSI physical design workflows. It includes 353 curated problems spanning conceptual knowledge, report comprehension, root-cause analysis, script generation, and full-flow implementation. The benchmark is useful because physical design agents need to coordinate EDA tools under strict constraints, not merely answer front-end RTL questions.</span>
-        <span class="zh">PDAGENT-BENCH提出一个用于评估LLM和视觉语言agent在VLSI物理设计流程中能力的基准。它包含353个精选问题，覆盖概念知识、报告理解、根因分析、脚本生成和全流程实现。该基准有价值，因为物理设计agent需要在严格约束下协调EDA工具，而不仅是回答前端RTL问题。</span>
+        <span class="en">The framework checks consistency between original C and HLS-oriented C before synthesis using an LLM agent backed by an HLS verification knowledge graph. It combines static structural checks, dynamic behavioral equivalence, symbolic execution, and coverage-driven test refinement to constrain unreliable generated testbenches. The design is broader than prompt-only RTL generation, but it remains a preprint and its value depends on coverage and runtime at industrial HLS scale.</span>
+        <span class="zh">该框架在综合前检查原始C与面向HLS的C之间的一致性，LLM智能体由HLS验证知识图谱提供支持。它结合静态结构检查、动态行为等价、符号执行和覆盖率驱动的测试细化，以约束生成测试平台的不可靠性。其设计比单纯依靠提示词生成RTL更完整，但目前仍是预印本，工业级HLS规模下的覆盖率和运行成本将决定实际价值。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-19 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-19 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-20 01:19 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-20 01:19 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
