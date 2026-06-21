@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-20",
+  "date": "2026-06-21",
   "theme": {
-    "en": "AI Demand Reprices the Semiconductor Stack",
-    "zh": "AI需求重估整条半导体链"
+    "en": "AI Scale Tests Capacity, Power, and Control",
+    "zh": "AI规模化考验产能、电力与管控"
   },
   "dek": {
-    "en": "AI infrastructure demand is reaching beyond accelerators into CPU racks, memory pricing, foundry competition, and local supply-chain investment. At the same time, the dispute over whether an ASML EUV system reached China shows how export controls increasingly shape the equipment market.",
-    "zh": "AI基础设施需求正从加速器外溢至CPU机架、存储定价、晶圆代工竞争和本地供应链投资。与此同时，围绕ASML EUV设备是否进入中国的争议表明，出口管制正日益重塑设备市场。"
+    "en": "From TSMC's booked-out capacity and panel packaging to 48GB HBM4E and a $47 billion-per-gigawatt Vera Rubin build, scaling AI is now constrained by physical infrastructure. Governments are tightening oversight at the same time, from chip-tracking proposals to Chinese antitrust and EUV disputes.",
+    "zh": "从TSMC排满的产能与面板级封装，到48GB HBM4E和每吉瓦造价$470亿的Vera Rubin数据中心，AI规模化正受到实体基础设施的制约。与此同时，各国也在收紧监管，包括芯片位置追踪提案、中国反垄断执法以及EUV订单争议。"
   },
   "sections": [
     {
@@ -14,26 +14,32 @@
       "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "Deloitte Sees AI Infrastructure Recasting the Chip Cycle", "zh": "Deloitte称AI基础设施正在重塑芯片周期"},
-          "summary": {
-            "en": "Deloitte's 2026 semiconductor outlook says AI infrastructure investment is becoming a primary industry demand driver, reducing the sector's historical dependence on consumer-electronics cycles. The shift matters because capacity, product roadmaps, and capital allocation increasingly follow datacenter workloads rather than unit growth in PCs and phones.",
-            "zh": "Deloitte的2026年半导体行业展望认为，AI基础设施投资正成为主要需求驱动力，降低行业对消费电子周期的传统依赖。其影响在于，产能、产品路线图和资本配置正越来越多地围绕数据中心工作负载，而非PC和手机的销量增长展开。"
+          "featured": true,
+          "title": {
+            "en": "Foxconn Prices a Vera Rubin AI Datacenter at $47 Billion per Gigawatt",
+            "zh": "Foxconn估算Vera Rubin AI数据中心每吉瓦造价$470亿"
           },
-          "source": "SemiWiki",
-          "url": "https://semiwiki.com/uncategorized/370504-deloitte-2026-semiconductor-industry-outlook-ai-reshapes-the-semiconductor-landscape/",
-          "published": "2026-06-19T22:39:02+00:00"
+          "summary": {
+            "en": "Foxconn estimates that a 1-gigawatt NVIDIA Vera Rubin installation could cost about $47 billion and carry roughly $1.3 billion in annual electricity bills. The figures put power delivery and capital intensity alongside GPU supply as first-order constraints on the next AI datacenter buildout.",
+            "zh": "Foxconn估算，部署1吉瓦NVIDIA Vera Rubin系统可能需要约$470亿，年度电费约为$13亿。这组数字表明，除GPU供给外，供电能力与资本强度也已成为下一轮AI数据中心建设的一级约束。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/foxconn-pegs-nvidia-vera-rubin-ai-datacenter-at-47-billion-per-gigawatt/",
+          "published": "2026-06-20T16:45:14+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "Agentic AI Pulls Dense CPU Racks into the Buildout", "zh": "智能体AI将高密度CPU机架纳入扩建潮"},
-          "summary": {
-            "en": "ServeTheHome outlines a dense agentic-AI CPU rack that can be assembled today with shipping AMD and Dell hardware. The design highlights demand on both sides of agent deployment: CPUs run orchestration and agent services while also absorbing the legacy workloads those agents call.",
-            "zh": "ServeTheHome介绍了一套可用现有AMD和Dell硬件搭建的高密度智能体AI CPU机架。该方案凸显智能体部署对两端算力的需求：CPU既运行编排与智能体服务，也承载这些智能体调用的传统工作负载。"
+          "title": {
+            "en": "Beijing Organizes an Alliance for Orbital AI Datacenters",
+            "zh": "北京组建轨道AI数据中心产业联盟"
           },
-          "source": "ServeTheHome",
-          "url": "https://www.servethehome.com/building-a-dense-agentic-ai-cpu-rack-amd-dell-today/",
-          "published": "2026-06-19T22:38:10+00:00"
+          "summary": {
+            "en": "Beijing has formed the Space Computing Industry Innovation Center to bring rocket and satellite manufacturers, chipmakers, and AI laboratories into a common program for orbiting datacenters. The project is still an industrial coordination effort rather than an operating system, but it links domestic silicon development with an attempt to move computing beyond terrestrial grid limits.",
+            "zh": "北京成立空间计算产业创新中心，将火箭与卫星制造商、芯片企业和AI实验室纳入轨道数据中心计划。该项目目前仍是产业协同机制，而非已投入运行的系统，但它把国产芯片发展与突破地面电网约束的计算构想连接起来。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/data-centers/china-unifies-tech-sector-to-build-grid-free-orbiting-satellite-ai-data-centers-challenging-elon-musks-spacex-beijings-forced-chip-and-satellite-alliance-announced-a-week-before-musks-ai1-reveal",
+          "published": "2026-06-20T14:53:42+00:00"
         }
       ]
     },
@@ -43,14 +49,31 @@
       "stories": [
         {
           "featured": true,
-          "title": {"en": "Reported Apple-Intel Alliance Raises Foundry Stakes", "zh": "据报Apple与Intel结盟推高晶圆代工竞争"},
-          "summary": {
-            "en": "KED Global reports that an Apple-Intel alliance is set to intensify the foundry contest with Samsung and TSMC. Even without disclosed process or volume details, a closer tie to Apple would give Intel a consequential reference customer as it tries to establish an external foundry business.",
-            "zh": "KED Global报道称，Apple与Intel的联盟将加剧其与Samsung和TSMC之间的晶圆代工竞争。尽管报道未披露制程或订单规模，更紧密的Apple关系仍可为Intel建立外部代工业务提供一个分量显著的标杆客户。"
+          "title": {
+            "en": "TSMC Capacity Is Reportedly Fully Booked Through 2028",
+            "zh": "报道称TSMC产能已排满至2028年"
           },
-          "source": "KED Global",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE84dkNzMF9qNjY3bk9sbWxWSG9CRG9MalcyZ0U0SURRYXNWa2Q2Ry1QRVFQVkJHV1NDV3FheUdlLUt1OGRPS0s0V0xtQkNVVW8teXEzRnZSVzc2c3JEYkZpYnA0cGo5QnM5X3NwUzVjZ2RhTTJsSVBv?oc=5",
-          "published": "2026-06-19T14:57:00+00:00"
+          "summary": {
+            "en": "A report says TSMC's capacity is fully subscribed through 2028, prompting some customers to examine Samsung alternatives while TSMC expands CoWoS. If the booking picture holds, leading-edge wafers and advanced packaging remain a combined allocation problem rather than separate supply chains.",
+            "zh": "报道称TSMC产能已被预订至2028年，部分客户因此评估Samsung替代方案，而TSMC则继续扩充CoWoS。若这一预订情况属实，先进制程晶圆与先进封装仍将是一个联动的产能分配问题，而非彼此独立的供应链。"
+          },
+          "source": "AD HOC NEWS",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVkhWZmZhYkl2X3kzT3k3XzJaT3FBbU12ek5RN1Ztc0U3cW5sMDdLWGlrVmozLUMzYWY5VzJGamlWekdLMGhaUHhNRkE3SlFWOWlfWmVaN1ItbXhPOUI2MmpXSGt5SEpOQ3RzaWd3TW9yOFdZS2N2NEtocWhHR1h5TlBTMmQ5OWdsa3NJTmxxODVLazdGQ1JqZFBXREtXdXJpZXgxdm8weEhBeFo1TlFWQm9vZTlmLXpERmZHNXZHUTRvc0p1RDhKZA?oc=5",
+          "published": "2026-06-20T14:28:21+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "TSMC Accelerates CoPoS Panel Packaging Around Glass-Core Substrates",
+            "zh": "TSMC加速采用玻璃芯基板的CoPoS面板级封装"
+          },
+          "summary": {
+            "en": "TSMC is reportedly accelerating CoPoS panel-level packaging as a successor path to CoWoS for growing AI systems. The report attributes potential cost reductions of 30% and substrate utilization above 90% to glass-core panels; those are process targets, not yet evidence of a volume-production ramp.",
+            "zh": "报道称，面对持续增长的AI系统需求，TSMC正加速推进CoPoS面板级封装，作为CoWoS之后的扩展路径。报道认为玻璃芯面板有望降低30%成本并把基板利用率提高到90%以上；这些仍是工艺目标，尚不能视为量产爬坡的证据。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/tsmc-accelerates-copos-packaging-replace-cowos-as-glass-core-substrates-cut-costs-boost-wafer-utilizatio/",
+          "published": "2026-06-20T17:40:34+00:00"
         }
       ]
     },
@@ -60,25 +83,25 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "AMD Reportedly Plans Another 10–15% RX 9000 Price Increase", "zh": "据报AMD计划将RX 9000再提价10%至15%"},
+          "title": {"en": "SK hynix Shows a 48GB HBM4E Product", "zh": "SK hynix展示48GB HBM4E产品"},
           "summary": {
-            "en": "AMD is reportedly preparing another 10–15% increase for Radeon RX 9000 graphics cards as DRAM costs continue to lift component prices. The report remains unconfirmed, but it shows how memory tightness can move through the bill of materials and reach buyers even when GPU silicon itself is unchanged.",
-            "zh": "据报道，由于DRAM成本持续推高零部件价格，AMD正准备将Radeon RX 9000显卡再提价10%至15%。该消息尚未获得证实，但它显示出存储供给紧张如何沿物料成本传导，即使GPU芯片本身未变，也会最终影响终端买家。"
+            "en": "SK hynix has shown a next-generation 48GB HBM4E product as memory vendors position for the post-HBM4 accelerator cycle. The higher per-stack capacity can ease model-state and KV-cache pressure, although the candidate report does not provide a sampling date, bandwidth, or volume-production schedule.",
+            "zh": "SK hynix展示了下一代48GB HBM4E产品，存储厂商开始为HBM4之后的加速器周期布局。更高的单堆栈容量有助于缓解模型状态和KV cache压力，但候选报道没有给出送样时间、带宽或量产进度。"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/amd-reportedly-plots-another-10-15-rx-9000-price-hike-as-the-rampocalypse-swallows-the-gpu-market/",
-          "published": "2026-06-19T18:16:51+00:00"
+          "source": "HotHardware",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9TbFZ6X0JGU2c4UUFJLTJJM1JSZlI2RGh0MnhjZ19SZEtqMlNaMXlpT0pWWmU2OU9QNjhPczlsVTJjWmpqVlotVmlhbVEzSDZvRl9NWnRPMnU0b0RCOERWWmZ4cGo4MF8xRXdjMXpYUEFqWGVGQ0NILXN3?oc=5",
+          "published": "2026-06-20T18:28:00+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "SK hynix Shows CXL 3.2 Modules with Its AI-Server Memory Stack", "zh": "SK hynix展示CXL 3.2模块及AI服务器存储全栈"},
+          "title": {"en": "SK hynix Brings CXL 3.2 Memory to HPE Discover", "zh": "SK hynix在HPE Discover展示CXL 3.2存储"},
           "summary": {
-            "en": "SK hynix displayed its broader AI-server memory portfolio at HPE Discover, including CXL 3.2 modules. The emphasis beyond HBM matters because capacity expansion, pooling, and tiering over CXL are becoming part of the same system-level memory bottleneck as accelerator bandwidth.",
-            "zh": "SK hynix在HPE Discover展示了更完整的AI服务器存储产品组合，其中包括CXL 3.2模块。关注点不再局限于HBM，这一点很重要：通过CXL进行容量扩展、池化和分层，正与加速器带宽一起成为同一个系统级存储瓶颈。"
+            "en": "SK hynix showcased CXL 3.2 memory products and its broader AI portfolio at HPE Discover Las Vegas 2026. CXL 3.2 support matters because composable memory and pooled capacity are becoming practical complements to scarce HBM, though the feed item supplies no deployment or performance figures.",
+            "zh": "SK hynix在HPE Discover Las Vegas 2026展示了CXL 3.2存储产品及更广泛的AI产品组合。随着可组合存储和内存池逐步成为稀缺HBM的现实补充，CXL 3.2支持具有实际意义，但该候选条目未提供部署或性能数据。"
           },
-          "source": "Tech Times",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNczU4ZlNuUXBrbVc3OTBhUmhOTHRuZHFVcWxNaWd3UF9STHZkaUFCeUdlUGRISHVOVEZqNXpObkI1eGlrMjMzTFIyb2RjOWViQXV4eDR5WmxHR3hsX1lHc1p0bXRBYTd3SG1wVkZ1bm56UnRiUW5NWV9zNWo4R2ZYa3pxRndyejEtaC1Rd0FOT0ZObkVsNExJSkNTYXN6V245Z3k0dEhSVDJ6REpNbG1WZGRhLWxJRnhscEZNaC1hc0F4cGdLWUtjeg?oc=5",
-          "published": "2026-06-19T16:01:48+00:00"
+          "source": "The Elec",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE90NHVPMThCSlF2WW9sS1lRcm15RXVwMm0zWk5SemZaRUE4MTJFMmtzc2gxNEE0eXg2QVRfS3gwbGlrSjdVUlNoUkdzeVFzVTFTREZiT21qMVhVVGR1UE9vMnhuQUg1d2M?oc=5",
+          "published": "2026-06-20T23:32:41+00:00"
         }
       ]
     },
@@ -87,15 +110,15 @@
       "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "Texas Grants $3.9 Million for Xycarb's Georgetown Expansion", "zh": "Texas拨款390万美元支持Xycarb扩建Georgetown工厂"},
+          "featured": true,
+          "title": {"en": "ASML's China EUV Order Dispute Tests U.S. Export Rules", "zh": "ASML中国EUV订单争议考验美国出口规则"},
           "summary": {
-            "en": "Texas awarded Xycarb a $3.9 million semiconductor grant to expand its operation in Georgetown. The award is modest beside fab incentives, but it targets the supplier layer that determines whether new domestic manufacturing capacity has a nearby materials and components base.",
-            "zh": "Texas向Xycarb提供390万美元半导体补助，用于扩建其Georgetown业务。与晶圆厂补贴相比金额不大，但它指向决定新增本土制造产能能否获得就近材料与零部件支持的供应商层。"
+            "en": "A reported dispute over ASML's China EUV orders is testing how U.S. export rules apply to the lithography supply chain. The candidate item does not identify the tools, customers, or order status, but the conflict matters because licensing interpretation can affect both ASML bookings and China's leading-edge capacity plans.",
+            "zh": "据报道，围绕ASML中国EUV订单的争议正在检验美国出口规则如何适用于光刻设备供应链。候选条目没有说明具体设备、客户或订单状态，但许可规则的解释会同时影响ASML订单与中国先进制程产能规划。"
           },
-          "source": "Dallas Express",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWUE3LWdaZFhsQUZhLTdPOHVfX1ZHbGcxaWVQY1RIdUxfRzFBOVN2RHBUMUp3ZWFJMmxxRjMwbVVZcmloQkp5MTdUS0xlRVlwNTJMbEQ2X1JPUW53Q3hBTDFONk9abEtYVWZ4NGZ1SEgwUUVkTnhKcDE1bkVzMlNmVlk0WEQ3T0d3eWRfZGVXeTkxY2dyWXo4cVJFUklEbk9GMmNTeGVOTnNyQnJrcDBhQlU3ZEx1T3FsSnhXLVBpVQ?oc=5",
-          "published": "2026-06-19T15:01:07+00:00"
+          "source": "TechStock²",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPQlFyWTFwYm5qZm5sc0o2YlpEaDFicDZtZGE5Zm1JMkRPUDRjSjZmNThwR1k1MGFLM1FaekNzdDNXS1BWSkJiYVRjSE1sSWg2UmctU0ZBZGlTbkRRWVdLQzE2S0NBNURSTnJRc3VoVzFtSDVOREdLZ1VJVk41aVoyWThPdnU2ay0zamNEVFhUX1hSb0k?oc=5",
+          "published": "2026-06-20T14:27:59+00:00"
         }
       ]
     },
@@ -105,25 +128,25 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Canada Links Defense Policy to Domestic Chip Capacity", "zh": "Canada将国防政策与本土芯片能力挂钩"},
+          "title": {"en": "AI Chip Location-Tracking Bill Gains Industry Support", "zh": "AI芯片位置追踪法案获得产业支持"},
           "summary": {
-            "en": "Canada is using defense and technology policy to signal stronger support for homegrown semiconductor capabilities. Connecting chips to procurement and national security could create steadier demand than stand-alone innovation programs, although the report does not specify new production targets.",
-            "zh": "Canada正通过国防与科技政策释放加强本土半导体能力的信号。把芯片与政府采购和国家安全挂钩，可能比单独的创新计划形成更稳定的需求，不过报道并未给出新的产量目标。"
+            "en": "A bill that would require location tracking for AI chips is gaining support from parts of the industry. Hardware telemetry could make export controls easier to enforce after shipment, but implementation details will determine whether the requirement is reliable, bypass-resistant, and acceptable to operators.",
+            "zh": "一项要求AI芯片具备位置追踪能力的法案正获得部分产业界支持。硬件遥测可能提高芯片出货后出口管制的可执行性，但具体实施方式将决定这项要求是否可靠、能否抵抗绕过，以及运营商能否接受。"
           },
-          "source": "EE Times",
-          "url": "https://www.eetimes.com/defense-sends-clear-signal-to-canadian-semiconductor-industry/",
-          "published": "2026-06-19T22:00:00+00:00"
+          "source": "AOL",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ueElyMGl2T0RwZ2NyY3k4SG5GZ1pvWl9kVW85Uk1TT2tla3FIRlZMTEhfT0VBWEduQnJWU3g4UXBRblZBZmdRVVUyTWhJR1c2a0J6Wmx0WTdEbTE4aWFtRDlTYmlvRDktLUhhRGNsdktjaEFrZ3BaNw?oc=5",
+          "published": "2026-06-20T21:01:11+00:00"
         },
         {
-          "featured": true,
-          "title": {"en": "ASML Rejects US Claim That an EUV System Reached China", "zh": "ASML否认美国关于EUV设备进入中国的说法"},
+          "featured": false,
+          "title": {"en": "China's Regulator Says Nvidia Violated Antimonopoly Law", "zh": "中国监管机构称Nvidia违反反垄断法"},
           "summary": {
-            "en": "ASML denied a US government report suggesting that one of its EUV lithography systems had been shipped to China, calling the claim inaccurate. The disagreement is material because EUV tools sit at the center of advanced-node export controls, and any verified transfer would expose a serious enforcement gap.",
-            "zh": "ASML否认美国政府有关其一套EUV光刻系统已运往中国的说法，并称该消息不准确。这一分歧影响重大，因为EUV设备处于先进制程出口管制的核心；若相关转移得到证实，将暴露出严重的执法缺口。"
+            "en": "China's regulator says Nvidia violated the country's antimonopoly law. The finding adds regulatory risk to Nvidia's already constrained China business, but the candidate item does not describe a penalty, remedy, or timetable, so the immediate commercial effect remains unclear.",
+            "zh": "中国监管机构称Nvidia违反了该国反垄断法。这一认定为Nvidia本已受限的中国业务增加了监管风险，但候选条目未说明罚款、补救措施或时间表，短期商业影响仍不明确。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/semiconductors/asml-denies-us-government-report-that-its-euv-chipmaking-tool-was-shipped-to-china-says-rumors-are-inaccurate-and-damaging-to-our-reputation",
-          "published": "2026-06-19T14:20:34+00:00"
+          "source": "MSN",
+          "url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxNXzFFb195eVQyTHUycUNWM3dtcGdfRlFqQVpJT2lpeGZ4MlN3eUU2WkRVTkdEYm5hRkt4eTlXXzVTQ2F6QXBBa1pkeGlFVFR3V0gwMDJZVWljc0xETG41N1dURVJWOENGSWlMaDFCdlZVbEZydV9jSzdILVZzVGV6ZFdESlZ1T0FDWDU2dkctZUgxWXJRQkp6X3dPd0MwUkNEM0RMWURHZkVuazl1UmtOMUxMLW1fcG1OdVJHaTRTMC1FQjFlejMwZ2ViX2t3Wmk3M3JfZ0lVSGpyNmk2NmNpXy1qaHkzcHR4Q0s2elhpVU9tcUNUSlhibEp4ZXc3Tld2LXpiMHJOcVFqYVlDWmR0TDFyckxTbjBLSGhPeHdCWHZtaG5sQnBiR18ybVZLMGVJd3hja0Y3UXplYXZhOFRIcDdVSEFIWG11TEZYOEhxaV9iUnNFSWlqbFJnWmsyczRE?oc=5",
+          "published": "2026-06-20T18:15:25+00:00"
         }
       ]
     },
@@ -133,24 +156,27 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Tensordyne Bets on Logarithmic Arithmetic against Nvidia", "zh": "Tensordyne押注对数运算挑战Nvidia"},
+          "title": {"en": "Cerebras Approaches Its First Public Earnings Report", "zh": "Cerebras即将发布上市后首份财报"},
           "summary": {
-            "en": "Tensordyne is pursuing an accelerator architecture that converts multiplication-heavy workloads into additions in the logarithmic domain. The approach attacks the cost of arithmetic itself rather than scaling a conventional tensor-core design, but its commercial value will depend on accuracy, software support, and performance on real models.",
-            "zh": "Tensordyne正在开发一种加速器架构，把乘法密集型工作负载转换为对数域中的加法。该路线不是继续扩展传统tensor core，而是直接降低算术运算成本；但其商业价值仍取决于精度、软件支持以及真实模型上的性能。"
+            "en": "Cerebras is approaching its first public earnings release after its shares rebounded during a holiday-shortened week. The report will be an early public-market test of demand for wafer-scale AI systems, although the candidate item provides no guidance, revenue estimate, or customer update.",
+            "zh": "Cerebras将在假期缩短的交易周股价反弹后，迎来上市后的首份财报。这将是公开市场对晶圆级AI系统需求的一次早期检验，但候选条目没有提供业绩指引、营收预期或客户进展。"
           },
-          "source": "The Register",
-          "url": "https://www.theregister.com/systems/2026/06/19/tensordyne-makes-a-big-bet-on-log-math-to-beat-nvidia/5258662",
-          "published": "2026-06-19T15:30:00+00:00"
+          "source": "TechStock²",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPWEt2T3dRNmlOQ1Y4bFVFa0VMeElub05vb0dKbkt0U3Z5ODdMbDZjcENyZHBkREVUT21hM0dEYjY1RmctUm1jaEtqeVc1bF8tSWdYVXhwTUhWNjJWWkplaFpUWExWbHFRWHp5ME5MZUdYUm5Db09EaG41VENMOG9Odm4xYlVtd0ExTHM5VzNJTk9seTkwODZVNmpNdDg?oc=5",
+          "published": "2026-06-20T21:17:56+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Workloads Redraw the Hardware Boundary", "zh": "工作负载重画硬件边界"},
+    "theme": {
+      "en": "Hardware Specialization Spreads Beyond Matrix Multiplication",
+      "zh": "硬件专用化走出矩阵乘法"
+    },
     "dek": {
-      "en": "This week's papers move system assumptions into hardware: memory-clock state enters edge governors, privacy and temporal safety gain architectural support, and specialized accelerators reshape arithmetic and dataflow. The strongest results pair those ideas with measured FPGA, 16nm silicon, ferroelectric devices, or deployed accelerator data.",
-      "zh": "本周论文把更多系统假设下沉到硬件：边缘调度器纳入存储时钟状态，隐私与时间内存安全获得架构支持，专用加速器则重塑算术与数据流。较强的结果还给出了FPGA、16nm芯片、铁电器件或已部署加速器的测量数据。"
+      "en": "This week's work stretches specialized hardware across hybrid FeFET memory, privacy-enforced training, polynomial arithmetic, photonics, and KV-cache movement. Most results are still preprints, so implementation detail and silicon evidence matter more than headline novelty.",
+      "zh": "本周研究把专用硬件扩展到混合模式FeFET存储、隐私约束训练、多项式运算、光子系统和KV cache迁移。多数结果仍是预印本，因此实现细节与硅验证比标题中的新颖性更重要。"
     },
     "areas": [
       {
@@ -158,46 +184,46 @@
         "title": {"en": "Devices & Process", "zh": "器件与工艺"},
         "papers": [
           {
-            "title": {"en": "Two-Dimensional Semiconductors for Post-Silicon Electronics", "zh": "面向后硅时代电子学的二维半导体"},
-            "authors": "Yanglin Long, Haozhe Wang, Gangning Lou, et al.",
+            "title": {"en": "A 4T Differential FeFET Cell with Volatile and Non-Volatile Modes", "zh": "兼具易失与非易失模式的4T差分FeFET单元"},
+            "authors": "J. Wang, W. Zhang, X. Fong",
             "affiliation": "",
-            "venue": "ACS Nano",
-            "venue_url": "https://doi.org/10.1021/acsnano.6c04950",
+            "venue": "arXiv:2606.19918",
+            "venue_url": "https://arxiv.org/abs/2606.19918",
             "summary": {
-              "en": "This review connects 2D-semiconductor device work to integrated-circuit requirements, organizing progress around contact resistance, gate-dielectric integration, and dimensional scaling. It also tracks the transition from planar devices to FinFET, GAA, and CFET structures alongside memory and RF demonstrations. The paper is a useful device-to-circuit map, but it is a review rather than new measured silicon and does not resolve the manufacturability gap.",
-              "zh": "这篇综述把二维半导体器件研究与集成电路需求连接起来，围绕接触电阻、栅介质集成和尺寸缩放梳理进展。文章还追踪了从平面器件到FinFET、全环绕栅极(GAA)和CFET结构的演进，并覆盖存储与RF演示。它提供了一张有用的器件到电路路线图，但属于综述，并未给出新的实测芯片，也没有解决可制造性缺口。"
+              "en": "The paper designs a four-transistor differential bit-cell from cross-coupled FeFETs plus two access transistors, with volatile and non-volatile operation selected through write conditions. It reports 0.13 microwatts of store power and a 2 ns store time without explicit backup-and-restore. The result is a preprint-level cell proposal; the abstract does not establish a fabricated array, endurance, retention, or manufacturability.",
+              "zh": "论文以交叉耦合FeFET和两个访问晶体管构成4T差分位单元，并通过写入条件选择易失或非易失工作模式。结果给出0.13微瓦存储功耗和2 ns存储时间，且无需显式备份与恢复。该成果仍是预印本级单元方案，摘要没有证明已制成阵列，也未交代耐久性、保持时间或可制造性。"
             },
-            "published": "2026-06-16"
-          },
-          {
-            "title": {"en": "Proton-Radiation Hardening of High-Speed Ge/Si Photodetectors", "zh": "高速Ge/Si集成光电探测器的质子辐射加固"},
-            "authors": "Junguo Xu, Yingying Zhong, Xiongping Bao, et al.",
-            "affiliation": "",
-            "venue": "Nanophotonics",
-            "venue_url": "https://doi.org/10.1002/nap2.70165",
-            "summary": {
-              "en": "The work tests high-speed Ge/Si integrated photodetectors under a dose-calibrated broad-spectrum proton beam and evaluates hydrogen loading as a hardening treatment. Untreated devices lose bandwidth and accumulate dark current, while hydrogen-loaded devices retain more bandwidth and limit leakage growth. The measured-device result offers a practical path for space photonics, although long-duration orbital validation is still needed.",
-              "zh": "该研究在经过剂量标定的宽能谱质子束下测试高速Ge/Si集成光电探测器，并评估氢加载作为辐射加固手段。未经处理的器件出现带宽下降和暗电流累积，而氢加载器件保留了更多带宽并抑制漏电增长。实测器件结果为航天光子学提供了一条可行路径，但仍需长期在轨环境验证。"
-            },
-            "published": "2026-06-12"
+            "published": "2026-06-18T08:11:19Z"
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Circuits & Architecture", "zh": "电路与架构"},
+        "title": {"en": "Circuits & Architectures", "zh": "电路与体系结构"},
         "papers": [
           {
-            "title": {"en": "CHERI-D Adds Inline Object IDs for Temporal Memory Safety", "zh": "CHERI-D以内联对象ID增强时间内存安全"},
-            "authors": "Yuecheng Wang, Jonathan Woodruff, Alfredo Mazzinghi, et al.",
+            "title": {"en": "Phase-Modulation Tradeoffs for Testable Photonics and Co-Packaged Optics", "zh": "面向可测试光子系统与共封装光学的相位调制权衡"},
+            "authors": "P. Agnihotri, P. Kalla, S. Blair",
             "affiliation": "",
-            "venue": "arXiv:2606.19055",
-            "venue_url": "https://arxiv.org/abs/2606.19055",
+            "venue": "arXiv:2606.19674",
+            "venue_url": "https://arxiv.org/abs/2606.19674",
             "summary": {
-              "en": "CHERI-D attaches object-ID metadata to capability pointers and stores IDs inline with allocation data to strengthen temporal memory safety. Simulation and hardware evaluation show lower revocation overhead than Cornucopia Reloaded while enabling strict use-after-free mitigation rather than only use-after-reallocation protection. The architecture is promising, but deployment still depends on compiler, operating-system, and allocator integration across the CHERI stack.",
-              "zh": "CHERI-D把对象ID元数据附加到能力指针，并将ID内联存放在分配数据中，以增强时间内存安全。仿真和硬件评估显示，它相较Cornucopia Reloaded降低了撤销开销，并可实现严格的释放后使用防护，而不只是重新分配后使用防护。该架构具有潜力，但部署仍取决于CHERI软件栈中编译器、操作系统和内存分配器的协同集成。"
+              "en": "This study compares thermal phase tuning with carrier-based electrical modulation in Mach-Zehnder and microring devices for integrated test and calibration. It evaluates extinction ratio, tuning efficiency, power, bandwidth, and controllability, clarifying when a slower thermal path is preferable to a faster electrical one. The abstract provides design guidance but no headline measurements, so the strength of the comparison depends on the full evaluation methodology.",
+              "zh": "研究比较了Mach-Zehnder与微环器件中的热相位调谐和载流子电调制，用于片上测试与校准。论文从消光比、调谐效率、功耗、带宽和可控性展开评估，说明何时较慢的热调谐优于更快的电调制。摘要给出了设计取舍，但没有列出关键测量值，因此比较的可信度仍取决于完整评估方法。"
             },
-            "published": "2026-06-17T13:24:23Z"
+            "published": "2026-06-18T00:53:05Z"
+          },
+          {
+            "title": {"en": "AIA: A 16 nm Multi-Core RISC-V SoC for Discrete Sampling", "zh": "AIA：面向离散采样的16 nm多核RISC-V SoC"},
+            "authors": "S. Zhao, N. Shah, W. Meert, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.16143",
+            "venue_url": "https://arxiv.org/abs/2606.16143",
+            "summary": {
+              "en": "AIA is a fabricated 16 nm SoC with a RISC-V host and a 2D mesh of 16 custom RISC-V cores for discrete sampling and approximate inference. Custom instructions and datapaths target non-normalized Knuth-Yao sampling and nonlinear-function interpolation, attacking workloads that map poorly to conventional CPUs and GPUs. The abstract confirms fabrication but does not expose throughput or energy results, which are necessary to judge the specialization cost.",
+              "zh": "AIA是一款采用16 nm工艺制造的SoC，包含RISC-V主机和由16个定制RISC-V内核组成的二维网格，用于离散采样与近似推理。其定制指令和数据通路面向非归一化Knuth-Yao采样及非线性函数插值，处理传统CPU和GPU映射效率不高的工作负载。摘要确认了芯片制造，但未给出吞吐率或能效结果，因此尚难判断专用化代价。"
+            },
+            "published": "2026-06-15T02:59:45Z"
           }
         ]
       },
@@ -206,100 +232,106 @@
         "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
         "papers": [
           {
-            "title": {"en": "ExSpike Exploits Irregular Sparsity with Full-Event Execution", "zh": "ExSpike以全事件执行利用不规则稀疏性"},
-            "authors": "Yuehai Chen, Farhad Merchant",
+            "title": {"en": "An Integer-Only Transformer Framework for Versal AI Engines", "zh": "面向Versal AI Engine的纯整数Transformer框架"},
+            "authors": "G. Koski, S. Lipps, Z. Ma, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.20414",
-            "venue_url": "https://arxiv.org/abs/2606.20414",
+            "venue": "arXiv:2606.17500",
+            "venue_url": "https://arxiv.org/abs/2606.17500",
             "summary": {
-              "en": "ExSpike keeps every SNN layer in spike form, adds adjacent-position event compression, and includes an attention core for spike-driven self-attention. An AMD Xilinx Virtex-7 FPGA implementation is evaluated on classification and segmentation workloads, showing that irregular event sparsity can be converted into practical execution savings. The evidence is FPGA-based, so ASIC area and energy results remain open.",
-              "zh": "ExSpike让SNN各层始终保持脉冲形式，引入相邻位置事件压缩，并加入用于脉冲驱动自注意力的attention core。研究在AMD Xilinx Virtex-7 FPGA上针对分类和分割负载进行评估，表明不规则事件稀疏性可以转化为实际执行收益。现有证据基于FPGA，ASIC面积与能耗结果仍待验证。"
+              "en": "The work maps a quantized, integer-only transformer for CERN jet tagging onto AMD Versal AI Engine tiles, including dense and multi-head-attention layers. Its main contribution is an open-source framework that turns high-level model descriptions into composable AIE blocks and generated Vitis graph code. This is an initial implementation without latency, accuracy, or resource figures in the abstract, so it is more reusable infrastructure than a finished accelerator result.",
+              "zh": "该工作把用于CERN喷注标记的量化纯整数Transformer映射到AMD Versal AI Engine tile，覆盖全连接层和多头注意力层。主要贡献是一个开源框架，可将高层模型描述转换为可组合AIE模块并生成Vitis图代码。它仍是初步实现，摘要未给出时延、精度或资源占用数据，因此更接近可复用基础设施，而非成熟的加速器结果。"
             },
-            "published": "2026-06-18T16:01:08Z"
+            "published": "2026-06-16T04:22:06Z"
           },
           {
-            "title": {"en": "Ferroelectric Compute-in-Memory Runs Neural Dynamical Systems", "zh": "铁电存内计算运行神经动力系统"},
-            "authors": "Keshava Katti, Adithya Selvakumar, Pratik Chaudhari, et al.",
+            "title": {"en": "DataGuard Enforces Differential-Privacy Budgets in Systolic Accelerators", "zh": "DataGuard在脉动阵列加速器中强制执行差分隐私预算"},
+            "authors": "P. K. Sanjaya, C. Giannoula, N. Shreekumar, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.16896",
-            "venue_url": "https://arxiv.org/abs/2606.16896",
+            "venue": "arXiv:2606.16809",
+            "venue_url": "https://arxiv.org/abs/2606.16809",
             "summary": {
-              "en": "FerroNDS maps continuous-time neural dynamics onto multi-bit ferrodiode compute-in-memory using analog integrator and oscillator primitives. A 128-neuron system forecasts 500 ms ahead at sub-watt power, reporting 0.29–1.64 μJ per neuron per inference and a 25–40× area reduction versus SRAM-based digital systems. The end-to-end ferrodiode integration is notable, but array scaling, process variation, and manufacturability are not yet established.",
-              "zh": "FerroNDS利用模拟积分器和振荡器原语，把连续时间神经动力系统映射到多比特铁电二极管存内计算硬件。其128神经元系统可在亚瓦功耗下预测未来500 ms，报告每神经元每次推理0.29至1.64 μJ能耗，并较基于SRAM的数字系统缩小25至40倍面积。端到端铁电二极管集成值得关注，但阵列扩展、工艺波动和可制造性尚未得到验证。"
+              "en": "DataGuard adds a hardware control path to systolic-array training accelerators so that only outputs satisfying an owner's differential-privacy budget may leave the device. That removes the assumption that a third-party federated-learning application correctly clips gradients and adds noise. The reported evaluation is simulation-based rather than measured silicon, making area, performance, and integration overhead the key open questions.",
+              "zh": "DataGuard为脉动阵列训练加速器增加硬件控制路径，只允许符合数据所有者差分隐私预算的输出离开设备。这消除了对第三方联邦学习应用会正确裁剪梯度并添加噪声的信任假设。其评估基于仿真而非实测芯片，因此面积、性能和集成开销仍是关键问题。"
             },
-            "published": "2026-06-15T16:07:05Z"
+            "published": "2026-06-15T14:53:13Z"
           },
           {
-            "title": {"en": "AIA Uses a 16nm RISC-V Mesh for Approximate Inference", "zh": "AIA以16nm RISC-V网格加速近似推理"},
-            "authors": "Shirui Zhao, Nimish Shah, Wannes Meert, et al.",
+            "title": {"en": "MPX Unifies Matrix and Polynomial Multiplication in One Systolic Array", "zh": "MPX在同一脉动阵列中统一矩阵与多项式乘法"},
+            "authors": "G. Alexakis, D. Schoinianakis, G. Dimitrakopoulos",
             "affiliation": "",
-            "venue": "arXiv:2606.16148",
-            "venue_url": "https://arxiv.org/abs/2606.16148",
+            "venue": "arXiv:2606.16394",
+            "venue_url": "https://arxiv.org/abs/2606.16394",
             "summary": {
-              "en": "AIA combines a RISC-V host with a 2D mesh of 16 customized RISC-V cores for sampling-based approximate inference. The 16nm SoC reaches 1,277 MSample/s at 0.9 V and 20 GSamples/s/W at 0.7 V by using non-normalized Knuth-Yao sampling and direct inter-core register access. Reported gains reach 2× performance and 1.45× energy efficiency over the prior system, though the comparison is specialized to probabilistic-model workloads.",
-              "zh": "AIA将RISC-V主机与由16个定制RISC-V核心组成的二维网格结合，用于基于采样的近似推理。这颗16nm SoC通过非归一化Knuth-Yao采样和核心间寄存器直接访问，在0.9 V下达到1,277 MSample/s，在0.7 V下达到20 GSamples/s/W。相较前代系统，其报告性能提升最高2倍、能效提升1.45倍，但比较范围集中于概率模型负载。"
+              "en": "MPX extends a conventional systolic array to execute both matrix multiplication and direct polynomial multiplication for FHE and post-quantum cryptography. The dual-mode additions cost 20% more area with negligible power overhead during matrix work, while polynomial mode reports more than 1.2 times lower latency than NTT-based mapping on matrix engines. These are experimental design results in a preprint, not a measured production chip.",
+              "zh": "MPX扩展传统脉动阵列，使其同时执行矩阵乘法以及面向FHE和后量子密码的直接多项式乘法。双模式设计增加20%面积，在矩阵运算时功耗开销可忽略；多项式模式相对在矩阵引擎上映射NTT的方法，时延降低超过1.2倍。这些是预印本中的实验性设计结果，并非量产芯片实测。"
             },
-            "published": "2026-06-15T03:06:00Z"
-          },
-          {
-            "title": {"en": "Five TPU Generations Favor Architectural Stability at Scale", "zh": "五代TPU以架构稳定性支撑规模扩展"},
-            "authors": "Norman P. Jouppi, Sridhar Lakshmanamurthy, Cliff Young, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.15870",
-            "venue_url": "https://arxiv.org/abs/2606.15870",
-            "summary": {
-              "en": "Google's retrospective from TPU v2 through Ironwood reports 10× growth in HBM capacity and bandwidth per node, 100× higher peak node performance, and 3,600× higher supercomputer performance over eight years. The paper argues that a stable core architecture, optical circuit switching, self-test, and hardware replay absorbed major workload changes without repeated redesign. It is a useful first-party systems history, but not an independent cross-platform benchmark.",
-              "zh": "Google对TPU v2至Ironwood的回顾显示，八年间单节点HBM容量和带宽提高10倍，节点峰值性能提高100倍，超级计算机性能提高3,600倍。论文认为，稳定的核心架构、光路交换、自测试和硬件重放，使系统能够吸收重大工作负载变化而无需反复重构。它是一份有价值的第一方系统史料，但并非独立的跨平台基准测试。"
-            },
-            "published": "2026-06-14T15:44:31Z"
+            "published": "2026-06-15T08:29:37Z"
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Research & Systems", "zh": "AI研究与系统"},
+        "title": {"en": "AI Research & Inference Systems", "zh": "AI研究与推理系统"},
         "papers": [
           {
-            "title": {"en": "Edge-Inference Governors Need Memory-Clock State", "zh": "边缘推理调度器需要感知存储时钟状态"},
-            "authors": "Jaehoon Kang",
+            "title": {"en": "SwiftCache Shares KV Cache Across Heterogeneous Models over NVLink", "zh": "SwiftCache通过NVLink在异构模型间共享KV cache"},
+            "authors": "J. Hu, M. Xu, S. Wang, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.16106",
-            "venue_url": "https://arxiv.org/abs/2606.16106",
+            "venue": "arXiv:2606.16135",
+            "venue_url": "http://arxiv.org/abs/2606.16135",
             "summary": {
-              "en": "Measurements on Jetson Orin NX show that CPU/GPU-only latency models miss the memory-clock state that determines whether edge inference meets a deadline. Under tight deadlines, an EMC-blind model misses 25–28% of cycles, while an EMC-aware governor cuts misses to at most 1.3% under a 2% QoS budget; median latency shifts by as much as about 45% across two Orin SKUs. The result spans CNN, ViT, and LLM decode workloads, making memory-clock observability a deployment requirement rather than a tuning detail.",
-              "zh": "Jetson Orin NX上的测量表明，只考虑CPU与GPU频率的延迟模型遗漏了决定边缘推理能否按时完成的存储时钟状态。在严格截止时间下，不感知EMC的模型有25%至28%的周期违约，而EMC感知调度器可在2%的QoS违约预算下把违约率降至最高1.3%；在两款Orin SKU上，中位延迟变化最高约45%。结果覆盖CNN、ViT和LLM解码负载，说明存储时钟可观测性是部署要求，而非简单调优项。"
+              "en": "SwiftCache lets models with low KV-cache demand donate idle GPU memory to high-demand models, moving shared prefixes over NVLink instead of reloading them over PCIe from CPU memory or SSD. It also keeps only the active layer's cache locally, creating room for longer multi-turn contexts. The candidate abstract excerpt does not include measured speedups or capacity gains, so workload balance and cross-model interference remain the practical questions.",
+              "zh": "SwiftCache让KV cache需求较低的模型把空闲GPU显存借给高需求模型，并通过NVLink传输共享前缀，避免经PCIe从CPU内存或SSD重新加载。它还只在本地保留当前活动层的cache，为更长的多轮上下文腾出空间。候选摘要未包含实测加速比或容量增益，因此负载均衡与跨模型干扰仍是实际问题。"
             },
-            "published": "2026-06-15T01:43:55Z"
+            "published": "2026-06-15"
           },
           {
-            "title": {"en": "LLM Accelerator Rankings Change between Prefill and Decode", "zh": "LLM加速器排名随Prefill与Decode阶段变化"},
-            "authors": "Shun Usami, Venkatram Vishwanath, E. Wes Bethel",
+            "title": {"en": "SMEPilot Schedules LLM Operators Across Arm SME and CPU Cores", "zh": "SMEPilot在Arm SME与CPU内核间调度LLM算子"},
+            "authors": "F. Chen, H. Chen",
             "affiliation": "",
-            "venue": "arXiv:2606.17104",
-            "venue_url": "https://arxiv.org/abs/2606.17104",
+            "venue": "arXiv:2606.16332",
+            "venue_url": "http://arxiv.org/abs/2606.16332",
             "summary": {
-              "en": "A phase-aware Llama2-7B evaluation finds GPUs consistently stronger in compute-heavy Prefill, while GroqRack delivers lower time per output token in Decode when batching is unavailable. GPUs regain the Decode-throughput advantage as batch size increases, showing that a single tokens-per-second number can invert platform conclusions. The scope is limited to one model and current batching support, so the results should guide methodology more than establish a permanent hardware ranking.",
-              "zh": "一项面向Llama2-7B的分阶段评估发现，GPU在计算密集的Prefill阶段持续占优，而在不支持批处理时，GroqRack在Decode阶段实现更低的单输出token时间。随着batch size增加，GPU重新取得Decode吞吐优势，说明单一tokens-per-second指标可能会反转平台结论。研究仅覆盖一个模型和当前批处理能力，因此更适合作为评测方法指导，而非固定的硬件排名。"
+              "en": "SMEPilot uses a roofline characterization to choose CPU-only, Arm SME-only, or cooperative execution for each LLM operator shape. It partitions matrix tiles, overlaps matrix and vector stages in attention, and preserves packed layouts to avoid repeated conversion. Tests span Llama-3.2-3B, Qwen3-4B, and Qwen3-30BA3B on phone, PC, and server platforms, but benefits will depend on shared-memory bandwidth and the availability of SME-capable CPUs.",
+              "zh": "SMEPilot利用roofline分析，按LLM算子形状选择纯CPU、纯Arm SME或协同执行。系统对矩阵tile进行划分，在注意力中重叠矩阵与向量阶段，并保留打包布局以避免重复转换。测试覆盖手机、PC和服务器上的Llama-3.2-3B、Qwen3-4B及Qwen3-30BA3B，但收益取决于共享内存带宽与支持SME的CPU可用性。"
             },
-            "published": "2026-06-14T12:23:29Z"
+            "published": "2026-06-15"
+          }
+        ]
+      },
+      {
+        "id": "quantum",
+        "title": {"en": "Quantum Hardware & Systems", "zh": "量子硬件与系统"},
+        "papers": [
+          {
+            "title": {"en": "Quantum Graph States with O(1) Local Feedforward", "zh": "采用O(1)局部前馈的量子图态生成"},
+            "authors": "X. Zheng, C.-T. Lam, L. Chen, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.16375",
+            "venue_url": "https://arxiv.org/abs/2606.16375",
+            "summary": {
+              "en": "The protocol replaces global quantum-network routing decisions with local measurements and amortized O(1) classical feedforward to keep control delay below qubit coherence times. Hybrid simulations map the design to a dual-species trapped-ion platform and identify readout fidelity as the dominant bottleneck, with erasure conversion, spatial multiplexing, and branch independence proposed as mitigations. The evidence is simulated, so experimental latency and accumulated error remain unverified.",
+              "zh": "该协议以局部测量和摊销O(1)的经典前馈取代全局量子网络路由决策，使控制延迟保持在量子比特相干时间以内。混合仿真将其映射到双物种离子阱平台，并指出读出保真度是主要瓶颈，提出用擦除转换、空间复用和分支独立性缓解。现有证据来自仿真，实验时延与累积误差仍未验证。"
+            },
+            "published": "2026-06-15T08:10:59Z"
           }
         ]
       },
       {
         "id": "eda",
-        "title": {"en": "EDA & Design Automation", "zh": "EDA与设计自动化"},
+        "title": {"en": "EDA & Design Methods", "zh": "EDA与设计方法"},
         "papers": [
           {
-            "title": {"en": "Knowledge-Augmented LLM Agent Shifts HLS Verification Left", "zh": "知识增强LLM智能体将HLS验证前移"},
-            "authors": "Zhihan Xiao, Hongbing Lang, Zhe Zhao, et al.",
+            "title": {"en": "ComPart Uses Community Structure After Hypergraph Coarsening", "zh": "ComPart在超图粗化后利用社区结构"},
+            "authors": "Y. Zhu, Z. Guo, Y. Wu, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.17128",
-            "venue_url": "https://arxiv.org/abs/2606.17128",
+            "venue": "arXiv:2606.18131",
+            "venue_url": "https://arxiv.org/abs/2606.18131",
             "summary": {
-              "en": "The framework checks consistency between original C and HLS-oriented C before synthesis using an LLM agent backed by an HLS verification knowledge graph. It combines static structural checks, dynamic behavioral equivalence, symbolic execution, and coverage-driven test refinement to constrain unreliable generated testbenches. The design is broader than prompt-only RTL generation, but it remains a preprint and its value depends on coverage and runtime at industrial HLS scale.",
-              "zh": "该框架在综合前检查原始C与面向HLS的C之间的一致性，LLM智能体由HLS验证知识图谱提供支持。它结合静态结构检查、动态行为等价、符号执行和覆盖率驱动的测试细化，以约束生成测试平台的不可靠性。其设计比单纯依靠提示词生成RTL更完整，但目前仍是预印本，工业级HLS规模下的覆盖率和运行成本将决定实际价值。"
+              "en": "ComPart moves community detection beyond the coarsening phase of hypergraph partitioning and uses structures found during initial partitioning and uncoarsening to guide refinement. The framework is designed to escape local optima and accept multiple present or future community-detection methods, making it relevant to heterogeneous MPSoC mapping and multi-FPGA prototyping. The candidate abstract excerpt gives no cut-quality or runtime numbers, so the practical gain over established partitioners still needs inspection.",
+              "zh": "ComPart把社区发现从超图划分的粗化阶段延伸到初始划分和反粗化过程，并利用这些结构指导细化。该框架旨在跳出局部最优，同时兼容现有及未来的多种社区发现方法，适用于异构MPSoC映射和多FPGA原型验证。候选摘要没有给出割质量或运行时间数据，因此相对成熟划分器的实际收益仍需进一步检查。"
             },
-            "published": "2026-06-15T17:46:32Z"
+            "published": "2026-06-16T16:27:52Z"
           }
         ]
       }
