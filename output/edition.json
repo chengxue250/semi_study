@@ -1,169 +1,177 @@
 {
-  "date": "2026-06-21",
+  "date": "2026-06-22",
   "theme": {
-    "en": "AI Scale Tests Capacity, Power, and Control",
-    "zh": "AI规模化考验产能、电力与管控"
+    "en": "AI Bottlenecks Spread Across the Hardware Stack",
+    "zh": "AI瓶颈蔓延至整个硬件栈"
   },
   "dek": {
-    "en": "From TSMC's booked-out capacity and panel packaging to 48GB HBM4E and a $47 billion-per-gigawatt Vera Rubin build, scaling AI is now constrained by physical infrastructure. Governments are tightening oversight at the same time, from chip-tracking proposals to Chinese antitrust and EUV disputes.",
-    "zh": "从TSMC排满的产能与面板级封装，到48GB HBM4E和每吉瓦造价$470亿的Vera Rubin数据中心，AI规模化正受到实体基础设施的制约。与此同时，各国也在收紧监管，包括芯片位置追踪提案、中国反垄断执法以及EUV订单争议。"
+    "en": "New transistor, memory, and cooling approaches target limits that raw accelerator scaling no longer solves. Materials investment and trade restrictions show those constraints moving deeper into the supply chain.",
+    "zh": "新的晶体管、存储与散热方案，正试图解决单纯扩展加速器已无法化解的瓶颈。材料投资与贸易限制也表明，这些约束正在向供应链更深处延伸。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
-          "featured": true,
+          "featured": false,
           "title": {
-            "en": "Foxconn Prices a Vera Rubin AI Datacenter at $47 Billion per Gigawatt",
-            "zh": "Foxconn估算Vera Rubin AI数据中心每吉瓦造价$470亿"
+            "en": "MiTAC Shows Dense GPU, Storage, and Diamond-Cooled Systems",
+            "zh": "MiTAC展示高密度GPU、存储与金刚石散热系统"
           },
           "summary": {
-            "en": "Foxconn estimates that a 1-gigawatt NVIDIA Vera Rubin installation could cost about $47 billion and carry roughly $1.3 billion in annual electricity bills. The figures put power delivery and capital intensity alongside GPU supply as first-order constraints on the next AI datacenter buildout.",
-            "zh": "Foxconn估算，部署1吉瓦NVIDIA Vera Rubin系统可能需要约$470亿，年度电费约为$13亿。这组数字表明，除GPU供给外，供电能力与资本强度也已成为下一轮AI数据中心建设的一级约束。"
+            "en": "MiTAC used Computex 2026 to show racks of GPU servers, storage systems, and servers incorporating diamond-based cooling. The breadth of the display reflects how AI infrastructure competition is shifting from the accelerator alone to rack integration, thermal design, and data movement.",
+            "zh": "MiTAC在Computex 2026展示了GPU服务器机架、存储系统，以及采用金刚石散热方案的服务器。产品覆盖面说明，AI基础设施竞争正从加速器本身扩展到机架集成、热设计和数据传输。"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/foxconn-pegs-nvidia-vera-rubin-ai-datacenter-at-47-billion-per-gigawatt/",
-          "published": "2026-06-20T16:45:14+00:00"
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/mitac-computex-2026-booth-tour/",
+          "published": "2026-06-22T00:59:59+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "Beijing Organizes an Alliance for Orbital AI Datacenters",
-            "zh": "北京组建轨道AI数据中心产业联盟"
+            "en": "Qualcomm Reportedly Plans a Snapdragon X2 Refresh Before X3",
+            "zh": "报道称Qualcomm拟在X3之前推出Snapdragon X2升级版"
           },
           "summary": {
-            "en": "Beijing has formed the Space Computing Industry Innovation Center to bring rocket and satellite manufacturers, chipmakers, and AI laboratories into a common program for orbiting datacenters. The project is still an industrial coordination effort rather than an operating system, but it links domestic silicon development with an attempt to move computing beyond terrestrial grid limits.",
-            "zh": "北京成立空间计算产业创新中心，将火箭与卫星制造商、芯片企业和AI实验室纳入轨道数据中心计划。该项目目前仍是产业协同机制，而非已投入运行的系统，但它把国产芯片发展与突破地面电网约束的计算构想连接起来。"
+            "en": "A report says Qualcomm is preparing three Snapdragon X2 refresh configurations before the next-generation X3, with memory shortages cited as a reason for the schedule change. Extending X2 would let Qualcomm broaden the current platform while avoiding the supply and validation burden of a full generational transition, though the roadmap remains unconfirmed.",
+            "zh": "报道称，Qualcomm正准备三种Snapdragon X2升级配置，并将其安排在下一代X3之前，内存短缺被列为调整进度的原因之一。延长X2周期可在避免完整代际切换所需供应与验证压力的同时扩展现有平台，但这一路线图尚未得到官方确认。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/data-centers/china-unifies-tech-sector-to-build-grid-free-orbiting-satellite-ai-data-centers-challenging-elon-musks-spacex-beijings-forced-chip-and-satellite-alliance-announced-a-week-before-musks-ai1-reveal",
-          "published": "2026-06-20T14:53:42+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/qualcomm-preps-snapdragon-x2-cpu-refresh-stalling-x3-as-memory-shortages-bite/",
+          "published": "2026-06-21T22:15:05+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Nvidia's Blackwell-Next Identifier Appears in Linux 7.2 Work",
+            "zh": "Nvidia“Blackwell-Next”标识现身Linux 7.2开发"
+          },
+          "summary": {
+            "en": "Linux 7.2 kernel patches add an Nvidia architecture identifier labeled “Blackwell-Next,” indicating early software enablement for a future GPU generation. Kernel support often begins well before commercial availability, so the patch is a roadmap clue rather than evidence of an imminent product launch.",
+            "zh": "Linux 7.2内核补丁加入了名为“Blackwell-Next”的Nvidia架构标识，显示下一代GPU的软件支持已开始准备。内核适配通常早于商业发布很久，因此这更像是一条路线图线索，而非产品即将上市的证据。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/nvidia-prepares-next-gen-gpu-architectures-blackwell-next-spotted-in-linux-7-2/",
+          "published": "2026-06-21T20:55:03+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "featured": true,
           "title": {
-            "en": "TSMC Capacity Is Reportedly Fully Booked Through 2028",
-            "zh": "报道称TSMC产能已排满至2028年"
+            "en": "Samsung Demonstrates a Record-Small 3D-Stacked Transistor",
+            "zh": "Samsung展示创纪录小型3D堆叠晶体管"
           },
           "summary": {
-            "en": "A report says TSMC's capacity is fully subscribed through 2028, prompting some customers to examine Samsung alternatives while TSMC expands CoWoS. If the booking picture holds, leading-edge wafers and advanced packaging remain a combined allocation problem rather than separate supply chains.",
-            "zh": "报道称TSMC产能已被预订至2028年，部分客户因此评估Samsung替代方案，而TSMC则继续扩充CoWoS。若这一预订情况属实，先进制程晶圆与先进封装仍将是一个联动的产能分配问题，而非彼此独立的供应链。"
+            "en": "Samsung reported what it describes as the industry's smallest 3D-stacked transistor, with the work receiving a Best Paper award at the VLSI Symposium. The result points to vertical device stacking as a density lever beyond lateral scaling, but a conference demonstration does not by itself establish manufacturing yield or production readiness.",
+            "zh": "Samsung报告了其所称业界尺寸最小的3D堆叠晶体管，相关工作获得VLSI Symposium最佳论文奖。该结果表明，垂直器件堆叠可成为横向微缩之外的密度提升手段，但会议级演示本身并不能证明量产良率或生产成熟度。"
           },
-          "source": "AD HOC NEWS",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVkhWZmZhYkl2X3kzT3k3XzJaT3FBbU12ek5RN1Ztc0U3cW5sMDdLWGlrVmozLUMzYWY5VzJGamlWekdLMGhaUHhNRkE3SlFWOWlfWmVaN1ItbXhPOUI2MmpXSGt5SEpOQ3RzaWd3TW9yOFdZS2N2NEtocWhHR1h5TlBTMmQ5OWdsa3NJTmxxODVLazdGQ1JqZFBXREtXdXJpZXgxdm8weEhBeFo1TlFWQm9vZTlmLXpERmZHNXZHUTRvc0p1RDhKZA?oc=5",
-          "published": "2026-06-20T14:28:21+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "TSMC Accelerates CoPoS Panel Packaging Around Glass-Core Substrates",
-            "zh": "TSMC加速采用玻璃芯基板的CoPoS面板级封装"
-          },
-          "summary": {
-            "en": "TSMC is reportedly accelerating CoPoS panel-level packaging as a successor path to CoWoS for growing AI systems. The report attributes potential cost reductions of 30% and substrate utilization above 90% to glass-core panels; those are process targets, not yet evidence of a volume-production ramp.",
-            "zh": "报道称，面对持续增长的AI系统需求，TSMC正加速推进CoPoS面板级封装，作为CoWoS之后的扩展路径。报道认为玻璃芯面板有望降低30%成本并把基板利用率提高到90%以上；这些仍是工艺目标，尚不能视为量产爬坡的证据。"
-          },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/tsmc-accelerates-copos-packaging-replace-cowos-as-glass-core-substrates-cut-costs-boost-wafer-utilizatio/",
-          "published": "2026-06-20T17:40:34+00:00"
+          "source": "Tech Times",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOVXJEYlJuUHN3VGl4NVgyZ1BvSU5LeC1ZcjNFa25KX0Zmc3Q4SWxEYVZHV0dHN3JwYnlNZFNtVHB0QXJDWUQtSUxtbU5NV2ZDSlpHU0FBNXRwR2I5SHRlMFdpd1lnSWlvZXVzUmFKMkh0MTNhUVExVFViVm5DOXlYN0lOR2U5VVIyQXFtaEdMbllZMHp3VUo5VGFjVk1Ec3BhdHV0QlFJdGJPUVpjYmZnWGZma19qZEF2NDkxZDRwQjhsVXJGOEkzaGZsVQ?oc=5",
+          "published": "2026-06-22T00:35:08+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "SK hynix Shows a 48GB HBM4E Product", "zh": "SK hynix展示48GB HBM4E产品"},
-          "summary": {
-            "en": "SK hynix has shown a next-generation 48GB HBM4E product as memory vendors position for the post-HBM4 accelerator cycle. The higher per-stack capacity can ease model-state and KV-cache pressure, although the candidate report does not provide a sampling date, bandwidth, or volume-production schedule.",
-            "zh": "SK hynix展示了下一代48GB HBM4E产品，存储厂商开始为HBM4之后的加速器周期布局。更高的单堆栈容量有助于缓解模型状态和KV cache压力，但候选报道没有给出送样时间、带宽或量产进度。"
+          "title": {
+            "en": "SanDisk Proposes Stacking NAND and Compute on One Chip",
+            "zh": "SanDisk提出在单芯片上堆叠NAND与计算单元"
           },
-          "source": "HotHardware",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9TbFZ6X0JGU2c4UUFJLTJJM1JSZlI2RGh0MnhjZ19SZEtqMlNaMXlpT0pWWmU2OU9QNjhPczlsVTJjWmpqVlotVmlhbVEzSDZvRl9NWnRPMnU0b0RCOERWWmZ4cGo4MF8xRXdjMXpYUEFqWGVGQ0NILXN3?oc=5",
-          "published": "2026-06-20T18:28:00+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "SK hynix Brings CXL 3.2 Memory to HPE Discover", "zh": "SK hynix在HPE Discover展示CXL 3.2存储"},
           "summary": {
-            "en": "SK hynix showcased CXL 3.2 memory products and its broader AI portfolio at HPE Discover Las Vegas 2026. CXL 3.2 support matters because composable memory and pooled capacity are becoming practical complements to scarce HBM, though the feed item supplies no deployment or performance figures.",
-            "zh": "SK hynix在HPE Discover Las Vegas 2026展示了CXL 3.2存储产品及更广泛的AI产品组合。随着可组合存储和内存池逐步成为稀缺HBM的现实补充，CXL 3.2支持具有实际意义，但该候选条目未提供部署或性能数据。"
+            "en": "SanDisk has outlined an approach that stacks NAND flash and compute on one chip as AI systems run into HBM capacity and cost constraints. The concept could place denser storage closer to processing, but it remains a proposal without a disclosed shipping schedule or measured system-level performance.",
+            "zh": "在AI系统面临HBM容量与成本约束之际，SanDisk提出在单颗芯片上堆叠NAND闪存与计算单元。该方案有望让更高密度的存储靠近处理单元，但目前仍处于概念阶段，尚未公布出货时间或系统级实测性能。"
           },
-          "source": "The Elec",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE90NHVPMThCSlF2WW9sS1lRcm15RXVwMm0zWk5SemZaRUE4MTJFMmtzc2gxNEE0eXg2QVRfS3gwbGlrSjdVUlNoUkdzeVFzVTFTREZiT21qMVhVVGR1UE9vMnhuQUg1d2M?oc=5",
-          "published": "2026-06-20T23:32:41+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/sandisk-bets-on-stacking-nand-and-compute-on-one-chip/",
+          "published": "2026-06-21T23:45:59+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
       "stories": [
         {
           "featured": true,
-          "title": {"en": "ASML's China EUV Order Dispute Tests U.S. Export Rules", "zh": "ASML中国EUV订单争议考验美国出口规则"},
-          "summary": {
-            "en": "A reported dispute over ASML's China EUV orders is testing how U.S. export rules apply to the lithography supply chain. The candidate item does not identify the tools, customers, or order status, but the conflict matters because licensing interpretation can affect both ASML bookings and China's leading-edge capacity plans.",
-            "zh": "据报道，围绕ASML中国EUV订单的争议正在检验美国出口规则如何适用于光刻设备供应链。候选条目没有说明具体设备、客户或订单状态，但许可规则的解释会同时影响ASML订单与中国先进制程产能规划。"
+          "title": {
+            "en": "Toto Commits $495 Million to 1 nm-Era Chip Materials",
+            "zh": "Toto将投入4.95亿美元布局1nm时代芯片材料"
           },
-          "source": "TechStock²",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPQlFyWTFwYm5qZm5sc0o2YlpEaDFicDZtZGE5Zm1JMkRPUDRjSjZmNThwR1k1MGFLM1FaekNzdDNXS1BWSkJiYVRjSE1sSWg2UmctU0ZBZGlTbkRRWVdLQzE2S0NBNURSTnJRc3VoVzFtSDVOREdLZ1VJVk41aVoyWThPdnU2ay0zamNEVFhUX1hSb0k?oc=5",
-          "published": "2026-06-20T14:27:59+00:00"
+          "summary": {
+            "en": "Japan's Toto plans to invest $495 million in semiconductor materials aimed at the 1 nm era. The commitment shows how advanced-node spending is pulling specialized materials suppliers into larger, longer-dated capacity bets well before high-volume production begins.",
+            "zh": "日本Toto计划投入4.95亿美元，用于面向1nm时代的半导体材料。该投资表明，在大规模量产开始之前，先进制程已推动专业材料供应商进行规模更大、周期更长的产能押注。"
+          },
+          "source": "Nikkei Asia",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeW10RHhvNDlNN3RpbVNjcGk4UDZmVWNuOUR3UURjdEFrbVNsTFlFVHNhNDNHX0pmUlBadUR3b3VycG9kblpJREtTb3RDeGZTbFBlWWgzRW5WQXdfUW5FeFY4WXl2MWptT09vSmFxMldFbWFoY0tGakhGd1lMMmtFTHAyUnZRLUFBQjE1VlNQbFlZV3R6dmk5Z1ZDWDVMV3FmUEpnVDE4bk8tUFpHOV9aOUJjNzBmbmM1?oc=5",
+          "published": "2026-06-21T19:24:00+00:00"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
+      },
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "AI Chip Location-Tracking Bill Gains Industry Support", "zh": "AI芯片位置追踪法案获得产业支持"},
-          "summary": {
-            "en": "A bill that would require location tracking for AI chips is gaining support from parts of the industry. Hardware telemetry could make export controls easier to enforce after shipment, but implementation details will determine whether the requirement is reliable, bypass-resistant, and acceptable to operators.",
-            "zh": "一项要求AI芯片具备位置追踪能力的法案正获得部分产业界支持。硬件遥测可能提高芯片出货后出口管制的可执行性，但具体实施方式将决定这项要求是否可靠、能否抵抗绕过，以及运营商能否接受。"
+          "featured": true,
+          "title": {
+            "en": "China's Rare-Earth Curbs Keep Pressure on Japanese Supply",
+            "zh": "中国稀土限制持续压迫日本供应"
           },
-          "source": "AOL",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ueElyMGl2T0RwZ2NyY3k4SG5GZ1pvWl9kVW85Uk1TT2tla3FIRlZMTEhfT0VBWEduQnJWU3g4UXBRblZBZmdRVVUyTWhJR1c2a0J6Wmx0WTdEbTE4aWFtRDlTYmlvRDktLUhhRGNsdktjaEFrZ3BaNw?oc=5",
-          "published": "2026-06-20T21:01:11+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "China's Regulator Says Nvidia Violated Antimonopoly Law", "zh": "中国监管机构称Nvidia违反反垄断法"},
           "summary": {
-            "en": "China's regulator says Nvidia violated the country's antimonopoly law. The finding adds regulatory risk to Nvidia's already constrained China business, but the candidate item does not describe a penalty, remedy, or timetable, so the immediate commercial effect remains unclear.",
-            "zh": "中国监管机构称Nvidia违反了该国反垄断法。这一认定为Nvidia本已受限的中国业务增加了监管风险，但候选条目未说明罚款、补救措施或时间表，短期商业影响仍不明确。"
+            "en": "China's rare-earth restrictions continue to constrain supply to Japan, extending a trade-policy pressure point beyond advanced chips and fabrication tools. The immediate exposure varies by material, but prolonged controls raise procurement risk across electronics, equipment, motors, and thermal-management supply chains.",
+            "zh": "中国的稀土限制继续压缩对日供应，使贸易政策压力从先进芯片和制造设备进一步延伸。不同材料的直接影响程度不一，但长期管制会增加电子、设备、电机及热管理供应链的采购风险。"
           },
-          "source": "MSN",
-          "url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxNXzFFb195eVQyTHUycUNWM3dtcGdfRlFqQVpJT2lpeGZ4MlN3eUU2WkRVTkdEYm5hRkt4eTlXXzVTQ2F6QXBBa1pkeGlFVFR3V0gwMDJZVWljc0xETG41N1dURVJWOENGSWlMaDFCdlZVbEZydV9jSzdILVZzVGV6ZFdESlZ1T0FDWDU2dkctZUgxWXJRQkp6X3dPd0MwUkNEM0RMWURHZkVuazl1UmtOMUxMLW1fcG1OdVJHaTRTMC1FQjFlejMwZ2ViX2t3Wmk3M3JfZ0lVSGpyNmk2NmNpXy1qaHkzcHR4Q0s2elhpVU9tcUNUSlhibEp4ZXc3Tld2LXpiMHJOcVFqYVlDWmR0TDFyckxTbjBLSGhPeHdCWHZtaG5sQnBiR18ybVZLMGVJd3hja0Y3UXplYXZhOFRIcDdVSEFIWG11TEZYOEhxaV9iUnNFSWlqbFJnWmsyczRE?oc=5",
-          "published": "2026-06-20T18:15:25+00:00"
+          "source": "The Financial Express",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNTnpsd3dsRWxOUmJNWUVXX1UySlhnOU5KeFczaVpiUXUyekYxdURGVE16dW1id1pRRENpdDVaRVowbk1ESmtJRUh1Y0h4MVhWbmNCNXZjbHlib3oyaVkzQlBuNUUwS2NTb1EtcUhRUVNnRTJ2UE1rU3d4U3ZGTi16M0Nsc3ZnUDU4NjRqVmk1LTNzMmZ1bnE2a3VzMzQwc3dLY2dMUWZPb2kzV3EyUzRaNE04MHNrZllIZ1VRNEpUR0RyTGE3SGfSAdIBQVVfeXFMUFYwSjdWVE5BVlMwZll3YzZPQ2N5dzVFYTJmd3htcVZBOGxVbV9fUk0xYUhMSzFUYWdETl9KTU45LUx5SGFBVTJRRVN0WFp4dFFPakRYN3hnV3BEMUItQzBwWlRYMUtibnM0aFJobjVMdHU2czQ2OUJBWmhheUNJakgzWWV2VDF1SkNfZWxtZnJTZmprRE9BRDNCalc1cnVYdm9xT2MwMENwb1NaLThXaGZ1ZjhlWXFIVzB4OFFocHB2eHNPZ0JDb0VqTW0tVkFYdGJ3?oc=5",
+          "published": "2026-06-21T20:48:39+00:00"
         }
       ]
     },
     {
-      "id": "challengers",
-      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
+      "id": "earnings",
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "财报与市场"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Cerebras Approaches Its First Public Earnings Report", "zh": "Cerebras即将发布上市后首份财报"},
-          "summary": {
-            "en": "Cerebras is approaching its first public earnings release after its shares rebounded during a holiday-shortened week. The report will be an early public-market test of demand for wafer-scale AI systems, although the candidate item provides no guidance, revenue estimate, or customer update.",
-            "zh": "Cerebras将在假期缩短的交易周股价反弹后，迎来上市后的首份财报。这将是公开市场对晶圆级AI系统需求的一次早期检验，但候选条目没有提供业绩指引、营收预期或客户进展。"
+          "title": {
+            "en": "Lam Research Rises 6.1% After a Beat and Higher Outlook",
+            "zh": "Lam Research业绩超预期并上调展望，股价上涨6.1%"
           },
-          "source": "TechStock²",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPWEt2T3dRNmlOQ1Y4bFVFa0VMeElub05vb0dKbkt0U3Z5ODdMbDZjcENyZHBkREVUT21hM0dEYjY1RmctUm1jaEtqeVc1bF8tSWdYVXhwTUhWNjJWWkplaFpUWExWbHFRWHp5ME5MZUdYUm5Db09EaG41VENMOG9Odm4xYlVtd0ExTHM5VzNJTk9seTkwODZVNmpNdDg?oc=5",
-          "published": "2026-06-20T21:17:56+00:00"
+          "summary": {
+            "en": "Lam Research shares rose 6.1% after an AI-driven earnings beat and a higher outlook for chip-equipment demand. The reset suggests that spending on deposition and etch capacity remains firm as memory and logic manufacturers add more complex process steps for AI-oriented products.",
+            "zh": "Lam Research在AI需求推动业绩超预期并上调芯片设备展望后，股价上涨6.1%。这一变化表明，随着存储和逻辑厂商为AI产品增加更复杂的制程步骤，沉积与刻蚀设备支出仍保持强劲。"
+          },
+          "source": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOLU9hMmZIQ3l4Zll2bWhpWkxzLUhEdnhNaEFqMjhLREdvRDFXQjRFelpoRnFtUVFpRVBzTHl5eHg4R1dpZC0ydjVYb09XVlVWdUstR3BaRlBxS0hyMmItbndUWVU2REJkRmNocjlvZDdZdDdSWHhLVmhRMk0tU3NPOHo2S3Y2R3FnT2Z0OUpuYw?oc=5",
+          "published": "2026-06-21T23:09:37+00:00"
         }
       ]
     }
@@ -171,129 +179,150 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Hardware Specialization Spreads Beyond Matrix Multiplication",
-      "zh": "硬件专用化走出矩阵乘法"
+      "en": "Scaling Moves Into Devices, Memory, and Context",
+      "zh": "扩展转向器件、存储与上下文"
     },
     "dek": {
-      "en": "This week's work stretches specialized hardware across hybrid FeFET memory, privacy-enforced training, polynomial arithmetic, photonics, and KV-cache movement. Most results are still preprints, so implementation detail and silicon evidence matter more than headline novelty.",
-      "zh": "本周研究把专用硬件扩展到混合模式FeFET存储、隐私约束训练、多项式运算、光子系统和KV cache迁移。多数结果仍是预印本，因此实现细节与硅验证比标题中的新颖性更重要。"
+      "en": "This week's work attacks bottlenecks from nanoscale interfaces and 3D integration to ferroelectric compute-in-memory and prompt-cache continuity. The strongest results connect measured device behavior with system-level cost, latency, reliability, or thermal limits.",
+      "zh": "本周研究从纳米界面和3D集成一路推进到铁电存内计算与提示缓存连续性。最有价值的结果把器件实测行为与系统级成本、时延、可靠性或散热限制连接起来。"
     },
     "areas": [
       {
         "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
         "papers": [
           {
-            "title": {"en": "A 4T Differential FeFET Cell with Volatile and Non-Volatile Modes", "zh": "兼具易失与非易失模式的4T差分FeFET单元"},
-            "authors": "J. Wang, W. Zhang, X. Fong",
-            "affiliation": "",
-            "venue": "arXiv:2606.19918",
-            "venue_url": "https://arxiv.org/abs/2606.19918",
-            "summary": {
-              "en": "The paper designs a four-transistor differential bit-cell from cross-coupled FeFETs plus two access transistors, with volatile and non-volatile operation selected through write conditions. It reports 0.13 microwatts of store power and a 2 ns store time without explicit backup-and-restore. The result is a preprint-level cell proposal; the abstract does not establish a fabricated array, endurance, retention, or manufacturability.",
-              "zh": "论文以交叉耦合FeFET和两个访问晶体管构成4T差分位单元，并通过写入条件选择易失或非易失工作模式。结果给出0.13微瓦存储功耗和2 ns存储时间，且无需显式备份与恢复。该成果仍是预印本级单元方案，摘要没有证明已制成阵列，也未交代耐久性、保持时间或可制造性。"
+            "title": {
+              "en": "How Perimeter Scaling Changes Ferroelectric HZO Capacitors",
+              "zh": "周长缩放如何改变铁电HZO电容器"
             },
-            "published": "2026-06-18T08:11:19Z"
+            "authors": "L. Trupină, Ș. Neațu, L. Pintilie, et al.",
+            "affiliation": "",
+            "venue": "Advanced Electronic Materials",
+            "venue_url": "https://doi.org/10.1002/aelm.202500879",
+            "summary": {
+              "en": "Measurements on W/Hf0.5Zr0.5O2/p-Ge capacitors spanning 10 µm to 0.1 µm show that switched charge stays nearly constant as sweep rate changes, while the smallest 0.01 µm² devices fall below the current-detection floor because of parasitic capacitance. Submicron capacitors show an apparent rise in remanent polarization as perimeter-to-area ratio increases, pointing to edge-dominated switching. The result matters because geometry and measurement parasitics can masquerade as intrinsic ferroelectric improvement during scaling.",
+              "zh": "对尺寸从10 µm缩小到0.1 µm的W/Hf0.5Zr0.5O2/p-Ge电容器测量表明，扫描速率变化时翻转电荷基本不变，而最小的0.01 µm²器件因寄生电容影响，其翻转电流低于检测下限。亚微米电容器随着周长面积比提高，呈现出剩余极化增强的表观现象，说明边缘主导的翻转作用正在增大。该结果的重要性在于，缩放过程中几何效应和测量寄生项可能被误判为材料本征铁电性能提升。"
+            },
+            "published": "2026-06-18"
+          },
+          {
+            "title": {
+              "en": "CNT CFET Logic Integrates with 3D-Stacked Photodiodes",
+              "zh": "CNT CFET逻辑与3D堆叠光电二极管实现单片集成"
+            },
+            "authors": "Xiao Luo, Haoyu Zhang, Haoyun Liu, et al.",
+            "affiliation": "",
+            "venue": "ACS Nano",
+            "venue_url": "https://doi.org/10.1021/acsnano.6c04995",
+            "summary": {
+              "en": "The work monolithically integrates carbon-nanotube complementary FETs in a true vertically stacked CFET layout with 3D-stacked photodiodes, and demonstrates logic gates, a 4-transistor SRAM cell, and a five-stage ring oscillator. Its inverters reach a peak gain of 147 at 1 V and retain a gain of 9.7 with 3.3 pW static power at 0.2 V. This is a measured route toward unified sensing and computing, although the research-scale stack still needs evidence on array yield and process uniformity.",
+              "zh": "该工作将真正垂直堆叠结构的碳纳米管互补FET与3D堆叠光电二极管进行单片集成，并演示了逻辑门、4晶体管SRAM单元和五级环形振荡器。其反相器在1 V下峰值增益达到147，在0.2 V下以3.3 pW静态功耗仍保持9.7的增益。它为感知与计算一体化提供了实测路径，但研究级堆叠仍需补充阵列良率与工艺均匀性证据。"
+            },
+            "published": "2026-06-17"
+          },
+          {
+            "title": {
+              "en": "Van der Waals-Integrable HfOx Dielectric for 2D Transistors",
+              "zh": "面向二维晶体管的范德华可集成HfOx介质"
+            },
+            "authors": "Nuertai Jiazila, Jiequn Sun, Yunhao Wang, et al.",
+            "affiliation": "",
+            "venue": "2D Materials",
+            "venue_url": "https://doi.org/10.1088/2053-1583/ae7d3d",
+            "summary": {
+              "en": "Ultraviolet-ozone conversion of HfS2 produces a van der Waals-integrable HfOx dielectric with an approximately 8.9 MV/cm breakdown field, dielectric constant near 9.6, and leakage around 10^-5 A/cm². MoS2 transistors using the dielectric show an on/off ratio near 10^9, mobility of about 35.3 cm²/V·s, and an 80.2 mV/dec subthreshold swing; floating-gate devices reach a 14 V memory window. The device data are promising for cleaner 2D interfaces, but endurance, wafer-scale uniformity, and integration yield remain open.",
+              "zh": "通过紫外臭氧将HfS2转化为可进行范德华集成的HfOx介质，其击穿场约为8.9 MV/cm、介电常数约9.6、漏电流约10^-5 A/cm²。采用该介质的MoS2晶体管开关比接近10^9、迁移率约35.3 cm²/V·s、亚阈值摆幅为80.2 mV/dec；浮栅器件的存储窗口达到14 V。这些器件数据有利于构建更洁净的二维材料界面，但耐久性、晶圆级均匀性和集成良率仍待验证。"
+            },
+            "published": "2026-06-15"
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Circuits & Architectures", "zh": "电路与体系结构"},
+        "title": {
+          "en": "Circuits, Architecture & Reliability",
+          "zh": "电路、架构与可靠性"
+        },
         "papers": [
           {
-            "title": {"en": "Phase-Modulation Tradeoffs for Testable Photonics and Co-Packaged Optics", "zh": "面向可测试光子系统与共封装光学的相位调制权衡"},
-            "authors": "P. Agnihotri, P. Kalla, S. Blair",
-            "affiliation": "",
-            "venue": "arXiv:2606.19674",
-            "venue_url": "https://arxiv.org/abs/2606.19674",
-            "summary": {
-              "en": "This study compares thermal phase tuning with carrier-based electrical modulation in Mach-Zehnder and microring devices for integrated test and calibration. It evaluates extinction ratio, tuning efficiency, power, bandwidth, and controllability, clarifying when a slower thermal path is preferable to a faster electrical one. The abstract provides design guidance but no headline measurements, so the strength of the comparison depends on the full evaluation methodology.",
-              "zh": "研究比较了Mach-Zehnder与微环器件中的热相位调谐和载流子电调制，用于片上测试与校准。论文从消光比、调谐效率、功耗、带宽和可控性展开评估，说明何时较慢的热调谐优于更快的电调制。摘要给出了设计取舍，但没有列出关键测量值，因此比较的可信度仍取决于完整评估方法。"
+            "title": {
+              "en": "SPINE Profiles Accumulated Bit Flips in Quantized Networks",
+              "zh": "SPINE分析量化神经网络中的累积位翻转"
             },
-            "published": "2026-06-18T00:53:05Z"
+            "authors": "Nathan Guimarães, Ian Kersz, Leonardo R. Gobatto, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.19526",
+            "venue_url": "https://arxiv.org/abs/2606.19526",
+            "summary": {
+              "en": "SPINE injects cumulative weight bit flips directly into edge-CPU binaries through GDB, producing per-layer fault profiles without retraining the model or modifying application code. Tests across multiple network topologies, quantization levels, and memory layouts are intended to identify where selective hardening has the most value. The preprint presents a useful profiling method, but it does not report a standardized radiation campaign that would qualify a deployed device.",
+              "zh": "SPINE通过GDB直接向边缘CPU二进制文件中的权重注入累积位翻转，无需重新训练模型或修改应用代码即可生成逐层故障画像。该方法跨多种网络拓扑、量化精度和内存布局进行测试，用于识别最值得选择性加固的位置。这篇预印本提供了实用的分析方法，但并未给出可用于器件认证的标准化辐照测试。"
+            },
+            "published": "2026-06-17T19:17:08Z"
           },
           {
-            "title": {"en": "AIA: A 16 nm Multi-Core RISC-V SoC for Discrete Sampling", "zh": "AIA：面向离散采样的16 nm多核RISC-V SoC"},
-            "authors": "S. Zhao, N. Shah, W. Meert, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.16143",
-            "venue_url": "https://arxiv.org/abs/2606.16143",
-            "summary": {
-              "en": "AIA is a fabricated 16 nm SoC with a RISC-V host and a 2D mesh of 16 custom RISC-V cores for discrete sampling and approximate inference. Custom instructions and datapaths target non-normalized Knuth-Yao sampling and nonlinear-function interpolation, attacking workloads that map poorly to conventional CPUs and GPUs. The abstract confirms fabrication but does not expose throughput or energy results, which are necessary to judge the specialization cost.",
-              "zh": "AIA是一款采用16 nm工艺制造的SoC，包含RISC-V主机和由16个定制RISC-V内核组成的二维网格，用于离散采样与近似推理。其定制指令和数据通路面向非归一化Knuth-Yao采样及非线性函数插值，处理传统CPU和GPU映射效率不高的工作负载。摘要确认了芯片制造，但未给出吞吐率或能效结果，因此尚难判断专用化代价。"
+            "title": {
+              "en": "Diamond-Coated Capillary Interposer Targets 3D Hotspots",
+              "zh": "金刚石涂层毛细结构中介层瞄准3D热点"
             },
-            "published": "2026-06-15T02:59:45Z"
+            "authors": "S. Moore, M. Bauer, S. Moghaddam",
+            "affiliation": "",
+            "venue": "IMAPSource Proceedings",
+            "venue_url": "https://doi.org/10.4071/001c.163572",
+            "summary": {
+              "en": "The proposed 3D-heterogeneous-integration interposer uses laser-machined wick pillars for capillary-fed two-phase cooling and selectively coats them with diamond to improve vertical thermal conduction. Moving evaporation into the packaging layer could remove localized heat without expanding the package footprint. The paper establishes a plausible structure and performance envelope, but package-scale reliability, fluid containment, and manufacturability still need validation.",
+              "zh": "该3D异构集成中介层采用激光加工的吸液芯柱实现毛细驱动两相冷却，并选择性覆盖金刚石以增强垂直导热。将蒸发界面引入封装层，有望在不扩大封装占地的情况下移除局部热点。论文给出了可行结构和性能边界，但封装级可靠性、流体密封性及可制造性仍需验证。"
+            },
+            "published": "2026-06-17"
           }
         ]
       },
       {
         "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
         "papers": [
           {
-            "title": {"en": "An Integer-Only Transformer Framework for Versal AI Engines", "zh": "面向Versal AI Engine的纯整数Transformer框架"},
-            "authors": "G. Koski, S. Lipps, Z. Ma, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.17500",
-            "venue_url": "https://arxiv.org/abs/2606.17500",
-            "summary": {
-              "en": "The work maps a quantized, integer-only transformer for CERN jet tagging onto AMD Versal AI Engine tiles, including dense and multi-head-attention layers. Its main contribution is an open-source framework that turns high-level model descriptions into composable AIE blocks and generated Vitis graph code. This is an initial implementation without latency, accuracy, or resource figures in the abstract, so it is more reusable infrastructure than a finished accelerator result.",
-              "zh": "该工作把用于CERN喷注标记的量化纯整数Transformer映射到AMD Versal AI Engine tile，覆盖全连接层和多头注意力层。主要贡献是一个开源框架，可将高层模型描述转换为可组合AIE模块并生成Vitis图代码。它仍是初步实现，摘要未给出时延、精度或资源占用数据，因此更接近可复用基础设施，而非成熟的加速器结果。"
+            "title": {
+              "en": "FerroNDS Maps Real-Time Forecasting onto Ferroelectric CIM",
+              "zh": "FerroNDS将实时预测映射到铁电存内计算"
             },
-            "published": "2026-06-16T04:22:06Z"
-          },
-          {
-            "title": {"en": "DataGuard Enforces Differential-Privacy Budgets in Systolic Accelerators", "zh": "DataGuard在脉动阵列加速器中强制执行差分隐私预算"},
-            "authors": "P. K. Sanjaya, C. Giannoula, N. Shreekumar, et al.",
+            "authors": "Keshava Katti, A. Selvakumar, Pratik Chaudhari, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.16809",
-            "venue_url": "https://arxiv.org/abs/2606.16809",
+            "venue": "arXiv:2606.16896",
+            "venue_url": "http://arxiv.org/abs/2606.16896",
             "summary": {
-              "en": "DataGuard adds a hardware control path to systolic-array training accelerators so that only outputs satisfying an owner's differential-privacy budget may leave the device. That removes the assumption that a third-party federated-learning application correctly clips gradients and adds noise. The reported evaluation is simulation-based rather than measured silicon, making area, performance, and integration overhead the key open questions.",
-              "zh": "DataGuard为脉动阵列训练加速器增加硬件控制路径，只允许符合数据所有者差分隐私预算的输出离开设备。这消除了对第三方联邦学习应用会正确裁剪梯度并添加噪声的信任假设。其评估基于仿真而非实测芯片，因此面积、性能和集成开销仍是关键问题。"
+              "en": "FerroNDS maps integrator and oscillator primitives onto multi-bit ferrodiodes, using a 128-neuron system to compute short-time Fourier transforms and forecast signals 500 ms ahead. It reports 1.64 µJ per neuron per inference at 200 Hz and 0.29 µJ at 10 kHz, with a 25–40× area reduction versus SRAM-based digital systems and per-layer latency down to 63.87 µs. The end-to-end mapping is notable, but the preprint's energy and area comparisons need validation across larger models and fabricated arrays.",
+              "zh": "FerroNDS把积分器与振荡器原语映射到多位铁电二极管上，以128神经元系统计算短时傅里叶变换并预测未来500 ms的信号。论文报告在200 Hz下每神经元每次推理能耗为1.64 µJ，在10 kHz下为0.29 µJ；相较基于SRAM的数字系统，面积缩小25–40倍，单层时延最低63.87 µs。端到端映射具有参考价值，但预印本中的能耗与面积对比仍需在更大模型和实际制造阵列上验证。"
             },
-            "published": "2026-06-15T14:53:13Z"
-          },
-          {
-            "title": {"en": "MPX Unifies Matrix and Polynomial Multiplication in One Systolic Array", "zh": "MPX在同一脉动阵列中统一矩阵与多项式乘法"},
-            "authors": "G. Alexakis, D. Schoinianakis, G. Dimitrakopoulos",
-            "affiliation": "",
-            "venue": "arXiv:2606.16394",
-            "venue_url": "https://arxiv.org/abs/2606.16394",
-            "summary": {
-              "en": "MPX extends a conventional systolic array to execute both matrix multiplication and direct polynomial multiplication for FHE and post-quantum cryptography. The dual-mode additions cost 20% more area with negligible power overhead during matrix work, while polynomial mode reports more than 1.2 times lower latency than NTT-based mapping on matrix engines. These are experimental design results in a preprint, not a measured production chip.",
-              "zh": "MPX扩展传统脉动阵列，使其同时执行矩阵乘法以及面向FHE和后量子密码的直接多项式乘法。双模式设计增加20%面积，在矩阵运算时功耗开销可忽略；多项式模式相对在矩阵引擎上映射NTT的方法，时延降低超过1.2倍。这些是预印本中的实验性设计结果，并非量产芯片实测。"
-            },
-            "published": "2026-06-15T08:29:37Z"
+            "published": "2026-06-15"
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Research & Inference Systems", "zh": "AI研究与推理系统"},
+        "title": {
+          "en": "AI Research & Inference Systems",
+          "zh": "AI研究与推理系统"
+        },
         "papers": [
           {
-            "title": {"en": "SwiftCache Shares KV Cache Across Heterogeneous Models over NVLink", "zh": "SwiftCache通过NVLink在异构模型间共享KV cache"},
-            "authors": "J. Hu, M. Xu, S. Wang, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.16135",
-            "venue_url": "http://arxiv.org/abs/2606.16135",
-            "summary": {
-              "en": "SwiftCache lets models with low KV-cache demand donate idle GPU memory to high-demand models, moving shared prefixes over NVLink instead of reloading them over PCIe from CPU memory or SSD. It also keeps only the active layer's cache locally, creating room for longer multi-turn contexts. The candidate abstract excerpt does not include measured speedups or capacity gains, so workload balance and cross-model interference remain the practical questions.",
-              "zh": "SwiftCache让KV cache需求较低的模型把空闲GPU显存借给高需求模型，并通过NVLink传输共享前缀，避免经PCIe从CPU内存或SSD重新加载。它还只在本地保留当前活动层的cache，为更长的多轮上下文腾出空间。候选摘要未包含实测加速比或容量增益，因此负载均衡与跨模型干扰仍是实际问题。"
+            "title": {
+              "en": "TokenPilot Preserves Prompt Caches While Compacting Agent Context",
+              "zh": "TokenPilot在压缩智能体上下文时保持提示缓存连续性"
             },
-            "published": "2026-06-15"
-          },
-          {
-            "title": {"en": "SMEPilot Schedules LLM Operators Across Arm SME and CPU Cores", "zh": "SMEPilot在Arm SME与CPU内核间调度LLM算子"},
-            "authors": "F. Chen, H. Chen",
+            "authors": "Buqiang Xu, Z. Xue, Dian Chen, et al.",
             "affiliation": "",
-            "venue": "arXiv:2606.16332",
-            "venue_url": "http://arxiv.org/abs/2606.16332",
+            "venue": "arXiv:2606.17016",
+            "venue_url": "http://arxiv.org/abs/2606.17016",
             "summary": {
-              "en": "SMEPilot uses a roofline characterization to choose CPU-only, Arm SME-only, or cooperative execution for each LLM operator shape. It partitions matrix tiles, overlaps matrix and vector stages in attention, and preserves packed layouts to avoid repeated conversion. Tests span Llama-3.2-3B, Qwen3-4B, and Qwen3-30BA3B on phone, PC, and server platforms, but benefits will depend on shared-memory bandwidth and the availability of SME-capable CPUs.",
-              "zh": "SMEPilot利用roofline分析，按LLM算子形状选择纯CPU、纯Arm SME或协同执行。系统对矩阵tile进行划分，在注意力中重叠矩阵与向量阶段，并保留打包布局以避免重复转换。测试覆盖手机、PC和服务器上的Llama-3.2-3B、Qwen3-4B及Qwen3-30BA3B，但收益取决于共享内存带宽与支持SME的CPU可用性。"
+              "en": "TokenPilot combines ingestion-aware compaction with lifecycle-aware eviction so long-running agents can remove stale context without repeatedly invalidating reusable prompt prefixes. On PinchBench and Claw-Eval, it reports cost reductions of 56–61% in isolated runs and 61–87% in continuous runs while maintaining competitive task performance. Integration into LightMem2 makes the system reproducible, but broader model providers and production traces are needed to test whether the cache gains generalize.",
+              "zh": "TokenPilot结合摄取感知压缩与生命周期感知淘汰，使长时运行的智能体能够删除过期上下文，同时避免反复破坏可复用的提示前缀。在PinchBench和Claw-Eval上，它报告独立模式成本下降56–61%，连续模式下降61–87%，且任务性能保持竞争力。该系统已集成到LightMem2，便于复现，但仍需通过更多模型服务商和生产轨迹验证缓存收益能否泛化。"
             },
             "published": "2026-06-15"
           }
@@ -301,37 +330,49 @@
       },
       {
         "id": "quantum",
-        "title": {"en": "Quantum Hardware & Systems", "zh": "量子硬件与系统"},
+        "title": {
+          "en": "Quantum Hardware & Systems",
+          "zh": "量子硬件与系统"
+        },
         "papers": [
           {
-            "title": {"en": "Quantum Graph States with O(1) Local Feedforward", "zh": "采用O(1)局部前馈的量子图态生成"},
-            "authors": "X. Zheng, C.-T. Lam, L. Chen, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.16375",
-            "venue_url": "https://arxiv.org/abs/2606.16375",
-            "summary": {
-              "en": "The protocol replaces global quantum-network routing decisions with local measurements and amortized O(1) classical feedforward to keep control delay below qubit coherence times. Hybrid simulations map the design to a dual-species trapped-ion platform and identify readout fidelity as the dominant bottleneck, with erasure conversion, spatial multiplexing, and branch independence proposed as mitigations. The evidence is simulated, so experimental latency and accumulated error remain unverified.",
-              "zh": "该协议以局部测量和摊销O(1)的经典前馈取代全局量子网络路由决策，使控制延迟保持在量子比特相干时间以内。混合仿真将其映射到双物种离子阱平台，并指出读出保真度是主要瓶颈，提出用擦除转换、空间复用和分支独立性缓解。现有证据来自仿真，实验时延与累积误差仍未验证。"
+            "title": {
+              "en": "Bath Memory Becomes a Precision Resource in Quantum Transport",
+              "zh": "环境记忆成为量子输运的精度资源"
             },
-            "published": "2026-06-15T08:10:59Z"
+            "authors": "J. Molina, Sheikh Parvez Mandal, Mahasweta Pandit, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.17026",
+            "venue_url": "http://arxiv.org/abs/2606.17026",
+            "summary": {
+              "en": "The paper derives a dual impedance-matching condition that aligns conductor mode splitting, boundary dissipation, and bath bandwidth in a noninteracting quantum-dot chain. Exact nonequilibrium Green's-function calculations across Lorentzian, Gaussian, and Newns bath spectra show a bandwidth where the current Fano factor is minimized and precision exceeds the Markovian limit. This is a theoretical design rule rather than an experimental demonstration, and its robustness to interactions and device disorder remains open.",
+              "zh": "论文针对无相互作用量子点链推导出双重阻抗匹配条件，使导体模态分裂、边界耗散与环境带宽相互对齐。对Lorentzian、Gaussian和Newns三类环境谱进行的精确非平衡格林函数计算显示，存在一个可使电流Fano因子最小、精度超越Markov极限的带宽。该结果目前是理论设计准则而非实验演示，其对相互作用和器件无序的鲁棒性仍待研究。"
+            },
+            "published": "2026-06-15"
           }
         ]
       },
       {
         "id": "eda",
-        "title": {"en": "EDA & Design Methods", "zh": "EDA与设计方法"},
+        "title": {
+          "en": "EDA & Design Methods",
+          "zh": "EDA与设计方法"
+        },
         "papers": [
           {
-            "title": {"en": "ComPart Uses Community Structure After Hypergraph Coarsening", "zh": "ComPart在超图粗化后利用社区结构"},
-            "authors": "Y. Zhu, Z. Guo, Y. Wu, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2606.18131",
-            "venue_url": "https://arxiv.org/abs/2606.18131",
-            "summary": {
-              "en": "ComPart moves community detection beyond the coarsening phase of hypergraph partitioning and uses structures found during initial partitioning and uncoarsening to guide refinement. The framework is designed to escape local optima and accept multiple present or future community-detection methods, making it relevant to heterogeneous MPSoC mapping and multi-FPGA prototyping. The candidate abstract excerpt gives no cut-quality or runtime numbers, so the practical gain over established partitioners still needs inspection.",
-              "zh": "ComPart把社区发现从超图划分的粗化阶段延伸到初始划分和反粗化过程，并利用这些结构指导细化。该框架旨在跳出局部最优，同时兼容现有及未来的多种社区发现方法，适用于异构MPSoC映射和多FPGA原型验证。候选摘要没有给出割质量或运行时间数据，因此相对成熟划分器的实际收益仍需进一步检查。"
+            "title": {
+              "en": "IMPart Integrates Memetic Search into Multilevel Hypergraph Partitioning",
+              "zh": "IMPart将模因搜索集成进多层超图划分"
             },
-            "published": "2026-06-16T16:27:52Z"
+            "authors": "Yugao Zhu, Zhicheng Guo, Shang Liu, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2606.18117",
+            "venue_url": "https://arxiv.org/abs/2606.18117",
+            "summary": {
+              "en": "IMPart moves recombination and mutation directly into the uncoarsening phase of one multilevel hypergraph partitioner instead of invoking separate partitioners for each memetic operation. The design targets large-k partitioning, where conventional high-quality memetic methods often become too slow for practical VLSI use. The candidate abstract does not expose quantitative gains, so the key question is whether solution quality improves enough to justify runtime against current production partitioners.",
+              "zh": "IMPart不再为每次模因操作单独调用划分器，而是把重组与变异直接嵌入单个多层超图划分器的反粗化阶段。该设计面向大k划分问题，因为传统高质量模因方法在此类场景中通常过慢，难以用于实际VLSI流程。候选摘要未给出量化增益，因此关键仍是其解质量提升能否抵消相对现有生产级划分器的运行时间成本。"
+            },
+            "published": "2026-06-16T16:19:49Z"
           }
         ]
       }

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-21">
+<meta name="edition-date" content="2026-06-22">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Hardware Specialization Spreads Beyond Matrix Multiplication — Semi Research 2026-06-21</title>
+<title>Scaling Moves Into Devices, Memory, and Context — Semi Research 2026-06-22</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, June 21, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月21日 星期日</span>
+      <span class="en">Research digest · Monday, June 22, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月22日 星期一</span>
     </div>
     <h1>
-      <span class="en">Hardware Specialization Spreads Beyond Matrix Multiplication</span>
-      <span class="zh">硬件专用化走出矩阵乘法</span>
+      <span class="en">Scaling Moves Into Devices, Memory, and Context</span>
+      <span class="zh">扩展转向器件、存储与上下文</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s work stretches specialized hardware across hybrid FeFET memory, privacy-enforced training, polynomial arithmetic, photonics, and KV-cache movement. Most results are still preprints, so implementation detail and silicon evidence matter more than headline novelty.</span>
-      <span class="zh">本周研究把专用硬件扩展到混合模式FeFET存储、隐私约束训练、多项式运算、光子系统和KV cache迁移。多数结果仍是预印本，因此实现细节与硅验证比标题中的新颖性更重要。</span>
+      <span class="en">This week&#x27;s work attacks bottlenecks from nanoscale interfaces and 3D integration to ferroelectric compute-in-memory and prompt-cache continuity. The strongest results connect measured device behavior with system-level cost, latency, reliability, or thermal limits.</span>
+      <span class="zh">本周研究从纳米界面和3D集成一路推进到铁电存内计算与提示缓存连续性。最有价值的结果把器件实测行为与系统级成本、时延、可靠性或散热限制连接起来。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
@@ -273,53 +273,83 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.19918" target="_blank" rel="noopener">
-          <span class="en">A 4T Differential FeFET Cell with Volatile and Non-Volatile Modes</span>
-          <span class="zh">兼具易失与非易失模式的4T差分FeFET单元</span>
+        <a href="https://doi.org/10.1002/aelm.202500879" target="_blank" rel="noopener">
+          <span class="en">How Perimeter Scaling Changes Ferroelectric HZO Capacitors</span>
+          <span class="zh">周长缩放如何改变铁电HZO电容器</span>
         </a>
       </h3>
-      <p class="authors">J. Wang, W. Zhang, X. Fong</p>
+      <p class="authors">L. Trupină, Ș. Neațu, L. Pintilie, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.19918" target="_blank" rel="noopener">arXiv:2606.19918</a> · 2026-06-18T08:11:19Z</p>
+      <p class="venue"><a href="https://doi.org/10.1002/aelm.202500879" target="_blank" rel="noopener">Advanced Electronic Materials</a> · 2026-06-18</p>
       <p class="summary">
-        <span class="en">The paper designs a four-transistor differential bit-cell from cross-coupled FeFETs plus two access transistors, with volatile and non-volatile operation selected through write conditions. It reports 0.13 microwatts of store power and a 2 ns store time without explicit backup-and-restore. The result is a preprint-level cell proposal; the abstract does not establish a fabricated array, endurance, retention, or manufacturability.</span>
-        <span class="zh">论文以交叉耦合FeFET和两个访问晶体管构成4T差分位单元，并通过写入条件选择易失或非易失工作模式。结果给出0.13微瓦存储功耗和2 ns存储时间，且无需显式备份与恢复。该成果仍是预印本级单元方案，摘要没有证明已制成阵列，也未交代耐久性、保持时间或可制造性。</span>
+        <span class="en">Measurements on W/Hf0.5Zr0.5O2/p-Ge capacitors spanning 10 µm to 0.1 µm show that switched charge stays nearly constant as sweep rate changes, while the smallest 0.01 µm² devices fall below the current-detection floor because of parasitic capacitance. Submicron capacitors show an apparent rise in remanent polarization as perimeter-to-area ratio increases, pointing to edge-dominated switching. The result matters because geometry and measurement parasitics can masquerade as intrinsic ferroelectric improvement during scaling.</span>
+        <span class="zh">对尺寸从10 µm缩小到0.1 µm的W/Hf0.5Zr0.5O2/p-Ge电容器测量表明，扫描速率变化时翻转电荷基本不变，而最小的0.01 µm²器件因寄生电容影响，其翻转电流低于检测下限。亚微米电容器随着周长面积比提高，呈现出剩余极化增强的表观现象，说明边缘主导的翻转作用正在增大。该结果的重要性在于，缩放过程中几何效应和测量寄生项可能被误判为材料本征铁电性能提升。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsnano.6c04995" target="_blank" rel="noopener">
+          <span class="en">CNT CFET Logic Integrates with 3D-Stacked Photodiodes</span>
+          <span class="zh">CNT CFET逻辑与3D堆叠光电二极管实现单片集成</span>
+        </a>
+      </h3>
+      <p class="authors">Xiao Luo, Haoyu Zhang, Haoyun Liu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1021/acsnano.6c04995" target="_blank" rel="noopener">ACS Nano</a> · 2026-06-17</p>
+      <p class="summary">
+        <span class="en">The work monolithically integrates carbon-nanotube complementary FETs in a true vertically stacked CFET layout with 3D-stacked photodiodes, and demonstrates logic gates, a 4-transistor SRAM cell, and a five-stage ring oscillator. Its inverters reach a peak gain of 147 at 1 V and retain a gain of 9.7 with 3.3 pW static power at 0.2 V. This is a measured route toward unified sensing and computing, although the research-scale stack still needs evidence on array yield and process uniformity.</span>
+        <span class="zh">该工作将真正垂直堆叠结构的碳纳米管互补FET与3D堆叠光电二极管进行单片集成，并演示了逻辑门、4晶体管SRAM单元和五级环形振荡器。其反相器在1 V下峰值增益达到147，在0.2 V下以3.3 pW静态功耗仍保持9.7的增益。它为感知与计算一体化提供了实测路径，但研究级堆叠仍需补充阵列良率与工艺均匀性证据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1088/2053-1583/ae7d3d" target="_blank" rel="noopener">
+          <span class="en">Van der Waals-Integrable HfOx Dielectric for 2D Transistors</span>
+          <span class="zh">面向二维晶体管的范德华可集成HfOx介质</span>
+        </a>
+      </h3>
+      <p class="authors">Nuertai Jiazila, Jiequn Sun, Yunhao Wang, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1088/2053-1583/ae7d3d" target="_blank" rel="noopener">2D Materials</a> · 2026-06-15</p>
+      <p class="summary">
+        <span class="en">Ultraviolet-ozone conversion of HfS2 produces a van der Waals-integrable HfOx dielectric with an approximately 8.9 MV/cm breakdown field, dielectric constant near 9.6, and leakage around 10^-5 A/cm². MoS2 transistors using the dielectric show an on/off ratio near 10^9, mobility of about 35.3 cm²/V·s, and an 80.2 mV/dec subthreshold swing; floating-gate devices reach a 14 V memory window. The device data are promising for cleaner 2D interfaces, but endurance, wafer-scale uniformity, and integration yield remain open.</span>
+        <span class="zh">通过紫外臭氧将HfS2转化为可进行范德华集成的HfOx介质，其击穿场约为8.9 MV/cm、介电常数约9.6、漏电流约10^-5 A/cm²。采用该介质的MoS2晶体管开关比接近10^9、迁移率约35.3 cm²/V·s、亚阈值摆幅为80.2 mV/dec；浮栅器件的存储窗口达到14 V。这些器件数据有利于构建更洁净的二维材料界面，但耐久性、晶圆级均匀性和集成良率仍待验证。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Architectures</span>
-      <span class="zh">电路与体系结构</span>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.19674" target="_blank" rel="noopener">
-          <span class="en">Phase-Modulation Tradeoffs for Testable Photonics and Co-Packaged Optics</span>
-          <span class="zh">面向可测试光子系统与共封装光学的相位调制权衡</span>
+        <a href="https://arxiv.org/abs/2606.19526" target="_blank" rel="noopener">
+          <span class="en">SPINE Profiles Accumulated Bit Flips in Quantized Networks</span>
+          <span class="zh">SPINE分析量化神经网络中的累积位翻转</span>
         </a>
       </h3>
-      <p class="authors">P. Agnihotri, P. Kalla, S. Blair</p>
+      <p class="authors">Nathan Guimarães, Ian Kersz, Leonardo R. Gobatto, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.19674" target="_blank" rel="noopener">arXiv:2606.19674</a> · 2026-06-18T00:53:05Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.19526" target="_blank" rel="noopener">arXiv:2606.19526</a> · 2026-06-17T19:17:08Z</p>
       <p class="summary">
-        <span class="en">This study compares thermal phase tuning with carrier-based electrical modulation in Mach-Zehnder and microring devices for integrated test and calibration. It evaluates extinction ratio, tuning efficiency, power, bandwidth, and controllability, clarifying when a slower thermal path is preferable to a faster electrical one. The abstract provides design guidance but no headline measurements, so the strength of the comparison depends on the full evaluation methodology.</span>
-        <span class="zh">研究比较了Mach-Zehnder与微环器件中的热相位调谐和载流子电调制，用于片上测试与校准。论文从消光比、调谐效率、功耗、带宽和可控性展开评估，说明何时较慢的热调谐优于更快的电调制。摘要给出了设计取舍，但没有列出关键测量值，因此比较的可信度仍取决于完整评估方法。</span>
+        <span class="en">SPINE injects cumulative weight bit flips directly into edge-CPU binaries through GDB, producing per-layer fault profiles without retraining the model or modifying application code. Tests across multiple network topologies, quantization levels, and memory layouts are intended to identify where selective hardening has the most value. The preprint presents a useful profiling method, but it does not report a standardized radiation campaign that would qualify a deployed device.</span>
+        <span class="zh">SPINE通过GDB直接向边缘CPU二进制文件中的权重注入累积位翻转，无需重新训练模型或修改应用代码即可生成逐层故障画像。该方法跨多种网络拓扑、量化精度和内存布局进行测试，用于识别最值得选择性加固的位置。这篇预印本提供了实用的分析方法，但并未给出可用于器件认证的标准化辐照测试。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.16143" target="_blank" rel="noopener">
-          <span class="en">AIA: A 16 nm Multi-Core RISC-V SoC for Discrete Sampling</span>
-          <span class="zh">AIA：面向离散采样的16 nm多核RISC-V SoC</span>
+        <a href="https://doi.org/10.4071/001c.163572" target="_blank" rel="noopener">
+          <span class="en">Diamond-Coated Capillary Interposer Targets 3D Hotspots</span>
+          <span class="zh">金刚石涂层毛细结构中介层瞄准3D热点</span>
         </a>
       </h3>
-      <p class="authors">S. Zhao, N. Shah, W. Meert, et al.</p>
+      <p class="authors">S. Moore, M. Bauer, S. Moghaddam</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.16143" target="_blank" rel="noopener">arXiv:2606.16143</a> · 2026-06-15T02:59:45Z</p>
+      <p class="venue"><a href="https://doi.org/10.4071/001c.163572" target="_blank" rel="noopener">IMAPSource Proceedings</a> · 2026-06-17</p>
       <p class="summary">
-        <span class="en">AIA is a fabricated 16 nm SoC with a RISC-V host and a 2D mesh of 16 custom RISC-V cores for discrete sampling and approximate inference. Custom instructions and datapaths target non-normalized Knuth-Yao sampling and nonlinear-function interpolation, attacking workloads that map poorly to conventional CPUs and GPUs. The abstract confirms fabrication but does not expose throughput or energy results, which are necessary to judge the specialization cost.</span>
-        <span class="zh">AIA是一款采用16 nm工艺制造的SoC，包含RISC-V主机和由16个定制RISC-V内核组成的二维网格，用于离散采样与近似推理。其定制指令和数据通路面向非归一化Knuth-Yao采样及非线性函数插值，处理传统CPU和GPU映射效率不高的工作负载。摘要确认了芯片制造，但未给出吞吐率或能效结果，因此尚难判断专用化代价。</span>
+        <span class="en">The proposed 3D-heterogeneous-integration interposer uses laser-machined wick pillars for capillary-fed two-phase cooling and selectively coats them with diamond to improve vertical thermal conduction. Moving evaporation into the packaging layer could remove localized heat without expanding the package footprint. The paper establishes a plausible structure and performance envelope, but package-scale reliability, fluid containment, and manufacturability still need validation.</span>
+        <span class="zh">该3D异构集成中介层采用激光加工的吸液芯柱实现毛细驱动两相冷却，并选择性覆盖金刚石以增强垂直导热。将蒸发界面引入封装层，有望在不扩大封装占地的情况下移除局部热点。论文给出了可行结构和性能边界，但封装级可靠性、流体密封性及可制造性仍需验证。</span>
       </p>
     </article>
   </section>
@@ -330,47 +360,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.17500" target="_blank" rel="noopener">
-          <span class="en">An Integer-Only Transformer Framework for Versal AI Engines</span>
-          <span class="zh">面向Versal AI Engine的纯整数Transformer框架</span>
+        <a href="http://arxiv.org/abs/2606.16896" target="_blank" rel="noopener">
+          <span class="en">FerroNDS Maps Real-Time Forecasting onto Ferroelectric CIM</span>
+          <span class="zh">FerroNDS将实时预测映射到铁电存内计算</span>
         </a>
       </h3>
-      <p class="authors">G. Koski, S. Lipps, Z. Ma, et al.</p>
+      <p class="authors">Keshava Katti, A. Selvakumar, Pratik Chaudhari, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.17500" target="_blank" rel="noopener">arXiv:2606.17500</a> · 2026-06-16T04:22:06Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.16896" target="_blank" rel="noopener">arXiv:2606.16896</a> · 2026-06-15</p>
       <p class="summary">
-        <span class="en">The work maps a quantized, integer-only transformer for CERN jet tagging onto AMD Versal AI Engine tiles, including dense and multi-head-attention layers. Its main contribution is an open-source framework that turns high-level model descriptions into composable AIE blocks and generated Vitis graph code. This is an initial implementation without latency, accuracy, or resource figures in the abstract, so it is more reusable infrastructure than a finished accelerator result.</span>
-        <span class="zh">该工作把用于CERN喷注标记的量化纯整数Transformer映射到AMD Versal AI Engine tile，覆盖全连接层和多头注意力层。主要贡献是一个开源框架，可将高层模型描述转换为可组合AIE模块并生成Vitis图代码。它仍是初步实现，摘要未给出时延、精度或资源占用数据，因此更接近可复用基础设施，而非成熟的加速器结果。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.16809" target="_blank" rel="noopener">
-          <span class="en">DataGuard Enforces Differential-Privacy Budgets in Systolic Accelerators</span>
-          <span class="zh">DataGuard在脉动阵列加速器中强制执行差分隐私预算</span>
-        </a>
-      </h3>
-      <p class="authors">P. K. Sanjaya, C. Giannoula, N. Shreekumar, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.16809" target="_blank" rel="noopener">arXiv:2606.16809</a> · 2026-06-15T14:53:13Z</p>
-      <p class="summary">
-        <span class="en">DataGuard adds a hardware control path to systolic-array training accelerators so that only outputs satisfying an owner&#x27;s differential-privacy budget may leave the device. That removes the assumption that a third-party federated-learning application correctly clips gradients and adds noise. The reported evaluation is simulation-based rather than measured silicon, making area, performance, and integration overhead the key open questions.</span>
-        <span class="zh">DataGuard为脉动阵列训练加速器增加硬件控制路径，只允许符合数据所有者差分隐私预算的输出离开设备。这消除了对第三方联邦学习应用会正确裁剪梯度并添加噪声的信任假设。其评估基于仿真而非实测芯片，因此面积、性能和集成开销仍是关键问题。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.16394" target="_blank" rel="noopener">
-          <span class="en">MPX Unifies Matrix and Polynomial Multiplication in One Systolic Array</span>
-          <span class="zh">MPX在同一脉动阵列中统一矩阵与多项式乘法</span>
-        </a>
-      </h3>
-      <p class="authors">G. Alexakis, D. Schoinianakis, G. Dimitrakopoulos</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.16394" target="_blank" rel="noopener">arXiv:2606.16394</a> · 2026-06-15T08:29:37Z</p>
-      <p class="summary">
-        <span class="en">MPX extends a conventional systolic array to execute both matrix multiplication and direct polynomial multiplication for FHE and post-quantum cryptography. The dual-mode additions cost 20% more area with negligible power overhead during matrix work, while polynomial mode reports more than 1.2 times lower latency than NTT-based mapping on matrix engines. These are experimental design results in a preprint, not a measured production chip.</span>
-        <span class="zh">MPX扩展传统脉动阵列，使其同时执行矩阵乘法以及面向FHE和后量子密码的直接多项式乘法。双模式设计增加20%面积，在矩阵运算时功耗开销可忽略；多项式模式相对在矩阵引擎上映射NTT的方法，时延降低超过1.2倍。这些是预印本中的实验性设计结果，并非量产芯片实测。</span>
+        <span class="en">FerroNDS maps integrator and oscillator primitives onto multi-bit ferrodiodes, using a 128-neuron system to compute short-time Fourier transforms and forecast signals 500 ms ahead. It reports 1.64 µJ per neuron per inference at 200 Hz and 0.29 µJ at 10 kHz, with a 25–40× area reduction versus SRAM-based digital systems and per-layer latency down to 63.87 µs. The end-to-end mapping is notable, but the preprint&#x27;s energy and area comparisons need validation across larger models and fabricated arrays.</span>
+        <span class="zh">FerroNDS把积分器与振荡器原语映射到多位铁电二极管上，以128神经元系统计算短时傅里叶变换并预测未来500 ms的信号。论文报告在200 Hz下每神经元每次推理能耗为1.64 µJ，在10 kHz下为0.29 µJ；相较基于SRAM的数字系统，面积缩小25–40倍，单层时延最低63.87 µs。端到端映射具有参考价值，但预印本中的能耗与面积对比仍需在更大模型和实际制造阵列上验证。</span>
       </p>
     </article>
   </section>
@@ -381,32 +381,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.16135" target="_blank" rel="noopener">
-          <span class="en">SwiftCache Shares KV Cache Across Heterogeneous Models over NVLink</span>
-          <span class="zh">SwiftCache通过NVLink在异构模型间共享KV cache</span>
+        <a href="http://arxiv.org/abs/2606.17016" target="_blank" rel="noopener">
+          <span class="en">TokenPilot Preserves Prompt Caches While Compacting Agent Context</span>
+          <span class="zh">TokenPilot在压缩智能体上下文时保持提示缓存连续性</span>
         </a>
       </h3>
-      <p class="authors">J. Hu, M. Xu, S. Wang, et al.</p>
+      <p class="authors">Buqiang Xu, Z. Xue, Dian Chen, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.16135" target="_blank" rel="noopener">arXiv:2606.16135</a> · 2026-06-15</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.17016" target="_blank" rel="noopener">arXiv:2606.17016</a> · 2026-06-15</p>
       <p class="summary">
-        <span class="en">SwiftCache lets models with low KV-cache demand donate idle GPU memory to high-demand models, moving shared prefixes over NVLink instead of reloading them over PCIe from CPU memory or SSD. It also keeps only the active layer&#x27;s cache locally, creating room for longer multi-turn contexts. The candidate abstract excerpt does not include measured speedups or capacity gains, so workload balance and cross-model interference remain the practical questions.</span>
-        <span class="zh">SwiftCache让KV cache需求较低的模型把空闲GPU显存借给高需求模型，并通过NVLink传输共享前缀，避免经PCIe从CPU内存或SSD重新加载。它还只在本地保留当前活动层的cache，为更长的多轮上下文腾出空间。候选摘要未包含实测加速比或容量增益，因此负载均衡与跨模型干扰仍是实际问题。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2606.16332" target="_blank" rel="noopener">
-          <span class="en">SMEPilot Schedules LLM Operators Across Arm SME and CPU Cores</span>
-          <span class="zh">SMEPilot在Arm SME与CPU内核间调度LLM算子</span>
-        </a>
-      </h3>
-      <p class="authors">F. Chen, H. Chen</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2606.16332" target="_blank" rel="noopener">arXiv:2606.16332</a> · 2026-06-15</p>
-      <p class="summary">
-        <span class="en">SMEPilot uses a roofline characterization to choose CPU-only, Arm SME-only, or cooperative execution for each LLM operator shape. It partitions matrix tiles, overlaps matrix and vector stages in attention, and preserves packed layouts to avoid repeated conversion. Tests span Llama-3.2-3B, Qwen3-4B, and Qwen3-30BA3B on phone, PC, and server platforms, but benefits will depend on shared-memory bandwidth and the availability of SME-capable CPUs.</span>
-        <span class="zh">SMEPilot利用roofline分析，按LLM算子形状选择纯CPU、纯Arm SME或协同执行。系统对矩阵tile进行划分，在注意力中重叠矩阵与向量阶段，并保留打包布局以避免重复转换。测试覆盖手机、PC和服务器上的Llama-3.2-3B、Qwen3-4B及Qwen3-30BA3B，但收益取决于共享内存带宽与支持SME的CPU可用性。</span>
+        <span class="en">TokenPilot combines ingestion-aware compaction with lifecycle-aware eviction so long-running agents can remove stale context without repeatedly invalidating reusable prompt prefixes. On PinchBench and Claw-Eval, it reports cost reductions of 56–61% in isolated runs and 61–87% in continuous runs while maintaining competitive task performance. Integration into LightMem2 makes the system reproducible, but broader model providers and production traces are needed to test whether the cache gains generalize.</span>
+        <span class="zh">TokenPilot结合摄取感知压缩与生命周期感知淘汰，使长时运行的智能体能够删除过期上下文，同时避免反复破坏可复用的提示前缀。在PinchBench和Claw-Eval上，它报告独立模式成本下降56–61%，连续模式下降61–87%，且任务性能保持竞争力。该系统已集成到LightMem2，便于复现，但仍需通过更多模型服务商和生产轨迹验证缓存收益能否泛化。</span>
       </p>
     </article>
   </section>
@@ -417,17 +402,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.16375" target="_blank" rel="noopener">
-          <span class="en">Quantum Graph States with O(1) Local Feedforward</span>
-          <span class="zh">采用O(1)局部前馈的量子图态生成</span>
+        <a href="http://arxiv.org/abs/2606.17026" target="_blank" rel="noopener">
+          <span class="en">Bath Memory Becomes a Precision Resource in Quantum Transport</span>
+          <span class="zh">环境记忆成为量子输运的精度资源</span>
         </a>
       </h3>
-      <p class="authors">X. Zheng, C.-T. Lam, L. Chen, et al.</p>
+      <p class="authors">J. Molina, Sheikh Parvez Mandal, Mahasweta Pandit, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.16375" target="_blank" rel="noopener">arXiv:2606.16375</a> · 2026-06-15T08:10:59Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.17026" target="_blank" rel="noopener">arXiv:2606.17026</a> · 2026-06-15</p>
       <p class="summary">
-        <span class="en">The protocol replaces global quantum-network routing decisions with local measurements and amortized O(1) classical feedforward to keep control delay below qubit coherence times. Hybrid simulations map the design to a dual-species trapped-ion platform and identify readout fidelity as the dominant bottleneck, with erasure conversion, spatial multiplexing, and branch independence proposed as mitigations. The evidence is simulated, so experimental latency and accumulated error remain unverified.</span>
-        <span class="zh">该协议以局部测量和摊销O(1)的经典前馈取代全局量子网络路由决策，使控制延迟保持在量子比特相干时间以内。混合仿真将其映射到双物种离子阱平台，并指出读出保真度是主要瓶颈，提出用擦除转换、空间复用和分支独立性缓解。现有证据来自仿真，实验时延与累积误差仍未验证。</span>
+        <span class="en">The paper derives a dual impedance-matching condition that aligns conductor mode splitting, boundary dissipation, and bath bandwidth in a noninteracting quantum-dot chain. Exact nonequilibrium Green&#x27;s-function calculations across Lorentzian, Gaussian, and Newns bath spectra show a bandwidth where the current Fano factor is minimized and precision exceeds the Markovian limit. This is a theoretical design rule rather than an experimental demonstration, and its robustness to interactions and device disorder remains open.</span>
+        <span class="zh">论文针对无相互作用量子点链推导出双重阻抗匹配条件，使导体模态分裂、边界耗散与环境带宽相互对齐。对Lorentzian、Gaussian和Newns三类环境谱进行的精确非平衡格林函数计算显示，存在一个可使电流Fano因子最小、精度超越Markov极限的带宽。该结果目前是理论设计准则而非实验演示，其对相互作用和器件无序的鲁棒性仍待研究。</span>
       </p>
     </article>
   </section>
@@ -438,25 +423,25 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.18131" target="_blank" rel="noopener">
-          <span class="en">ComPart Uses Community Structure After Hypergraph Coarsening</span>
-          <span class="zh">ComPart在超图粗化后利用社区结构</span>
+        <a href="https://arxiv.org/abs/2606.18117" target="_blank" rel="noopener">
+          <span class="en">IMPart Integrates Memetic Search into Multilevel Hypergraph Partitioning</span>
+          <span class="zh">IMPart将模因搜索集成进多层超图划分</span>
         </a>
       </h3>
-      <p class="authors">Y. Zhu, Z. Guo, Y. Wu, et al.</p>
+      <p class="authors">Yugao Zhu, Zhicheng Guo, Shang Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.18131" target="_blank" rel="noopener">arXiv:2606.18131</a> · 2026-06-16T16:27:52Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.18117" target="_blank" rel="noopener">arXiv:2606.18117</a> · 2026-06-16T16:19:49Z</p>
       <p class="summary">
-        <span class="en">ComPart moves community detection beyond the coarsening phase of hypergraph partitioning and uses structures found during initial partitioning and uncoarsening to guide refinement. The framework is designed to escape local optima and accept multiple present or future community-detection methods, making it relevant to heterogeneous MPSoC mapping and multi-FPGA prototyping. The candidate abstract excerpt gives no cut-quality or runtime numbers, so the practical gain over established partitioners still needs inspection.</span>
-        <span class="zh">ComPart把社区发现从超图划分的粗化阶段延伸到初始划分和反粗化过程，并利用这些结构指导细化。该框架旨在跳出局部最优，同时兼容现有及未来的多种社区发现方法，适用于异构MPSoC映射和多FPGA原型验证。候选摘要没有给出割质量或运行时间数据，因此相对成熟划分器的实际收益仍需进一步检查。</span>
+        <span class="en">IMPart moves recombination and mutation directly into the uncoarsening phase of one multilevel hypergraph partitioner instead of invoking separate partitioners for each memetic operation. The design targets large-k partitioning, where conventional high-quality memetic methods often become too slow for practical VLSI use. The candidate abstract does not expose quantitative gains, so the key question is whether solution quality improves enough to justify runtime against current production partitioners.</span>
+        <span class="zh">IMPart不再为每次模因操作单独调用划分器，而是把重组与变异直接嵌入单个多层超图划分器的反粗化阶段。该设计面向大k划分问题，因为传统高质量模因方法在此类场景中通常过慢，难以用于实际VLSI流程。候选摘要未给出量化增益，因此关键仍是其解质量提升能否抵消相对现有生产级划分器的运行时间成本。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-21 01:19 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-21 01:19 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-22 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-22 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
