@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-22">
+<meta name="generator" content="semi-news-daily">
+<title>AI Bottlenecks Spread Across the Hardware Stack — Semi News 2026-06-22</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Monday, June 22, 2026</span>
+      <span class="zh">2026年6月22日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">AI Bottlenecks Spread Across the Hardware Stack</span>
+      <span class="zh">AI瓶颈蔓延至整个硬件栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">New transistor, memory, and cooling approaches target limits that raw accelerator scaling no longer solves. Materials investment and trade restrictions show those constraints moving deeper into the supply chain.</span>
+      <span class="zh">新的晶体管、存储与散热方案，正试图解决单纯扩展加速器已无法化解的瓶颈。材料投资与贸易限制也表明，这些约束正在向供应链更深处延伸。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/mitac-computex-2026-booth-tour/" target="_blank" rel="noopener">
+          <span class="en">MiTAC Shows Dense GPU, Storage, and Diamond-Cooled Systems</span>
+          <span class="zh">MiTAC展示高密度GPU、存储与金刚石散热系统</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 18m ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 18分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">MiTAC used Computex 2026 to show racks of GPU servers, storage systems, and servers incorporating diamond-based cooling. The breadth of the display reflects how AI infrastructure competition is shifting from the accelerator alone to rack integration, thermal design, and data movement.</span>
+        <span class="zh">MiTAC在Computex 2026展示了GPU服务器机架、存储系统，以及采用金刚石散热方案的服务器。产品覆盖面说明，AI基础设施竞争正从加速器本身扩展到机架集成、热设计和数据传输。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/qualcomm-preps-snapdragon-x2-cpu-refresh-stalling-x3-as-memory-shortages-bite/" target="_blank" rel="noopener">
+          <span class="en">Qualcomm Reportedly Plans a Snapdragon X2 Refresh Before X3</span>
+          <span class="zh">报道称Qualcomm拟在X3之前推出Snapdragon X2升级版</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 3h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says Qualcomm is preparing three Snapdragon X2 refresh configurations before the next-generation X3, with memory shortages cited as a reason for the schedule change. Extending X2 would let Qualcomm broaden the current platform while avoiding the supply and validation burden of a full generational transition, though the roadmap remains unconfirmed.</span>
+        <span class="zh">报道称，Qualcomm正准备三种Snapdragon X2升级配置，并将其安排在下一代X3之前，内存短缺被列为调整进度的原因之一。延长X2周期可在避免完整代际切换所需供应与验证压力的同时扩展现有平台，但这一路线图尚未得到官方确认。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/nvidia-prepares-next-gen-gpu-architectures-blackwell-next-spotted-in-linux-7-2/" target="_blank" rel="noopener">
+          <span class="en">Nvidia&#x27;s Blackwell-Next Identifier Appears in Linux 7.2 Work</span>
+          <span class="zh">Nvidia“Blackwell-Next”标识现身Linux 7.2开发</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 4h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Linux 7.2 kernel patches add an Nvidia architecture identifier labeled “Blackwell-Next,” indicating early software enablement for a future GPU generation. Kernel support often begins well before commercial availability, so the patch is a roadmap clue rather than evidence of an imminent product launch.</span>
+        <span class="zh">Linux 7.2内核补丁加入了名为“Blackwell-Next”的Nvidia架构标识，显示下一代GPU的软件支持已开始准备。内核适配通常早于商业发布很久，因此这更像是一条路线图线索，而非产品即将上市的证据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxOVXJEYlJuUHN3VGl4NVgyZ1BvSU5LeC1ZcjNFa25KX0Zmc3Q4SWxEYVZHV0dHN3JwYnlNZFNtVHB0QXJDWUQtSUxtbU5NV2ZDSlpHU0FBNXRwR2I5SHRlMFdpd1lnSWlvZXVzUmFKMkh0MTNhUVExVFViVm5DOXlYN0lOR2U5VVIyQXFtaEdMbllZMHp3VUo5VGFjVk1Ec3BhdHV0QlFJdGJPUVpjYmZnWGZma19qZEF2NDkxZDRwQjhsVXJGOEkzaGZsVQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Demonstrates a Record-Small 3D-Stacked Transistor</span>
+          <span class="zh">Samsung展示创纪录小型3D堆叠晶体管</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 43m ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 43分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung reported what it describes as the industry&#x27;s smallest 3D-stacked transistor, with the work receiving a Best Paper award at the VLSI Symposium. The result points to vertical device stacking as a density lever beyond lateral scaling, but a conference demonstration does not by itself establish manufacturing yield or production readiness.</span>
+        <span class="zh">Samsung报告了其所称业界尺寸最小的3D堆叠晶体管，相关工作获得VLSI Symposium最佳论文奖。该结果表明，垂直器件堆叠可成为横向微缩之外的密度提升手段，但会议级演示本身并不能证明量产良率或生产成熟度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/sandisk-bets-on-stacking-nand-and-compute-on-one-chip/" target="_blank" rel="noopener">
+          <span class="en">SanDisk Proposes Stacking NAND and Compute on One Chip</span>
+          <span class="zh">SanDisk提出在单芯片上堆叠NAND与计算单元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 1h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SanDisk has outlined an approach that stacks NAND flash and compute on one chip as AI systems run into HBM capacity and cost constraints. The concept could place denser storage closer to processing, but it remains a proposal without a disclosed shipping schedule or measured system-level performance.</span>
+        <span class="zh">在AI系统面临HBM容量与成本约束之际，SanDisk提出在单颗芯片上堆叠NAND闪存与计算单元。该方案有望让更高密度的存储靠近处理单元，但目前仍处于概念阶段，尚未公布出货时间或系统级实测性能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeW10RHhvNDlNN3RpbVNjcGk4UDZmVWNuOUR3UURjdEFrbVNsTFlFVHNhNDNHX0pmUlBadUR3b3VycG9kblpJREtTb3RDeGZTbFBlWWgzRW5WQXdfUW5FeFY4WXl2MWptT09vSmFxMldFbWFoY0tGakhGd1lMMmtFTHAyUnZRLUFBQjE1VlNQbFlZV3R6dmk5Z1ZDWDVMV3FmUEpnVDE4bk8tUFpHOV9aOUJjNzBmbmM1?oc=5" target="_blank" rel="noopener">
+          <span class="en">Toto Commits $495 Million to 1 nm-Era Chip Materials</span>
+          <span class="zh">Toto将投入4.95亿美元布局1nm时代芯片材料</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Nikkei Asia</span> · 5h ago</span>
+        <span class="zh"><span class="source">Nikkei Asia</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Japan&#x27;s Toto plans to invest $495 million in semiconductor materials aimed at the 1 nm era. The commitment shows how advanced-node spending is pulling specialized materials suppliers into larger, longer-dated capacity bets well before high-volume production begins.</span>
+        <span class="zh">日本Toto计划投入4.95亿美元，用于面向1nm时代的半导体材料。该投资表明，在大规模量产开始之前，先进制程已推动专业材料供应商进行规模更大、周期更长的产能押注。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNTnpsd3dsRWxOUmJNWUVXX1UySlhnOU5KeFczaVpiUXUyekYxdURGVE16dW1id1pRRENpdDVaRVowbk1ESmtJRUh1Y0h4MVhWbmNCNXZjbHlib3oyaVkzQlBuNUUwS2NTb1EtcUhRUVNnRTJ2UE1rU3d4U3ZGTi16M0Nsc3ZnUDU4NjRqVmk1LTNzMmZ1bnE2a3VzMzQwc3dLY2dMUWZPb2kzV3EyUzRaNE04MHNrZllIZ1VRNEpUR0RyTGE3SGfSAdIBQVVfeXFMUFYwSjdWVE5BVlMwZll3YzZPQ2N5dzVFYTJmd3htcVZBOGxVbV9fUk0xYUhMSzFUYWdETl9KTU45LUx5SGFBVTJRRVN0WFp4dFFPakRYN3hnV3BEMUItQzBwWlRYMUtibnM0aFJobjVMdHU2czQ2OUJBWmhheUNJakgzWWV2VDF1SkNfZWxtZnJTZmprRE9BRDNCalc1cnVYdm9xT2MwMENwb1NaLThXaGZ1ZjhlWXFIVzB4OFFocHB2eHNPZ0JDb0VqTW0tVkFYdGJ3?oc=5" target="_blank" rel="noopener">
+          <span class="en">China&#x27;s Rare-Earth Curbs Keep Pressure on Japanese Supply</span>
+          <span class="zh">中国稀土限制持续压迫日本供应</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Financial Express</span> · 4h ago</span>
+        <span class="zh"><span class="source">The Financial Express</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">China&#x27;s rare-earth restrictions continue to constrain supply to Japan, extending a trade-policy pressure point beyond advanced chips and fabrication tools. The immediate exposure varies by material, but prolonged controls raise procurement risk across electronics, equipment, motors, and thermal-management supply chains.</span>
+        <span class="zh">中国的稀土限制继续压缩对日供应，使贸易政策压力从先进芯片和制造设备进一步延伸。不同材料的直接影响程度不一，但长期管制会增加电子、设备、电机及热管理供应链的采购风险。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxOLU9hMmZIQ3l4Zll2bWhpWkxzLUhEdnhNaEFqMjhLREdvRDFXQjRFelpoRnFtUVFpRVBzTHl5eHg4R1dpZC0ydjVYb09XVlVWdUstR3BaRlBxS0hyMmItbndUWVU2REJkRmNocjlvZDdZdDdSWHhLVmhRMk0tU3NPOHo2S3Y2R3FnT2Z0OUpuYw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Lam Research Rises 6.1% After a Beat and Higher Outlook</span>
+          <span class="zh">Lam Research业绩超预期并上调展望，股价上涨6.1%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 2h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Lam Research shares rose 6.1% after an AI-driven earnings beat and a higher outlook for chip-equipment demand. The reset suggests that spending on deposition and etch capacity remains firm as memory and logic manufacturers add more complex process steps for AI-oriented products.</span>
+        <span class="zh">Lam Research在AI需求推动业绩超预期并上调芯片设备展望后，股价上涨6.1%。这一变化表明，随着存储和逻辑厂商为AI产品增加更复杂的制程步骤，沉积与刻蚀设备支出仍保持强劲。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-22 01:18 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-22 01:18 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
