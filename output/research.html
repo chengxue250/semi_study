@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-25">
+<meta name="edition-date" content="2026-06-26">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory Paths Shape AI System Design — Semi Research 2026-06-25</title>
+<title>Efficiency Work Moves Up the Stack — Semi Research 2026-06-26</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, June 25, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月25日 星期四</span>
+      <span class="en">Research digest · Friday, June 26, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月26日 星期五</span>
     </div>
     <h1>
-      <span class="en">Memory Paths Shape AI System Design</span>
-      <span class="zh">内存路径重塑AI系统设计</span>
+      <span class="en">Efficiency Work Moves Up the Stack</span>
+      <span class="zh">效率研究沿计算栈上移</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers attack the same bottleneck from device, accelerator, interconnect, and serving layers: less data movement, more locality, and better scheduling. The strongest results pair hardware-aware algorithms with concrete power, bandwidth, or latency measurements.</span>
-      <span class="zh">本周论文从器件、加速器、互连和服务系统层面处理同一个瓶颈：减少数据搬移、提高局部性并改进调度。最有分量的结果都把硬件感知算法与具体的功耗、带宽或延迟数据结合起来。</span>
+      <span class="en">This week&#x27;s research candidates emphasize practical bottlenecks: lithography modeling, RF power design, GPU cache state, KV-cache compression, and kernel generation. The common thread is less about new peak compute and more about extracting usable efficiency from memory, tools, and physical constraints.</span>
+      <span class="zh">本期研究更关注实际瓶颈：光刻建模、射频功放设计、GPU缓存状态、KV-cache压缩和kernel生成。共同线索不是追求新的峰值算力，而是在内存、工具链和物理约束中挖出可用效率。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
@@ -273,83 +273,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/adfm.76532" target="_blank" rel="noopener">
-          <span class="en">Multi-Mode Artificial Vision Neurons for High-Precision Image Recognition</span>
-          <span class="zh">用于高精度图像识别的多模式人工视觉神经元</span>
+        <a href="https://arxiv.org/abs/2606.27207" target="_blank" rel="noopener">
+          <span class="en">Organic Semiconductor Alignment via Vapor-Guided Droplet Confinement</span>
+          <span class="zh">利用蒸汽引导液滴限域实现有机半导体取向</span>
         </a>
       </h3>
-      <p class="authors">X. Wu, Y. Liang, D. Liu, M. Lian, et al.</p>
+      <p class="authors">Robert Malinowski, Alessandro Rossi, Lewis M. Cowen, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/adfm.76532" target="_blank" rel="noopener">Advanced Functional Materials</a> · 2026-06-16</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27207" target="_blank" rel="noopener">arXiv:2606.27207</a> · 2026-06-25T16:02:25Z</p>
       <p class="summary">
-        <span class="en">This paper reports a reconfigurable artificial vision neuron using Ta2O5/PDVT-10-CsPbBr3 quantum dots to combine retina-like and cortex-like spiking in one optoelectronic device. Bias-free optical leaky-integrate-and-fire behavior lets the device stay quiet on static scenes and emit sparse events when intensity changes. The result targets lower bandwidth and energy for edge vision, where moving full image frames to processors is the bottleneck.</span>
-        <span class="zh">这篇论文提出基于Ta2O5/PDVT-10-CsPbBr3量子点的可重构人工视觉神经元，在一个光电子器件中结合类视网膜和类皮层脉冲行为。其无偏置optical LIF响应可在静态场景下保持低活动度，并在光强变化时生成稀疏事件。结果指向低带宽、低能耗的边缘视觉，因为把完整图像帧搬到处理器才是主要瓶颈。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1002/adma.73664" target="_blank" rel="noopener">
-          <span class="en">Polarization-Selective UV Photosynapse Devices With PdSe2/a-plane GaN</span>
-          <span class="zh">基于PdSe2/a-plane GaN的偏振选择性紫外光突触器件</span>
-        </a>
-      </h3>
-      <p class="authors">T. Lin, L. Liu, X. Liu, C. Zhou, W. Wang</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1002/adma.73664" target="_blank" rel="noopener">Advances in Materials</a> · 2026-06-15</p>
-      <p class="summary">
-        <span class="en">The authors propose PdSe2/a-plane GaN heterostructures for polarization-selective UV photosynapse devices and use pre-selenization to raise PdSe2 anisotropy to a dichroic ratio of 16. The integrated device lifts the anisotropic photocurrent ratio from 1.6 to 10.7 and shows relaxation time up to 282 seconds. It is device-level progress for neuromorphic UV sensing, though manufacturability and long-term stability still need proof beyond the reported structures.</span>
-        <span class="zh">作者提出用于偏振选择性紫外光突触器件的PdSe2/a-plane GaN异质结构，并通过预硒化把PdSe2各向异性提高到16的二色比。集成器件把各向异性光电流比从1.6提升到10.7，并显示最高282秒的弛豫时间。这是神经形态紫外传感的器件级进展，但可制造性和长期稳定性仍需要超出当前结构的验证。</span>
+        <span class="en">The paper uses flows inside microliter vapor-guided droplets to align organic semiconductor nanowires before deposition. Organic field-effect transistors made with the films show about 40% higher saturation current than spin-coated controls. The result is most interesting for printed and flexible electronics because the method is contactless and can work on curved substrates, but it is still a materials/process demonstration rather than a manufacturable line flow.</span>
+        <span class="zh">这篇论文利用微升级蒸汽引导液滴内部的流动，在沉积前对有机半导体纳米线进行取向。有机场效应晶体管测试显示，相比旋涂对照样品，饱和电流提升约40%。这对印刷和柔性电子很有意义，因为方法非接触且可用于曲面基底，但目前仍是材料与工艺演示，不是可直接量产的产线流程。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/JIOT.2026.3671312" target="_blank" rel="noopener">
-          <span class="en">RISC-V Vectorized Softmax Acceleration for Edge Inference</span>
-          <span class="zh">面向边缘推理的RISC-V向量化Softmax加速</span>
+        <a href="https://arxiv.org/abs/2606.27098" target="_blank" rel="noopener">
+          <span class="en">Residual GPU Cache State on Apple M4 Pro</span>
+          <span class="zh">Apple M4 Pro上的GPU残留缓存状态</span>
         </a>
       </h3>
-      <p class="authors">C.-F. Lai, P.-C. Liu, S.-H. Huang, H.-H. Chen</p>
+      <p class="authors">Faruk Alpay, Baris Basaran</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/JIOT.2026.3671312" target="_blank" rel="noopener">IEEE Internet of Things Journal</a> · 2026-06-15</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27098" target="_blank" rel="noopener">arXiv:2606.27098</a> · 2026-06-25T14:35:28Z</p>
       <p class="summary">
-        <span class="en">This work introduces conditional online Softmax, a one-pass algorithm that fuses reduction and normalization to cut memory traffic while preserving numerical stability. A branch-free RISC-V Vector implementation improves performance by 7% over safe Softmax and 43% over the original online Softmax, while manual RVV vectorization beats GCC auto-vectorization by 2.9x. The result is directly relevant to attention and classifier heads on small edge processors.</span>
-        <span class="zh">这项工作提出conditional online Softmax，用单次遍历融合归约和归一化，在保持数值稳定性的同时减少内存流量。其无分支RISC-V Vector实现比safe Softmax快7%，比原始online Softmax快43%，手写RVV向量化比GCC自动向量化快2.9倍。该结果直接面向小型边缘处理器上的attention和分类头。</span>
+        <span class="en">Alpay and Basaran characterize cache state left after GPU commands on a 14-core Apple M4 Pro. Their Metal experiments show a reproducible post-GPU shared-cache displacement window that slows the first CPU traversal after large GPU footprints, with a second traversal clearing most of the cost. The work matters for unified-memory SoCs because CPU-GPU phase boundaries can create performance artifacts even when there is no simultaneous DRAM contention.</span>
+        <span class="zh">Alpay和Basaran在14核Apple M4 Pro上刻画了GPU命令完成后留下的缓存状态。Metal实验显示，大GPU访问足迹会造成可重复的GPU后共享缓存置换窗口，使第一次CPU遍历变慢，而第二次遍历能清除大部分成本。这对统一内存SoC很重要，因为即使没有同时发生DRAM争用，CPU-GPU阶段边界也可能产生性能伪影。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.16146" target="_blank" rel="noopener">
-          <span class="en">When Proofs Meet Hardware: NTT Versus SumCheck in ZKP Systems</span>
-          <span class="zh">当证明遇到硬件：ZKP系统中的NTT与SumCheck比较</span>
+        <a href="https://arxiv.org/abs/2606.27042" target="_blank" rel="noopener">
+          <span class="en">KAN-Based Digital Predistortion for Analog Radio-over-Fiber Fronthaul</span>
+          <span class="zh">面向模拟Radio-over-Fiber前传的KAN数字预失真</span>
         </a>
       </h3>
-      <p class="authors">J. Mo, A. Daftardar, B. GaneshKumar, K. Guo, et al.</p>
+      <p class="authors">Carlos Daniel Fontes da Silva, Tianyu Jiang, Lu Zhang, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.16146" target="_blank" rel="noopener">arXiv:2606.16146</a> · 2026-06-15</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27042" target="_blank" rel="noopener">arXiv:2606.27042</a> · 2026-06-25T13:47:22Z</p>
       <p class="summary">
-        <span class="en">The paper compares NTT- and SumCheck-based proving primitives for ZeroCheck under a unified hardware-system framework with the same SRAM and off-chip bandwidth budgets. It finds no universal winner: SumCheck tends to win for high-degree polynomials, while low-degree cases depend strongly on available memory. The value is a system-level map for ZKP accelerator designers who otherwise rely on asymptotic arguments or isolated kernels.</span>
-        <span class="zh">论文在统一硬件系统框架下比较ZeroCheck中的NTT和SumCheck证明原语，并控制相同的片上SRAM与片外带宽预算。结果显示不存在通用赢家：高阶多项式通常更适合SumCheck，低阶场景则高度依赖可用内存。其价值在于为ZKP加速器设计者提供系统级地图，而不是只依赖渐进复杂度或孤立kernel。</span>
+        <span class="en">This paper demonstrates a Kolmogorov-Arnold Network digital predistortion model for nonlinear distortion in analog radio-over-fiber fronthaul. The symbolic ETDKAN version delivers ACLR and EVM close to neural-network models while keeping complexity near memory-polynomial DPD, and experiments show a 4-5 dB ACLR reduction. The practical angle is strong because fronthaul linearization is often limited by power and implementation cost, not only model accuracy.</span>
+        <span class="zh">这篇论文展示了用于模拟Radio-over-Fiber前传非线性失真的Kolmogorov-Arnold Network数字预失真模型。符号化ETDKAN在ACLR和EVM上接近神经网络模型，同时复杂度接近记忆多项式DPD，实验中ACLR降低4-5 dB。其实用价值在于，前传线性化常受功耗和实现成本限制，而不只是模型精度。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1126/science.ady5344" target="_blank" rel="noopener">
-          <span class="en">All-Optical Signal Processor for Terabit-per-Second Equalization</span>
-          <span class="zh">用于Tbps实时均衡的全光信号处理器</span>
+        <a href="https://arxiv.org/abs/2606.27002" target="_blank" rel="noopener">
+          <span class="en">Deep-Learning Inverse Design for a Wideband Inverted Doherty PA</span>
+          <span class="zh">用于宽带反相Doherty功放的深度学习逆向设计</span>
         </a>
       </h3>
-      <p class="authors">B. Wang, Q. Xiao, T. Xu, L. Fan, et al.</p>
+      <p class="authors">Han Zhou, Haojie Chang, David Widen, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1126/science.ady5344" target="_blank" rel="noopener">Science</a> · 2026-06-11</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27002" target="_blank" rel="noopener">arXiv:2606.27002</a> · 2026-06-25T13:19:38Z</p>
       <p class="summary">
-        <span class="en">This Science paper demonstrates an integrated programmable optical signal processor that performs nonlinear, DSP-free real-time equalization before detection. The system equalizes eight WDM channels at 1.6 Tb/s aggregate throughput with less than 60 ps latency and tens of femtojoules per bit. If it can integrate cleanly with transceiver stacks, it points to lower-power optical links for large AI clusters.</span>
-        <span class="zh">这篇Science论文展示了一种集成可编程光信号处理器，可在探测前执行非线性、无DSP的实时均衡。系统同时均衡8个WDM通道，总吞吐达到1.6 Tb/s，延迟低于60 ps，能耗为每bit数十fJ。如果能与收发器栈顺利集成，它将指向大型AI集群中更低功耗的光互连。</span>
+        <span class="en">The authors combine CNNs and genetic algorithms to synthesize a pixelated combiner network for an inverted Doherty power amplifier. A fabricated GaN HEMT prototype reaches 51%-63% peak drain efficiency and 48%-54% 6 dB back-off efficiency from 1.9 to 2.5 GHz, with DPD bringing ACLR below -53.2 dBc. The measured prototype is the important part: it moves the inverse-design claim beyond layout search and into RF hardware results.</span>
+        <span class="zh">作者结合CNN和遗传算法，为反相Doherty功率放大器合成像素化合路网络。制成的GaN HEMT原型在1.9-2.5 GHz范围内达到51%-63%峰值漏极效率和48%-54%的6 dB回退效率，配合DPD后ACLR低于-53.2 dBc。关键在于它有实测原型，把逆向设计从版图搜索推进到射频硬件结果。</span>
       </p>
     </article>
   </section>
@@ -360,91 +345,103 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/MM.2026.3699647" target="_blank" rel="noopener">
-          <span class="en">Google TPUs From TPUv2 to Ironwood Across Five Generations</span>
-          <span class="zh">Google TPU从TPUv2到Ironwood的五代演进</span>
+        <a href="https://arxiv.org/abs/2606.26758" target="_blank" rel="noopener">
+          <span class="en">EGG: Expert-Guided Agent Framework for GPU Kernel Generation</span>
+          <span class="zh">EGG：面向GPU Kernel生成的专家引导Agent框架</span>
         </a>
       </h3>
-      <p class="authors">N. P. Jouppi, S. Lakshmanamurthy, C. Young, D. A. Patterson</p>
+      <p class="authors">Yaochen Han, Ke Fan, Hongxu Jiang, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/MM.2026.3699647" target="_blank" rel="noopener">IEEE Micro</a> · 2026-06-14</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26758" target="_blank" rel="noopener">arXiv:2606.26758</a> · 2026-06-25T08:44:26Z</p>
       <p class="summary">
-        <span class="en">Google&#x27;s IEEE Micro retrospective covers TPU v2 through Ironwood and argues that a stable architecture absorbed major workload shifts such as Transformers. Reported gains over eight years include 10x more HBM capacity and bandwidth per node, 100x higher peak node performance, and 3600x higher supercomputer performance. The paper is useful as a roadmap for accelerator resilience, optical circuit switching, built-in self-test, and hardware replay.</span>
-        <span class="zh">Google在IEEE Micro的回顾文章覆盖TPU v2到Ironwood，并认为稳定架构吸收了Transformer等重大工作负载变化。文中给出的八年提升包括单节点HBM容量和带宽提高10倍、节点峰值性能提高100倍、超级计算机级性能提高3600倍。论文对理解加速器韧性、光路交换、内建自测和硬件重放路线有参考价值。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2606.15045" target="_blank" rel="noopener">
-          <span class="en">NEURON-Fabric: CXL-Side Low-Bit Gradient Aggregation</span>
-          <span class="zh">NEURON-Fabric：CXL侧低比特梯度聚合</span>
-        </a>
-      </h3>
-      <p class="authors">Z. Wang, C. Huang, C.-H. Lung</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2606.15045" target="_blank" rel="noopener">arXiv:2606.15045</a> · 2026-06-13</p>
-      <p class="summary">
-        <span class="en">NEURON-Fabric puts low-bit gradient aggregation inside a CXL memory-controller path while preserving a 32-bit floating-point bypass. Cycle-level experiments report a five-cycle aggregation datapath and at most 1.67% exposed runtime overhead in a full LLC-miss regime, with the compute stage hidden under bandwidth pressure. The idea targets distributed LLM training bottlenecks, though the accuracy checks remain early compared with full-scale model training.</span>
-        <span class="zh">NEURON-Fabric把低比特梯度聚合放入CXL内存控制器路径，同时保留32位浮点旁路。周期级实验显示聚合数据通路为5个cycle，在完全LLC miss场景下最多暴露1.67%的运行时开销，并可在带宽压力下隐藏计算阶段。该思路瞄准分布式LLM训练瓶颈，但相较全规模模型训练，其精度验证仍属早期。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1145/3819240" target="_blank" rel="noopener">
-          <span class="en">PyramidFFT for Scratchpad-Based AI Accelerators</span>
-          <span class="zh">面向scratchpad AI加速器的PyramidFFT</span>
-        </a>
-      </h3>
-      <p class="authors">X. Zhao, R. Zhang, H. Jia, K. Li, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1145/3819240" target="_blank" rel="noopener">ACM Transactions on Architecture and Code Optimization (TACO)</a> · 2026-06-12</p>
-      <p class="summary">
-        <span class="en">PyramidFFT rearchitects FFT execution for AI accelerators with large scratchpad memories, using memory-aware nested networks, matrix-aligned butterfly layouts, and real-FFT compression. The paper reports up to an 8.2x efficiency improvement over a baseline that does not exploit the memory hierarchy. It is a reminder that AI accelerator blocks can be useful for memory-bound HPC kernels only when layout and locality are redesigned with the hardware.</span>
-        <span class="zh">PyramidFFT面向拥有大容量scratchpad memory的AI加速器重新设计FFT执行，结合内存感知nested network、矩阵对齐butterfly布局和real FFT压缩。论文报告相较未利用内存层级的baseline最高获得8.2倍效率提升。它提醒我们，AI加速器模块要服务内存受限HPC kernel，必须围绕硬件重新设计布局与局部性。</span>
+        <span class="en">EGG decomposes LLM-based GPU kernel generation into algorithmic structure design and hardware-specific tuning. The framework injects expert optimization principles for parallel mapping, tensor tiling, and memory behavior instead of relying on unguided code generation. The hardware relevance is direct: if the approach holds up on real kernels, it could reduce the human bottleneck in extracting performance from accelerators, though benchmark breadth and correctness guarantees remain the caveats.</span>
+        <span class="zh">EGG把基于LLM的GPU kernel生成拆成算法结构设计和硬件特定调优两个阶段。该框架引入专家优化原则来指导并行映射、张量tiling和内存行为，而不是依赖无约束代码生成。其硬件相关性很直接：如果能在真实kernel上稳定成立，它可能缓解从加速器中榨取性能时的人力瓶颈，但基准覆盖范围和正确性保证仍是需要观察的限制。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Systems &amp; Algorithms</span>
-      <span class="zh">AI系统与算法</span>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3820381" target="_blank" rel="noopener">
-          <span class="en">Fast Vector Search With Binary Prefiltering and SIMD Rescoring</span>
-          <span class="zh">基于二进制预筛与SIMD重评分的快速向量检索</span>
+        <a href="https://arxiv.org/abs/2606.27161" target="_blank" rel="noopener">
+          <span class="en">TOPS: First-Principles Visual Token Pruning for Efficient MLLM Inference</span>
+          <span class="zh">TOPS：面向高效MLLM推理的第一性原理视觉Token剪枝</span>
         </a>
       </h3>
-      <p class="authors">T. Simon, Y.-C. Chen, J.-J. Chen</p>
+      <p class="authors">Tinghao Wang, Yichen Guo, Rui Huang, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3820381" target="_blank" rel="noopener">ACM Transactions on Embedded Computing Systems</a> · 2026-06-11</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27161" target="_blank" rel="noopener">arXiv:2606.27161</a> · 2026-06-25T15:29:37Z</p>
       <p class="summary">
-        <span class="en">This paper optimizes flat vector search with a two-step primitive: a bandwidth-efficient binary sketch prefilters candidates, then SIMD rescoring refines the ranking. On a 1.2 million-vector PC dataset it reports more than 120x speedup over a float32 baseline with NDCG@100 of 0.99; on Raspberry Pi 3 it cuts latency by 39x to 59x and energy by 41x. The result is relevant for edge RAG systems where memory bandwidth dominates query cost.</span>
-        <span class="zh">这篇论文用两步原语优化flat vector search：先用带宽高效的二进制sketch预筛候选，再用SIMD重评分细化排序。在包含120万向量的PC数据集上，相比float32 baseline实现超过120倍加速且NDCG@100为0.99；在Raspberry Pi 3上延迟降低39到59倍，能耗降低41倍。该结果适用于内存带宽主导查询成本的边缘RAG系统。</span>
+        <span class="en">TOPS reframes visual-token pruning as constructing token optimal preservation sets based on task relevance, information coverage, and semantic diversity. It is training-free and model-agnostic, with experiments across seven MLLM backbones and 14 benchmarks. The hardware angle is that visual-token reduction directly cuts attention and memory traffic during multimodal inference, though the paper is still a systems method rather than measured accelerator silicon.</span>
+        <span class="zh">TOPS把视觉token剪枝重新表述为构建最优token保留集合，核心原则是任务相关性、信息覆盖和语义多样性。该方法无需训练且与模型无关，并在7个MLLM骨干和14个基准上测试。硬件意义在于，减少视觉token会直接降低多模态推理中的attention计算和内存流量，不过这仍是系统方法论文，并非实测加速器芯片。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.12950" target="_blank" rel="noopener">
-          <span class="en">Maestro Schedules LLM Multi-Agent Systems Across Clusters</span>
-          <span class="zh">Maestro面向LLM多智能体系统进行跨集群调度</span>
+        <a href="https://arxiv.org/abs/2606.26875" target="_blank" rel="noopener">
+          <span class="en">Information-Aware KV Cache Compression for Long Reasoning</span>
+          <span class="zh">面向长推理的信息感知KV-cache压缩</span>
         </a>
       </h3>
-      <p class="authors">J. Wang, X. Zhou, X. Sun, Y. Zhang, et al.</p>
+      <p class="authors">Jushi Kai, Zhuiri Xiao, Alexandra Birch, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.12950" target="_blank" rel="noopener">arXiv:2606.12950</a> · 2026-06-11</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26875" target="_blank" rel="noopener">arXiv:2606.26875</a> · 2026-06-25T11:03:37Z</p>
       <p class="summary">
-        <span class="en">Maestro is a workload-aware scheduler for LLM multi-agent systems, where one user query can trigger an iterative chain of model calls with heavy-tailed decode costs. It predicts each stage&#x27;s output length and memory demand, then combines hierarchical weight caching, elastic memory provisioning, and latency-aware cluster routing. The paper is useful because agent serving needs scheduling semantics beyond ordinary single-request queues.</span>
-        <span class="zh">Maestro是面向LLM多智能体系统的工作负载感知调度器，在这类系统中，一个用户查询可能触发一串迭代模型调用，并产生长尾decode成本。它预测每个阶段的输出长度和内存需求，再结合分层权重缓存、弹性内存配置和延迟感知的集群路由。论文的价值在于指出agent serving需要超出普通单请求队列的调度语义。</span>
+        <span class="en">InfoKV adds information-theoretic signals to KV-cache compression, using predictive uncertainty and representation evolution alongside attention scores. The authors argue that high-uncertainty tokens can influence distant future contexts more than attention-only methods capture. For inference hardware, the relevant claim is lower cache footprint during long reasoning without simply discarding distant context, but deployment value depends on latency overhead and robustness across models.</span>
+        <span class="zh">InfoKV在KV-cache压缩中加入信息论信号，把预测不确定性和层间表示演化与attention分数结合。作者认为，高不确定性token对远期上下文的影响可能超过纯attention方法能捕捉的范围。对推理硬件而言，关键主张是在长推理中降低缓存占用，同时不只是粗暴丢弃远端上下文，但部署价值取决于额外延迟和跨模型稳健性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum</span>
+      <span class="zh">量子</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27119" target="_blank" rel="noopener">
+          <span class="en">Efficient Foundation Decoders for Fault-Tolerant Quantum Computing</span>
+          <span class="zh">面向容错量子计算的高效Foundation Decoder</span>
+        </a>
+      </h3>
+      <p class="authors">Ge Yan, Shanchuan Li, Shiyi Xiao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27119" target="_blank" rel="noopener">arXiv:2606.27119</a> · 2026-06-25T14:58:33Z</p>
+      <p class="summary">
+        <span class="en">The paper proposes neural transfer unification to train foundation decoders across quantum error-correcting code distances. Its NTU-Transformer outperforms correlation-aware matching on a planar surface-code example and scales to larger code distances through transfer adaptation. The result is relevant because decoder training cost is a real bottleneck for fault-tolerant systems, but the evidence is still decoder benchmarking rather than a full hardware-control stack.</span>
+        <span class="zh">这篇论文提出neural transfer unification，用于跨量子纠错码距离训练foundation decoder。其NTU-Transformer在一个平面surface code例子上超过correlation-aware matching，并通过迁移适配扩展到更大的码距。这个结果相关性很强，因为decoder训练成本是容错系统的真实瓶颈，但证据仍是decoder基准测试，而不是完整硬件控制栈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Tools</span>
+      <span class="zh">EDA与设计工具</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.26713" target="_blank" rel="noopener">
+          <span class="en">LithoDreamer: Physics-Informed World Model for Computational Lithography</span>
+          <span class="zh">LithoDreamer：面向计算光刻的物理信息World Model</span>
+        </a>
+      </h3>
+      <p class="authors">Yuqi Jiang, Yumeng Liu, Zimu Li, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26713" target="_blank" rel="noopener">arXiv:2606.26713</a> · 2026-06-25T07:48:59Z</p>
+      <p class="summary">
+        <span class="en">LithoDreamer models the layout-mask-resist-ADI flow as a multi-stage physical evolution problem rather than a single learned mapping. The framework uses physics-informed latent states and contrastive variational optimization to guide process interventions. It is relevant to EDA because computational lithography is increasingly a yield limiter at advanced nodes, but the abstracted benchmark setting means fabs would still need tool-calibrated validation.</span>
+        <span class="zh">LithoDreamer把layout-mask-resist-ADI流程建模为多阶段物理演化问题，而不是单一的学习映射。该框架使用物理信息潜空间和对比变分优化来指导工艺干预。它对EDA有意义，因为计算光刻正日益成为先进制程良率限制因素，但其基准仍较抽象，晶圆厂还需要基于具体设备的校准验证。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-25 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-25 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-26 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-26 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
