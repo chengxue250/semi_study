@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-27">
+<meta name="edition-date" content="2026-06-28">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Hardware Research Chases Memory Locality — Semi Research 2026-06-27</title>
+<title>Data Movement Sets the Research Agenda — Semi Research 2026-06-28</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,16 +249,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Saturday, June 27, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月27日 星期六</span>
+      <span class="en">Research digest · Sunday, June 28, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月28日 星期日</span>
     </div>
     <h1>
-      <span class="en">Hardware Research Chases Memory Locality</span>
-      <span class="zh">硬件研究追逐存储局部性</span>
+      <span class="en">Data Movement Sets the Research Agenda</span>
+      <span class="zh">数据搬移主导研究议程</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest papers converge on moving less data: cache-resident LLM execution, sparse-GEMM dataflows, memristive arrays, photonic mappings, and tools that make hardware exploration less manual. The common thread is that AI performance is increasingly bounded by memory hierarchy, verification effort, and physical placement rather than raw multiply throughput alone.</span>
-      <span class="zh">本周最有价值的论文共同指向减少数据搬移：缓存驻留LLM执行、稀疏GEMM数据流、忆阻器阵列、光子映射，以及降低人工探索成本的硬件工具。共同主线是，AI性能越来越受存储层次、验证工作量和物理布局约束，而不只是受乘法吞吐限制。</span>
+      <span class="en">This week&#x27;s stronger papers treat memory placement, interconnect overhead, photonic switching, and safety verification as first-order design problems. The common thread is that compute blocks matter less when data movement, topology, and packaging constraints dominate system behavior.</span>
+      <span class="zh">本周较强的论文把存储位置、互连开销、光子交换和安全验证视为一阶设计问题。共同线索是，当数据搬移、拓扑和封装约束主导系统行为时，单个计算模块本身的重要性会下降。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 10 paper(s)</span>
@@ -273,17 +273,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.23159" target="_blank" rel="noopener">
-          <span class="en">General-purpose nonlinear approximation with linear integrated photonics</span>
-          <span class="zh">用线性集成光子实现通用非线性函数逼近</span>
+        <a href="https://doi.org/10.1002/adom.202503295" target="_blank" rel="noopener">
+          <span class="en">Non-Volatile Silicon Mach-Zehnder Switches Using Graphene Heaters and Sb2Se3 Phase Change Material</span>
+          <span class="zh">基于Graphene加热器和Sb2Se3相变材料的非易失硅Mach-Zehnder开关</span>
         </a>
       </h3>
-      <p class="authors">A. Mizuno, I. Takai, M. Nakai, et al.</p>
+      <p class="authors">J. Samland, F. Hoff, T. Veslin, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.23159" target="_blank" rel="noopener">arXiv:2606.23159</a> · 2026-06-22T11:02:40Z</p>
+      <p class="venue"><a href="https://doi.org/10.1002/adom.202503295" target="_blank" rel="noopener">Advanced Optical Materials</a> · 2026-06-23</p>
       <p class="summary">
-        <span class="en">Mizuno et al. show an optoelectronic route for nonlinear function approximation using optical random Fourier features on a linear silicon-photonic platform. The reported demonstrations include tenth-order Legendre polynomials, special functions, activation functions, 2D nonlinear functions, and a 10D softmax layer. The work matters because photonic AI hardware is strong at linear algebra but usually struggles to host useful nonlinear operations on chip. It is still a platform result, not a complete AI accelerator.</span>
-        <span class="zh">Mizuno等人展示了一种光电方法，在线性硅光平台上通过 optical random Fourier features 实现非线性函数逼近。论文演示了10阶Legendre多项式、若干特殊函数、激活函数、二维非线性函数和10维softmax层。它的重要性在于，光子AI硬件擅长线性代数，但通常难以在片上承载有用的非线性运算。需要注意的是，这仍是平台级结果，不是完整AI加速器。</span>
+        <span class="en">Samland et al. experimentally demonstrate non-volatile silicon Mach-Zehnder switches using Sb2Se3 phase-change material switched by graphene heaters. The reported device reaches a 0.7 pi phase shift, VpiL of about 0.56 Vcm, and a 28 dB extinction ratio. The result is useful for neuromorphic and reconfigurable PICs because the optical state can persist without continuous heater power, though the path to dense, repeatable arrays still depends on process control and cycling data.</span>
+        <span class="zh">Samland等人实验展示了使用Sb2Se3相变材料、由graphene加热器切换的非易失硅Mach-Zehnder开关。器件实现了0.7π相移、约0.56 Vcm的VπL和28 dB消光比。这个结果对神经形态和可重构PIC有价值，因为光学状态无需持续加热功耗即可保持，但走向高密度、可重复阵列仍取决于工艺控制和循环可靠性数据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s41378-026-01298-x" target="_blank" rel="noopener">
+          <span class="en">Scalable Silicon Photonic MEMS Switches with Quasi-Buckling-Free Directional Couplers</span>
+          <span class="zh">采用准无翘曲方向耦合器的可扩展硅光子MEMS开关</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Hu, J. Zhu, Y. Liu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1038/s41378-026-01298-x" target="_blank" rel="noopener">Microsystems &amp; Nanoengineering</a> · 2026-06-15</p>
+      <p class="summary">
+        <span class="en">Hu et al. co-design the mechanics and optics of a 2x2 horizontal adiabatic-directional-coupler MEMS switch to suppress buckling. The fabricated switches show broad 180 nm bandwidth, roughly 2 microsecond switching, more than 7.2 billion cycles, and a demonstrated 64x64 Benes array. That combination makes the work more relevant to AI optical switching fabrics than a single-device photonics result, although packaging and control overhead remain the scaling tests.</span>
+        <span class="zh">Hu等人对2x2水平绝热方向耦合器MEMS开关进行机光协同设计，以抑制翘曲。实测开关具备180 nm宽带、约2微秒切换速度、超过72亿次循环，并展示了64x64 Benes阵列。这个组合使其相比单器件光子结果更接近AI光交换网络需求，不过封装和控制开销仍是规模化考验。</span>
       </p>
     </article>
   </section>
@@ -294,32 +309,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.22588" target="_blank" rel="noopener">
-          <span class="en">Non-uniform L2 cache latency across NVIDIA L40 SMs</span>
-          <span class="zh">NVIDIA L40各SM之间的非均匀L2缓存延迟</span>
+        <a href="https://arxiv.org/abs/2606.27240" target="_blank" rel="noopener">
+          <span class="en">Scratchpad Memory and Heterogeneity Trade-offs in CGRAs</span>
+          <span class="zh">CGRA中Scratchpad Memory与异构性的权衡</span>
         </a>
       </h3>
-      <p class="authors">F. Alpay, B. Basaran</p>
+      <p class="authors">M. J. Belda, L. Orlandic, F. Castro, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.22588" target="_blank" rel="noopener">arXiv:2606.22588</a> · 2026-06-21T16:50:45Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27240" target="_blank" rel="noopener">arXiv:2606.27240</a> · 2026-06-25T16:24:35Z</p>
       <p class="summary">
-        <span class="en">Alpay and Basaran measure L2-hit latency on an NVIDIA L40 and find that it varies by physical streaming multiprocessor, spanning 222-339 cycles rather than a single nominal value near 279 cycles. Their probe resolves all 142 SMs and reports a repeatable 52% latency range, with topology patterns that also generalize to Blackwell RTX 5090. This matters for performance modeling and for side-channel-style hardware fingerprinting. The caveat is that it is a measurement study on specific devices, not a vendor-documented architectural contract.</span>
-        <span class="zh">Alpay和Basaran测量NVIDIA L40的L2命中延迟，发现延迟会随物理SM位置变化，并非接近279周期的单一值，而是在222-339周期之间变化。他们的探针解析了全部142个SM，并报告可重复的52%延迟范围，且类似拓扑模式也出现在Blackwell RTX 5090上。这对性能建模和类似侧信道的硬件指纹识别都重要。需要注意的是，这是一项针对特定器件的测量研究，不是厂商公开的架构契约。</span>
+        <span class="en">Belda et al. evaluate how scratchpad memory and heterogeneous processing elements change CGRA behavior on FFT, GEMM, and a seizure-detection transformer workload. The scratchpad reduces memory traffic by 8x versus a memory-less design, while the homogeneous architecture cuts area overhead by 4.4x to 8.2x compared with prior CGRAs. The paper is useful because it separates data-movement wins from PE-specialization wins instead of treating CGRA efficiency as one knob.</span>
+        <span class="zh">Belda等人在FFT、GEMM和癫痫检测Transformer工作负载上评估scratchpad memory与异构处理单元如何改变CGRA表现。相较无本地存储设计，scratchpad将存储流量降低8倍；而同构架构相对既有CGRA把面积开销降低4.4倍到8.2倍。论文的价值在于把数据搬移收益和PE专用化收益拆开分析，而不是把CGRA效率视为单一旋钮。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.22283" target="_blank" rel="noopener">
-          <span class="en">Apple Neural Engine architecture, programming, and performance</span>
-          <span class="zh">Apple Neural Engine的架构、编程与性能</span>
+        <a href="https://doi.org/10.1145/3827618" target="_blank" rel="noopener">
+          <span class="en">Location-Aware Scheduling for Multitasking MCM-GPUs</span>
+          <span class="zh">面向多任务MCM-GPU的位置感知调度</span>
         </a>
       </h3>
-      <p class="authors">S. H. Bryngelson</p>
+      <p class="authors">T. Zhang, G. Zhang, Y. He, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.22283" target="_blank" rel="noopener">arXiv:2606.22283</a> · 2026-06-21T00:17:34Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3827618" target="_blank" rel="noopener">ACM TODAES</a> · 2026-06-24</p>
       <p class="summary">
-        <span class="en">Bryngelson provides a reverse-engineered account of the Apple Neural Engine across A11-A18 and M1-M5-class systems, combining direct measurement, static analysis, runtime inspection, and firmware work. The paper documents datapaths, roofline limits, dispatch paths, program formats, weight compression, and kernel-driver protocols. It is useful because ANE is widely shipped but weakly documented, leaving researchers dependent on Core ML abstractions. The author labels claims as measured, decompile-derived, or predicted, which is important given the private interface and version fragility.</span>
-        <span class="zh">Bryngelson给出了Apple Neural Engine在A11-A18和M1-M5系列系统中的逆向工程分析，结合直接测量、静态分析、运行时检查和固件研究。论文记录了数据通路、roofline限制、调度路径、程序格式、权重压缩和内核驱动协议。它有价值是因为ANE出货规模很大，但公开文档很少，研究者往往只能通过Core ML抽象间接观察。作者把结论区分为实测、反编译推导和预测，这对一个私有且版本脆弱的接口尤其重要。</span>
+        <span class="en">Zhang et al. show that placement decisions become first-order when multiple applications share a multi-chip-module GPU. Some workload pairs perform better when co-located on the same GPU chip to maximize memory bandwidth use, while others benefit from being split across chips to reduce contention. That observation maps directly to cloud GPU scheduling as chiplet GPUs become the norm rather than an exotic package choice.</span>
+        <span class="zh">Zhang等人指出，当多个应用共享多芯片模块GPU时，任务放置会成为一阶性能因素。有些工作负载组合放在同一GPU芯片上更利于利用存储带宽，另一些则适合跨芯片分布以降低争用。随着chiplet GPU成为常态而不再是特殊封装选择，这个观察直接映射到云端GPU调度。</span>
       </p>
     </article>
   </section>
@@ -330,127 +345,118 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.26701" target="_blank" rel="noopener">
-          <span class="en">SegFold: dynamic dataflow for sparse GEMM acceleration</span>
-          <span class="zh">SegFold：面向稀疏GEMM加速的动态数据流</span>
+        <a href="https://doi.org/10.1145/3821578" target="_blank" rel="noopener">
+          <span class="en">Protocol and Software Co-Optimization for dGPU In-Kernel ML</span>
+          <span class="zh">面向dGPU内核内机器学习的协议与软件协同优化</span>
         </a>
       </h3>
-      <p class="authors">X. Wu, H. Wang, J. Cong, et al.</p>
+      <p class="authors">W. Li, S. Zhu, P. Cuan, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.26701" target="_blank" rel="noopener">arXiv:2606.26701</a> · 2026-06-25T07:32:26Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3821578" target="_blank" rel="noopener">ACM TACO</a> · 2026-06-23</p>
       <p class="summary">
-        <span class="en">Wu et al. introduce SegFold, a sparse GEMM accelerator built around fine-grained dynamic scheduling instead of a fixed inner-product, outer-product, or Gustavson-style dataflow. The design uses a memory controller to find local reuse opportunities and a merge network to remap work across processing elements for load balance. This is relevant because sparse linear algebra increasingly appears in graph workloads and compressed AI models where static dataflows leave utilization on the table. The result is a co-design proposal, so silicon area and measured power remain the next questions.</span>
-        <span class="zh">Wu等人提出SegFold，这是一种稀疏GEMM加速器，核心是细粒度动态调度，而不是固定的内积、外积或Gustavson式数据流。设计通过内存控制器寻找局部复用机会，并用合并网络在处理单元之间动态重映射工作以改善负载均衡。它的重要性在于，稀疏线性代数越来越多地出现在图计算和压缩AI模型中，静态数据流会留下利用率损失。该工作仍是协同设计方案，面积和实测功耗是下一步问题。</span>
+        <span class="en">Li et al. target the PCIe and software-path bottleneck that makes small-batch in-kernel ML offload unattractive on dGPUs. Their co-optimization combines feature selection, mixed-precision quantization, lightweight compression, and adaptive transfer scheduling, cutting transferred bytes by 50% to 87.5%. The key result is that the dGPU break-even batch size drops from 256 to 64 and latency falls 3.2x to 5.8x, showing that protocol overhead can dominate raw accelerator throughput.</span>
+        <span class="zh">Li等人针对小批量内核内机器学习卸载到dGPU时的PCIe和软件路径瓶颈。其协同优化结合特征选择、混合精度量化、轻量压缩和自适应传输调度，把传输字节数减少50%到87.5%。关键结果是dGPU盈亏平衡批量从256降到64，端到端延迟降低3.2倍到5.8倍，说明协议开销可能压过原始加速器吞吐。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.27319" target="_blank" rel="noopener">
-          <span class="en">An ISA for IMPLY-based memristive processing-in-array</span>
-          <span class="zh">面向IMPLY忆阻器阵列内处理的指令集架构</span>
+        <a href="https://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">
+          <span class="en">A Neuromorphic Silicon Suite in SkyWater 130 nm</span>
+          <span class="zh">基于SkyWater 130 nm的神经形态硅IP套件</span>
         </a>
       </h3>
-      <p class="authors">L. Splittgerber, F. Seiler, N. TaheriNejad</p>
+      <p class="authors">P. Kumaresan, S. Sivasubramani</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.27319" target="_blank" rel="noopener">arXiv:2606.27319</a> · 2026-06-25T17:32:30Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">arXiv:2606.22635</a> · 2026-06-21T18:46:33Z</p>
       <p class="summary">
-        <span class="en">Splittgerber, Seiler, and TaheriNejad propose a general-purpose microcontroller architecture and RV32I-derived ISA for IMPLY-based memristive processing-in-array. The work moves beyond treating in-memory computing as a coprocessor and instead asks what a standalone ultra-low-power edge processor would need. It is a useful framing for non-volatile compute fabrics because programmability and addressing often become the real blockers. The caveat is that the summary points to architectural and circuit metrics rather than a fabricated measured chip.</span>
-        <span class="zh">Splittgerber、Seiler和TaheriNejad提出了一种面向IMPLY忆阻器阵列内处理的通用微控制器架构，并给出从RV32I派生的ISA。该工作不再只把存内计算视为协处理器，而是讨论一个独立超低功耗边缘处理器需要什么。对于非易失计算阵列来说，这种视角有价值，因为可编程性和寻址机制常常才是真正阻碍。需要注意的是，摘要指向架构和电路指标，而不是已流片的实测芯片。</span>
+        <span class="en">Kumaresan and Sivasubramani present four interface-compatible neuromorphic IP blocks in SkyWater 130 nm: a PVT sensor, stochastic LIF neuron, STDP controller, and memristive-crossbar controller. The blocks share an SPI register file and were verified with 99 cocotb tests at RTL and gate level. It is not a production neuromorphic chip yet, but open, standard-cell blocks lower the barrier for reproducible edge-neuromorphic experiments.</span>
+        <span class="zh">Kumaresan和Sivasubramani在SkyWater 130 nm中提出4个接口兼容的神经形态IP模块：PVT传感器、随机LIF神经元、STDP控制器和memristive crossbar控制器。这些模块共享SPI寄存器文件，并通过99个RTL和门级cocotb测试验证。它还不是量产神经形态芯片，但开放的标准单元模块降低了可复现实验门槛。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.25313" target="_blank" rel="noopener">
-          <span class="en">A programmable probabilistic computer with 1,000,000 p-bits</span>
-          <span class="zh">包含1,000,000个p-bit的可编程概率计算机</span>
+        <a href="https://arxiv.org/abs/2606.23742" target="_blank" rel="noopener">
+          <span class="en">Low-Power Analogue Neural Networks with Trainable Nonlinear Connections</span>
+          <span class="zh">具备可训练非线性连接的低功耗模拟神经网络</span>
         </a>
       </h3>
-      <p class="authors">N. A. Aadit, X. Zhang, S. Chowdhury, et al.</p>
+      <p class="authors">I. T. Vidamour, F. Aguirre, T. J. Hayward, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.25313" target="_blank" rel="noopener">arXiv:2606.25313</a> · 2026-06-24T02:26:33Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.23742" target="_blank" rel="noopener">arXiv:2606.23742</a> · 2026-06-21T15:55:23Z</p>
       <p class="summary">
-        <span class="en">Aadit et al. scale probabilistic computing by networking FPGAs into a one-million-p-bit Ising machine. The system performs Gibbs sampling at more than a trillion flips per second while keeping coupling weights in local on-chip memory and exchanging only one-bit boundary states. The key contribution is not just size, but the communication-frequency condition under which a partitioned machine behaves like a monolithic sampler. It is an FPGA-networked prototype, so the path to dense custom silicon remains open.</span>
-        <span class="zh">Aadit等人通过联网FPGA扩展概率计算，构建了包含100万个p-bit的Ising机器。系统执行Gibbs采样时超过每秒1万亿次翻转，耦合权重保留在本地片上存储中，设备间只交换1 bit边界状态。关键贡献不只是规模，而是给出了分区机器在何种通信频率条件下能表现得像单体采样器。它是联网FPGA原型，距离高密度定制硅实现仍有距离。</span>
+        <span class="en">Vidamour et al. put trainable nonlinear functions on analog neural-network connections rather than treating device nonlinearities as scalar weights. The approach maps well to smooth continuous-control tasks, transfers across about 35,000 hardware connections, and is projected at roughly 30 microwatts in a dedicated CMOS implementation. The caveat is important: the advantage is task-dependent and does not carry over cleanly to classification-like decision boundaries.</span>
+        <span class="zh">Vidamour等人把可训练非线性函数放在模拟神经网络连接上，而不是把器件非线性简单当作标量权重。该方法适合平滑连续控制任务，可迁移到约3.5万个硬件连接，并预计在专用CMOS实现中功耗约30微瓦。需要注意的是，这种优势依赖任务类型，并不能自然迁移到类似分类边界的问题。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research Systems</span>
-      <span class="zh">AI研究系统</span>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.25353" target="_blank" rel="noopener">
-          <span class="en">Cache-resident LLM inference in GB-scale last-level caches</span>
-          <span class="zh">在GB级末级缓存中执行缓存驻留LLM推理</span>
+        <a href="https://arxiv.org/abs/2606.25532" target="_blank" rel="noopener">
+          <span class="en">Physically Constrained Agents for Hardware-Aware Foundation Model Compression</span>
+          <span class="zh">面向硬件约束基础模型压缩的物理约束智能体</span>
         </a>
       </h3>
-      <p class="authors">W. Zhang, T. Gu, M. Canini, et al.</p>
+      <p class="authors">J. Zhang, W. Sun, C. Wang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.25353" target="_blank" rel="noopener">arXiv:2606.25353</a> · 2026-06-24T03:41:30Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25532" target="_blank" rel="noopener">arXiv:2606.25532</a> · 2026-06-24T08:07:59Z</p>
       <p class="summary">
-        <span class="en">Zhang et al. propose a cache-resident execution model for LLM inference on systems with GB-scale last-level caches. The design separates weight-centric operators from attention and KV-cache management, keeping reusable weights cache-resident while scaling KV capacity independently. This targets a real inference bottleneck: data movement rather than arithmetic throughput. The caveat is that it depends on hierarchical-memory CPU clusters and specialized runtime scheduling, so portability to GPU-first deployments is not automatic.</span>
-        <span class="zh">Zhang等人提出一种面向GB级末级缓存系统的LLM推理缓存驻留执行模型。该设计把以权重为中心的算子与attention和KV-cache管理分离，让可复用权重留在缓存中，同时独立扩展KV容量。它瞄准了真实推理瓶颈：数据搬移，而不是纯算术吞吐。需要注意的是，它依赖分层存储CPU集群和专用运行时调度，不能自动迁移到GPU优先部署。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.26383" target="_blank" rel="noopener">
-          <span class="en">SOLAR: AI-powered speed-of-light performance analysis</span>
-          <span class="zh">SOLAR：AI辅助的速度上限性能分析</span>
-        </a>
-      </h3>
-      <p class="authors">Q. Huang, S. Damani, Z. Ye, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.26383" target="_blank" rel="noopener">arXiv:2606.26383</a> · 2026-06-24T21:09:29Z</p>
-      <p class="summary">
-        <span class="en">Huang et al. introduce SOLAR, a framework that derives speed-of-light performance bounds from PyTorch and JAX programs. An LLM frontend translates source into an executable affine-loop IR, while deterministic passes lift that IR into einsum graphs and compute unfused, fused, and cache-aware bounds. The tool is useful because it tells model and kernel developers how far current implementations sit from architectural limits. The authors report zero observed SOL violations, but the method still depends on translation validation and workload coverage.</span>
-        <span class="zh">Huang等人提出SOLAR，一个从PyTorch和JAX程序推导速度上限性能边界的框架。LLM前端把源码翻译为可执行的仿射循环IR，确定性流程再将其提升为einsum图，并计算未融合、融合和缓存感知的边界。该工具有价值，因为它能告诉模型和kernel开发者当前实现距离架构极限还有多远。作者报告没有观察到SOL违规，但方法仍依赖翻译验证和工作负载覆盖范围。</span>
+        <span class="en">Zhang et al. build a physically grounded multi-agent discovery system for hardware-compliant foundation-model deployment. The generated methods include Q-Enhance for long-context dense models and MoE-Salient-AQ for sparse MoE quantization, with the paper claiming a 235B-parameter model deployed on dual A100s after a 75% memory reduction and 0.64% accuracy loss. The result is relevant because compression is framed around hardware constraints, but the claims need independent reproduction before they should guide accelerator roadmaps.</span>
+        <span class="zh">Zhang等人构建了一个具备物理约束的多智能体发现系统，用于符合硬件约束的基础模型部署。生成的方法包括面向长上下文稠密模型的Q-Enhance，以及面向稀疏MoE量化的MoE-Salient-AQ；论文声称在内存需求降低75%、精度损失0.64%的情况下，将235B参数模型部署到双A100服务器。该结果重要在于把压缩问题放入硬件约束中讨论，但相关主张仍需独立复现后才适合作为加速器路线图依据。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
+      <span class="en">EDA &amp; Verification</span>
+      <span class="zh">EDA与验证</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">
-          <span class="en">CHIA: agentic AI for hardware/software co-design loops</span>
-          <span class="zh">CHIA：面向软硬件协同设计循环的智能体AI框架</span>
+        <a href="https://arxiv.org/abs/2606.25296" target="_blank" rel="noopener">
+          <span class="en">SafeGen Uses LLMs and Formal Verification for Functional-Safety Assertions</span>
+          <span class="zh">SafeGen用LLM和形式验证生成函数安全断言</span>
         </a>
       </h3>
-      <p class="authors">A. Cui, F. Hermida-Rivera, J. Toubes, et al.</p>
+      <p class="authors">X. Tan, A. Chaudhuri, R. Parekhji, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">arXiv:2606.27350</a> · 2026-06-25T17:55:37Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25296" target="_blank" rel="noopener">arXiv:2606.25296</a> · 2026-06-24T01:58:38Z</p>
       <p class="summary">
-        <span class="en">Cui et al. present CHIA, an open-source framework for building agentic AI hardware/software co-design workflows as directed cyclic graphs. Its library connects tools such as Chipyard, gem5, ChampSim, FireSim, Hammer, commercial ASIC CAD flows, Vivado, and evolutionary coding agents. The contribution is infrastructure: making AI-infused design loops reproducible enough to study instead of one-off demos. The paper should be read as a workflow substrate, not proof that agents can replace expert architects.</span>
-        <span class="zh">Cui等人提出CHIA，一个开源框架，用有向循环图来构建智能体AI驱动的软硬件协同设计工作流。其库连接Chipyard、gem5、ChampSim、FireSim、Hammer、商业ASIC CAD流程、Vivado和进化式代码智能体等工具。贡献点在基础设施：让嵌入AI的设计循环足够可复现，便于研究，而不是停留在一次性演示。应把这篇论文视为工作流底座，而不是智能体替代资深架构师的证明。</span>
+        <span class="en">Tan et al. propose SafeGen, an LLM-driven framework that generates functional-safety assertions and evaluates fault criticality with formal verification support. The system links safety documents, FMEDA guidance, RTL information, and generated assertions through a document-level Hyper Knowledge Graph. The value is traceability rather than text generation alone, but automotive-grade adoption will depend on how well the generated assertions survive adversarial and coverage audits.</span>
+        <span class="zh">Tan等人提出SafeGen，这是一个由LLM驱动、并结合形式验证来生成函数安全断言和评估故障关键性的框架。系统通过文档级Hyper Knowledge Graph把安全文档、FMEDA指南、RTL信息和生成断言连接起来。其价值不只是文本生成，而是可追溯性；不过要进入汽车级流程，还要看生成断言能否经受对抗性检查和覆盖率审计。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum &amp; Photonics</span>
+      <span class="zh">量子与光子</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.23759" target="_blank" rel="noopener">
-          <span class="en">VeriPilot uses LLMs and golden models for Verilog debugging</span>
-          <span class="zh">VeriPilot用LLM和黄金模型调试Verilog</span>
+        <a href="https://doi.org/10.1038/s41566-026-01944-w" target="_blank" rel="noopener">
+          <span class="en">A Photonic Integrated Long-Distance Quantum Communication Network</span>
+          <span class="zh">光子集成长距离量子通信网络</span>
         </a>
       </h3>
-      <p class="authors">Y. Wang, C. Liu, J. Zhang, et al.</p>
+      <p class="authors">L. Zhang, J. Pan, T.-Y. Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.23759" target="_blank" rel="noopener">arXiv:2606.23759</a> · 2026-06-22T09:15:40Z</p>
+      <p class="venue"><a href="https://doi.org/10.1038/s41566-026-01944-w" target="_blank" rel="noopener">Nature Photonics</a> · 2026-06-19</p>
       <p class="summary">
-        <span class="en">Wang et al. propose VeriPilot, an LLM-powered Verilog debugging framework that aligns a buggy design with a golden reference model and traces internal signal semantics through control-data-flow graphs. This moves beyond compiler-output prompting by giving the model a structured localization path to suspicious code regions. It matters because verification and debug consume large fractions of digital-design effort, and LLM tools need structure to be useful on real RTL. The caveat is the reliance on a golden model, which is not always available in early design.</span>
-        <span class="zh">Wang等人提出VeriPilot，一个LLM驱动的Verilog调试框架，通过把有缺陷设计与黄金参考模型对齐，并沿控制数据流图追踪内部信号语义来定位问题。它不只是把编译器输出交给模型，而是给模型提供结构化的可疑代码定位路径。这很重要，因为验证和调试占据数字设计的大量工作量，而LLM工具要在真实RTL中有用就需要结构约束。限制在于它依赖黄金模型，而早期设计阶段并不总是具备。</span>
+        <span class="en">Zhang et al. report a photonic integrated long-distance quantum communication network in Nature Photonics. The candidate metadata does not expose detailed performance numbers, but the venue and topic make it relevant to integrated quantum links rather than lab-bench optics alone. The paper belongs on the reading queue because photonic integration is one of the few credible routes to scaling quantum networking hardware.</span>
+        <span class="zh">Zhang等人在Nature Photonics报道了一个光子集成长距离量子通信网络。候选元数据没有给出详细性能数字，但从期刊和主题看，它更接近集成量子链路，而不只是实验台光学演示。该论文值得列入阅读队列，因为光子集成是扩展量子网络硬件的少数可信路径之一。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-27 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-27 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-28 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-28 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
