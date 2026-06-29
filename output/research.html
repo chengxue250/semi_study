@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-28">
+<meta name="edition-date" content="2026-06-29">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Data Movement Sets the Research Agenda — Semi Research 2026-06-28</title>
+<title>Efficient Hardware Meets Reliability Pressure — Semi Research 2026-06-29</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,214 +249,151 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, June 28, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月28日 星期日</span>
+      <span class="en">Research digest · Monday, June 29, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月29日 星期一</span>
     </div>
     <h1>
-      <span class="en">Data Movement Sets the Research Agenda</span>
-      <span class="zh">数据搬移主导研究议程</span>
+      <span class="en">Efficient Hardware Meets Reliability Pressure</span>
+      <span class="zh">高效硬件遇上可靠性压力</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s stronger papers treat memory placement, interconnect overhead, photonic switching, and safety verification as first-order design problems. The common thread is that compute blocks matter less when data movement, topology, and packaging constraints dominate system behavior.</span>
-      <span class="zh">本周较强的论文把存储位置、互连开销、光子交换和安全验证视为一阶设计问题。共同线索是，当数据搬移、拓扑和封装约束主导系统行为时，单个计算模块本身的重要性会下降。</span>
+      <span class="en">Today’s research shortlist is architecture-heavy, with emphasis on low-power acceleration, fault screening, security co-processors, and AI-assisted design. The common thread is practical deployment pressure: energy, reliability, and verification matter as much as peak throughput.</span>
+      <span class="zh">今天的研究入选偏重架构方向，重点包括低功耗加速、故障筛选、安全协处理器和AI辅助设计。共同主线是实际部署压力：能效、可靠性和验证的重要性不低于峰值吞吐。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1002/adom.202503295" target="_blank" rel="noopener">
-          <span class="en">Non-Volatile Silicon Mach-Zehnder Switches Using Graphene Heaters and Sb2Se3 Phase Change Material</span>
-          <span class="zh">基于Graphene加热器和Sb2Se3相变材料的非易失硅Mach-Zehnder开关</span>
-        </a>
-      </h3>
-      <p class="authors">J. Samland, F. Hoff, T. Veslin, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1002/adom.202503295" target="_blank" rel="noopener">Advanced Optical Materials</a> · 2026-06-23</p>
-      <p class="summary">
-        <span class="en">Samland et al. experimentally demonstrate non-volatile silicon Mach-Zehnder switches using Sb2Se3 phase-change material switched by graphene heaters. The reported device reaches a 0.7 pi phase shift, VpiL of about 0.56 Vcm, and a 28 dB extinction ratio. The result is useful for neuromorphic and reconfigurable PICs because the optical state can persist without continuous heater power, though the path to dense, repeatable arrays still depends on process control and cycling data.</span>
-        <span class="zh">Samland等人实验展示了使用Sb2Se3相变材料、由graphene加热器切换的非易失硅Mach-Zehnder开关。器件实现了0.7π相移、约0.56 Vcm的VπL和28 dB消光比。这个结果对神经形态和可重构PIC有价值，因为光学状态无需持续加热功耗即可保持，但走向高密度、可重复阵列仍取决于工艺控制和循环可靠性数据。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1038/s41378-026-01298-x" target="_blank" rel="noopener">
-          <span class="en">Scalable Silicon Photonic MEMS Switches with Quasi-Buckling-Free Directional Couplers</span>
-          <span class="zh">采用准无翘曲方向耦合器的可扩展硅光子MEMS开关</span>
-        </a>
-      </h3>
-      <p class="authors">Y. Hu, J. Zhu, Y. Liu, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1038/s41378-026-01298-x" target="_blank" rel="noopener">Microsystems &amp; Nanoengineering</a> · 2026-06-15</p>
-      <p class="summary">
-        <span class="en">Hu et al. co-design the mechanics and optics of a 2x2 horizontal adiabatic-directional-coupler MEMS switch to suppress buckling. The fabricated switches show broad 180 nm bandwidth, roughly 2 microsecond switching, more than 7.2 billion cycles, and a demonstrated 64x64 Benes array. That combination makes the work more relevant to AI optical switching fabrics than a single-device photonics result, although packaging and control overhead remain the scaling tests.</span>
-        <span class="zh">Hu等人对2x2水平绝热方向耦合器MEMS开关进行机光协同设计，以抑制翘曲。实测开关具备180 nm宽带、约2微秒切换速度、超过72亿次循环，并展示了64x64 Benes阵列。这个组合使其相比单器件光子结果更接近AI光交换网络需求，不过封装和控制开销仍是规模化考验。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
+    <section class="area" id="circuits">
     <h2>
       <span class="en">Circuits &amp; Architecture</span>
       <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.27240" target="_blank" rel="noopener">
-          <span class="en">Scratchpad Memory and Heterogeneity Trade-offs in CGRAs</span>
-          <span class="zh">CGRA中Scratchpad Memory与异构性的权衡</span>
+        <a href="https://doi.org/10.47392/irjaeh.2026.0571" target="_blank" rel="noopener">
+          <span class="en">VLSI Implementation of an Energy-Efficient Approximate ALU</span>
+          <span class="zh">面向能效的近似ALU VLSI实现</span>
         </a>
       </h3>
-      <p class="authors">M. J. Belda, L. Orlandic, F. Castro, et al.</p>
+      <p class="authors">Tamilselvi P., Jeyasudha S., Ranjitha R., Sanmugapriya M., Neethu K., et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.27240" target="_blank" rel="noopener">arXiv:2606.27240</a> · 2026-06-25T16:24:35Z</p>
+      <p class="venue"><a href="https://doi.org/10.47392/irjaeh.2026.0571" target="_blank" rel="noopener">International Research Journal on Advanced Engineering Hub (IRJAEH)</a> · 2026-06-26</p>
       <p class="summary">
-        <span class="en">Belda et al. evaluate how scratchpad memory and heterogeneous processing elements change CGRA behavior on FFT, GEMM, and a seizure-detection transformer workload. The scratchpad reduces memory traffic by 8x versus a memory-less design, while the homogeneous architecture cuts area overhead by 4.4x to 8.2x compared with prior CGRAs. The paper is useful because it separates data-movement wins from PE-specialization wins instead of treating CGRA efficiency as one knob.</span>
-        <span class="zh">Belda等人在FFT、GEMM和癫痫检测Transformer工作负载上评估scratchpad memory与异构处理单元如何改变CGRA表现。相较无本地存储设计，scratchpad将存储流量降低8倍；而同构架构相对既有CGRA把面积开销降低4.4倍到8.2倍。论文的价值在于把数据搬移收益和PE专用化收益拆开分析，而不是把CGRA效率视为单一旋钮。</span>
+        <span class="en">The paper reviews and evaluates approximate ALU techniques for VLSI designs, including truncated computation, speculative addition, and logic simplification. It frames accuracy loss through metrics such as mean error distance and error rate while comparing area, delay, and energy trade-offs. The result is most relevant for error-tolerant workloads such as multimedia, machine learning, and embedded signal processing, where lower switching activity can be worth bounded numerical error.</span>
+        <span class="zh">这篇论文梳理并评估用于VLSI设计的近似ALU技术，包括截断计算、推测加法和逻辑简化。论文用平均误差距离、错误率等指标刻画精度损失，并比较面积、延迟和能耗权衡。其价值主要面向多媒体、机器学习和嵌入式信号处理等可容忍误差的工作负载，在这些场景中，降低开关活动可能值得接受受控数值误差。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3827618" target="_blank" rel="noopener">
-          <span class="en">Location-Aware Scheduling for Multitasking MCM-GPUs</span>
-          <span class="zh">面向多任务MCM-GPU的位置感知调度</span>
+        <a href="https://doi.org/10.1038/s41598-026-58079-9" target="_blank" rel="noopener">
+          <span class="en">A Scalable RISC-V Security Co-Processor for IoT</span>
+          <span class="zh">面向IoT的可扩展RISC-V安全协处理器</span>
         </a>
       </h3>
-      <p class="authors">T. Zhang, G. Zhang, Y. He, et al.</p>
+      <p class="authors">Mohamed Niazy, Haytham Azmi, M. M. Mahmoud</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3827618" target="_blank" rel="noopener">ACM TODAES</a> · 2026-06-24</p>
+      <p class="venue"><a href="https://doi.org/10.1038/s41598-026-58079-9" target="_blank" rel="noopener">Scientific Reports</a> · 2026-06-21</p>
       <p class="summary">
-        <span class="en">Zhang et al. show that placement decisions become first-order when multiple applications share a multi-chip-module GPU. Some workload pairs perform better when co-located on the same GPU chip to maximize memory bandwidth use, while others benefit from being split across chips to reduce contention. That observation maps directly to cloud GPU scheduling as chiplet GPUs become the norm rather than an exotic package choice.</span>
-        <span class="zh">Zhang等人指出，当多个应用共享多芯片模块GPU时，任务放置会成为一阶性能因素。有些工作负载组合放在同一GPU芯片上更利于利用存储带宽，另一些则适合跨芯片分布以降低争用。随着chiplet GPU成为常态而不再是特殊封装选择，这个观察直接映射到云端GPU调度。</span>
+        <span class="en">The paper proposes a RISC-V-based cryptographic co-processor architecture for IoT devices, supporting AES-128 and SHA-256 without adding custom instructions to the base ISA. It uses memory-mapped I/O and DMA to move data between memory and cipher units without stalling the processor pipeline, and the design is implemented on a Xilinx ZCU-102 FPGA using Vivado 2022.2. The main significance is a modular security path for constrained devices that need hardware acceleration without fragmenting software compatibility.</span>
+        <span class="zh">这篇论文提出一种面向IoT设备的RISC-V密码协处理器架构，在不向基础ISA添加自定义指令的情况下支持AES-128和SHA-256。设计使用MMIO和DMA在存储器与密码单元之间搬运数据，避免阻塞处理器流水线，并在Xilinx ZCU-102 FPGA上用Vivado 2022.2实现。其主要意义在于为资源受限设备提供模块化硬件安全加速，同时不破坏软件兼容性。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.66571/tsarka-3134-6057-06" target="_blank" rel="noopener">
+          <span class="en">DPDK Architecture for 100 Gbps and Beyond Packet Processing</span>
+          <span class="zh">面向100Gbps及以上包处理的DPDK架构</span>
+        </a>
+      </h3>
+      <p class="authors">Arnur Kabdylkak, Miras Zhumabek</p>
+      
+      <p class="venue"><a href="https://doi.org/10.66571/tsarka-3134-6057-06" target="_blank" rel="noopener">TSARKA Science</a> · 2026-06-16</p>
+      <p class="summary">
+        <span class="en">The article analyzes DPDK components such as EAL, poll-mode drivers, rte_mbuf, rte_mempool, rte_ring, and several packet-processing models for 100 Gbps-and-above systems. It highlights kernel bypass, zero-copy data paths, cache-optimized processing, and cryptographic protection through rte_security and cryptodev. The FPGA discussion makes it relevant for network accelerators where switching and inline encryption increasingly move closer to hardware.</span>
+        <span class="zh">这篇文章分析DPDK在100Gbps及以上系统中的关键组件，包括EAL、轮询模式驱动、rte_mbuf、rte_mempool、rte_ring以及多种包处理模型。论文强调kernel bypass、zero-copy数据路径、缓存优化处理，以及通过rte_security和cryptodev实现的加密保护。其关于FPGA的讨论使其与网络加速器相关，因为交换和在线加密正越来越靠近硬件实现。</span>
       </p>
     </article>
   </section>
   <section class="area" id="accelerators">
     <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
+      <span class="en">AI Accelerators &amp; Edge Hardware</span>
+      <span class="zh">AI加速器与边缘硬件</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3821578" target="_blank" rel="noopener">
-          <span class="en">Protocol and Software Co-Optimization for dGPU In-Kernel ML</span>
-          <span class="zh">面向dGPU内核内机器学习的协议与软件协同优化</span>
+        <a href="https://doi.org/10.3390/electronics15132792" target="_blank" rel="noopener">
+          <span class="en">Risk-Guided Fault-Injection Prioritization for Systolic AI Accelerators</span>
+          <span class="zh">面向脉动阵列AI加速器的风险引导故障注入排序</span>
         </a>
       </h3>
-      <p class="authors">W. Li, S. Zhu, P. Cuan, et al.</p>
+      <p class="authors">Larisa Goffman-Vinopal</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3821578" target="_blank" rel="noopener">ACM TACO</a> · 2026-06-23</p>
+      <p class="venue"><a href="https://doi.org/10.3390/electronics15132792" target="_blank" rel="noopener">Electronics</a> · 2026-06-25</p>
       <p class="summary">
-        <span class="en">Li et al. target the PCIe and software-path bottleneck that makes small-batch in-kernel ML offload unattractive on dGPUs. Their co-optimization combines feature selection, mixed-precision quantization, lightweight compression, and adaptive transfer scheduling, cutting transferred bytes by 50% to 87.5%. The key result is that the dGPU break-even batch size drops from 256 to 64 and latency falls 3.2x to 5.8x, showing that protocol overhead can dominate raw accelerator throughput.</span>
-        <span class="zh">Li等人针对小批量内核内机器学习卸载到dGPU时的PCIe和软件路径瓶颈。其协同优化结合特征选择、混合精度量化、轻量压缩和自适应传输调度，把传输字节数减少50%到87.5%。关键结果是dGPU盈亏平衡批量从256降到64，端到端延迟降低3.2倍到5.8倍，说明协议开销可能压过原始加速器吞吐。</span>
+        <span class="en">The paper proposes an architecture-level method to prioritize fault-injection candidates for systolic AI accelerators, targeting silent data corruption under limited validation budgets. Its evaluation scores the same 21,000 candidate faults across 30 workload, dataflow, and array configurations, including five GEMM-derived workloads, three array sizes, and two dataflows. The practical value is faster triage of MAC, accumulator, and forwarding-path vulnerabilities before expensive downstream validation.</span>
+        <span class="zh">这篇论文提出一种架构级方法，用于在验证预算有限时对脉动阵列AI加速器的故障注入候选进行优先排序，目标是更有效发现静默数据损坏风险。评估在30种工作负载、数据流和阵列配置下，对同一组21,000个候选故障打分，其中包括5个源自GEMM的工作负载、3种阵列尺寸和2种数据流。其实际价值在于，在昂贵的后续验证之前，更快筛查MAC、累加器和转发路径的脆弱点。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">
-          <span class="en">A Neuromorphic Silicon Suite in SkyWater 130 nm</span>
-          <span class="zh">基于SkyWater 130 nm的神经形态硅IP套件</span>
+        <a href="https://doi.org/10.1007/s10751-026-02615-6" target="_blank" rel="noopener">
+          <span class="en">Mixed-Signal CMOS VLSI Spiking Echo-State Network for Temporal Signals</span>
+          <span class="zh">用于时序信号处理的混合信号CMOS VLSI脉冲Echo-State网络</span>
         </a>
       </h3>
-      <p class="authors">P. Kumaresan, S. Sivasubramani</p>
+      <p class="authors">R. Nirmala, Malathi Murugesan, Sasikala Duraisamy, V. Senthilkumar</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">arXiv:2606.22635</a> · 2026-06-21T18:46:33Z</p>
+      <p class="venue"><a href="https://doi.org/10.1007/s10751-026-02615-6" target="_blank" rel="noopener">Interactions</a> · 2026-06-23</p>
       <p class="summary">
-        <span class="en">Kumaresan and Sivasubramani present four interface-compatible neuromorphic IP blocks in SkyWater 130 nm: a PVT sensor, stochastic LIF neuron, STDP controller, and memristive-crossbar controller. The blocks share an SPI register file and were verified with 99 cocotb tests at RTL and gate level. It is not a production neuromorphic chip yet, but open, standard-cell blocks lower the barrier for reproducible edge-neuromorphic experiments.</span>
-        <span class="zh">Kumaresan和Sivasubramani在SkyWater 130 nm中提出4个接口兼容的神经形态IP模块：PVT传感器、随机LIF神经元、STDP控制器和memristive crossbar控制器。这些模块共享SPI寄存器文件，并通过99个RTL和门级cocotb测试验证。它还不是量产神经形态芯片，但开放的标准单元模块降低了可复现实验门槛。</span>
+        <span class="en">The paper reports a mixed-signal CMOS VLSI implementation of a spiking echo-state neural network for energy-efficient temporal signal processing. The candidate feed does not include performance numbers, but the topic is relevant because reservoir-style spiking architectures can reduce digital memory movement for streaming signals. The key question for follow-up is whether measured silicon results show enough robustness and programmability for real edge workloads.</span>
+        <span class="zh">这篇论文报告一种面向高能效时序信号处理的混合信号CMOS VLSI脉冲Echo-State神经网络实现。候选摘要未给出性能数字，但该方向重要，因为reservoir式脉冲架构有机会减少流式信号处理中的数字存储搬运。后续需要关注的是，实测硅片结果是否具备足够鲁棒性和可编程性，以支撑真实边缘工作负载。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.23742" target="_blank" rel="noopener">
-          <span class="en">Low-Power Analogue Neural Networks with Trainable Nonlinear Connections</span>
-          <span class="zh">具备可训练非线性连接的低功耗模拟神经网络</span>
+        <a href="https://doi.org/10.48175/ijarsct-36096" target="_blank" rel="noopener">
+          <span class="en">Low-Power FPGA Real-Time Image Processing for Skin Cancer Detection</span>
+          <span class="zh">面向皮肤癌检测的低功耗FPGA实时图像处理架构</span>
         </a>
       </h3>
-      <p class="authors">I. T. Vidamour, F. Aguirre, T. J. Hayward, et al.</p>
+      <p class="authors">Venkata Reddy Adama, G. Koteswar Rao, K. Venugopal Rao</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.23742" target="_blank" rel="noopener">arXiv:2606.23742</a> · 2026-06-21T15:55:23Z</p>
+      <p class="venue"><a href="https://doi.org/10.48175/ijarsct-36096" target="_blank" rel="noopener">International Journal of Advanced Research in Science, Communication and Technology</a> · 2026-06-16</p>
       <p class="summary">
-        <span class="en">Vidamour et al. put trainable nonlinear functions on analog neural-network connections rather than treating device nonlinearities as scalar weights. The approach maps well to smooth continuous-control tasks, transfers across about 35,000 hardware connections, and is projected at roughly 30 microwatts in a dedicated CMOS implementation. The caveat is important: the advantage is task-dependent and does not carry over cleanly to classification-like decision boundaries.</span>
-        <span class="zh">Vidamour等人把可训练非线性函数放在模拟神经网络连接上，而不是把器件非线性简单当作标量权重。该方法适合平滑连续控制任务，可迁移到约3.5万个硬件连接，并预计在专用CMOS实现中功耗约30微瓦。需要注意的是，这种优势依赖任务类型，并不能自然迁移到类似分类边界的问题。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="ai-research">
-    <h2>
-      <span class="en">AI Research for Hardware</span>
-      <span class="zh">面向硬件的AI研究</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.25532" target="_blank" rel="noopener">
-          <span class="en">Physically Constrained Agents for Hardware-Aware Foundation Model Compression</span>
-          <span class="zh">面向硬件约束基础模型压缩的物理约束智能体</span>
-        </a>
-      </h3>
-      <p class="authors">J. Zhang, W. Sun, C. Wang, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.25532" target="_blank" rel="noopener">arXiv:2606.25532</a> · 2026-06-24T08:07:59Z</p>
-      <p class="summary">
-        <span class="en">Zhang et al. build a physically grounded multi-agent discovery system for hardware-compliant foundation-model deployment. The generated methods include Q-Enhance for long-context dense models and MoE-Salient-AQ for sparse MoE quantization, with the paper claiming a 235B-parameter model deployed on dual A100s after a 75% memory reduction and 0.64% accuracy loss. The result is relevant because compression is framed around hardware constraints, but the claims need independent reproduction before they should guide accelerator roadmaps.</span>
-        <span class="zh">Zhang等人构建了一个具备物理约束的多智能体发现系统，用于符合硬件约束的基础模型部署。生成的方法包括面向长上下文稠密模型的Q-Enhance，以及面向稀疏MoE量化的MoE-Salient-AQ；论文声称在内存需求降低75%、精度损失0.64%的情况下，将235B参数模型部署到双A100服务器。该结果重要在于把压缩问题放入硬件约束中讨论，但相关主张仍需独立复现后才适合作为加速器路线图依据。</span>
+        <span class="en">The paper proposes a low-power FPGA architecture for real-time skin-cancer image processing, combining acquisition, preprocessing, lesion segmentation, feature enhancement, lightweight CNN classification, and hardware acceleration. It targets portable screening systems where software-only deep learning can be limited by compute, memory, and power budgets. The listed abstract is architecture-focused, so measured latency, power, and diagnostic accuracy would determine how deployable the design is.</span>
+        <span class="zh">这篇论文提出一种低功耗FPGA实时图像处理架构，用于皮肤癌检测，流程包括图像采集、预处理、病灶分割、特征增强、轻量级CNN分类和硬件加速。它面向便携筛查系统，因为纯软件深度学习往往受算力、存储和功耗预算限制。候选摘要偏架构描述，因此实测延迟、功耗和诊断准确率将决定该设计的可部署性。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Verification</span>
-      <span class="zh">EDA与验证</span>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.25296" target="_blank" rel="noopener">
-          <span class="en">SafeGen Uses LLMs and Formal Verification for Functional-Safety Assertions</span>
-          <span class="zh">SafeGen用LLM和形式验证生成函数安全断言</span>
+        <a href="https://doi.org/10.48175/ijarsct-36723" target="_blank" rel="noopener">
+          <span class="en">AI in Modern VLSI Chip Design: Opportunities and Challenges</span>
+          <span class="zh">现代VLSI芯片设计中的AI：机会与挑战</span>
         </a>
       </h3>
-      <p class="authors">X. Tan, A. Chaudhuri, R. Parekhji, et al.</p>
+      <p class="authors">Rekha Sharanagouda Patil</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.25296" target="_blank" rel="noopener">arXiv:2606.25296</a> · 2026-06-24T01:58:38Z</p>
+      <p class="venue"><a href="https://doi.org/10.48175/ijarsct-36723" target="_blank" rel="noopener">International Journal of Advanced Research in Science, Communication and Technology</a> · 2026-06-15</p>
       <p class="summary">
-        <span class="en">Tan et al. propose SafeGen, an LLM-driven framework that generates functional-safety assertions and evaluates fault criticality with formal verification support. The system links safety documents, FMEDA guidance, RTL information, and generated assertions through a document-level Hyper Knowledge Graph. The value is traceability rather than text generation alone, but automotive-grade adoption will depend on how well the generated assertions survive adversarial and coverage audits.</span>
-        <span class="zh">Tan等人提出SafeGen，这是一个由LLM驱动、并结合形式验证来生成函数安全断言和评估故障关键性的框架。系统通过文档级Hyper Knowledge Graph把安全文档、FMEDA指南、RTL信息和生成断言连接起来。其价值不只是文本生成，而是可追溯性；不过要进入汽车级流程，还要看生成断言能否经受对抗性检查和覆盖率审计。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum &amp; Photonics</span>
-      <span class="zh">量子与光子</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1038/s41566-026-01944-w" target="_blank" rel="noopener">
-          <span class="en">A Photonic Integrated Long-Distance Quantum Communication Network</span>
-          <span class="zh">光子集成长距离量子通信网络</span>
-        </a>
-      </h3>
-      <p class="authors">L. Zhang, J. Pan, T.-Y. Chen, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1038/s41566-026-01944-w" target="_blank" rel="noopener">Nature Photonics</a> · 2026-06-19</p>
-      <p class="summary">
-        <span class="en">Zhang et al. report a photonic integrated long-distance quantum communication network in Nature Photonics. The candidate metadata does not expose detailed performance numbers, but the venue and topic make it relevant to integrated quantum links rather than lab-bench optics alone. The paper belongs on the reading queue because photonic integration is one of the few credible routes to scaling quantum networking hardware.</span>
-        <span class="zh">Zhang等人在Nature Photonics报道了一个光子集成长距离量子通信网络。候选元数据没有给出详细性能数字，但从期刊和主题看，它更接近集成量子链路，而不只是实验台光学演示。该论文值得列入阅读队列，因为光子集成是扩展量子网络硬件的少数可信路径之一。</span>
+        <span class="en">The paper surveys how AI and machine learning are entering the VLSI design lifecycle, from architectural exploration and floorplanning to physical verification and timing closure. It frames the benefit around power, performance, area, and time-to-market, while calling out data scarcity, black-box model behavior, and verification reliability as major obstacles. The paper is a useful checklist for where AI-EDA needs evidence, not just automation demos.</span>
+        <span class="zh">这篇论文综述AI和机器学习如何进入VLSI设计流程，从架构探索、floorplanning到物理验证和时序收敛。论文把价值放在PPA优化和缩短上市时间上，同时指出数据稀缺、黑盒模型行为和验证可靠性是主要障碍。它更像是一份AI-EDA需要补齐证据的清单，而不只是自动化演示的集合。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-28 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-28 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-29 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-29 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
