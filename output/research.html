@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-29">
+<meta name="edition-date" content="2026-06-30">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Efficient Hardware Meets Reliability Pressure — Semi Research 2026-06-29</title>
+<title>Hardware Workloads Move Closer to the Metal — Semi Research 2026-06-30</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,122 +249,164 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, June 29, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月29日 星期一</span>
+      <span class="en">Research digest · Tuesday, June 30, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月30日 星期二</span>
     </div>
     <h1>
-      <span class="en">Efficient Hardware Meets Reliability Pressure</span>
-      <span class="zh">高效硬件遇上可靠性压力</span>
+      <span class="en">Hardware Workloads Move Closer to the Metal</span>
+      <span class="zh">硬件工作负载贴近底层</span>
     </h1>
     <p class="dek">
-      <span class="en">Today’s research shortlist is architecture-heavy, with emphasis on low-power acceleration, fault screening, security co-processors, and AI-assisted design. The common thread is practical deployment pressure: energy, reliability, and verification matter as much as peak throughput.</span>
-      <span class="zh">今天的研究入选偏重架构方向，重点包括低功耗加速、故障筛选、安全协处理器和AI辅助设计。共同主线是实际部署压力：能效、可靠性和验证的重要性不低于峰值吞吐。</span>
+      <span class="en">This week’s papers emphasize measurement and co-design: Blackwell video encoders, phone NPUs, real-time RISC-V cores, chiplet placement, and EDA agents all move beyond abstract models. Several results are still simulation-heavy, but the useful thread is the same: software decisions are being pulled into hardware constraints earlier.</span>
+      <span class="zh">本周论文强调测量与协同设计：Blackwell视频编码器、手机NPU、实时RISC-V核心、chiplet布局和EDA agent都在从抽象模型走向更贴近硬件的评估。部分结果仍偏仿真，但有价值的主线一致：软件决策正在更早地受到硬件约束牵引。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 7篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
-    <section class="area" id="circuits">
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.26426" target="_blank" rel="noopener">
+          <span class="en">NEMS primitives for hardware security in advanced packaging</span>
+          <span class="zh">面向先进封装硬件安全的NEMS原语</span>
+        </a>
+      </h3>
+      <p class="authors">H. R. Kottur, P. Arjunamahanthi, M. S. M. Khan, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26426" target="_blank" rel="noopener">arXiv:2606.26426</a> · 2026-06-24T22:33:33Z</p>
+      <p class="summary">
+        <span class="en">Kottur et al. frame nanoelectromechanical systems as physical security primitives for advanced packaging, including PUFs, resonance fingerprints, shape-memory materials, and physical unlocking mechanisms. The useful angle is that packaging security needs device-level assurance, not only digital cryptographic wrappers. The paper reads as a technology-mapping proposal rather than a measured manufacturing result, so the next proof point is integration data in a standard semiconductor flow.</span>
+        <span class="zh">Kottur等人将纳机电系统（NEMS）定义为先进封装中的物理安全原语，包括PUF、谐振指纹、形状记忆材料和物理解锁机制。它的有价值之处在于指出封装安全需要器件级保证，而不只是数字密码学外壳。这篇论文更像技术路线映射，而不是已验证的制造结果，下一步需要在标准半导体流程中的集成数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
     <h2>
       <span class="en">Circuits &amp; Architecture</span>
       <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.47392/irjaeh.2026.0571" target="_blank" rel="noopener">
-          <span class="en">VLSI Implementation of an Energy-Efficient Approximate ALU</span>
-          <span class="zh">面向能效的近似ALU VLSI实现</span>
+        <a href="https://arxiv.org/abs/2606.28754" target="_blank" rel="noopener">
+          <span class="en">SHIFT relocates compute in communication-aware chiplet systems</span>
+          <span class="zh">SHIFT在通信感知chiplet系统中迁移计算</span>
         </a>
       </h3>
-      <p class="authors">Tamilselvi P., Jeyasudha S., Ranjitha R., Sanmugapriya M., Neethu K., et al.</p>
+      <p class="authors">A. Delavari, L. Popryho, I. Partin-Vaisband, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.47392/irjaeh.2026.0571" target="_blank" rel="noopener">International Research Journal on Advanced Engineering Hub (IRJAEH)</a> · 2026-06-26</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.28754" target="_blank" rel="noopener">arXiv:2606.28754</a> · 2026-06-27T06:02:23Z</p>
       <p class="summary">
-        <span class="en">The paper reviews and evaluates approximate ALU techniques for VLSI designs, including truncated computation, speculative addition, and logic simplification. It frames accuracy loss through metrics such as mean error distance and error rate while comparing area, delay, and energy trade-offs. The result is most relevant for error-tolerant workloads such as multimedia, machine learning, and embedded signal processing, where lower switching activity can be worth bounded numerical error.</span>
-        <span class="zh">这篇论文梳理并评估用于VLSI设计的近似ALU技术，包括截断计算、推测加法和逻辑简化。论文用平均误差距离、错误率等指标刻画精度损失，并比较面积、延迟和能耗权衡。其价值主要面向多媒体、机器学习和嵌入式信号处理等可容忍误差的工作负载，在这些场景中，降低开关活动可能值得接受受控数值误差。</span>
+        <span class="en">Delavari et al. propose SHIFT, a topology-agnostic runtime method that moves compute context toward a better-positioned node instead of only routing data around a chiplet fabric. The design uses utility chiplets, multi-layer routing, a modified shortest-path algorithm, and a lightweight ML policy for traffic adaptivity. The paper is simulation-oriented, but it targets a real scaling issue: chiplet systems increasingly pay for data motion more than arithmetic.</span>
+        <span class="zh">Delavari等人提出SHIFT，这是一种拓扑无关的运行时方法，不只是把数据绕过chiplet互连，而是将计算上下文迁移到位置更合适的节点。该设计使用utility chiplet、多层路由、修改版最短路径算法和轻量ML策略来适应流量变化。论文以仿真为主，但瞄准了真实扩展问题：chiplet系统越来越多地为数据移动而不是算术本身付出代价。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1038/s41598-026-58079-9" target="_blank" rel="noopener">
-          <span class="en">A Scalable RISC-V Security Co-Processor for IoT</span>
-          <span class="zh">面向IoT的可扩展RISC-V安全协处理器</span>
+        <a href="https://arxiv.org/abs/2606.26177" target="_blank" rel="noopener">
+          <span class="en">CVA6-RT adds time-predictable real-time features to an open RV64 core</span>
+          <span class="zh">CVA6-RT为开放RV64核心加入时间可预测实时特性</span>
         </a>
       </h3>
-      <p class="authors">Mohamed Niazy, Haytham Azmi, M. M. Mahmoud</p>
+      <p class="authors">E. Zelioli, C. Reinwardt, N. Wistoff, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1038/s41598-026-58079-9" target="_blank" rel="noopener">Scientific Reports</a> · 2026-06-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26177" target="_blank" rel="noopener">arXiv:2606.26177</a> · 2026-06-24T11:52:10Z</p>
       <p class="summary">
-        <span class="en">The paper proposes a RISC-V-based cryptographic co-processor architecture for IoT devices, supporting AES-128 and SHA-256 without adding custom instructions to the base ISA. It uses memory-mapped I/O and DMA to move data between memory and cipher units without stalling the processor pipeline, and the design is implemented on a Xilinx ZCU-102 FPGA using Vivado 2022.2. The main significance is a modular security path for constrained devices that need hardware acceleration without fragmenting software compatibility.</span>
-        <span class="zh">这篇论文提出一种面向IoT设备的RISC-V密码协处理器架构，在不向基础ISA添加自定义指令的情况下支持AES-128和SHA-256。设计使用MMIO和DMA在存储器与密码单元之间搬运数据，避免阻塞处理器流水线，并在Xilinx ZCU-102 FPGA上用Vivado 2022.2实现。其主要意义在于为资源受限设备提供模块化硬件安全加速，同时不破坏软件兼容性。</span>
+        <span class="en">Zelioli et al. extend the open-source CVA6 core with TLB partitioning and locking, scratchpad-style L1 cache modes, and low-latency interrupt handling with hardware-assisted context stacking. With real-time features enabled, CVA6-RT reaches 12-cycle interrupt latency, about 10x lower than baseline CVA6 and comparable to simpler Arm Cortex-M microcontrollers. The result is relevant for mixed-criticality systems that want Linux-class RISC-V openness without giving up deterministic response.</span>
+        <span class="zh">Zelioli等人为开源CVA6核心加入TLB分区与锁定、可重构scratchpad式L1缓存模式，以及带硬件辅助上下文堆栈的低延迟中断处理。启用实时特性后，CVA6-RT实现12周期中断延迟，比基线CVA6低约10倍，并可与更简单的Arm Cortex-M微控制器相当。这个结果适合希望保留Linux级RISC-V开放性、同时又需要确定性响应的混合关键系统。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.66571/tsarka-3134-6057-06" target="_blank" rel="noopener">
-          <span class="en">DPDK Architecture for 100 Gbps and Beyond Packet Processing</span>
-          <span class="zh">面向100Gbps及以上包处理的DPDK架构</span>
+        <a href="https://arxiv.org/abs/2606.25673" target="_blank" rel="noopener">
+          <span class="en">Croc turns open-source silicon education into fabricated RISC-V chips</span>
+          <span class="zh">Croc将开源硅设计教学推进到已制造RISC-V芯片</span>
         </a>
       </h3>
-      <p class="authors">Arnur Kabdylkak, Miras Zhumabek</p>
+      <p class="authors">E. Zelioli, P. Sauter, T. Benz, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.66571/tsarka-3134-6057-06" target="_blank" rel="noopener">TSARKA Science</a> · 2026-06-16</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25673" target="_blank" rel="noopener">arXiv:2606.25673</a> · 2026-06-24T10:37:00Z</p>
       <p class="summary">
-        <span class="en">The article analyzes DPDK components such as EAL, poll-mode drivers, rte_mbuf, rte_mempool, rte_ring, and several packet-processing models for 100 Gbps-and-above systems. It highlights kernel bypass, zero-copy data paths, cache-optimized processing, and cryptographic protection through rte_security and cryptodev. The FPGA discussion makes it relevant for network accelerators where switching and inline encryption increasingly move closer to hardware.</span>
-        <span class="zh">这篇文章分析DPDK在100Gbps及以上系统中的关键组件，包括EAL、轮询模式驱动、rte_mbuf、rte_mempool、rte_ring以及多种包处理模型。论文强调kernel bypass、zero-copy数据路径、缓存优化处理，以及通过rte_security和cryptodev实现的加密保护。其关于FPGA的讨论使其与网络加速器相关，因为交换和在线加密正越来越靠近硬件实现。</span>
+        <span class="en">Zelioli et al. present Croc, an end-to-end open-source RISC-V SoC design and fabrication flow built around open SystemVerilog IP and a 130 nm open PDK. In the first course run, 65 students completed 33 projects, 30 produced manufacturable layouts, 18 were tapeout candidates, and five were fabricated; a baseline chip has already been characterized in silicon. The paper matters less as a leading-node result than as evidence that open flows can teach full-stack chip design with real silicon feedback.</span>
+        <span class="zh">Zelioli等人介绍Croc，这是一个围绕开源SystemVerilog IP和130nm开放PDK构建的端到端开源RISC-V SoC设计与制造流程。在首次课程实践中，65名学生完成33个项目，其中30个生成可制造版图，18个成为流片候选，5个完成制造；一个基线芯片已完成硅上表征。它的重要性不在先进制程，而在证明开源流程可以通过真实硅反馈训练完整芯片设计能力。</span>
       </p>
     </article>
   </section>
   <section class="area" id="accelerators">
     <h2>
-      <span class="en">AI Accelerators &amp; Edge Hardware</span>
-      <span class="zh">AI加速器与边缘硬件</span>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.3390/electronics15132792" target="_blank" rel="noopener">
-          <span class="en">Risk-Guided Fault-Injection Prioritization for Systolic AI Accelerators</span>
-          <span class="zh">面向脉动阵列AI加速器的风险引导故障注入排序</span>
+        <a href="https://arxiv.org/abs/2606.29179" target="_blank" rel="noopener">
+          <span class="en">Blackwell hardware encoders make high-fidelity V-PCC practical on general GPUs</span>
+          <span class="zh">Blackwell硬件编码器让高保真V-PCC可在通用GPU上实现</span>
         </a>
       </h3>
-      <p class="authors">Larisa Goffman-Vinopal</p>
+      <p class="authors">K. Arunruangsirilert, J. Katto</p>
       
-      <p class="venue"><a href="https://doi.org/10.3390/electronics15132792" target="_blank" rel="noopener">Electronics</a> · 2026-06-25</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.29179" target="_blank" rel="noopener">arXiv:2606.29179</a> · 2026-06-28T03:54:36Z</p>
       <p class="summary">
-        <span class="en">The paper proposes an architecture-level method to prioritize fault-injection candidates for systolic AI accelerators, targeting silent data corruption under limited validation budgets. Its evaluation scores the same 21,000 candidate faults across 30 workload, dataflow, and array configurations, including five GEMM-derived workloads, three array sizes, and two dataflows. The practical value is faster triage of MAC, accumulator, and forwarding-path vulnerabilities before expensive downstream validation.</span>
-        <span class="zh">这篇论文提出一种架构级方法，用于在验证预算有限时对脉动阵列AI加速器的故障注入候选进行优先排序，目标是更有效发现静默数据损坏风险。评估在30种工作负载、数据流和阵列配置下，对同一组21,000个候选故障打分，其中包括5个源自GEMM的工作负载、3种阵列尺寸和2种数据流。其实际价值在于，在昂贵的后续验证之前，更快筛查MAC、累加器和转发路径的脆弱点。</span>
+        <span class="en">Arunruangsirilert and Katto evaluate 8K, 10-bit, 4:2:2 HEVC encoding for video-based point-cloud compression on a commercial Nvidia Blackwell GPU with four on-die hardware encoders. The novelty is not a new codec, but showing that a workload previously pushed toward custom ASICs can move onto general-purpose GPU hardware because Blackwell adds the needed 10-bit 4:2:2 path. The result is workload-specific, but it is a concrete example of fixed-function blocks changing the accelerator boundary.</span>
+        <span class="zh">Arunruangsirilert和Katto在一块商用Nvidia Blackwell GPU上评估面向视频点云压缩的8K、10-bit、4:2:2 HEVC编码，该GPU包含4个片上硬件编码器。新意不在新编解码器，而在说明过去偏向定制ASIC的工作负载，因为Blackwell加入所需的10-bit 4:2:2路径，可以转移到通用GPU硬件上。这个结果具有工作负载特定性，但它清楚展示了固定功能模块如何改变加速器边界。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1007/s10751-026-02615-6" target="_blank" rel="noopener">
-          <span class="en">Mixed-Signal CMOS VLSI Spiking Echo-State Network for Temporal Signals</span>
-          <span class="zh">用于时序信号处理的混合信号CMOS VLSI脉冲Echo-State网络</span>
+        <a href="https://arxiv.org/abs/2606.27906" target="_blank" rel="noopener">
+          <span class="en">Mobile VLM inference depends sharply on phase and backend placement</span>
+          <span class="zh">移动端VLM推理强烈依赖阶段与后端映射</span>
         </a>
       </h3>
-      <p class="authors">R. Nirmala, Malathi Murugesan, Sasikala Duraisamy, V. Senthilkumar</p>
+      <p class="authors">A. V. Murthy, Y. N. Kotre, P. Sharma, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1007/s10751-026-02615-6" target="_blank" rel="noopener">Interactions</a> · 2026-06-23</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27906" target="_blank" rel="noopener">arXiv:2606.27906</a> · 2026-06-26T09:54:33Z</p>
       <p class="summary">
-        <span class="en">The paper reports a mixed-signal CMOS VLSI implementation of a spiking echo-state neural network for energy-efficient temporal signal processing. The candidate feed does not include performance numbers, but the topic is relevant because reservoir-style spiking architectures can reduce digital memory movement for streaming signals. The key question for follow-up is whether measured silicon results show enough robustness and programmability for real edge workloads.</span>
-        <span class="zh">这篇论文报告一种面向高能效时序信号处理的混合信号CMOS VLSI脉冲Echo-State神经网络实现。候选摘要未给出性能数字，但该方向重要，因为reservoir式脉冲架构有机会减少流式信号处理中的数字存储搬运。后续需要关注的是，实测硅片结果是否具备足够鲁棒性和可编程性，以支撑真实边缘工作负载。</span>
+        <span class="en">Murthy et al. characterize vision-language inference on a Snapdragon 8 Elite-class mobile SoC using hardware-in-the-loop measurements. The NPU gives a 1.64x speedup for prefill but only 1.18x for decode, while vision encoders see 20-45x CPU speedups; the best paths cut steady-state temperature by 10.47 degrees C and energy by 2.52x. The paper is useful because it turns “run it on the NPU” into a phase-by-phase mapping problem for on-device AI.</span>
+        <span class="zh">Murthy等人使用硬件在环测量，表征Snapdragon 8 Elite级移动SoC上的视觉语言模型推理。NPU在prefill阶段带来1.64倍加速，但在decode阶段只有1.18倍；视觉编码器相对CPU有20-45倍加速，最佳路径使稳态温度降低10.47摄氏度、能耗降低2.52倍。论文的价值在于把「跑在NPU上」拆解成按阶段映射的移动端AI问题。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.48175/ijarsct-36096" target="_blank" rel="noopener">
-          <span class="en">Low-Power FPGA Real-Time Image Processing for Skin Cancer Detection</span>
-          <span class="zh">面向皮肤癌检测的低功耗FPGA实时图像处理架构</span>
+        <a href="https://arxiv.org/abs/2606.25562" target="_blank" rel="noopener">
+          <span class="en">MSDF digit-serial arithmetic accelerates U-Net convolution on FPGA</span>
+          <span class="zh">MSDF数字串行算术在FPGA上加速U-Net卷积</span>
         </a>
       </h3>
-      <p class="authors">Venkata Reddy Adama, G. Koteswar Rao, K. Venugopal Rao</p>
+      <p class="authors">M. Usman, Y. Sadegheih, D. Merhof</p>
       
-      <p class="venue"><a href="https://doi.org/10.48175/ijarsct-36096" target="_blank" rel="noopener">International Journal of Advanced Research in Science, Communication and Technology</a> · 2026-06-16</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25562" target="_blank" rel="noopener">arXiv:2606.25562</a> · 2026-06-24T08:37:40Z</p>
       <p class="summary">
-        <span class="en">The paper proposes a low-power FPGA architecture for real-time skin-cancer image processing, combining acquisition, preprocessing, lesion segmentation, feature enhancement, lightweight CNN classification, and hardware acceleration. It targets portable screening systems where software-only deep learning can be limited by compute, memory, and power budgets. The listed abstract is architecture-focused, so measured latency, power, and diagnostic accuracy would determine how deployable the design is.</span>
-        <span class="zh">这篇论文提出一种低功耗FPGA实时图像处理架构，用于皮肤癌检测，流程包括图像采集、预处理、病灶分割、特征增强、轻量级CNN分类和硬件加速。它面向便携筛查系统，因为纯软件深度学习往往受算力、存储和功耗预算限制。候选摘要偏架构描述，因此实测延迟、功耗和诊断准确率将决定该设计的可部署性。</span>
+        <span class="en">Usman et al. build an FPGA convolution accelerator for U-Net that uses most-significant-digit-first digit-serial arithmetic and a merged multiply-add pipeline. The merged unit avoids accumulating startup latency from cascaded multiply and add blocks, improving throughput despite lower FPGA clock frequency than a CPU. The work is narrower than a full accelerator SoC, but it is a concrete arithmetic-level optimization for energy-constrained segmentation workloads.</span>
+        <span class="zh">Usman等人为U-Net构建FPGA卷积加速器，采用最高有效位优先（MSDF）的数字串行算术和融合乘加流水线。融合单元避免了乘法和加法模块级联时启动延迟不断累积的问题，即便FPGA频率低于CPU，也能提升吞吐。该工作比完整加速器SoC范围更窄，但它是面向能耗受限分割工作负载的具体算术级优化。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.28565" target="_blank" rel="noopener">
+          <span class="en">KernelSight-LM simulates LLM inference at kernel-level granularity</span>
+          <span class="zh">KernelSight-LM以kernel级粒度模拟LLM推理</span>
+        </a>
+      </h3>
+      <p class="authors">X. Yao, T. Kim, H. Pei, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.28565" target="_blank" rel="noopener">arXiv:2606.28565</a> · 2026-06-26T19:43:38Z</p>
+      <p class="summary">
+        <span class="en">Yao et al. present KernelSight-LM, an LLM inference simulator that decomposes serving into kernel roofline models, learned efficiency terms, communication, host overhead, prefix caching, and continuous batching. In a cross-generation setting with no target-GPU measurements, it predicts per-kernel latency on an unseen GPU generation at 12.1% error, versus 22.0% for a roofline baseline. The simulator is useful for hardware planning because inference bottlenecks are now shaped by serving policy as much as raw FLOPS.</span>
+        <span class="zh">Yao等人提出KernelSight-LM，这是一个LLM推理模拟器，将服务过程拆解为kernel roofline模型、学习得到的效率项、通信、主机开销、prefix caching和continuous batching。在没有目标GPU测量数据的跨代设置中，它对未见GPU世代的单kernel延迟预测误差为12.1%，而roofline基线为22.0%。该模拟器对硬件规划有用，因为推理瓶颈如今既受原始FLOPS影响，也受服务策略影响。</span>
       </p>
     </article>
   </section>
@@ -375,25 +417,40 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.48175/ijarsct-36723" target="_blank" rel="noopener">
-          <span class="en">AI in Modern VLSI Chip Design: Opportunities and Challenges</span>
-          <span class="zh">现代VLSI芯片设计中的AI：机会与挑战</span>
+        <a href="https://arxiv.org/abs/2606.28279" target="_blank" rel="noopener">
+          <span class="en">HORIZON treats hardware design as repository-level code evolution</span>
+          <span class="zh">HORIZON将硬件设计视为仓库级代码演化</span>
         </a>
       </h3>
-      <p class="authors">Rekha Sharanagouda Patil</p>
+      <p class="authors">C. Yu, C. Deng, N. Pinckney, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.48175/ijarsct-36723" target="_blank" rel="noopener">International Journal of Advanced Research in Science, Communication and Technology</a> · 2026-06-15</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.28279" target="_blank" rel="noopener">arXiv:2606.28279</a> · 2026-06-26T17:21:06Z</p>
       <p class="summary">
-        <span class="en">The paper surveys how AI and machine learning are entering the VLSI design lifecycle, from architectural exploration and floorplanning to physical verification and timing closure. It frames the benefit around power, performance, area, and time-to-market, while calling out data scarcity, black-box model behavior, and verification reliability as major obstacles. The paper is a useful checklist for where AI-EDA needs evidence, not just automation demos.</span>
-        <span class="zh">这篇论文综述AI和机器学习如何进入VLSI设计流程，从架构探索、floorplanning到物理验证和时序收敛。论文把价值放在PPA优化和缩短上市时间上，同时指出数据稀缺、黑盒模型行为和验证可靠性是主要障碍。它更像是一份AI-EDA需要补齐证据的清单，而不只是自动化演示的集合。</span>
+        <span class="en">Yu et al. introduce HORIZON, a self-evolving agent framework that packages hardware-design tasks into repositories with domain knowledge, executable evaluators, acceptance predicates, and git/runtime policy. The system reports 100% benchmark completion across ChipBench, RTLLM, Verilog-Eval, and nine CVDP categories. The authors are explicit that these are controlled proxies, so the result is best read as progress in evaluation harnesses and agent workflow, not proof that autonomous chip design is solved.</span>
+        <span class="zh">Yu等人提出HORIZON，这是一个自演化agent框架，把硬件设计任务封装为包含领域知识、可执行评测器、验收条件以及git/运行时策略的代码仓库。系统在ChipBench、RTLLM、Verilog-Eval和9类CVDP任务上报告100%基准完成率。作者明确指出这些仍是受控代理任务，因此应将其理解为评测框架和agent工作流的进展，而不是自主芯片设计已被解决的证明。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.28409" target="_blank" rel="noopener">
+          <span class="en">Evidence-driven LLM agents repair C into synthesizable HLS code</span>
+          <span class="zh">证据驱动LLM agent将C修复为可综合HLS代码</span>
+        </a>
+      </h3>
+      <p class="authors">Z. Zhao, H. Lang, Z. Xiao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.28409" target="_blank" rel="noopener">arXiv:2606.28409</a> · 2026-06-25T02:55:02Z</p>
+      <p class="summary">
+        <span class="en">Zhao et al. cast C-to-HLS-C conversion as a closed-loop generation, verification, diagnosis, and repair problem around Xilinx Vitis. Their workflow uses a four-stage verifier, Progressive Mismatch Localization Chain, AST slicing, dual-trace instrumentation, and a typed evidence RAG system instead of handing raw logs directly to an LLM. The result matters for EDA because HLS productivity depends less on first-shot code generation than on reproducible repair through compile, CSim, synthesis, and CoSim stages.</span>
+        <span class="zh">Zhao等人将C到HLS-C转换定义为围绕Xilinx Vitis的生成、验证、诊断和修复闭环问题。其流程使用四阶段验证器、Progressive Mismatch Localization Chain、AST切片、双轨迹插桩和类型化证据RAG系统，而不是直接把原始日志交给LLM。该结果对EDA有意义，因为HLS生产力并不主要取决于一次性生成代码，而取决于能否在编译、CSim、综合和CoSim阶段可复现地修复问题。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-29 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-29 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-06-30 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-30 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
