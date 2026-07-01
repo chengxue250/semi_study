@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-06-30">
+<meta name="edition-date" content="2026-07-01">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Hardware Workloads Move Closer to the Metal — Semi Research 2026-06-30</title>
+<title>Neuromorphic Work Moves From Models To Blocks — Semi Research 2026-07-01</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Tuesday, June 30, 2026</span>
-      <span class="zh">研究摘要 · 2026年6月30日 星期二</span>
+      <span class="en">Research digest · Wednesday, July 1, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月1日 星期三</span>
     </div>
     <h1>
-      <span class="en">Hardware Workloads Move Closer to the Metal</span>
-      <span class="zh">硬件工作负载贴近底层</span>
+      <span class="en">Neuromorphic Work Moves From Models To Blocks</span>
+      <span class="zh">神经形态从模型走向模块</span>
     </h1>
     <p class="dek">
-      <span class="en">This week’s papers emphasize measurement and co-design: Blackwell video encoders, phone NPUs, real-time RISC-V cores, chiplet placement, and EDA agents all move beyond abstract models. Several results are still simulation-heavy, but the useful thread is the same: software decisions are being pulled into hardware constraints earlier.</span>
-      <span class="zh">本周论文强调测量与协同设计：Blackwell视频编码器、手机NPU、实时RISC-V核心、chiplet布局和EDA agent都在从抽象模型走向更贴近硬件的评估。部分结果仍偏仿真，但有价值的主线一致：软件决策正在更早地受到硬件约束牵引。</span>
+      <span class="en">This week&#x27;s papers cluster around implementable neuromorphic building blocks: ferroelectric devices, memristive crossbars, SkyWater 130 nm IP, and event-driven deployment flows. The EDA and systems papers show the same pressure from another angle, with AI agents and distributed switch memory trying to make hardware design and data-plane state less brittle.</span>
+      <span class="zh">本周论文集中在更可实现的神经形态构件上：铁电器件、忆阻交叉阵列、SkyWater 130 nm IP，以及事件驱动部署流程。EDA和系统论文从另一个角度呈现同样压力：AI agent和分布式交换机内存都在试图降低硬件设计与数据平面状态管理的脆弱性。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
@@ -273,68 +273,83 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.26426" target="_blank" rel="noopener">
-          <span class="en">NEMS primitives for hardware security in advanced packaging</span>
-          <span class="zh">面向先进封装硬件安全的NEMS原语</span>
+        <a href="https://doi.org/10.1038/s41467-026-74648-y" target="_blank" rel="noopener">
+          <span class="en">Biomimetic ferroelectric-semiconductor transistor for multisensory integration</span>
+          <span class="zh">用于多感官集成的仿生铁电-半导体晶体管</span>
         </a>
       </h3>
-      <p class="authors">H. R. Kottur, P. Arjunamahanthi, M. S. M. Khan, et al.</p>
+      <p class="authors">Shuo Liu, Ligong Zhang, Ruiqing Xie, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.26426" target="_blank" rel="noopener">arXiv:2606.26426</a> · 2026-06-24T22:33:33Z</p>
+      <p class="venue"><a href="https://doi.org/10.1038/s41467-026-74648-y" target="_blank" rel="noopener">Nature Communications</a> · 2026-06-20</p>
       <p class="summary">
-        <span class="en">Kottur et al. frame nanoelectromechanical systems as physical security primitives for advanced packaging, including PUFs, resonance fingerprints, shape-memory materials, and physical unlocking mechanisms. The useful angle is that packaging security needs device-level assurance, not only digital cryptographic wrappers. The paper reads as a technology-mapping proposal rather than a measured manufacturing result, so the next proof point is integration data in a standard semiconductor flow.</span>
-        <span class="zh">Kottur等人将纳机电系统（NEMS）定义为先进封装中的物理安全原语，包括PUF、谐振指纹、形状记忆材料和物理解锁机制。它的有价值之处在于指出封装安全需要器件级保证，而不只是数字密码学外壳。这篇论文更像技术路线映射，而不是已验证的制造结果，下一步需要在标准半导体流程中的集成数据。</span>
+        <span class="en">Liu et al. report a ferroelectric-semiconductor transistor that emulates neuronal multisensory integration. The device-level contribution matters because neuromorphic sensing needs memory and nonlinear weighting near the sensor, not only digital post-processing after data movement. The caveat is manufacturability: a Nature Communications device result still needs array-level yield, endurance, and CMOS integration evidence before it becomes a platform.</span>
+        <span class="zh">Liu等人报道了一种铁电-半导体晶体管，用于模拟神经元的多感官集成。这个器件级结果重要，是因为神经形态传感需要在传感器附近完成记忆和非线性加权，而不只是把数据搬走后再做数字处理。需要保留的caveat是可制造性：Nature Communications级别的单器件结果还需要阵列良率、耐久性和CMOS集成证据，才能成为平台。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.64898/2026.06.23.26356282" target="_blank" rel="noopener">
+          <span class="en">A conformable CMOS ultrasound system for point-of-care imaging</span>
+          <span class="zh">面向床旁成像的贴合式CMOS超声系统</span>
+        </a>
+      </h3>
+      <p class="authors">J. S. Letchumanan, S. Gandhi, H. Yin, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.64898/2026.06.23.26356282" target="_blank" rel="noopener">medRxiv</a> · 2026-06-26</p>
+      <p class="summary">
+        <span class="en">Letchumanan et al. describe a conformable CMOS ultrasound system aimed at point-of-care imaging. The hardware angle is the integration of ultrasound sensing with CMOS electronics in a form factor that can move closer to wearable or bedside use. Because the candidate is a medRxiv preprint, the clinical and manufacturing claims should be treated as early until peer review and broader device validation arrive.</span>
+        <span class="zh">Letchumanan等人描述了一种面向床旁成像的贴合式CMOS超声系统。其硬件看点在于把超声传感与CMOS电子学集成到更接近可穿戴或床旁使用的形态中。由于候选项来自medRxiv预印本，临床与制造相关主张在同行评审和更大范围器件验证前都应视为早期结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.4071/001c.163731" target="_blank" rel="noopener">
+          <span class="en">3D integration technologies for miniaturized TPMS modules</span>
+          <span class="zh">用于小型化TPMS模块的3D集成技术</span>
+        </a>
+      </h3>
+      <p class="authors">N. Lietaer, M. Taklo, A. Klumpp, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.4071/001c.163731" target="_blank" rel="noopener">IMAPSource Proceedings</a> · 2026-06-22</p>
+      <p class="summary">
+        <span class="en">Lietaer et al. detail 3D integration of MEMS, ASIC, radio, power, and antenna blocks for a miniaturized tire-pressure monitoring system. The paper is useful because it names the interconnect stack: Au stud bump bonding, SnAg microbumps, Cu/Sn SLID, and tungsten-filled TSVs. This is not frontier-node logic, but it is a concrete heterogeneous-integration case where packaging choices dominate system feasibility.</span>
+        <span class="zh">Lietaer等人详细介绍了用于小型化胎压监测系统的MEMS、ASIC、射频、电源和天线模块3D集成。论文有价值之处在于明确列出互连技术栈：Au stud bump bonding、SnAg微凸点、Cu/Sn SLID以及钨填充TSV。这不是先进制程逻辑芯片，但它是一个具体的异构集成案例，封装选择直接决定系统可行性。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">Circuits &amp; Systems</span>
+      <span class="zh">电路与系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.28754" target="_blank" rel="noopener">
-          <span class="en">SHIFT relocates compute in communication-aware chiplet systems</span>
-          <span class="zh">SHIFT在通信感知chiplet系统中迁移计算</span>
+        <a href="https://doi.org/10.1109/TC.2026.3678701" target="_blank" rel="noopener">
+          <span class="en">dVRM pools register memory across programmable switches</span>
+          <span class="zh">dVRM在可编程交换机之间池化寄存器内存</span>
         </a>
       </h3>
-      <p class="authors">A. Delavari, L. Popryho, I. Partin-Vaisband, et al.</p>
+      <p class="authors">Mimi Qian, Lin Cui, Fung Po Tso, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.28754" target="_blank" rel="noopener">arXiv:2606.28754</a> · 2026-06-27T06:02:23Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TC.2026.3678701" target="_blank" rel="noopener">IEEE Transactions on Computers</a> · 2026-07-01</p>
       <p class="summary">
-        <span class="en">Delavari et al. propose SHIFT, a topology-agnostic runtime method that moves compute context toward a better-positioned node instead of only routing data around a chiplet fabric. The design uses utility chiplets, multi-layer routing, a modified shortest-path algorithm, and a lightweight ML policy for traffic adaptivity. The paper is simulation-oriented, but it targets a real scaling issue: chiplet systems increasingly pay for data motion more than arithmetic.</span>
-        <span class="zh">Delavari等人提出SHIFT，这是一种拓扑无关的运行时方法，不只是把数据绕过chiplet互连，而是将计算上下文迁移到位置更合适的节点。该设计使用utility chiplet、多层路由、修改版最短路径算法和轻量ML策略来适应流量变化。论文以仿真为主，但瞄准了真实扩展问题：chiplet系统越来越多地为数据移动而不是算术本身付出代价。</span>
+        <span class="en">Qian et al. propose dVRM, a distributed virtual-register-memory framework that pools register resources across multiple programmable switches. The work targets a real bottleneck: applications such as telemetry and in-network computation can run into the roughly 15 MB SRAM limit of a Tofino switch. The interesting systems idea is adaptive bit-width allocation driven by data-plane feedback, though deployment will depend on how much latency and coordination overhead the pool adds.</span>
+        <span class="zh">Qian等人提出dVRM，这是一种在多台可编程交换机之间池化寄存器资源的分布式虚拟寄存器内存框架。它瞄准的是实际瓶颈：遥测、网内计算等应用会遇到Tofino交换机约15 MB SRAM的限制。值得关注的系统思路是由数据平面反馈驱动的自适应位宽分配，但真实部署还要看内存池带来的延迟和协调开销。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.26177" target="_blank" rel="noopener">
-          <span class="en">CVA6-RT adds time-predictable real-time features to an open RV64 core</span>
-          <span class="zh">CVA6-RT为开放RV64核心加入时间可预测实时特性</span>
+        <a href="http://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">
+          <span class="en">A SkyWater 130 nm neuromorphic IP suite</span>
+          <span class="zh">一套SkyWater 130 nm神经形态IP模块</span>
         </a>
       </h3>
-      <p class="authors">E. Zelioli, C. Reinwardt, N. Wistoff, et al.</p>
+      <p class="authors">P. Kumaresan, Santhosh Sivasubramani</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.26177" target="_blank" rel="noopener">arXiv:2606.26177</a> · 2026-06-24T11:52:10Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">arXiv:2606.22635</a> · 2026-06-21</p>
       <p class="summary">
-        <span class="en">Zelioli et al. extend the open-source CVA6 core with TLB partitioning and locking, scratchpad-style L1 cache modes, and low-latency interrupt handling with hardware-assisted context stacking. With real-time features enabled, CVA6-RT reaches 12-cycle interrupt latency, about 10x lower than baseline CVA6 and comparable to simpler Arm Cortex-M microcontrollers. The result is relevant for mixed-criticality systems that want Linux-class RISC-V openness without giving up deterministic response.</span>
-        <span class="zh">Zelioli等人为开源CVA6核心加入TLB分区与锁定、可重构scratchpad式L1缓存模式，以及带硬件辅助上下文堆栈的低延迟中断处理。启用实时特性后，CVA6-RT实现12周期中断延迟，比基线CVA6低约10倍，并可与更简单的Arm Cortex-M微控制器相当。这个结果适合希望保留Linux级RISC-V开放性、同时又需要确定性响应的混合关键系统。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.25673" target="_blank" rel="noopener">
-          <span class="en">Croc turns open-source silicon education into fabricated RISC-V chips</span>
-          <span class="zh">Croc将开源硅设计教学推进到已制造RISC-V芯片</span>
-        </a>
-      </h3>
-      <p class="authors">E. Zelioli, P. Sauter, T. Benz, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.25673" target="_blank" rel="noopener">arXiv:2606.25673</a> · 2026-06-24T10:37:00Z</p>
-      <p class="summary">
-        <span class="en">Zelioli et al. present Croc, an end-to-end open-source RISC-V SoC design and fabrication flow built around open SystemVerilog IP and a 130 nm open PDK. In the first course run, 65 students completed 33 projects, 30 produced manufacturable layouts, 18 were tapeout candidates, and five were fabricated; a baseline chip has already been characterized in silicon. The paper matters less as a leading-node result than as evidence that open flows can teach full-stack chip design with real silicon feedback.</span>
-        <span class="zh">Zelioli等人介绍Croc，这是一个围绕开源SystemVerilog IP和130nm开放PDK构建的端到端开源RISC-V SoC设计与制造流程。在首次课程实践中，65名学生完成33个项目，其中30个生成可制造版图，18个成为流片候选，5个完成制造；一个基线芯片已完成硅上表征。它的重要性不在先进制程，而在证明开源流程可以通过真实硅反馈训练完整芯片设计能力。</span>
+        <span class="en">Kumaresan and Sivasubramani present four interface-compatible digital IP blocks for neuromorphic edge systems in SkyWater 130 nm: a PVT sensor/TRNG block, a stochastic LIF neuron, an STDP learning controller, and a memristive-crossbar controller. The practical value is the common SPI register model and gate-level verification, which makes the blocks easier to integrate than one-off neuromorphic demos. The caveat is that this is still IP-block work at a mature node, not measured performance from a complete neuromorphic SoC.</span>
+        <span class="zh">Kumaresan和Sivasubramani在SkyWater 130 nm中提出四个接口兼容的神经形态边缘系统数字IP：PVT传感器/TRNG模块、随机LIF神经元、STDP学习控制器，以及忆阻交叉阵列控制器。其实用价值在于统一的SPI寄存器模型和门级验证，使这些模块比一次性的神经形态demo更容易集成。需要注意的是，这仍是成熟制程上的IP模块工作，并非完整神经形态SoC的实测性能。</span>
       </p>
     </article>
   </section>
@@ -345,47 +360,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.29179" target="_blank" rel="noopener">
-          <span class="en">Blackwell hardware encoders make high-fidelity V-PCC practical on general GPUs</span>
-          <span class="zh">Blackwell硬件编码器让高保真V-PCC可在通用GPU上实现</span>
+        <a href="http://arxiv.org/abs/2606.22621" target="_blank" rel="noopener">
+          <span class="en">Multi-level resistive synapses for on-chip neural networks</span>
+          <span class="zh">用于片上神经网络的多级阻变突触</span>
         </a>
       </h3>
-      <p class="authors">K. Arunruangsirilert, J. Katto</p>
+      <p class="authors">D. A. T. Pizzo</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.29179" target="_blank" rel="noopener">arXiv:2606.29179</a> · 2026-06-28T03:54:36Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.22621" target="_blank" rel="noopener">arXiv:2606.22621</a> · 2026-06-21</p>
       <p class="summary">
-        <span class="en">Arunruangsirilert and Katto evaluate 8K, 10-bit, 4:2:2 HEVC encoding for video-based point-cloud compression on a commercial Nvidia Blackwell GPU with four on-die hardware encoders. The novelty is not a new codec, but showing that a workload previously pushed toward custom ASICs can move onto general-purpose GPU hardware because Blackwell adds the needed 10-bit 4:2:2 path. The result is workload-specific, but it is a concrete example of fixed-function blocks changing the accelerator boundary.</span>
-        <span class="zh">Arunruangsirilert和Katto在一块商用Nvidia Blackwell GPU上评估面向视频点云压缩的8K、10-bit、4:2:2 HEVC编码，该GPU包含4个片上硬件编码器。新意不在新编解码器，而在说明过去偏向定制ASIC的工作负载，因为Blackwell加入所需的10-bit 4:2:2路径，可以转移到通用GPU硬件上。这个结果具有工作负载特定性，但它清楚展示了固定功能模块如何改变加速器边界。</span>
+        <span class="en">Pizzo builds a physics-based design flow for multi-level memristive synapses in a 1T1R crossbar fabric. The paper connects ionic-transport modeling, differential signed-weight synapses, analog VMM, and in-situ outer-product learning into one proposed accelerator substrate. It is useful as an architecture and device-modeling exercise, but the claims about LLM suitability need measured arrays and endurance data before they can be read as silicon evidence.</span>
+        <span class="zh">Pizzo为1T1R交叉阵列中的多级忆阻突触构建了一套基于物理的设计流程。论文把离子输运建模、差分有符号权重突触、模拟VMM和原位外积学习连接成一个拟议的加速器基底。它作为架构和器件建模练习有价值，但关于适合LLM的主张仍需要实测阵列和耐久性数据，才能被视为硅证据。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.27906" target="_blank" rel="noopener">
-          <span class="en">Mobile VLM inference depends sharply on phase and backend placement</span>
-          <span class="zh">移动端VLM推理强烈依赖阶段与后端映射</span>
+        <a href="http://arxiv.org/abs/2606.24075" target="_blank" rel="noopener">
+          <span class="en">Spike-driven transformers for radar and communication modulation recognition</span>
+          <span class="zh">用于雷达与通信调制识别的脉冲驱动Transformer</span>
         </a>
       </h3>
-      <p class="authors">A. V. Murthy, Y. N. Kotre, P. Sharma, et al.</p>
+      <p class="authors">Xiaohu Li, Chongxiao Qu, Caiyong Lin, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.27906" target="_blank" rel="noopener">arXiv:2606.27906</a> · 2026-06-26T09:54:33Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.24075" target="_blank" rel="noopener">arXiv:2606.24075</a> · 2026-06-23</p>
       <p class="summary">
-        <span class="en">Murthy et al. characterize vision-language inference on a Snapdragon 8 Elite-class mobile SoC using hardware-in-the-loop measurements. The NPU gives a 1.64x speedup for prefill but only 1.18x for decode, while vision encoders see 20-45x CPU speedups; the best paths cut steady-state temperature by 10.47 degrees C and energy by 2.52x. The paper is useful because it turns “run it on the NPU” into a phase-by-phase mapping problem for on-device AI.</span>
-        <span class="zh">Murthy等人使用硬件在环测量，表征Snapdragon 8 Elite级移动SoC上的视觉语言模型推理。NPU在prefill阶段带来1.64倍加速，但在decode阶段只有1.18倍；视觉编码器相对CPU有20-45倍加速，最佳路径使稳态温度降低10.47摄氏度、能耗降低2.52倍。论文的价值在于把「跑在NPU上」拆解成按阶段映射的移动端AI问题。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.25562" target="_blank" rel="noopener">
-          <span class="en">MSDF digit-serial arithmetic accelerates U-Net convolution on FPGA</span>
-          <span class="zh">MSDF数字串行算术在FPGA上加速U-Net卷积</span>
-        </a>
-      </h3>
-      <p class="authors">M. Usman, Y. Sadegheih, D. Merhof</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.25562" target="_blank" rel="noopener">arXiv:2606.25562</a> · 2026-06-24T08:37:40Z</p>
-      <p class="summary">
-        <span class="en">Usman et al. build an FPGA convolution accelerator for U-Net that uses most-significant-digit-first digit-serial arithmetic and a merged multiply-add pipeline. The merged unit avoids accumulating startup latency from cascaded multiply and add blocks, improving throughput despite lower FPGA clock frequency than a CPU. The work is narrower than a full accelerator SoC, but it is a concrete arithmetic-level optimization for energy-constrained segmentation workloads.</span>
-        <span class="zh">Usman等人为U-Net构建FPGA卷积加速器，采用最高有效位优先（MSDF）的数字串行算术和融合乘加流水线。融合单元避免了乘法和加法模块级联时启动延迟不断累积的问题，即便FPGA频率低于CPU，也能提升吞吐。该工作比完整加速器SoC范围更窄，但它是面向能耗受限分割工作负载的具体算术级优化。</span>
+        <span class="en">Li et al. introduce EMRFormer, a spiking-neural-network architecture for automatic modulation recognition on radar and communication IQ waveforms. The paper combines an adaptive spike encoder, integer LIF neurons, spike-separable CNN layers, and a SpikeFormer backbone to reduce the compute burden for edge platforms. It is hardware-relevant because AMR is a real embedded workload, but the candidate summary emphasizes benchmark accuracy more than measured energy on deployed neuromorphic silicon.</span>
+        <span class="zh">Li等人提出EMRFormer，这是一种面向雷达和通信IQ波形自动调制识别的脉冲神经网络架构。论文结合自适应脉冲编码器、整数LIF神经元、spike-separable CNN层和SpikeFormer主干，以降低边缘平台上的计算负担。它具备硬件相关性，因为AMR是真实的嵌入式负载，但候选摘要更强调基准准确率，而不是部署到神经形态硅片后的实测能耗。</span>
       </p>
     </article>
   </section>
@@ -396,61 +396,46 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.28565" target="_blank" rel="noopener">
-          <span class="en">KernelSight-LM simulates LLM inference at kernel-level granularity</span>
-          <span class="zh">KernelSight-LM以kernel级粒度模拟LLM推理</span>
+        <a href="http://arxiv.org/abs/2606.20031" target="_blank" rel="noopener">
+          <span class="en">Neuromorphic reinforcement learning for warehouse pathfinding</span>
+          <span class="zh">用于仓储路径规划的神经形态强化学习框架</span>
         </a>
       </h3>
-      <p class="authors">X. Yao, T. Kim, H. Pei, et al.</p>
+      <p class="authors">Junzhe Xu, Zecui Zeng, Lusong Li, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.28565" target="_blank" rel="noopener">arXiv:2606.28565</a> · 2026-06-26T19:43:38Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.20031" target="_blank" rel="noopener">arXiv:2606.20031</a> · 2026-06-18</p>
       <p class="summary">
-        <span class="en">Yao et al. present KernelSight-LM, an LLM inference simulator that decomposes serving into kernel roofline models, learned efficiency terms, communication, host overhead, prefix caching, and continuous batching. In a cross-generation setting with no target-GPU measurements, it predicts per-kernel latency on an unseen GPU generation at 12.1% error, versus 22.0% for a roofline baseline. The simulator is useful for hardware planning because inference bottlenecks are now shaped by serving policy as much as raw FLOPS.</span>
-        <span class="zh">Yao等人提出KernelSight-LM，这是一个LLM推理模拟器，将服务过程拆解为kernel roofline模型、学习得到的效率项、通信、主机开销、prefix caching和continuous batching。在没有目标GPU测量数据的跨代设置中，它对未见GPU世代的单kernel延迟预测误差为12.1%，而roofline基线为22.0%。该模拟器对硬件规划有用，因为推理瓶颈如今既受原始FLOPS影响，也受服务策略影响。</span>
+        <span class="en">Xu et al. present SDQN-RMFS, a pipeline that trains an ANN policy for robotic mobile fulfillment pathfinding, distills it into an SNN, and deploys it on a neuromorphic chip. The hardware-relevant piece is the sparse event-driven execution, which can reduce power for real-time routing decisions in constrained warehouses. The result is application-specific, so the key question is whether the ANN-to-SNN conversion remains stable as maps, congestion, and robot fleets change.</span>
+        <span class="zh">Xu等人提出SDQN-RMFS：先为机器人移动履约系统的路径规划训练ANN策略，再蒸馏为SNN，并部署到神经形态芯片上。与硬件相关的关键点是稀疏事件驱动执行，它有望降低受限仓储环境中实时路径决策的功耗。该结果偏应用场景，后续关键问题是当地图、拥堵和机器人规模变化时，ANN到SNN的转换能否保持稳定。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
+      <span class="en">EDA &amp; Co-Design</span>
+      <span class="zh">EDA与协同设计</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2606.28279" target="_blank" rel="noopener">
-          <span class="en">HORIZON treats hardware design as repository-level code evolution</span>
-          <span class="zh">HORIZON将硬件设计视为仓库级代码演化</span>
+        <a href="http://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">
+          <span class="en">CHIA: agentic AI for hardware/software co-design research</span>
+          <span class="zh">CHIA：面向软硬件协同设计研究的agentic AI框架</span>
         </a>
       </h3>
-      <p class="authors">C. Yu, C. Deng, N. Pinckney, et al.</p>
+      <p class="authors">Angela Cui, Ferran Hermida-Rivera, Jack Toubes, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2606.28279" target="_blank" rel="noopener">arXiv:2606.28279</a> · 2026-06-26T17:21:06Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">arXiv:2606.27350</a> · 2026-06-25</p>
       <p class="summary">
-        <span class="en">Yu et al. introduce HORIZON, a self-evolving agent framework that packages hardware-design tasks into repositories with domain knowledge, executable evaluators, acceptance predicates, and git/runtime policy. The system reports 100% benchmark completion across ChipBench, RTLLM, Verilog-Eval, and nine CVDP categories. The authors are explicit that these are controlled proxies, so the result is best read as progress in evaluation harnesses and agent workflow, not proof that autonomous chip design is solved.</span>
-        <span class="zh">Yu等人提出HORIZON，这是一个自演化agent框架，把硬件设计任务封装为包含领域知识、可执行评测器、验收条件以及git/运行时策略的代码仓库。系统在ChipBench、RTLLM、Verilog-Eval和9类CVDP任务上报告100%基准完成率。作者明确指出这些仍是受控代理任务，因此应将其理解为评测框架和agent工作流的进展，而不是自主芯片设计已被解决的证明。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2606.28409" target="_blank" rel="noopener">
-          <span class="en">Evidence-driven LLM agents repair C into synthesizable HLS code</span>
-          <span class="zh">证据驱动LLM agent将C修复为可综合HLS代码</span>
-        </a>
-      </h3>
-      <p class="authors">Z. Zhao, H. Lang, Z. Xiao, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2606.28409" target="_blank" rel="noopener">arXiv:2606.28409</a> · 2026-06-25T02:55:02Z</p>
-      <p class="summary">
-        <span class="en">Zhao et al. cast C-to-HLS-C conversion as a closed-loop generation, verification, diagnosis, and repair problem around Xilinx Vitis. Their workflow uses a four-stage verifier, Progressive Mismatch Localization Chain, AST slicing, dual-trace instrumentation, and a typed evidence RAG system instead of handing raw logs directly to an LLM. The result matters for EDA because HLS productivity depends less on first-shot code generation than on reproducible repair through compile, CSim, synthesis, and CoSim stages.</span>
-        <span class="zh">Zhao等人将C到HLS-C转换定义为围绕Xilinx Vitis的生成、验证、诊断和修复闭环问题。其流程使用四阶段验证器、Progressive Mismatch Localization Chain、AST切片、双轨迹插桩和类型化证据RAG系统，而不是直接把原始日志交给LLM。该结果对EDA有意义，因为HLS生产力并不主要取决于一次性生成代码，而取决于能否在编译、CSim、综合和CoSim阶段可复现地修复问题。</span>
+        <span class="en">Cui et al. introduce CHIA, an open-source framework for building agentic AI-driven hardware/software co-design loops. The notable contribution is not another coding assistant demo, but a graph-based flow that can call tools such as Chipyard, gem5, FireSim, Hammer, Vivado, and evolutionary coding agents. If the framework proves reproducible, it could make AI-assisted architecture exploration easier to audit; until then, the main risk is that agent loops hide tool failures behind plausible automation logs.</span>
+        <span class="zh">Cui等人介绍CHIA，这是一个用于构建agentic AI驱动软硬件协同设计循环的开源框架。其重点不是又一个代码助手demo，而是用图结构流程调用Chipyard、gem5、FireSim、Hammer、Vivado和进化式编码agent等工具。若该框架具备可复现性，它可能让AI辅助架构探索更容易审计；在此之前，主要风险是agent循环用看似合理的自动化日志掩盖工具失败。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-06-30 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-06-30 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-01 01:19 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-01 01:19 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
