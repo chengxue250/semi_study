@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archive — Semi News Daily</title>
+<style>
+  :root {
+    --bg:#fbfaf7;--fg:#18181b;--muted:#6b6b6b;--rule:#e7e3da;--accent:#b1370b;
+    --serif:"Newsreader","Charter","Iowan Old Style",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue","PingFang SC",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14130f;--fg:#ece9e1;--muted:#9a9690;--rule:#2b2925;--accent:#e88a55; }
+  }
+  body { background:var(--bg);color:var(--fg);font-family:var(--sans);
+         max-width:760px;margin:0 auto;padding:48px 20px 80px;line-height:1.55; }
+  h1 { font-family:var(--serif);font-weight:600;font-size:32px;margin:0 0 28px; }
+  .top { font-size:13px;color:var(--muted);margin-bottom:8px; }
+  .top a { color:var(--muted); }
+  ul { list-style:none;padding:0;margin:0; }
+  li { padding:16px 0;border-bottom:1px solid var(--rule);
+        display:flex;gap:14px;align-items:baseline; }
+  .date { font-family:var(--serif);font-variant-numeric:tabular-nums;
+           color:var(--muted);min-width:110px;flex-shrink:0; }
+  .editions { display:flex;flex-direction:column;gap:6px;flex:1; }
+  a.edition { color:var(--fg);text-decoration:none;display:flex;
+               gap:10px;align-items:baseline; }
+  a.edition:hover { color:var(--accent); }
+  a.edition .kind { font-family:ui-monospace,Menlo,monospace;font-size:11px;
+                     text-transform:uppercase;letter-spacing:0.08em;
+                     color:var(--accent);min-width:60px; }
+  a.edition.research .kind { color:#2b6a3f; }
+  @media (prefers-color-scheme: dark) {
+    a.edition.research .kind { color:#7ec896; }
+  }
+  body[data-lang="en"] .zh { display:none; }
+  body[data-lang="zh"] .en { display:none; }
+  body[data-lang="both"] h1 .zh::before,
+  body[data-lang="both"] .top .zh::before,
+  body[data-lang="both"] a.edition .zh::before { content:" / "; }
+</style>
+</head>
+<body data-lang="both">
+  <div class="top"><a href="index.html">← <span class="en">today</span><span class="zh">今日</span></a></div>
+  <h1><span class="en">Archive</span><span class="zh">往期</span></h1>
+  <ul>
+    <li>
+      <span class="date">2026-07-02</span>
+      <span class="editions">
+        <a class="edition" href="index.html"><span class="kind">News</span><span class="en">Memory Pressure Rewrites the AI Stack</span><span class="zh">存储压力重写AI堆栈</span></a>
+        <a class="edition research" href="research.html"><span class="kind">Research</span><span class="en">Memory Movement Defines the Research Agenda</span><span class="zh">数据搬运主导研究议程</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-07-01</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-07-01.html"><span class="kind">News</span><span class="en">Inference Spreads Across Packaging, Memory, and Policy</span><span class="zh">推理需求牵动封装、存储与政策</span></a>
+        <a class="edition research" href="archive/research/2026-07-01.html"><span class="kind">Research</span><span class="en">Neuromorphic Work Moves From Models To Blocks</span><span class="zh">神经形态从模型走向模块</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-30</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-30.html"><span class="kind">News</span><span class="en">AI Demand Pulls the Memory Stack Tight</span><span class="zh">AI需求拉紧存储供应链</span></a>
+        <a class="edition research" href="archive/research/2026-06-30.html"><span class="kind">Research</span><span class="en">Hardware Workloads Move Closer to the Metal</span><span class="zh">硬件工作负载贴近底层</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-29</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-29.html"><span class="kind">News</span><span class="en">AI Demand Forces Supply Chain Decisions</span><span class="zh">AI需求逼出供应链决策</span></a>
+        <a class="edition research" href="archive/research/2026-06-29.html"><span class="kind">Research</span><span class="en">Efficient Hardware Meets Reliability Pressure</span><span class="zh">高效硬件遇上可靠性压力</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-28</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-28.html"><span class="kind">News</span><span class="en">Memory Scarcity Pulls Policy Into the Stack</span><span class="zh">存储短缺把政策拉进供应链</span></a>
+        <a class="edition research" href="archive/research/2026-06-28.html"><span class="kind">Research</span><span class="en">Data Movement Sets the Research Agenda</span><span class="zh">数据搬移主导研究议程</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-27</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-27.html"><span class="kind">News</span><span class="en">AI Constraints Move Through the Stack</span><span class="zh">AI约束沿堆栈扩散</span></a>
+        <a class="edition research" href="archive/research/2026-06-27.html"><span class="kind">Research</span><span class="en">Hardware Research Chases Memory Locality</span><span class="zh">硬件研究追逐存储局部性</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-26</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-26.html"><span class="kind">News</span><span class="en">Capacity Pressure Spreads Beyond GPUs</span><span class="zh">产能压力越过GPU向外扩散</span></a>
+        <a class="edition research" href="archive/research/2026-06-26.html"><span class="kind">Research</span><span class="en">Efficiency Work Moves Up the Stack</span><span class="zh">效率研究沿计算栈上移</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-25</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-25.html"><span class="kind">News</span><span class="en">Custom Silicon Pushes Against Memory Limits</span><span class="zh">定制芯片逼近内存边界</span></a>
+        <a class="edition research" href="archive/research/2026-06-25.html"><span class="kind">Research</span><span class="en">Memory Paths Shape AI System Design</span><span class="zh">内存路径重塑AI系统设计</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-24</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-24.html"><span class="kind">News</span><span class="en">AI Demand Reprices the Entire Chip Stack</span><span class="zh">AI需求重估整个芯片栈</span></a>
+        <a class="edition research" href="archive/research/2026-06-24.html"><span class="kind">Research</span><span class="en">Memory Movement Becomes the Design Target</span><span class="zh">数据搬移成为设计靶心</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-23</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-23.html"><span class="kind">News</span><span class="en">AI Infrastructure Redirects Capital Across the Stack</span><span class="zh">AI基础设施重塑全栈资本流向</span></a>
+        <a class="edition research" href="archive/research/2026-06-23.html"><span class="kind">Research</span><span class="en">Hardware Co-Design Moves Toward Measured Constraints</span><span class="zh">软硬件协同设计转向实测约束</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-22</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-22.html"><span class="kind">News</span><span class="en">AI Bottlenecks Spread Across the Hardware Stack</span><span class="zh">AI瓶颈蔓延至整个硬件栈</span></a>
+        <a class="edition research" href="archive/research/2026-06-22.html"><span class="kind">Research</span><span class="en">Scaling Moves Into Devices, Memory, and Context</span><span class="zh">扩展转向器件、存储与上下文</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-21</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-21.html"><span class="kind">News</span><span class="en">AI Scale Tests Capacity, Power, and Control</span><span class="zh">AI规模化考验产能、电力与管控</span></a>
+        <a class="edition research" href="archive/research/2026-06-21.html"><span class="kind">Research</span><span class="en">Hardware Specialization Spreads Beyond Matrix Multiplication</span><span class="zh">硬件专用化走出矩阵乘法</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-20</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-20.html"><span class="kind">News</span><span class="en">AI Demand Reprices the Semiconductor Stack</span><span class="zh">AI需求重估整条半导体链</span></a>
+        <a class="edition research" href="archive/research/2026-06-20.html"><span class="kind">Research</span><span class="en">Workloads Redraw the Hardware Boundary</span><span class="zh">工作负载重画硬件边界</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-19</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-19.html"><span class="kind">News</span><span class="en">AI Demand Reprices Control of Capacity</span><span class="zh">AI需求重估产能控制权</span></a>
+        <a class="edition research" href="archive/research/2026-06-19.html"><span class="kind">Research</span><span class="en">Reliability Moves Into the Accelerator Stack</span><span class="zh">可靠性进入加速器堆栈</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-18</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-18.html"><span class="kind">News</span><span class="en">AI Demand Reorders the Chip Stack</span><span class="zh">AI需求重排芯片供应链</span></a>
+        <a class="edition research" href="archive/research/2026-06-18.html"><span class="kind">Research</span><span class="en">Hardware-Aware AI Moves Into the Loop</span><span class="zh">硬件感知AI进入闭环</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-17</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-17.html"><span class="kind">News</span><span class="en">Packaging and Memory Set AI&#x27;s Pace</span><span class="zh">封装与存储决定AI节奏</span></a>
+        <a class="edition research" href="archive/research/2026-06-17.html"><span class="kind">Research</span><span class="en">Device Physics Meets Deployable AI Hardware</span><span class="zh">器件物理走向可部署AI硬件</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-16</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-16.html"><span class="kind">News</span><span class="en">AI Demand Stresses Every Layer</span><span class="zh">AI需求拉紧每一层供应链</span></a>
+        <a class="edition research" href="archive/research/2026-06-16.html"><span class="kind">Research</span><span class="en">Memory Bottlenecks Shape Architecture Research</span><span class="zh">存储瓶颈塑造架构研究</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-15</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-15.html"><span class="kind">News</span><span class="en">AI Demand Pushes the Stack to Diversify</span><span class="zh">AI需求推动全栈分散供应</span></a>
+        <a class="edition research" href="archive/research/2026-06-15.html"><span class="kind">Research</span><span class="en">Hardware Models Meet Real-System Constraints</span><span class="zh">硬件模型直面真实系统约束</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-14</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-14.html"><span class="kind">News</span><span class="en">AI Demand Meets Physical and Political Limits</span><span class="zh">AI需求撞上物理与政策边界</span></a>
+        <a class="edition research" href="archive/research/2026-06-14.html"><span class="kind">Research</span><span class="en">Efficiency Moves Up the Systems Stack</span><span class="zh">效率优化上移至系统栈</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-13</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-13.html"><span class="kind">News</span><span class="en">Capacity Pressure Reprices the Chip Stack</span><span class="zh">产能压力重估芯片供应链</span></a>
+        <a class="edition research" href="archive/research/2026-06-13.html"><span class="kind">Research</span><span class="en">Adaptive Computation Replaces Fixed Resource Budgets</span><span class="zh">自适应计算取代固定资源预算</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-12</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-12.html"><span class="kind">News</span><span class="en">AI Demand Tightens Every Layer of Supply</span><span class="zh">AI需求收紧芯片供应链各环节</span></a>
+        <a class="edition research" href="archive/research/2026-06-12.html"><span class="kind">Research</span><span class="en">Architectures Push Work Closer to Data</span><span class="zh">架构把计算推向数据所在处</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-11</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-11.html"><span class="kind">News</span><span class="en">Capacity Pressure Rewrites the Chip Map</span><span class="zh">产能压力正在重绘芯片版图</span></a>
+        <a class="edition research" href="archive/research/2026-06-11.html"><span class="kind">Research</span><span class="en">Data Movement Becomes the Design Variable</span><span class="zh">数据移动成为核心设计变量</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-10</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-10.html"><span class="kind">News</span><span class="en">Capacity Expands as Supply Controls Tighten</span><span class="zh">产能扩张与供应管控同步收紧</span></a>
+        <a class="edition research" href="archive/research/2026-06-10.html"><span class="kind">Research</span><span class="en">Move Less Data, Use Hardware Better</span><span class="zh">少搬数据，更高效地使用硬件</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-08</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-08.html"><span class="kind">News</span><span class="en">AI Capacity Becomes an Ecosystem Constraint</span><span class="zh">AI产能成为全产业链约束</span></a>
+        <a class="edition research" href="archive/research/2026-06-08.html"><span class="kind">Research</span><span class="en">Efficiency Moves From Models Into Systems</span><span class="zh">效率优化从模型延伸至系统</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-07</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-07.html"><span class="kind">News</span><span class="en">Capacity Pressure Spreads Across the Chip Stack</span><span class="zh">产能压力蔓延至芯片全栈</span></a>
+        <a class="edition research" href="archive/research/2026-06-07.html"><span class="kind">Research</span><span class="en">Inference Efficiency Moves Into System Design</span><span class="zh">推理效率进入系统级设计</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-06</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-06.html"><span class="kind">News</span><span class="en">AI Hardware Meets Heat, Materials and Permits</span><span class="zh">AI硬件撞上散热、材料与审批</span></a>
+        <a class="edition research" href="archive/research/2026-06-06.html"><span class="kind">Research</span><span class="en">Packaging Becomes a Compute Architecture</span><span class="zh">封装正在变成计算架构</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-05</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-05.html"><span class="kind">News</span><span class="en">The AI Memory Wall Goes Systemwide</span><span class="zh">AI内存墙蔓延到全系统</span></a>
+        <a class="edition research" href="archive/research/2026-06-05.html"><span class="kind">Research</span><span class="en">Inference Systems Meet New Memory Devices</span><span class="zh">推理系统遇上新型存储器件</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-04</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-04.html"><span class="kind">News</span><span class="en">AI Demand Meets Supply Discipline</span><span class="zh">AI需求撞上供应纪律</span></a>
+        <a class="edition research" href="archive/research/2026-06-04.html"><span class="kind">Research</span><span class="en">Tensor Cores, Thermal Pixels and Quantized Experts</span><span class="zh">张量核、热像素与量化专家</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-03</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-03.html"><span class="kind">News</span><span class="en">Memory and Links Become the AI System</span><span class="zh">存储与互连成为AI系统本体</span></a>
+        <a class="edition research" href="archive/research/2026-06-03.html"><span class="kind">Research</span><span class="en">Wide-Bandgap Devices Move Toward System Limits</span><span class="zh">宽禁带器件逼近系统级极限</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-02</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-02.html"><span class="kind">News</span><span class="en">AI Capacity Moves Into Packaging and Memory</span><span class="zh">AI产能瓶颈转向封装与存储</span></a>
+        <a class="edition research" href="archive/research/2026-06-02.html"><span class="kind">Research</span><span class="en">Low-Bit Inference Meets Real Edge Silicon</span><span class="zh">低比特推理遇上真实边缘硅片</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-06-01</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-06-01.html"><span class="kind">News</span><span class="en">Computex Opens; Nvidia Lands on the PC; US Closes the Loophole</span><span class="zh">Computex开幕：英伟达登陆PC，美国关闭芯片豁免漏洞</span></a>
+        <a class="edition research" href="archive/research/2026-06-01.html"><span class="kind">Research</span><span class="en">Memristive SNNs Get Practical; FP4 Variants Multiply; Physical AI Reframes the Bottleneck</span><span class="zh">忆阻SNN走向实用、FP4变体不断分化、物理AI重新定义推理瓶颈</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-31</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-31.html"><span class="kind">News</span><span class="en">Samsung Snaps HBM4E First; Nvidia Bets $6.5B on US Photonics</span><span class="zh">三星抢发HBM4E，英伟达豪赌65亿美元美国硅光</span></a>
+        <a class="edition research" href="archive/research/2026-05-31.html"><span class="kind">Research</span><span class="en">Memory Goes Magnetic; MoE Serving Splits Apart</span><span class="zh">存储走向磁性，MoE服务架构走向分裂</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-28</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-28.html"><span class="kind">News</span><span class="en">Inference Money Lands; Chip Diplomacy Whiplashes</span><span class="zh">推理融资落地，芯片外交剧烈摇摆</span></a>
+        <a class="edition research" href="archive/research/2026-05-28.html"><span class="kind">Research</span><span class="en">Open Buses, Ferroelectric Attention, Mechanical Logic</span><span class="zh">开放总线、铁电注意力、机械逻辑</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-27</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-27.html"><span class="kind">News</span><span class="en">Memory Crosses the $1 Trillion Line; Taiwan Cracks the Smuggling Pipe</span><span class="zh">存储跨入万亿俱乐部，台湾撬开走私管道</span></a>
+        <a class="edition research" href="archive/research/2026-05-27.html"><span class="kind">Research</span><span class="en">After Scaling: 2D Channels, Orbital Currents, and Photonic Tensorcores</span><span class="zh">工艺微缩之后：2D沟道、轨道电流与光子张量核</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-26</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-26.html"><span class="kind">News</span><span class="en">Memory&#x27;s Heat Wall Cracks Open as Taiwan&#x27;s AI Rally Eclipses India</span><span class="zh">存储热墙松动，台湾AI行情盖过印度</span></a>
+        <a class="edition research" href="archive/research/2026-05-26.html"><span class="kind">Research</span><span class="en">The Memory Hierarchy Goes Analog, Ferroelectric, and Photonic</span><span class="zh">存储层级转向模拟、铁电与光子化</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-25</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-25.html"><span class="kind">News</span><span class="en">Huawei Bypasses EUV (On Paper); Micron Says the Memory Crunch Has Years To Run</span><span class="zh">华为宣称&#x27;绕开EUV&#x27;;美光称存储紧张还要持续多年</span></a>
+        <a class="edition research" href="archive/research/2026-05-25.html"><span class="kind">Research</span><span class="en">The MoE Serving Stack Hardens — From NAND-CIM to Ascend-Native Scheduling</span><span class="zh">MoE服务栈成型——从NAND CIM到Ascend本地化调度</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-24</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-24.html"><span class="kind">News</span><span class="en">AI Chip Boom Continues: Micron Hits Record Margins, Nvidia Eyes China</span><span class="zh">AI芯片热潮持续：美光创纪录利润率，Nvidia押注中国</span></a>
+        <a class="edition research" href="archive/research/2026-05-24.html"><span class="kind">Research</span><span class="en">Data Movement Is the New Compute</span><span class="zh">数据搬移就是新的算力</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-23</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-23.html"><span class="kind">News</span><span class="en">US Memory Fabs Light Up as Huawei Bypasses NAND Sanctions</span><span class="zh">美国存储产能上线,华为绕开NAND管制</span></a>
+        <a class="edition research" href="archive/research/2026-05-23.html"><span class="kind">Research</span><span class="en">Specialization Sharpens: Near-Memory, Per-Component, Per-Expert</span><span class="zh">专用化加深:近存储、按部件、按专家</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-22</span>
+      <span class="editions">
+        <a class="edition research" href="archive/research/2026-05-22.html"><span class="kind">Research</span><span class="en">Physics Limits Below, Scaling Infrastructure Above</span><span class="zh">下层逼近物理极限,上层架设扩展基础设施</span></a>
+      </span>
+    </li>
+    <li>
+      <span class="date">2026-05-21</span>
+      <span class="editions">
+        <a class="edition" href="archive/2026-05-21.html"><span class="kind">News</span><span class="en">AMD Doubles Down on Taiwan as Nvidia Yields China</span><span class="zh">AMD加码押注台湾,英伟达让出中国</span></a>
+        <a class="edition research" href="archive/research/2026-05-21.html"><span class="kind">Research</span><span class="en">Compute-in-Memory Comes of Age While LLM Serving Treats Hardware as a First-Class Variable</span><span class="zh">存算一体走向系统,LLM服务把硬件当作一等变量</span></a>
+      </span>
+    </li>
+  </ul>
+</body>
+</html>

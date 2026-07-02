@@ -1,0 +1,438 @@
+{
+  "date": "2026-07-02",
+  "theme": {
+    "en": "Memory Pressure Rewrites the AI Stack",
+    "zh": "存储压力重写AI堆栈"
+  },
+  "dek": {
+    "en": "Memory scarcity and cost show up everywhere today: Apple tests Washington's tolerance for Chinese suppliers, Samsung works on higher-stack HBM, and Etched pitches inference silicon with a reported $1 billion order book. Materials, policy, and challenger chips are becoming parts of the same capacity equation.",
+    "zh": "今天的主线是存储稀缺和成本压力外溢：Apple测试华盛顿对中国存储供应商的容忍度，Samsung推进更高堆叠HBM，Etched则用据称10亿美元订单验证推理芯片需求。材料、政策和新兴AI芯片正在成为同一道产能方程。"
+  },
+  "sections": [
+    {
+      "id": "ai-accelerators",
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "Etched Raises $800 Million and Books $1 Billion in AI Chip System Orders",
+            "zh": "Etched融资8亿美元并获得10亿美元AI芯片系统订单"
+          },
+          "summary": {
+            "en": "Etched is reported to have raised $800 million and secured $1 billion in AI chip system orders for an inference-focused system. The scale of the order book gives the Nvidia challenger a stronger commercial signal than a typical chip startup financing round. It also reinforces the split between training GPUs and specialized inference hardware as buyers look for lower serving cost.",
+            "zh": "据报道，Etched已融资8亿美元，并为面向推理的AI芯片系统获得10亿美元订单。这样的订单规模比一般芯片初创公司的融资消息更能说明商业需求。它也强化了训练GPU与专用推理硬件之间的分化，因为买方正在寻找更低的推理服务成本。"
+          },
+          "source": "AI Insider",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOVzFZUUZfbkZTRzB2SVdDczJlOW1BbHBXN1RBaV81OWg0Y3BramFrdjFRQmZSU3ltdWtEVE90dHhSMHRadVlySHZxNUJsS25CNm13Y01jelF6QVMtNjl3S21DS2hVdTNnRHNxcXFTSXAzQlZYeVI4Y1J3V2VfdFhmMGY5QTU3MW9YaW8xZXNCYlIzRGVBYzExa1RmOEZjS1o2MndFaDJ1N2FMT0FDSkI2OGNzQmFmQVZQUG1MZmZub0hncW5QU0NPX1Z5WlBWUQ?oc=5",
+          "published": "2026-07-01T19:30:08+00:00"
+        }
+      ]
+    },
+    {
+      "id": "foundry",
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "Samsung Uses Quantum and AI Simulation to Chase TSMC in Lithography",
+            "zh": "Samsung用量子与AI仿真追赶TSMC光刻能力"
+          },
+          "summary": {
+            "en": "Samsung is reportedly developing photolithography simulation technologies that use quantum-computing methods and AI to reduce lithography and etch time and cost. The work targets one of the largest bottlenecks in advanced process development, where computational lithography accuracy affects yield and cycle time. It is also a reminder that foundry competition is now partly a software and modeling race against TSMC.",
+            "zh": "据报道，Samsung正在开发结合量子计算方法和AI的光刻仿真技术，以降低光刻与刻蚀环节的时间和成本。这项工作瞄准先进制程开发中的核心瓶颈之一，因为计算光刻精度会影响良率和开发周期。它也说明，晶圆代工竞争已经部分变成面向TSMC的软件与建模竞赛。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/samsung-chases-tsmc-with-quantum-powered-chipmaking-as-ai-reshapes-the-most-critical-step-in-fabrication/",
+          "published": "2026-07-01T21:39:43+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Huawei Says It Can Match TSMC's Most Advanced Chips by 2031",
+            "zh": "Huawei称2031年可追平TSMC最先进芯片"
+          },
+          "summary": {
+            "en": "SemiWiki analyzes Huawei's assertion that it can match TSMC's leading-edge chipmaking by 2031. The target reflects geopolitical pressure after export controls restricted Huawei's access to advanced tools and foundry capacity. Even if the date is aspirational, it frames China's domestic process roadmap around closing the gap in advanced manufacturing.",
+            "zh": "SemiWiki分析了Huawei关于2031年追平TSMC领先芯片制造能力的说法。这个目标反映出出口管制限制Huawei获取先进设备和代工产能后的地缘政治压力。即使时间表偏向愿景，它也把中国本土制程路线图明确框定为缩小先进制造差距。"
+          },
+          "source": "SemiWiki",
+          "url": "https://semiwiki.com/semiconductor-manufacturers/369804-why-huawei-says-it-will-match-tsmcs-most-advanced-chips-by-2031/",
+          "published": "2026-07-01T17:00:51+00:00"
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "Samsung Files Dummy-Die Patent Aimed at 16-Layer HBM5 Reliability",
+            "zh": "Samsung提交面向16层HBM5可靠性的dummy die专利"
+          },
+          "summary": {
+            "en": "Samsung filed a patent for dummy-die structures meant to improve reliability in high-stack HBM, with TrendForce reading it as aimed at 16-layer HBM5. Dummy die and stress-control details matter as HBM stacks add layers and thermal and mechanical margins narrow. For Samsung, packaging reliability is central to regaining share in AI memory.",
+            "zh": "Samsung提交了一项用于提升高堆叠HBM可靠性的dummy die结构专利，TrendForce认为其目标指向16层HBM5。随着HBM层数增加，热裕量和机械应力裕量收窄，dummy die和应力控制细节会变得更关键。对Samsung而言，封装可靠性是重新争夺AI存储份额的核心。"
+          },
+          "source": "TrendForce",
+          "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOLThuRnljb0llYXZkMWpPQkpUa3lXSWVBRHl0dlItbzkzZG1pakM3T0NwQUhUVjZCMDdYTjVGcDNCTkZUUDU2ZWNzV29GQmtIdXJkSkZzNEdEQkRxNmZZZnhLM1pOVFk2SV8xZ05aTWo2Y0RNUFdCVEp6ZmpXYVhrS3lrWFc3TGtrUFNaazdzS1VTazcxQ0NOTjFBeGFhV3ViZnBONzdhZHZPSW4tRnZ4Y2VubnNsTGMwUlpWcFRVTTNxejJCWVpvakN0czdURnZfV0JsNVRMVHNaV3RXTE5NczVfZ3NmUWs?oc=5",
+          "published": "2026-07-01T23:34:28+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Global Memory Fab Equipment Spending Is Set to Top $50 Billion",
+            "zh": "全球存储晶圆厂设备支出将超过500亿美元"
+          },
+          "summary": {
+            "en": "The Elec reports that global memory fab equipment spending is set to top $50 billion. That level of spending points to a coordinated DRAM, NAND, and HBM capacity buildout rather than a narrow HBM upgrade cycle. Equipment makers benefit, but the ramp also raises the risk of timing mismatches if AI demand cools or commodity memory recovery diverges.",
+            "zh": "The Elec报道称，全球存储晶圆厂设备支出将超过500亿美元。这样的支出规模说明行业正在同步扩建DRAM、NAND和HBM产能，而不只是进行局部HBM升级。设备厂商将受益，但如果AI需求降温或大宗存储复苏分化，扩产节奏也会带来错配风险。"
+          },
+          "source": "The Elec",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5vdHJzMHgzY21jYmxHQXpEbTIyd2daNWVYU3dEbTVyY1dkNXBDR3R2V09xVGFxd0RmYl9Id1BiYXB2eDVnR1hrY3I4bW95RzNQQ1p1azhuOTU1MGUzUHJqbl9Lc0JydzA?oc=5",
+          "published": "2026-07-01T22:35:42+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Data Centers Now Consume More Than Half of DRAM, Counterpoint Says",
+            "zh": "Counterpoint称数据中心已消耗过半DRAM"
+          },
+          "summary": {
+            "en": "Counterpoint says data centers now consume more than half of DRAM output. The mix shift explains why HBM and server DRAM pricing can tighten even when PC and smartphone units are uneven. It also makes hyperscaler capex a more direct driver of memory makers' margins.",
+            "zh": "Counterpoint称，数据中心现在消耗了超过一半的DRAM产出。这种结构变化解释了为什么在PC和智能手机出货不均衡时，HBM和服务器DRAM价格仍可能趋紧。它也让超大规模云厂商资本开支更直接地影响存储厂商利润率。"
+          },
+          "source": "Tech Times",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNZzJUd2xENVZGVnY2QzZMYVZISkFCWElDR19Wc1oxcjlMZWJmalJId2NIRTdQUFFNSkgzeVRRblA5OXNZX0drZWlTOU9VYXM4YnJEQ0sycW9jUkNpamR0ajdpdWx0NTREMDJzYVFyZlVEUnlxNU54cWxkekhsQm1mSno5M1NSZjFDMDlMYjFDenZjQVRVb1oyUUF1Z0tmVy1XX1FrcEZDMzRTNlBRT3c?oc=5",
+          "published": "2026-07-01T20:11:32+00:00"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "High-Purity CO2 Shortage Threatens Advanced Semiconductor Supply",
+            "zh": "高纯CO2短缺威胁先进半导体供应"
+          },
+          "summary": {
+            "en": "A shortage of high-purity CO2 is emerging as South Korean refineries cut output amid Middle East crude uncertainty. The material is used in advanced semiconductor manufacturing, and the report follows earlier concern around tungsten hexafluoride supply for HBM and 3D NAND processes. The story matters because advanced-node constraints are showing up in industrial gases and refinery output, not only in lithography tools.",
+            "zh": "由于中东原油不确定性下韩国炼厂削减产量，高纯CO2短缺正在显现。高纯CO2用于先进半导体制造，而此前市场已经担忧HBM和3D NAND工艺所需WF6的供应。这个事件重要之处在于，先进制程约束正在工业气体和炼厂产出中显现，而不只是体现在光刻设备上。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/co2-shortage-threatens-advanced-semiconductor-supply/",
+          "published": "2026-07-01T19:55:08+00:00"
+        }
+      ]
+    },
+    {
+      "id": "policy",
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
+      },
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "Apple Lobbies Washington to Buy CXMT and YMTC Memory for China",
+            "zh": "Apple游说华盛顿允许采购CXMT与YMTC存储"
+          },
+          "summary": {
+            "en": "A report says Apple is lobbying the Trump administration for permission to buy memory from CXMT and YMTC for China-focused products. The request would test how much flexibility Washington gives a U.S. system maker when Chinese supply is fenced off by national security restrictions. It also shows memory cost and local-supply pressure reaching consumer device sourcing.",
+            "zh": "报道称，Apple正在游说特朗普政府，寻求获准为面向中国市场的产品采购CXMT和YMTC存储。这个请求将考验华盛顿在国家安全限制之下，会给美国系统厂商多少供应链灵活性。它也显示，存储成本和本地化供应压力已经传导到消费电子采购决策。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/apple-burns-political-capital-in-washington-to-buy-memory-from-chinas-cxmt-and-ymtc-yet-us-buyers-wont-see-even-a-cent-in-savings/",
+          "published": "2026-07-01T23:32:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Taiwan Raids Super Micro in Alleged Nvidia AI-Server Smuggling Probe",
+            "zh": "台湾在疑似Nvidia AI服务器走私调查中突查Super Micro"
+          },
+          "summary": {
+            "en": "Taiwanese authorities raided Super Micro as part of a widening probe into alleged Nvidia AI-server smuggling. The case illustrates how enforcement is moving from chip shipments to complete AI server systems and intermediaries. For Nvidia's ecosystem, export-control risk now sits in server integration and transshipment, not only GPU sales.",
+            "zh": "台湾当局在一项扩大中的调查中突查Super Micro，调查焦点是疑似Nvidia AI服务器走私。该案说明执法重点正在从单颗芯片出货延伸到完整AI服务器系统和中间渠道。对Nvidia生态而言，出口管制风险不只存在于GPU销售，也存在于服务器集成和转运环节。"
+          },
+          "source": "Tech Times",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQUUyX0VZamFxczFjd2l2MTFKSWo3S0JnSDcwaVhJZmdBRnRpVzJlRlY1d1Q5bWs3RzYtemRIa1ZpT2FCVVNTT3VsM21RSlNpclZNZFFiLUZCTlpWdnVhMTlXZFZMNjdyNjFUOW45UUpsOXN0RzhsUUJuQWxRYWhCY1JTMnRManIxLVlnQTFjbHhGUzFiRlo5UThyLWt5Rk1kWTltdHI1d2xQQ25RQzJpNExlZ2Y4UUpfRVc1dVFyT2ZjWWZoYlh6TA?oc=5",
+          "published": "2026-07-01T19:48:09+00:00"
+        }
+      ]
+    },
+    {
+      "id": "earnings",
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "财报与市场"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "BoA Bubble-Risk Call Hits Intel, AMD, and TSMC Shares",
+            "zh": "BoA泡沫风险观点冲击Intel、AMD与TSMC股价"
+          },
+          "summary": {
+            "en": "Intel dropped 7%, AMD slid 5%, and TSMC fell 6% after Bank of America flagged bubble risk in semiconductors, according to Yahoo Finance coverage carried by Google News. The selloff shows how crowded AI and chip trades can reverse even without a single company-specific earnings miss. It also puts more scrutiny on whether capex, HBM orders, and foundry ramps are being valued as cyclical or structural.",
+            "zh": "据Google News转载的Yahoo Finance报道，在Bank of America提示半导体泡沫风险后，Intel下跌7%，AMD下跌5%，TSMC下跌6%。这轮下跌显示，即使没有单一公司的财报失误，拥挤的AI与芯片交易也可能迅速反转。市场也会更仔细审视资本开支、HBM订单和代工扩产究竟应按周期性还是结构性增长定价。"
+          },
+          "source": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNT1JFVzUxVDFibWNCX0FTZ2t0TnJucTdWZFlxUm9tNVRxLWpva1c1b044YXNERWI3SlRGNDFxVTk4eXZPWlJLNXI4cE0wOWdQMFh1UmZsRmJLMzY1OXMzTXJCVlZQUldhLUU5VHZiSDB3VlBUYno4cHJiX2ZEUWhGcFZOdWRIUFVEb242OGdHTEYzQmc?oc=5",
+          "published": "2026-07-01T16:28:45+00:00"
+        }
+      ]
+    },
+    {
+      "id": "challengers",
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "Cerebras Reports Strong Growth After OpenAI Partnership",
+            "zh": "Cerebras在OpenAI合作后报告强劲增长"
+          },
+          "summary": {
+            "en": "Cerebras Systems reported strong growth after its OpenAI partnership, according to Crypto Briefing. The update matters because wafer-scale systems have to prove both technical differentiation and repeatable demand against GPU clusters. Its momentum puts Cerebras in the small group of AI-chip challengers with visible customer traction rather than only roadmap claims.",
+            "zh": "据Crypto Briefing报道，Cerebras Systems在与OpenAI合作后报告了强劲增长。这一更新重要，是因为晶圆级系统不仅要证明技术差异化，也要证明相对于GPU集群存在可重复的需求。Cerebras的势头使其进入少数具有可见客户牵引力的AI芯片挑战者行列，而不只是停留在路线图表态。"
+          },
+          "source": "Crypto Briefing",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA2Q1FhTUhsRjFTb1I2dFVrZ2hRRlA3emlHb3c4NWo2MHZLZ3pJT1JsWFhERHNsNUphNnRscHlidy1va3lvUlF1QzZ2dTdrdThDc196QWZ2aU51NkVLTFlYTXYyWmZHeDQ4N1pNUS1TSDJyRUZxSWlfZjZR?oc=5",
+          "published": "2026-07-01T18:16:36+00:00"
+        }
+      ]
+    }
+  ],
+  "research": {
+    "window_days": 7,
+    "theme": {
+      "en": "Memory Movement Defines the Research Agenda",
+      "zh": "数据搬运主导研究议程"
+    },
+    "dek": {
+      "en": "The strongest papers this week attack data movement at every layer: BEOL memories, MRAM CIM, memristive indexing, PIM scheduling, and memory-heterogeneous LLM serving. EDA and quantum papers echo the same constraint, focusing on sign-off scalability and bandwidth across the cryogenic boundary.",
+      "zh": "本周最值得关注的论文都在不同层级处理数据搬运问题：BEOL存储、MRAM存算一体、忆阻CAM索引、PIM调度和异构存储LLM推理。EDA和量子方向也呼应同一约束，重点放在签核可扩展性以及低温边界带宽上。"
+    },
+    "areas": [
+      {
+        "id": "devices",
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Interface-Engineered STT-MRAM for Variation-Aware CIM Arrays",
+              "zh": "面向变异感知CIM阵列的界面工程STT-MRAM"
+            },
+            "authors": "Zhou-Yu Wu, A. Ramesh, Vinod N. Bhukya, Jeng-Hua Wei, S. Sheu, Y. Hsin, Yuan-Chieh Tseng",
+            "affiliation": "",
+            "venue": "IEEE TED DOI:10.1109/TED.2026.3692177",
+            "venue_url": "https://doi.org/10.1109/TED.2026.3692177",
+            "summary": {
+              "en": "The paper experimentally studies Mg insertion at CoFeB/MgO interfaces in PMA MTJs with diameters from 30 to 180 nm and propagates the measured statistics into CIM array simulations. Mg insertion raises RA, lowers switching current, improves breakdown voltage, and reduces TMR, creating a device-level tradeoff for array read margins and energy. The useful contribution is the closed device-to-array loop rather than another idealized CIM simulation.",
+              "zh": "这篇论文实验研究了PMA MTJ中CoFeB/MgO界面的Mg插入，器件直径覆盖30到180 nm，并把测得的统计分布传递到CIM阵列仿真中。Mg插入提高RA、降低开关电流、提升击穿电压，但会降低TMR，因此在阵列读裕量和能耗之间形成器件级权衡。它的价值在于建立了从器件到阵列的闭环，而不是又一次理想化的CIM仿真。"
+            },
+            "published": "2026-07-01"
+          },
+          {
+            "title": {
+              "en": "BEOL-Compatible NV-SRAM With Stacked ITO FETs and HfO2 Ferroelectric Capacitors",
+              "zh": "采用堆叠ITO FET与HfO2铁电电容的BEOL兼容NV-SRAM"
+            },
+            "authors": "Jiawei Xie, Zuopu Zhou, Leming Jiao, Yuye Kang, Kaizhen Han, Zijie Zheng, Qiwen Kong, Xiaolin Wang, Bich-Yen Nguyen, Xiao-Qing Gong",
+            "affiliation": "",
+            "venue": "IEEE TED DOI:10.1109/TED.2026.3692625",
+            "venue_url": "https://doi.org/10.1109/TED.2026.3692625",
+            "summary": {
+              "en": "The authors demonstrate a BEOL-compatible nonvolatile SRAM cell using HfO2-based MFM ferroelectric capacitors and ITO-channel FETs. The process stays at or below 400 C, supports store and recall, and operates with 1.5 V VDD plus a 2 V plate-line voltage in the reported cell. The result is relevant for monolithic 3D memory above CMOS, though density and endurance still need full product-level validation.",
+              "zh": "作者展示了BEOL兼容的非易失SRAM单元，采用HfO2基MFM铁电电容和ITO沟道FET。该工艺最高温度不超过400 C，已演示store和recall操作，报告单元使用1.5 V VDD和2 V plate line电压。这个结果对CMOS上方单片3D存储有意义，但密度和耐久性仍需产品级验证。"
+            },
+            "published": "2026-07-01"
+          },
+          {
+            "title": {
+              "en": "Failure Analysis Priorities for Advanced Packaging and Heterogeneous Integration",
+              "zh": "先进封装与异构集成的失效分析优先级"
+            },
+            "authors": "H. Kottur, Nusra Akter Takia, Mahamudul Hassan Fuad, I. Shiam, M. Walsh, Navid Asadizanjani",
+            "affiliation": "",
+            "venue": "arXiv:2606.22149",
+            "venue_url": "http://arxiv.org/abs/2606.22149",
+            "summary": {
+              "en": "This survey collects roughly 100 industry responses on failure analysis for chiplets, heterogeneous integration, hybrid bonding, and buried package structures. Heterogeneous, chiplet, and 3D products dominate the respondent base at 69%, while package and heterogeneous-integration failure analysis gets a 7.92 out of 10 importance rating. Hybrid bonding is identified as the hardest new architecture to analyze at 54%, and 83% of respondents support formal data standardization.",
+              "zh": "这项调查收集了约100份行业反馈，聚焦chiplet、异构集成、混合键合和埋入式封装结构的失效分析。异构、chiplet和3D产品占受访基础的69%，封装与异构集成失效分析的重要性评分达到7.92/10。混合键合被54%的受访者认为是最难分析的新架构，同时83%的受访者支持正式的数据标准化框架。"
+            },
+            "published": "2026-06-20"
+          }
+        ]
+      },
+      {
+        "id": "accelerators",
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "PATH: In-Situ Indexing via Memristive Content-Addressable Memory",
+              "zh": "PATH：基于忆阻内容寻址存储的原位索引"
+            },
+            "authors": "Bing Wu, Xueliang Wei, Shiyi Song, Yibo Liu, Jinpeng Liu, Wei Tong, Hao Tong, Yuchong Hu, Dan Feng",
+            "affiliation": "",
+            "venue": "arXiv:2606.31554",
+            "venue_url": "https://arxiv.org/abs/2606.31554",
+            "summary": {
+              "en": "PATH reformulates hash-index insert, search, update, and delete operations as massively parallel content-addressable operations inside memristive memory arrays. On the authors' workloads it reports 4.7 to 7.8 times higher throughput, more than 14.5 times lower tail latency, and over 61.4% fewer memory accesses for insertions. The caveat is that system value depends on realistic CAM array costs and integration, but the indexing focus is more concrete than generic PIM claims.",
+              "zh": "PATH把哈希索引的插入、搜索、更新和删除改写为忆阻存储阵列内部的大规模并行内容寻址操作。在作者的工作负载上，它报告了4.7到7.8倍吞吐提升、超过14.5倍尾延迟降低，以及插入场景中超过61.4%的访存减少。需要注意的是，系统价值仍取决于真实CAM阵列成本和集成难度，但把目标放在索引上比泛泛讨论PIM更具体。"
+            },
+            "published": "2026-06-30T12:11:26Z"
+          },
+          {
+            "title": {
+              "en": "COSM Schedules Concurrent PIM and CPU Execution on Mobile Devices",
+              "zh": "COSM调度移动设备上的PIM与CPU并发执行"
+            },
+            "authors": "Yilong Zhao, Fangxin Liu, Onur Mutlu, Mingyu Gao, Jian Liu, Haibing Guan, Li Jiang",
+            "affiliation": "",
+            "venue": "arXiv:2606.30553",
+            "venue_url": "https://arxiv.org/abs/2606.30553",
+            "summary": {
+              "en": "COSM targets on-device LLM and application workloads where CPU tasks and PIM operations must share constrained mobile DRAM resources. The framework adds a low-interference PIM control interface and schedules PIM commands into idle windows in the CPU memory-access stream. The paper is useful because it treats bank conflicts and bus congestion as first-order issues rather than assuming PIM runs in isolation.",
+              "zh": "COSM面向端侧LLM和应用负载，在这类场景中CPU任务与PIM操作必须共享受限的移动DRAM资源。该框架加入低干扰PIM控制接口，并把PIM命令调度进CPU访存流的空闲窗口。论文的价值在于把bank冲突和总线拥塞作为一等问题处理，而不是假设PIM可以孤立运行。"
+            },
+            "published": "2026-06-29T16:49:17Z"
+          },
+          {
+            "title": {
+              "en": "Mega: A 22 nm Spiking Neural Network Accelerator at 0.375 pJ/SOP",
+              "zh": "Mega：22 nm脉冲神经网络加速器实现0.375 pJ/SOP"
+            },
+            "authors": "Rick Luiken, Manil Dev Gomony, Sander Stuijk",
+            "affiliation": "",
+            "venue": "arXiv:2606.30039",
+            "venue_url": "https://arxiv.org/abs/2606.30039",
+            "summary": {
+              "en": "Mega is a fabricated 22 nm FDSOI accelerator for convolutional spiking neural networks. It combines parallel 3 by 3 convolution support, unified memory for spikes, neuron states, and weights, and low-overhead spike-map handling. The reported 0.375 pJ/SOP is a 4 times improvement over prior state of the art, making this one of the stronger measured-silicon results in the week's accelerator set.",
+              "zh": "Mega是一款已流片的22 nm FDSOI卷积脉冲神经网络加速器。它结合了并行3乘3卷积、用于spike、神经元状态和权重的统一存储，以及低开销spike map处理。论文报告0.375 pJ/SOP能效，相比此前先进水平提升4倍，是本周加速器论文中较强的实测硅结果。"
+            },
+            "published": "2026-06-29T09:35:42Z"
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {
+          "en": "AI Research for Hardware",
+          "zh": "面向硬件的AI研究"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "HBM Is Not All You Need for Memory-Heterogeneous LLM Serving",
+              "zh": "异构存储LLM服务不只需要HBM"
+            },
+            "authors": "Zhixiang Wei, Yun Wang, James Yen, Mingyuan Xia, Zhengwei Qi",
+            "affiliation": "",
+            "venue": "arXiv:2606.29986",
+            "venue_url": "https://arxiv.org/abs/2606.29986",
+            "summary": {
+              "en": "HMA-Serve proposes disaggregated LLM serving that pairs GDDR-based accelerators for compute-heavy prefill with HBM-based GPUs for memory-heavy decode. The system addresses cross-vendor friction by handling KV-cache format conversion, phase-wise quantization, and overlapped KV transfer. The paper is timely because it turns HBM scarcity into a scheduling and systems problem rather than assuming every inference phase needs the most expensive memory.",
+              "zh": "HMA-Serve提出一种解耦式LLM服务方式，用GDDR加速器处理计算密集的prefill阶段，用HBM GPU处理内存密集的decode阶段。系统通过KV cache格式转换、分阶段量化和重叠KV传输来处理跨厂商摩擦。这篇论文及时之处在于，它把HBM稀缺转化为调度和系统问题，而不是默认推理每个阶段都需要最昂贵的内存。"
+            },
+            "published": "2026-06-29T09:00:38Z"
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {
+          "en": "EDA & Co-Design",
+          "zh": "EDA与协同设计"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "PEERS: Parallel Exact Effective-Resistance Solving for EDA Sign-Off",
+              "zh": "PEERS：面向EDA签核的并行精确有效电阻求解"
+            },
+            "authors": "Baiyu Chen, Lin Gan, Guangwen Yang, Wenjian Yu",
+            "affiliation": "",
+            "venue": "arXiv:2606.31535",
+            "venue_url": "https://arxiv.org/abs/2606.31535",
+            "summary": {
+              "en": "PEERS attacks effective-resistance computation, a bottleneck in power-grid analysis, spectral sparsification, and reliability sign-off. It uses an implicit inverse model of the Cholesky factor plus augmented symbolic analysis to avoid the usual precision-memory tradeoff in exact methods. The contribution is relevant because industrial sign-off often cannot accept approximate answers, but exact all-edge queries can otherwise explode in memory.",
+              "zh": "PEERS面向有效电阻计算这一瓶颈，该问题出现在电源网格分析、谱稀疏化和可靠性签核中。它使用Cholesky因子的隐式逆模型和增强符号分析，避免精确方法常见的精度与内存权衡。其意义在于，工业签核往往不能接受近似答案，但精确的全边查询又容易导致内存爆炸。"
+            },
+            "published": "2026-06-30T11:50:46Z"
+          },
+          {
+            "title": {
+              "en": "AgRefactor Uses Agentic Refactoring for HLS Compatibility and Performance",
+              "zh": "AgRefactor用智能体重构提升HLS兼容性与性能"
+            },
+            "authors": "Yang Zou, Zijian Ding, Yizhou Sun, Jason Cong",
+            "affiliation": "",
+            "venue": "arXiv:2606.30949",
+            "venue_url": "https://arxiv.org/abs/2606.30949",
+            "summary": {
+              "en": "AgRefactor uses an LLM-based multi-agent workflow to convert real-world software into HLS-compatible programs. It adds a self-evolving memory system and combines LLM rewrites with automated refactoring tools to reduce cost and improve robustness. On 9 of 11 longer real-world benchmarks, it matches or beats prior automated and LLM-based baselines, but the result should still be read as a workflow advance rather than a replacement for hardware-aware engineering review.",
+              "zh": "AgRefactor使用基于LLM的多智能体流程，将真实软件重构为兼容HLS的程序。它加入自演化记忆系统，并把LLM改写与自动化重构工具结合，以降低成本并提升鲁棒性。在11个更长的真实基准中，它在9个上追平或超过既有自动化和LLM基线，但这个结果更应被看作工作流进展，而不是替代硬件感知工程审查。"
+            },
+            "published": "2026-06-29T22:02:34Z"
+          }
+        ]
+      },
+      {
+        "id": "quantum",
+        "title": {
+          "en": "Quantum Hardware",
+          "zh": "量子硬件"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "CryoZip Compresses Quantum Error-Correction Syndromes at 4 K",
+              "zh": "CryoZip在4 K压缩量子纠错syndrome"
+            },
+            "authors": "Guanchen Tao, Alexander Knapen, Jacob Mack, Gokul Subramanian Ravi, Qirui Zhang, Mehdi Saligane, Dennis Sylvester",
+            "affiliation": "",
+            "venue": "arXiv:2606.30805",
+            "venue_url": "https://arxiv.org/abs/2606.30805",
+            "summary": {
+              "en": "CryoZip tackles the bandwidth and power limit between the 4 K stage and room-temperature controllers in fault-tolerant quantum systems. Implemented and evaluated in 22 nm FDSOI characterized at 4 K, it reports up to 48 times compression and 4 to 26 times energy savings across QEC codes. With a lightweight predecoder, the authors report more than 14,238 times bandwidth reduction, making the interface bottleneck explicit rather than treating QEC decoding as only a room-temperature compute problem.",
+              "zh": "CryoZip处理容错量子系统中4 K级与室温控制器之间的带宽和功耗限制。该设计在22 nm FDSOI中实现并以4 K特性评估，报告在多种QEC码上最高48倍压缩和4到26倍能耗节省。结合轻量级预解码器后，作者报告超过14238倍带宽降低，明确把接口瓶颈纳入问题，而不是把QEC解码只视为室温计算任务。"
+            },
+            "published": "2026-06-29T18:31:09Z"
+          }
+        ]
+      }
+    ]
+  }
+}

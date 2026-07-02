@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-02">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Memory Movement Defines the Research Agenda — Semi Research 2026-07-02</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, July 2, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月2日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Memory Movement Defines the Research Agenda</span>
+      <span class="zh">数据搬运主导研究议程</span>
+    </h1>
+    <p class="dek">
+      <span class="en">The strongest papers this week attack data movement at every layer: BEOL memories, MRAM CIM, memristive indexing, PIM scheduling, and memory-heterogeneous LLM serving. EDA and quantum papers echo the same constraint, focusing on sign-off scalability and bandwidth across the cryogenic boundary.</span>
+      <span class="zh">本周最值得关注的论文都在不同层级处理数据搬运问题：BEOL存储、MRAM存算一体、忆阻CAM索引、PIM调度和异构存储LLM推理。EDA和量子方向也呼应同一约束，重点放在签核可扩展性以及低温边界带宽上。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TED.2026.3692177" target="_blank" rel="noopener">
+          <span class="en">Interface-Engineered STT-MRAM for Variation-Aware CIM Arrays</span>
+          <span class="zh">面向变异感知CIM阵列的界面工程STT-MRAM</span>
+        </a>
+      </h3>
+      <p class="authors">Zhou-Yu Wu, A. Ramesh, Vinod N. Bhukya, Jeng-Hua Wei, S. Sheu, Y. Hsin, Yuan-Chieh Tseng</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3692177" target="_blank" rel="noopener">IEEE TED DOI:10.1109/TED.2026.3692177</a> · 2026-07-01</p>
+      <p class="summary">
+        <span class="en">The paper experimentally studies Mg insertion at CoFeB/MgO interfaces in PMA MTJs with diameters from 30 to 180 nm and propagates the measured statistics into CIM array simulations. Mg insertion raises RA, lowers switching current, improves breakdown voltage, and reduces TMR, creating a device-level tradeoff for array read margins and energy. The useful contribution is the closed device-to-array loop rather than another idealized CIM simulation.</span>
+        <span class="zh">这篇论文实验研究了PMA MTJ中CoFeB/MgO界面的Mg插入，器件直径覆盖30到180 nm，并把测得的统计分布传递到CIM阵列仿真中。Mg插入提高RA、降低开关电流、提升击穿电压，但会降低TMR，因此在阵列读裕量和能耗之间形成器件级权衡。它的价值在于建立了从器件到阵列的闭环，而不是又一次理想化的CIM仿真。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TED.2026.3692625" target="_blank" rel="noopener">
+          <span class="en">BEOL-Compatible NV-SRAM With Stacked ITO FETs and HfO2 Ferroelectric Capacitors</span>
+          <span class="zh">采用堆叠ITO FET与HfO2铁电电容的BEOL兼容NV-SRAM</span>
+        </a>
+      </h3>
+      <p class="authors">Jiawei Xie, Zuopu Zhou, Leming Jiao, Yuye Kang, Kaizhen Han, Zijie Zheng, Qiwen Kong, Xiaolin Wang, Bich-Yen Nguyen, Xiao-Qing Gong</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3692625" target="_blank" rel="noopener">IEEE TED DOI:10.1109/TED.2026.3692625</a> · 2026-07-01</p>
+      <p class="summary">
+        <span class="en">The authors demonstrate a BEOL-compatible nonvolatile SRAM cell using HfO2-based MFM ferroelectric capacitors and ITO-channel FETs. The process stays at or below 400 C, supports store and recall, and operates with 1.5 V VDD plus a 2 V plate-line voltage in the reported cell. The result is relevant for monolithic 3D memory above CMOS, though density and endurance still need full product-level validation.</span>
+        <span class="zh">作者展示了BEOL兼容的非易失SRAM单元，采用HfO2基MFM铁电电容和ITO沟道FET。该工艺最高温度不超过400 C，已演示store和recall操作，报告单元使用1.5 V VDD和2 V plate line电压。这个结果对CMOS上方单片3D存储有意义，但密度和耐久性仍需产品级验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.22149" target="_blank" rel="noopener">
+          <span class="en">Failure Analysis Priorities for Advanced Packaging and Heterogeneous Integration</span>
+          <span class="zh">先进封装与异构集成的失效分析优先级</span>
+        </a>
+      </h3>
+      <p class="authors">H. Kottur, Nusra Akter Takia, Mahamudul Hassan Fuad, I. Shiam, M. Walsh, Navid Asadizanjani</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.22149" target="_blank" rel="noopener">arXiv:2606.22149</a> · 2026-06-20</p>
+      <p class="summary">
+        <span class="en">This survey collects roughly 100 industry responses on failure analysis for chiplets, heterogeneous integration, hybrid bonding, and buried package structures. Heterogeneous, chiplet, and 3D products dominate the respondent base at 69%, while package and heterogeneous-integration failure analysis gets a 7.92 out of 10 importance rating. Hybrid bonding is identified as the hardest new architecture to analyze at 54%, and 83% of respondents support formal data standardization.</span>
+        <span class="zh">这项调查收集了约100份行业反馈，聚焦chiplet、异构集成、混合键合和埋入式封装结构的失效分析。异构、chiplet和3D产品占受访基础的69%，封装与异构集成失效分析的重要性评分达到7.92/10。混合键合被54%的受访者认为是最难分析的新架构，同时83%的受访者支持正式的数据标准化框架。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.31554" target="_blank" rel="noopener">
+          <span class="en">PATH: In-Situ Indexing via Memristive Content-Addressable Memory</span>
+          <span class="zh">PATH：基于忆阻内容寻址存储的原位索引</span>
+        </a>
+      </h3>
+      <p class="authors">Bing Wu, Xueliang Wei, Shiyi Song, Yibo Liu, Jinpeng Liu, Wei Tong, Hao Tong, Yuchong Hu, Dan Feng</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.31554" target="_blank" rel="noopener">arXiv:2606.31554</a> · 2026-06-30T12:11:26Z</p>
+      <p class="summary">
+        <span class="en">PATH reformulates hash-index insert, search, update, and delete operations as massively parallel content-addressable operations inside memristive memory arrays. On the authors&#x27; workloads it reports 4.7 to 7.8 times higher throughput, more than 14.5 times lower tail latency, and over 61.4% fewer memory accesses for insertions. The caveat is that system value depends on realistic CAM array costs and integration, but the indexing focus is more concrete than generic PIM claims.</span>
+        <span class="zh">PATH把哈希索引的插入、搜索、更新和删除改写为忆阻存储阵列内部的大规模并行内容寻址操作。在作者的工作负载上，它报告了4.7到7.8倍吞吐提升、超过14.5倍尾延迟降低，以及插入场景中超过61.4%的访存减少。需要注意的是，系统价值仍取决于真实CAM阵列成本和集成难度，但把目标放在索引上比泛泛讨论PIM更具体。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.30553" target="_blank" rel="noopener">
+          <span class="en">COSM Schedules Concurrent PIM and CPU Execution on Mobile Devices</span>
+          <span class="zh">COSM调度移动设备上的PIM与CPU并发执行</span>
+        </a>
+      </h3>
+      <p class="authors">Yilong Zhao, Fangxin Liu, Onur Mutlu, Mingyu Gao, Jian Liu, Haibing Guan, Li Jiang</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30553" target="_blank" rel="noopener">arXiv:2606.30553</a> · 2026-06-29T16:49:17Z</p>
+      <p class="summary">
+        <span class="en">COSM targets on-device LLM and application workloads where CPU tasks and PIM operations must share constrained mobile DRAM resources. The framework adds a low-interference PIM control interface and schedules PIM commands into idle windows in the CPU memory-access stream. The paper is useful because it treats bank conflicts and bus congestion as first-order issues rather than assuming PIM runs in isolation.</span>
+        <span class="zh">COSM面向端侧LLM和应用负载，在这类场景中CPU任务与PIM操作必须共享受限的移动DRAM资源。该框架加入低干扰PIM控制接口，并把PIM命令调度进CPU访存流的空闲窗口。论文的价值在于把bank冲突和总线拥塞作为一等问题处理，而不是假设PIM可以孤立运行。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.30039" target="_blank" rel="noopener">
+          <span class="en">Mega: A 22 nm Spiking Neural Network Accelerator at 0.375 pJ/SOP</span>
+          <span class="zh">Mega：22 nm脉冲神经网络加速器实现0.375 pJ/SOP</span>
+        </a>
+      </h3>
+      <p class="authors">Rick Luiken, Manil Dev Gomony, Sander Stuijk</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30039" target="_blank" rel="noopener">arXiv:2606.30039</a> · 2026-06-29T09:35:42Z</p>
+      <p class="summary">
+        <span class="en">Mega is a fabricated 22 nm FDSOI accelerator for convolutional spiking neural networks. It combines parallel 3 by 3 convolution support, unified memory for spikes, neuron states, and weights, and low-overhead spike-map handling. The reported 0.375 pJ/SOP is a 4 times improvement over prior state of the art, making this one of the stronger measured-silicon results in the week&#x27;s accelerator set.</span>
+        <span class="zh">Mega是一款已流片的22 nm FDSOI卷积脉冲神经网络加速器。它结合了并行3乘3卷积、用于spike、神经元状态和权重的统一存储，以及低开销spike map处理。论文报告0.375 pJ/SOP能效，相比此前先进水平提升4倍，是本周加速器论文中较强的实测硅结果。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.29986" target="_blank" rel="noopener">
+          <span class="en">HBM Is Not All You Need for Memory-Heterogeneous LLM Serving</span>
+          <span class="zh">异构存储LLM服务不只需要HBM</span>
+        </a>
+      </h3>
+      <p class="authors">Zhixiang Wei, Yun Wang, James Yen, Mingyuan Xia, Zhengwei Qi</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.29986" target="_blank" rel="noopener">arXiv:2606.29986</a> · 2026-06-29T09:00:38Z</p>
+      <p class="summary">
+        <span class="en">HMA-Serve proposes disaggregated LLM serving that pairs GDDR-based accelerators for compute-heavy prefill with HBM-based GPUs for memory-heavy decode. The system addresses cross-vendor friction by handling KV-cache format conversion, phase-wise quantization, and overlapped KV transfer. The paper is timely because it turns HBM scarcity into a scheduling and systems problem rather than assuming every inference phase needs the most expensive memory.</span>
+        <span class="zh">HMA-Serve提出一种解耦式LLM服务方式，用GDDR加速器处理计算密集的prefill阶段，用HBM GPU处理内存密集的decode阶段。系统通过KV cache格式转换、分阶段量化和重叠KV传输来处理跨厂商摩擦。这篇论文及时之处在于，它把HBM稀缺转化为调度和系统问题，而不是默认推理每个阶段都需要最昂贵的内存。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Co-Design</span>
+      <span class="zh">EDA与协同设计</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.31535" target="_blank" rel="noopener">
+          <span class="en">PEERS: Parallel Exact Effective-Resistance Solving for EDA Sign-Off</span>
+          <span class="zh">PEERS：面向EDA签核的并行精确有效电阻求解</span>
+        </a>
+      </h3>
+      <p class="authors">Baiyu Chen, Lin Gan, Guangwen Yang, Wenjian Yu</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.31535" target="_blank" rel="noopener">arXiv:2606.31535</a> · 2026-06-30T11:50:46Z</p>
+      <p class="summary">
+        <span class="en">PEERS attacks effective-resistance computation, a bottleneck in power-grid analysis, spectral sparsification, and reliability sign-off. It uses an implicit inverse model of the Cholesky factor plus augmented symbolic analysis to avoid the usual precision-memory tradeoff in exact methods. The contribution is relevant because industrial sign-off often cannot accept approximate answers, but exact all-edge queries can otherwise explode in memory.</span>
+        <span class="zh">PEERS面向有效电阻计算这一瓶颈，该问题出现在电源网格分析、谱稀疏化和可靠性签核中。它使用Cholesky因子的隐式逆模型和增强符号分析，避免精确方法常见的精度与内存权衡。其意义在于，工业签核往往不能接受近似答案，但精确的全边查询又容易导致内存爆炸。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.30949" target="_blank" rel="noopener">
+          <span class="en">AgRefactor Uses Agentic Refactoring for HLS Compatibility and Performance</span>
+          <span class="zh">AgRefactor用智能体重构提升HLS兼容性与性能</span>
+        </a>
+      </h3>
+      <p class="authors">Yang Zou, Zijian Ding, Yizhou Sun, Jason Cong</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30949" target="_blank" rel="noopener">arXiv:2606.30949</a> · 2026-06-29T22:02:34Z</p>
+      <p class="summary">
+        <span class="en">AgRefactor uses an LLM-based multi-agent workflow to convert real-world software into HLS-compatible programs. It adds a self-evolving memory system and combines LLM rewrites with automated refactoring tools to reduce cost and improve robustness. On 9 of 11 longer real-world benchmarks, it matches or beats prior automated and LLM-based baselines, but the result should still be read as a workflow advance rather than a replacement for hardware-aware engineering review.</span>
+        <span class="zh">AgRefactor使用基于LLM的多智能体流程，将真实软件重构为兼容HLS的程序。它加入自演化记忆系统，并把LLM改写与自动化重构工具结合，以降低成本并提升鲁棒性。在11个更长的真实基准中，它在9个上追平或超过既有自动化和LLM基线，但这个结果更应被看作工作流进展，而不是替代硬件感知工程审查。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Hardware</span>
+      <span class="zh">量子硬件</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.30805" target="_blank" rel="noopener">
+          <span class="en">CryoZip Compresses Quantum Error-Correction Syndromes at 4 K</span>
+          <span class="zh">CryoZip在4 K压缩量子纠错syndrome</span>
+        </a>
+      </h3>
+      <p class="authors">Guanchen Tao, Alexander Knapen, Jacob Mack, Gokul Subramanian Ravi, Qirui Zhang, Mehdi Saligane, Dennis Sylvester</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30805" target="_blank" rel="noopener">arXiv:2606.30805</a> · 2026-06-29T18:31:09Z</p>
+      <p class="summary">
+        <span class="en">CryoZip tackles the bandwidth and power limit between the 4 K stage and room-temperature controllers in fault-tolerant quantum systems. Implemented and evaluated in 22 nm FDSOI characterized at 4 K, it reports up to 48 times compression and 4 to 26 times energy savings across QEC codes. With a lightweight predecoder, the authors report more than 14,238 times bandwidth reduction, making the interface bottleneck explicit rather than treating QEC decoding as only a room-temperature compute problem.</span>
+        <span class="zh">CryoZip处理容错量子系统中4 K级与室温控制器之间的带宽和功耗限制。该设计在22 nm FDSOI中实现并以4 K特性评估，报告在多种QEC码上最高48倍压缩和4到26倍能耗节省。结合轻量级预解码器后，作者报告超过14238倍带宽降低，明确把接口瓶颈纳入问题，而不是把QEC解码只视为室温计算任务。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-02 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-02 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

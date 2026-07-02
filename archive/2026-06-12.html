@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-12">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Tightens Every Layer of Supply — Semi News 2026-06-12</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, June 12, 2026</span>
+      <span class="zh">2026年6月12日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Tightens Every Layer of Supply</span>
+      <span class="zh">AI需求收紧芯片供应链各环节</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Foundry pricing, HBM coordination, advanced packaging, and lithography economics all point to persistent pressure from AI infrastructure demand. Materials security and tighter trade controls are adding another constraint outside the fab.</span>
+      <span class="zh">晶圆代工定价、HBM协同、先进封装与光刻设备经济性都显示，AI基础设施需求仍在持续施压。晶圆厂之外，材料安全和更严格的贸易管制又增加了一层约束。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQYy12SFp6alU4TUYyd21aSWE0YWlNcDBraVZRSDFiUW9TazBUSTgzZjlUT3VrWjkzN0VfaGxHNWk4eG40NU5rVzlNUjluVWlSVEluZDlZbzdXX3ZHdENwNERZZF9RbTNMbjJ5YXBlbTk0N3lGazVlQXNJWVdtT09fajdramZfemxN?oc=5" target="_blank" rel="noopener">
+          <span class="en">Google Reportedly Taps Samsung for Next-Generation AI Chip Production</span>
+          <span class="zh">报道称Google选择Samsung生产下一代AI芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosun Ilbo</span> · 3h ago</span>
+        <span class="zh"><span class="source">Chosun Ilbo</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Google has reportedly selected Samsung to manufacture a next-generation AI chip. A production win would give Samsung a meaningful hyperscaler reference and offer Google another foundry path as demand for custom AI silicon grows.</span>
+        <span class="zh">报道称Google已选择Samsung生产下一代AI芯片。若进入量产，这将为Samsung带来重要的超大规模客户案例，也让Google在定制AI芯片需求增长之际获得另一条晶圆代工路径。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQY296eHdxS0l6aURxMzJxTFRvZUgwZnVTUkI2c1NFaEpTQ0c2Mlh6LWU1WGxDSFpRMkhwVkVsQVdnRVpqTUhRUVlmeUZ2UGJENzRFMVdIT1dzczQ3SnVIX09oMVdvemV2empBQXNDbE5LNy12M01uc01vM2R6cEF6UjI4T1FXZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC May Raise Second-Half Foundry Prices, With 3nm Up as Much as 15%</span>
+          <span class="zh">报道称TSMC下半年或上调代工价格，3nm涨幅最高15%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AASTOCKS</span> · 3h ago</span>
+        <span class="zh"><span class="source">AASTOCKS</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is reportedly preparing moderate foundry price increases in the second half, with 3nm pricing potentially rising by as much as 15%. The report signals that leading-edge capacity remains tight enough for the company to pass higher costs and scarcity premiums to customers.</span>
+        <span class="zh">报道称TSMC正准备在下半年适度上调晶圆代工价格，其中3nm报价涨幅可能高达15%。这表明先进制程产能仍然偏紧，公司有能力把更高成本与稀缺溢价转嫁给客户。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxNTFViSU1YdGk4eWNZNHRGcVF5VUF1dm9wSktjYmV5QU5ubXlrODktUmZvemx1MU9kTWFPNHBoZ3B0YXg0WG1hVmQtdXExQkE1WmNYV2xYam9NdDZsMnJ6NlctVmhmMkotWjlGUHR3cFMxakxmNm9qaEVwVkxIQjhOWC1Va2FRMlhWMDAxVXV6X0lUaXpJZ2tzV1hsampTWGQycGJfUmhNS1NvX1JSbWpOZTB4UndQd3AyTFliNk1VeUZmSFVPNDNUV29CdXDSAcgBQVVfeXFMUDMzckVWNUdxbVBjNlBVaG9NWllQN1BaVVNwZkF1NkNNeUJoMHBkelpxWlZDUV9LYU5qalhxRV8yUGJkUmloRzRvRVp3bHpoaklveDVCNnhxazN5U0wxeTBHUy1CTVlaNkd3N3BqWjVHeEdNb0lfc3R3LUlPdzdscTY1RHZwd3B1cGgtREJIZ3ZUV2tiQXpPWmtWTklSeFJrRy1Qc2dKQ3p1eTh6VFk0SHc0OGpWR0tzTXUzdFJmR2tYZ3hPMnpxYmU?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Introduces Packaging Technology Aimed at Lower Cost and Higher Performance</span>
+          <span class="zh">TSMC推出兼顾降本与性能提升的新封装技术</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GSMArena</span> · 6h ago</span>
+        <span class="zh"><span class="source">GSMArena</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC has detailed a new packaging technology intended to reduce chip cost while improving performance. Packaging is increasingly part of system architecture for AI processors, so cost and interconnect gains can matter as much as a transistor-level node transition.</span>
+        <span class="zh">TSMC公布了一项旨在降低芯片成本并提升性能的新封装技术。对于AI处理器，封装正日益成为系统架构的一部分，因此成本与互连方面的改进可能与晶体管制程升级同样重要。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPTWFiYWhyWExsNkJTQTRoRlNlaVJiVERrdVJHOFk4ZDlpM2dxQ25HVUh2cXUxemdJSEQtWERFWHI2aUxiV29TWndTVm9fVUZQcFE2YkRydlc5UVB4eVYweWxHTUg4MzR3R2RWYjQzR2NwX1FkakFENlVwVmJFcGxNQ1JwYU80MFBlQlBIbUI2NW44T1JiWU04Q3NORFFBV1BiVGpKYUQ5ZVAzMVBDT0JDbV9n?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia and SK Hynix Sign Multi-Year AI Chip Development Pact</span>
+          <span class="zh">Nvidia与SK hynix签署多年期AI芯片开发协议</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 8h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia and SK Hynix have reportedly signed a multi-year agreement to develop AI chips together. The arrangement deepens coordination between accelerator design and HBM supply, where bandwidth, thermals, packaging, and production timing increasingly have to be planned as one system.</span>
+        <span class="zh">报道称Nvidia与SK hynix签署了多年期AI芯片联合开发协议。该安排进一步加深加速器设计与HBM供应之间的协同，因为带宽、散热、封装和量产节奏正越来越需要作为一个系统统一规划。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPc0tUU0o5aEpJUktaZEF6MmN2WkwwSVhkZ2VMUVJoSFBVbHNXSUZwMzJEOEZTd2txLXY2VG9Da1ZsVktFTlpwQnlsbHdYTlBYbDdmYmZoNW5qX3NoaU1zM0dZUmdXQmwwb2hFQnFlSXlwMm4wM1lZOVVGZkZVWDVGbHpPeTVrRFdGcVJV?oc=5" target="_blank" rel="noopener">
+          <span class="en">CXMT&#x27;s IPO Pushes China&#x27;s DRAM Challenge Toward HBM</span>
+          <span class="zh">CXMT借IPO把中国DRAM竞争推向HBM</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 1h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CXMT&#x27;s planned IPO is being framed around its move toward HBM and a broader challenge to the established DRAM order. Korean suppliers still retain the lead, but access to public capital could accelerate Chinese investment in process development, packaging, and customer qualification.</span>
+        <span class="zh">CXMT拟议中的IPO被视为其转向HBM并挑战现有DRAM格局的重要一步。韩国供应商仍保持领先，但进入公开资本市场可能加快中国厂商在制程开发、封装和客户认证方面的投入。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxNbUt5T3cxcjc1TlB0WWJ0V1U0QV83bzl3TkEwVU4wRUg0RTI4bEJoUVZpSVZiX1Nld3pZZjBmUHZIdHM1VnBSdWZRQ1FTMXNwXzdaS2h5dHNUQlItc2QtWmtxZWRvMTBuQm5KQVFJUzVSdldtbjdKcUVBOTVsRkxsY1JxSVVGUDJ0c3ZGLVZsaWtvYmkxampaTTlKZ0FsNnh1WDJCS3RpMFNESGxNcndwRUVkVFdOOUZIeWZZ0gHAAUFVX3lxTE9hWTlRY2RwcWdvWlZoZ2dDcGZOUmxtYXRGa3VxUUFvZU1pOVF4QlEzdW4wTGpvUnBVYUFWem9nYWlNeEZFblF5cXZScEYxY2ZpWjJuU0RqUGY2aFVYa202dUNCZnVtSy1sSFFORDdpN3hnVnRkVjhaZEowS3RCSER0aV92d0V1ZFVqd3luRVZWOG9CSW1pTTExLV9YQ2NYc1liOERlWmY0Wk5vOTB1QnVoWnEyQjhpR2RIVFZjRVlOWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">South Korea Develops a Key Semiconductor Gas Technology</span>
+          <span class="zh">韩国开发关键半导体气体技术</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">UPI</span> · 3h ago</span>
+        <span class="zh"><span class="source">UPI</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">South Korea says it has developed a key semiconductor process-gas technology. Domestic capability in specialty gases can reduce exposure to concentrated foreign suppliers, although the industrial impact will depend on purity, scale, and qualification at production fabs.</span>
+        <span class="zh">韩国宣布已开发出一项关键半导体制程气体技术。特种气体的本土供应能力可降低对集中海外供应商的依赖，但其产业影响仍取决于纯度、规模以及在量产晶圆厂中的认证进度。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxNUnRZLVh1OTR0LXRNSnRhTkdzMndjWWRRR19EWDA5d0pDb1FvWEVySDA5VTNEQjRtVzU3M1ZrSTh4azc4ekhJWl9peW9sbWg4TWFWOUpEV2FkRXd3VXJibEhGeE90ek0tYllJNTVOX0pfRHdnOGwyM1ExSlNsSUVwZ0JGT0VQMkF1ZnF1NVZWNV9VOHgxUVIyTDlSRy1rUUJmVnFPbU5YX3NfM05DeFpobDJoRTBoMG5DUVdvS2lNR2RYOExVTG12WFlGcHQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML&#x27;s Newest Lithography Tool Tests a $400 Million Cost Threshold</span>
+          <span class="zh">ASML最新光刻设备面临4亿美元成本门槛</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says even TSMC views ASML&#x27;s newest machine, priced around $400 million, as too expensive for broad deployment. The economics of the tool could slow adoption unless throughput, yield, or process simplification offsets the capital cost.</span>
+        <span class="zh">报道称，即使TSMC也认为ASML最新设备约4亿美元的价格过高，难以广泛部署。除非其吞吐量、良率或制程简化带来的收益能够抵消资本成本，否则该设备的经济性可能拖慢导入速度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOcFhrTXQ0Z3J2M1Q5QTluS1hBNDctekJHQ1VUMURGTFBnSksxV1ZsS2pRLUxpS2YwMUtRYTdzdlZKYmJzbEZ6UW9aOVNQX1lFeDM0ZzBQV2Y2TVU0Wkx3OVZFTTZrbkpvZzNxVkpMc0NlcnJMWUZPQk41ZWw4S0VhNHgxdWs3aTdub1dKQ1pMYXd5bTI5VTFXMlVjaw?oc=5" target="_blank" rel="noopener">
+          <span class="en">China Tightens InP Supply, Pressuring the U.S.-Taiwan Optics Chain</span>
+          <span class="zh">中国收紧InP供应，美台光通信链承压</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 3h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">China is tightening supplies of indium phosphide, according to a report focused on the U.S.-Taiwan optical supply chain. InP is central to high-speed optical components, so constrained availability can affect transceiver capacity and costs for AI data-center networks.</span>
+        <span class="zh">报道称，中国正在收紧磷化铟（InP）供应，对美台光通信供应链形成冲击。InP是高速光器件的关键材料，供应受限可能影响AI数据中心网络所需光模块的产能与成本。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOamNIZzl5YjR1UTlHTWJUQnRGbXhsdnJyb1J0cEJZbHFBanotakh3cl9FZ1V1TTVLZ09ZZzNKZVVNeko1LTNRQ19zTXRja0ZoMi12SFFPWDNvUlhaYnNaeVhZLVRVRFdzdzIxYlpQTVFTdDZRdS0zUkdoQlNHODFlZHI5Q1otdXk2YzA3djBubFo5QmUzTmlHcEJzQS0xNnZv?oc=5" target="_blank" rel="noopener">
+          <span class="en">Taiwan Tightens Advanced AI Chip Trade With China</span>
+          <span class="zh">台湾收紧与中国大陆之间的先进AI芯片贸易</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MarketScreener</span> · 4h ago</span>
+        <span class="zh"><span class="source">MarketScreener</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwan has tightened controls on advanced AI chip trade with China. The move adds a Taiwan-administered compliance layer to existing restrictions and could affect distributors, design houses, and manufacturers handling controlled accelerators or related technology.</span>
+        <span class="zh">台湾已收紧与中国大陆之间的先进AI芯片贸易管制。此举在现有限制之外增加了台湾方面的合规要求，可能影响经手受控加速器及相关技术的分销商、设计公司和制造商。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZG1KeFR2aTN0WHE4c050Z1VlTmlqT3VlWXlueDdCRXR3dUpJZXU0ZkN5UjdscVo4OVRnak9MelhyTXpHMU5NT1NadXZlNDVZWGZkZFI2UEhmS0ZpSGVlV2tSLXIzeFR3WjB5YVhJaDI4eVB3MC1lVS1hYXdOelFXMTA3N1R3WUpEYUZnNU16Y2pjTnk0R2haSXNQQjVURjZnS1p5WU5jcU44QQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC&#x27;s May Revenue Rises 30% as AI Demand Stays Strong</span>
+          <span class="zh">AI需求保持强劲，TSMC 5月营收增长30%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 9h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s May revenue rose 30% as demand for AI chips remained strong. The monthly result supports continued leading-edge utilization, but one month of growth does not by itself establish that demand is accelerating from already elevated levels.</span>
+        <span class="zh">在AI芯片需求保持强劲的推动下，TSMC 5月营收增长30%。这一月度数据支持先进制程产能利用率继续维持高位，但单月增长本身并不能证明需求正在从已处高位的基础上进一步加速。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1vV2Y4dk9YU2V5aER5LU9SX0prT0sweHZSazVkWXVMczIzQnQwT182a0xRelJPV1lWWC1zSjZhTzEwNXZLODhOODlXOUI1TTlBLXpuSUxVd1BmdTc3XzY4UmpnMkZQU28?oc=5" target="_blank" rel="noopener">
+          <span class="en">Former SK Sapeon Executives Launch AI Chip Startups After Rebellions Merger</span>
+          <span class="zh">Rebellions合并后，原SK Sapeon高管创办AI芯片初创公司</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 5h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Former SK Sapeon executives have launched new AI startups following the company&#x27;s merger with Rebellions. The departures broaden Korea&#x27;s accelerator startup field, though the commercial signal will depend on disclosed architectures, funding, tape-out plans, and named customers.</span>
+        <span class="zh">在SK Sapeon与Rebellions合并后，多名前高管创办了新的AI初创公司。这扩大了韩国加速器创业阵营，但其商业信号仍取决于后续披露的架构、融资、流片计划和具名客户。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-12 04:22 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-12 04:22 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-02">
+<meta name="generator" content="semi-news-daily">
+<title>Memory Pressure Rewrites the AI Stack — Semi News 2026-07-02</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, July 2, 2026</span>
+      <span class="zh">2026年7月2日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Memory Pressure Rewrites the AI Stack</span>
+      <span class="zh">存储压力重写AI堆栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Memory scarcity and cost show up everywhere today: Apple tests Washington&#x27;s tolerance for Chinese suppliers, Samsung works on higher-stack HBM, and Etched pitches inference silicon with a reported $1 billion order book. Materials, policy, and challenger chips are becoming parts of the same capacity equation.</span>
+      <span class="zh">今天的主线是存储稀缺和成本压力外溢：Apple测试华盛顿对中国存储供应商的容忍度，Samsung推进更高堆叠HBM，Etched则用据称10亿美元订单验证推理芯片需求。材料、政策和新兴AI芯片正在成为同一道产能方程。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxOVzFZUUZfbkZTRzB2SVdDczJlOW1BbHBXN1RBaV81OWg0Y3BramFrdjFRQmZSU3ltdWtEVE90dHhSMHRadVlySHZxNUJsS25CNm13Y01jelF6QVMtNjl3S21DS2hVdTNnRHNxcXFTSXAzQlZYeVI4Y1J3V2VfdFhmMGY5QTU3MW9YaW8xZXNCYlIzRGVBYzExa1RmOEZjS1o2MndFaDJ1N2FMT0FDSkI2OGNzQmFmQVZQUG1MZmZub0hncW5QU0NPX1Z5WlBWUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Etched Raises $800 Million and Books $1 Billion in AI Chip System Orders</span>
+          <span class="zh">Etched融资8亿美元并获得10亿美元AI芯片系统订单</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AI Insider</span> · 5h ago</span>
+        <span class="zh"><span class="source">AI Insider</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Etched is reported to have raised $800 million and secured $1 billion in AI chip system orders for an inference-focused system. The scale of the order book gives the Nvidia challenger a stronger commercial signal than a typical chip startup financing round. It also reinforces the split between training GPUs and specialized inference hardware as buyers look for lower serving cost.</span>
+        <span class="zh">据报道，Etched已融资8亿美元，并为面向推理的AI芯片系统获得10亿美元订单。这样的订单规模比一般芯片初创公司的融资消息更能说明商业需求。它也强化了训练GPU与专用推理硬件之间的分化，因为买方正在寻找更低的推理服务成本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/samsung-chases-tsmc-with-quantum-powered-chipmaking-as-ai-reshapes-the-most-critical-step-in-fabrication/" target="_blank" rel="noopener">
+          <span class="en">Samsung Uses Quantum and AI Simulation to Chase TSMC in Lithography</span>
+          <span class="zh">Samsung用量子与AI仿真追赶TSMC光刻能力</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 3h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung is reportedly developing photolithography simulation technologies that use quantum-computing methods and AI to reduce lithography and etch time and cost. The work targets one of the largest bottlenecks in advanced process development, where computational lithography accuracy affects yield and cycle time. It is also a reminder that foundry competition is now partly a software and modeling race against TSMC.</span>
+        <span class="zh">据报道，Samsung正在开发结合量子计算方法和AI的光刻仿真技术，以降低光刻与刻蚀环节的时间和成本。这项工作瞄准先进制程开发中的核心瓶颈之一，因为计算光刻精度会影响良率和开发周期。它也说明，晶圆代工竞争已经部分变成面向TSMC的软件与建模竞赛。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/semiconductor-manufacturers/369804-why-huawei-says-it-will-match-tsmcs-most-advanced-chips-by-2031/" target="_blank" rel="noopener">
+          <span class="en">Huawei Says It Can Match TSMC&#x27;s Most Advanced Chips by 2031</span>
+          <span class="zh">Huawei称2031年可追平TSMC最先进芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SemiWiki analyzes Huawei&#x27;s assertion that it can match TSMC&#x27;s leading-edge chipmaking by 2031. The target reflects geopolitical pressure after export controls restricted Huawei&#x27;s access to advanced tools and foundry capacity. Even if the date is aspirational, it frames China&#x27;s domestic process roadmap around closing the gap in advanced manufacturing.</span>
+        <span class="zh">SemiWiki分析了Huawei关于2031年追平TSMC领先芯片制造能力的说法。这个目标反映出出口管制限制Huawei获取先进设备和代工产能后的地缘政治压力。即使时间表偏向愿景，它也把中国本土制程路线图明确框定为缩小先进制造差距。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxOLThuRnljb0llYXZkMWpPQkpUa3lXSWVBRHl0dlItbzkzZG1pakM3T0NwQUhUVjZCMDdYTjVGcDNCTkZUUDU2ZWNzV29GQmtIdXJkSkZzNEdEQkRxNmZZZnhLM1pOVFk2SV8xZ05aTWo2Y0RNUFdCVEp6ZmpXYVhrS3lrWFc3TGtrUFNaazdzS1VTazcxQ0NOTjFBeGFhV3ViZnBONzdhZHZPSW4tRnZ4Y2VubnNsTGMwUlpWcFRVTTNxejJCWVpvakN0czdURnZfV0JsNVRMVHNaV3RXTE5NczVfZ3NmUWs?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Files Dummy-Die Patent Aimed at 16-Layer HBM5 Reliability</span>
+          <span class="zh">Samsung提交面向16层HBM5可靠性的dummy die专利</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TrendForce</span> · 1h ago</span>
+        <span class="zh"><span class="source">TrendForce</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung filed a patent for dummy-die structures meant to improve reliability in high-stack HBM, with TrendForce reading it as aimed at 16-layer HBM5. Dummy die and stress-control details matter as HBM stacks add layers and thermal and mechanical margins narrow. For Samsung, packaging reliability is central to regaining share in AI memory.</span>
+        <span class="zh">Samsung提交了一项用于提升高堆叠HBM可靠性的dummy die结构专利，TrendForce认为其目标指向16层HBM5。随着HBM层数增加，热裕量和机械应力裕量收窄，dummy die和应力控制细节会变得更关键。对Samsung而言，封装可靠性是重新争夺AI存储份额的核心。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5vdHJzMHgzY21jYmxHQXpEbTIyd2daNWVYU3dEbTVyY1dkNXBDR3R2V09xVGFxd0RmYl9Id1BiYXB2eDVnR1hrY3I4bW95RzNQQ1p1azhuOTU1MGUzUHJqbl9Lc0JydzA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Global Memory Fab Equipment Spending Is Set to Top $50 Billion</span>
+          <span class="zh">全球存储晶圆厂设备支出将超过500亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec reports that global memory fab equipment spending is set to top $50 billion. That level of spending points to a coordinated DRAM, NAND, and HBM capacity buildout rather than a narrow HBM upgrade cycle. Equipment makers benefit, but the ramp also raises the risk of timing mismatches if AI demand cools or commodity memory recovery diverges.</span>
+        <span class="zh">The Elec报道称，全球存储晶圆厂设备支出将超过500亿美元。这样的支出规模说明行业正在同步扩建DRAM、NAND和HBM产能，而不只是进行局部HBM升级。设备厂商将受益，但如果AI需求降温或大宗存储复苏分化，扩产节奏也会带来错配风险。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNZzJUd2xENVZGVnY2QzZMYVZISkFCWElDR19Wc1oxcjlMZWJmalJId2NIRTdQUFFNSkgzeVRRblA5OXNZX0drZWlTOU9VYXM4YnJEQ0sycW9jUkNpamR0ajdpdWx0NTREMDJzYVFyZlVEUnlxNU54cWxkekhsQm1mSno5M1NSZjFDMDlMYjFDenZjQVRVb1oyUUF1Z0tmVy1XX1FrcEZDMzRTNlBRT3c?oc=5" target="_blank" rel="noopener">
+          <span class="en">Data Centers Now Consume More Than Half of DRAM, Counterpoint Says</span>
+          <span class="zh">Counterpoint称数据中心已消耗过半DRAM</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 5h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Counterpoint says data centers now consume more than half of DRAM output. The mix shift explains why HBM and server DRAM pricing can tighten even when PC and smartphone units are uneven. It also makes hyperscaler capex a more direct driver of memory makers&#x27; margins.</span>
+        <span class="zh">Counterpoint称，数据中心现在消耗了超过一半的DRAM产出。这种结构变化解释了为什么在PC和智能手机出货不均衡时，HBM和服务器DRAM价格仍可能趋紧。它也让超大规模云厂商资本开支更直接地影响存储厂商利润率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/co2-shortage-threatens-advanced-semiconductor-supply/" target="_blank" rel="noopener">
+          <span class="en">High-Purity CO2 Shortage Threatens Advanced Semiconductor Supply</span>
+          <span class="zh">高纯CO2短缺威胁先进半导体供应</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 5h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A shortage of high-purity CO2 is emerging as South Korean refineries cut output amid Middle East crude uncertainty. The material is used in advanced semiconductor manufacturing, and the report follows earlier concern around tungsten hexafluoride supply for HBM and 3D NAND processes. The story matters because advanced-node constraints are showing up in industrial gases and refinery output, not only in lithography tools.</span>
+        <span class="zh">由于中东原油不确定性下韩国炼厂削减产量，高纯CO2短缺正在显现。高纯CO2用于先进半导体制造，而此前市场已经担忧HBM和3D NAND工艺所需WF6的供应。这个事件重要之处在于，先进制程约束正在工业气体和炼厂产出中显现，而不只是体现在光刻设备上。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/apple-burns-political-capital-in-washington-to-buy-memory-from-chinas-cxmt-and-ymtc-yet-us-buyers-wont-see-even-a-cent-in-savings/" target="_blank" rel="noopener">
+          <span class="en">Apple Lobbies Washington to Buy CXMT and YMTC Memory for China</span>
+          <span class="zh">Apple游说华盛顿允许采购CXMT与YMTC存储</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 1h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says Apple is lobbying the Trump administration for permission to buy memory from CXMT and YMTC for China-focused products. The request would test how much flexibility Washington gives a U.S. system maker when Chinese supply is fenced off by national security restrictions. It also shows memory cost and local-supply pressure reaching consumer device sourcing.</span>
+        <span class="zh">报道称，Apple正在游说特朗普政府，寻求获准为面向中国市场的产品采购CXMT和YMTC存储。这个请求将考验华盛顿在国家安全限制之下，会给美国系统厂商多少供应链灵活性。它也显示，存储成本和本地化供应压力已经传导到消费电子采购决策。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQUUyX0VZamFxczFjd2l2MTFKSWo3S0JnSDcwaVhJZmdBRnRpVzJlRlY1d1Q5bWs3RzYtemRIa1ZpT2FCVVNTT3VsM21RSlNpclZNZFFiLUZCTlpWdnVhMTlXZFZMNjdyNjFUOW45UUpsOXN0RzhsUUJuQWxRYWhCY1JTMnRManIxLVlnQTFjbHhGUzFiRlo5UThyLWt5Rk1kWTltdHI1d2xQQ25RQzJpNExlZ2Y4UUpfRVc1dVFyT2ZjWWZoYlh6TA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Taiwan Raids Super Micro in Alleged Nvidia AI-Server Smuggling Probe</span>
+          <span class="zh">台湾在疑似Nvidia AI服务器走私调查中突查Super Micro</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 5h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwanese authorities raided Super Micro as part of a widening probe into alleged Nvidia AI-server smuggling. The case illustrates how enforcement is moving from chip shipments to complete AI server systems and intermediaries. For Nvidia&#x27;s ecosystem, export-control risk now sits in server integration and transshipment, not only GPU sales.</span>
+        <span class="zh">台湾当局在一项扩大中的调查中突查Super Micro，调查焦点是疑似Nvidia AI服务器走私。该案说明执法重点正在从单颗芯片出货延伸到完整AI服务器系统和中间渠道。对Nvidia生态而言，出口管制风险不只存在于GPU销售，也存在于服务器集成和转运环节。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxNT1JFVzUxVDFibWNCX0FTZ2t0TnJucTdWZFlxUm9tNVRxLWpva1c1b044YXNERWI3SlRGNDFxVTk4eXZPWlJLNXI4cE0wOWdQMFh1UmZsRmJLMzY1OXMzTXJCVlZQUldhLUU5VHZiSDB3VlBUYno4cHJiX2ZEUWhGcFZOdWRIUFVEb242OGdHTEYzQmc?oc=5" target="_blank" rel="noopener">
+          <span class="en">BoA Bubble-Risk Call Hits Intel, AMD, and TSMC Shares</span>
+          <span class="zh">BoA泡沫风险观点冲击Intel、AMD与TSMC股价</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 8h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel dropped 7%, AMD slid 5%, and TSMC fell 6% after Bank of America flagged bubble risk in semiconductors, according to Yahoo Finance coverage carried by Google News. The selloff shows how crowded AI and chip trades can reverse even without a single company-specific earnings miss. It also puts more scrutiny on whether capex, HBM orders, and foundry ramps are being valued as cyclical or structural.</span>
+        <span class="zh">据Google News转载的Yahoo Finance报道，在Bank of America提示半导体泡沫风险后，Intel下跌7%，AMD下跌5%，TSMC下跌6%。这轮下跌显示，即使没有单一公司的财报失误，拥挤的AI与芯片交易也可能迅速反转。市场也会更仔细审视资本开支、HBM订单和代工扩产究竟应按周期性还是结构性增长定价。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTFA2Q1FhTUhsRjFTb1I2dFVrZ2hRRlA3emlHb3c4NWo2MHZLZ3pJT1JsWFhERHNsNUphNnRscHlidy1va3lvUlF1QzZ2dTdrdThDc196QWZ2aU51NkVLTFlYTXYyWmZHeDQ4N1pNUS1TSDJyRUZxSWlfZjZR?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras Reports Strong Growth After OpenAI Partnership</span>
+          <span class="zh">Cerebras在OpenAI合作后报告强劲增长</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing</span> · 7h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras Systems reported strong growth after its OpenAI partnership, according to Crypto Briefing. The update matters because wafer-scale systems have to prove both technical differentiation and repeatable demand against GPU clusters. Its momentum puts Cerebras in the small group of AI-chip challengers with visible customer traction rather than only roadmap claims.</span>
+        <span class="zh">据Crypto Briefing报道，Cerebras Systems在与OpenAI合作后报告了强劲增长。这一更新重要，是因为晶圆级系统不仅要证明技术差异化，也要证明相对于GPU集群存在可重复的需求。Cerebras的势头使其进入少数具有可见客户牵引力的AI芯片挑战者行列，而不只是停留在路线图表态。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-02 01:18 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-02 01:18 UTC · <a href="archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
