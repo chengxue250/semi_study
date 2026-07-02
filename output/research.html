@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-01">
+<meta name="edition-date" content="2026-07-02">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Neuromorphic Work Moves From Models To Blocks — Semi Research 2026-07-01</title>
+<title>Memory Movement Defines the Research Agenda — Semi Research 2026-07-02</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,20 +249,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Wednesday, July 1, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月1日 星期三</span>
+      <span class="en">Research digest · Thursday, July 2, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月2日 星期四</span>
     </div>
     <h1>
-      <span class="en">Neuromorphic Work Moves From Models To Blocks</span>
-      <span class="zh">神经形态从模型走向模块</span>
+      <span class="en">Memory Movement Defines the Research Agenda</span>
+      <span class="zh">数据搬运主导研究议程</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers cluster around implementable neuromorphic building blocks: ferroelectric devices, memristive crossbars, SkyWater 130 nm IP, and event-driven deployment flows. The EDA and systems papers show the same pressure from another angle, with AI agents and distributed switch memory trying to make hardware design and data-plane state less brittle.</span>
-      <span class="zh">本周论文集中在更可实现的神经形态构件上：铁电器件、忆阻交叉阵列、SkyWater 130 nm IP，以及事件驱动部署流程。EDA和系统论文从另一个角度呈现同样压力：AI agent和分布式交换机内存都在试图降低硬件设计与数据平面状态管理的脆弱性。</span>
+      <span class="en">The strongest papers this week attack data movement at every layer: BEOL memories, MRAM CIM, memristive indexing, PIM scheduling, and memory-heterogeneous LLM serving. EDA and quantum papers echo the same constraint, focusing on sign-off scalability and bandwidth across the cryogenic boundary.</span>
+      <span class="zh">本周最值得关注的论文都在不同层级处理数据搬运问题：BEOL存储、MRAM存算一体、忆阻CAM索引、PIM调度和异构存储LLM推理。EDA和量子方向也呼应同一约束，重点放在签核可扩展性以及低温边界带宽上。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
@@ -273,83 +273,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1038/s41467-026-74648-y" target="_blank" rel="noopener">
-          <span class="en">Biomimetic ferroelectric-semiconductor transistor for multisensory integration</span>
-          <span class="zh">用于多感官集成的仿生铁电-半导体晶体管</span>
+        <a href="https://doi.org/10.1109/TED.2026.3692177" target="_blank" rel="noopener">
+          <span class="en">Interface-Engineered STT-MRAM for Variation-Aware CIM Arrays</span>
+          <span class="zh">面向变异感知CIM阵列的界面工程STT-MRAM</span>
         </a>
       </h3>
-      <p class="authors">Shuo Liu, Ligong Zhang, Ruiqing Xie, et al.</p>
+      <p class="authors">Zhou-Yu Wu, A. Ramesh, Vinod N. Bhukya, Jeng-Hua Wei, S. Sheu, Y. Hsin, Yuan-Chieh Tseng</p>
       
-      <p class="venue"><a href="https://doi.org/10.1038/s41467-026-74648-y" target="_blank" rel="noopener">Nature Communications</a> · 2026-06-20</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3692177" target="_blank" rel="noopener">IEEE TED DOI:10.1109/TED.2026.3692177</a> · 2026-07-01</p>
       <p class="summary">
-        <span class="en">Liu et al. report a ferroelectric-semiconductor transistor that emulates neuronal multisensory integration. The device-level contribution matters because neuromorphic sensing needs memory and nonlinear weighting near the sensor, not only digital post-processing after data movement. The caveat is manufacturability: a Nature Communications device result still needs array-level yield, endurance, and CMOS integration evidence before it becomes a platform.</span>
-        <span class="zh">Liu等人报道了一种铁电-半导体晶体管，用于模拟神经元的多感官集成。这个器件级结果重要，是因为神经形态传感需要在传感器附近完成记忆和非线性加权，而不只是把数据搬走后再做数字处理。需要保留的caveat是可制造性：Nature Communications级别的单器件结果还需要阵列良率、耐久性和CMOS集成证据，才能成为平台。</span>
+        <span class="en">The paper experimentally studies Mg insertion at CoFeB/MgO interfaces in PMA MTJs with diameters from 30 to 180 nm and propagates the measured statistics into CIM array simulations. Mg insertion raises RA, lowers switching current, improves breakdown voltage, and reduces TMR, creating a device-level tradeoff for array read margins and energy. The useful contribution is the closed device-to-array loop rather than another idealized CIM simulation.</span>
+        <span class="zh">这篇论文实验研究了PMA MTJ中CoFeB/MgO界面的Mg插入，器件直径覆盖30到180 nm，并把测得的统计分布传递到CIM阵列仿真中。Mg插入提高RA、降低开关电流、提升击穿电压，但会降低TMR，因此在阵列读裕量和能耗之间形成器件级权衡。它的价值在于建立了从器件到阵列的闭环，而不是又一次理想化的CIM仿真。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.64898/2026.06.23.26356282" target="_blank" rel="noopener">
-          <span class="en">A conformable CMOS ultrasound system for point-of-care imaging</span>
-          <span class="zh">面向床旁成像的贴合式CMOS超声系统</span>
+        <a href="https://doi.org/10.1109/TED.2026.3692625" target="_blank" rel="noopener">
+          <span class="en">BEOL-Compatible NV-SRAM With Stacked ITO FETs and HfO2 Ferroelectric Capacitors</span>
+          <span class="zh">采用堆叠ITO FET与HfO2铁电电容的BEOL兼容NV-SRAM</span>
         </a>
       </h3>
-      <p class="authors">J. S. Letchumanan, S. Gandhi, H. Yin, et al.</p>
+      <p class="authors">Jiawei Xie, Zuopu Zhou, Leming Jiao, Yuye Kang, Kaizhen Han, Zijie Zheng, Qiwen Kong, Xiaolin Wang, Bich-Yen Nguyen, Xiao-Qing Gong</p>
       
-      <p class="venue"><a href="https://doi.org/10.64898/2026.06.23.26356282" target="_blank" rel="noopener">medRxiv</a> · 2026-06-26</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3692625" target="_blank" rel="noopener">IEEE TED DOI:10.1109/TED.2026.3692625</a> · 2026-07-01</p>
       <p class="summary">
-        <span class="en">Letchumanan et al. describe a conformable CMOS ultrasound system aimed at point-of-care imaging. The hardware angle is the integration of ultrasound sensing with CMOS electronics in a form factor that can move closer to wearable or bedside use. Because the candidate is a medRxiv preprint, the clinical and manufacturing claims should be treated as early until peer review and broader device validation arrive.</span>
-        <span class="zh">Letchumanan等人描述了一种面向床旁成像的贴合式CMOS超声系统。其硬件看点在于把超声传感与CMOS电子学集成到更接近可穿戴或床旁使用的形态中。由于候选项来自medRxiv预印本，临床与制造相关主张在同行评审和更大范围器件验证前都应视为早期结果。</span>
+        <span class="en">The authors demonstrate a BEOL-compatible nonvolatile SRAM cell using HfO2-based MFM ferroelectric capacitors and ITO-channel FETs. The process stays at or below 400 C, supports store and recall, and operates with 1.5 V VDD plus a 2 V plate-line voltage in the reported cell. The result is relevant for monolithic 3D memory above CMOS, though density and endurance still need full product-level validation.</span>
+        <span class="zh">作者展示了BEOL兼容的非易失SRAM单元，采用HfO2基MFM铁电电容和ITO沟道FET。该工艺最高温度不超过400 C，已演示store和recall操作，报告单元使用1.5 V VDD和2 V plate line电压。这个结果对CMOS上方单片3D存储有意义，但密度和耐久性仍需产品级验证。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.4071/001c.163731" target="_blank" rel="noopener">
-          <span class="en">3D integration technologies for miniaturized TPMS modules</span>
-          <span class="zh">用于小型化TPMS模块的3D集成技术</span>
+        <a href="http://arxiv.org/abs/2606.22149" target="_blank" rel="noopener">
+          <span class="en">Failure Analysis Priorities for Advanced Packaging and Heterogeneous Integration</span>
+          <span class="zh">先进封装与异构集成的失效分析优先级</span>
         </a>
       </h3>
-      <p class="authors">N. Lietaer, M. Taklo, A. Klumpp, et al.</p>
+      <p class="authors">H. Kottur, Nusra Akter Takia, Mahamudul Hassan Fuad, I. Shiam, M. Walsh, Navid Asadizanjani</p>
       
-      <p class="venue"><a href="https://doi.org/10.4071/001c.163731" target="_blank" rel="noopener">IMAPSource Proceedings</a> · 2026-06-22</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2606.22149" target="_blank" rel="noopener">arXiv:2606.22149</a> · 2026-06-20</p>
       <p class="summary">
-        <span class="en">Lietaer et al. detail 3D integration of MEMS, ASIC, radio, power, and antenna blocks for a miniaturized tire-pressure monitoring system. The paper is useful because it names the interconnect stack: Au stud bump bonding, SnAg microbumps, Cu/Sn SLID, and tungsten-filled TSVs. This is not frontier-node logic, but it is a concrete heterogeneous-integration case where packaging choices dominate system feasibility.</span>
-        <span class="zh">Lietaer等人详细介绍了用于小型化胎压监测系统的MEMS、ASIC、射频、电源和天线模块3D集成。论文有价值之处在于明确列出互连技术栈：Au stud bump bonding、SnAg微凸点、Cu/Sn SLID以及钨填充TSV。这不是先进制程逻辑芯片，但它是一个具体的异构集成案例，封装选择直接决定系统可行性。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Systems</span>
-      <span class="zh">电路与系统</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1109/TC.2026.3678701" target="_blank" rel="noopener">
-          <span class="en">dVRM pools register memory across programmable switches</span>
-          <span class="zh">dVRM在可编程交换机之间池化寄存器内存</span>
-        </a>
-      </h3>
-      <p class="authors">Mimi Qian, Lin Cui, Fung Po Tso, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1109/TC.2026.3678701" target="_blank" rel="noopener">IEEE Transactions on Computers</a> · 2026-07-01</p>
-      <p class="summary">
-        <span class="en">Qian et al. propose dVRM, a distributed virtual-register-memory framework that pools register resources across multiple programmable switches. The work targets a real bottleneck: applications such as telemetry and in-network computation can run into the roughly 15 MB SRAM limit of a Tofino switch. The interesting systems idea is adaptive bit-width allocation driven by data-plane feedback, though deployment will depend on how much latency and coordination overhead the pool adds.</span>
-        <span class="zh">Qian等人提出dVRM，这是一种在多台可编程交换机之间池化寄存器资源的分布式虚拟寄存器内存框架。它瞄准的是实际瓶颈：遥测、网内计算等应用会遇到Tofino交换机约15 MB SRAM的限制。值得关注的系统思路是由数据平面反馈驱动的自适应位宽分配，但真实部署还要看内存池带来的延迟和协调开销。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">
-          <span class="en">A SkyWater 130 nm neuromorphic IP suite</span>
-          <span class="zh">一套SkyWater 130 nm神经形态IP模块</span>
-        </a>
-      </h3>
-      <p class="authors">P. Kumaresan, Santhosh Sivasubramani</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">arXiv:2606.22635</a> · 2026-06-21</p>
-      <p class="summary">
-        <span class="en">Kumaresan and Sivasubramani present four interface-compatible digital IP blocks for neuromorphic edge systems in SkyWater 130 nm: a PVT sensor/TRNG block, a stochastic LIF neuron, an STDP learning controller, and a memristive-crossbar controller. The practical value is the common SPI register model and gate-level verification, which makes the blocks easier to integrate than one-off neuromorphic demos. The caveat is that this is still IP-block work at a mature node, not measured performance from a complete neuromorphic SoC.</span>
-        <span class="zh">Kumaresan和Sivasubramani在SkyWater 130 nm中提出四个接口兼容的神经形态边缘系统数字IP：PVT传感器/TRNG模块、随机LIF神经元、STDP学习控制器，以及忆阻交叉阵列控制器。其实用价值在于统一的SPI寄存器模型和门级验证，使这些模块比一次性的神经形态demo更容易集成。需要注意的是，这仍是成熟制程上的IP模块工作，并非完整神经形态SoC的实测性能。</span>
+        <span class="en">This survey collects roughly 100 industry responses on failure analysis for chiplets, heterogeneous integration, hybrid bonding, and buried package structures. Heterogeneous, chiplet, and 3D products dominate the respondent base at 69%, while package and heterogeneous-integration failure analysis gets a 7.92 out of 10 importance rating. Hybrid bonding is identified as the hardest new architecture to analyze at 54%, and 83% of respondents support formal data standardization.</span>
+        <span class="zh">这项调查收集了约100份行业反馈，聚焦chiplet、异构集成、混合键合和埋入式封装结构的失效分析。异构、chiplet和3D产品占受访基础的69%，封装与异构集成失效分析的重要性评分达到7.92/10。混合键合被54%的受访者认为是最难分析的新架构，同时83%的受访者支持正式的数据标准化框架。</span>
       </p>
     </article>
   </section>
@@ -360,32 +324,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.22621" target="_blank" rel="noopener">
-          <span class="en">Multi-level resistive synapses for on-chip neural networks</span>
-          <span class="zh">用于片上神经网络的多级阻变突触</span>
+        <a href="https://arxiv.org/abs/2606.31554" target="_blank" rel="noopener">
+          <span class="en">PATH: In-Situ Indexing via Memristive Content-Addressable Memory</span>
+          <span class="zh">PATH：基于忆阻内容寻址存储的原位索引</span>
         </a>
       </h3>
-      <p class="authors">D. A. T. Pizzo</p>
+      <p class="authors">Bing Wu, Xueliang Wei, Shiyi Song, Yibo Liu, Jinpeng Liu, Wei Tong, Hao Tong, Yuchong Hu, Dan Feng</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.22621" target="_blank" rel="noopener">arXiv:2606.22621</a> · 2026-06-21</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.31554" target="_blank" rel="noopener">arXiv:2606.31554</a> · 2026-06-30T12:11:26Z</p>
       <p class="summary">
-        <span class="en">Pizzo builds a physics-based design flow for multi-level memristive synapses in a 1T1R crossbar fabric. The paper connects ionic-transport modeling, differential signed-weight synapses, analog VMM, and in-situ outer-product learning into one proposed accelerator substrate. It is useful as an architecture and device-modeling exercise, but the claims about LLM suitability need measured arrays and endurance data before they can be read as silicon evidence.</span>
-        <span class="zh">Pizzo为1T1R交叉阵列中的多级忆阻突触构建了一套基于物理的设计流程。论文把离子输运建模、差分有符号权重突触、模拟VMM和原位外积学习连接成一个拟议的加速器基底。它作为架构和器件建模练习有价值，但关于适合LLM的主张仍需要实测阵列和耐久性数据，才能被视为硅证据。</span>
+        <span class="en">PATH reformulates hash-index insert, search, update, and delete operations as massively parallel content-addressable operations inside memristive memory arrays. On the authors&#x27; workloads it reports 4.7 to 7.8 times higher throughput, more than 14.5 times lower tail latency, and over 61.4% fewer memory accesses for insertions. The caveat is that system value depends on realistic CAM array costs and integration, but the indexing focus is more concrete than generic PIM claims.</span>
+        <span class="zh">PATH把哈希索引的插入、搜索、更新和删除改写为忆阻存储阵列内部的大规模并行内容寻址操作。在作者的工作负载上，它报告了4.7到7.8倍吞吐提升、超过14.5倍尾延迟降低，以及插入场景中超过61.4%的访存减少。需要注意的是，系统价值仍取决于真实CAM阵列成本和集成难度，但把目标放在索引上比泛泛讨论PIM更具体。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.24075" target="_blank" rel="noopener">
-          <span class="en">Spike-driven transformers for radar and communication modulation recognition</span>
-          <span class="zh">用于雷达与通信调制识别的脉冲驱动Transformer</span>
+        <a href="https://arxiv.org/abs/2606.30553" target="_blank" rel="noopener">
+          <span class="en">COSM Schedules Concurrent PIM and CPU Execution on Mobile Devices</span>
+          <span class="zh">COSM调度移动设备上的PIM与CPU并发执行</span>
         </a>
       </h3>
-      <p class="authors">Xiaohu Li, Chongxiao Qu, Caiyong Lin, et al.</p>
+      <p class="authors">Yilong Zhao, Fangxin Liu, Onur Mutlu, Mingyu Gao, Jian Liu, Haibing Guan, Li Jiang</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.24075" target="_blank" rel="noopener">arXiv:2606.24075</a> · 2026-06-23</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30553" target="_blank" rel="noopener">arXiv:2606.30553</a> · 2026-06-29T16:49:17Z</p>
       <p class="summary">
-        <span class="en">Li et al. introduce EMRFormer, a spiking-neural-network architecture for automatic modulation recognition on radar and communication IQ waveforms. The paper combines an adaptive spike encoder, integer LIF neurons, spike-separable CNN layers, and a SpikeFormer backbone to reduce the compute burden for edge platforms. It is hardware-relevant because AMR is a real embedded workload, but the candidate summary emphasizes benchmark accuracy more than measured energy on deployed neuromorphic silicon.</span>
-        <span class="zh">Li等人提出EMRFormer，这是一种面向雷达和通信IQ波形自动调制识别的脉冲神经网络架构。论文结合自适应脉冲编码器、整数LIF神经元、spike-separable CNN层和SpikeFormer主干，以降低边缘平台上的计算负担。它具备硬件相关性，因为AMR是真实的嵌入式负载，但候选摘要更强调基准准确率，而不是部署到神经形态硅片后的实测能耗。</span>
+        <span class="en">COSM targets on-device LLM and application workloads where CPU tasks and PIM operations must share constrained mobile DRAM resources. The framework adds a low-interference PIM control interface and schedules PIM commands into idle windows in the CPU memory-access stream. The paper is useful because it treats bank conflicts and bus congestion as first-order issues rather than assuming PIM runs in isolation.</span>
+        <span class="zh">COSM面向端侧LLM和应用负载，在这类场景中CPU任务与PIM操作必须共享受限的移动DRAM资源。该框架加入低干扰PIM控制接口，并把PIM命令调度进CPU访存流的空闲窗口。论文的价值在于把bank冲突和总线拥塞作为一等问题处理，而不是假设PIM可以孤立运行。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.30039" target="_blank" rel="noopener">
+          <span class="en">Mega: A 22 nm Spiking Neural Network Accelerator at 0.375 pJ/SOP</span>
+          <span class="zh">Mega：22 nm脉冲神经网络加速器实现0.375 pJ/SOP</span>
+        </a>
+      </h3>
+      <p class="authors">Rick Luiken, Manil Dev Gomony, Sander Stuijk</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30039" target="_blank" rel="noopener">arXiv:2606.30039</a> · 2026-06-29T09:35:42Z</p>
+      <p class="summary">
+        <span class="en">Mega is a fabricated 22 nm FDSOI accelerator for convolutional spiking neural networks. It combines parallel 3 by 3 convolution support, unified memory for spikes, neuron states, and weights, and low-overhead spike-map handling. The reported 0.375 pJ/SOP is a 4 times improvement over prior state of the art, making this one of the stronger measured-silicon results in the week&#x27;s accelerator set.</span>
+        <span class="zh">Mega是一款已流片的22 nm FDSOI卷积脉冲神经网络加速器。它结合了并行3乘3卷积、用于spike、神经元状态和权重的统一存储，以及低开销spike map处理。论文报告0.375 pJ/SOP能效，相比此前先进水平提升4倍，是本周加速器论文中较强的实测硅结果。</span>
       </p>
     </article>
   </section>
@@ -396,17 +375,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.20031" target="_blank" rel="noopener">
-          <span class="en">Neuromorphic reinforcement learning for warehouse pathfinding</span>
-          <span class="zh">用于仓储路径规划的神经形态强化学习框架</span>
+        <a href="https://arxiv.org/abs/2606.29986" target="_blank" rel="noopener">
+          <span class="en">HBM Is Not All You Need for Memory-Heterogeneous LLM Serving</span>
+          <span class="zh">异构存储LLM服务不只需要HBM</span>
         </a>
       </h3>
-      <p class="authors">Junzhe Xu, Zecui Zeng, Lusong Li, et al.</p>
+      <p class="authors">Zhixiang Wei, Yun Wang, James Yen, Mingyuan Xia, Zhengwei Qi</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.20031" target="_blank" rel="noopener">arXiv:2606.20031</a> · 2026-06-18</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.29986" target="_blank" rel="noopener">arXiv:2606.29986</a> · 2026-06-29T09:00:38Z</p>
       <p class="summary">
-        <span class="en">Xu et al. present SDQN-RMFS, a pipeline that trains an ANN policy for robotic mobile fulfillment pathfinding, distills it into an SNN, and deploys it on a neuromorphic chip. The hardware-relevant piece is the sparse event-driven execution, which can reduce power for real-time routing decisions in constrained warehouses. The result is application-specific, so the key question is whether the ANN-to-SNN conversion remains stable as maps, congestion, and robot fleets change.</span>
-        <span class="zh">Xu等人提出SDQN-RMFS：先为机器人移动履约系统的路径规划训练ANN策略，再蒸馏为SNN，并部署到神经形态芯片上。与硬件相关的关键点是稀疏事件驱动执行，它有望降低受限仓储环境中实时路径决策的功耗。该结果偏应用场景，后续关键问题是当地图、拥堵和机器人规模变化时，ANN到SNN的转换能否保持稳定。</span>
+        <span class="en">HMA-Serve proposes disaggregated LLM serving that pairs GDDR-based accelerators for compute-heavy prefill with HBM-based GPUs for memory-heavy decode. The system addresses cross-vendor friction by handling KV-cache format conversion, phase-wise quantization, and overlapped KV transfer. The paper is timely because it turns HBM scarcity into a scheduling and systems problem rather than assuming every inference phase needs the most expensive memory.</span>
+        <span class="zh">HMA-Serve提出一种解耦式LLM服务方式，用GDDR加速器处理计算密集的prefill阶段，用HBM GPU处理内存密集的decode阶段。系统通过KV cache格式转换、分阶段量化和重叠KV传输来处理跨厂商摩擦。这篇论文及时之处在于，它把HBM稀缺转化为调度和系统问题，而不是默认推理每个阶段都需要最昂贵的内存。</span>
       </p>
     </article>
   </section>
@@ -417,25 +396,61 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">
-          <span class="en">CHIA: agentic AI for hardware/software co-design research</span>
-          <span class="zh">CHIA：面向软硬件协同设计研究的agentic AI框架</span>
+        <a href="https://arxiv.org/abs/2606.31535" target="_blank" rel="noopener">
+          <span class="en">PEERS: Parallel Exact Effective-Resistance Solving for EDA Sign-Off</span>
+          <span class="zh">PEERS：面向EDA签核的并行精确有效电阻求解</span>
         </a>
       </h3>
-      <p class="authors">Angela Cui, Ferran Hermida-Rivera, Jack Toubes, et al.</p>
+      <p class="authors">Baiyu Chen, Lin Gan, Guangwen Yang, Wenjian Yu</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">arXiv:2606.27350</a> · 2026-06-25</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2606.31535" target="_blank" rel="noopener">arXiv:2606.31535</a> · 2026-06-30T11:50:46Z</p>
       <p class="summary">
-        <span class="en">Cui et al. introduce CHIA, an open-source framework for building agentic AI-driven hardware/software co-design loops. The notable contribution is not another coding assistant demo, but a graph-based flow that can call tools such as Chipyard, gem5, FireSim, Hammer, Vivado, and evolutionary coding agents. If the framework proves reproducible, it could make AI-assisted architecture exploration easier to audit; until then, the main risk is that agent loops hide tool failures behind plausible automation logs.</span>
-        <span class="zh">Cui等人介绍CHIA，这是一个用于构建agentic AI驱动软硬件协同设计循环的开源框架。其重点不是又一个代码助手demo，而是用图结构流程调用Chipyard、gem5、FireSim、Hammer、Vivado和进化式编码agent等工具。若该框架具备可复现性，它可能让AI辅助架构探索更容易审计；在此之前，主要风险是agent循环用看似合理的自动化日志掩盖工具失败。</span>
+        <span class="en">PEERS attacks effective-resistance computation, a bottleneck in power-grid analysis, spectral sparsification, and reliability sign-off. It uses an implicit inverse model of the Cholesky factor plus augmented symbolic analysis to avoid the usual precision-memory tradeoff in exact methods. The contribution is relevant because industrial sign-off often cannot accept approximate answers, but exact all-edge queries can otherwise explode in memory.</span>
+        <span class="zh">PEERS面向有效电阻计算这一瓶颈，该问题出现在电源网格分析、谱稀疏化和可靠性签核中。它使用Cholesky因子的隐式逆模型和增强符号分析，避免精确方法常见的精度与内存权衡。其意义在于，工业签核往往不能接受近似答案，但精确的全边查询又容易导致内存爆炸。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.30949" target="_blank" rel="noopener">
+          <span class="en">AgRefactor Uses Agentic Refactoring for HLS Compatibility and Performance</span>
+          <span class="zh">AgRefactor用智能体重构提升HLS兼容性与性能</span>
+        </a>
+      </h3>
+      <p class="authors">Yang Zou, Zijian Ding, Yizhou Sun, Jason Cong</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30949" target="_blank" rel="noopener">arXiv:2606.30949</a> · 2026-06-29T22:02:34Z</p>
+      <p class="summary">
+        <span class="en">AgRefactor uses an LLM-based multi-agent workflow to convert real-world software into HLS-compatible programs. It adds a self-evolving memory system and combines LLM rewrites with automated refactoring tools to reduce cost and improve robustness. On 9 of 11 longer real-world benchmarks, it matches or beats prior automated and LLM-based baselines, but the result should still be read as a workflow advance rather than a replacement for hardware-aware engineering review.</span>
+        <span class="zh">AgRefactor使用基于LLM的多智能体流程，将真实软件重构为兼容HLS的程序。它加入自演化记忆系统，并把LLM改写与自动化重构工具结合，以降低成本并提升鲁棒性。在11个更长的真实基准中，它在9个上追平或超过既有自动化和LLM基线，但这个结果更应被看作工作流进展，而不是替代硬件感知工程审查。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Hardware</span>
+      <span class="zh">量子硬件</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.30805" target="_blank" rel="noopener">
+          <span class="en">CryoZip Compresses Quantum Error-Correction Syndromes at 4 K</span>
+          <span class="zh">CryoZip在4 K压缩量子纠错syndrome</span>
+        </a>
+      </h3>
+      <p class="authors">Guanchen Tao, Alexander Knapen, Jacob Mack, Gokul Subramanian Ravi, Qirui Zhang, Mehdi Saligane, Dennis Sylvester</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.30805" target="_blank" rel="noopener">arXiv:2606.30805</a> · 2026-06-29T18:31:09Z</p>
+      <p class="summary">
+        <span class="en">CryoZip tackles the bandwidth and power limit between the 4 K stage and room-temperature controllers in fault-tolerant quantum systems. Implemented and evaluated in 22 nm FDSOI characterized at 4 K, it reports up to 48 times compression and 4 to 26 times energy savings across QEC codes. With a lightweight predecoder, the authors report more than 14,238 times bandwidth reduction, making the interface bottleneck explicit rather than treating QEC decoding as only a room-temperature compute problem.</span>
+        <span class="zh">CryoZip处理容错量子系统中4 K级与室温控制器之间的带宽和功耗限制。该设计在22 nm FDSOI中实现并以4 K特性评估，报告在多种QEC码上最高48倍压缩和4到26倍能耗节省。结合轻量级预解码器后，作者报告超过14238倍带宽降低，明确把接口瓶颈纳入问题，而不是把QEC解码只视为室温计算任务。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-01 01:19 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-01 01:19 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-02 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-02 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
