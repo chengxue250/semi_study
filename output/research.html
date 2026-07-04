@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-03">
+<meta name="edition-date" content="2026-07-04">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Bottlenecks Move Into Memory and Packaging — Semi Research 2026-07-03</title>
+<title>Memory-Centric Compute Moves Closer to Silicon — Semi Research 2026-07-04</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,16 +249,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, July 3, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月3日 星期五</span>
+      <span class="en">Research digest · Saturday, July 4, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月4日 星期六</span>
     </div>
     <h1>
-      <span class="en">Inference Bottlenecks Move Into Memory and Packaging</span>
-      <span class="zh">推理瓶颈转向存储与封装</span>
+      <span class="en">Memory-Centric Compute Moves Closer to Silicon</span>
+      <span class="zh">以存储为中心的计算走近硅片</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers cluster around the same systems problem: long-context AI and edge inference are limited by data movement as much as arithmetic. The stronger contributions use chiplet links, compute-in-memory, KV-cache compression, NoC design, and EDA scaling to attack that bottleneck from different layers.</span>
-      <span class="zh">本周论文集中指向同一个系统问题：长上下文AI和边缘推理的限制不仅来自算术单元，也来自数据搬移。较强的工作分别从chiplet互连、存算一体、KV-cache压缩、NoC设计和EDA扩展性等层面处理这一瓶颈。</span>
+      <span class="en">This week&#x27;s research queue emphasizes measured devices, memory-adjacent compute, and security checks at the library level. The common thread is moving useful work closer to sensors, memories, and specialized fabrics while keeping an eye on retention, thermal paths, and implementation risk.</span>
+      <span class="zh">本周研究阅读队列突出已测器件、靠近存储的计算，以及标准单元库层面的安全检查。共同主线是在传感器、存储和专用计算织构附近完成更多有用工作，同时关注保持特性、热路径和实现风险。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 9 paper(s)</span>
@@ -266,176 +266,170 @@
     </div>
   </header>
 
-    <section class="area" id="accelerators">
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1126/sciadv.aed5447" target="_blank" rel="noopener">
+          <span class="en">Triple-Hysteresis Antiferroelectric Thin Films for Giant Negative Electrocaloric Effect</span>
+          <span class="zh">用于巨大负电热效应的三重滞回反铁电薄膜</span>
+        </a>
+      </h3>
+      <p class="authors">P. Su, J. Chen, J. Li, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1126/sciadv.aed5447" target="_blank" rel="noopener">Science Advances</a> · 2026-07-03</p>
+      <p class="summary">
+        <span class="en">Su et al. stabilize a ferrielectric phase inside low-temperature PbZrO3 thin films, creating a triple-hysteresis loop rather than the usual ferroelectric or antiferroelectric response. The reported electrocaloric temperature change reaches -23.76 K by Maxwell-relation extraction, about a 600% enhancement versus the double-hysteresis baseline in the abstract. The result is interesting for solid-state cooling and multistate memory, but the cooling number is still an inferred device metric rather than a packaged thermal system.</span>
+        <span class="zh">Su等人在低温制备的PbZrO3薄膜中稳定出铁电相，在常见铁电或反铁电响应之外形成三重滞回回线。摘要给出的基于Maxwell关系提取的电热温变达到-23.76 K，较双重滞回基线提升约600%。该结果对固态制冷和多态存储有吸引力，但这个制冷指标仍是器件层面推导值，而不是封装热系统实测。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TED.2026.3697708" target="_blank" rel="noopener">
+          <span class="en">Al2O3 Barrier Engineering Improves HfO2-Based Si-Channel FeFET Retention</span>
+          <span class="zh">Al2O3势垒工程提升HfO2基硅沟道FeFET保持特性</span>
+        </a>
+      </h3>
+      <p class="authors">Z. Chen, T. Hu, X. Jia, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3697708" target="_blank" rel="noopener">IEEE Transactions on Electron Devices</a> · 2026-07-01</p>
+      <p class="summary">
+        <span class="en">Chen et al. insert Al2O3 layers as both tunneling dielectric and gate interlayer in an HfZrO2 FeFET stack. With a 2 nm tunneling layer and 3 nm gate interlayer, the devices show a 9 V memory window and projected 0.44% memory-window loss over 10 years at -13 V to +14 V operation. The retention result is strong for FeFET scaling discussions, but the operating voltage and stack complexity remain important manufacturability questions.</span>
+        <span class="zh">Chen等人在HfZrO2 FeFET栈中引入Al2O3，同时作为隧穿介质层和栅介质插层。在2 nm隧穿层与3 nm栅插层条件下，器件显示9 V存储窗口，并在-13 V至+14 V工作下预测10年存储窗口损失仅0.44%。这一保持特性对FeFET缩放很有参考价值，但工作电压和堆栈复杂度仍是制造可行性的关键问题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TED.2026.3691328" target="_blank" rel="noopener">
+          <span class="en">GaN-on-Diamond HEMTs Reach 25 W/mm at X-Band</span>
+          <span class="zh">金刚石衬底GaN HEMT在X波段达到25 W/mm</span>
+        </a>
+      </h3>
+      <p class="authors">X. Zhou, G. Zhou, Y. Lv, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3691328" target="_blank" rel="noopener">IEEE Transactions on Electron Devices</a> · 2026-07-01</p>
+      <p class="summary">
+        <span class="en">Zhou et al. fabricate AlGaN/GaN HEMTs on polycrystalline diamond using room-temperature wafer bonding and a roughly 17 nm bonding interface. Load-pull measurements on 4 x 100 micron devices report 25.28 W/mm at 10 GHz with 33.43% power-added efficiency, while channel temperature falls by about 150 C versus GaN-on-SiC at 31.5 W/mm DC power density. The paper attacks the RF power thermal wall directly; the next question is whether the bonding interface can scale with yield and cost.</span>
+        <span class="zh">Zhou等人通过室温晶圆键合和约17 nm键合界面，在多晶金刚石衬底上制备AlGaN/GaN HEMT。4 x 100微米器件的负载牵引测试在10 GHz下达到25.28 W/mm，功率附加效率为33.43%，并且在31.5 W/mm直流功率密度下相比GaN-on-SiC沟道温度降低约150 C。论文直接针对RF功率器件的热墙；下一步问题是该键合界面能否以可接受良率和成本放大。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.01617" target="_blank" rel="noopener">
-          <span class="en">3DLS: A 3D Logic-Stacked Architecture for Disaggregated LLM Serving</span>
-          <span class="zh">3DLS：面向解耦LLM服务的3D逻辑堆叠架构</span>
+        <a href="https://arxiv.org/abs/2607.02465" target="_blank" rel="noopener">
+          <span class="en">Probabilistic Memory for Edge-AI Sampling at Native Memory Bandwidth</span>
+          <span class="zh">面向边缘AI的原生带宽概率存储</span>
         </a>
       </h3>
-      <p class="authors">J. Lee, I.-J. Jung, J.-Y. Kim</p>
+      <p class="authors">L. Pei, J. Zheng, X. Zhao, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.01617" target="_blank" rel="noopener">arXiv:2607.01617</a> · 2026-07-02T02:32:44Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02465" target="_blank" rel="noopener">arXiv:2607.02465</a> · 2026-07-02T17:31:17Z</p>
       <p class="summary">
-        <span class="en">3DLS proposes a logic-on-logic 3D-stacked chiplet architecture for LLM serving that separates prefill-to-decode KV-cache transfers from decode-side tensor-parallel collectives. By routing KV traffic through vertical interconnects and keeping collectives on lateral die-to-die links, it reduces mixed-traffic contention. The reported gains reach up to 1.49x throughput and 60.2% lower end-to-end latency versus a shared-fabric planar baseline.</span>
-        <span class="zh">3DLS提出一种面向LLM服务的逻辑-逻辑3D堆叠chiplet架构，把prefill到decode的KV-cache传输与decode侧tensor parallel通信分离。它通过垂直互连承载KV流量，同时把collective通信保留在横向die-to-die链路上，从而降低混合流量竞争。论文报告相对共享平面互连基线最高可实现1.49倍吞吐，并降低60.2%的端到端延迟。</span>
+        <span class="en">Pei et al. propose p-MEM, a memory primitive that stores distribution parameters and samples directly at memory bandwidth instead of generating Gaussian random numbers as a separate compute step. The layout-validated simulator reports more than 1000 GSa/s/mm2 GRNG throughput, plus CPU/GPU reductions of up to 2.19x/4.37x in instruction count, 562x/3.45x in sampling latency, and 295.5x/3.53x in energy for Bayesian neural-network workloads. This is a hardware-relevant answer to probabilistic AI overhead, but it remains a simulated architecture rather than measured silicon.</span>
+        <span class="zh">Pei等人提出p-MEM，一种存储分布参数并直接以存储带宽采样的存储原语，而不是把高斯随机数生成作为独立计算步骤。经过版图验证的模拟器显示，GRNG吞吐超过1000 GSa/s/mm2，并在贝叶斯神经网络负载中让CPU/GPU指令数最多降低2.19x/4.37x，采样延迟降低562x/3.45x，能耗降低295.5x/3.53x。这是对概率AI开销的硬件化回应，但目前仍是模拟架构而非实测硅片。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.01607" target="_blank" rel="noopener">
-          <span class="en">MxGLUT: A LUT-Centric Accelerator for Mixed-Precision GEMM</span>
-          <span class="zh">MxGLUT：面向混合精度GEMM的LUT中心化加速器</span>
+        <a href="https://doi.org/10.1109/JSSC.2026.3684971" target="_blank" rel="noopener">
+          <span class="en">A 28-nm System-in-One-Macro eDRAM Compute-in-Memory Chip</span>
+          <span class="zh">28 nm系统级单宏eDRAM存内计算芯片</span>
         </a>
       </h3>
-      <p class="authors">W. Zhou, C. Ding, M. Liu, et al.</p>
+      <p class="authors">Z. Qian, Z. Cong, S. Yan, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.01607" target="_blank" rel="noopener">arXiv:2607.01607</a> · 2026-07-02T02:14:32Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3684971" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-07-01</p>
       <p class="summary">
-        <span class="en">MxGLUT targets LLM inference where FP8 activations meet low-bit compressed weights and conventional accelerators need separate datapaths. The design uses mixed-precision LUT-based processing elements and a reconfigurable broadcast dataflow to support FP8-INT4 and FP8-FP8 GEMMs under one execution mechanism. Synthesized in 28 nm CMOS at 200 MHz, it is a useful architecture study for reducing multiplier-heavy area in inference accelerators.</span>
-        <span class="zh">MxGLUT面向LLM推理中FP8 activation与低比特压缩权重混合计算的场景，解决传统加速器需要独立数据通路的问题。该设计使用混合精度LUT处理单元和可重构broadcast dataflow，在同一执行机制下支持FP8-INT4与FP8-FP8 GEMM。其在28 nm CMOS、200 MHz下综合验证，是减少推理加速器中乘法器面积开销的有价值架构研究。</span>
+        <span class="en">Qian et al. present a 28 nm compute-in-memory chip that pulls system-level components, except control logic, into a single macro. The design uses leakage-eliminated 2T1C and capacitor-over-logic 1T1C eDRAM to reduce the SRAM access, long interconnect, and accumulation overheads that often erase macro-level CIM gains. The paper is valuable because it treats CIM as a system layout problem, not only as a bitcell energy-efficiency claim.</span>
+        <span class="zh">Qian等人展示了一颗28 nm存内计算芯片，把除控制逻辑外的系统级组件整合进单个宏单元。该设计采用消除漏电的2T1C和电容置于逻辑之上的1T1C eDRAM，以减少SRAM访问、长互连和累加单元开销，这些开销常常抵消宏单元层面的CIM收益。论文的价值在于把CIM视为系统版图问题，而不只是位单元能效声明。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCSI.2026.3665839" target="_blank" rel="noopener">
-          <span class="en">D6CIM: 60.4-TOPS/W All-Digital 6T-SRAM Compute-in-Memory Macro</span>
-          <span class="zh">D6CIM：60.4 TOPS/W全数字6T-SRAM存算一体宏</span>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3687178" target="_blank" rel="noopener">
+          <span class="en">A Booth-Based Digital SRAM CIM Macro With 16.8 TOPS/W at 8b/8b</span>
+          <span class="zh">8b/8b下达到16.8 TOPS/W的Booth数字SRAM CIM宏</span>
         </a>
       </h3>
-      <p class="authors">J. Oh, C.-T. Lin, M. Seok</p>
+      <p class="authors">Y. Jiang, X. Wang, H. You, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3665839" target="_blank" rel="noopener">IEEE TCAS I DOI:10.1109/TCSI.2026.3665839</a> · 2026-07-01</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3687178" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-07-01</p>
       <p class="summary">
-        <span class="en">D6CIM demonstrates an all-digital 6T-SRAM compute-in-memory macro supporting 1-to-8-bit fixed-point vector-matrix multiplication. The 28 nm CMOS prototype reaches about 360 MHz at 1.1 V, up to 60.4 TOPS/W, 1.46 TOPS/mm2 compute density, and 1005 kb/mm2 weight density. The key contribution is balancing energy efficiency, compute density, and weight density without relying on analog sensing margins.</span>
-        <span class="zh">D6CIM展示了一种全数字6T-SRAM存算一体宏，支持1到8 bit定点向量-矩阵乘法。其28 nm CMOS原型在1.1 V下约360 MHz运行，最高达到60.4 TOPS/W、1.46 TOPS/mm2计算密度和1005 kb/mm2权重密度。关键贡献在于不依赖模拟感测裕量，同时平衡能效、计算密度和权重密度。</span>
+        <span class="en">Jiang et al. build a Booth-based all-digital SRAM CIM macro for flexible multiply-accumulate operations across bit widths. The 55 nm CMOS measurement reports 16.8 TOPS/W for 8b/8b MACs, using pre-encoding, two-transistor bit retention and shifting, and multiphase accumulation to reduce overhead. It is a practical digital-CIM entry because the result keeps standard CMOS and integer precision in view, though array-scale integration details still determine system usefulness.</span>
+        <span class="zh">Jiang等人构建了一个基于Booth编码的全数字SRAM CIM宏，用于支持不同位宽的乘加运算。55 nm CMOS实测在8b/8b MAC下达到16.8 TOPS/W，并通过预编码、两晶体管位保持与移位、多相累加来降低开销。这是一个更偏实用的数字CIM结果，因为它保留了标准CMOS和整数精度视角，但系统价值仍取决于阵列级集成细节。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/JSSC.2026.3693894" target="_blank" rel="noopener">
-          <span class="en">A 28-nm FD-SOI PCM Analog-IMC Core With 4M Cells</span>
-          <span class="zh">基于4M单元PCM的28 nm FD-SOI模拟存算核心</span>
+        <a href="https://arxiv.org/abs/2607.01798" target="_blank" rel="noopener">
+          <span class="en">BRAM-Free Approximate Softmax for FPGA Vision Transformer Inference</span>
+          <span class="zh">面向FPGA视觉Transformer推理的无BRAM近似Softmax</span>
         </a>
       </h3>
-      <p class="authors">M. Pasotti, R. Zurla, J. J. B. Agnoletto, et al.</p>
+      <p class="authors">M. Usman, S. Khan, D. Merhof</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3693894" target="_blank" rel="noopener">IEEE JSSC DOI:10.1109/JSSC.2026.3693894</a> · 2026-07-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.01798" target="_blank" rel="noopener">arXiv:2607.01798</a> · 2026-07-02T07:15:08Z</p>
       <p class="summary">
-        <span class="en">This JSSC paper presents a phase-change-memory analog IMC macro fabricated in 28 nm FD-SOI CMOS with a 4M-cell array and eight 512-by-512-weight layers. The design emphasizes multilayer computation that is resilient to drift and temperature, reporting matrix-vector multiplication error below 2.14% from -40 C to +125 C. It is notable because dense non-volatile storage is directly tied to usable DNN compute, not just a standalone memory metric.</span>
-        <span class="zh">这篇JSSC论文展示了一个基于phase-change memory的模拟IMC宏，采用28 nm FD-SOI CMOS制造，集成4M cell阵列和8个512乘512权重层。设计重点是具备漂移和温度鲁棒性的多层计算，在-40 C到+125 C范围内报告矩阵-向量乘法误差低于2.14%。其意义在于把高密度非易失存储直接转化为可用的DNN计算能力，而不只是展示单独的存储指标。</span>
+        <span class="en">Usman et al. replace the costly softmax exponential in FPGA Vision Transformer inference with a 16-segment piecewise-linear natural-exponential approximation implemented in distributed LUT fabric. On a Xilinx Zynq-7020 attention-row core, the design uses 1444 LUTs, 77 DSPs, and no BRAM, avoiding table-heavy or CORDIC-style implementations. The hardware angle is clear for small FPGAs, but the reported result is still core-level and depends on model-level accuracy under approximation.</span>
+        <span class="zh">Usman等人用16段分段线性自然指数近似替代FPGA视觉Transformer推理中昂贵的softmax指数计算，并完全用分布式LUT织构实现。在Xilinx Zynq-7020的attention-row核心上，该设计使用1444个LUT、77个DSP且不占用BRAM，避免了查表密集或CORDIC式实现。其硬件价值对小型FPGA很明确，但结果仍处于核心级，最终取决于近似下的模型级精度。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
+      <span class="en">Circuits &amp; Architectures</span>
       <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.01430" target="_blank" rel="noopener">
-          <span class="en">Physically-Aware Preemptive Virtual Channels for AXI NoCs</span>
-          <span class="zh">面向AXI NoC的物理感知抢占式虚通道</span>
+        <a href="https://doi.org/10.1109/TCSI.2026.3663922" target="_blank" rel="noopener">
+          <span class="en">A 2T-Pixel CMOS Imager for In-Pixel Multi-Bit Feature Extraction</span>
+          <span class="zh">用于像素内多比特特征提取的2T像素CMOS图像传感器</span>
         </a>
       </h3>
-      <p class="authors">L. Leone, L. Colagrande, L. Benini</p>
+      <p class="authors">A. Abubakar, B. Wang, A. Bermak</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.01430" target="_blank" rel="noopener">arXiv:2607.01430</a> · 2026-07-01T19:47:42Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3663922" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems Part 1: Regular Papers</a> · 2026-07-01</p>
       <p class="summary">
-        <span class="en">This paper revisits deadlock-free AXI network-on-chip design, where read and write dependencies can create circular waits even when routing is nominally safe. The proposed preemptive virtual channels target wide-link NoCs and avoid the routing pressure of full multiplane duplication. Reported results show up to 76% link-resource savings with comparable frequency and only 3% router-area overhead versus a multiplane baseline.</span>
-        <span class="zh">这篇论文重新审视AXI network-on-chip的无死锁设计问题，其中读写依赖即使在路由算法本身安全时也可能形成环形等待。作者提出的抢占式虚通道面向宽链路NoC，避免完全多平面复制带来的布线压力。结果显示，相比多平面基线，可节省最高76%的链路资源，同时频率相近、router面积开销仅约3%。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="ai-research">
-    <h2>
-      <span class="en">LLM Inference &amp; AI Systems</span>
-      <span class="zh">LLM推理与AI系统</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2606.31519" target="_blank" rel="noopener">
-          <span class="en">RaBitQCache: Rotated Binary Quantization for Long-Context KV Cache</span>
-          <span class="zh">RaBitQCache：用于长上下文KV Cache的旋转二值量化</span>
-        </a>
-      </h3>
-      <p class="authors">W. Li, J. Dong, H. Zhang, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2606.31519" target="_blank" rel="noopener">arXiv:2606.31519</a> · 2026-06-30</p>
-      <p class="summary">
-        <span class="en">RaBitQCache attacks the long-context KV-cache bottleneck with randomized rotated binary quantization and binary-INT4 arithmetic for estimating attention weights. Instead of a fixed Top-k budget, it uses an adaptive Top-p retrieval rule backed by an error-bounded proxy score. The system additions, including asynchronous pipelining and lazy updates, are important because KV compression only helps if its own overhead is hidden during decoding.</span>
-        <span class="zh">RaBitQCache用随机旋转二值量化和binary-INT4算术估计attention权重，以处理长上下文KV-cache瓶颈。它不使用固定Top-k预算，而是基于带误差界的代理分数执行自适应Top-p检索。系统层面的异步流水和lazy update同样关键，因为KV压缩只有在自身开销能被decode过程隐藏时才真正有效。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2606.31145" target="_blank" rel="noopener">
-          <span class="en">SeKV: Resolution-Adaptive KV Cache With Hierarchical Semantic Memory</span>
-          <span class="zh">SeKV：具有分层语义记忆的分辨率自适应KV Cache</span>
-        </a>
-      </h3>
-      <p class="authors">A. Abaskohi, G. Carenini, P. West, Y. He</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2606.31145" target="_blank" rel="noopener">arXiv:2606.31145</a> · 2026-06-30</p>
-      <p class="summary">
-        <span class="en">SeKV keeps long-context information in a GPU-CPU hierarchy instead of simply evicting tokens from the KV cache. It groups context into entropy-guided semantic spans, stores lightweight summaries on GPU, and keeps low-rank SVD bases on CPU for query-triggered reconstruction. The approach is compelling because it preserves a path back to token-level detail when a compressed span becomes relevant later in generation.</span>
-        <span class="zh">SeKV不是简单从KV cache中驱逐token，而是把长上下文信息保存在GPU-CPU分层结构中。它将上下文组织为熵引导的语义span，在GPU上保留轻量摘要，并在CPU上保存低秩SVD基，用于查询触发的重构。该方法有吸引力，因为当压缩span在生成后续阶段重新变得相关时，系统仍能恢复到token级细节。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum &amp; Ising Hardware</span>
-      <span class="zh">量子与Ising硬件</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02112" target="_blank" rel="noopener">
-          <span class="en">A 2048-Spin Bulk Acoustic Wave Ising Machine</span>
-          <span class="zh">2048自旋体声波Ising机</span>
-        </a>
-      </h3>
-      <p class="authors">V. Vadde, R. Ovcharov, V. H. Gonzalez, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02112" target="_blank" rel="noopener">arXiv:2607.02112</a> · 2026-07-02T12:44:47Z</p>
-      <p class="summary">
-        <span class="en">The paper demonstrates a time-multiplexed Ising machine built from propagating wave packets in microwave-frequency bulk acoustic wave delay lines. Two 20.5 MHz, 707 us delay lines support 2,048 spins with all-to-all connectivity and 15-bit coupling resolution. The system finds approximate Max-Cut solutions in 341 ms and reports four orders of magnitude higher thermal stability than coherent optical Ising-machine approaches.</span>
-        <span class="zh">这篇论文展示了一种时间复用Ising机，利用微波频段体声波延迟线中的传播波包实现。两个20.5 MHz、707 us延迟线支持2048个自旋，具备全连接和15 bit耦合分辨率。系统可在341 ms内找到近似Max-Cut解，并报告相比相干光Ising机高四个数量级的热稳定性。</span>
+        <span class="en">Abubakar et al. demonstrate a computational CMOS image sensor that performs signed analog-domain multi-bit convolution directly inside the pixel array. The 0.18-micron prototype keeps a 43% fill factor, supports up to eight programmable convolution kernels per frame, and reports 1.5-2.0 TOPS/W normalized to 1-bit at 14-112 fps and 61.8-82.4 microwatts total chip power. This is useful edge-vision silicon because it removes intermediate SRAM and DAC storage, though the normalized precision metric should be read carefully.</span>
+        <span class="zh">Abubakar等人展示了一种计算型CMOS图像传感器，可在像素阵列内直接执行带符号模拟域多比特卷积。0.18微米原型保持43%填充因子，每帧支持最多8个可编程卷积核，并在14-112 fps、整芯片61.8-82.4微瓦功耗下给出按1-bit归一化的1.5-2.0 TOPS/W。该硅片对边缘视觉有价值，因为它去除了中间SRAM和DAC存储，但归一化精度指标需要谨慎解读。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
+      <span class="en">EDA &amp; Hardware Security</span>
+      <span class="zh">EDA与硬件安全</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.00055" target="_blank" rel="noopener">
-          <span class="en">HySpecPro: Scalable Hypergraph Partitioning via Spectral Projection</span>
-          <span class="zh">HySpecPro：基于谱投影的可扩展超图划分</span>
+        <a href="https://arxiv.org/abs/2607.01526" target="_blank" rel="noopener">
+          <span class="en">LIB-TRAP Tests Hardware-Trojan Risk in Standard Cell Libraries</span>
+          <span class="zh">LIB-TRAP评估标准单元库中的硬件木马风险</span>
         </a>
       </h3>
-      <p class="authors">R. Liang, Z. Feng, H. Ren</p>
+      <p class="authors">H. K. Dharavath, M. M. A. Chowdhury, R. Yasaei, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.00055" target="_blank" rel="noopener">arXiv:2607.00055</a> · 2026-06-30T02:20:15Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.01526" target="_blank" rel="noopener">arXiv:2607.01526</a> · 2026-07-01T22:46:48Z</p>
       <p class="summary">
-        <span class="en">HySpecPro proposes a single-level hypergraph partitioner for very large VLSI designs, avoiding distortions introduced during multilevel coarsening. It builds spectral embeddings from a bipartite Laplacian and performs projection-based search with a fully GPU-accelerated implementation. The main result is practical scaling: cut quality comparable to strong multilevel methods while scaling linearly with total hyperedge degree.</span>
-        <span class="zh">HySpecPro提出一种面向超大规模VLSI设计的单层超图划分器，避免多层coarsening过程中引入的结构失真。它从二部Laplacian构建谱嵌入，并通过GPU加速的投影搜索完成优化。主要结果在于实用扩展性：切割质量可与强多层方法相比，同时相对总超边度呈线性扩展。</span>
+        <span class="en">Dharavath et al. move the hardware-Trojan threat model into the standard cell library itself, treating the library as untrusted rather than assuming malicious insertion only around placed cells. Using EDA flows with Saed32nm and Sky130nm libraries, they show how malicious cells can mask arbitrary Trojans from designers until a foundry-side replacement activates them. The result is important for fabless security reviews because it pushes trust boundaries down to library provenance and signoff, though the strongest attacks assume a coordinated adversarial supply chain.</span>
+        <span class="zh">Dharavath等人把硬件木马威胁模型推进到标准单元库本身，将库视为不可信，而不是只假设木马被插入到已布局单元周围。他们使用Saed32nm和Sky130nm库的EDA流程，展示恶意单元如何在设计者面前隐藏任意木马，直到晶圆厂侧替换激活。该结果对无晶圆厂安全审查很重要，因为它把信任边界下推到库来源和签核流程；但最强攻击仍假设存在协同的恶意供应链。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-03 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-03 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-04 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-04 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
