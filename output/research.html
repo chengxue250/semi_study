@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-04">
+<meta name="edition-date" content="2026-07-05">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory-Centric Compute Moves Closer to Silicon — Semi Research 2026-07-04</title>
+<title>Inference Efficiency Moves Below the Model — Semi Research 2026-07-05</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,16 +249,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Saturday, July 4, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月4日 星期六</span>
+      <span class="en">Research digest · Sunday, July 5, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月5日 星期日</span>
     </div>
     <h1>
-      <span class="en">Memory-Centric Compute Moves Closer to Silicon</span>
-      <span class="zh">以存储为中心的计算走近硅片</span>
+      <span class="en">Inference Efficiency Moves Below the Model</span>
+      <span class="zh">推理效率下沉到模型之下</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s research queue emphasizes measured devices, memory-adjacent compute, and security checks at the library level. The common thread is moving useful work closer to sensors, memories, and specialized fabrics while keeping an eye on retention, thermal paths, and implementation risk.</span>
-      <span class="zh">本周研究阅读队列突出已测器件、靠近存储的计算，以及标准单元库层面的安全检查。共同主线是在传感器、存储和专用计算织构附近完成更多有用工作，同时关注保持特性、热路径和实现风险。</span>
+      <span class="en">This week&#x27;s stronger papers treat memory, power, retrieval, and token movement as first-class constraints. The through-line is not bigger models, but methods that make existing hardware behave more predictably under long-context, multimodal, and accelerator-bound workloads.</span>
+      <span class="zh">本周较强的论文把内存、功耗、检索和token移动作为一等约束。主线不是更大的模型，而是让现有硬件在长上下文、多模态和受加速器约束的负载下表现得更可预测。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 9 paper(s)</span>
@@ -273,47 +273,38 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1126/sciadv.aed5447" target="_blank" rel="noopener">
-          <span class="en">Triple-Hysteresis Antiferroelectric Thin Films for Giant Negative Electrocaloric Effect</span>
-          <span class="zh">用于巨大负电热效应的三重滞回反铁电薄膜</span>
+        <a href="https://arxiv.org/abs/2607.02323" target="_blank" rel="noopener">
+          <span class="en">Reflectionless resonant microwave plasmas via virtual critical coupling</span>
+          <span class="zh">通过虚拟临界耦合实现无反射谐振微波等离子体</span>
         </a>
       </h3>
-      <p class="authors">P. Su, J. Chen, J. Li, et al.</p>
+      <p class="authors">M. R. Akram, A. Semnani</p>
       
-      <p class="venue"><a href="https://doi.org/10.1126/sciadv.aed5447" target="_blank" rel="noopener">Science Advances</a> · 2026-07-03</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02323" target="_blank" rel="noopener">arXiv:2607.02323</a> · 2026-07-02T15:30:44Z</p>
       <p class="summary">
-        <span class="en">Su et al. stabilize a ferrielectric phase inside low-temperature PbZrO3 thin films, creating a triple-hysteresis loop rather than the usual ferroelectric or antiferroelectric response. The reported electrocaloric temperature change reaches -23.76 K by Maxwell-relation extraction, about a 600% enhancement versus the double-hysteresis baseline in the abstract. The result is interesting for solid-state cooling and multistate memory, but the cooling number is still an inferred device metric rather than a packaged thermal system.</span>
-        <span class="zh">Su等人在低温制备的PbZrO3薄膜中稳定出铁电相，在常见铁电或反铁电响应之外形成三重滞回回线。摘要给出的基于Maxwell关系提取的电热温变达到-23.76 K，较双重滞回基线提升约600%。该结果对固态制冷和多态存储有吸引力，但这个制冷指标仍是器件层面推导值，而不是封装热系统实测。</span>
+        <span class="en">Akram and Semnani show a transient excitation scheme that keeps a resonant microwave plasma source impedance-matched after plasma ignition perturbs the resonator. The method uses an exponentially growing incident waveform to emulate critical coupling and reportedly stores up to four times as much energy in the resonator. It is process-adjacent rather than a transistor paper, but better plasma power transfer is relevant to compact industrial plasma tools and materials processing.</span>
+        <span class="zh">Akram和Semnani提出一种瞬态激励方案，在等离子体点火扰动谐振器后仍保持谐振微波等离子体源的阻抗匹配。该方法用指数增长的入射波形模拟临界耦合，据称可让谐振器储存最多4倍能量。它不是晶体管论文，而是偏工艺设备方向；但更高效的等离子体功率传输对紧凑型工业等离子体工具和材料处理有直接相关性。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TED.2026.3697708" target="_blank" rel="noopener">
-          <span class="en">Al2O3 Barrier Engineering Improves HfO2-Based Si-Channel FeFET Retention</span>
-          <span class="zh">Al2O3势垒工程提升HfO2基硅沟道FeFET保持特性</span>
+        <a href="https://arxiv.org/abs/2607.02376" target="_blank" rel="noopener">
+          <span class="en">Hardware-enforced semantic coordination for real-time autonomous systems</span>
+          <span class="zh">面向实时自治系统的硬件强制语义协同</span>
         </a>
       </h3>
-      <p class="authors">Z. Chen, T. Hu, X. Jia, et al.</p>
+      <p class="authors">U. M. Borghoff, P. Bottoni, R. Pareschi</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3697708" target="_blank" rel="noopener">IEEE Transactions on Electron Devices</a> · 2026-07-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02376" target="_blank" rel="noopener">arXiv:2607.02376</a> · 2026-07-02T16:16:41Z</p>
       <p class="summary">
-        <span class="en">Chen et al. insert Al2O3 layers as both tunneling dielectric and gate interlayer in an HfZrO2 FeFET stack. With a 2 nm tunneling layer and 3 nm gate interlayer, the devices show a 9 V memory window and projected 0.44% memory-window loss over 10 years at -13 V to +14 V operation. The retention result is strong for FeFET scaling discussions, but the operating voltage and stack complexity remain important manufacturability questions.</span>
-        <span class="zh">Chen等人在HfZrO2 FeFET栈中引入Al2O3，同时作为隧穿介质层和栅介质插层。在2 nm隧穿层与3 nm栅插层条件下，器件显示9 V存储窗口，并在-13 V至+14 V工作下预测10年存储窗口损失仅0.44%。这一保持特性对FeFET缩放很有参考价值，但工作电压和堆栈复杂度仍是制造可行性的关键问题。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1109/TED.2026.3691328" target="_blank" rel="noopener">
-          <span class="en">GaN-on-Diamond HEMTs Reach 25 W/mm at X-Band</span>
-          <span class="zh">金刚石衬底GaN HEMT在X波段达到25 W/mm</span>
-        </a>
-      </h3>
-      <p class="authors">X. Zhou, G. Zhou, Y. Lv, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3691328" target="_blank" rel="noopener">IEEE Transactions on Electron Devices</a> · 2026-07-01</p>
-      <p class="summary">
-        <span class="en">Zhou et al. fabricate AlGaN/GaN HEMTs on polycrystalline diamond using room-temperature wafer bonding and a roughly 17 nm bonding interface. Load-pull measurements on 4 x 100 micron devices report 25.28 W/mm at 10 GHz with 33.43% power-added efficiency, while channel temperature falls by about 150 C versus GaN-on-SiC at 31.5 W/mm DC power density. The paper attacks the RF power thermal wall directly; the next question is whether the bonding interface can scale with yield and cost.</span>
-        <span class="zh">Zhou等人通过室温晶圆键合和约17 nm键合界面，在多晶金刚石衬底上制备AlGaN/GaN HEMT。4 x 100微米器件的负载牵引测试在10 GHz下达到25.28 W/mm，功率附加效率为33.43%，并且在31.5 W/mm直流功率密度下相比GaN-on-SiC沟道温度降低约150 C。论文直接针对RF功率器件的热墙；下一步问题是该键合界面能否以可接受良率和成本放大。</span>
+        <span class="en">Borghoff, Bottoni, and Pareschi map selected coordination semantics for safety-critical autonomous systems directly onto FPGA primitives. The contribution is not raw acceleration; it is bounded-latency enforcement of interaction rules among heterogeneous AI, control, and human-operated components. The paper is architecture-level and still needs implementation evidence, but it points to a useful hardware role for verifiable real-time AI systems.</span>
+        <span class="zh">Borghoff、Bottoni和Pareschi把安全关键自治系统中的部分协同语义直接映射到FPGA原语上。它的贡献不是单纯加速，而是在异构AI、控制和人工组件之间以有界延迟强制执行交互规则。论文仍处在架构层，需要更多实现证据，但它指出了硬件在可验证实时AI系统中的一个有价值角色。</span>
       </p>
     </article>
   </section>
@@ -324,112 +315,127 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02465" target="_blank" rel="noopener">
-          <span class="en">Probabilistic Memory for Edge-AI Sampling at Native Memory Bandwidth</span>
-          <span class="zh">面向边缘AI的原生带宽概率存储</span>
+        <a href="https://arxiv.org/abs/2607.02391" target="_blank" rel="noopener">
+          <span class="en">WattGPU predicts LLM inference power and latency on unseen GPUs</span>
+          <span class="zh">WattGPU预测未知GPU上的LLM推理功耗与延迟</span>
         </a>
       </h3>
-      <p class="authors">L. Pei, J. Zheng, X. Zhao, et al.</p>
+      <p class="authors">M. Fadel Argerich, J. Fuerst, M. Patino-Martinez</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02465" target="_blank" rel="noopener">arXiv:2607.02465</a> · 2026-07-02T17:31:17Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02391" target="_blank" rel="noopener">arXiv:2607.02391</a> · 2026-07-02T16:25:34Z</p>
       <p class="summary">
-        <span class="en">Pei et al. propose p-MEM, a memory primitive that stores distribution parameters and samples directly at memory bandwidth instead of generating Gaussian random numbers as a separate compute step. The layout-validated simulator reports more than 1000 GSa/s/mm2 GRNG throughput, plus CPU/GPU reductions of up to 2.19x/4.37x in instruction count, 562x/3.45x in sampling latency, and 295.5x/3.53x in energy for Bayesian neural-network workloads. This is a hardware-relevant answer to probabilistic AI overhead, but it remains a simulated architecture rather than measured silicon.</span>
-        <span class="zh">Pei等人提出p-MEM，一种存储分布参数并直接以存储带宽采样的存储原语，而不是把高斯随机数生成作为独立计算步骤。经过版图验证的模拟器显示，GRNG吞吐超过1000 GSa/s/mm2，并在贝叶斯神经网络负载中让CPU/GPU指令数最多降低2.19x/4.37x，采样延迟降低562x/3.45x，能耗降低295.5x/3.53x。这是对概率AI开销的硬件化回应，但目前仍是模拟架构而非实测硅片。</span>
+        <span class="en">WattGPU predicts mean GPU power draw and inter-token latency for LLM inference using only public model metadata and GPU specifications. On 42 open-source LLMs and 8 NVIDIA server GPUs, the paper reports median absolute percentage error at or below 3.4% for offline power and 13.5% for server-mode power on unseen GPUs, with server-mode latency error at or below 8.5%. If it generalizes, this gives operators a planning tool before they spend time profiling every model-and-GPU pair.</span>
+        <span class="zh">WattGPU只使用公开模型元数据和GPU规格，预测LLM推理的平均GPU功耗和token间延迟。论文在42个开源LLM和8款NVIDIA服务器GPU上报告，面对未见过的GPU，离线功耗中位绝对百分比误差不超过3.4%，服务器模式功耗不超过13.5%，服务器模式延迟误差不超过8.5%。如果泛化成立，它能让运营方在逐一实测模型与GPU组合之前先完成容量和能耗规划。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/JSSC.2026.3684971" target="_blank" rel="noopener">
-          <span class="en">A 28-nm System-in-One-Macro eDRAM Compute-in-Memory Chip</span>
-          <span class="zh">28 nm系统级单宏eDRAM存内计算芯片</span>
+        <a href="https://arxiv.org/abs/2607.02283" target="_blank" rel="noopener">
+          <span class="en">Dendritic in-context learning in a single-layer spiking neural network</span>
+          <span class="zh">单层脉冲神经网络中的树突式上下文学习</span>
         </a>
       </h3>
-      <p class="authors">Z. Qian, Z. Cong, S. Yan, et al.</p>
+      <p class="authors">J. Shen, Y. Wu, C. Chen</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3684971" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-07-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02283" target="_blank" rel="noopener">arXiv:2607.02283</a> · 2026-07-02T15:02:28Z</p>
       <p class="summary">
-        <span class="en">Qian et al. present a 28 nm compute-in-memory chip that pulls system-level components, except control logic, into a single macro. The design uses leakage-eliminated 2T1C and capacitor-over-logic 1T1C eDRAM to reduce the SRAM access, long interconnect, and accumulation overheads that often erase macro-level CIM gains. The paper is valuable because it treats CIM as a system layout problem, not only as a bitcell energy-efficiency claim.</span>
-        <span class="zh">Qian等人展示了一颗28 nm存内计算芯片，把除控制逻辑外的系统级组件整合进单个宏单元。该设计采用消除漏电的2T1C和电容置于逻辑之上的1T1C eDRAM，以减少SRAM访问、长互连和累加单元开销，这些开销常常抵消宏单元层面的CIM收益。论文的价值在于把CIM视为系统版图问题，而不只是位单元能效声明。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1109/TVLSI.2026.3687178" target="_blank" rel="noopener">
-          <span class="en">A Booth-Based Digital SRAM CIM Macro With 16.8 TOPS/W at 8b/8b</span>
-          <span class="zh">8b/8b下达到16.8 TOPS/W的Booth数字SRAM CIM宏</span>
-        </a>
-      </h3>
-      <p class="authors">Y. Jiang, X. Wang, H. You, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3687178" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-07-01</p>
-      <p class="summary">
-        <span class="en">Jiang et al. build a Booth-based all-digital SRAM CIM macro for flexible multiply-accumulate operations across bit widths. The 55 nm CMOS measurement reports 16.8 TOPS/W for 8b/8b MACs, using pre-encoding, two-transistor bit retention and shifting, and multiphase accumulation to reduce overhead. It is a practical digital-CIM entry because the result keeps standard CMOS and integer precision in view, though array-scale integration details still determine system usefulness.</span>
-        <span class="zh">Jiang等人构建了一个基于Booth编码的全数字SRAM CIM宏，用于支持不同位宽的乘加运算。55 nm CMOS实测在8b/8b MAC下达到16.8 TOPS/W，并通过预编码、两晶体管位保持与移位、多相累加来降低开销。这是一个更偏实用的数字CIM结果，因为它保留了标准CMOS和整数精度视角，但系统价值仍取决于阵列级集成细节。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.01798" target="_blank" rel="noopener">
-          <span class="en">BRAM-Free Approximate Softmax for FPGA Vision Transformer Inference</span>
-          <span class="zh">面向FPGA视觉Transformer推理的无BRAM近似Softmax</span>
-        </a>
-      </h3>
-      <p class="authors">M. Usman, S. Khan, D. Merhof</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.01798" target="_blank" rel="noopener">arXiv:2607.01798</a> · 2026-07-02T07:15:08Z</p>
-      <p class="summary">
-        <span class="en">Usman et al. replace the costly softmax exponential in FPGA Vision Transformer inference with a 16-segment piecewise-linear natural-exponential approximation implemented in distributed LUT fabric. On a Xilinx Zynq-7020 attention-row core, the design uses 1444 LUTs, 77 DSPs, and no BRAM, avoiding table-heavy or CORDIC-style implementations. The hardware angle is clear for small FPGAs, but the reported result is still core-level and depends on model-level accuracy under approximation.</span>
-        <span class="zh">Usman等人用16段分段线性自然指数近似替代FPGA视觉Transformer推理中昂贵的softmax指数计算，并完全用分布式LUT织构实现。在Xilinx Zynq-7020的attention-row核心上，该设计使用1444个LUT、77个DSP且不占用BRAM，避免了查表密集或CORDIC式实现。其硬件价值对小型FPGA很明确，但结果仍处于核心级，最终取决于近似下的模型级精度。</span>
+        <span class="en">Shen, Wu, and Chen argue that a single dendritic compartment can implement the online learning dynamics needed for in-context learning in spiking neural networks. Their DendriCL architecture maps apical recurrence to a leaky Widrow-Hoff LMS update, reducing what would normally require deeper transformer-like machinery. The result is promising for neuromorphic architecture thinking, but the evidence is algorithmic; it is not yet a measured silicon macro.</span>
+        <span class="zh">Shen、Wu和Chen认为，单个树突隔室即可实现脉冲神经网络中上下文学习所需的在线学习动力学。其DendriCL架构把顶端递归映射为带泄漏的Widrow-Hoff LMS更新，从而压缩通常需要更深Transformer式机制才能完成的适应过程。这个结果对神经形态架构有启发，但证据仍是算法层面的，并非已测硅宏单元。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="circuits">
+  <section class="area" id="ai-research">
     <h2>
-      <span class="en">Circuits &amp; Architectures</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">AI Research for Systems</span>
+      <span class="zh">面向系统的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCSI.2026.3663922" target="_blank" rel="noopener">
-          <span class="en">A 2T-Pixel CMOS Imager for In-Pixel Multi-Bit Feature Extraction</span>
-          <span class="zh">用于像素内多比特特征提取的2T像素CMOS图像传感器</span>
+        <a href="https://arxiv.org/abs/2607.02461" target="_blank" rel="noopener">
+          <span class="en">OrbitQuant: data-agnostic quantization for diffusion transformers</span>
+          <span class="zh">OrbitQuant：面向扩散Transformer的数据无关量化</span>
         </a>
       </h3>
-      <p class="authors">A. Abubakar, B. Wang, A. Bermak</p>
+      <p class="authors">D. Lee, J. Chavan, D. Nguyen, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3663922" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems Part 1: Regular Papers</a> · 2026-07-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02461" target="_blank" rel="noopener">arXiv:2607.02461</a> · 2026-07-02T17:27:34Z</p>
       <p class="summary">
-        <span class="en">Abubakar et al. demonstrate a computational CMOS image sensor that performs signed analog-domain multi-bit convolution directly inside the pixel array. The 0.18-micron prototype keeps a 43% fill factor, supports up to eight programmable convolution kernels per frame, and reports 1.5-2.0 TOPS/W normalized to 1-bit at 14-112 fps and 61.8-82.4 microwatts total chip power. This is useful edge-vision silicon because it removes intermediate SRAM and DAC storage, though the normalized precision metric should be read carefully.</span>
-        <span class="zh">Abubakar等人展示了一种计算型CMOS图像传感器，可在像素阵列内直接执行带符号模拟域多比特卷积。0.18微米原型保持43%填充因子，每帧支持最多8个可编程卷积核，并在14-112 fps、整芯片61.8-82.4微瓦功耗下给出按1-bit归一化的1.5-2.0 TOPS/W。该硅片对边缘视觉有价值，因为它去除了中间SRAM和DAC存储，但归一化精度指标需要谨慎解读。</span>
+        <span class="en">OrbitQuant removes calibration-data dependence from post-training quantization for diffusion transformers by rotating activations into a normalized basis with a randomized permuted block-Hadamard transform. The same Lloyd-Max codebook can then serve many timesteps, prompts, layers, and even image-to-video transfers, according to the paper. The hardware relevance is direct: lower-bit DiT inference is only useful if quantization avoids per-checkpoint calibration overhead and preserves quality across long sampling chains.</span>
+        <span class="zh">OrbitQuant通过随机置换块Hadamard变换，把扩散Transformer的激活旋转到归一化基空间，从而去掉后训练量化对校准数据的依赖。论文称，同一个Lloyd-Max码本可服务多个时间步、提示、层，甚至从图像模型迁移到视频模型。其硬件相关性很直接：低比特DiT推理只有在避免逐检查点校准开销并保持长采样链质量时才真正有用。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.02484" target="_blank" rel="noopener">
+          <span class="en">Entropy-aware dense visual token pruning for VLMs</span>
+          <span class="zh">面向VLM的熵感知密集视觉token剪枝</span>
+        </a>
+      </h3>
+      <p class="authors">X. Wang, X. Yang, W. Shen</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02484" target="_blank" rel="noopener">arXiv:2607.02484</a> · 2026-07-02T17:50:57Z</p>
+      <p class="summary">
+        <span class="en">EADP targets the failure mode where visual token pruning drops fine-grained cues under dense multimodal instructions. It estimates textual noise with entropy, then uses submodular selection with a spatial prior instead of naive top-k token retention. For accelerator workloads, the paper is relevant because visual-token count is a first-order driver of memory traffic and attention compute in VLM inference.</span>
+        <span class="zh">EADP针对视觉token剪枝在密集多模态指令下丢失细粒度线索的问题。它先用熵估计文本噪声，再以带空间先验的子模选择替代简单Top-K保留。对加速器负载而言，这篇论文相关性很高，因为视觉token数量直接决定VLM推理中的内存流量和attention计算量。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.02303" target="_blank" rel="noopener">
+          <span class="en">HOLA adds exact bounded KV memory to linear attention</span>
+          <span class="zh">HOLA为线性attention加入有界精确KV记忆</span>
+        </a>
+      </h3>
+      <p class="authors">W. Cui</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02303" target="_blank" rel="noopener">arXiv:2607.02303</a> · 2026-07-02T15:19:49Z</p>
+      <p class="summary">
+        <span class="en">HOLA augments linear attention with a bounded exact KV cache so facts that do not compress well into the recurrent state can still be recalled. At 340M parameters trained on 15B SlimPajama tokens, the paper reports Wikitext perplexity improving from 27.32 to 22.92, beating a full-attention Transformer++ baseline at 26.88. The approach is hardware-relevant because it keeps the linear-attention memory model while adding a controlled cache path for high-value associations.</span>
+        <span class="zh">HOLA在线性attention之外加入有界精确KV cache，让无法良好压缩进递归状态的事实仍可被召回。在使用15B SlimPajama token训练的340M参数模型上，论文报告Wikitext困惑度从27.32降至22.92，优于26.88的全attention Transformer++基线。该方法对硬件有意义，因为它保留线性attention的内存模型，同时为高价值关联增加受控cache路径。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.02338" target="_blank" rel="noopener">
+          <span class="en">HNSW with accuracy guarantees using graph spanners</span>
+          <span class="zh">用图spanner为HNSW提供准确性保证</span>
+        </a>
+      </h3>
+      <p class="authors">M. Li, R. Mittal, S. Rana, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02338" target="_blank" rel="noopener">arXiv:2607.02338</a> · 2026-07-02T15:44:43Z</p>
+      <p class="summary">
+        <span class="en">Li et al. propose a certify-then-rectify framework for HNSW nearest-neighbor search, adding a statistical certifier that escalates uncertain queries to a rigorous recovery path. They reinterpret the HNSW graph as a geometric spanner and use extreme-value estimates to bound where true nearest neighbors can lie. The systems angle is clear: vector retrieval for RAG and memory systems needs predictable worst-case behavior, not only high average throughput.</span>
+        <span class="zh">Li等人提出面向HNSW近邻搜索的“先认证、再修正”框架，加入统计认证器，在查询结果不可靠时升级到严格恢复路径。他们把HNSW图重新解释为几何spanner，并用极值估计限定真实近邻可能出现的位置。系统意义很明确：RAG和记忆系统中的向量检索不仅需要高平均吞吐，还需要可预测的最坏情况行为。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="eda">
+  <section class="area" id="quantum">
     <h2>
-      <span class="en">EDA &amp; Hardware Security</span>
-      <span class="zh">EDA与硬件安全</span>
+      <span class="en">Quantum &amp; Emerging Computing</span>
+      <span class="zh">量子与新型计算</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.01526" target="_blank" rel="noopener">
-          <span class="en">LIB-TRAP Tests Hardware-Trojan Risk in Standard Cell Libraries</span>
-          <span class="zh">LIB-TRAP评估标准单元库中的硬件木马风险</span>
+        <a href="https://arxiv.org/abs/2607.02444" target="_blank" rel="noopener">
+          <span class="en">Optimal stabilizer testing and learning with limited quantum memory</span>
+          <span class="zh">有限量子内存下的最优稳定子测试与学习</span>
         </a>
       </h3>
-      <p class="authors">H. K. Dharavath, M. M. A. Chowdhury, R. Yasaei, et al.</p>
+      <p class="authors">S. Arunachalam, L. Schatzki</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.01526" target="_blank" rel="noopener">arXiv:2607.01526</a> · 2026-07-01T22:46:48Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02444" target="_blank" rel="noopener">arXiv:2607.02444</a> · 2026-07-02T17:11:38Z</p>
       <p class="summary">
-        <span class="en">Dharavath et al. move the hardware-Trojan threat model into the standard cell library itself, treating the library as untrusted rather than assuming malicious insertion only around placed cells. Using EDA flows with Saed32nm and Sky130nm libraries, they show how malicious cells can mask arbitrary Trojans from designers until a foundry-side replacement activates them. The result is important for fabless security reviews because it pushes trust boundaries down to library provenance and signoff, though the strongest attacks assume a coordinated adversarial supply chain.</span>
-        <span class="zh">Dharavath等人把硬件木马威胁模型推进到标准单元库本身，将库视为不可信，而不是只假设木马被插入到已布局单元周围。他们使用Saed32nm和Sky130nm库的EDA流程，展示恶意单元如何在设计者面前隐藏任意木马，直到晶圆厂侧替换激活。该结果对无晶圆厂安全审查很重要，因为它把信任边界下推到库来源和签核流程；但最强攻击仍假设存在协同的恶意供应链。</span>
+        <span class="en">Arunachalam and Schatzki study stabilizer-state testing and learning when an algorithm can keep only k qubits of coherent quantum memory between measurements. They show the usual separation between constant-copy testing and larger learning complexity disappears under memory limits, with stabilizer testing requiring Theta(n-k) samples and non-adaptive learning requiring Theta(n^2/k). The result is theoretical, but it sharpens the memory requirements for practical quantum characterization protocols.</span>
+        <span class="zh">Arunachalam和Schatzki研究当算法在测量之间只能保留k个相干量子比特内存时的稳定子态测试与学习。他们证明，在内存受限下，常数拷贝测试与更高学习复杂度之间的传统分离会消失：稳定子测试需要Theta(n-k)个样本，非自适应学习需要Theta(n^2/k)。这是理论结果，但它更清楚地刻画了实用量子表征协议的内存需求。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-04 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-04 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-05 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-05 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
