@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-05">
+<meta name="edition-date" content="2026-07-06">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Efficiency Moves Below the Model — Semi Research 2026-07-05</title>
+<title>Efficiency Moves Up the Compute Stack — Semi Research 2026-07-06</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,193 +249,202 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, July 5, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月5日 星期日</span>
+      <span class="en">Research digest · Monday, July 6, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月6日 星期一</span>
     </div>
     <h1>
-      <span class="en">Inference Efficiency Moves Below the Model</span>
-      <span class="zh">推理效率下沉到模型之下</span>
+      <span class="en">Efficiency Moves Up the Compute Stack</span>
+      <span class="zh">效率优化上移到计算栈</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s stronger papers treat memory, power, retrieval, and token movement as first-class constraints. The through-line is not bigger models, but methods that make existing hardware behave more predictably under long-context, multimodal, and accelerator-bound workloads.</span>
-      <span class="zh">本周较强的论文把内存、功耗、检索和token移动作为一等约束。主线不是更大的模型，而是让现有硬件在长上下文、多模态和受加速器约束的负载下表现得更可预测。</span>
+      <span class="en">This week&#x27;s papers focus less on new devices and more on reducing memory footprint, scheduling parallel work, and making model execution cheaper. The hardware signal is that algorithms are being redesigned around locality, bounded state, and concurrency.</span>
+      <span class="zh">本周论文较少集中在新器件，更多围绕降低内存占用、调度并行任务和降低模型执行成本展开。对硬件的信号是，算法正在围绕局部性、有界状态和并发性重新设计。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="circuits">
     <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
+      <span class="en">Circuits &amp; Systems</span>
+      <span class="zh">电路与系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02323" target="_blank" rel="noopener">
-          <span class="en">Reflectionless resonant microwave plasmas via virtual critical coupling</span>
-          <span class="zh">通过虚拟临界耦合实现无反射谐振微波等离子体</span>
+        <a href="https://arxiv.org/abs/2607.02429" target="_blank" rel="noopener">
+          <span class="en">APEIRON: Multi-FPGA Smart TDAQ Systems for High-Energy Physics</span>
+          <span class="zh">APEIRON：面向高能物理的多FPGA智能触发与数据采集系统</span>
         </a>
       </h3>
-      <p class="authors">M. R. Akram, A. Semnani</p>
+      <p class="authors">Roberto Ammendola, Andrea Biagioni, Carlotta Chiarini, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02323" target="_blank" rel="noopener">arXiv:2607.02323</a> · 2026-07-02T15:30:44Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02429" target="_blank" rel="noopener">arXiv:2607.02429</a> · 2026-07-02T16:59:19Z</p>
       <p class="summary">
-        <span class="en">Akram and Semnani show a transient excitation scheme that keeps a resonant microwave plasma source impedance-matched after plasma ignition perturbs the resonator. The method uses an exponentially growing incident waveform to emulate critical coupling and reportedly stores up to four times as much energy in the resonator. It is process-adjacent rather than a transistor paper, but better plasma power transfer is relevant to compact industrial plasma tools and materials processing.</span>
-        <span class="zh">Akram和Semnani提出一种瞬态激励方案，在等离子体点火扰动谐振器后仍保持谐振微波等离子体源的阻抗匹配。该方法用指数增长的入射波形模拟临界耦合，据称可让谐振器储存最多4倍能量。它不是晶体管论文，而是偏工艺设备方向；但更高效的等离子体功率传输对紧凑型工业等离子体工具和材料处理有直接相关性。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02376" target="_blank" rel="noopener">
-          <span class="en">Hardware-enforced semantic coordination for real-time autonomous systems</span>
-          <span class="zh">面向实时自治系统的硬件强制语义协同</span>
-        </a>
-      </h3>
-      <p class="authors">U. M. Borghoff, P. Bottoni, R. Pareschi</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02376" target="_blank" rel="noopener">arXiv:2607.02376</a> · 2026-07-02T16:16:41Z</p>
-      <p class="summary">
-        <span class="en">Borghoff, Bottoni, and Pareschi map selected coordination semantics for safety-critical autonomous systems directly onto FPGA primitives. The contribution is not raw acceleration; it is bounded-latency enforcement of interaction rules among heterogeneous AI, control, and human-operated components. The paper is architecture-level and still needs implementation evidence, but it points to a useful hardware role for verifiable real-time AI systems.</span>
-        <span class="zh">Borghoff、Bottoni和Pareschi把安全关键自治系统中的部分协同语义直接映射到FPGA原语上。它的贡献不是单纯加速，而是在异构AI、控制和人工组件之间以有界延迟强制执行交互规则。论文仍处在架构层，需要更多实现证据，但它指出了硬件在可验证实时AI系统中的一个有价值角色。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
-    <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02391" target="_blank" rel="noopener">
-          <span class="en">WattGPU predicts LLM inference power and latency on unseen GPUs</span>
-          <span class="zh">WattGPU预测未知GPU上的LLM推理功耗与延迟</span>
-        </a>
-      </h3>
-      <p class="authors">M. Fadel Argerich, J. Fuerst, M. Patino-Martinez</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02391" target="_blank" rel="noopener">arXiv:2607.02391</a> · 2026-07-02T16:25:34Z</p>
-      <p class="summary">
-        <span class="en">WattGPU predicts mean GPU power draw and inter-token latency for LLM inference using only public model metadata and GPU specifications. On 42 open-source LLMs and 8 NVIDIA server GPUs, the paper reports median absolute percentage error at or below 3.4% for offline power and 13.5% for server-mode power on unseen GPUs, with server-mode latency error at or below 8.5%. If it generalizes, this gives operators a planning tool before they spend time profiling every model-and-GPU pair.</span>
-        <span class="zh">WattGPU只使用公开模型元数据和GPU规格，预测LLM推理的平均GPU功耗和token间延迟。论文在42个开源LLM和8款NVIDIA服务器GPU上报告，面对未见过的GPU，离线功耗中位绝对百分比误差不超过3.4%，服务器模式功耗不超过13.5%，服务器模式延迟误差不超过8.5%。如果泛化成立，它能让运营方在逐一实测模型与GPU组合之前先完成容量和能耗规划。</span>
+        <span class="en">APEIRON describes a distributed heterogeneous processing framework that combines a multi-FPGA hardware architecture with a software stack for trigger and data acquisition. The interesting part is the full hierarchy: device drivers, communication infrastructure, and an HLS-based dataflow programming model are presented as one system. It is targeted at high-energy physics rather than AI, but the same integration problem shows up in low-latency accelerator clusters.</span>
+        <span class="zh">APEIRON提出一个分布式异构处理框架，把多FPGA硬件架构与触发和数据采集软件栈结合起来。值得关注的是它覆盖了完整层级：底层驱动、通信基础设施，以及基于HLS的数据流编程模型。论文面向高能物理而非AI，但低时延加速器集群也会遇到同类系统集成问题。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02283" target="_blank" rel="noopener">
-          <span class="en">Dendritic in-context learning in a single-layer spiking neural network</span>
-          <span class="zh">单层脉冲神经网络中的树突式上下文学习</span>
+        <a href="https://arxiv.org/abs/2607.02401" target="_blank" rel="noopener">
+          <span class="en">FlintKV: A Durable Storage Engine for Byte-Addressable NVM</span>
+          <span class="zh">FlintKV：面向字节寻址NVM的持久化存储引擎</span>
         </a>
       </h3>
-      <p class="authors">J. Shen, Y. Wu, C. Chen</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02283" target="_blank" rel="noopener">arXiv:2607.02283</a> · 2026-07-02T15:02:28Z</p>
+      <p class="authors">Sergey Egorov, Gregory Chockler, Brijesh Dongol, et al.</p>
+      <p class="affil">Royal Holloway, University of London / University of Surrey</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02401" target="_blank" rel="noopener">arXiv:2607.02401</a> · 2026-07-02T16:34:39Z</p>
       <p class="summary">
-        <span class="en">Shen, Wu, and Chen argue that a single dendritic compartment can implement the online learning dynamics needed for in-context learning in spiking neural networks. Their DendriCL architecture maps apical recurrence to a leaky Widrow-Hoff LMS update, reducing what would normally require deeper transformer-like machinery. The result is promising for neuromorphic architecture thinking, but the evidence is algorithmic; it is not yet a measured silicon macro.</span>
-        <span class="zh">Shen、Wu和Chen认为，单个树突隔室即可实现脉冲神经网络中上下文学习所需的在线学习动力学。其DendriCL架构把顶端递归映射为带泄漏的Widrow-Hoff LMS更新，从而压缩通常需要更深Transformer式机制才能完成的适应过程。这个结果对神经形态架构有启发，但证据仍是算法层面的，并非已测硅宏单元。</span>
+        <span class="en">FlintKV targets byte-addressable non-volatile memory with a skiplist storage engine that supports snapshots, consistent iterators, atomic batches, and durable linearizability. The paper reports up to a 75% end-to-end throughput improvement by co-designing concurrency control and persistence mechanisms. It is a systems paper, but it matters for memory hardware because NVM needs software semantics that make its latency advantage usable.</span>
+        <span class="zh">FlintKV面向字节寻址非易失性内存，提出支持快照、一致迭代器、原子批写和持久线性一致性的跳表存储引擎。论文称，通过协同设计并发控制和持久化机制，端到端吞吐最高提升75%。这是一篇系统论文，但对存储硬件有意义，因为NVM需要相应的软件语义才能真正释放低时延优势。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.02324" target="_blank" rel="noopener">
+          <span class="en">Elastic Parallel Sparse Triangular Solve</span>
+          <span class="zh">弹性并行稀疏三角求解</span>
+        </a>
+      </h3>
+      <p class="authors">Raphael S. Steiner, Christos K. Matzoros, Pal Andras Papp, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02324" target="_blank" rel="noopener">arXiv:2607.02324</a> · 2026-07-02T15:31:37Z</p>
+      <p class="summary">
+        <span class="en">This paper introduces stale synchronous parallel execution for sparse triangular solves and a DAG scheduler called ElasticDivide. By overlapping synchronization with compute, the scheduler reports geometric-mean speedups of 7-30% over GrowLocal on a 48-core ARM machine and 19-60% over SpMP on a 48-core x86 machine. Sparse triangular solve is a stubborn HPC kernel, so these gains are relevant to CPU and accelerator runtime designers.</span>
+        <span class="zh">这篇论文把陈旧同步并行执行引入稀疏三角求解，并提出名为ElasticDivide的DAG调度器。通过重叠同步与计算，论文在48核ARM机器上相对GrowLocal实现7-30%的几何平均加速，在48核x86机器上相对SpMP实现19-60%的加速。稀疏三角求解是HPC中的顽固内核，因此这些结果对CPU和加速器运行时设计都有参考价值。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research for Systems</span>
-      <span class="zh">面向系统的AI研究</span>
+      <span class="en">AI Research for Efficient Inference</span>
+      <span class="zh">面向高效推理的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02461" target="_blank" rel="noopener">
-          <span class="en">OrbitQuant: data-agnostic quantization for diffusion transformers</span>
-          <span class="zh">OrbitQuant：面向扩散Transformer的数据无关量化</span>
+        <a href="https://arxiv.org/abs/2607.02512" target="_blank" rel="noopener">
+          <span class="en">Program-as-Weights Compiles Fuzzy Functions into Small Local Models</span>
+          <span class="zh">Program-as-Weights将模糊函数编译为小型本地模型</span>
         </a>
       </h3>
-      <p class="authors">D. Lee, J. Chavan, D. Nguyen, et al.</p>
+      <p class="authors">Wentao Zhang, Liliana Hotsko, Woojeong Kim, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02461" target="_blank" rel="noopener">arXiv:2607.02461</a> · 2026-07-02T17:27:34Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02512" target="_blank" rel="noopener">arXiv:2607.02512</a> · 2026-07-02T17:59:50Z</p>
       <p class="summary">
-        <span class="en">OrbitQuant removes calibration-data dependence from post-training quantization for diffusion transformers by rotating activations into a normalized basis with a randomized permuted block-Hadamard transform. The same Lloyd-Max codebook can then serve many timesteps, prompts, layers, and even image-to-video transfers, according to the paper. The hardware relevance is direct: lower-bit DiT inference is only useful if quantization avoids per-checkpoint calibration overhead and preserves quality across long sampling chains.</span>
-        <span class="zh">OrbitQuant通过随机置换块Hadamard变换，把扩散Transformer的激活旋转到归一化基空间，从而去掉后训练量化对校准数据的依赖。论文称，同一个Lloyd-Max码本可服务多个时间步、提示、层，甚至从图像模型迁移到视频模型。其硬件相关性很直接：低比特DiT推理只有在避免逐检查点校准开销并保持长采样链质量时才真正有用。</span>
+        <span class="en">Program-as-Weights compiles a natural-language function specification into parameter-efficient adapters for a frozen lightweight interpreter. The headline result is practical: a 0.6B Qwen3 interpreter running PAW programs matches direct prompting of Qwen3-32B while using about one fiftieth of the inference memory and running at 30 tokens/s on a MacBook M3. This is preprint evidence, but it points to a serving pattern where a large model builds reusable small artifacts instead of answering every call itself.</span>
+        <span class="zh">Program-as-Weights把自然语言函数规格编译成适配冻结轻量解释器的参数高效adapter。关键结果很实际：运行PAW程序的0.6B Qwen3解释器可匹配直接提示Qwen3-32B的表现，同时推理内存约为后者的五十分之一，并能在MacBook M3上达到30 tokens/s。这仍是预印本结果，但指向一种服务模式：大模型生成可复用的小型工件，而不是亲自处理每次调用。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02484" target="_blank" rel="noopener">
-          <span class="en">Entropy-aware dense visual token pruning for VLMs</span>
-          <span class="zh">面向VLM的熵感知密集视觉token剪枝</span>
+        <a href="https://arxiv.org/abs/2607.02509" target="_blank" rel="noopener">
+          <span class="en">ReContext Replays Evidence for 128K-Context Reasoning</span>
+          <span class="zh">ReContext通过证据重放改善128K长上下文推理</span>
         </a>
       </h3>
-      <p class="authors">X. Wang, X. Yang, W. Shen</p>
+      <p class="authors">Yanjun Zhao, Ruizhong Qiu, Tianxin Wei, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02484" target="_blank" rel="noopener">arXiv:2607.02484</a> · 2026-07-02T17:50:57Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02509" target="_blank" rel="noopener">arXiv:2607.02509</a> · 2026-07-02T17:59:26Z</p>
       <p class="summary">
-        <span class="en">EADP targets the failure mode where visual token pruning drops fine-grained cues under dense multimodal instructions. It estimates textual noise with entropy, then uses submodular selection with a spatial prior instead of naive top-k token retention. For accelerator workloads, the paper is relevant because visual-token count is a first-order driver of memory traffic and attention compute in VLM inference.</span>
-        <span class="zh">EADP针对视觉token剪枝在密集多模态指令下丢失细粒度线索的问题。它先用熵估计文本噪声，再以带空间先验的子模选择替代简单Top-K保留。对加速器负载而言，这篇论文相关性很高，因为视觉token数量直接决定VLM推理中的内存流量和attention计算量。</span>
+        <span class="en">ReContext is a training-free inference method that uses model-internal relevance signals to build a query-conditioned evidence pool and replay it before generation. On eight long-context datasets at 128K context length, the paper reports consistent gains in evidence use without external memory or context pruning. It does not remove the KV-cache cost of long prompts, but it attacks the separate problem of models failing to use evidence already paid for in memory.</span>
+        <span class="zh">ReContext是一种无需训练的推理方法，利用模型内部相关性信号构建与查询相关的证据池，并在生成前进行重放。论文在8个128K长上下文数据集上报告了稳定的证据利用提升，且不依赖外部记忆或上下文裁剪。它并没有消除长提示带来的KV-cache成本，但针对的是另一个实际问题：模型已经为上下文付出内存成本，却未能有效使用其中证据。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02303" target="_blank" rel="noopener">
-          <span class="en">HOLA adds exact bounded KV memory to linear attention</span>
-          <span class="zh">HOLA为线性attention加入有界精确KV记忆</span>
+        <a href="https://arxiv.org/abs/2607.02344" target="_blank" rel="noopener">
+          <span class="en">Self-Gating Attention Cuts Redundant Time-Series Attention Work</span>
+          <span class="zh">Self-Gating Attention削减时间序列中的冗余注意力计算</span>
         </a>
       </h3>
-      <p class="authors">W. Cui</p>
+      <p class="authors">Dezheng Wang, Tong Chen, Wei Yuan, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02303" target="_blank" rel="noopener">arXiv:2607.02303</a> · 2026-07-02T15:19:49Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02344" target="_blank" rel="noopener">arXiv:2607.02344</a> · 2026-07-02T15:49:14Z</p>
       <p class="summary">
-        <span class="en">HOLA augments linear attention with a bounded exact KV cache so facts that do not compress well into the recurrent state can still be recalled. At 340M parameters trained on 15B SlimPajama tokens, the paper reports Wikitext perplexity improving from 27.32 to 22.92, beating a full-attention Transformer++ baseline at 26.88. The approach is hardware-relevant because it keeps the linear-attention memory model while adding a controlled cache path for high-value associations.</span>
-        <span class="zh">HOLA在线性attention之外加入有界精确KV cache，让无法良好压缩进递归状态的事实仍可被召回。在使用15B SlimPajama token训练的340M参数模型上，论文报告Wikitext困惑度从27.32降至22.92，优于26.88的全attention Transformer++基线。该方法对硬件有意义，因为它保留线性attention的内存模型，同时为高价值关联增加受控cache路径。</span>
+        <span class="en">Self-Gating Attention targets the quadratic time and memory cost of transformer attention in time-series forecasting. The method replaces part of the attention-score computation with a shared learnable matrix plus an input-dependent residual, exploiting repeated temporal patterns. The caveat is domain scope: the redundancy assumption is natural for time series, but it may not transfer directly to general LLM workloads.</span>
+        <span class="zh">Self-Gating Attention瞄准时间序列预测中Transformer注意力的二次时间和内存开销。它用共享可学习矩阵加输入相关残差来替代部分注意力分数计算，利用许多时间序列中重复的时间模式。需要注意的是适用范围：这种冗余假设很适合时间序列，但未必能直接迁移到通用LLM负载。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02338" target="_blank" rel="noopener">
-          <span class="en">HNSW with accuracy guarantees using graph spanners</span>
-          <span class="zh">用图spanner为HNSW提供准确性保证</span>
+        <a href="https://arxiv.org/abs/2607.02266" target="_blank" rel="noopener">
+          <span class="en">HERMES Builds Multi-Granularity Labels for Pre-Training Mixtures</span>
+          <span class="zh">HERMES为预训练数据混合构建多粒度标签</span>
         </a>
       </h3>
-      <p class="authors">M. Li, R. Mittal, S. Rana, et al.</p>
+      <p class="authors">Ziyun Qiao, Yue Min, Ruining Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02338" target="_blank" rel="noopener">arXiv:2607.02338</a> · 2026-07-02T15:44:43Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02266" target="_blank" rel="noopener">arXiv:2607.02266</a> · 2026-07-02T14:51:42Z</p>
       <p class="summary">
-        <span class="en">Li et al. propose a certify-then-rectify framework for HNSW nearest-neighbor search, adding a statistical certifier that escalates uncertain queries to a rigorous recovery path. They reinterpret the HNSW graph as a geometric spanner and use extreme-value estimates to bound where true nearest neighbors can lie. The systems angle is clear: vector retrieval for RAG and memory systems needs predictable worst-case behavior, not only high average throughput.</span>
-        <span class="zh">Li等人提出面向HNSW近邻搜索的“先认证、再修正”框架，加入统计认证器，在查询结果不可靠时升级到严格恢复路径。他们把HNSW图重新解释为几何spanner，并用极值估计限定真实近邻可能出现的位置。系统意义很明确：RAG和记忆系统中的向量检索不仅需要高平均吞吐，还需要可预测的最坏情况行为。</span>
+        <span class="en">HERMES proposes a hierarchical labeling substrate for pre-training corpora, using a learned semantic transform and three-stage residual vector quantization to label documents once across multiple granularities. In a 1B-parameter, 25B-token pre-training run, one prefix length exposes a data-mixing rule that improves a 16-task capability macro-average by +0.0253, while a finer level loses the gain. The result is relevant because data efficiency changes training compute demand, but the paper also shows how sensitive these rules are to granularity.</span>
+        <span class="zh">HERMES为预训练语料提出层级标签基底，用学习到的语义变换和三阶段残差向量量化，对文档进行一次标注并支持多种粒度。在1B参数、25B token的预训练实验中，某一前缀长度下的数据混合规则让16项能力宏平均提升+0.0253，但更细粒度下该收益消失。结果值得关注，因为数据效率会改变训练算力需求，同时也说明这类规则对粒度非常敏感。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Compiler Automation</span>
+      <span class="zh">EDA与编译器自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.02370" target="_blank" rel="noopener">
+          <span class="en">Agent-Based Patching of Compiler Missed Optimizations</span>
+          <span class="zh">基于Agent的编译器遗漏优化修补研究</span>
+        </a>
+      </h3>
+      <p class="authors">Batu Guan, Zirui Wang, Shaohua Li</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02370" target="_blank" rel="noopener">arXiv:2607.02370</a> · 2026-07-02T16:12:32Z</p>
+      <p class="summary">
+        <span class="en">This paper benchmarks how well coding agents patch real LLVM missed-optimization issues. The main finding is not simply pass or fail: agents often fix the provided case, but their patches may cover less, overlap differently, or generalize beyond the developer&#x27;s intended scope. Retrieval and distillation from historical LLVM optimization pull requests improve developer-aligned generalization, making the work relevant to compiler and EDA automation workflows.</span>
+        <span class="zh">这篇论文评估编码agent修补真实LLVM遗漏优化问题的能力。主要发现不是简单的成功或失败：agent经常能修复给定案例，但补丁覆盖范围可能小于、偏离或超过开发者原本意图。利用历史LLVM优化PR进行检索和蒸馏，可提升与开发者意图一致的泛化能力，因此这项工作对编译器和EDA自动化流程有参考价值。</span>
       </p>
     </article>
   </section>
   <section class="area" id="quantum">
     <h2>
-      <span class="en">Quantum &amp; Emerging Computing</span>
-      <span class="zh">量子与新型计算</span>
+      <span class="en">Quantum &amp; Physics Computing</span>
+      <span class="zh">量子与物理计算</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02444" target="_blank" rel="noopener">
-          <span class="en">Optimal stabilizer testing and learning with limited quantum memory</span>
-          <span class="zh">有限量子内存下的最优稳定子测试与学习</span>
+        <a href="https://arxiv.org/abs/2607.02426" target="_blank" rel="noopener">
+          <span class="en">QFedAgent Uses Quantum Fusion for Lightweight Federated Learning</span>
+          <span class="zh">QFedAgent用量子融合降低联邦学习参数量</span>
         </a>
       </h3>
-      <p class="authors">S. Arunachalam, L. Schatzki</p>
+      <p class="authors">Quoc Bao Phan, Tuy Tan Nguyen</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02444" target="_blank" rel="noopener">arXiv:2607.02444</a> · 2026-07-02T17:11:38Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02426" target="_blank" rel="noopener">arXiv:2607.02426</a> · 2026-07-02T16:54:35Z</p>
       <p class="summary">
-        <span class="en">Arunachalam and Schatzki study stabilizer-state testing and learning when an algorithm can keep only k qubits of coherent quantum memory between measurements. They show the usual separation between constant-copy testing and larger learning complexity disappears under memory limits, with stabilizer testing requiring Theta(n-k) samples and non-adaptive learning requiring Theta(n^2/k). The result is theoretical, but it sharpens the memory requirements for practical quantum characterization protocols.</span>
-        <span class="zh">Arunachalam和Schatzki研究当算法在测量之间只能保留k个相干量子比特内存时的稳定子态测试与学习。他们证明，在内存受限下，常数拷贝测试与更高学习复杂度之间的传统分离会消失：稳定子测试需要Theta(n-k)个样本，非自适应学习需要Theta(n^2/k)。这是理论结果，但它更清楚地刻画了实用量子表征协议的内存需求。</span>
+        <span class="en">QFedAgent adds a variational quantum circuit fusion module to personalized federated learning for multi-agent activity recognition. The paper reports 72 quantum rotation parameters versus 33K parameters for a classical MLP fusion module, roughly a 10x total parameter reduction, with 97.7% mean test accuracy on OPPORTUNITY under subject-based non-IID partitions. Treat it as an algorithmic quantum-classical result, not evidence of near-term quantum hardware deployment.</span>
+        <span class="zh">QFedAgent在面向多agent活动识别的个性化联邦学习中加入变分量子电路融合模块。论文报告量子融合模块只需72个量子旋转参数，而经典MLP融合模块为33K参数，总参数量约降低10倍，并在OPPORTUNITY数据集的按受试者非IID划分下达到97.7%平均测试准确率。应把它视为量子-经典算法结果，而不是近期量子硬件部署证据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.02292" target="_blank" rel="noopener">
+          <span class="en">Proximal Wavefunction Optimization for Neural Quantum States</span>
+          <span class="zh">面向神经量子态的近端波函数优化</span>
+        </a>
+      </h3>
+      <p class="authors">Juan Agustin Duque, Sergio Garcia Heredia, Vinicius Hernandes, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.02292" target="_blank" rel="noopener">arXiv:2607.02292</a> · 2026-07-02T15:09:50Z</p>
+      <p class="summary">
+        <span class="en">This paper reframes variational energy minimization for neural quantum states as an advantage policy-gradient problem over the Born distribution. The proposed Proximal Wavefunction Optimization clips probability-ratio changes in the amplitude channel and phase increments in the phase channel, aiming to avoid costly matrix inversion while keeping trust-region behavior. It is relevant to quantum simulation workloads, with the usual caveat that algorithmic scaling still needs validation beyond benchmark spin systems.</span>
+        <span class="zh">这篇论文把神经量子态的变分能量最小化重新表述为Born分布上的优势策略梯度问题。作者提出的Proximal Wavefunction Optimization会裁剪振幅通道中的概率比变化和相位通道中的相位增量，目标是在避免昂贵矩阵求逆的同时保留信赖域行为。它对量子模拟负载有意义，但仍需在基准自旋系统之外验证算法扩展性。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-05 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-05 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-06 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-06 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
