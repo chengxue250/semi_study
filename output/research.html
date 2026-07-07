@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-06">
+<meta name="edition-date" content="2026-07-07">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Efficiency Moves Up the Compute Stack — Semi Research 2026-07-06</title>
+<title>Inference Efficiency Meets Physical-Layer Constraints — Semi Research 2026-07-07</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,202 +249,172 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, July 6, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月6日 星期一</span>
+      <span class="en">Research digest · Tuesday, July 7, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月7日 星期二</span>
     </div>
     <h1>
-      <span class="en">Efficiency Moves Up the Compute Stack</span>
-      <span class="zh">效率优化上移到计算栈</span>
+      <span class="en">Inference Efficiency Meets Physical-Layer Constraints</span>
+      <span class="zh">推理效率遇上物理层约束</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers focus less on new devices and more on reducing memory footprint, scheduling parallel work, and making model execution cheaper. The hardware signal is that algorithms are being redesigned around locality, bounded state, and concurrency.</span>
-      <span class="zh">本周论文较少集中在新器件，更多围绕降低内存占用、调度并行任务和降低模型执行成本展开。对硬件的信号是，算法正在围绕局部性、有界状态和并发性重新设计。</span>
+      <span class="en">This week&#x27;s stronger papers connect AI system efficiency with the hardware limits underneath it: idle GPUs, carbon-aware data centers, RF interference, near-field arrays, and modulator physics. The common thread is that useful performance increasingly comes from co-design across models, communication channels, devices, and operations.</span>
+      <span class="zh">本周更值得读的论文把AI系统效率与底层硬件约束连接起来：闲置GPU、低碳数据中心、射频干扰、近场阵列以及调制器物理。共同主线是，有效性能越来越依赖模型、通信信道、器件和运营之间的协同设计。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
     </div>
   </header>
 
-    <section class="area" id="circuits">
+    <section class="area" id="devices">
     <h2>
-      <span class="en">Circuits &amp; Systems</span>
-      <span class="zh">电路与系统</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02429" target="_blank" rel="noopener">
-          <span class="en">APEIRON: Multi-FPGA Smart TDAQ Systems for High-Energy Physics</span>
-          <span class="zh">APEIRON：面向高能物理的多FPGA智能触发与数据采集系统</span>
+        <a href="https://arxiv.org/abs/2607.03491" target="_blank" rel="noopener">
+          <span class="en">Graphene Electric Double-Layer Transistors for Label-Free Albumin Detection</span>
+          <span class="zh">用于无标记白蛋白检测的石墨烯电双层晶体管</span>
         </a>
       </h3>
-      <p class="authors">Roberto Ammendola, Andrea Biagioni, Carlotta Chiarini, et al.</p>
+      <p class="authors">A. Liaquat, G. Baridi, F. Rapuzzi, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02429" target="_blank" rel="noopener">arXiv:2607.02429</a> · 2026-07-02T16:59:19Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03491" target="_blank" rel="noopener">arXiv:2607.03491</a> · 2026-07-03T16:58:53Z</p>
       <p class="summary">
-        <span class="en">APEIRON describes a distributed heterogeneous processing framework that combines a multi-FPGA hardware architecture with a software stack for trigger and data acquisition. The interesting part is the full hierarchy: device drivers, communication infrastructure, and an HLS-based dataflow programming model are presented as one system. It is targeted at high-energy physics rather than AI, but the same integration problem shows up in low-latency accelerator clusters.</span>
-        <span class="zh">APEIRON提出一个分布式异构处理框架，把多FPGA硬件架构与触发和数据采集软件栈结合起来。值得关注的是它覆盖了完整层级：底层驱动、通信基础设施，以及基于HLS的数据流编程模型。论文面向高能物理而非AI，但低时延加速器集群也会遇到同类系统集成问题。</span>
+        <span class="en">The paper demonstrates a graphene electrolyte-gated FET that detects human serum albumin in real time under non-Faradaic operation. Albumin adsorption shifts the Dirac voltage in a concentration-dependent way, and Brownian Dynamics simulations connect the electrical response to adsorption orientation and interfacial charge. For semiconductor readers, the useful piece is the device-level transduction mechanism rather than the biomedical target alone.</span>
+        <span class="zh">这篇论文展示了一种石墨烯电解质栅FET，可在非Faradaic工作条件下实时检测人血清白蛋白。白蛋白吸附会以浓度相关方式移动Dirac电压，Brownian Dynamics模拟进一步把电学响应与吸附取向和界面电荷联系起来。对半导体读者来说，重点不只是生物医学应用，而是器件级换能机制。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02401" target="_blank" rel="noopener">
-          <span class="en">FlintKV: A Durable Storage Engine for Byte-Addressable NVM</span>
-          <span class="zh">FlintKV：面向字节寻址NVM的持久化存储引擎</span>
+        <a href="https://arxiv.org/abs/2607.03317" target="_blank" rel="noopener">
+          <span class="en">Mid-IR Electro-Optic Comb Generation with an Ultrafast Modulator</span>
+          <span class="zh">基于超快调制器的中红外电光频梳生成</span>
         </a>
       </h3>
-      <p class="authors">Sergey Egorov, Gregory Chockler, Brijesh Dongol, et al.</p>
-      <p class="affil">Royal Holloway, University of London / University of Surrey</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02401" target="_blank" rel="noopener">arXiv:2607.02401</a> · 2026-07-02T16:34:39Z</p>
+      <p class="authors">G.-L. Ngo, L. Lucia, S. Pirotta, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03317" target="_blank" rel="noopener">arXiv:2607.03317</a> · 2026-07-03T13:37:10Z</p>
       <p class="summary">
-        <span class="en">FlintKV targets byte-addressable non-volatile memory with a skiplist storage engine that supports snapshots, consistent iterators, atomic batches, and durable linearizability. The paper reports up to a 75% end-to-end throughput improvement by co-designing concurrency control and persistence mechanisms. It is a systems paper, but it matters for memory hardware because NVM needs software semantics that make its latency advantage usable.</span>
-        <span class="zh">FlintKV面向字节寻址非易失性内存，提出支持快照、一致迭代器、原子批写和持久线性一致性的跳表存储引擎。论文称，通过协同设计并发控制和持久化机制，端到端吞吐最高提升75%。这是一篇系统论文，但对存储硬件有意义，因为NVM需要相应的软件语义才能真正释放低时延优势。</span>
+        <span class="en">The authors generate mid-infrared single- and dual-combs around 9 micrometers using room-temperature free-space electro-optic intensity modulators driven by short electrical pulse trains. They demonstrate spectroscopy on a germanium etalon and ammonia cell, with tunable repetition rates down to the megahertz range. The work is relevant to photonic sensing hardware because it pushes electro-optic comb techniques beyond the easier near-IR bands.</span>
+        <span class="zh">作者使用室温自由空间电光强度调制器，并以短电脉冲列驱动，在约9微米中红外波段生成单频梳和双频梳。他们在锗标准具和氨气池上演示了光谱测量，重复频率可调至MHz量级。该工作对光子传感硬件有意义，因为它把电光频梳方法推进到更难实现的中红外波段，而不只是近红外。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, RF &amp; Sensing Systems</span>
+      <span class="zh">电路、射频与感知系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.03389" target="_blank" rel="noopener">
+          <span class="en">Deep-Unfolded Wideband ISAC Beamforming for Dynamic Metasurface Antennas</span>
+          <span class="zh">用于动态超表面天线的深度展开宽带ISAC波束成形</span>
+        </a>
+      </h3>
+      <p class="authors">A. S. Gharagezlou, P. Mobaraki, M. Monemi, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03389" target="_blank" rel="noopener">arXiv:2607.03389</a> · 2026-07-03T14:46:16Z</p>
+      <p class="summary">
+        <span class="en">This paper tackles wideband integrated sensing and communications with dynamic metasurface antennas under a frequency-selective Lorentzian element model. Instead of assuming frequency-flat DMA behavior, it optimizes digital beamforming, resonance frequencies, and damping factors, then unfolds projected-gradient updates into a trainable architecture. The result is useful for RF hardware co-design because it keeps the physical element response in the learning loop.</span>
+        <span class="zh">这篇论文研究采用动态超表面天线的宽带通感一体系统，并使用频率选择性的Lorentzian单元模型。它没有假设DMA单元是频率平坦的，而是联合优化数字波束成形、谐振频率和阻尼因子，再把投影梯度更新展开为可训练架构。其价值在于把真实射频单元响应保留在学习优化闭环中。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02324" target="_blank" rel="noopener">
-          <span class="en">Elastic Parallel Sparse Triangular Solve</span>
-          <span class="zh">弹性并行稀疏三角求解</span>
+        <a href="https://arxiv.org/abs/2607.03448" target="_blank" rel="noopener">
+          <span class="en">Joint Dictionary Learning and Channel Estimation for XL-MIMO</span>
+          <span class="zh">面向XL-MIMO的联合字典学习与信道估计</span>
         </a>
       </h3>
-      <p class="authors">Raphael S. Steiner, Christos K. Matzoros, Pal Andras Papp, et al.</p>
+      <p class="authors">A. Arjas, I. Atzeni</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02324" target="_blank" rel="noopener">arXiv:2607.02324</a> · 2026-07-02T15:31:37Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03448" target="_blank" rel="noopener">arXiv:2607.03448</a> · 2026-07-03T16:06:18Z</p>
       <p class="summary">
-        <span class="en">This paper introduces stale synchronous parallel execution for sparse triangular solves and a DAG scheduler called ElasticDivide. By overlapping synchronization with compute, the scheduler reports geometric-mean speedups of 7-30% over GrowLocal on a 48-core ARM machine and 19-60% over SpMP on a 48-core x86 machine. Sparse triangular solve is a stubborn HPC kernel, so these gains are relevant to CPU and accelerator runtime designers.</span>
-        <span class="zh">这篇论文把陈旧同步并行执行引入稀疏三角求解，并提出名为ElasticDivide的DAG调度器。通过重叠同步与计算，论文在48核ARM机器上相对GrowLocal实现7-30%的几何平均加速，在48核x86机器上相对SpMP实现19-60%的加速。稀疏三角求解是HPC中的顽固内核，因此这些结果对CPU和加速器运行时设计都有参考价值。</span>
+        <span class="en">The authors propose DL-ISTA for near-field channel estimation in extra-large MIMO arrays, where angle and distance both shape the array response. The method jointly learns sparse channel coefficients and continuous angle-distance parameters, reducing the grid mismatch that affects fixed dictionary methods. This is relevant to future base-station and sensing hardware as arrays grow large enough that far-field assumptions break down.</span>
+        <span class="zh">作者提出DL-ISTA，用于超大规模MIMO阵列中的近场信道估计；在这种场景下，角度和距离都会影响阵列响应。该方法联合学习稀疏信道系数和连续的角度-距离参数，从而减轻固定字典方法中的网格失配问题。随着基站和感知阵列规模增大、远场假设逐渐失效，这类方法对未来硬件系统更有价值。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.03459" target="_blank" rel="noopener">
+          <span class="en">Ambient IoT Backscatter as Passive Anchors for NLOS Cellular Positioning</span>
+          <span class="zh">将环境IoT反向散射器件用作NLOS蜂窝定位的被动锚点</span>
+        </a>
+      </h3>
+      <p class="authors">H. Yiğitler, M. F. Keskin, O. Kaltiokallio, R. Jäntti</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03459" target="_blank" rel="noopener">arXiv:2607.03459</a> · 2026-07-03T16:15:50Z</p>
+      <p class="summary">
+        <span class="en">The paper studies whether ambient IoT backscatter devices at known locations can serve as passive anchors for non-line-of-sight cellular positioning. It derives Fisher-information limits under calibrated, partially calibrated, and uncalibrated device assumptions, showing how unknown phases strip away carrier-phase information. The result is a sober boundary condition for low-cost localization schemes that rely on weak, unpowered RF devices.</span>
+        <span class="zh">这篇论文研究位于已知位置的环境IoT反向散射器件，能否作为非视距蜂窝定位的被动锚点。作者在已校准、部分校准和未校准假设下推导Fisher信息极限，并说明未知相位如何剥离载波相位信息。该结果为依赖低成本、无源射频器件的定位方案给出了较清醒的物理边界。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute Systems</span>
+      <span class="zh">AI加速器与计算系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.03333" target="_blank" rel="noopener">
+          <span class="en">SPORK: Self-Speculative Forking to Accelerate Agentic LLM Inference</span>
+          <span class="zh">SPORK：用自预测分叉加速Agentic LLM推理</span>
+        </a>
+      </h3>
+      <p class="authors">H. Bai, W. Lv, H. Zheng, Y. Lu, J. Shu</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03333" target="_blank" rel="noopener">arXiv:2607.03333</a> · 2026-07-03T13:51:32Z</p>
+      <p class="summary">
+        <span class="en">SPORK targets a concrete inference-system inefficiency: agentic LLMs often idle the GPU while waiting for tool results, which the paper says consumes 16-37% of wall time in its workloads. The method forks a lightweight probe early in generation to predict the coming tool call, then overlaps tool execution with the remaining decode. The reported Qwen3-32B tool-name prediction accuracy of 74.6-99.6% suggests useful latency hiding without an auxiliary model.</span>
+        <span class="zh">SPORK瞄准了一个具体的推理系统低效点：Agentic LLM在等待工具结果时经常让GPU空转，论文称在其工作负载中这占用16-37%的墙钟时间。该方法在生成早期分叉出轻量探针预测即将发生的工具调用，并把工具执行与后续解码重叠起来。Qwen3-32B上74.6-99.6%的工具名预测准确率表明，不依赖额外模型也可能实现有效的延迟隐藏。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.03324" target="_blank" rel="noopener">
+          <span class="en">Carbon-Aware Multi-Agent Scheduling for AI Data Centers</span>
+          <span class="zh">面向AI数据中心的低碳多智能体调度</span>
+        </a>
+      </h3>
+      <p class="authors">H. Lee, P. Prabawa, D.-H. Choi, J. Kim</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03324" target="_blank" rel="noopener">arXiv:2607.03324</a> · 2026-07-03T13:41:00Z</p>
+      <p class="summary">
+        <span class="en">The paper proposes a hierarchical multi-agent RL framework that shifts and allocates AI training and inference jobs across data centers using nodal carbon-intensity signals from the power distribution system. It models both a workload-manager agent and local data-center agents, tying GPU scheduling to grid emissions rather than only electricity price or utilization. The work matters because accelerator deployment is increasingly constrained by power availability, not just chip supply.</span>
+        <span class="zh">这篇论文提出一种分层多智能体强化学习框架，利用配电系统中的节点碳强度信号，在多个AI数据中心之间移动和分配训练与推理任务。它同时建模工作负载管理智能体和本地数据中心智能体，把GPU调度与电网排放联系起来，而不只是电价或利用率。该工作重要，因为加速器部署正越来越受电力可获得性约束，而不只是芯片供给。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research for Efficient Inference</span>
-      <span class="zh">面向高效推理的AI研究</span>
+      <span class="en">AI Systems &amp; Model Behavior</span>
+      <span class="zh">AI系统与模型行为</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.02512" target="_blank" rel="noopener">
-          <span class="en">Program-as-Weights Compiles Fuzzy Functions into Small Local Models</span>
-          <span class="zh">Program-as-Weights将模糊函数编译为小型本地模型</span>
+        <a href="https://arxiv.org/abs/2607.03502" target="_blank" rel="noopener">
+          <span class="en">Decoding Hidden Computation Across Filler Tokens</span>
+          <span class="zh">解码填充Token中的隐藏计算</span>
         </a>
       </h3>
-      <p class="authors">Wentao Zhang, Liliana Hotsko, Woojeong Kim, et al.</p>
+      <p class="authors">K. Brauer, C. M. Verdun, S. Marks</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02512" target="_blank" rel="noopener">arXiv:2607.02512</a> · 2026-07-02T17:59:50Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.03502" target="_blank" rel="noopener">arXiv:2607.03502</a> · 2026-07-03T17:18:34Z</p>
       <p class="summary">
-        <span class="en">Program-as-Weights compiles a natural-language function specification into parameter-efficient adapters for a frozen lightweight interpreter. The headline result is practical: a 0.6B Qwen3 interpreter running PAW programs matches direct prompting of Qwen3-32B while using about one fiftieth of the inference memory and running at 30 tokens/s on a MacBook M3. This is preprint evidence, but it points to a serving pattern where a large model builds reusable small artifacts instead of answering every call itself.</span>
-        <span class="zh">Program-as-Weights把自然语言函数规格编译成适配冻结轻量解释器的参数高效adapter。关键结果很实际：运行PAW程序的0.6B Qwen3解释器可匹配直接提示Qwen3-32B的表现，同时推理内存约为后者的五十分之一，并能在MacBook M3上达到30 tokens/s。这仍是预印本结果，但指向一种服务模式：大模型生成可复用的小型工件，而不是亲自处理每次调用。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02509" target="_blank" rel="noopener">
-          <span class="en">ReContext Replays Evidence for 128K-Context Reasoning</span>
-          <span class="zh">ReContext通过证据重放改善128K长上下文推理</span>
-        </a>
-      </h3>
-      <p class="authors">Yanjun Zhao, Ruizhong Qiu, Tianxin Wei, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02509" target="_blank" rel="noopener">arXiv:2607.02509</a> · 2026-07-02T17:59:26Z</p>
-      <p class="summary">
-        <span class="en">ReContext is a training-free inference method that uses model-internal relevance signals to build a query-conditioned evidence pool and replay it before generation. On eight long-context datasets at 128K context length, the paper reports consistent gains in evidence use without external memory or context pruning. It does not remove the KV-cache cost of long prompts, but it attacks the separate problem of models failing to use evidence already paid for in memory.</span>
-        <span class="zh">ReContext是一种无需训练的推理方法，利用模型内部相关性信号构建与查询相关的证据池，并在生成前进行重放。论文在8个128K长上下文数据集上报告了稳定的证据利用提升，且不依赖外部记忆或上下文裁剪。它并没有消除长提示带来的KV-cache成本，但针对的是另一个实际问题：模型已经为上下文付出内存成本，却未能有效使用其中证据。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02344" target="_blank" rel="noopener">
-          <span class="en">Self-Gating Attention Cuts Redundant Time-Series Attention Work</span>
-          <span class="zh">Self-Gating Attention削减时间序列中的冗余注意力计算</span>
-        </a>
-      </h3>
-      <p class="authors">Dezheng Wang, Tong Chen, Wei Yuan, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02344" target="_blank" rel="noopener">arXiv:2607.02344</a> · 2026-07-02T15:49:14Z</p>
-      <p class="summary">
-        <span class="en">Self-Gating Attention targets the quadratic time and memory cost of transformer attention in time-series forecasting. The method replaces part of the attention-score computation with a shared learnable matrix plus an input-dependent residual, exploiting repeated temporal patterns. The caveat is domain scope: the redundancy assumption is natural for time series, but it may not transfer directly to general LLM workloads.</span>
-        <span class="zh">Self-Gating Attention瞄准时间序列预测中Transformer注意力的二次时间和内存开销。它用共享可学习矩阵加输入相关残差来替代部分注意力分数计算，利用许多时间序列中重复的时间模式。需要注意的是适用范围：这种冗余假设很适合时间序列，但未必能直接迁移到通用LLM负载。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02266" target="_blank" rel="noopener">
-          <span class="en">HERMES Builds Multi-Granularity Labels for Pre-Training Mixtures</span>
-          <span class="zh">HERMES为预训练数据混合构建多粒度标签</span>
-        </a>
-      </h3>
-      <p class="authors">Ziyun Qiao, Yue Min, Ruining Chen, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02266" target="_blank" rel="noopener">arXiv:2607.02266</a> · 2026-07-02T14:51:42Z</p>
-      <p class="summary">
-        <span class="en">HERMES proposes a hierarchical labeling substrate for pre-training corpora, using a learned semantic transform and three-stage residual vector quantization to label documents once across multiple granularities. In a 1B-parameter, 25B-token pre-training run, one prefix length exposes a data-mixing rule that improves a 16-task capability macro-average by +0.0253, while a finer level loses the gain. The result is relevant because data efficiency changes training compute demand, but the paper also shows how sensitive these rules are to granularity.</span>
-        <span class="zh">HERMES为预训练语料提出层级标签基底，用学习到的语义变换和三阶段残差向量量化，对文档进行一次标注并支持多种粒度。在1B参数、25B token的预训练实验中，某一前缀长度下的数据混合规则让16项能力宏平均提升+0.0253，但更细粒度下该收益消失。结果值得关注，因为数据效率会改变训练算力需求，同时也说明这类规则对粒度非常敏感。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">EDA &amp; Compiler Automation</span>
-      <span class="zh">EDA与编译器自动化</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02370" target="_blank" rel="noopener">
-          <span class="en">Agent-Based Patching of Compiler Missed Optimizations</span>
-          <span class="zh">基于Agent的编译器遗漏优化修补研究</span>
-        </a>
-      </h3>
-      <p class="authors">Batu Guan, Zirui Wang, Shaohua Li</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02370" target="_blank" rel="noopener">arXiv:2607.02370</a> · 2026-07-02T16:12:32Z</p>
-      <p class="summary">
-        <span class="en">This paper benchmarks how well coding agents patch real LLVM missed-optimization issues. The main finding is not simply pass or fail: agents often fix the provided case, but their patches may cover less, overlap differently, or generalize beyond the developer&#x27;s intended scope. Retrieval and distillation from historical LLVM optimization pull requests improve developer-aligned generalization, making the work relevant to compiler and EDA automation workflows.</span>
-        <span class="zh">这篇论文评估编码agent修补真实LLVM遗漏优化问题的能力。主要发现不是简单的成功或失败：agent经常能修复给定案例，但补丁覆盖范围可能小于、偏离或超过开发者原本意图。利用历史LLVM优化PR进行检索和蒸馏，可提升与开发者意图一致的泛化能力，因此这项工作对编译器和EDA自动化流程有参考价值。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum &amp; Physics Computing</span>
-      <span class="zh">量子与物理计算</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02426" target="_blank" rel="noopener">
-          <span class="en">QFedAgent Uses Quantum Fusion for Lightweight Federated Learning</span>
-          <span class="zh">QFedAgent用量子融合降低联邦学习参数量</span>
-        </a>
-      </h3>
-      <p class="authors">Quoc Bao Phan, Tuy Tan Nguyen</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02426" target="_blank" rel="noopener">arXiv:2607.02426</a> · 2026-07-02T16:54:35Z</p>
-      <p class="summary">
-        <span class="en">QFedAgent adds a variational quantum circuit fusion module to personalized federated learning for multi-agent activity recognition. The paper reports 72 quantum rotation parameters versus 33K parameters for a classical MLP fusion module, roughly a 10x total parameter reduction, with 97.7% mean test accuracy on OPPORTUNITY under subject-based non-IID partitions. Treat it as an algorithmic quantum-classical result, not evidence of near-term quantum hardware deployment.</span>
-        <span class="zh">QFedAgent在面向多agent活动识别的个性化联邦学习中加入变分量子电路融合模块。论文报告量子融合模块只需72个量子旋转参数，而经典MLP融合模块为33K参数，总参数量约降低10倍，并在OPPORTUNITY数据集的按受试者非IID划分下达到97.7%平均测试准确率。应把它视为量子-经典算法结果，而不是近期量子硬件部署证据。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.02292" target="_blank" rel="noopener">
-          <span class="en">Proximal Wavefunction Optimization for Neural Quantum States</span>
-          <span class="zh">面向神经量子态的近端波函数优化</span>
-        </a>
-      </h3>
-      <p class="authors">Juan Agustin Duque, Sergio Garcia Heredia, Vinicius Hernandes, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.02292" target="_blank" rel="noopener">arXiv:2607.02292</a> · 2026-07-02T15:09:50Z</p>
-      <p class="summary">
-        <span class="en">This paper reframes variational energy minimization for neural quantum states as an advantage policy-gradient problem over the Born distribution. The proposed Proximal Wavefunction Optimization clips probability-ratio changes in the amplitude channel and phase increments in the phase channel, aiming to avoid costly matrix inversion while keeping trust-region behavior. It is relevant to quantum simulation workloads, with the usual caveat that algorithmic scaling still needs validation beyond benchmark spin systems.</span>
-        <span class="zh">这篇论文把神经量子态的变分能量最小化重新表述为Born分布上的优势策略梯度问题。作者提出的Proximal Wavefunction Optimization会裁剪振幅通道中的概率比变化和相位通道中的相位增量，目标是在避免昂贵矩阵求逆的同时保留信赖域行为。它对量子模拟负载有意义，但仍需在基准自旋系统之外验证算法扩展性。</span>
+        <span class="en">This paper shows that frontier open-weight LLMs can perform structured computation over content-free filler tokens such as dots or counting sequences. The authors use attention analysis, logit-lens readouts, and KV-cache transplants to show that hidden intermediate computation remains partly legible even when the visible chain of thought carries no information. For inference-system designers, it is a reminder that token streams and KV-cache state can encode more computation than surface text suggests.</span>
+        <span class="zh">这篇论文表明，前沿开源权重LLM可以在点号或计数序列等无内容填充token上执行结构化计算。作者通过注意力分析、logit-lens读出和KV-cache移植显示，即使可见思维链不携带信息，隐藏的中间计算仍部分可读。对推理系统设计者而言，这提醒我们token流和KV-cache状态承载的计算可能远多于表面文本所显示的内容。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-06 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-06 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-07 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-07 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
