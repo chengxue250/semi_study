@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-08">
+<meta name="edition-date" content="2026-07-09">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Workarounds Move Closer to Hardware — Semi Research 2026-07-08</title>
+<title>Inference Efficiency Moves Into Memory and Tools — Semi Research 2026-07-09</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,143 +249,164 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Wednesday, July 8, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月8日 星期三</span>
+      <span class="en">Research digest · Thursday, July 9, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月9日 星期四</span>
     </div>
     <h1>
-      <span class="en">Inference Workarounds Move Closer to Hardware</span>
-      <span class="zh">推理优化逼近硬件边界</span>
+      <span class="en">Inference Efficiency Moves Into Memory and Tools</span>
+      <span class="zh">推理效率转向存储与工具链</span>
     </h1>
     <p class="dek">
-      <span class="en">This research slate is about reducing the cost of moving, sampling, and waiting: MoE communication, VLA action caching, diffusion early exits, optical receivers, THz beamforming, and low-power control-channel monitoring. The strongest papers treat efficiency as a cross-layer problem rather than a model-only problem.</span>
-      <span class="zh">今天的研究线索集中在降低移动、采样和等待的成本：MoE通信、VLA动作缓存、扩散模型提前退出、光接收机、THz波束成形，以及低功耗控制信道监听。最有价值的论文都把效率视为跨层问题，而不是单纯的模型问题。</span>
+      <span class="en">This week&#x27;s research queue is less about bigger models and more about the hardware-adjacent constraints around attention, memory hierarchy, FPGA automation, verification, RF circuits, and reconfigurable devices. Several papers trade brute-force scaling for structure, sparsity, or tool automation.</span>
+      <span class="zh">本周研究队列的重点不在更大模型，而在注意力、存储层级、FPGA自动化、验证、射频电路和可重构器件等贴近硬件的约束。多篇论文用结构化、稀疏化或工具自动化来替代单纯的暴力扩展。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 8篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
-    <section class="area" id="accelerators">
+    <section class="area" id="devices">
     <h2>
-      <span class="en">AI Accelerators &amp; Systems</span>
-      <span class="zh">AI加速器与系统</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06456" target="_blank" rel="noopener">
-          <span class="en">Hardware-Aware Design Space Exploration for Mixed-Signal Spiking Neural Networks</span>
-          <span class="zh">面向混合信号脉冲神经网络的硬件感知设计空间探索</span>
+        <a href="https://arxiv.org/abs/2607.07682" target="_blank" rel="noopener">
+          <span class="en">Neural-Operator Evolutionary Search for Nanophotonic Inverse Design</span>
+          <span class="zh">用于纳米光子逆向设计的神经算子进化搜索</span>
         </a>
       </h3>
-      <p class="authors">S. N. Chowdhury, V. Nair, T. Forhad, et al.</p>
+      <p class="authors">Xiangming Huang, Guannan Zhang, Lu Lu, Raphaël Pestourie</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06456" target="_blank" rel="noopener">arXiv:2607.06456</a> · 2026-07-07T16:15:03Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07682" target="_blank" rel="noopener">arXiv:2607.07682</a> · 2026-07-08T17:41:56Z</p>
       <p class="summary">
-        <span class="en">Chowdhury et al. present an open-source hardware-aware framework for exploring mixed-signal SNN designs. It models LIF, Hodgkin-Huxley, and Axon-Hillock neurons plus floating-gate and ReRAM synapses inside a PyTorch training and inference loop. The useful contribution is cross-layer accounting: the framework reports accuracy together with area, power, and quantization sensitivity on benchmarks such as N-MNIST, DVS Gesture, and SHD. Caveat: it is a simulation and design-space tool, not measured silicon.</span>
-        <span class="zh">Chowdhury等人提出了一个开源硬件感知框架，用于探索混合信号SNN设计。它在PyTorch训练和推理流程中建模LIF、Hodgkin-Huxley、Axon-Hillock神经元，以及floating-gate和ReRAM突触。其价值在于跨层核算：框架在N-MNIST、DVS Gesture和SHD等基准上同时报告准确率、面积、功耗和量化敏感度。需要注意的是，这是一套仿真和设计空间工具，并非实测硅结果。</span>
+        <span class="en">The paper introduces NOTES, a neural-operator-enabled topology-informed evolutionary strategy for PDE-constrained inverse design. In a nanophotonic beam-deflector task governed by Maxwell&#x27;s equations, it reduces the design dimension from 256 to 25 and reports over 95% efficiency. The hardware relevance is the search method: compact latent optimization could make photonic component design less dependent on expensive full-field sweeps.</span>
+        <span class="zh">论文提出NOTES，一种面向PDE约束逆向设计的神经算子与拓扑先验结合的进化策略。在由Maxwell方程约束的纳米光子束偏转器任务中，该方法把设计维度从256降到25，并报告超过95%的效率。其硬件意义在于搜索方法本身：紧凑潜空间优化可能降低光子器件设计对昂贵全场扫描的依赖。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06202" target="_blank" rel="noopener">
-          <span class="en">UBEP Re-architects Expert Parallelism for Production Superpods</span>
-          <span class="zh">UBEP为生产级Superpod重构专家并行通信</span>
+        <a href="https://arxiv.org/abs/2607.07402" target="_blank" rel="noopener">
+          <span class="en">Reconfigurable Non-Hermitian Metasurface With Multiple Singularities</span>
+          <span class="zh">具备多重奇点的可重构非厄米超表面</span>
         </a>
       </h3>
-      <p class="authors">Y. Liu, C. Liu, S. Shen, et al.</p>
+      <p class="authors">Xintong Shi, Yanjie Wu, Rui Zhou, Zuxing Lu, Tengyu Li, Tingting Liu, Hai Lin, Qiegen Liu, Shuyuan Xiao</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06202" target="_blank" rel="noopener">arXiv:2607.06202</a> · 2026-07-07T12:25:16Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07402" target="_blank" rel="noopener">arXiv:2607.07402</a> · 2026-07-08T13:35:30Z</p>
       <p class="summary">
-        <span class="en">UBEP targets the All-to-All communication path in MoE inference on high-bandwidth superpods such as NVIDIA NVL72/576 and Huawei CloudMatrix384. The paper attacks three bottlenecks: serialized BSP-style phases, synchronization overhead, and distance-agnostic token scheduling. It reports up to 52.4% lower All-to-All latency and up to 11.1% lower MoE inference time per output token. The result is important because sparse-model serving is increasingly limited by communication behavior, not just accelerator FLOPs.</span>
-        <span class="zh">UBEP面向NVIDIA NVL72/576和Huawei CloudMatrix384等高带宽Superpod上的MoE推理All-to-All通信路径。论文针对三个瓶颈：BSP式阶段串行化、同步开销，以及不考虑距离的token调度。作者报告All-to-All延迟最高降低52.4%，MoE推理的每输出token时间最高降低11.1%。这一结果重要，因为稀疏模型服务越来越受通信行为限制，而不只是受加速器FLOPs限制。</span>
+        <span class="en">This work uses a mirror-coupled metasurface to create a higher-dimensional effective parameter space without adding more physical resonators. A PIN-diode reconfigurable platform demonstrates coexistence and manipulation of an exceptional point and multiple reflection zeros. The result matters for tunable microwave devices because it links singularity control to functions such as coordinated absorption rather than treating the physics as a static curiosity.</span>
+        <span class="zh">这项工作通过镜面耦合超表面，在不增加物理谐振器数量的情况下构造更高维的等效参数空间。作者在集成PIN二极管的可重构平台上展示了exceptional point与多个反射零点的共存和调控。它对可调微波器件有意义，因为论文把奇点控制与协同吸收等功能联系起来，而不只是展示静态物理现象。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Communications</span>
-      <span class="zh">电路与通信</span>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06300" target="_blank" rel="noopener">
-          <span class="en">Constellation Shaping for Complexity-Constrained Direct-Detection Optical Links</span>
-          <span class="zh">面向复杂度受限直接探测光链路的星座成形</span>
+        <a href="https://arxiv.org/abs/2607.07661" target="_blank" rel="noopener">
+          <span class="en">Six-Pole Dual-Band Microstrip Filter for WiMAX</span>
+          <span class="zh">面向WiMAX的六极点双频微带滤波器</span>
         </a>
       </h3>
-      <p class="authors">R. Fischer, S. Chimmalgi, A. Rode, et al.</p>
+      <p class="authors">Halimat Olamide Yusuf, Augustine O. Nwajana</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06300" target="_blank" rel="noopener">arXiv:2607.06300</a> · 2026-07-07T14:05:07Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07661" target="_blank" rel="noopener">arXiv:2607.07661</a> · 2026-07-08T17:17:17Z</p>
       <p class="summary">
-        <span class="en">Fischer et al. evaluate joint probabilistic and geometric constellation shaping with reinforcement learning for direct-detection optical signals. The demonstration is a simulated 56 GBd, 2.2 km C-band direct-detection system with complexity-constrained joint equalization and demodulation. The paper is relevant to short-reach optical links because receiver complexity is a hard deployment constraint, especially as bandwidth rises. Caveat: the reported evidence is simulation, so hardware margin and implementation cost still need validation.</span>
-        <span class="zh">Fischer等人评估了用强化学习进行联合概率与几何星座成形的方法，目标是直接探测光信号。论文展示的是一个仿真的56 GBd、2.2 km C波段直接探测系统，并约束联合均衡与解调复杂度。它与短距光链路相关，因为随着带宽提升，接收机复杂度会成为真实部署约束。需要注意的是，当前证据来自仿真，硬件余量和实现成本仍需验证。</span>
+        <span class="en">The authors transform a third-order single-band filter into a sixth-order dual-band bandpass filter using a folded-arms square open-loop resonator microstrip structure. The design targets passbands around 2.2 GHz and 2.4 GHz, centered near 2.3 GHz with 7% fractional bandwidth, on Rogers RT/Duroid 6010LM. It is a practical RF-circuit contribution where the value is compact dual-band selectivity rather than a new semiconductor device.</span>
+        <span class="zh">作者使用folded-arms square open-loop resonator微带结构，将三阶单频带滤波器转换为六阶双频带带通滤波器。该设计在Rogers RT/Duroid 6010LM基板上实现约2.2 GHz和2.4 GHz两个通带，中心约2.3 GHz，分数带宽7%。这是一项偏实用的射频电路工作，其价值在于紧凑双频选择性，而不是新的半导体器件。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06294" target="_blank" rel="noopener">
-          <span class="en">Bending Beams for THz Wireless Networks With a Prototype</span>
-          <span class="zh">带原型验证的THz无线网络弯曲波束</span>
+        <a href="https://arxiv.org/abs/2607.07625" target="_blank" rel="noopener">
+          <span class="en">RISC-V Hardware-Software Co-Design for Embedded Blockchain Infrastructure</span>
+          <span class="zh">面向嵌入式区块链基础设施的RISC-V软硬件协同设计</span>
         </a>
       </h3>
-      <p class="authors">A. Liu, X. T. Hu, W. Mei, et al.</p>
+      <p class="authors">Qinglin Yang, Yuan Liu, Yaoyao Zhang, Boya Wang, Zongjian You, Chunming Rong, Zhihong Tian</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06294" target="_blank" rel="noopener">arXiv:2607.06294</a> · 2026-07-07T14:01:30Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07625" target="_blank" rel="noopener">arXiv:2607.07625</a> · 2026-07-08T16:41:05Z</p>
       <p class="summary">
-        <span class="en">Liu et al. survey and prototype bending beams for THz wireless communication and sensing. These near-field beams are non-diffracting and self-healing, which could help THz links route around blockage. The paper compares beamforming design and hardware implementation methods, then presents a THz hardware demo that validates advantages over conventional beam focusing. The remaining challenges are practical: channel models, beam training, and codebook design are still early.</span>
-        <span class="zh">Liu等人系统梳理并原型验证了用于THz无线通信与感知的弯曲波束。这类近场波束具备非衍射和自修复特性，可能帮助THz链路绕开遮挡。论文比较了波束成形设计和硬件实现方法，并给出THz硬件演示，验证其相对传统聚焦波束的优势。剩余挑战仍偏工程化：信道模型、波束训练和码本设计都处于早期阶段。</span>
+        <span class="en">This survey frames embedded Blockchain Infrastructure Management as a RISC-V-based hardware-software co-design paradigm. The thesis is that open, low-level and verifiable computing substrates can reduce dependence on third-party blockchain-as-a-service operators. For chip architects, the useful part is the mapping from trust requirements to extensible RISC-V hardware, firmware and management layers.</span>
+        <span class="zh">这篇综述把embedded Blockchain Infrastructure Management定义为基于RISC-V的软硬件协同设计范式。其核心观点是，开放、底层且可验证的计算底座可以降低对第三方区块链即服务运营商的依赖。对芯片架构师而言，较有价值的是论文把信任需求映射到可扩展RISC-V硬件、固件和管理层的方式。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.07643" target="_blank" rel="noopener">
+          <span class="en">ATLAS Automates HLS for Deep-Learning FPGA Hardblocks</span>
+          <span class="zh">ATLAS自动化面向深度学习FPGA硬块的HLS流程</span>
+        </a>
+      </h3>
+      <p class="authors">Ruthwik Reddy Sunketa, Aman Arora</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07643" target="_blank" rel="noopener">arXiv:2607.07643</a> · 2026-07-08T17:00:41Z</p>
+      <p class="summary">
+        <span class="en">ATLAS is a flow that maps high-level deep-learning model descriptions to FPGA implementations using custom in-fabric DL hardblocks. The authors target a real usability gap: conventional HLS raises abstraction but still does not natively generate code for specialized hardblocks without manual wrappers and RTL libraries. If the flow generalizes, it could make DL-optimized FPGA fabrics easier to program beyond expert RTL teams.</span>
+        <span class="zh">ATLAS是一套把高层深度学习模型描述映射到带有定制片上DL硬块的FPGA实现流程。作者瞄准的是一个真实易用性缺口：传统HLS提高了抽象层级，但仍无法原生面向专用硬块生成代码，通常需要人工包装和RTL库。如果该流程具备通用性，将降低DL优化FPGA织构的编程门槛，使其不再只依赖资深RTL团队。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06084" target="_blank" rel="noopener">
-          <span class="en">MoE Reinforcement Learning for Energy-Efficient 5G PDCCH Monitoring</span>
-          <span class="zh">用于5G PDCCH节能监听的MoE强化学习</span>
+        <a href="https://arxiv.org/abs/2607.07388" target="_blank" rel="noopener">
+          <span class="en">TF-Engram Adds SSD-Backed External Memory to LLMs</span>
+          <span class="zh">TF-Engram为LLM引入SSD支撑的外部记忆</span>
         </a>
       </h3>
-      <p class="authors">Y. Xiu, N. Wei, Z. Song, et al.</p>
+      <p class="authors">Yutang Ma, Kecheng Huang, Xikun Jiang, Zili Shao</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06084" target="_blank" rel="noopener">arXiv:2607.06084</a> · 2026-07-07T09:52:53Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07388" target="_blank" rel="noopener">arXiv:2607.07388</a> · 2026-07-08T13:19:52Z</p>
       <p class="summary">
-        <span class="en">Xiu et al. formulate 5G IoT-device PDCCH monitoring as a reliability-constrained energy minimization problem. The receiver decides whether to monitor the downlink control channel or sleep before it knows the actual scheduling outcome, while keeping missed-grant risk below a threshold. The MoE deep reinforcement learning setup matters because idle control-channel listening is a recurring energy drain in low-power radios. Caveat: the candidate abstract frames the method and objective clearly, but real-device silicon and RF-chain overhead are not established here.</span>
-        <span class="zh">Xiu等人将5G IoT设备的PDCCH监听建模为带可靠性约束的能耗最小化问题。接收机需要在不知道实际调度结果前，决定监听下行控制信道还是进入低功耗状态，同时把漏检授权的风险控制在阈值以下。MoE深度强化学习方案的意义在于，空闲控制信道监听是低功耗无线设备的长期能耗负担。需要注意的是，候选摘要清楚描述了方法和目标，但没有证明真实设备硅片与RF链路开销。</span>
+        <span class="en">TF-Engram builds phrase-specific semantic memory offline, stores it across a GPU-DRAM-SSD hierarchy, and uses early-exit guided prefetching to hide external-memory latency during decoding. On Qwen3-0.6B, it reports an average downstream-score improvement from 57.6 to 59.4 while reducing GPU memory pressure. The paper is relevant to accelerator systems because it treats storage hierarchy and predictive data movement as part of the model-serving design.</span>
+        <span class="zh">TF-Engram离线构建短语级语义记忆，将大规模记忆表分布在GPU、DRAM和SSD层级中，并用early-exit引导的预取来隐藏解码时的外部存储延迟。在Qwen3-0.6B上，论文报告平均下游分数从57.6提升到59.4，同时降低GPU显存压力。它对加速器系统有意义，因为论文把存储层级和预测式数据搬移视为模型服务设计的一部分。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research for Efficient Inference</span>
-      <span class="zh">面向高效推理的AI研究</span>
+      <span class="en">AI Research &amp; Inference Systems</span>
+      <span class="zh">AI研究与推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06370" target="_blank" rel="noopener">
-          <span class="en">ActionCache Accelerates Vision-Language-Action Models Without Training</span>
-          <span class="zh">ActionCache无需训练加速视觉语言动作模型</span>
+        <a href="https://arxiv.org/abs/2607.07706" target="_blank" rel="noopener">
+          <span class="en">Analysis-Driven Linearization for Long-Context Transformers</span>
+          <span class="zh">面向长上下文Transformer的分析驱动线性化</span>
         </a>
       </h3>
-      <p class="authors">R. Oi, H. Otsuka, K. Matsushima, et al.</p>
+      <p class="authors">Anna Kuzina, Paul N. Whatmough, Babak Ehteshami Bejnordi</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06370" target="_blank" rel="noopener">arXiv:2607.06370</a> · 2026-07-07T15:10:15Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07706" target="_blank" rel="noopener">arXiv:2607.07706</a> · 2026-07-08T17:59:09Z</p>
       <p class="summary">
-        <span class="en">ActionCache reuses intermediate actions to warm-start flow-matching VLA models, reducing the iterative denoising cost in robotic manipulation. The method stores compact multimodal keys and retrieves similar past contexts across episodes or tasks. The paper reports up to 11.75x acceleration for pi_0.5 and 34.43x for GR00T-N1.6 while maintaining high task success in simulation and real-world settings. The hardware relevance is direct: lower denoising latency relaxes accelerator and edge-compute pressure for real-time robots.</span>
-        <span class="zh">ActionCache通过复用中间动作来热启动flow-matching VLA模型，从而降低机器人操作中的迭代去噪成本。该方法存储紧凑的多模态key，并在不同episode或任务之间检索相似上下文。论文报告在保持较高任务成功率的同时，pi_0.5最高加速11.75倍，GR00T-N1.6最高加速34.43倍，覆盖仿真和真实环境。其硬件意义很直接：降低去噪时延可以缓解实时机器人对加速器和边缘计算的压力。</span>
+        <span class="en">The paper studies transformer linearization in a frozen-backbone regime and argues that softmax attention relies on key-dependent rank-1 orthogonal projections. It adds sink tokens, short convolutions and fixed-budget cache routing to reduce approximation error, then scales the approach across LLaMA and Qwen models up to 32B parameters. The hardware angle is clear: better post-hoc linearization can reduce long-context inference cost without retraining the whole model.</span>
+        <span class="zh">论文在冻结主干模型的设定下研究Transformer线性化，并指出softmax attention依赖key相关的rank-1正交投影。作者加入sink token、短卷积和固定预算cache routing来降低近似误差，并把方法扩展到最高32B参数的LLaMA和Qwen模型。其硬件意义很明确：更好的后训练线性化可以在不重训整个模型的情况下，降低长上下文推理成本。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06114" target="_blank" rel="noopener">
-          <span class="en">Truncated Jump Sampling Cuts Diffusion NFEs Without Retraining</span>
-          <span class="zh">Truncated Jump Sampling无需重训练降低扩散模型NFE</span>
+        <a href="https://arxiv.org/abs/2607.07409" target="_blank" rel="noopener">
+          <span class="en">DeLS-Spec Decouples Long and Short Contexts for Speculative Drafting</span>
+          <span class="zh">DeLS-Spec解耦长短上下文以改进投机解码</span>
         </a>
       </h3>
-      <p class="authors">X. Peng, A. Gao</p>
+      <p class="authors">Hong-Kai Zheng, Piji Li</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06114" target="_blank" rel="noopener">arXiv:2607.06114</a> · 2026-07-07T10:24:38Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07409" target="_blank" rel="noopener">arXiv:2607.07409</a> · 2026-07-08T13:41:52Z</p>
       <p class="summary">
-        <span class="en">Peng and Gao show that standard affine probability paths expose enough x0 information to early-exit an ODE sampler and decode the clean sample. Their Truncated Jump Sampling method needs no retraining, distillation, or architecture change. Across SDXL, SD3.5M, Z-Image-Turbo, and three class-conditional benchmarks, it reduces neural function evaluations by 20% to 70% with near-matched quality. The result is useful for inference systems because NFE count maps directly to serving cost and accelerator occupancy.</span>
-        <span class="zh">Peng和Gao指出，标准仿射概率路径在中间状态中已经暴露了足够的x0信息，可让ODE采样器提前退出并解码干净样本。他们提出的Truncated Jump Sampling不需要重训练、蒸馏或改变架构。在SDXL、SD3.5M、Z-Image-Turbo和三个类别条件基准上，该方法将神经函数评估次数降低20%到70%，同时质量接近原始结果。这个结果对推理系统有用，因为NFE数量会直接映射到服务成本和加速器占用。</span>
+        <span class="en">DeLS-Spec improves speculative decoding by combining a fixed DFlash long-context expert with a lightweight local head trained independently for short-context causality. That avoids retraining the full draft model while addressing the lack of intra-block causal conditioning in block-parallel drafters. The method matters for inference systems because modular draft heads could be swapped and trained cheaply across serving stacks.</span>
+        <span class="zh">DeLS-Spec通过把固定的DFlash长上下文专家与独立训练的轻量本地头结合，改进投机解码中的短上下文因果建模。这样既避免重训完整draft model，又缓解块并行草稿器缺少块内因果条件的问题。该方法对推理系统有意义，因为模块化draft head可能以较低成本在不同服务栈中替换和训练。</span>
       </p>
     </article>
   </section>
@@ -396,25 +417,46 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.06230" target="_blank" rel="noopener">
-          <span class="en">Entanglement as a Complexity Axis in Quantum Policies</span>
-          <span class="zh">作为量子策略复杂度轴的纠缠</span>
+        <a href="https://arxiv.org/abs/2607.07634" target="_blank" rel="noopener">
+          <span class="en">Quantum CNN With Rough-Path Signature Kernels</span>
+          <span class="zh">结合粗路径签名核的量子卷积神经网络</span>
         </a>
       </h3>
-      <p class="authors">J. Xu, D. Zeng, J. Paisley, et al.</p>
+      <p class="authors">Leonardo Nogueira Falabella, Vasily Sazonov</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.06230" target="_blank" rel="noopener">arXiv:2607.06230</a> · 2026-07-07T12:57:46Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07634" target="_blank" rel="noopener">arXiv:2607.07634</a> · 2026-07-08T16:50:46Z</p>
       <p class="summary">
-        <span class="en">Xu et al. give a PAC-Bayesian account of generalization in parameterized quantum circuits used as policies and value functions. The key claim is that entanglement inflates the effective Fisher dimension, making connectivity a separate complexity axis from parameter count. In controlled experiments, more-entangled circuits show larger train-test gaps than non-entangled circuits with the same number of trainable rotations. This is a useful caution for quantum ML hardware and software co-design: more entanglement is not automatically better when sample efficiency matters.</span>
-        <span class="zh">Xu等人从PAC-Bayesian角度分析了作为策略和值函数的参数化量子电路泛化能力。其核心观点是，纠缠会放大Fisher几何的有效维度，使连接性成为独立于参数数量的复杂度轴。在受控实验中，纠缠更多的电路相较于可训练旋转数量相同的非纠缠电路，呈现更大的训练到测试间隙。这对量子ML软硬件协同设计是一个有用提醒：当样本效率重要时，更多纠缠并不自动等于更好。</span>
+        <span class="en">The paper proposes a hybrid quantum-classical time-series classifier that uses path-signature kernels before a quantum convolutional neural network. The authors explore classical and variational quantum linear solvers inside the feature layers to handle time-reparameterization invariance. It is early-stage algorithmic work, but it gives a concrete workload for evaluating whether quantum kernels add value beyond classical preprocessing.</span>
+        <span class="zh">论文提出一种混合量子-经典时间序列分类器，在量子卷积神经网络之前使用路径签名核。作者在特征层中探索经典和变分量子线性求解器，以处理时间重参数化不变性问题。这仍是早期算法研究，但为评估量子核是否能超越经典预处理提供了具体工作负载。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Verification</span>
+      <span class="zh">EDA与验证</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.07444" target="_blank" rel="noopener">
+          <span class="en">LLM-Assisted SystemVerilog Assertion Generation</span>
+          <span class="zh">LLM辅助生成SystemVerilog断言</span>
+        </a>
+      </h3>
+      <p class="authors">Bhabesh Mali, Chandan Karfa</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.07444" target="_blank" rel="noopener">arXiv:2607.07444</a> · 2026-07-08T14:14:14Z</p>
+      <p class="summary">
+        <span class="en">This paper reviews the use of LLMs for generating SystemVerilog Assertions from design specifications and frames the key problem as quality-aware methodology rather than prompt novelty. Assertion-based verification is labor-intensive, so even partial automation could change verification productivity if coverage and correctness are measurable. The authors&#x27; useful contribution is a challenge map for making LLM-generated assertions systematic enough for design-verification flows.</span>
+        <span class="zh">这篇论文综述了用LLM从设计规范生成SystemVerilog Assertions的方法，并把核心问题定位为质量可控的方法论，而不是单纯提示词创新。基于断言的验证高度依赖人工，因此如果覆盖率和正确性能够被度量，即使部分自动化也可能改变验证生产率。作者较有价值的贡献，是为LLM生成断言如何系统化进入设计验证流程绘制了问题地图。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-08 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-08 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-09 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-09 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
