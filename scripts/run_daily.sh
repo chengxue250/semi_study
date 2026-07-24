@@ -3,7 +3,7 @@
 # Daily edition build & publish — the openclaw-friendly scripted pipeline.
 #
 # This is the entrypoint to wire into cron / launchd / systemd. It runs
-# the whole day in 6 steps. The LLM only does step 3 (writing
+# the whole day in 7 steps. The LLM only does step 3 (writing
 # edition.json from pre-fetched JSON); everything else is bash so a weak
 # or cheap LLM cannot accidentally skip the work.
 #
@@ -16,7 +16,8 @@
 # Usage:
 #   scripts/run_daily.sh                            # full pipeline
 #   DRY_RUN=1 scripts/run_daily.sh                  # everything except git push
-#   SKIP_PUBLISH=1 scripts/run_daily.sh             # commit but don't push pages
+#   SKIP_PUBLISH=1 scripts/run_daily.sh             # commit but don't publish anywhere
+#   SKIP_CLOUDFLARE=1 scripts/run_daily.sh          # publish GitHub Pages only
 #
 # Exit codes:
 #   0  success (or no-changes-no-op)
@@ -34,6 +35,8 @@ cd "$REPO_ROOT"
 AGENT_INVOKE="${AGENT_INVOKE:-${REPO_ROOT}/scripts/agent-invoke.sh}"
 DRY_RUN="${DRY_RUN:-0}"
 SKIP_PUBLISH="${SKIP_PUBLISH:-0}"
+SKIP_CLOUDFLARE="${SKIP_CLOUDFLARE:-0}"
+CLOUDFLARE_WORKER_URL="${CLOUDFLARE_WORKER_URL:-https://daily-semi.danielsgardenatbabylon.workers.dev}"
 
 # Each step prints a header so a tail -f of the run.log is readable.
 section() { echo; echo "======== $* ========"; }
@@ -110,11 +113,20 @@ fi
 
 
 # ---------------------------------------------------------------------------
-section "6/6  publish to gh-pages"
+section "6/7  publish to gh-pages"
 if [ "$DRY_RUN" = "1" ] || [ "$SKIP_PUBLISH" = "1" ]; then
   echo "(skip-publish set: not pushing gh-pages)"
 else
   "$REPO_ROOT/scripts/publish_gh_pages.sh" main || { echo "ERROR: gh-pages publish failed" >&2; exit 3; }
+fi
+
+
+# ---------------------------------------------------------------------------
+section "7/7  publish to Cloudflare Workers"
+if [ "$DRY_RUN" = "1" ] || [ "$SKIP_PUBLISH" = "1" ] || [ "$SKIP_CLOUDFLARE" = "1" ]; then
+  echo "(skip-cloudflare set: not deploying Worker)"
+else
+  "$REPO_ROOT/scripts/publish_cloudflare_worker.sh" || { echo "ERROR: Cloudflare Worker deploy failed" >&2; exit 3; }
 fi
 
 # Best-effort: derive and print the live URL.
@@ -126,5 +138,6 @@ PAGES_URL=$(printf '%s' "$REMOTE_URL" |
 echo
 echo "✓ daily run complete."
 if [ -n "${PAGES_URL:-}" ]; then
-  echo "  $PAGES_URL"
+  echo "  GitHub Pages: $PAGES_URL"
 fi
+echo "  Cloudflare:   $CLOUDFLARE_WORKER_URL"
