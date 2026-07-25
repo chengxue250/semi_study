@@ -2,7 +2,16 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "daily-semi",
   "compatibility_date": "2026-07-24",
+  "main": "./src/worker.js",
   "assets": {
-    "directory": "./output"
-  }
+    "directory": "./output",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "daily-semi-newsletter",
+      "database_id": "1316c5b1-04e9-4c24-b64c-a3a561770cd8"
+    }
+  ]
 }

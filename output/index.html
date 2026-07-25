@@ -172,12 +172,83 @@
   }
   body[data-lang="both"] .masthead .date .zh,
   body[data-lang="both"] article.story .meta .zh,
-  body[data-lang="both"] footer .zh {
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
     margin-top: 2px;
   }
   body[data-lang="both"] .nav-modes a .zh::before,
   body[data-lang="both"] section.cat > h2 .zh::before {
     content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
   }
 
   /* Footer */
@@ -245,8 +316,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Reuters</span> · 1h ago</span>
-        <span class="zh"><span class="source">Reuters</span> · 1小时前</span>
+        <span class="en"><span class="source">Reuters</span> · 14h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 14小时前</span>
       </div>
       <p class="summary">
         <span class="en">Nvidia and SK Group unveiled an AI data-center initiative described as exceeding $500 billion alongside a memory partnership. The combination ties accelerator deployment more directly to SK&#x27;s memory and infrastructure capacity, highlighting that compute availability now depends on coordinated investment across the stack.</span>
@@ -261,8 +332,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">The Next Platform</span> · 7h ago</span>
-        <span class="zh"><span class="source">The Next Platform</span> · 7小时前</span>
+        <span class="en"><span class="source">The Next Platform</span> · 20h ago</span>
+        <span class="zh"><span class="source">The Next Platform</span> · 20小时前</span>
       </div>
       <p class="summary">
         <span class="en">AMD is pursuing the AI infrastructure market through rack-scale system roadmaps rather than selling accelerators as isolated components. The strategy raises the importance of networking, memory, power, cooling, and software integration, the layers that determine whether GPU specifications translate into deployable cluster performance.</span>
@@ -283,8 +354,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">EE Times</span> · 3h ago</span>
-        <span class="zh"><span class="source">EE Times</span> · 3小时前</span>
+        <span class="en"><span class="source">EE Times</span> · 16h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 16小时前</span>
       </div>
       <p class="summary">
         <span class="en">Intel&#x27;s fab execution is improving, but its foundry business generated only $293 million in external revenue. That figure leaves customer adoption, rather than internal process progress alone, as the central test of whether Intel can establish a credible alternative to TSMC.</span>
@@ -299,8 +370,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
-        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+        <span class="en"><span class="source">SemiWiki</span> · 21h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 21小时前</span>
       </div>
       <p class="summary">
         <span class="en">A comparison of TSMC&#x27;s emerging CoPoS panel-level approach and Intel&#x27;s EMIB bridge technology shows two routes to integrating ever-larger heterogeneous chiplet systems. Both address the scaling limits of advanced packaging, but their different physical tradeoffs will shape substrate size, interconnect density, and manufacturing economics.</span>
@@ -321,8 +392,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Wccftech</span> · 3h ago</span>
-        <span class="zh"><span class="source">Wccftech</span> · 3小时前</span>
+        <span class="en"><span class="source">Wccftech</span> · 17h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 17小时前</span>
       </div>
       <p class="summary">
         <span class="en">Qualcomm told customers that higher supplier costs will require a double-digit price increase, with the Snapdragon 8 Elite Gen 6 family among the products expected to be affected. Rising 2nm wafer costs and the DRAM shortage are pushing memory and foundry inflation into handset silicon even as smartphone demand remains soft.</span>
@@ -337,8 +408,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Wccftech</span> · 5h ago</span>
-        <span class="zh"><span class="source">Wccftech</span> · 5小时前</span>
+        <span class="en"><span class="source">Wccftech</span> · 19h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 19小时前</span>
       </div>
       <p class="summary">
         <span class="en">CXMT is exploring customized DRAM, 3D memory, and 3D integration as U.S. restrictions limit its access to equipment needed for mainstream HBM production. The approach could create an alternative path into AI memory, but it remains a strategic proposal rather than evidence that CXMT has closed the manufacturing and bandwidth gap with Korean suppliers.</span>
@@ -359,8 +430,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 6h ago</span>
-        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 6小时前</span>
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 20h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 20小时前</span>
       </div>
       <p class="summary">
         <span class="en">Nvidia and 24 other companies signed a letter defending open-weight AI as Washington considers restrictions on Chinese models. Chipmakers, server vendors, cloud operators, and software firms joined the effort, while OpenAI, Anthropic, and Google were absent, exposing a policy split over whether model openness supports or undermines U.S. technology interests.</span>
@@ -381,8 +452,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
-        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 20h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 20小时前</span>
       </div>
       <p class="summary">
         <span class="en">Intel says its 14A process remains on track for a high-volume production ramp in 2028 as company sales rose 25% year over year and earnings exceeded guidance. The financial improvement gives Intel more room to fund the roadmap, but 14A&#x27;s foundry credibility will ultimately depend on external customer products reaching volume.</span>
@@ -403,8 +474,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Axios</span> · 5h ago</span>
-        <span class="zh"><span class="source">Axios</span> · 5小时前</span>
+        <span class="en"><span class="source">Axios</span> · 18h ago</span>
+        <span class="zh"><span class="source">Axios</span> · 18小时前</span>
       </div>
       <p class="summary">
         <span class="en">AMD and Cerebras have formed an AI inference collaboration, linking an established accelerator supplier with Cerebras&#x27; wafer-scale architecture. The announcement expands the competitive set for inference deployments, although its impact will depend on named workloads, customers, and production-scale installations.</span>
@@ -419,8 +490,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">Microchip Technology</span> · 5h ago</span>
-        <span class="zh"><span class="source">Microchip Technology</span> · 5小时前</span>
+        <span class="en"><span class="source">Microchip Technology</span> · 18h ago</span>
+        <span class="zh"><span class="source">Microchip Technology</span> · 18小时前</span>
       </div>
       <p class="summary">
         <span class="en">Microchip Technology signed a definitive agreement to acquire Hailo, bringing the challenger&#x27;s edge-AI accelerators into a broad embedded-chip portfolio. The deal gives Hailo a larger sales and support channel while giving Microchip a faster route into deployed neural-network inference at the edge; financial terms were not disclosed in the candidate item.</span>
@@ -435,8 +506,8 @@
         </a>
       </h3>
       <div class="meta">
-        <span class="en"><span class="source">MarketScale</span> · 7h ago</span>
-        <span class="zh"><span class="source">MarketScale</span> · 7小时前</span>
+        <span class="en"><span class="source">MarketScale</span> · 20h ago</span>
+        <span class="zh"><span class="source">MarketScale</span> · 20小时前</span>
       </div>
       <p class="summary">
         <span class="en">Etched closed a $300 million Series C at a $10.3 billion valuation, doubling its valuation in seven months as reported inference-chip orders reached $1 billion. The round is a substantial vote on specialized inference silicon, but converting orders into installed systems and repeat demand remains the operating test.</span>
@@ -445,10 +516,31 @@
     </article>
   </section>
 
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
   <footer>
     <div>
-      <span class="en">Built 2026-07-25 01:29 UTC · <a href="archive.html">Archive</a></span>
-      <span class="zh">生成于 2026-07-25 01:29 UTC · <a href="archive.html">往期</a></span>
+      <span class="en">Built 2026-07-25 14:48 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-25 14:48 UTC · <a href="archive.html">往期</a></span>
     </div>
     <div>
       <span class="en">Semi News Daily — a curated chip-industry digest.</span>
@@ -473,6 +565,18 @@
       document.querySelectorAll("[data-set-lang]").forEach(function (button) {
         button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
       });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
     }
     setMode(mode);
     document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
@@ -480,6 +584,41 @@
         var nextMode = btn.getAttribute("data-set-lang");
         setMode(nextMode);
         try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
       });
     });
   })();

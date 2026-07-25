@@ -10,6 +10,13 @@ cd "$REPO_ROOT"
 WORKER_URL="${CLOUDFLARE_WORKER_URL:-https://daily-semi.danielsgardenatbabylon.workers.dev}"
 export WRANGLER_LOG_PATH="${WRANGLER_LOG_PATH:-$REPO_ROOT/.wrangler/logs}"
 
+if [ -f .dev.vars ]; then
+  set -a
+  # shellcheck disable=SC1091
+  . ./.dev.vars
+  set +a
+fi
+
 if [ ! -f output/index.html ]; then
   echo "ERROR: output/index.html not found; run scripts/build_page.py first." >&2
   exit 1
@@ -29,3 +36,21 @@ node_modules/.bin/wrangler deploy
 echo
 echo "✓ Cloudflare Worker deployed."
 echo "  $WORKER_URL"
+
+if [ -n "${NEWSLETTER_SEND_SECRET:-}" ]; then
+  echo
+  echo "→ triggering newsletter send"
+  if curl -fsS -X POST "$WORKER_URL/api/send-daily" \
+      -H "x-send-secret: $NEWSLETTER_SEND_SECRET" \
+      -H "content-type: application/json" \
+      -d '{}' ; then
+    echo
+    echo "✓ newsletter trigger complete."
+  else
+    echo
+    echo "WARNING: newsletter trigger failed; site deployment remains successful." >&2
+  fi
+else
+  echo
+  echo "(NEWSLETTER_SEND_SECRET not set: skipping newsletter send trigger)"
+fi
