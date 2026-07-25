@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-09">
+<meta name="edition-date" content="2026-07-25">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Efficiency Moves Into Memory and Tools — Semi Research 2026-07-09</title>
+<title>Memory Traffic Becomes the Optimization Target — Semi Research 2026-07-25</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -249,214 +249,157 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, July 9, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月9日 星期四</span>
+      <span class="en">Research digest · Saturday, July 25, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月25日 星期六</span>
     </div>
     <h1>
-      <span class="en">Inference Efficiency Moves Into Memory and Tools</span>
-      <span class="zh">推理效率转向存储与工具链</span>
+      <span class="en">Memory Traffic Becomes the Optimization Target</span>
+      <span class="zh">内存流量成为优化主目标</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s research queue is less about bigger models and more about the hardware-adjacent constraints around attention, memory hierarchy, FPGA automation, verification, RF circuits, and reconfigurable devices. Several papers trade brute-force scaling for structure, sparsity, or tool automation.</span>
-      <span class="zh">本周研究队列的重点不在更大模型，而在注意力、存储层级、FPGA自动化、验证、射频电路和可重构器件等贴近硬件的约束。多篇论文用结构化、稀疏化或工具自动化来替代单纯的暴力扩展。</span>
+      <span class="en">This week&#x27;s strongest systems papers attack the hidden cost of moving and retaining state: draft-model KV reads, cache eviction, low-bit activation transforms, and adapter capacity. The recurring lesson is that efficiency claims need attribution and bounded working sets, not just smaller nominal models.</span>
+      <span class="zh">本周最值得关注的系统论文集中处理状态搬运与保留的隐性成本：草稿模型的KV读取、缓存淘汰、低比特激活变换以及适配器容量。反复出现的结论是，效率不仅取决于名义上的模型缩小，还需要可归因的误差和有界工作集。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.07682" target="_blank" rel="noopener">
-          <span class="en">Neural-Operator Evolutionary Search for Nanophotonic Inverse Design</span>
-          <span class="zh">用于纳米光子逆向设计的神经算子进化搜索</span>
-        </a>
-      </h3>
-      <p class="authors">Xiangming Huang, Guannan Zhang, Lu Lu, Raphaël Pestourie</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07682" target="_blank" rel="noopener">arXiv:2607.07682</a> · 2026-07-08T17:41:56Z</p>
-      <p class="summary">
-        <span class="en">The paper introduces NOTES, a neural-operator-enabled topology-informed evolutionary strategy for PDE-constrained inverse design. In a nanophotonic beam-deflector task governed by Maxwell&#x27;s equations, it reduces the design dimension from 256 to 25 and reports over 95% efficiency. The hardware relevance is the search method: compact latent optimization could make photonic component design less dependent on expensive full-field sweeps.</span>
-        <span class="zh">论文提出NOTES，一种面向PDE约束逆向设计的神经算子与拓扑先验结合的进化策略。在由Maxwell方程约束的纳米光子束偏转器任务中，该方法把设计维度从256降到25，并报告超过95%的效率。其硬件意义在于搜索方法本身：紧凑潜空间优化可能降低光子器件设计对昂贵全场扫描的依赖。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.07402" target="_blank" rel="noopener">
-          <span class="en">Reconfigurable Non-Hermitian Metasurface With Multiple Singularities</span>
-          <span class="zh">具备多重奇点的可重构非厄米超表面</span>
-        </a>
-      </h3>
-      <p class="authors">Xintong Shi, Yanjie Wu, Rui Zhou, Zuxing Lu, Tengyu Li, Tingting Liu, Hai Lin, Qiegen Liu, Shuyuan Xiao</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07402" target="_blank" rel="noopener">arXiv:2607.07402</a> · 2026-07-08T13:35:30Z</p>
-      <p class="summary">
-        <span class="en">This work uses a mirror-coupled metasurface to create a higher-dimensional effective parameter space without adding more physical resonators. A PIN-diode reconfigurable platform demonstrates coexistence and manipulation of an exceptional point and multiple reflection zeros. The result matters for tunable microwave devices because it links singularity control to functions such as coordinated absorption rather than treating the physics as a static curiosity.</span>
-        <span class="zh">这项工作通过镜面耦合超表面，在不增加物理谐振器数量的情况下构造更高维的等效参数空间。作者在集成PIN二极管的可重构平台上展示了exceptional point与多个反射零点的共存和调控。它对可调微波器件有意义，因为论文把奇点控制与协同吸收等功能联系起来，而不只是展示静态物理现象。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.07661" target="_blank" rel="noopener">
-          <span class="en">Six-Pole Dual-Band Microstrip Filter for WiMAX</span>
-          <span class="zh">面向WiMAX的六极点双频微带滤波器</span>
-        </a>
-      </h3>
-      <p class="authors">Halimat Olamide Yusuf, Augustine O. Nwajana</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07661" target="_blank" rel="noopener">arXiv:2607.07661</a> · 2026-07-08T17:17:17Z</p>
-      <p class="summary">
-        <span class="en">The authors transform a third-order single-band filter into a sixth-order dual-band bandpass filter using a folded-arms square open-loop resonator microstrip structure. The design targets passbands around 2.2 GHz and 2.4 GHz, centered near 2.3 GHz with 7% fractional bandwidth, on Rogers RT/Duroid 6010LM. It is a practical RF-circuit contribution where the value is compact dual-band selectivity rather than a new semiconductor device.</span>
-        <span class="zh">作者使用folded-arms square open-loop resonator微带结构，将三阶单频带滤波器转换为六阶双频带带通滤波器。该设计在Rogers RT/Duroid 6010LM基板上实现约2.2 GHz和2.4 GHz两个通带，中心约2.3 GHz，分数带宽7%。这是一项偏实用的射频电路工作，其价值在于紧凑双频选择性，而不是新的半导体器件。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.07625" target="_blank" rel="noopener">
-          <span class="en">RISC-V Hardware-Software Co-Design for Embedded Blockchain Infrastructure</span>
-          <span class="zh">面向嵌入式区块链基础设施的RISC-V软硬件协同设计</span>
-        </a>
-      </h3>
-      <p class="authors">Qinglin Yang, Yuan Liu, Yaoyao Zhang, Boya Wang, Zongjian You, Chunming Rong, Zhihong Tian</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07625" target="_blank" rel="noopener">arXiv:2607.07625</a> · 2026-07-08T16:41:05Z</p>
-      <p class="summary">
-        <span class="en">This survey frames embedded Blockchain Infrastructure Management as a RISC-V-based hardware-software co-design paradigm. The thesis is that open, low-level and verifiable computing substrates can reduce dependence on third-party blockchain-as-a-service operators. For chip architects, the useful part is the mapping from trust requirements to extensible RISC-V hardware, firmware and management layers.</span>
-        <span class="zh">这篇综述把embedded Blockchain Infrastructure Management定义为基于RISC-V的软硬件协同设计范式。其核心观点是，开放、底层且可验证的计算底座可以降低对第三方区块链即服务运营商的依赖。对芯片架构师而言，较有价值的是论文把信任需求映射到可扩展RISC-V硬件、固件和管理层的方式。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
+    <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.07643" target="_blank" rel="noopener">
-          <span class="en">ATLAS Automates HLS for Deep-Learning FPGA Hardblocks</span>
-          <span class="zh">ATLAS自动化面向深度学习FPGA硬块的HLS流程</span>
+        <a href="https://arxiv.org/abs/2607.21535" target="_blank" rel="noopener">
+          <span class="en">Windowed-MTP Removes Full-Context Draft KV Reads</span>
+          <span class="zh">Windowed-MTP消除草稿模型的全上下文KV读取</span>
         </a>
       </h3>
-      <p class="authors">Ruthwik Reddy Sunketa, Aman Arora</p>
+      <p class="authors">Alagappan Valliappan</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07643" target="_blank" rel="noopener">arXiv:2607.07643</a> · 2026-07-08T17:00:41Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21535" target="_blank" rel="noopener">arXiv:2607.21535</a> · 2026-07-23T17:21:44Z</p>
       <p class="summary">
-        <span class="en">ATLAS is a flow that maps high-level deep-learning model descriptions to FPGA implementations using custom in-fabric DL hardblocks. The authors target a real usability gap: conventional HLS raises abstraction but still does not natively generate code for specialized hardblocks without manual wrappers and RTL libraries. If the flow generalizes, it could make DL-optimized FPGA fabrics easier to program beyond expert RTL teams.</span>
-        <span class="zh">ATLAS是一套把高层深度学习模型描述映射到带有定制片上DL硬块的FPGA实现流程。作者瞄准的是一个真实易用性缺口：传统HLS提高了抽象层级，但仍无法原生面向专用硬块生成代码，通常需要人工包装和RTL库。如果该流程具备通用性，将降低DL优化FPGA织构的编程门槛，使其不再只依赖资深RTL团队。</span>
+        <span class="en">Windowed-MTP applies a sliding attention window and sink only to the multi-token-prediction draft head, preventing draft cost from growing with a million-token KV cache. Full-attention verification remains unchanged, so the method can alter proposed tokens but not the target model&#x27;s accepted output. It is a training-free systems optimization; the preprint still needs independent evaluation across model families and serving stacks.</span>
+        <span class="zh">Windowed-MTP仅在多Token预测草稿头中应用滑动注意力窗口和attention sink，避免草稿成本随百万Token KV缓存线性增长。全注意力验证保持不变，因此该方法可以改变候选Token，却不会改变目标模型最终接受的输出。这是一项免训练的系统优化，但仍需在不同模型家族和推理栈上进行独立评估。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.07388" target="_blank" rel="noopener">
-          <span class="en">TF-Engram Adds SSD-Backed External Memory to LLMs</span>
-          <span class="zh">TF-Engram为LLM引入SSD支撑的外部记忆</span>
+        <a href="https://arxiv.org/abs/2607.21446" target="_blank" rel="noopener">
+          <span class="en">KroQuant Uses Kronecker Blocks for W4A4 Diffusion Transformers</span>
+          <span class="zh">KroQuant以Kronecker块实现扩散Transformer的W4A4量化</span>
         </a>
       </h3>
-      <p class="authors">Yutang Ma, Kecheng Huang, Xikun Jiang, Zili Shao</p>
+      <p class="authors">Yann Bouquet, Alireza Khodamoradi, Kristof Denolf, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07388" target="_blank" rel="noopener">arXiv:2607.07388</a> · 2026-07-08T13:19:52Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21446" target="_blank" rel="noopener">arXiv:2607.21446</a> · 2026-07-23T15:52:20Z</p>
       <p class="summary">
-        <span class="en">TF-Engram builds phrase-specific semantic memory offline, stores it across a GPU-DRAM-SSD hierarchy, and uses early-exit guided prefetching to hide external-memory latency during decoding. On Qwen3-0.6B, it reports an average downstream-score improvement from 57.6 to 59.4 while reducing GPU memory pressure. The paper is relevant to accelerator systems because it treats storage hierarchy and predictive data movement as part of the model-serving design.</span>
-        <span class="zh">TF-Engram离线构建短语级语义记忆，将大规模记忆表分布在GPU、DRAM和SSD层级中，并用early-exit引导的预取来隐藏解码时的外部存储延迟。在Qwen3-0.6B上，论文报告平均下游分数从57.6提升到59.4，同时降低GPU显存压力。它对加速器系统有意义，因为论文把存储层级和预测式数据搬移视为模型服务设计的一部分。</span>
+        <span class="en">KroQuant introduces learned Kronecker-structured invertible transforms on 32-element activation blocks to make W4A4 post-training quantization practical for diffusion transformers. The block-local construction targets the online transform cost that recurs at every denoising step and stores less than half as many parameters as per-channel scaling. The preprint&#x27;s value will depend on whether image quality and latency gains persist on current accelerator kernels rather than only in calibration experiments.</span>
+        <span class="zh">KroQuant在32元素激活块上引入可学习的Kronecker结构可逆变换，以提升扩散Transformer进行W4A4训练后量化的可行性。其块内结构针对每个去噪步骤都会重复出现的在线变换成本，参数存储量不到逐通道缩放的一半。该预印本的价值取决于图像质量与延迟收益能否在现有加速器kernel上保持，而不只是在校准实验中成立。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research &amp; Inference Systems</span>
-      <span class="zh">AI研究与推理系统</span>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.07706" target="_blank" rel="noopener">
-          <span class="en">Analysis-Driven Linearization for Long-Context Transformers</span>
-          <span class="zh">面向长上下文Transformer的分析驱动线性化</span>
+        <a href="https://arxiv.org/abs/2607.21475" target="_blank" rel="noopener">
+          <span class="en">Randomized KV Eviction Produces Serving-Time Error Certificates</span>
+          <span class="zh">随机化KV淘汰可生成推理时误差证书</span>
         </a>
       </h3>
-      <p class="authors">Anna Kuzina, Paul N. Whatmough, Babak Ehteshami Bejnordi</p>
+      <p class="authors">Peng Xie</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07706" target="_blank" rel="noopener">arXiv:2607.07706</a> · 2026-07-08T17:59:09Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21475" target="_blank" rel="noopener">arXiv:2607.21475</a> · 2026-07-23T16:16:59Z</p>
       <p class="summary">
-        <span class="en">The paper studies transformer linearization in a frozen-backbone regime and argues that softmax attention relies on key-dependent rank-1 orthogonal projections. It adds sink tokens, short convolutions and fixed-budget cache routing to reduce approximation error, then scales the approach across LLaMA and Qwen models up to 32B parameters. The hardware angle is clear: better post-hoc linearization can reduce long-context inference cost without retraining the whole model.</span>
-        <span class="zh">论文在冻结主干模型的设定下研究Transformer线性化，并指出softmax attention依赖key相关的rank-1正交投影。作者加入sink token、短卷积和固定预算cache routing来降低近似误差，并把方法扩展到最高32B参数的LLaMA和Qwen模型。其硬件意义很明确：更好的后训练线性化可以在不重训整个模型的情况下，降低长上下文推理成本。</span>
+        <span class="en">The paper proves that deterministic top-k KV-cache eviction cannot consistently estimate the attention error caused by discarded values, then restores identifiability with Poisson sampling and a Hájek correction. Its certificate reached 0.97 empirical coverage and distinguished cache-induced from inherent failures at AUC 0.73-0.75, but it did not improve failure prediction or certificate-gated budget escalation. The result is useful precisely because it narrows the claim: randomization supports attribution, not a universal serving-quality predictor.</span>
+        <span class="zh">论文证明，确定性的top-k KV缓存淘汰无法一致估计丢弃value造成的注意力误差，随后通过Poisson采样和Hájek校正恢复可识别性。误差证书取得0.97的经验覆盖率，并以0.73至0.75的AUC区分缓存诱发故障与固有故障，但未改善故障预测或证书驱动的预算升级。该结果的价值正在于收窄了主张：随机化有助于误差归因，而不是提供通用的推理质量预测器。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.07409" target="_blank" rel="noopener">
-          <span class="en">DeLS-Spec Decouples Long and Short Contexts for Speculative Drafting</span>
-          <span class="zh">DeLS-Spec解耦长短上下文以改进投机解码</span>
+        <a href="https://arxiv.org/abs/2607.21433" target="_blank" rel="noopener">
+          <span class="en">Early Activations Weakly Predict Reasoning Non-Convergence</span>
+          <span class="zh">早期激活可弱预测推理不收敛</span>
         </a>
       </h3>
-      <p class="authors">Hong-Kai Zheng, Piji Li</p>
+      <p class="authors">Renuka Oladri, Niveda Jawahar, Abdirisak Mohamed</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07409" target="_blank" rel="noopener">arXiv:2607.07409</a> · 2026-07-08T13:41:52Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21433" target="_blank" rel="noopener">arXiv:2607.21433</a> · 2026-07-23T15:37:04Z</p>
       <p class="summary">
-        <span class="en">DeLS-Spec improves speculative decoding by combining a fixed DFlash long-context expert with a lightweight local head trained independently for short-context causality. That avoids retraining the full draft model while addressing the lack of intra-block causal conditioning in block-parallel drafters. The method matters for inference systems because modular draft heads could be swapped and trained cheaply across serving stacks.</span>
-        <span class="zh">DeLS-Spec通过把固定的DFlash长上下文专家与独立训练的轻量本地头结合，改进投机解码中的短上下文因果建模。这样既避免重训完整draft model，又缓解块并行草稿器缺少块内因果条件的问题。该方法对推理系统有意义，因为模块化draft head可能以较低成本在不同服务栈中替换和训练。</span>
+        <span class="en">On DeepSeek-R1-Distill-Qwen-7B, converged chains scored 90.3% on AIME 1983-2024 while budget-exhausted chains scored 6.6%, with only 62.0% of generations converging. A linear probe at layer 20 and token 150 achieved AUC 0.608, suggesting a modest early signal that could support stopping policies. The permutation result was p=0.063, so the evidence does not yet clear conventional significance thresholds and should not be treated as a production-ready predictor.</span>
+        <span class="zh">在DeepSeek-R1-Distill-Qwen-7B上，收敛推理链在AIME 1983-2024上的准确率为90.3%，耗尽Token预算的推理链仅为6.6%，总体收敛率为62.0%。位于第20层、第150个Token的线性探针取得0.608 AUC，说明存在可用于提前停止策略的弱信号。置换检验结果为p=0.063，尚未达到常规显著性阈值，因此不能把它视为可直接用于生产的预测器。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21351" target="_blank" rel="noopener">
+          <span class="en">Measuring How Many Bits a LoRA Adapter Can Store</span>
+          <span class="zh">量化LoRA适配器能够存储多少比特</span>
+        </a>
+      </h3>
+      <p class="authors">Kaizhen Tan, Heqing Du, Yang Feng</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21351" target="_blank" rel="noopener">arXiv:2607.21351</a> · 2026-07-23T14:16:43Z</p>
+      <p class="summary">
+        <span class="en">A compression-based analysis finds that LoRA adapters store only a few bits per trainable parameter, and that placement matters more than raw parameter count. Moving the same budget from attention into the MLP nearly doubled capacity, while removing structure from the frozen base largely erased it; measured privacy leakage tracked stored bits more closely than nominal adapter size. The study reframes adapter design and risk around effective information capacity, though its conclusions still depend on the tested Qwen2.5 fine-tuning setups.</span>
+        <span class="zh">一项基于压缩的分析发现，LoRA适配器每个可训练参数只存储少量比特，而且参数位置比名义数量更重要。把相同预算从attention移到MLP后容量接近翻倍，而去除冻结基座的结构后容量几乎消失；测得的隐私泄露也更紧密地跟随实际写入比特，而非适配器名义大小。该研究把适配器设计与风险重新聚焦于有效信息容量，但结论仍取决于所测试的Qwen2.5微调设置。</span>
       </p>
     </article>
   </section>
   <section class="area" id="quantum">
     <h2>
-      <span class="en">Quantum</span>
-      <span class="zh">量子</span>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.07634" target="_blank" rel="noopener">
-          <span class="en">Quantum CNN With Rough-Path Signature Kernels</span>
-          <span class="zh">结合粗路径签名核的量子卷积神经网络</span>
+        <a href="https://arxiv.org/abs/2607.21409" target="_blank" rel="noopener">
+          <span class="en">Deeper Parameterized Quantum Circuits Show Double Descent</span>
+          <span class="zh">更深参数化量子电路呈现双下降现象</span>
         </a>
       </h3>
-      <p class="authors">Leonardo Nogueira Falabella, Vasily Sazonov</p>
+      <p class="authors">Marie Kempkes, Elies Gil-Fuster, Carlos Bravo-Prieto, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07634" target="_blank" rel="noopener">arXiv:2607.07634</a> · 2026-07-08T16:50:46Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21409" target="_blank" rel="noopener">arXiv:2607.21409</a> · 2026-07-23T15:11:31Z</p>
       <p class="summary">
-        <span class="en">The paper proposes a hybrid quantum-classical time-series classifier that uses path-signature kernels before a quantum convolutional neural network. The authors explore classical and variational quantum linear solvers inside the feature layers to handle time-reparameterization invariance. It is early-stage algorithmic work, but it gives a concrete workload for evaluating whether quantum kernels add value beyond classical preprocessing.</span>
-        <span class="zh">论文提出一种混合量子-经典时间序列分类器，在量子卷积神经网络之前使用路径签名核。作者在特征层中探索经典和变分量子线性求解器，以处理时间重参数化不变性问题。这仍是早期算法研究，但为评估量子核是否能超越经典预处理提供了具体工作负载。</span>
+        <span class="en">The authors show analytically and numerically that gradient-trained parameterized quantum circuits can improve out-of-sample performance as model size grows, exhibiting double descent rather than monotonically worsening generalization. Experiments on re-uploading circuits across several datasets support the predicted scaling behavior. The evidence is numerical rather than a hardware demonstration, so noise, trainability, and device depth remain separate obstacles to practical quantum machine learning.</span>
+        <span class="zh">作者通过解析推导和数值实验表明，采用梯度训练的参数化量子电路可随模型规模扩大而改善样本外表现，呈现双下降现象，而不是泛化能力单调恶化。在多个数据集上的re-uploading电路实验支持这一预测的扩展规律。不过证据来自数值实验而非硬件演示，噪声、可训练性和器件深度仍是实用量子机器学习的独立障碍。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Verification</span>
-      <span class="zh">EDA与验证</span>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.07444" target="_blank" rel="noopener">
-          <span class="en">LLM-Assisted SystemVerilog Assertion Generation</span>
-          <span class="zh">LLM辅助生成SystemVerilog断言</span>
+        <a href="https://arxiv.org/abs/2607.21408" target="_blank" rel="noopener">
+          <span class="en">A Three-Stage Optimizer for Fixed-Outline Chip Floorplanning</span>
+          <span class="zh">面向固定轮廓芯片布局的三阶段优化器</span>
         </a>
       </h3>
-      <p class="authors">Bhabesh Mali, Chandan Karfa</p>
+      <p class="authors">Yilihamujiang Yimamu, Guillem Pastor-Rué, Jordi Cortadella</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.07444" target="_blank" rel="noopener">arXiv:2607.07444</a> · 2026-07-08T14:14:14Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21408" target="_blank" rel="noopener">arXiv:2607.21408</a> · 2026-07-23T15:10:41Z</p>
       <p class="summary">
-        <span class="en">This paper reviews the use of LLMs for generating SystemVerilog Assertions from design specifications and frames the key problem as quality-aware methodology rather than prompt novelty. Assertion-based verification is labor-intensive, so even partial automation could change verification productivity if coverage and correctness are measurable. The authors&#x27; useful contribution is a challenge map for making LLM-generated assertions systematic enough for design-verification flows.</span>
-        <span class="zh">这篇论文综述了用LLM从设计规范生成SystemVerilog Assertions的方法，并把核心问题定位为质量可控的方法论，而不是单纯提示词创新。基于断言的验证高度依赖人工，因此如果覆盖率和正确性能够被度量，即使部分自动化也可能改变验证生产率。作者较有价值的贡献，是为LLM生成断言如何系统化进入设计验证流程绘制了问题地图。</span>
+        <span class="en">This floorplanning framework combines quadratic placement, Adam-based non-convex global optimization, and convex legalization based on horizontal and vertical constraint graphs. On MCNC, GSRC, and HB+ benchmarks, it reduced average half-perimeter wirelength by at least 1% and 5% versus the compared state-of-the-art floorplanners. The gains are benchmark results rather than tape-out evidence, so downstream timing, routability, and runtime behavior remain to be demonstrated.</span>
+        <span class="zh">该布局规划框架依次结合二次布局、基于Adam的非凸全局优化，以及依托水平和垂直约束图的凸合法化。在MCNC、GSRC和HB+基准上，其平均半周长线长相较所对比的先进布局器至少降低1%和5%。这些收益来自基准测试而非流片验证，后续时序、可布线性和运行时间表现仍有待证明。</span>
       </p>
     </article>
   </section>
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-09 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-09 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-25 01:29 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-25 01:29 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
