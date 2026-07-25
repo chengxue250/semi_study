@@ -29,6 +29,33 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 PROMPT_FILE="$REPO_ROOT/PROMPT.md"
 
+# ---------------------------------------------------------------------------
+# Example 0: Codex desktop / Homebrew CLI
+# ---------------------------------------------------------------------------
+# CODEX_BIN="${CODEX_BIN:-}"
+# if [ -z "$CODEX_BIN" ]; then
+#   for candidate in \
+#     /Applications/ChatGPT.app/Contents/Resources/codex \
+#     /opt/homebrew/bin/codex \
+#     /Applications/Codex.app/Contents/Resources/codex
+#   do
+#     if [ -x "$candidate" ]; then
+#       CODEX_BIN="$candidate"
+#       break
+#     fi
+#   done
+# fi
+#
+# if [ -z "$CODEX_BIN" ] || [ ! -x "$CODEX_BIN" ]; then
+#   echo "ERROR: Codex CLI not found. Set CODEX_BIN to the codex executable." >&2
+#   exit 1
+# fi
+#
+# exec "$CODEX_BIN" exec \
+#   --cd "$REPO_ROOT" \
+#   --dangerously-bypass-approvals-and-sandbox \
+#   "$(cat "$PROMPT_FILE")"
+#
 
 # ---------------------------------------------------------------------------
 # Example 1: Claude Code (uses ANTHROPIC_API_KEY from env or keychain)
