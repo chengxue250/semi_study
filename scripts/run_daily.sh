@@ -36,7 +36,7 @@ AGENT_INVOKE="${AGENT_INVOKE:-${REPO_ROOT}/scripts/agent-invoke.sh}"
 DRY_RUN="${DRY_RUN:-0}"
 SKIP_PUBLISH="${SKIP_PUBLISH:-0}"
 SKIP_CLOUDFLARE="${SKIP_CLOUDFLARE:-0}"
-CLOUDFLARE_WORKER_URL="${CLOUDFLARE_WORKER_URL:-https://daily-semi.danielsgardenatbabylon.workers.dev}"
+CLOUDFLARE_WORKER_URL="${CLOUDFLARE_WORKER_URL:-https://semi.danielsgarden.work}"
 
 # Each step prints a header so a tail -f of the run.log is readable.
 section() { echo; echo "======== $* ========"; }

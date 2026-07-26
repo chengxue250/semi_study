@@ -60,7 +60,7 @@ NEWSLETTER_SEND_SECRET=the_same_hex_value
 `scripts/publish_cloudflare_worker.sh` deploys the Worker first. After a successful deploy, it calls:
 
 ```bash
-POST https://daily-semi.danielsgardenatbabylon.workers.dev/api/send-daily
+POST https://semi.danielsgarden.work/api/send-daily
 ```
 
 The trigger is skipped when `NEWSLETTER_SEND_SECRET` is not available locally. Send failures are logged as warnings and do not make the site deployment fail.

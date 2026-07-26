@@ -2,10 +2,21 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "daily-semi",
   "compatibility_date": "2026-07-24",
+  "workers_dev": true,
+  "preview_urls": false,
   "main": "./src/worker.js",
   "assets": {
     "directory": "./output",
     "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "semi.danielsgarden.work",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "PUBLIC_SITE_URL": "https://semi.danielsgarden.work"
   },
   "d1_databases": [
     {

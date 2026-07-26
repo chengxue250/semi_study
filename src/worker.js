@@ -254,8 +254,9 @@ async function sendEditionEmail(env, edition, subscriber, unsubscribeUrl) {
   const subject = useZh
     ? `Semi News Daily: ${theme.zh || theme.en || edition.date}`
     : `Semi News Daily: ${theme.en || theme.zh || edition.date}`;
-  const headlineUrl = "https://daily-semi.danielsgardenatbabylon.workers.dev/";
-  const researchUrl = "https://daily-semi.danielsgardenatbabylon.workers.dev/research.html";
+  const siteUrl = (env.PUBLIC_SITE_URL || "https://semi.danielsgarden.work").replace(/\/+$/, "");
+  const headlineUrl = `${siteUrl}/`;
+  const researchUrl = `${siteUrl}/research.html`;
   const stories = collectStories(edition).slice(0, 8);
   const intro = useZh ? (dek.zh || dek.en || "") : (dek.en || dek.zh || "");
   const html = renderEditionHtml({ edition, stories, subject, intro, headlineUrl, researchUrl, unsubscribeUrl, useZh });
