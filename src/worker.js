@@ -5,10 +5,17 @@ const JSON_HEADERS = {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SITE_NAME = "Semi News Daily";
+const LEGACY_SITE_HOST = "semi.danielsgarden.work";
+const PUBLIC_SITE_HOST = "semi-daily.danielsgarden.work";
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.hostname === LEGACY_SITE_HOST) {
+      url.hostname = PUBLIC_SITE_HOST;
+      return Response.redirect(url.toString(), 308);
+    }
 
     if (request.method === "OPTIONS" && url.pathname.startsWith("/api/")) {
       return new Response(null, { status: 204, headers: corsHeaders() });
@@ -254,7 +261,7 @@ async function sendEditionEmail(env, edition, subscriber, unsubscribeUrl) {
   const subject = useZh
     ? `Semi News Daily: ${theme.zh || theme.en || edition.date}`
     : `Semi News Daily: ${theme.en || theme.zh || edition.date}`;
-  const siteUrl = (env.PUBLIC_SITE_URL || "https://semi.danielsgarden.work").replace(/\/+$/, "");
+  const siteUrl = (env.PUBLIC_SITE_URL || `https://${PUBLIC_SITE_HOST}`).replace(/\/+$/, "");
   const headlineUrl = `${siteUrl}/`;
   const researchUrl = `${siteUrl}/research.html`;
   const stories = collectStories(edition).slice(0, 8);

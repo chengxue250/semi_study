@@ -7,16 +7,21 @@
   "main": "./src/worker.js",
   "assets": {
     "directory": "./output",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "run_worker_first": true
   },
   "routes": [
+    {
+      "pattern": "semi-daily.danielsgarden.work",
+      "custom_domain": true
+    },
     {
       "pattern": "semi.danielsgarden.work",
       "custom_domain": true
     }
   ],
   "vars": {
-    "PUBLIC_SITE_URL": "https://semi.danielsgarden.work"
+    "PUBLIC_SITE_URL": "https://semi-daily.danielsgarden.work"
   },
   "d1_databases": [
     {
