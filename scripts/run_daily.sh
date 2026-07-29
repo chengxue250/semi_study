@@ -37,6 +37,7 @@ DRY_RUN="${DRY_RUN:-0}"
 SKIP_PUBLISH="${SKIP_PUBLISH:-0}"
 SKIP_CLOUDFLARE="${SKIP_CLOUDFLARE:-0}"
 CLOUDFLARE_WORKER_URL="${CLOUDFLARE_WORKER_URL:-https://semi-daily.danielsgarden.work}"
+FAILED_EDITIONS_DIR="${REPO_ROOT}/.failed-editions"
 
 # Each step prints a header so a tail -f of the run.log is readable.
 section() { echo; echo "======== $* ========"; }
@@ -45,12 +46,41 @@ section() { echo; echo "======== $* ========"; }
 now() { date +%s; }
 elapsed() { local s=$1; echo "$(($(now) - s))s"; }
 
+preserve_failed_edition() {
+  local reason="$1"
+  local edition="${REPO_ROOT}/output/edition.json"
+  local stamp
+
+  [ -f "$edition" ] || return 0
+  stamp="$(date +%Y%m%dT%H%M%S)"
+  mkdir -p "$FAILED_EDITIONS_DIR"
+  cp "$edition" "${FAILED_EDITIONS_DIR}/${stamp}-${reason}.json"
+  echo "  → saved failed draft to .failed-editions/${stamp}-${reason}.json"
+}
+
+restore_previous_edition() {
+  local previous="${REPO_ROOT}/output/edition.json.previous"
+
+  if [ -f "$previous" ]; then
+    cp "$previous" "${REPO_ROOT}/output/edition.json"
+  else
+    git restore --worktree -- output/edition.json
+  fi
+}
 
 # ---------------------------------------------------------------------------
 section "1/6  git pull (sync with origin)"
-# Don't fail the whole run if remote has diverged — local main is the source
-# of truth for what we publish today.
-git pull --ff-only origin main 2>&1 || echo "(local is ahead or detached; continuing)"
+if ! git diff --quiet -- output/edition.json; then
+  echo "  → recovering stale edition.json from an earlier failed run"
+  preserve_failed_edition "stale"
+  git restore --worktree -- output/edition.json
+fi
+
+if ! git pull --ff-only origin main; then
+  echo "ERROR: local main cannot fast-forward to origin/main." >&2
+  echo "       Aborting before generation to avoid creating a divergent edition commit." >&2
+  exit 3
+fi
 
 
 # ---------------------------------------------------------------------------
@@ -79,6 +109,8 @@ fi
 T0=$(now)
 if ! "$AGENT_INVOKE"; then
   echo "ERROR: agent invocation returned non-zero exit code." >&2
+  preserve_failed_edition "agent"
+  restore_previous_edition
   echo "       site not updated; will retry tomorrow." >&2
   exit 1
 fi
@@ -89,8 +121,10 @@ echo "agent took $(elapsed $T0)"
 section "4/6  validate edition.json"
 if ! python3 scripts/validate_edition.py; then
   echo "ERROR: edition.json failed validation. Aborting before render/publish." >&2
+  preserve_failed_edition "validation"
+  restore_previous_edition
   echo "       The most common cause is the agent re-stamping yesterday's edition." >&2
-  echo "       Inspect output/edition.json and /tmp/preflight/instructions.txt." >&2
+  echo "       Inspect .failed-editions/ and /tmp/preflight/instructions.txt." >&2
   exit 2
 fi
 

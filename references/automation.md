@@ -91,7 +91,7 @@ The fix is the **scripted pipeline**: `scripts/run_daily.sh`. It runs every dete
 
 ```
 scripts/run_daily.sh  (cron triggers this once a day)
-  1. git pull origin main
+  1. recover any stale failed draft, then git pull --ff-only origin main
   2. scripts/preflight.py
        - moves output/edition.json → output/edition.json.previous
        - runs fetch_rss.py and fetch_arxiv.py with --exclude-seen
@@ -105,13 +105,19 @@ scripts/run_daily.sh  (cron triggers this once a day)
          (so a re-stamp of yesterday is impossible — yesterday's URLs aren't
          in today's fetch)
        - ≥ 50% of URLs are new vs yesterday's edition
-       - if any check fails, abort: do NOT render, do NOT commit, do NOT publish
+       - if any check fails, save the draft under .failed-editions/, restore
+         the last published edition, and abort without rendering or publishing
   5. python3 scripts/build_page.py     (render index.html + research.html)
   6. git add output/ && git commit && git push origin main
   7. scripts/publish_gh_pages.sh main  (safe via temp clone)
 ```
 
 If step 3 or 4 fails, the live site keeps yesterday's content. Better stale than wrong.
+The failed draft is retained under `.failed-editions/` for inspection, while
+`output/edition.json` is restored to the committed version. The next scheduled
+run therefore starts from a clean worktree and can fast-forward from GitHub.
+If the repository cannot fast-forward for any other reason, the pipeline exits
+before fetching or generating content instead of creating a divergent commit.
 
 ### Setup (one time, ~5 minutes)
 
