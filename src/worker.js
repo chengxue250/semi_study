@@ -5,17 +5,11 @@ const JSON_HEADERS = {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SITE_NAME = "Semi News Daily";
-const LEGACY_SITE_HOST = "semi.danielsgarden.work";
 const PUBLIC_SITE_HOST = "semi-daily.danielsgarden.work";
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-
-    if (url.hostname === LEGACY_SITE_HOST) {
-      url.hostname = PUBLIC_SITE_HOST;
-      return Response.redirect(url.toString(), 308);
-    }
 
     if (request.method === "OPTIONS" && url.pathname.startsWith("/api/")) {
       return new Response(null, { status: 204, headers: corsHeaders() });
@@ -235,7 +229,9 @@ function randomToken() {
 }
 
 async function loadEdition(env) {
-  const response = await env.ASSETS.fetch(new Request("https://assets.local/edition.json"));
+  const assetUrl = new URL("https://assets.local/edition.json");
+  assetUrl.searchParams.set("v", Date.now().toString());
+  const response = await env.ASSETS.fetch(new Request(assetUrl));
   if (!response.ok) throw new Error("edition.json unavailable");
   return response.json();
 }
