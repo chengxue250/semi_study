@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-30">
+<meta name="edition-date" content="2026-07-29">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Efficiency Moves Across Devices and Models — Semi Research 2026-07-30</title>
+<title>Hardware-Aware AI Reaches the System Stack — Semi Research 2026-07-29</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-07-29.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, July 30, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月30日 星期四</span>
+      <span class="en">Research digest · Wednesday, July 29, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月29日 星期三</span>
     </div>
     <h1>
-      <span class="en">Efficiency Moves Across Devices and Models</span>
-      <span class="zh">效率优化贯穿器件与模型</span>
+      <span class="en">Hardware-Aware AI Reaches the System Stack</span>
+      <span class="zh">硬件感知AI走向系统全栈</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers connect device-level models and circuits with techniques for more efficient AI inference. The common thread is reducing costly computation or calibration without giving up measured reliability.</span>
-      <span class="zh">本周论文把器件级建模与电路研究，同提升AI推理效率的技术联系起来。共同主线是在不牺牲可验证可靠性的前提下，减少昂贵的计算或校准。</span>
+      <span class="en">This week’s work pushes model and system optimization into memory arrays, routing, inference dispatch, and verification. The strongest claims pair algorithmic changes with concrete hardware constraints or measured execution results.</span>
+      <span class="zh">本周研究将模型与系统优化推进到存储阵列、布线、推理调度和验证等环节。较有价值的工作将算法改动与明确的硬件约束或实测执行结果结合起来。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -336,117 +336,117 @@
     </div>
   </header>
 
-    <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.26815" target="_blank" rel="noopener">
-          <span class="en">TiO2 Memristor Model for Neuromorphic Circuit Simulation</span>
-          <span class="zh">用于神经形态电路仿真的TiO2忆阻器模型</span>
-        </a>
-      </h3>
-      <p class="authors">Lukas Endres, Hannes Töpfer, Michaela Blum, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26815" target="_blank" rel="noopener">arXiv:2607.26815</a> · 2026-07-29</p>
-      <p class="summary">
-        <span class="en">This work derives and validates a SPICE-ready model for a volatile TiO2 memristor using experimental electrical measurements. The model reproduces continuous and pulsed behavior and is demonstrated in a leaky integrate-and-fire neuron simulation. It gives circuit designers a calibrated model for exploring neuromorphic behavior, though other TiO2 stacks need separate validation.</span>
-        <span class="zh">该研究基于实验电学测量，建立并验证了可用于SPICE的易失性TiO2忆阻器模型。模型能再现连续和脉冲激励下的行为，并在漏积分发放神经元仿真中展示。它让电路设计人员可使用经校准的模型探索神经形态行为，但其他TiO2器件堆叠仍需单独验证。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Systems</span>
-      <span class="zh">电路与系统</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.26738" target="_blank" rel="noopener">
-          <span class="en">Dual-Mode FM/AM Modulator Using a Time-Varying Inverting Integrator</span>
-          <span class="zh">基于时变反相积分器的双模FM/AM调制器</span>
-        </a>
-      </h3>
-      <p class="authors">Azalía G. Gil, Alfonso T. Muriel-Barrado, Mario Pérez-Escribano, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26738" target="_blank" rel="noopener">arXiv:2607.26738</a> · 2026-07-29</p>
-      <p class="summary">
-        <span class="en">The paper presents a dual-mode frequency/amplitude modulator using a time-modulated varactor, an inverting integrator and a passband filter. The team fabricated a microstrip PCB prototype and reports measured results that agree with theory and ADS simulations. The experimental grounding is useful, although integration into a semiconductor RF process is not addressed.</span>
-        <span class="zh">论文提出一种双模调频/调幅调制器，采用时变变容二极管、反相积分器和带通滤波器。团队制备了微带PCB原型，测量结果与理论及ADS仿真一致。这一实验验证很有价值，但尚未涉及如何集成到半导体射频工艺。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
+    <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26661" target="_blank" rel="noopener">
-          <span class="en">AgenticCANN: Automated Ascend C Operator Generation</span>
-          <span class="zh">AgenticCANN：自动生成Ascend C算子</span>
+        <a href="https://arxiv.org/abs/2607.22869" target="_blank" rel="noopener">
+          <span class="en">Multi-Primitive In-Memory Computing for Monte Carlo Tree Search</span>
+          <span class="zh">用于蒙特卡洛树搜索的多原语存内计算</span>
         </a>
       </h3>
-      <p class="authors">Junhao Qiu, Zidong Wang, Yansong Sun, et al.</p>
+      <p class="authors">T. Molom-Ochir, B. F. Morris, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26661" target="_blank" rel="noopener">arXiv:2607.26661</a> · 2026-07-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22869" target="_blank" rel="noopener">arXiv:2607.22869</a> · 2026-07-24T19:17:37Z</p>
       <p class="summary">
-        <span class="en">AgenticCANN uses a knowledge-augmented agentic-evolution workflow to generate and tune Ascend C operators for Huawei NPUs. On an Ascend 910B, the authors evaluate six operators across five pattern categories and report gains over their baselines. Operator tuning is often the step that turns theoretical accelerator capability into inference throughput, but the reported gains depend on the kernels and setup tested.</span>
-        <span class="zh">AgenticCANN采用知识增强的智能体演化流程，为Huawei NPU生成并调优Ascend C算子。作者在Ascend 910B上评估了涵盖五类模式的六个算子，并报告了优于基线的结果。算子调优常是把理论加速器能力转化为推理吞吐的关键步骤，但所报告的提升仍依赖于测试内核和评测设置。</span>
+        <span class="en">The paper maps the phases of Monte Carlo tree search to separate in-memory primitives, including CAM, logic, RRAM crossbars, and SRAM, rather than treating the irregular algorithm as a single crossbar workload. Using 22 nm estimates calibrated with fabricated RRAM-array parameters, it reports about 60 mW for 9×9 Go and 96× CPU energy efficiency. The claim is compelling because it tackles an irregular search algorithm, but the end-to-end system is still an architecture evaluation rather than measured silicon.</span>
+        <span class="zh">论文将蒙特卡洛树搜索的各阶段分别映射到CAM、逻辑、RRAM交叉阵列和SRAM等存内原语，而不是把这类不规则算法视为单一交叉阵列工作负载。基于采用已制备RRAM阵列参数校准的22 nm估算，其对9×9围棋报告约60 mW功耗和相对CPU 96倍的能效。该工作的重要性在于处理了不规则搜索算法，但端到端系统仍属架构评估而非实测芯片。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.23099" target="_blank" rel="noopener">
+          <span class="en">Distribution-Aware MoE Inference with Adaptive Kernel Dispatch</span>
+          <span class="zh">采用自适应核调度的分布感知MoE推理</span>
+        </a>
+      </h3>
+      <p class="authors">E.-M. Huang, A.-C. Chang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.23099" target="_blank" rel="noopener">arXiv:2607.23099</a> · 2026-07-25T08:20:47Z</p>
+      <p class="summary">
+        <span class="en">DA-MoE chooses fused-MoE GPU kernels from the live expert-routing histogram instead of only from token-count buckets. On HumanEval-X serving traces, the authors report geometric-mean latency gains of 1.16× for DeepSeek-V3 and 1.29× for Kimi K2, with peaks of 1.40× and 1.56×. It identifies routing skew as a first-class systems variable, although the benefit depends on representative offline tuning and the serving mix matching those distributions.</span>
+        <span class="zh">DA-MoE根据实时专家路由直方图选择融合MoE GPU内核，而非仅依据token数量分桶。在HumanEval-X服务轨迹上，作者报告DeepSeek-V3的几何平均延迟改善为1.16倍、Kimi K2为1.29倍，峰值分别达1.40倍和1.56倍。该工作将路由偏斜提升为一等系统变量，但收益依赖有代表性的离线调优及实际服务负载与这些分布的匹配度。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.22785" target="_blank" rel="noopener">
+          <span class="en">FusionML: CPU+GPU Co-Execution on Unified-Memory Apple Silicon</span>
+          <span class="zh">FusionML：统一内存Apple Silicon上的CPU+GPU协同执行</span>
+        </a>
+      </h3>
+      <p class="authors">O. Mohite</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22785" target="_blank" rel="noopener">arXiv:2607.22785</a> · 2026-07-24T11:42:17Z</p>
+      <p class="summary">
+        <span class="en">FusionML shows that MLX lazy-graph scheduling can serialize CPU–GPU work unless an eager materialization boundary is inserted, then uses contention-aware row splitting for transformer prefill. Across five Apple chips, it reports 1.15–1.38× faster decoder-block prefill and 1.18–1.25× faster time to first token for Qwen2.5-7B, with unchanged decode throughput. The useful result is that shared memory alone does not guarantee operator-level parallelism.</span>
+        <span class="zh">FusionML指出，若不插入即时物化边界，MLX的惰性图调度会将CPU-GPU工作串行化；随后它为Transformer prefill采用了考虑争用的行切分。在五款Apple芯片上，作者报告解码器块prefill加速1.15至1.38倍，Qwen2.5-7B的首token时间加速1.18至1.25倍，而decode吞吐不变。其关键结论是：统一内存本身并不保证算子级并行。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="ai-research">
+  <section class="area" id="devices">
     <h2>
-      <span class="en">AI Systems &amp; Research</span>
-      <span class="zh">AI系统与研究</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26865" target="_blank" rel="noopener">
-          <span class="en">Calibrated Reasoning and Cloud Deferral for Edge LLM Agents</span>
-          <span class="zh">面向边缘LLM智能体的校准推理与云端延后决策</span>
+        <a href="https://arxiv.org/abs/2607.23000" target="_blank" rel="noopener">
+          <span class="en">Magnetic Tunnel Junctions for Timekeeping in Intermittent Systems</span>
+          <span class="zh">利用磁隧道结实现间歇计算系统计时</span>
         </a>
       </h3>
-      <p class="authors">Amirmohammad Farzaneh, Osvaldo Simeone</p>
+      <p class="authors">N. V. Maruszewski, J. Athas, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26865" target="_blank" rel="noopener">arXiv:2607.26865</a> · 2026-07-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.23000" target="_blank" rel="noopener">arXiv:2607.23000</a> · 2026-07-25T02:28:23Z</p>
       <p class="summary">
-        <span class="en">Think Short, Defer Smart combines a probe that stops on-device reasoning when actions stabilize with a perplexity rule for escalating uncertain actions to the cloud. The method is calibrated on full trajectories and evaluated across four ReAct-style benchmarks. It targets the edge-inference trade-off of saving local compute and cloud calls without assuming short reasoning is reliable.</span>
-        <span class="zh">Think Short, Defer Smart把动作稳定后停止端侧推理的探针，与基于困惑度的规则结合，在动作不确定时升级到云端模型。该方法在完整轨迹上校准，并在四个ReAct式基准上评估。它针对边缘推理中节省本地计算和云端调用的权衡，同时不假设短推理必然可靠。</span>
+        <span class="en">FLINT uses deliberately stochastic retention loss in magnetic tunnel junctions to estimate off-time in batteryless intermittent systems, avoiding capacitor-discharge timing. A model validated against 21 fabricated MTJs reports 15 minutes of off-time within 10% error at 1.03 μJ and under 0.1 mm². The result points to a useful nonvolatile timing primitive, though system performance beyond the device-trace-driven evaluation remains to be demonstrated in hardware.</span>
+        <span class="zh">FLINT利用磁隧道结中可预测的随机保持失效来估计无电池间歇系统的断电时间，从而避免采用电容放电计时。以21个已制备MTJ验证的模型报告，在1.03 μJ和不足0.1 mm²条件下，可在15分钟断电时间内实现10%以内误差。该结果提出了一种有潜力的非易失计时原语，但设备轨迹驱动评估之外的完整硬件系统性能仍待验证。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Verification</span>
+      <span class="zh">EDA与设计验证</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26862" target="_blank" rel="noopener">
-          <span class="en">ReCo: Reweighting GRPO to Preserve Diverse Reasoning Paths</span>
-          <span class="zh">ReCo：通过重加权GRPO保留多样化推理路径</span>
+        <a href="https://arxiv.org/abs/2607.22761" target="_blank" rel="noopener">
+          <span class="en">DRC-Aid: Verification-in-the-Loop Design-Rule Repair</span>
+          <span class="zh">DRC-Aid：验证闭环的设计规则修复</span>
         </a>
       </h3>
-      <p class="authors">Junoh Park, Junseo Hwang, Wonguk Cho, Taesup Kim</p>
+      <p class="authors">A. Mukherjee, K. He, K. Roy</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26862" target="_blank" rel="noopener">arXiv:2607.26862</a> · 2026-07-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22761" target="_blank" rel="noopener">arXiv:2607.22761</a> · 2026-07-23T21:22:36Z</p>
       <p class="summary">
-        <span class="en">ReCo modifies GRPO so common high-probability responses do not dominate the gradient and alternative token choices retain learning signal. The authors attribute concentration to repeated responses within a rollout group and to the token-level importance ratio. If it generalizes beyond the tested math benchmarks and model sizes, it could preserve broader reasoning coverage during post-training.</span>
-        <span class="zh">ReCo修改GRPO，使常见的高概率回答不会主导梯度，并让替代token选择保留学习信号。作者将集中化归因于rollout组中的重复回答以及token级重要性比率。若能推广到已测试数学基准和模型规模之外，它可能在后训练中保留更广的推理覆盖。</span>
+        <span class="en">DRC-Aid limits an LLM to choose among rule-engine-generated geometric edits and immediately verifies each choice with physical-design tools. On FreePDK45 layouts, it reports DRC-clean, LVS-equivalent repair in about 92.5% of cases and a 98% reduction in total violations. Its strongest choice is constraining the model with deterministic edits and verification, though the evaluation is on an academic process kit rather than production designs.</span>
+        <span class="zh">DRC-Aid将LLM限制为从规则引擎生成的几何编辑中进行选择，并用物理设计工具立即验证每次选择。在FreePDK45版图上，它报告约92.5%的案例可实现DRC清洁且LVS等价的修复，总违规数减少98%。其最强之处是用确定性编辑和验证约束模型，但评估基于学术工艺库而非量产设计。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26621" target="_blank" rel="noopener">
-          <span class="en">WhisperRec: Latent Reasoning for Efficient Recommendation Models</span>
-          <span class="zh">WhisperRec：面向高效推荐模型的潜在推理</span>
+        <a href="https://arxiv.org/abs/2607.21216" target="_blank" rel="noopener">
+          <span class="en">ARGON: GNN-Guided Compilation for Neutral-Atom Computing</span>
+          <span class="zh">ARGON：面向中性原子计算的GNN引导编译框架</span>
         </a>
       </h3>
-      <p class="authors">Hao Jiang, Peiru Du, Pengfei Yao, et al.</p>
+      <p class="authors">W. Sun, X. Li, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26621" target="_blank" rel="noopener">arXiv:2607.26621</a> · 2026-07-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21216" target="_blank" rel="noopener">arXiv:2607.21216</a> · 2026-07-23T11:30:05Z</p>
       <p class="summary">
-        <span class="en">WhisperRec compresses teacher-generated chain-of-thought into learnable latent reasoning tokens for foundation recommendation models. Reasoning in latent space rather than emitting rationales aims to retain decision-relevant information while lowering inference overhead. The approach suits latency-sensitive serving, although latent reasoning is harder to inspect and needs careful robustness evaluation.</span>
-        <span class="zh">WhisperRec把教师模型生成的思维链压缩为可学习的潜在推理token，用于基础推荐模型。在潜在空间推理而非产生推理文本，目标是在保留决策相关信息的同时降低推理开销。该方法适合对延迟敏感的服务，但潜在推理更难检查，仍需审慎评估鲁棒性。</span>
+        <span class="en">ARGON separates neutral-atom compilation into an offline library of hardware-certified spatial layouts and a GNN-guided temporal-routing stage. The approach is intended to avoid movement and conflict bottlenecks as circuits grow while preserving highly parallel entangling operations. It is a practical compiler direction for dynamic-atom hardware, but its value will depend on how well the precomputed layout library captures changing device constraints and error behavior.</span>
+        <span class="zh">ARGON将中性原子编译拆分为离线构建的硬件认证空间布局库，以及由GNN引导的时间路由阶段。该方法旨在随着电路规模增长时规避原子移动和冲突瓶颈，同时保留高度并行的纠缠操作。这是面向动态原子硬件的务实编译方向，但其价值取决于预计算布局库对不断变化的器件约束和误差行为的覆盖程度。</span>
       </p>
     </article>
   </section>
@@ -474,8 +474,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-30 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-30 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-07-29 09:02 UTC · <a href="../2026-07-29.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-29 09:02 UTC · <a href="../2026-07-29.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
