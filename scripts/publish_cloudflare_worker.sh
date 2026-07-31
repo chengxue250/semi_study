@@ -17,6 +17,12 @@ if [ -f .dev.vars ]; then
   set +a
 fi
 
+if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+  echo "ERROR: CLOUDFLARE_API_TOKEN is missing from $REPO_ROOT/.dev.vars." >&2
+  echo "       Scheduled deployments require a persistent API token." >&2
+  exit 1
+fi
+
 if [ ! -f output/index.html ]; then
   echo "ERROR: output/index.html not found; run scripts/build_page.py first." >&2
   exit 1

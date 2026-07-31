@@ -32,6 +32,13 @@ export TZ="${TZ:-Asia/Shanghai}"
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 
+if [ -f .dev.vars ]; then
+  set -a
+  # shellcheck disable=SC1091
+  . ./.dev.vars
+  set +a
+fi
+
 AGENT_INVOKE="${AGENT_INVOKE:-${REPO_ROOT}/scripts/agent-invoke.sh}"
 DRY_RUN="${DRY_RUN:-0}"
 SKIP_PUBLISH="${SKIP_PUBLISH:-0}"
@@ -68,6 +75,27 @@ restore_previous_edition() {
   fi
 }
 
+check_cloudflare_auth() {
+  if [ "$DRY_RUN" = "1" ] || [ "$SKIP_PUBLISH" = "1" ] || [ "$SKIP_CLOUDFLARE" = "1" ]; then
+    return 0
+  fi
+
+  if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+    echo "ERROR: CLOUDFLARE_API_TOKEN is missing from ${REPO_ROOT}/.dev.vars." >&2
+    echo "       Scheduled Wrangler deploys cannot rely on an interactive OAuth session." >&2
+    return 1
+  fi
+
+  if [ ! -x node_modules/.bin/wrangler ]; then
+    npm ci
+  fi
+
+  if ! node_modules/.bin/wrangler whoami >/dev/null 2>&1; then
+    echo "ERROR: CLOUDFLARE_API_TOKEN is invalid, expired, or lacks Worker access." >&2
+    return 1
+  fi
+}
+
 # ---------------------------------------------------------------------------
 section "1/6  git pull (sync with origin)"
 if ! git diff --quiet -- output/edition.json; then
@@ -79,6 +107,11 @@ fi
 if ! git pull --ff-only origin main; then
   echo "ERROR: local main cannot fast-forward to origin/main." >&2
   echo "       Aborting before generation to avoid creating a divergent edition commit." >&2
+  exit 3
+fi
+
+if ! check_cloudflare_auth; then
+  echo "       Aborting before preflight so no edition commit is left unpublished." >&2
   exit 3
 fi
 

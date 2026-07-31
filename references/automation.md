@@ -119,6 +119,34 @@ run therefore starts from a clean worktree and can fast-forward from GitHub.
 If the repository cannot fast-forward for any other reason, the pipeline exits
 before fetching or generating content instead of creating a divergent commit.
 
+### Cloudflare authentication for unattended runs
+
+Do not rely on `wrangler login` for launchd or cron. Its OAuth token can expire
+and cannot always refresh in a non-interactive process. Create a Cloudflare API
+token from the **Edit Cloudflare Workers** template, restrict its resources to
+the account that owns `daily-semi` and the `danielsgarden.work` zone, then add
+it to the gitignored `.dev.vars` file in the scheduled checkout:
+
+```text
+CLOUDFLARE_API_TOKEN=the_token_value
+```
+
+The scheduled checkout is currently:
+
+```text
+/Users/hcxj/.local/share/semi_study/.dev.vars
+```
+
+Keep the same setting in the development checkout if deploying from there:
+
+```text
+/Users/hcxj/Documents/Playground/semi_study/.dev.vars
+```
+
+`scripts/run_daily.sh` validates the credential with `wrangler whoami` before
+fetching any news. A missing, expired, or under-scoped token therefore fails
+early without creating an edition that cannot be deployed.
+
 ### Setup (one time, ~5 minutes)
 
 1. **Wire your LLM to `scripts/agent-invoke.sh`**:
