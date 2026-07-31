@@ -1,19 +1,25 @@
 {
-  "date": "2026-07-30",
-  "theme": {"en": "AI Demand Rewires the Silicon Stack", "zh": "AI需求重塑芯片全栈"},
-  "dek": {"en": "Cloud operators are widening their accelerator bets while memory, packaging and wafer tools absorb capacity pressure. Public funding is moving toward photonics and specialized compute as supply-chain resilience becomes a design constraint.", "zh": "云服务商正扩大加速器押注，存储、先进封装与晶圆设备承接产能压力。随着供应链韧性成为设计约束，公共资金也流向硅光子和专用计算。"},
+  "date": "2026-07-31",
+  "theme": {
+    "en": "AI Demand Pulls Packaging, Memory, and Policy Together",
+    "zh": "AI需求牵动封装、存储与政策"
+  },
+  "dek": {
+    "en": "AI infrastructure demand is pushing advanced packaging and server-memory roadmaps forward while governments fund domestic research and scrutinize supply choices. The next constraint is increasingly the system around the accelerator, not the accelerator alone.",
+    "zh": "AI基础设施需求正在推动先进封装和服务器存储路线图前移，同时各国加码本土研发投入并审视供应链选择。下一阶段的约束越来越来自加速器周边的系统能力，而非加速器本身。"
+  },
   "sections": [
     {
       "id": "ai-accelerators",
       "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "Microsoft plans AMD Helios and Nvidia Vera Rubin rack-scale deployments", "zh": "微软计划部署AMD Helios与NVIDIA Vera Rubin机架级系统"},
-          "summary": {"en": "Microsoft says Azure will be among the first cloud platforms to deploy rack-scale AI infrastructure based on AMD Helios and Nvidia Vera Rubin. The report says Helios may cost roughly 40% more than Vera Rubin, showing that Microsoft is preserving supplier optionality even as system costs rise. The competition is moving from individual GPUs to integrated racks, networking and power delivery.", "zh": "微软表示，Azure将成为最早部署基于AMD Helios和NVIDIA Vera Rubin的机架级AI基础设施的云平台之一。报道称，Helios成本可能比Vera Rubin高约40%，显示微软即使面对系统成本上升仍保留多供应商选择。竞争正从单颗GPU转向集成机架、网络与供电系统。"},
-          "source": "Wccftech",
-          "url": "https://wccftech.com/amds-helios-rack-reportedly-costs-40-more-than-nvidias-vera-rubin-yet-microsoft-hedges-its-bets-by-committing-to-deploy-both/",
-          "published": "2026-07-29T22:35:34+00:00"
+          "featured": false,
+          "title": {"en": "AMD launches Ryzen Embedded AI X100 for physical-AI systems", "zh": "AMD推出面向物理AI系统的Ryzen Embedded AI X100"},
+          "summary": {"en": "AMD introduced the Ryzen Embedded AI X100 and outlined a physical-AI hardware stack spanning SoCs, modules, and developer kits. The move targets embedded and industrial deployments, where local perception and control workloads need a different product path from rack-scale GPU training.", "zh": "AMD推出Ryzen Embedded AI X100，并展示了涵盖SoC、模块和开发套件的物理AI硬件栈。该产品面向嵌入式和工业部署；这些场景的本地感知与控制负载需要区别于机架级GPU训练的产品路径。"},
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/amds-physical-ai-plans-come-into-focus-as-company-launches-ryzen-embedded-ai-x100/",
+          "published": "2026-07-30T22:00:54+00:00"
         }
       ]
     },
@@ -23,11 +29,19 @@
       "stories": [
         {
           "featured": true,
-          "title": {"en": "Intel targets advanced packages beyond 24× reticle size", "zh": "Intel瞄准超过24倍光罩尺寸的先进封装"},
-          "summary": {"en": "Intel says advances in New Mexico remove an encapsulation constraint that had limited very large multi-die systems, with the report pointing to packages beyond 24 times reticle size. Such scaling is central to assembling AI systems from chiplets when a monolithic die is no longer economical or manufacturable. Yield, substrate availability and thermal design remain the practical tests at these dimensions.", "zh": "Intel称其在新墨西哥州的技术进展消除了限制超大型多芯粒系统的一项封装约束，报道指向超过24倍光罩尺寸的封装。当天然单片大芯片不再具备经济性或可制造性时，这种扩展能力是以chiplet构建AI系统的关键。良率、封装基板供给和散热设计仍是这一尺寸下的实际考验。"},
-          "source": "Wccftech",
-          "url": "https://wccftech.com/intel-cracks-encapsulation-wall-blocking-hyper-large-chips-using-advanced-packaging/",
-          "published": "2026-07-29T21:40:03+00:00"
+          "title": {"en": "TSMC reportedly develops an EMIB-like AI packaging approach", "zh": "报道称台积电正开发类似EMIB的AI先进封装方案"},
+          "summary": {"en": "A report says TSMC is developing an AI-chip packaging technology analogous to Intel's EMIB approach. If commercialized, another bridge-based option could broaden how TSMC assembles large AI systems as interconnect density and package yield become central competitive variables.", "zh": "报道称，台积电正在开发一种类似Intel EMIB的AI芯片封装技术。若实现商业化，这一新增的桥接式选项可能扩展台积电组装大型AI系统的方式，因为互连密度和封装良率正成为关键竞争变量。"},
+          "source": "GNews — TSMC",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNaFcybDZQMUMtSGVVLTBwMjlWQ1p1VXN3SmVONnVIZ0ZzX1A0WWUzQTA3Q0hYbGxZRHkwZlFUb0dMRDA0OWphWEF0ai16TTByeElNdUw3ZGN2VGxhYmdRcmVXVHFGMkdBb2hXTXdxa0ppYWRBM2h6c3o1dm91dXpOazczT0VzalMzbXlfRXBoU3FvU21DMVhkY25sYjdpeDUwOTI4TlhkR18?oc=5",
+          "published": "2026-07-30T17:20:47+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Samsung targets a second Taylor semiconductor plant by end-2026", "zh": "三星计划在2026年底前启动泰勒第二座半导体工厂建设"},
+          "summary": {"en": "Samsung plans to begin construction on a second semiconductor plant in Taylor, Texas, by the end of 2026. The project would deepen the company's U.S. manufacturing footprint, though construction timing is only an early step before tool installation, process qualification, and volume output.", "zh": "三星计划在2026年底前启动美国得州泰勒第二座半导体工厂的建设。该项目将扩大其在美国的制造布局，但开工只是早期节点，后续仍需经历设备进厂、工艺认证和量产爬坡。"},
+          "source": "Reuters Technology (Google News)",
+          "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNRllOLWhlVGZRb3o5WjVxMUJQOFQtYll6eDNiLWFGckc2TkN5eHVlS0FkUVVMc3h1YzF3NU5CWDRObUE0SE9keDhDcXFFVUlQTVZ4RGstd1czQjZxX1JZZVdvYkFSRzFPN1BKN0VCOF9mdlMzc0d5SUg4cFRxa2M5Q2Jjd0hXc2NfWnVCbUxvenFOTTZkdmxiNVdOMjZRbGVSMFdkXzU0YmptQjRhN3lWdlpMS2Y2VkhHNDYxU00tbHpVT3N0QWNkU1hhSHkzT0ZnX3M1WVY1cW1WcncwakFlNVFQMW5XWFdkS2U2VzRaamNoczVldGZwU0tuM2Mza1NYRGNfdlRkNURta2FfaVdZU0p0eTRwNWpu?oc=5",
+          "published": "2026-07-30T23:11:00+00:00"
         }
       ]
     },
@@ -36,20 +50,28 @@
       "title": {"en": "Memory", "zh": "存储"},
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "Samsung posts record profit on device and memory sales", "zh": "三星凭借器件与存储销售实现创纪录利润"},
-          "summary": {"en": "Samsung Electronics reported an all-time-high profit, with device and memory sales driving the result. It adds evidence that AI infrastructure demand is feeding through to memory suppliers as well as accelerator vendors. Strong earnings give Samsung more room to fund HBM capacity, though execution against established suppliers remains a separate question.", "zh": "三星电子公布创纪录利润，器件和存储销售是主要驱动力。这进一步表明，AI基础设施需求不仅利好加速器厂商，也正在传导至存储供应商。强劲盈利让三星有更多空间投入HBM产能，但能否赶上既有供应商仍是另一项考验。"},
-          "source": "Nikkei Asia",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQmVUU2dFRHJKT3MzYTJObElIZkoxUzIteFdVeFVtamdKZ25qM2V5ZFkwNk9lSFdIWjZXQ2NpaklUd1pGZjhXLVAyMkJGZ1pQQ3k2UzFUV2h2Vy1WRkJWNTFZZmZ5akxNX1o4dDdnSUNMWl9Fbkw0Nm1mdm50dEV0NGV2cDE5RG10d3hTX3BNZ1pJVW1ZQnhHSTZRemI2LTJoNmdYQkZkaUltbk1CQmxOT2RGUDJiQQ?oc=5",
-          "published": "2026-07-30T00:43:00+00:00"
+          "featured": false,
+          "title": {"en": "Renesas upgrades DDR5 MRDIMM chipset to 16,000 MT/s", "zh": "瑞萨将DDR5 MRDIMM芯片组升级至16,000 MT/s"},
+          "summary": {"en": "Renesas launched its third-generation DDR5 MRDIMM chipset, including the RRG5013 MRCD and RRG5103 MDB, for server modules rated up to 16,000 MT/s. Faster multiplexed-rank memory is aimed at the bandwidth pressure of AI and cloud servers, where CPU and accelerator utilization increasingly depends on feeding data quickly enough.", "zh": "瑞萨推出第三代DDR5 MRDIMM芯片组，包括RRG5013 MRCD和RRG5103 MDB，支持最高16,000 MT/s的服务器模块。更快的多路复用Rank内存瞄准AI和云服务器的带宽压力，因为CPU和加速器的利用率越来越取决于数据供给速度。"},
+          "source": "Embedded.com",
+          "url": "https://www.embedded.com/renesas-upgrades-ddr5-mrdimm-chipset/",
+          "published": "2026-07-30T18:46:36+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "Apacer chief warns commodity DRAM supply could fall 70% in 2027", "zh": "Apacer负责人警告2027年通用DRAM供给或下降70%"},
-          "summary": {"en": "Apacer CEO C.K. Chang said commodity DRAM supply could fall by as much as 70% in 2027 as HBM consumes more wafer capacity, echoing concerns from SK hynix. The claim is a forecast, not an industry plan, but it captures the allocation tension between AI-focused HBM and mainstream DRAM. If sustained, that trade-off would widen price and availability differences across memory segments.", "zh": "Apacer首席执行官张国森表示，随着HBM占用更多晶圆产能，2027年通用DRAM供给可能最多下降70%，呼应了SK hynix的供给担忧。该说法是预测而非行业量产计划，但它揭示了AI用HBM与主流DRAM之间的产能分配矛盾。若趋势持续，不同存储细分市场的价格和可得性差异将扩大。"},
+          "title": {"en": "DDR5 MRDIMM roadmap reaches 16,000 MT/s", "zh": "DDR5 MRDIMM路线图推进至16,000 MT/s"},
+          "summary": {"en": "Memory suppliers are preparing third-generation DDR5 MRDIMMs above 16,000 MT/s, with a stated eventual target of 17,600 MT/s; first-generation parts began above 8,000 MT/s. The roadmap underscores that server-memory bandwidth is being upgraded alongside AI processors, rather than treated as a secondary platform specification.", "zh": "存储厂商正准备速度超过16,000 MT/s的第三代DDR5 MRDIMM，并将最终目标定为17,600 MT/s；第一代产品起步速度已超过8,000 MT/s。该路线图表明，服务器内存带宽正在与AI处理器同步升级，而不再只是平台的次要规格。"},
           "source": "Wccftech",
-          "url": "https://wccftech.com/apacer-ceo-warns-that-commodity-dram-supply-will-fall-by-70-in-2027-echoing-a-doomsday-take-from-the-ceo-of-sk-hynix/",
-          "published": "2026-07-29T18:05:37+00:00"
+          "url": "https://wccftech.com/memory-makers-push-ddr5-mrdimm-speeds-to-16000-mtps-closing-gap-on-final-17600-mtps-target/",
+          "published": "2026-07-30T18:00:11+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Storage-inspired memory proposal targets multi-terabyte GPUs", "zh": "受存储技术启发的新型内存瞄准多TB GPU容量"},
+          "summary": {"en": "A storage-inspired high-bandwidth flash concept is being positioned as a way to give GPUs capacities in the multi-terabyte range while seeking speeds closer to HBM. The proposal is not a replacement for deployed HBM today, but it highlights how memory capacity and bandwidth are becoming a first-order limiter for larger AI models.", "zh": "一种受存储技术启发的高带宽闪存方案被定位为可将GPU容量提升至多TB级，并争取接近HBM的速度。它并非当下已部署HBM的替代品，但凸显出内存容量和带宽正在成为更大AI模型的一阶限制因素。"},
+          "source": "The Register (Systems)",
+          "url": "https://www.theregister.com/storage/2026/07/30/gpus-could-explode-to-multiple-tb-with-new-storage-inspired-memory-tech/5281363",
+          "published": "2026-07-30T18:33:00+00:00"
         }
       ]
     },
@@ -59,11 +81,19 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Lam Research guidance exceeds analyst expectations by $1 billion", "zh": "Lam Research业绩指引较分析师预期高出10亿美元"},
-          "summary": {"en": "Lam Research issued guidance reported to be $1 billion above analysts' expectations as AI-related chip capacity demand remains strong. For wafer-fab equipment suppliers, guidance is an early signal that customers are converting AI demand into process-tool orders. It must still be read alongside customer capital-spending plans because memory and logic cycles can diverge sharply.", "zh": "据报道，Lam Research给出的业绩指引比分析师预期高出10亿美元，反映AI相关芯片产能需求依然强劲。对晶圆制造设备供应商而言，指引是客户将AI需求转化为工艺设备订单的早期信号。仍需结合客户资本开支计划解读，因为存储和逻辑的投资周期可能明显分化。"},
-          "source": "techtimes.com",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPb0hKM1VYN1BrMm11ZVpjOVZEQzJ4MXpZRUNfLVl3VV81YlhQUWZOLTR3eDIxamxJREIzYkJxdUpMRF80YmpocTYteDhZN25BYTFjdTZuMC1xdFJ4SXVQV0lfSlJFcmc5anhRRklEazlrTG5MQWRXZlZqVEptSVBpQUZILUtPZDROcDVtZmE1NEJnNzFVVFVLNXd3dEY3QXpGMzZoNHhlTFVmalhPMzdpOG1Id09qdUNYN3hoTXJYX0lUcm5ISVRV?oc=5",
-          "published": "2026-07-29T21:27:15+00:00"
+          "title": {"en": "Genesis Mission awardee pursues X-ray lithography challenge to ASML", "zh": "获Genesis Mission资助团队尝试以X射线光刻挑战ASML"},
+          "summary": {"en": "An awardee in the U.S. Genesis Mission program is pursuing X-ray lithography as a potential challenge to ASML's established lithography position. The effort is an early technology bet: proving source power, mask infrastructure, throughput, and process economics remains far harder than demonstrating a novel exposure concept.", "zh": "美国Genesis Mission项目的一家获资助团队正探索X射线光刻，以挑战ASML已建立的光刻地位。这仍是一项早期技术押注：要证明光源功率、掩模生态、吞吐量和工艺经济性，远比展示一种新曝光概念更困难。"},
+          "source": "GNews — ASML",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOWtTN1dadzFxb1FLRE1SRlFEMnJsci1JbmtDN3FfbHlFdmpma1d6U3NhSHlxWlFuYl9PZnpMMkROdFJRQjRjVGhRcFF5SmN5M1AxZHliNENMWnNhZlk4UTVPaUtUNHFTR0ZGMWxHMFhuRnFhRU5FeG9pUzdlNWdBdkdRM0hMZ3VLZHpoWXIwSDdCZUhINlVmN0w5VHZTaWFlSmx3X3NBYV95dw?oc=5",
+          "published": "2026-07-31T00:14:24+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Report identifies Aishengna in China's immersion-DUV effort", "zh": "报道称爱生纳参与中国浸没式DUV光刻设备研发"},
+          "summary": {"en": "Tom's Hardware reports that Shanghai Aishengna has been identified by an unnamed source as the developer of a domestic immersion-DUV scanner effort, while the named companies did not comment. The report places a viable domestic 7 nm-capable scanner as far out as 2038, illustrating both the strategic importance and long development horizon of lithography localization.", "zh": "Tom's Hardware报道称，一名匿名消息人士认定上海爱生纳正在开发国产浸没式DUV扫描仪，而相关公司未予置评。报道将具备7 nm能力的国产可用扫描仪时间点放在2038年，说明光刻本土化既具战略重要性，也有漫长的研发周期。"},
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/semiconductors/shanghai-aishengna-named-as-the-maker-of-chinas-first-domestic-immersion-duv-scanners",
+          "published": "2026-07-30T16:23:55+00:00"
         }
       ]
     },
@@ -73,69 +103,49 @@
       "stories": [
         {
           "featured": true,
-          "title": {"en": "US awards GlobalFoundries $300 million for silicon photonics and takes 1% stake", "zh": "美国向GlobalFoundries提供3亿美元硅光子资金并持有1%股份"},
-          "summary": {"en": "The US government will provide GlobalFoundries $300 million to pursue silicon photonics and take a 1% equity stake, according to the report. Combining grant funding and ownership aligns public support with optical interconnect technology used to move data among AI systems. It extends industrial policy beyond leading-edge logic into links that increasingly constrain large clusters.", "zh": "据报道，美国政府将向GlobalFoundries提供3亿美元用于推进硅光子技术，并取得其1%的股权。将拨款与持股结合，是把公共支持与AI系统数据互连技术直接绑定的少见做法。此举将产业政策从先进逻辑扩展到日益限制大型集群扩展的光互连。"},
-          "source": "The Register",
-          "url": "https://www.theregister.com/public-sector/2026/07/29/uncle-sam-sees-the-light-offers-globalfoundries-300m-to-pursue-silicon-photonics-while-taking-1-stake/5280620",
-          "published": "2026-07-29T19:02:00+00:00"
+          "title": {"en": "United States signs $874 million in semiconductor-research letters of intent", "zh": "美国签署总额8.74亿美元的半导体研究意向书"},
+          "summary": {"en": "The United States signed letters of intent worth $874 million to support semiconductor research. The commitments put public money behind the research layer of the supply chain, where advances in materials, processes, design tools, and packaging can shape manufacturing competitiveness years before a new fab reaches volume.", "zh": "美国签署了总额8.74亿美元的半导体研究意向书。这些承诺将公共资金投向供应链的研发层；材料、工艺、设计工具和封装的进步，往往会在新晶圆厂量产前多年塑造制造竞争力。"},
+          "source": "Reuters Technology (Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNV2N6YTNQZGpiY3RtS1lDbjFBV0U1eHQ1MzY5QVNDZ1FtSi1MT2ctX2p6UlJjdExjdWhQemdWb3l6ckp2NFEycEVSNGJSM0FTOHRwZGswcVZiVUh4b1cyeVRzdGJRR2xsWkJJd19tQ0hhbk9LSzB6U1d3alJVeW5kMDhUUDFLaEhOLXJPaHRXU2wzbTdJTEdLQXZWaWZ6WGJLQXlZeGVQYVZKT1pLTEQ2ejRhUE5aeGFE?oc=5",
+          "published": "2026-07-30T19:57:17+00:00"
         },
         {
-          "featured": false,
-          "title": {"en": "Aeluma set to receive $30 million in CHIPS funding", "zh": "Aeluma将获得3000万美元CHIPS资金"},
-          "summary": {"en": "Aeluma is set to receive $30 million in CHIPS funding, according to the report. The award points to continued use of US incentives for compound-semiconductor capability rather than only high-volume digital logic. Smaller allocations can be material for specialized suppliers because pilot lines, packaging and qualification costs are large relative to revenue.", "zh": "据报道，Aeluma将获得3000万美元CHIPS资金。该奖励表明，美国激励措施仍在支持化合物半导体能力，而不仅仅是大规模数字逻辑制造。对专业供应商而言，较小的资金规模也可能意义重大，因为试产线、封装和认证成本相对于收入很高。"},
-          "source": "Compound Semiconductor",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeXl5NUtWS21nWHRleURhUU56RzB3N2pzLVp3ZC1Cci1pdFZNMm4wcURZNnFQNW1vdEYzV3hac2R6V29jVE9tS3BDRG16eUxuU1FmUEFITHRLM2JyaUdiUjZCOUVhOURkZV9JY0VodVZNem9nRXBjNkdFd1ZjVk82Rjg1U01UNFpnOHYw?oc=5",
-          "published": "2026-07-29T15:59:13+00:00"
-        }
-      ]
-    },
-    {
-      "id": "challengers",
-      "title": {"en": "Challengers", "zh": "新兴挑战者"},
-      "stories": [
-        {
-          "featured": false,
-          "title": {"en": "Disaggregated inference pairs AMD Helios with Cerebras", "zh": "解耦推理将AMD Helios与Cerebras组合"},
-          "summary": {"en": "A disaggregated-inference design pairs AMD's Helios platform with Cerebras hardware, assigning different parts of the serving stack to different compute systems. It seeks to balance throughput and latency rather than asking one accelerator architecture to optimize every stage. The approach shows how alternative AI-chip suppliers can enter deployments through composable systems instead of wholesale platform replacement.", "zh": "一种解耦推理设计将AMD的Helios平台与Cerebras硬件结合，把服务栈的不同部分分配给不同计算系统。它试图平衡吞吐量和延迟，而不是要求一种加速器架构优化所有环节。该方法表明，替代型AI芯片供应商可通过可组合系统进入部署，而无需整体替换平台。"},
-          "source": "SiliconANGLE",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOOFo4Q3RwQ1kyaTcwZ1pxTTBsZktVTTlONHBRRUJyTnVMVVc1NnRhdlZ5WlRSMDN0cmxqSWdFTy1reXVMYVZMVlNIbElrblA0NC13Q1h5azJ5X3VXQXhmNXBtd0J4c2VZekdPQ3JSOVZrNVpCYnViZTBUbUx3RXdLZ0NQR2FqS3o2SWlfQUVPd3lZRzBkQlE?oc=5",
-          "published": "2026-07-29T22:09:51+00:00"
+          "featured": true,
+          "title": {"en": "Apple keeps evaluating Chinese memory suppliers amid Senate pushback", "zh": "面对参议员施压，苹果仍在评估中国存储供应商"},
+          "summary": {"en": "Apple said it is evaluating multiple memory sources, including Chinese vendors, as it seeks relief from supply constraints and higher memory costs. The choice has become a policy issue as U.S. lawmakers oppose potential sourcing from CXMT and YMTC, turning a component-procurement decision into a test of supply-chain strategy.", "zh": "苹果表示，正评估包括中国厂商在内的多种存储来源，以缓解供应约束和更高的存储成本。由于美国议员反对可能从CXMT和YMTC采购，这一元件采购选择已成为供应链战略的政策考验。"},
+          "source": "Wccftech",
+          "url": "https://wccftech.com/apple-says-its-evaluating-various-memory-sources-including-chinese-ones-that-would-help-us-on-the-supply-side-despite-a-pushback-from-us-senators/",
+          "published": "2026-07-30T22:35:10+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Efficiency Moves Across Devices and Models", "zh": "效率优化贯穿器件与模型"},
-    "dek": {"en": "This week's papers connect device-level models and circuits with techniques for more efficient AI inference. The common thread is reducing costly computation or calibration without giving up measured reliability.", "zh": "本周论文把器件级建模与电路研究，同提升AI推理效率的技术联系起来。共同主线是在不牺牲可验证可靠性的前提下，减少昂贵的计算或校准。"},
+    "theme": {"en": "Inference Research Moves Across Memory and Hardware", "zh": "推理研究跨越存储与硬件层次"},
+    "dek": {"en": "This week's papers move inference optimization from low-bit arithmetic into memory placement, photonics, and three-dimensional cache. The common thread is treating data movement, implementation cost, and runtime scheduling as parts of the same design problem.", "zh": "本周论文将推理优化从低比特运算延伸到存储放置、光子计算和三维缓存。共同主线是把数据移动、实现成本与运行时调度视为同一个设计问题。"},
     "areas": [
       {
-        "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
-        "papers": [
-          {
-            "title": {"en": "TiO2 Memristor Model for Neuromorphic Circuit Simulation", "zh": "用于神经形态电路仿真的TiO2忆阻器模型"},
-            "authors": "Lukas Endres, Hannes Töpfer, Michaela Blum, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2607.26815",
-            "venue_url": "https://arxiv.org/abs/2607.26815",
-            "summary": {"en": "This work derives and validates a SPICE-ready model for a volatile TiO2 memristor using experimental electrical measurements. The model reproduces continuous and pulsed behavior and is demonstrated in a leaky integrate-and-fire neuron simulation. It gives circuit designers a calibrated model for exploring neuromorphic behavior, though other TiO2 stacks need separate validation.", "zh": "该研究基于实验电学测量，建立并验证了可用于SPICE的易失性TiO2忆阻器模型。模型能再现连续和脉冲激励下的行为，并在漏积分发放神经元仿真中展示。它让电路设计人员可使用经校准的模型探索神经形态行为，但其他TiO2器件堆叠仍需单独验证。"},
-            "published": "2026-07-29"
-          }
-        ]
-      },
-      {
         "id": "circuits",
-        "title": {"en": "Circuits & Systems", "zh": "电路与系统"},
+        "title": {"en": "Circuits & Reliability", "zh": "电路与可靠性"},
         "papers": [
           {
-            "title": {"en": "Dual-Mode FM/AM Modulator Using a Time-Varying Inverting Integrator", "zh": "基于时变反相积分器的双模FM/AM调制器"},
-            "authors": "Azalía G. Gil, Alfonso T. Muriel-Barrado, Mario Pérez-Escribano, et al.",
+            "title": {"en": "Connecting RowHammer and RowPress experiments to device models", "zh": "连接RowHammer与RowPress实验及器件模型"},
+            "authors": "Haocong Luo, Longda Zhou, et al.",
             "affiliation": "",
-            "venue": "arXiv:2607.26738",
-            "venue_url": "https://arxiv.org/abs/2607.26738",
-            "summary": {"en": "The paper presents a dual-mode frequency/amplitude modulator using a time-modulated varactor, an inverting integrator and a passband filter. The team fabricated a microstrip PCB prototype and reports measured results that agree with theory and ADS simulations. The experimental grounding is useful, although integration into a semiconductor RF process is not addressed.", "zh": "论文提出一种双模调频/调幅调制器，采用时变变容二极管、反相积分器和带通滤波器。团队制备了微带PCB原型，测量结果与理论及ADS仿真一致。这一实验验证很有价值，但尚未涉及如何集成到半导体射频工艺。"},
-            "published": "2026-07-29"
+            "venue": "arXiv:2607.28233",
+            "venue_url": "https://arxiv.org/abs/2607.28233",
+            "summary": {"en": "This work examines where device-level explanations of RowHammer and RowPress disagree with observed DRAM bit-flip behavior. By focusing on flip direction, flip count, and aggressor-row requirements, it aims to give future characterization and mitigation work a more consistent physical basis rather than relying only on empirical rules.", "zh": "该工作检视了RowHammer和RowPress的器件级解释与实际DRAM位翻转行为之间的差异。论文聚焦翻转方向、翻转数量和攻击行需求，力图为后续表征与缓解提供更一致的物理基础，而不只依赖经验规则。"},
+            "published": "2026-07-30"
+          },
+          {
+            "title": {"en": "Layout-aware AQFP buffer and splitter insertion", "zh": "面向版图的AQFP缓冲器与分路器插入"},
+            "authors": "Robert S. Aviles, Ziyu Liu, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2607.23761",
+            "venue_url": "https://arxiv.org/abs/2607.23761",
+            "summary": {"en": "The paper recasts AQFP buffer and splitter insertion as minimizing the width-depth product, a metric intended to track physical-design area better than cell count or logic depth alone. It proves the formulation NP-complete and proposes scalable heuristics, addressing a practical layout bottleneck in superconducting AQFP circuits with explicit fanout and pipeline constraints.", "zh": "论文将AQFP缓冲器与分路器插入重构为最小化宽度与深度乘积，该指标旨在比单纯的单元数或逻辑深度更好地反映物理设计面积。作者证明该问题为NP完全，并提出可扩展启发式方法，以解决具有显式扇出和流水约束的超导AQFP电路的版图瓶颈。"},
+            "published": "2026-07-26"
           }
         ]
       },
@@ -144,46 +154,73 @@
         "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
         "papers": [
           {
-            "title": {"en": "AgenticCANN: Automated Ascend C Operator Generation", "zh": "AgenticCANN：自动生成Ascend C算子"},
-            "authors": "Junhao Qiu, Zidong Wang, Yansong Sun, et al.",
+            "title": {"en": "LightRot: low-bit LLM inference with lightweight rotations", "zh": "LightRot：以轻量旋转实现低比特LLM推理"},
+            "authors": "Sangjin Kim, Yuseon Choi, et al.",
             "affiliation": "",
-            "venue": "arXiv:2607.26661",
-            "venue_url": "https://arxiv.org/abs/2607.26661",
-            "summary": {"en": "AgenticCANN uses a knowledge-augmented agentic-evolution workflow to generate and tune Ascend C operators for Huawei NPUs. On an Ascend 910B, the authors evaluate six operators across five pattern categories and report gains over their baselines. Operator tuning is often the step that turns theoretical accelerator capability into inference throughput, but the reported gains depend on the kernels and setup tested.", "zh": "AgenticCANN采用知识增强的智能体演化流程，为Huawei NPU生成并调优Ascend C算子。作者在Ascend 910B上评估了涵盖五类模式的六个算子，并报告了优于基线的结果。算子调优常是把理论加速器能力转化为推理吞吐的关键步骤，但所报告的提升仍依赖于测试内核和评测设置。"},
+            "venue": "arXiv:2607.27704",
+            "venue_url": "https://arxiv.org/abs/2607.27704",
+            "summary": {"en": "LightRot combines grouped local rotation and outlier-direction alignment with a hierarchical fast-Hadamard-transform rotation unit for low-bit LLM inference. In a 28 nm CMOS implementation, the authors report 27.4 TOPS/W peak efficiency for 4-bit inference, while the result still depends on the modeled accelerator and the selected LLaMA evaluation workloads.", "zh": "LightRot将分组局部旋转与离群方向对齐结合，并采用分层快速Hadamard变换旋转单元支持低比特LLM推理。作者在28 nm CMOS实现中报告4比特推理峰值能效为27.4 TOPS/W，但结果仍取决于建模的加速器及所选LLaMA评测负载。"},
+            "published": "2026-07-30"
+          },
+          {
+            "title": {"en": "NELSSA places mixed-length LLM requests across GPUs and PNM", "zh": "NELSSA在GPU与PNM间放置混合长度LLM请求"},
+            "authors": "Sookyung Choi, Seungyong Lee, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2607.26633",
+            "venue_url": "https://arxiv.org/abs/2607.26633",
+            "summary": {"en": "NELSSA routes short-context LLM requests to GPUs and long-context requests to processing-near-memory devices, with migration when a context grows. Its prototype combines PNM sparse attention, GPU decode kernels, and a CXL-enabled runtime, making it a systems proposal for the mixed request lengths that reduce GPU-only batch efficiency.", "zh": "NELSSA将短上下文LLM请求路由至GPU，将长上下文请求路由至近存处理PNM设备，并在上下文增长时进行迁移。其原型结合PNM稀疏注意力、GPU解码内核和支持CXL的运行时，旨在处理会削弱纯GPU批处理效率的混合请求长度。"},
             "published": "2026-07-29"
+          },
+          {
+            "title": {"en": "LLMET evaluates monolithic-3D memory for LLM serving", "zh": "LLMET评估面向LLM服务的单片三维存储"},
+            "authors": "Ming-Yen Lee, Hanchen Yang, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2607.26491",
+            "venue_url": "https://arxiv.org/abs/2607.26491",
+            "summary": {"en": "LLMET is a cross-layer simulation framework for examining how monolithic-3D cache memories change LLM-serving energy. The study reports that expanding L2 from 40 MB to 1 GB reduces chip energy by 44% for Llama 3.1 70B prefill with a 16K context, a promising modeled result that requires realizable M3D memory integration.", "zh": "LLMET是一套跨层仿真框架，用于考察单片三维缓存如何改变LLM服务的能耗。研究报告称，在16K上下文的Llama 3.1 70B预填充阶段，将L2从40 MB扩展至1 GB可使芯片能耗降低44%；这是有前景的建模结果，但仍依赖可实现的M3D存储集成。"},
+            "published": "2026-07-29"
+          },
+          {
+            "title": {"en": "MDTransformer uses mode-division photonics for transformer acceleration", "zh": "MDTransformer以模式复用光子计算加速Transformer"},
+            "authors": "Solomon Micheal Serunjogi, Rachmad Vidya Wicaksana Putra, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2607.26016",
+            "venue_url": "https://arxiv.org/abs/2607.26016",
+            "summary": {"en": "MDTransformer proposes a photonic transformer co-design that uses spatial modes as independent compute lanes, avoiding multi-wavelength generation and spectral filtering. Its inverse-designed coherent crossbar and IQ modulation target complex matrix operations in the optical domain, but practical value will depend on end-to-end optical packaging, calibration, and electronic I/O overheads.", "zh": "MDTransformer提出一种光子Transformer协同设计，将空间模式作为独立计算通道，从而避免多波长光源和频谱滤波。其逆向设计的相干交叉阵列与IQ调制瞄准光域复数矩阵运算，但实际价值仍取决于端到端光封装、校准以及电子I/O开销。"},
+            "published": "2026-07-28"
+          },
+          {
+            "title": {"en": "PIMID broadens full-system simulation for processing-in-memory", "zh": "PIMID扩展面向存内计算的全系统仿真"},
+            "authors": "Yuan He, Masaaki Kondo, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2607.24196",
+            "venue_url": "https://arxiv.org/abs/2607.24196",
+            "summary": {"en": "PIMID presents an execution- and trace-driven full-system simulator for processing-in-memory designs. It spans shared-memory and message-passing execution, eleven memory technologies, and placements from subarrays to logic dies, addressing the blind spots of device-only PIM models while still depending on the quality of its component assumptions.", "zh": "PIMID提出一套面向存内计算设计、由执行与轨迹驱动的全系统仿真器。它覆盖共享内存和消息传递执行模型、11种存储技术，以及从子阵列到逻辑裸片的处理单元放置，弥补仅器件级PIM模型的盲点，但仍依赖各组件假设的准确性。"},
+            "published": "2026-07-27"
           }
         ]
       },
       {
-        "id": "ai-research",
-        "title": {"en": "AI Systems & Research", "zh": "AI系统与研究"},
+        "id": "eda",
+        "title": {"en": "EDA & Design Automation", "zh": "EDA与设计自动化"},
         "papers": [
           {
-            "title": {"en": "Calibrated Reasoning and Cloud Deferral for Edge LLM Agents", "zh": "面向边缘LLM智能体的校准推理与云端延后决策"},
-            "authors": "Amirmohammad Farzaneh, Osvaldo Simeone",
+            "title": {"en": "ARES steers LLM reasoning effort for RTL PPA optimization", "zh": "ARES为RTL PPA优化调度LLM推理强度"},
+            "authors": "Stef Cuyckens, Mihaela Jivanescu, et al.",
             "affiliation": "",
-            "venue": "arXiv:2607.26865",
-            "venue_url": "https://arxiv.org/abs/2607.26865",
-            "summary": {"en": "Think Short, Defer Smart combines a probe that stops on-device reasoning when actions stabilize with a perplexity rule for escalating uncertain actions to the cloud. The method is calibrated on full trajectories and evaluated across four ReAct-style benchmarks. It targets the edge-inference trade-off of saving local compute and cloud calls without assuming short reasoning is reliable.", "zh": "Think Short, Defer Smart把动作稳定后停止端侧推理的探针，与基于困惑度的规则结合，在动作不确定时升级到云端模型。该方法在完整轨迹上校准，并在四个ReAct式基准上评估。它针对边缘推理中节省本地计算和云端调用的权衡，同时不假设短推理必然可靠。"},
-            "published": "2026-07-29"
+            "venue": "arXiv:2607.27879",
+            "venue_url": "https://arxiv.org/abs/2607.27879",
+            "summary": {"en": "ARES adapts an LLM agent's reasoning effort during RTL optimization, escalating only after lower-effort iterations stall, and reports normalized dollar cost alongside PPA outcomes. On three unseen test designs, the authors report a 23–27% figure-of-merit reduction versus 16–23% for the best fixed effort, although the training and evaluation set is small.", "zh": "ARES在RTL优化过程中自适应调整LLM代理的推理强度，仅在低强度迭代停滞后升级，并将标准化美元成本与PPA结果一同报告。作者在三个未见测试设计上报告，FoM降低23–27%，而最佳固定强度为16–23%；但训练和评测集规模较小。"},
+            "published": "2026-07-30"
           },
           {
-            "title": {"en": "ReCo: Reweighting GRPO to Preserve Diverse Reasoning Paths", "zh": "ReCo：通过重加权GRPO保留多样化推理路径"},
-            "authors": "Junoh Park, Junseo Hwang, Wonguk Cho, Taesup Kim",
+            "title": {"en": "SPARC traces pre-silicon power side-channel leakage to its source", "zh": "SPARC追溯流片前功耗侧信道泄漏根因"},
+            "authors": "Andrija Nešković, Christian Ewert, et al.",
             "affiliation": "",
-            "venue": "arXiv:2607.26862",
-            "venue_url": "https://arxiv.org/abs/2607.26862",
-            "summary": {"en": "ReCo modifies GRPO so common high-probability responses do not dominate the gradient and alternative token choices retain learning signal. The authors attribute concentration to repeated responses within a rollout group and to the token-level importance ratio. If it generalizes beyond the tested math benchmarks and model sizes, it could preserve broader reasoning coverage during post-training.", "zh": "ReCo修改GRPO，使常见的高概率回答不会主导梯度，并让替代token选择保留学习信号。作者将集中化归因于rollout组中的重复回答以及token级重要性比率。若能推广到已测试数学基准和模型规模之外，它可能在后训练中保留更广的推理覆盖。"},
-            "published": "2026-07-29"
-          },
-          {
-            "title": {"en": "WhisperRec: Latent Reasoning for Efficient Recommendation Models", "zh": "WhisperRec：面向高效推荐模型的潜在推理"},
-            "authors": "Hao Jiang, Peiru Du, Pengfei Yao, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2607.26621",
-            "venue_url": "https://arxiv.org/abs/2607.26621",
-            "summary": {"en": "WhisperRec compresses teacher-generated chain-of-thought into learnable latent reasoning tokens for foundation recommendation models. Reasoning in latent space rather than emitting rationales aims to retain decision-relevant information while lowering inference overhead. The approach suits latency-sensitive serving, although latent reasoning is harder to inspect and needs careful robustness evaluation.", "zh": "WhisperRec把教师模型生成的思维链压缩为可学习的潜在推理token，用于基础推荐模型。在潜在空间推理而非产生推理文本，目标是在保留决策相关信息的同时降低推理开销。该方法适合对延迟敏感的服务，但潜在推理更难检查，仍需审慎评估鲁棒性。"},
-            "published": "2026-07-29"
+            "venue": "arXiv:2607.23218",
+            "venue_url": "https://arxiv.org/abs/2607.23218",
+            "summary": {"en": "SPARC automates pre-silicon detection and root-cause analysis of processor power side-channel leakage using macro-cell information-flow tracking and enhanced shadow logic. It attributes secret-dependent switching to hardware signals and corresponding software instructions, which could make mitigation more actionable than a leakage score alone; validation is reported on open-source RISC-V CPUs.", "zh": "SPARC利用宏单元级信息流跟踪和增强影子逻辑，自动检测并根因分析处理器流片前功耗侧信道泄漏。它将秘密相关开关活动归因到硬件信号及相应软件指令，因此比单独给出泄漏分数更有助于缓解；验证对象为开源RISC-V CPU。"},
+            "published": "2026-07-25"
           }
         ]
       }
