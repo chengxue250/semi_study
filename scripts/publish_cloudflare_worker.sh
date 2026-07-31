@@ -8,7 +8,31 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 
 WORKER_URL="${CLOUDFLARE_WORKER_URL:-https://semi-daily.danielsgarden.work}"
+WORKER_URL="${WORKER_URL%/}"
+CLOUDFLARE_ZONE_ID="${CLOUDFLARE_ZONE_ID:-b1a3298200623292b7876187d33c2262}"
 export WRANGLER_LOG_PATH="${WRANGLER_LOG_PATH:-$REPO_ROOT/.wrangler/logs}"
+
+purge_site_cache() {
+  local payload response
+
+  payload="$(printf '{"files":["%s/","%s/index.html","%s/edition.json","%s/research.html","%s/archive.html"]}' \
+    "$WORKER_URL" "$WORKER_URL" "$WORKER_URL" "$WORKER_URL" "$WORKER_URL")"
+
+  if ! response="$(curl -fsS -X POST \
+      "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
+      -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+      -H "content-type: application/json" \
+      -d "$payload")"; then
+    echo "ERROR: Cloudflare cache purge request failed." >&2
+    return 1
+  fi
+
+  if ! printf '%s' "$response" | python3 -c \
+      'import json, sys; data = json.load(sys.stdin); sys.exit(0 if data.get("success") else 1)'; then
+    echo "ERROR: Cloudflare rejected the cache purge request." >&2
+    return 1
+  fi
+}
 
 if [ -f .dev.vars ]; then
   set -a
@@ -42,6 +66,11 @@ node_modules/.bin/wrangler deploy
 echo
 echo "✓ Cloudflare Worker deployed."
 echo "  $WORKER_URL"
+
+echo
+echo "→ purging custom-domain cache"
+purge_site_cache
+echo "✓ custom-domain cache purged."
 
 if [ -n "${NEWSLETTER_SEND_SECRET:-}" ]; then
   echo
