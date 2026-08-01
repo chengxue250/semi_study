@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-07-31">
+<meta name="edition-date" content="2026-08-01">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Research Moves Across Memory and Hardware — Semi Research 2026-07-31</title>
+<title>Making Efficient AI Compute More Physical — Semi Research 2026-08-01</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, July 31, 2026</span>
-      <span class="zh">研究摘要 · 2026年7月31日 星期五</span>
+      <span class="en">Research digest · Saturday, August 1, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月1日 星期六</span>
     </div>
     <h1>
-      <span class="en">Inference Research Moves Across Memory and Hardware</span>
-      <span class="zh">推理研究跨越存储与硬件层次</span>
+      <span class="en">Making Efficient AI Compute More Physical</span>
+      <span class="zh">让高效AI计算更贴近物理实现</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers move inference optimization from low-bit arithmetic into memory placement, photonics, and three-dimensional cache. The common thread is treating data movement, implementation cost, and runtime scheduling as parts of the same design problem.</span>
-      <span class="zh">本周论文将推理优化从低比特运算延伸到存储放置、光子计算和三维缓存。共同主线是把数据移动、实现成本与运行时调度视为同一个设计问题。</span>
+      <span class="en">This week&#x27;s work moves beyond model-level efficiency into sparse dataflows, quantization hardware, analog-memory drift, and the formal tools needed to build them. Several papers pair algorithms with measured or implementation-aware hardware costs, though most remain preprints and need independent validation.</span>
+      <span class="zh">本周研究将效率优化从模型层面推进到稀疏数据流、量化硬件、模拟存储漂移以及相应的形式化工具。多篇论文把算法与实测或面向实现的硬件成本结合起来，但大多仍为预印本，尚需独立验证。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 9 paper(s)</span>
@@ -336,156 +336,168 @@
     </div>
   </header>
 
-    <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Reliability</span>
-      <span class="zh">电路与可靠性</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.28233" target="_blank" rel="noopener">
-          <span class="en">Connecting RowHammer and RowPress experiments to device models</span>
-          <span class="zh">连接RowHammer与RowPress实验及器件模型</span>
-        </a>
-      </h3>
-      <p class="authors">Haocong Luo, Longda Zhou, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.28233" target="_blank" rel="noopener">arXiv:2607.28233</a> · 2026-07-30</p>
-      <p class="summary">
-        <span class="en">This work examines where device-level explanations of RowHammer and RowPress disagree with observed DRAM bit-flip behavior. By focusing on flip direction, flip count, and aggressor-row requirements, it aims to give future characterization and mitigation work a more consistent physical basis rather than relying only on empirical rules.</span>
-        <span class="zh">该工作检视了RowHammer和RowPress的器件级解释与实际DRAM位翻转行为之间的差异。论文聚焦翻转方向、翻转数量和攻击行需求，力图为后续表征与缓解提供更一致的物理基础，而不只依赖经验规则。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.23761" target="_blank" rel="noopener">
-          <span class="en">Layout-aware AQFP buffer and splitter insertion</span>
-          <span class="zh">面向版图的AQFP缓冲器与分路器插入</span>
-        </a>
-      </h3>
-      <p class="authors">Robert S. Aviles, Ziyu Liu, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.23761" target="_blank" rel="noopener">arXiv:2607.23761</a> · 2026-07-26</p>
-      <p class="summary">
-        <span class="en">The paper recasts AQFP buffer and splitter insertion as minimizing the width-depth product, a metric intended to track physical-design area better than cell count or logic depth alone. It proves the formulation NP-complete and proposes scalable heuristics, addressing a practical layout bottleneck in superconducting AQFP circuits with explicit fanout and pipeline constraints.</span>
-        <span class="zh">论文将AQFP缓冲器与分路器插入重构为最小化宽度与深度乘积，该指标旨在比单纯的单元数或逻辑深度更好地反映物理设计面积。作者证明该问题为NP完全，并提出可扩展启发式方法，以解决具有显式扇出和流水约束的超导AQFP电路的版图瓶颈。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
+    <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.27704" target="_blank" rel="noopener">
-          <span class="en">LightRot: low-bit LLM inference with lightweight rotations</span>
-          <span class="zh">LightRot：以轻量旋转实现低比特LLM推理</span>
+        <a href="https://arxiv.org/abs/2607.27844" target="_blank" rel="noopener">
+          <span class="en">Nanoparticle Networks for Neuromorphic Computing</span>
+          <span class="zh">用于神经形态计算的纳米颗粒网络</span>
         </a>
       </h3>
-      <p class="authors">Sangjin Kim, Yuseon Choi, et al.</p>
+      <p class="authors">J. Mensing, W. G. van der Wiel, A. Heuer</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.27704" target="_blank" rel="noopener">arXiv:2607.27704</a> · 2026-07-30</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.27844" target="_blank" rel="noopener">arXiv:2607.27844</a> · 2026-07-30</p>
       <p class="summary">
-        <span class="en">LightRot combines grouped local rotation and outlier-direction alignment with a hierarchical fast-Hadamard-transform rotation unit for low-bit LLM inference. In a 28 nm CMOS implementation, the authors report 27.4 TOPS/W peak efficiency for 4-bit inference, while the result still depends on the modeled accelerator and the selected LLaMA evaluation workloads.</span>
-        <span class="zh">LightRot将分组局部旋转与离群方向对齐结合，并采用分层快速Hadamard变换旋转单元支持低比特LLM推理。作者在28 nm CMOS实现中报告4比特推理峰值能效为27.4 TOPS/W，但结果仍取决于建模的加速器及所选LLaMA评测负载。</span>
+        <span class="en">The authors turn metallic nanoparticles linked by molecular junctions on SiO2/Si into a tunable nonlinear reservoir by surrounding them with control electrodes. Their analysis identifies operating frequency, oxide thickness, and junction disorder as design levers for balancing tunneling nonlinearity against memory. It offers useful physical rules for reservoir hardware, although the paper&#x27;s computational benefits will depend on reproducibility across fabricated networks.</span>
+        <span class="zh">作者在SiO2/Si衬底上利用分子结连接金属纳米颗粒，并通过周围控制电极将其转化为可调非线性储备池。研究指出工作频率、氧化层厚度和结的无序度是平衡隧穿非线性与记忆特性的关键设计变量。该工作为储备池硬件提供了有用的物理设计规则，但其计算收益仍取决于不同制造网络之间的可重复性。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26633" target="_blank" rel="noopener">
-          <span class="en">NELSSA places mixed-length LLM requests across GPUs and PNM</span>
-          <span class="zh">NELSSA在GPU与PNM间放置混合长度LLM请求</span>
+        <a href="https://arxiv.org/abs/2607.25504" target="_blank" rel="noopener">
+          <span class="en">Sparse Tensor Contractions Near the Vector-Processor Roofline</span>
+          <span class="zh">逼近向量处理器屋顶线的稀疏张量收缩</span>
         </a>
       </h3>
-      <p class="authors">Sookyung Choi, Seungyong Lee, et al.</p>
+      <p class="authors">B. Wang, C. Zhang, D. Shen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26633" target="_blank" rel="noopener">arXiv:2607.26633</a> · 2026-07-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.25504" target="_blank" rel="noopener">arXiv:2607.25504</a> · 2026-07-28</p>
       <p class="summary">
-        <span class="en">NELSSA routes short-context LLM requests to GPUs and long-context requests to processing-near-memory devices, with migration when a context grows. Its prototype combines PNM sparse attention, GPU decode kernels, and a CXL-enabled runtime, making it a systems proposal for the mixed request lengths that reduce GPU-only batch efficiency.</span>
-        <span class="zh">NELSSA将短上下文LLM请求路由至GPU，将长上下文请求路由至近存处理PNM设备，并在上下文增长时进行迁移。其原型结合PNM稀疏注意力、GPU解码内核和支持CXL的运行时，旨在处理会削弱纯GPU批处理效率的混合请求长度。</span>
+        <span class="en">Ventaglio adds a configurable sparse-execution unit and RVV extensions for indexed gather-accumulate-scatter operations used in Transformer inference. In a 12 nm open-source vector cluster, the design reports 6.9–7.4× faster sparse contractions than optimized RVV baselines for a 3.1% cluster-area overhead. The results make a strong architectural case, but their system-level value depends on workloads retaining enough structured sparsity to amortize metadata handling.</span>
+        <span class="zh">Ventaglio为Transformer推理中的索引式gather-accumulate-scatter操作加入可配置稀疏执行单元和RVV扩展。在12 nm开源向量集群中，设计相对优化RVV基线实现了6.9–7.4倍的稀疏张量收缩加速，集群面积开销为3.1%。结果有力支持该架构思路，但系统层面的收益仍取决于工作负载能否保持足够的结构化稀疏性，以摊薄元数据处理成本。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26491" target="_blank" rel="noopener">
-          <span class="en">LLMET evaluates monolithic-3D memory for LLM serving</span>
-          <span class="zh">LLMET评估面向LLM服务的单片三维存储</span>
+        <a href="https://arxiv.org/abs/2607.25058" target="_blank" rel="noopener">
+          <span class="en">Recovering Floating-Gate CIM Accuracy After Retention Loss</span>
+          <span class="zh">缓解浮栅存算一体的保持损失以恢复精度</span>
         </a>
       </h3>
-      <p class="authors">Ming-Yen Lee, Hanchen Yang, et al.</p>
+      <p class="authors">M. Brazzini, G. Filippeschi, A. Catania, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26491" target="_blank" rel="noopener">arXiv:2607.26491</a> · 2026-07-29</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.25058" target="_blank" rel="noopener">arXiv:2607.25058</a> · 2026-07-27</p>
       <p class="summary">
-        <span class="en">LLMET is a cross-layer simulation framework for examining how monolithic-3D cache memories change LLM-serving energy. The study reports that expanding L2 from 40 MB to 1 GB reduces chip energy by 44% for Llama 3.1 70B prefill with a 16K context, a promising modeled result that requires realizable M3D memory integration.</span>
-        <span class="zh">LLMET是一套跨层仿真框架，用于考察单片三维缓存如何改变LLM服务的能耗。研究报告称，在16K上下文的Llama 3.1 70B预填充阶段，将L2从40 MB扩展至1 GB可使芯片能耗降低44%；这是有前景的建模结果，但仍依赖可实现的M3D存储集成。</span>
+        <span class="en">This paper combines circuit-level compensation with batch-normalization recalibration to offset retention loss in a 65 nm single-poly floating-gate analog CIM array. With a retention model calibrated to experiments, the authors recover baseline inference accuracy to within 2–4% after 60 days on VGG-10 and WideResNet workloads. It directly addresses a practical deployment problem, though the result leaves endurance, reprogramming overhead, and broader model coverage to be quantified.</span>
+        <span class="zh">论文将电路级补偿与batch normalization重校准结合，用于抵消65 nm单层多晶硅浮栅模拟存算一体阵列的保持损失。基于实验校准的保持模型，作者在VGG-10和WideResNet任务上将编程60天后的推理精度恢复到距基线2–4%以内。该研究直面实际部署难题，但耐久性、重编程开销和更广泛模型覆盖仍有待量化。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Systems &amp; Inference</span>
+      <span class="zh">AI系统与推理</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.27694" target="_blank" rel="noopener">
+          <span class="en">GyRot: Rotation-Aware Group Quantization for Low-Bit LLMs</span>
+          <span class="zh">GyRot：面向低比特大模型的旋转感知分组量化</span>
+        </a>
+      </h3>
+      <p class="authors">S. Kim, Y. Choi, B. Kim, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.27694" target="_blank" rel="noopener">arXiv:2607.27694</a> · 2026-07-30</p>
+      <p class="summary">
+        <span class="en">GyRot co-designs coarse rotation, fine-grained grouping, and integer dequantization to avoid the mismatch between global rotations and local quantization scales. Its INT4 tensor-processing element reports up to 3.4× speedup and 3.6× energy efficiency over baseline LLM accelerators while maintaining leading 4-bit LLaMA-family accuracy. The claims are promising, but comparison against production quantization stacks and complete memory-system costs will determine portability.</span>
+        <span class="zh">GyRot协同设计粗粒度旋转、细粒度分组和整数反量化，以避免全局旋转与局部量化尺度之间的不匹配。其INT4张量处理单元在保持LLaMA系列领先4 bit精度的同时，相对基线LLM加速器报告最高3.4倍加速和3.6倍能效提升。结果颇具潜力，但与生产级量化栈及完整存储系统成本的比较将决定其可移植性。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26016" target="_blank" rel="noopener">
-          <span class="en">MDTransformer uses mode-division photonics for transformer acceleration</span>
-          <span class="zh">MDTransformer以模式复用光子计算加速Transformer</span>
+        <a href="https://arxiv.org/abs/2607.25498" target="_blank" rel="noopener">
+          <span class="en">Dynamic Operator Scheduling Beyond Prefill–Decode Disaggregation</span>
+          <span class="zh">超越Prefill–Decode解耦的动态算子调度</span>
         </a>
       </h3>
-      <p class="authors">Solomon Micheal Serunjogi, Rachmad Vidya Wicaksana Putra, et al.</p>
+      <p class="authors">J. Yang, J. Li, Y. Fu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26016" target="_blank" rel="noopener">arXiv:2607.26016</a> · 2026-07-28</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.25498" target="_blank" rel="noopener">arXiv:2607.25498</a> · 2026-07-28</p>
       <p class="summary">
-        <span class="en">MDTransformer proposes a photonic transformer co-design that uses spatial modes as independent compute lanes, avoiding multi-wavelength generation and spectral filtering. Its inverse-designed coherent crossbar and IQ modulation target complex matrix operations in the optical domain, but practical value will depend on end-to-end optical packaging, calibration, and electronic I/O overheads.</span>
-        <span class="zh">MDTransformer提出一种光子Transformer协同设计，将空间模式作为独立计算通道，从而避免多波长光源和频谱滤波。其逆向设计的相干交叉阵列与IQ调制瞄准光域复数矩阵运算，但实际价值仍取决于端到端光封装、校准以及电子I/O开销。</span>
+        <span class="en">DOPS schedules LLM operators across heterogeneous NPU and processing-in-memory systems while also choosing blockwise weight layouts under memory constraints. The Bifocal scheduler achieves a 1.20–2.23× geometric-mean speedup over a prefill–decode baseline, and layout selection adds a further 1.28–1.33×. The framework is useful because it treats contention and weight placement as first-class factors, although it needs validation on commercially deployed heterogeneous servers.</span>
+        <span class="zh">DOPS在异构NPU与processing-in-memory系统之间调度LLM算子，同时在内存约束下选择分块权重布局。Bifocal调度器相对prefill–decode基线取得1.20–2.23倍几何平均加速，布局选择再带来1.28–1.33倍提升。该框架将资源争用和权重摆放视为一等因素，但仍需在商用异构服务器上验证。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Reliability</span>
+      <span class="zh">器件与可靠性</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.24196" target="_blank" rel="noopener">
-          <span class="en">PIMID broadens full-system simulation for processing-in-memory</span>
-          <span class="zh">PIMID扩展面向存内计算的全系统仿真</span>
+        <a href="https://arxiv.org/abs/2607.25505" target="_blank" rel="noopener">
+          <span class="en">Accurate Write-Error Modeling for Asymmetric MRAM</span>
+          <span class="zh">非轴对称MRAM的精确写入错误建模</span>
         </a>
       </h3>
-      <p class="authors">Yuan He, Masaaki Kondo, et al.</p>
+      <p class="authors">F. Garcia Redondo, T. Bhowmik, M. G. Monteiro, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.24196" target="_blank" rel="noopener">arXiv:2607.24196</a> · 2026-07-27</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.25505" target="_blank" rel="noopener">arXiv:2607.25505</a> · 2026-07-28</p>
       <p class="summary">
-        <span class="en">PIMID presents an execution- and trace-driven full-system simulator for processing-in-memory designs. It spans shared-memory and message-passing execution, eleven memory technologies, and placements from subarrays to logic dies, addressing the blind spots of device-only PIM models while still depending on the quality of its component assumptions.</span>
-        <span class="zh">PIMID提出一套面向存内计算设计、由执行与轨迹驱动的全系统仿真器。它覆盖共享内存和消息传递执行模型、11种存储技术，以及从子阵列到逻辑裸片的处理单元放置，弥补仅器件级PIM模型的盲点，但仍依赖各组件假设的准确性。</span>
+        <span class="en">The work develops a two-dimensional finite-volume Fokker–Planck solver for write-error rates in STT- and SOT-MRAM devices whose symmetry is broken by fields or torques. It is validated against one million stochastic LLG trajectories and shows that discretization choice can materially change predicted error rates. This is a modeling advance rather than a new cell demonstration, but it could improve design margins for magnetic memories with complex switching dynamics.</span>
+        <span class="zh">该研究为受磁场或力矩破坏对称性的STT和SOT-MRAM器件建立二维有限体积Fokker–Planck写入错误率求解器。模型与100万条随机LLG轨迹进行了验证，并显示离散化方案会实质性改变预测错误率。这是一项建模进展而非新存储单元演示，但有望改善复杂翻转动力学磁存储器的设计裕量。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architectures</span>
+      <span class="zh">电路与架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.26835" target="_blank" rel="noopener">
+          <span class="en">A 16 nm Sparse Convolution Accelerator for Edge Vision</span>
+          <span class="zh">面向边缘视觉的16 nm稀疏卷积加速器</span>
+        </a>
+      </h3>
+      <p class="authors">J. Zhuge, J. Partzsch, C. Mayr</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.26835" target="_blank" rel="noopener">arXiv:2607.26835</a> · 2026-07-29</p>
+      <p class="summary">
+        <span class="en">A 16 nm sparse-convolution accelerator uses bitmap compression and an idle-first task assignment policy to reduce bandwidth demand and processing-element imbalance. The reported core area is 0.5 mm² and power is 12–16 mW, with a dedicated dataflow for depthwise separable convolution. Its silicon-oriented constraints make it relevant to edge vision, though the practical advantage depends on sparsity patterns and end-to-end sensor-system energy.</span>
+        <span class="zh">这款16 nm稀疏卷积加速器采用位图压缩和idle-first任务分配策略，以降低带宽需求及处理单元负载不均。其报告的核心面积为0.5 mm²、功耗为12–16 mW，并为depthwise separable convolution设计专用数据流。其面向硅实现的约束使之与边缘视觉相关，但实际优势仍取决于稀疏模式和端到端传感系统能耗。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
+      <span class="en">EDA &amp; Verification</span>
+      <span class="zh">EDA与验证</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.27879" target="_blank" rel="noopener">
-          <span class="en">ARES steers LLM reasoning effort for RTL PPA optimization</span>
-          <span class="zh">ARES为RTL PPA优化调度LLM推理强度</span>
+        <a href="https://arxiv.org/abs/2607.27259" target="_blank" rel="noopener">
+          <span class="en">CircuitProver: Reusable Lean 4 Proofs for Hardware Verification</span>
+          <span class="zh">CircuitProver：用于硬件验证的可复用Lean 4证明</span>
         </a>
       </h3>
-      <p class="authors">Stef Cuyckens, Mihaela Jivanescu, et al.</p>
+      <p class="authors">Z. Yang, W. Fang, C. Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.27879" target="_blank" rel="noopener">arXiv:2607.27879</a> · 2026-07-30</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.27259" target="_blank" rel="noopener">arXiv:2607.27259</a> · 2026-07-29</p>
       <p class="summary">
-        <span class="en">ARES adapts an LLM agent&#x27;s reasoning effort during RTL optimization, escalating only after lower-effort iterations stall, and reports normalized dollar cost alongside PPA outcomes. On three unseen test designs, the authors report a 23–27% figure-of-merit reduction versus 16–23% for the best fixed effort, although the training and evaluation set is small.</span>
-        <span class="zh">ARES在RTL优化过程中自适应调整LLM代理的推理强度，仅在低强度迭代停滞后升级，并将标准化美元成本与PPA结果一同报告。作者在三个未见测试设计上报告，FoM降低23–27%，而最佳固定强度为16–23%；但训练和评测集规模较小。</span>
+        <span class="en">CircuitProver translates parameterized hardware and natural-language specifications into Lean 4 models, then uses an agentic loop to construct machine-checked proofs. Its key proposal is to retain proof traces and theorems as reusable libraries instead of re-solving each design instance with opaque model checking. The idea could lower repeated formal-verification effort, but its value will depend on translation fidelity and performance on industrial-scale RTL.</span>
+        <span class="zh">CircuitProver将参数化硬件和自然语言规格转换为Lean 4模型，再通过代理式循环构造机器检查证明。其核心主张是把证明轨迹和定理沉淀为可复用库，而不是以不透明模型检查为每个设计实例重新求解。这一思路可能降低重复形式验证工作量，但其价值将取决于转换保真度及其在工业级RTL上的性能。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.23218" target="_blank" rel="noopener">
-          <span class="en">SPARC traces pre-silicon power side-channel leakage to its source</span>
-          <span class="zh">SPARC追溯流片前功耗侧信道泄漏根因</span>
+        <a href="https://arxiv.org/abs/2607.24998" target="_blank" rel="noopener">
+          <span class="en">VPR-Evolve Uses Agents to Specialize FPGA Place and Route</span>
+          <span class="zh">VPR-Evolve使用智能体特化FPGA布局布线</span>
         </a>
       </h3>
-      <p class="authors">Andrija Nešković, Christian Ewert, et al.</p>
+      <p class="authors">Q. Wu, T. Jafri, A. Arora, V. A. Chhabria</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.23218" target="_blank" rel="noopener">arXiv:2607.23218</a> · 2026-07-25</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.24998" target="_blank" rel="noopener">arXiv:2607.24998</a> · 2026-07-27</p>
       <p class="summary">
-        <span class="en">SPARC automates pre-silicon detection and root-cause analysis of processor power side-channel leakage using macro-cell information-flow tracking and enhanced shadow logic. It attributes secret-dependent switching to hardware signals and corresponding software instructions, which could make mitigation more actionable than a leakage score alone; validation is reported on open-source RISC-V CPUs.</span>
-        <span class="zh">SPARC利用宏单元级信息流跟踪和增强影子逻辑，自动检测并根因分析处理器流片前功耗侧信道泄漏。它将秘密相关开关活动归因到硬件信号及相应软件指令，因此比单独给出泄漏分数更有助于缓解；验证对象为开源RISC-V CPU。</span>
+        <span class="en">VPR-Evolve uses LLM agents to modify the source code of the VPR FPGA place-and-route flow for each target design, scoring candidates through full builds and runs. Across five VTR-9 benchmarks, it improves a composite delay, wirelength, and runtime score by up to 2.7% over stock VPR. The measured gain is modest, yet the work tests a more consequential premise: agents can search beyond conventional CAD hyperparameters if evaluation remains rigorous.</span>
+        <span class="zh">VPR-Evolve使用LLM智能体为每个目标设计修改VPR FPGA布局布线流程的源代码，并通过完整编译和运行来评估候选方案。在五个VTR-9基准上，其延迟、线长和运行时间的综合评分相对原版VPR最高提升2.7%。测得增益并不大，但该工作检验了一个更重要的前提：只要评估足够严格，智能体可以探索超越传统CAD超参数调优的空间。</span>
       </p>
     </article>
   </section>
@@ -513,8 +525,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-07-31 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-07-31 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-01 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-01 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
