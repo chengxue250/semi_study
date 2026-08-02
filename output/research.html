@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-01">
+<meta name="edition-date" content="2026-08-02">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Making Efficient AI Compute More Physical — Semi Research 2026-08-01</title>
+<title>Ferroelectrics Push Memory and Compute Integration — Semi Research 2026-08-02</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,185 +319,128 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Saturday, August 1, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月1日 星期六</span>
+      <span class="en">Research digest · Sunday, August 2, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月2日 星期日</span>
     </div>
     <h1>
-      <span class="en">Making Efficient AI Compute More Physical</span>
-      <span class="zh">让高效AI计算更贴近物理实现</span>
+      <span class="en">Ferroelectrics Push Memory and Compute Integration</span>
+      <span class="zh">铁电技术推进存储与计算融合</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s work moves beyond model-level efficiency into sparse dataflows, quantization hardware, analog-memory drift, and the formal tools needed to build them. Several papers pair algorithms with measured or implementation-aware hardware costs, though most remain preprints and need independent validation.</span>
-      <span class="zh">本周研究将效率优化从模型层面推进到稀疏数据流、量化硬件、模拟存储漂移以及相应的形式化工具。多篇论文把算法与实测或面向实现的硬件成本结合起来，但大多仍为预印本，尚需独立验证。</span>
+      <span class="en">This week&#x27;s device papers focus on ferroelectric memory windows, disturbance tolerance, and vertical integration. Compute-in-memory work focuses on reducing conversion and accumulation overhead without abandoning configurable precision.</span>
+      <span class="zh">本周器件论文聚焦铁电存储窗、抗扰性和垂直集成。存算一体研究则着力降低转换和累加开销，同时保持可配置精度。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
     </div>
   </header>
 
-    <section class="area" id="accelerators">
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3702162" target="_blank" rel="noopener">
+          <span class="en">Ionic FET Uses an Ozone-Oxidized Barrier to Improve ECRAM Retention</span>
+          <span class="zh">采用臭氧氧化阻挡层提升ECRAM保持特性的离子场效应晶体管</span>
+        </a>
+      </h3>
+      <p class="authors">Jongseon Seo, Geonhui Han, Laeyong Jung, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3702162" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The authors add an ultrathin ozone-oxidized barrier to a WO3−x/HfOx ionic-FET ECRAM stack to suppress ion back-diffusion without blocking useful ion injection. They report a roughly 7.6-V memory window, stable 3-bit operation, and endurance above 10^5 program/erase cycles; retention above 10^6 is a room-temperature projection that still needs system-level validation.</span>
+        <span class="zh">作者在WO3−x/HfOx离子FET ECRAM堆栈中加入超薄臭氧氧化阻挡层，以抑制离子回扩散，同时保留有效的离子注入。器件报告约7.6 V存储窗、稳定的3 bit操作和超过10^5次的写擦耐久度；超过10^6的室温保持时间为推算值，仍需系统级验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3704279" target="_blank" rel="noopener">
+          <span class="en">Five-Layer Selector-Free Ferroelectric Diodes for 3D Cross-Point Memory</span>
+          <span class="zh">用于三维交叉点存储的五层无选通铁电二极管</span>
+        </a>
+      </h3>
+      <p class="authors">Wenjuan Zhou, Ruizhan Yan, Renhao Xue, Mansun Chan, Xiwen Liu</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3704279" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">This work experimentally demonstrates a monolithic five-layer cross-point-memory stack using hafnia-based ferroelectric diodes and an all-ALD process. The approximately 10-nm-per-tier stack reaches an ON/OFF ratio near 10^3, nonlinearity up to about 600, 50-ns programming, and endurance beyond 10^7 cycles, directly addressing selector and layer-uniformity limits in vertical memory.</span>
+        <span class="zh">该研究实验演示了采用HfO2基铁电二极管和全ALD工艺的单片五层交叉点存储堆栈。该堆栈每层约10 nm，实现约10^3的开关比、最高约600的非线性度、50 ns编程和超过10^7次耐久度，直接应对垂直存储中的选通器与层间均匀性难题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3703446" target="_blank" rel="noopener">
+          <span class="en">La-Doped HfO2 Improves FeFET Disturbance Immunity</span>
+          <span class="zh">La掺杂HfO2提升FeFET抗扰性</span>
+        </a>
+      </h3>
+      <p class="authors">Sheung Hun Kim, Youngkeun Park, Batzorig Buyantogtokh, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3703446" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The study replaces conventional HfZrO2 with La-doped HfO2 in a ferroelectric FET and reports 2Pr of 47.8 μC/cm². Relative to HfZrO2 devices, the La-doped FeFETs show a 16.0% wider memory window and smaller threshold shifts during disturb cycling, making the material choice relevant to dense nonvolatile-memory arrays.</span>
+        <span class="zh">研究以La掺杂HfO2替代传统HfZrO2作为铁电FET层，并报告47.8 μC/cm²的2Pr。与HfZrO2器件相比，La掺杂FeFET的存储窗扩大16.0%，且在扰动循环中的阈值漂移更小，因此该材料选择对高密度非易失存储阵列具有意义。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.27844" target="_blank" rel="noopener">
-          <span class="en">Nanoparticle Networks for Neuromorphic Computing</span>
-          <span class="zh">用于神经形态计算的纳米颗粒网络</span>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3689104" target="_blank" rel="noopener">
+          <span class="en">Compute-Fusion SAR ADC Reduces Overhead in Reconfigurable CIM</span>
+          <span class="zh">计算融合SAR ADC降低可重构存算一体开销</span>
         </a>
       </h3>
-      <p class="authors">J. Mensing, W. G. van der Wiel, A. Heuer</p>
+      <p class="authors">S. Q. Yan, J. Wang, S. Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.27844" target="_blank" rel="noopener">arXiv:2607.27844</a> · 2026-07-30</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3689104" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">The authors turn metallic nanoparticles linked by molecular junctions on SiO2/Si into a tunable nonlinear reservoir by surrounding them with control electrodes. Their analysis identifies operating frequency, oxide thickness, and junction disorder as design levers for balancing tunneling nonlinearity against memory. It offers useful physical rules for reservoir hardware, although the paper&#x27;s computational benefits will depend on reproducibility across fabricated networks.</span>
-        <span class="zh">作者在SiO2/Si衬底上利用分子结连接金属纳米颗粒，并通过周围控制电极将其转化为可调非线性储备池。研究指出工作频率、氧化层厚度和结的无序度是平衡隧穿非线性与记忆特性的关键设计变量。该工作为储备池硬件提供了有用的物理设计规则，但其计算收益仍取决于不同制造网络之间的可重复性。</span>
+        <span class="en">This 40-nm CMOS compute-in-memory macro reuses its capacitor array for charge-domain MACs and SAR conversion, then combines quantization storage with in-memory serial accumulation. The authors report a 44% transistor-count reduction, up to 250.73 TOPS/W and 255.5 GOPS, with selectable 1-, 2-, and 4-bit signed or unsigned weights; reported task accuracy remains below full-precision baselines on CIFAR-10.</span>
+        <span class="zh">这款40 nm CMOS存算一体宏复用电容阵列完成电荷域MAC和SAR转换，并把量化结果存储与存内串行累加结合。作者报告晶体管数量减少44%、最高250.73 TOPS/W和255.5 GOPS，并支持1、2、4 bit有符号或无符号权重；其在CIFAR-10上的报告精度仍低于全精度基线。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.25504" target="_blank" rel="noopener">
-          <span class="en">Sparse Tensor Contractions Near the Vector-Processor Roofline</span>
-          <span class="zh">逼近向量处理器屋顶线的稀疏张量收缩</span>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3691526" target="_blank" rel="noopener">
+          <span class="en">MoS2-Enhanced 2T2R Cell Enables One-Step In-Memory XNOR for BNNs</span>
+          <span class="zh">MoS2增强型2T2R单元实现面向BNN的一步存内XNOR</span>
         </a>
       </h3>
-      <p class="authors">B. Wang, C. Zhang, D. Shen, et al.</p>
+      <p class="authors">Zhoujie Pan, Yuwan Hong, Dingyi Zhang, Yanming Liu, He Tian</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.25504" target="_blank" rel="noopener">arXiv:2607.25504</a> · 2026-07-28</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3691526" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">Ventaglio adds a configurable sparse-execution unit and RVV extensions for indexed gather-accumulate-scatter operations used in Transformer inference. In a 12 nm open-source vector cluster, the design reports 6.9–7.4× faster sparse contractions than optimized RVV baselines for a 3.1% cluster-area overhead. The results make a strong architectural case, but their system-level value depends on workloads retaining enough structured sparsity to amortize metadata handling.</span>
-        <span class="zh">Ventaglio为Transformer推理中的索引式gather-accumulate-scatter操作加入可配置稀疏执行单元和RVV扩展。在12 nm开源向量集群中，设计相对优化RVV基线实现了6.9–7.4倍的稀疏张量收缩加速，集群面积开销为3.1%。结果有力支持该架构思路，但系统层面的收益仍取决于工作负载能否保持足够的结构化稀疏性，以摊薄元数据处理成本。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.25058" target="_blank" rel="noopener">
-          <span class="en">Recovering Floating-Gate CIM Accuracy After Retention Loss</span>
-          <span class="zh">缓解浮栅存算一体的保持损失以恢复精度</span>
-        </a>
-      </h3>
-      <p class="authors">M. Brazzini, G. Filippeschi, A. Catania, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.25058" target="_blank" rel="noopener">arXiv:2607.25058</a> · 2026-07-27</p>
-      <p class="summary">
-        <span class="en">This paper combines circuit-level compensation with batch-normalization recalibration to offset retention loss in a 65 nm single-poly floating-gate analog CIM array. With a retention model calibrated to experiments, the authors recover baseline inference accuracy to within 2–4% after 60 days on VGG-10 and WideResNet workloads. It directly addresses a practical deployment problem, though the result leaves endurance, reprogramming overhead, and broader model coverage to be quantified.</span>
-        <span class="zh">论文将电路级补偿与batch normalization重校准结合，用于抵消65 nm单层多晶硅浮栅模拟存算一体阵列的保持损失。基于实验校准的保持模型，作者在VGG-10和WideResNet任务上将编程60天后的推理精度恢复到距基线2–4%以内。该研究直面实际部署难题，但耐久性、重编程开销和更广泛模型覆盖仍有待量化。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="ai-research">
-    <h2>
-      <span class="en">AI Systems &amp; Inference</span>
-      <span class="zh">AI系统与推理</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.27694" target="_blank" rel="noopener">
-          <span class="en">GyRot: Rotation-Aware Group Quantization for Low-Bit LLMs</span>
-          <span class="zh">GyRot：面向低比特大模型的旋转感知分组量化</span>
-        </a>
-      </h3>
-      <p class="authors">S. Kim, Y. Choi, B. Kim, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.27694" target="_blank" rel="noopener">arXiv:2607.27694</a> · 2026-07-30</p>
-      <p class="summary">
-        <span class="en">GyRot co-designs coarse rotation, fine-grained grouping, and integer dequantization to avoid the mismatch between global rotations and local quantization scales. Its INT4 tensor-processing element reports up to 3.4× speedup and 3.6× energy efficiency over baseline LLM accelerators while maintaining leading 4-bit LLaMA-family accuracy. The claims are promising, but comparison against production quantization stacks and complete memory-system costs will determine portability.</span>
-        <span class="zh">GyRot协同设计粗粒度旋转、细粒度分组和整数反量化，以避免全局旋转与局部量化尺度之间的不匹配。其INT4张量处理单元在保持LLaMA系列领先4 bit精度的同时，相对基线LLM加速器报告最高3.4倍加速和3.6倍能效提升。结果颇具潜力，但与生产级量化栈及完整存储系统成本的比较将决定其可移植性。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.25498" target="_blank" rel="noopener">
-          <span class="en">Dynamic Operator Scheduling Beyond Prefill–Decode Disaggregation</span>
-          <span class="zh">超越Prefill–Decode解耦的动态算子调度</span>
-        </a>
-      </h3>
-      <p class="authors">J. Yang, J. Li, Y. Fu, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.25498" target="_blank" rel="noopener">arXiv:2607.25498</a> · 2026-07-28</p>
-      <p class="summary">
-        <span class="en">DOPS schedules LLM operators across heterogeneous NPU and processing-in-memory systems while also choosing blockwise weight layouts under memory constraints. The Bifocal scheduler achieves a 1.20–2.23× geometric-mean speedup over a prefill–decode baseline, and layout selection adds a further 1.28–1.33×. The framework is useful because it treats contention and weight placement as first-class factors, although it needs validation on commercially deployed heterogeneous servers.</span>
-        <span class="zh">DOPS在异构NPU与processing-in-memory系统之间调度LLM算子，同时在内存约束下选择分块权重布局。Bifocal调度器相对prefill–decode基线取得1.20–2.23倍几何平均加速，布局选择再带来1.28–1.33倍提升。该框架将资源争用和权重摆放视为一等因素，但仍需在商用异构服务器上验证。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices &amp; Reliability</span>
-      <span class="zh">器件与可靠性</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.25505" target="_blank" rel="noopener">
-          <span class="en">Accurate Write-Error Modeling for Asymmetric MRAM</span>
-          <span class="zh">非轴对称MRAM的精确写入错误建模</span>
-        </a>
-      </h3>
-      <p class="authors">F. Garcia Redondo, T. Bhowmik, M. G. Monteiro, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.25505" target="_blank" rel="noopener">arXiv:2607.25505</a> · 2026-07-28</p>
-      <p class="summary">
-        <span class="en">The work develops a two-dimensional finite-volume Fokker–Planck solver for write-error rates in STT- and SOT-MRAM devices whose symmetry is broken by fields or torques. It is validated against one million stochastic LLG trajectories and shows that discretization choice can materially change predicted error rates. This is a modeling advance rather than a new cell demonstration, but it could improve design margins for magnetic memories with complex switching dynamics.</span>
-        <span class="zh">该研究为受磁场或力矩破坏对称性的STT和SOT-MRAM器件建立二维有限体积Fokker–Planck写入错误率求解器。模型与100万条随机LLG轨迹进行了验证，并显示离散化方案会实质性改变预测错误率。这是一项建模进展而非新存储单元演示，但有望改善复杂翻转动力学磁存储器的设计裕量。</span>
+        <span class="en">The paper proposes a MoS2-transistor-enhanced antisymmetric 2T2R in-memory XNOR cell that completes write and compute in one step for binary neural-network workloads. It argues that the device choice can reduce static power and support monolithic 3D integration, while the BNN mapping makes quantization error an explicit system-level trade-off.</span>
+        <span class="zh">论文提出一种由MoS2晶体管增强的非对称2T2R存内XNOR单元，可针对二值神经网络在一步内完成写入与计算。作者认为该器件选择能降低静态功耗并支持单片三维集成，同时配套的BNN映射把量化误差作为明确的系统级权衡。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Architectures</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">Circuits &amp; Modeling</span>
+      <span class="zh">电路与建模</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.26835" target="_blank" rel="noopener">
-          <span class="en">A 16 nm Sparse Convolution Accelerator for Edge Vision</span>
-          <span class="zh">面向边缘视觉的16 nm稀疏卷积加速器</span>
+        <a href="https://doi.org/10.1109/LED.2026.3697987" target="_blank" rel="noopener">
+          <span class="en">Reduced Landau–Khalatnikov Model Captures HfO2 Ferroelectric Dynamics</span>
+          <span class="zh">简化Landau–Khalatnikov模型刻画HfO2铁电动态</span>
         </a>
       </h3>
-      <p class="authors">J. Zhuge, J. Partzsch, C. Mayr</p>
+      <p class="authors">Bing Chen, Haoran Yu, Wenhao Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.26835" target="_blank" rel="noopener">arXiv:2607.26835</a> · 2026-07-29</p>
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3697987" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">A 16 nm sparse-convolution accelerator uses bitmap compression and an idle-first task assignment policy to reduce bandwidth demand and processing-element imbalance. The reported core area is 0.5 mm² and power is 12–16 mW, with a dedicated dataflow for depthwise separable convolution. Its silicon-oriented constraints make it relevant to edge vision, though the practical advantage depends on sparsity patterns and end-to-end sensor-system energy.</span>
-        <span class="zh">这款16 nm稀疏卷积加速器采用位图压缩和idle-first任务分配策略，以降低带宽需求及处理单元负载不均。其报告的核心面积为0.5 mm²、功耗为12–16 mW，并为depthwise separable convolution设计专用数据流。其面向硅实现的约束使之与边缘视觉相关，但实际优势仍取决于稀疏模式和端到端传感系统能耗。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">EDA &amp; Verification</span>
-      <span class="zh">EDA与验证</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.27259" target="_blank" rel="noopener">
-          <span class="en">CircuitProver: Reusable Lean 4 Proofs for Hardware Verification</span>
-          <span class="zh">CircuitProver：用于硬件验证的可复用Lean 4证明</span>
-        </a>
-      </h3>
-      <p class="authors">Z. Yang, W. Fang, C. Chen, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.27259" target="_blank" rel="noopener">arXiv:2607.27259</a> · 2026-07-29</p>
-      <p class="summary">
-        <span class="en">CircuitProver translates parameterized hardware and natural-language specifications into Lean 4 models, then uses an agentic loop to construct machine-checked proofs. Its key proposal is to retain proof traces and theorems as reusable libraries instead of re-solving each design instance with opaque model checking. The idea could lower repeated formal-verification effort, but its value will depend on translation fidelity and performance on industrial-scale RTL.</span>
-        <span class="zh">CircuitProver将参数化硬件和自然语言规格转换为Lean 4模型，再通过代理式循环构造机器检查证明。其核心主张是把证明轨迹和定理沉淀为可复用库，而不是以不透明模型检查为每个设计实例重新求解。这一思路可能降低重复形式验证工作量，但其价值将取决于转换保真度及其在工业级RTL上的性能。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.24998" target="_blank" rel="noopener">
-          <span class="en">VPR-Evolve Uses Agents to Specialize FPGA Place and Route</span>
-          <span class="zh">VPR-Evolve使用智能体特化FPGA布局布线</span>
-        </a>
-      </h3>
-      <p class="authors">Q. Wu, T. Jafri, A. Arora, V. A. Chhabria</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.24998" target="_blank" rel="noopener">arXiv:2607.24998</a> · 2026-07-27</p>
-      <p class="summary">
-        <span class="en">VPR-Evolve uses LLM agents to modify the source code of the VPR FPGA place-and-route flow for each target design, scoring candidates through full builds and runs. Across five VTR-9 benchmarks, it improves a composite delay, wirelength, and runtime score by up to 2.7% over stock VPR. The measured gain is modest, yet the work tests a more consequential premise: agents can search beyond conventional CAD hyperparameters if evaluation remains rigorous.</span>
-        <span class="zh">VPR-Evolve使用LLM智能体为每个目标设计修改VPR FPGA布局布线流程的源代码，并通过完整编译和运行来评估候选方案。在五个VTR-9基准上，其延迟、线长和运行时间的综合评分相对原版VPR最高提升2.7%。测得增益并不大，但该工作检验了一个更重要的前提：只要评估足够严格，智能体可以探索超越传统CAD超参数调优的空间。</span>
+        <span class="en">The authors develop a reduced multi-domain Landau–Khalatnikov model for HfO2-based ferroelectrics and match simulated P–V behavior to fabricated Hf0.5Zr0.5O2 samples across anneal temperatures. They use it to predict FRAM read waveforms and simulate negative capacitance in a 1FE-capacitor/1-resistor cell, offering a lighter-weight bridge from measured device behavior to circuit exploration.</span>
+        <span class="zh">作者开发了用于HfO2基铁电材料的简化多畴Landau–Khalatnikov模型，并使模拟P–V特性与不同退火温度下制备的Hf0.5Zr0.5O2样品相吻合。该模型还用于预测FRAM读出波形和模拟1个铁电电容加1个电阻单元中的负电容效应，为从实测器件到电路探索提供了更轻量的桥梁。</span>
       </p>
     </article>
   </section>
@@ -525,8 +468,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-01 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-01 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-02 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-02 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
