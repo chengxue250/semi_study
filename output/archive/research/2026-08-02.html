@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-03">
+<meta name="edition-date" content="2026-08-02">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Hardware-aware design confronts data movement — Semi Research 2026-08-03</title>
+<title>Ferroelectrics Push Memory and Compute Integration — Semi Research 2026-08-02</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-02.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, August 3, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月3日 星期一</span>
+      <span class="en">Research digest · Sunday, August 2, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月2日 星期日</span>
     </div>
     <h1>
-      <span class="en">Hardware-aware design confronts data movement</span>
-      <span class="zh">硬件感知设计直面数据移动瓶颈</span>
+      <span class="en">Ferroelectrics Push Memory and Compute Integration</span>
+      <span class="zh">铁电技术推进存储与计算融合</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s selection shifts attention from nominal operations to the interfaces that make them useful: unstable clocks, KV-cache noise, chiplet PHYs, and HLS verification. Several papers offer measured or simulated gains, but their practical value hinges on device variation and system-level integration.</span>
-      <span class="zh">本周论文把关注点从名义运算能力转向决定其实用性的接口：不稳定时钟、KV缓存噪声、chiplet PHY以及HLS验证。多篇工作给出测量或仿真增益，但其实际价值仍取决于器件变异和系统级集成。</span>
+      <span class="en">This week&#x27;s device papers focus on ferroelectric memory windows, disturbance tolerance, and vertical integration. Compute-in-memory work focuses on reducing conversion and accumulation overhead without abandoning configurable precision.</span>
+      <span class="zh">本周器件论文聚焦铁电存储窗、抗扰性和垂直集成。存算一体研究则着力降低转换和累加开销，同时保持可配置精度。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -343,53 +343,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.29357" target="_blank" rel="noopener">
-          <span class="en">Low-Power PLL-Based Clock Stabilization for Flexible IGZO Mixed-Signal Systems</span>
-          <span class="zh">面向柔性IGZO混合信号系统的低功耗PLL时钟稳定技术</span>
+        <a href="https://doi.org/10.1109/LED.2026.3702162" target="_blank" rel="noopener">
+          <span class="en">Ionic FET Uses an Ozone-Oxidized Barrier to Improve ECRAM Retention</span>
+          <span class="zh">采用臭氧氧化阻挡层提升ECRAM保持特性的离子场效应晶体管</span>
         </a>
       </h3>
-      <p class="authors">Paula Carolina Lozano Duarte, Georgios Zervakis, Mehdi Tahoori</p>
+      <p class="authors">Jongseon Seo, Geonhui Han, Laeyong Jung, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.29357" target="_blank" rel="noopener">arXiv:2607.29357</a> · 2026-07-31T12:46:00Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3702162" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">The authors propose a PLL tailored to n-type-only amorphous IGZO thin-film transistors, using low-bandwidth feedback to stabilize a ring-oscillator clock under large process, voltage, and temperature variation. It targets flexible mixed-signal electronics, where conventional clock sources can consume up to 90% of system power. This is a temporal stabilizer rather than a precision synthesizer, so its value depends on tolerance for residual jitter and drift.</span>
-        <span class="zh">作者提出面向仅含n型非晶IGZO薄膜晶体管的PLL，以低带宽反馈在较大的工艺、电压和温度变化下稳定环形振荡器时钟。其目标是柔性混合信号电子系统，传统时钟源在此类系统中可消耗高达90%的系统功耗。这更像时间稳定器而非高精度频率合成器，因此价值取决于应用对残余抖动和漂移的容忍度。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2607.29283" target="_blank" rel="noopener">
-          <span class="en">RTLCurator: Label-Efficient Data Curation for RTL Generation</span>
-          <span class="zh">RTLCurator：面向RTL生成的高标签效率数据筛选</span>
-        </a>
-      </h3>
-      <p class="authors">Siyang Cai, Cangyuan Li, Wenjing Chang, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2607.29283" target="_blank" rel="noopener">arXiv:2607.29283</a> · 2026-07-31T10:55:01Z</p>
-      <p class="summary">
-        <span class="en">RTLCurator learns a behavior-aware compatibility prior from a small set of validated examples to select training data for RTL-generating models. Only 24.4% and 53.5% of pairs in two common synthetic RTL datasets pass generated functional tests, the paper says. By balancing alignment, diversity, and complexity, it seeks to retain data beyond simple correct modules, but remains dependent on representative validation labels.</span>
-        <span class="zh">RTLCurator从少量已验证样本中学习行为感知的兼容性先验，用于筛选RTL生成模型的训练数据。论文指出，两个常用合成RTL数据集分别仅有24.4%和53.5%的样本对能通过自动生成的功能测试。该方法平衡对齐度、多样性和复杂度，试图保留超越简单正确模块的数据，但仍依赖具有代表性的验证标签。</span>
+        <span class="en">The authors add an ultrathin ozone-oxidized barrier to a WO3−x/HfOx ionic-FET ECRAM stack to suppress ion back-diffusion without blocking useful ion injection. They report a roughly 7.6-V memory window, stable 3-bit operation, and endurance above 10^5 program/erase cycles; retention above 10^6 is a room-temperature projection that still needs system-level validation.</span>
+        <span class="zh">作者在WO3−x/HfOx离子FET ECRAM堆栈中加入超薄臭氧氧化阻挡层，以抑制离子回扩散，同时保留有效的离子注入。器件报告约7.6 V存储窗、稳定的3 bit操作和超过10^5次的写擦耐久度；超过10^6的室温保持时间为推算值，仍需系统级验证。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.25283" target="_blank" rel="noopener">
-          <span class="en">ContractHIL-HLS: Contract-Aligned Hardware-in-the-Loop Workflow for HLS</span>
-          <span class="zh">ContractHIL-HLS：契约对齐、硬件在环的HLS工作流</span>
+        <a href="https://doi.org/10.1109/LED.2026.3704279" target="_blank" rel="noopener">
+          <span class="en">Five-Layer Selector-Free Ferroelectric Diodes for 3D Cross-Point Memory</span>
+          <span class="zh">用于三维交叉点存储的五层无选通铁电二极管</span>
         </a>
       </h3>
-      <p class="authors">Jingbo Zhang, Haoxiang Sun, Wenbo Wang, Wenbo Zhang</p>
+      <p class="authors">Wenjuan Zhou, Ruizhan Yan, Renhao Xue, Mansun Chan, Xiwen Liu</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.25283" target="_blank" rel="noopener">arXiv:2607.25283</a> · 2026-07-28T04:41:13Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3704279" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">ContractHIL-HLS turns natural-language design requests into explicit interfaces, constraints, checks, and rollback rules, then feeds HLS, Vivado, PYNQ, power, and failure evidence back into generation. On 94 HLS-Eval tasks, its structured contract lifted estimated single-sample testbench pass rate from 64.0% to 70.2%. The feedback loop makes LLM-assisted HLS more verifiable, though board-level closure remains harder than benchmark tasks.</span>
-        <span class="zh">ContractHIL-HLS将自然语言设计需求转化为明确的接口、约束、检查和回滚规则，再把HLS、Vivado、PYNQ、功耗与失败证据反馈到生成过程。在94个HLS-Eval任务上，结构化契约将估计的单样本测试平台通过率从64.0%提高至70.2%。该反馈循环使LLM辅助HLS更可验证，但板级收敛仍比基准任务更难。</span>
+        <span class="en">This work experimentally demonstrates a monolithic five-layer cross-point-memory stack using hafnia-based ferroelectric diodes and an all-ALD process. The approximately 10-nm-per-tier stack reaches an ON/OFF ratio near 10^3, nonlinearity up to about 600, 50-ns programming, and endurance beyond 10^7 cycles, directly addressing selector and layer-uniformity limits in vertical memory.</span>
+        <span class="zh">该研究实验演示了采用HfO2基铁电二极管和全ALD工艺的单片五层交叉点存储堆栈。该堆栈每层约10 nm，实现约10^3的开关比、最高约600的非线性度、50 ns编程和超过10^7次耐久度，直接应对垂直存储中的选通器与层间均匀性难题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3703446" target="_blank" rel="noopener">
+          <span class="en">La-Doped HfO2 Improves FeFET Disturbance Immunity</span>
+          <span class="zh">La掺杂HfO2提升FeFET抗扰性</span>
+        </a>
+      </h3>
+      <p class="authors">Sheung Hun Kim, Youngkeun Park, Batzorig Buyantogtokh, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3703446" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The study replaces conventional HfZrO2 with La-doped HfO2 in a ferroelectric FET and reports 2Pr of 47.8 μC/cm². Relative to HfZrO2 devices, the La-doped FeFETs show a 16.0% wider memory window and smaller threshold shifts during disturb cycling, making the material choice relevant to dense nonvolatile-memory arrays.</span>
+        <span class="zh">研究以La掺杂HfO2替代传统HfZrO2作为铁电FET层，并报告47.8 μC/cm²的2Pr。与HfZrO2器件相比，La掺杂FeFET的存储窗扩大16.0%，且在扰动循环中的阈值漂移更小，因此该材料选择对高密度非易失存储阵列具有意义。</span>
       </p>
     </article>
   </section>
@@ -400,53 +394,53 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.29076" target="_blank" rel="noopener">
-          <span class="en">Selective KV-Cache Protection for Analog Compute-in-Memory LLM Inference</span>
-          <span class="zh">用于模拟存算一体LLM推理的选择性KV缓存保护</span>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3689104" target="_blank" rel="noopener">
+          <span class="en">Compute-Fusion SAR ADC Reduces Overhead in Reconfigurable CIM</span>
+          <span class="zh">计算融合SAR ADC降低可重构存算一体开销</span>
         </a>
       </h3>
-      <p class="authors">Yuannuo Feng, Wenyong Zhou, Yuang Ma, et al.</p>
+      <p class="authors">S. Q. Yan, J. Wang, S. Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.29076" target="_blank" rel="noopener">arXiv:2607.29076</a> · 2026-07-31T06:56:20Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3689104" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">The paper identifies initial and recent tokens as especially vulnerable to analog noise when KV-cache updates run on compute-in-memory arrays. Its scheme keeps those tokens on a higher-precision digital path while sending most cache data through analog hardware. Across nine LLMs, average perplexity falls from 33.91 to 11.95 under analog noise, but the trade-off depends on programming overhead and the noise model.</span>
-        <span class="zh">论文发现，当KV缓存更新在存算一体阵列上运行时，初始token和最近token对模拟噪声尤其敏感。其方案将这些token保留在高精度数字路径，同时把大部分缓存数据交由模拟硬件处理。作者在9个LLM上报告，模拟噪声下平均困惑度从33.91降至11.95，但权衡取决于编程开销和噪声模型。</span>
+        <span class="en">This 40-nm CMOS compute-in-memory macro reuses its capacitor array for charge-domain MACs and SAR conversion, then combines quantization storage with in-memory serial accumulation. The authors report a 44% transistor-count reduction, up to 250.73 TOPS/W and 255.5 GOPS, with selectable 1-, 2-, and 4-bit signed or unsigned weights; reported task accuracy remains below full-precision baselines on CIFAR-10.</span>
+        <span class="zh">这款40 nm CMOS存算一体宏复用电容阵列完成电荷域MAC和SAR转换，并把量化结果存储与存内串行累加结合。作者报告晶体管数量减少44%、最高250.73 TOPS/W和255.5 GOPS，并支持1、2、4 bit有符号或无符号权重；其在CIFAR-10上的报告精度仍低于全精度基线。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.24669" target="_blank" rel="noopener">
-          <span class="en">Heterogeneous Accelerator for Multitask RF Signal Recognition</span>
-          <span class="zh">面向多任务射频信号识别的异构加速器</span>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3691526" target="_blank" rel="noopener">
+          <span class="en">MoS2-Enhanced 2T2R Cell Enables One-Step In-Memory XNOR for BNNs</span>
+          <span class="zh">MoS2增强型2T2R单元实现面向BNN的一步存内XNOR</span>
         </a>
       </h3>
-      <p class="authors">Zhifan Song, Haralampos-G. Stratigopoulos, Hassan Aboushady</p>
+      <p class="authors">Zhoujie Pan, Yuwan Hong, Dingyi Zhang, Yanming Liu, He Tian</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.24669" target="_blank" rel="noopener">arXiv:2607.24669</a> · 2026-07-27T17:10:06Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3691526" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">This accelerator combines an attention-enhanced CNN, learnable streaming decimation, fused convolution-pooling, DMA streaming, and CPU co-execution for RF tasks. It reports 98 microseconds per frame, at least 99% average modulation-recognition accuracy above 4 dB SNR, and 99.5% for GNSS-jamming classification. Dataset accuracy is encouraging, but does not fully characterize field robustness.</span>
-        <span class="zh">该加速器将带注意力的CNN、可学习流式抽取、融合卷积—池化、DMA流和CPU协同执行用于射频任务。作者报告每帧98微秒延迟，在4 dB以上SNR的调制识别中平均准确率至少99%，GNSS干扰分类为99.5%。数据集准确率令人鼓舞，但尚不能完全说明现场鲁棒性。</span>
+        <span class="en">The paper proposes a MoS2-transistor-enhanced antisymmetric 2T2R in-memory XNOR cell that completes write and compute in one step for binary neural-network workloads. It argues that the device choice can reduce static power and support monolithic 3D integration, while the BNN mapping makes quantization error an explicit system-level trade-off.</span>
+        <span class="zh">论文提出一种由MoS2晶体管增强的非对称2T2R存内XNOR单元，可针对二值神经网络在一步内完成写入与计算。作者认为该器件选择能降低静态功耗并支持单片三维集成，同时配套的BNN映射把量化误差作为明确的系统级权衡。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与体系结构</span>
+      <span class="en">Circuits &amp; Modeling</span>
+      <span class="zh">电路与建模</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2607.24221" target="_blank" rel="noopener">
-          <span class="en">DICE: End-to-End PHY Modeling for Chiplet Simulation</span>
-          <span class="zh">DICE：用于chiplet仿真的端到端PHY建模</span>
+        <a href="https://doi.org/10.1109/LED.2026.3697987" target="_blank" rel="noopener">
+          <span class="en">Reduced Landau–Khalatnikov Model Captures HfO2 Ferroelectric Dynamics</span>
+          <span class="zh">简化Landau–Khalatnikov模型刻画HfO2铁电动态</span>
         </a>
       </h3>
-      <p class="authors">Rashid Aligholipour, Stefanos Kaxiras, Yuan Yao</p>
+      <p class="authors">Bing Chen, Haoran Yu, Wenhao Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2607.24221" target="_blank" rel="noopener">arXiv:2607.24221</a> · 2026-07-27T09:53:10Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3697987" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">DICE adds runtime-dependent PHY behavior to chiplet simulation, accounting for channel noise, crosstalk, jitter, iterative FEC decoding, retransmissions, and application traffic. The authors argue that fixed-latency links distort packet behavior as short-reach interconnects approach signal-integrity limits. The detail can improve architectural decisions, but credible early-stage device and channel parameters are needed.</span>
-        <span class="zh">DICE将运行时相关的PHY行为引入chiplet仿真，纳入信道噪声、串扰、抖动、迭代FEC解码、重传和应用流量。作者认为，当短距互连接近信号完整性极限时，固定延迟链路会扭曲数据包行为。细节建模可改善架构决策，但需要可信的早期器件和信道参数。</span>
+        <span class="en">The authors develop a reduced multi-domain Landau–Khalatnikov model for HfO2-based ferroelectrics and match simulated P–V behavior to fabricated Hf0.5Zr0.5O2 samples across anneal temperatures. They use it to predict FRAM read waveforms and simulate negative capacitance in a 1FE-capacitor/1-resistor cell, offering a lighter-weight bridge from measured device behavior to circuit exploration.</span>
+        <span class="zh">作者开发了用于HfO2基铁电材料的简化多畴Landau–Khalatnikov模型，并使模拟P–V特性与不同退火温度下制备的Hf0.5Zr0.5O2样品相吻合。该模型还用于预测FRAM读出波形和模拟1个铁电电容加1个电阻单元中的负电容效应，为从实测器件到电路探索提供了更轻量的桥梁。</span>
       </p>
     </article>
   </section>
@@ -474,8 +468,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-03 01:18 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-03 01:18 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-02 01:15 UTC · <a href="../2026-08-02.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-02 01:15 UTC · <a href="../2026-08-02.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
