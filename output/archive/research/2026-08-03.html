@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-04">
+<meta name="edition-date" content="2026-08-03">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Design tools confront data movement and verification — Semi Research 2026-08-04</title>
+<title>Hardware-aware design confronts data movement — Semi Research 2026-08-03</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-03.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Tuesday, August 4, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月4日 星期二</span>
+      <span class="en">Research digest · Monday, August 3, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月3日 星期一</span>
     </div>
     <h1>
-      <span class="en">Design tools confront data movement and verification</span>
-      <span class="zh">设计工具直面数据移动与验证</span>
+      <span class="en">Hardware-aware design confronts data movement</span>
+      <span class="zh">硬件感知设计直面数据移动瓶颈</span>
     </h1>
     <p class="dek">
-      <span class="en">This selection tests design automation against formal verification, policy selection, multi-die communication, and bandwidth-limited inference. The strongest gains come with explicit constraints rather than unconstrained code generation.</span>
-      <span class="zh">本期论文将设计自动化置于形式验证、策略选择、多芯粒通信和带宽受限推理等边界条件下检验。最显著的增益来自明确约束，而非无约束的代码生成。</span>
+      <span class="en">This week&#x27;s selection shifts attention from nominal operations to the interfaces that make them useful: unstable clocks, KV-cache noise, chiplet PHYs, and HLS verification. Several papers offer measured or simulated gains, but their practical value hinges on device variation and system-level integration.</span>
+      <span class="zh">本周论文把关注点从名义运算能力转向决定其实用性的接口：不稳定时钟、KV缓存噪声、chiplet PHY以及HLS验证。多篇工作给出测量或仿真增益，但其实际价值仍取决于器件变异和系统级集成。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -336,60 +336,60 @@
     </div>
   </header>
 
-    <section class="area" id="eda">
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.29357" target="_blank" rel="noopener">
+          <span class="en">Low-Power PLL-Based Clock Stabilization for Flexible IGZO Mixed-Signal Systems</span>
+          <span class="zh">面向柔性IGZO混合信号系统的低功耗PLL时钟稳定技术</span>
+        </a>
+      </h3>
+      <p class="authors">Paula Carolina Lozano Duarte, Georgios Zervakis, Mehdi Tahoori</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.29357" target="_blank" rel="noopener">arXiv:2607.29357</a> · 2026-07-31T12:46:00Z</p>
+      <p class="summary">
+        <span class="en">The authors propose a PLL tailored to n-type-only amorphous IGZO thin-film transistors, using low-bandwidth feedback to stabilize a ring-oscillator clock under large process, voltage, and temperature variation. It targets flexible mixed-signal electronics, where conventional clock sources can consume up to 90% of system power. This is a temporal stabilizer rather than a precision synthesizer, so its value depends on tolerance for residual jitter and drift.</span>
+        <span class="zh">作者提出面向仅含n型非晶IGZO薄膜晶体管的PLL，以低带宽反馈在较大的工艺、电压和温度变化下稳定环形振荡器时钟。其目标是柔性混合信号电子系统，传统时钟源在此类系统中可消耗高达90%的系统功耗。这更像时间稳定器而非高精度频率合成器，因此价值取决于应用对残余抖动和漂移的容忍度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
     <h2>
       <span class="en">EDA &amp; Design Automation</span>
       <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.01045" target="_blank" rel="noopener">
-          <span class="en">Forbench: symbolic simulation for more formal testbenches</span>
-          <span class="zh">Forbench：让测试平台更具形式化能力的符号仿真</span>
+        <a href="https://arxiv.org/abs/2607.29283" target="_blank" rel="noopener">
+          <span class="en">RTLCurator: Label-Efficient Data Curation for RTL Generation</span>
+          <span class="zh">RTLCurator：面向RTL生成的高标签效率数据筛选</span>
         </a>
       </h3>
-      <p class="authors">Ziyi Yang, Wenbin Che, Ziyue Zheng, Guangyu Hu, Hongce Zhang</p>
+      <p class="authors">Siyang Cai, Cangyuan Li, Wenjing Chang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.01045" target="_blank" rel="noopener">arXiv:2608.01045</a> · 2026-08-02T07:02:26Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.29283" target="_blank" rel="noopener">arXiv:2607.29283</a> · 2026-07-31T10:55:01Z</p>
       <p class="summary">
-        <span class="en">Forbench retains a simulation-style workflow while adding solver-backed symbolic signals and state transitions to explore RTL behavior beyond sampled tests. It aims to lower the property-writing barrier to formal verification; its practical value will depend on scaling the symbolic engine to large designs.</span>
-        <span class="zh">Forbench保留仿真式工作流，同时加入由求解器支持的符号信号和状态转换，以探索超出抽样测试范围的RTL行为。它试图降低形式验证中的属性编写门槛，但其实用价值取决于符号引擎能否扩展到大型设计。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与体系结构</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.01041" target="_blank" rel="noopener">
-          <span class="en">Limits of machine-learned ranking for microarchitectural policies</span>
-          <span class="zh">机器学习排序在微架构策略中的局限</span>
-        </a>
-      </h3>
-      <p class="authors">Yanxin Zhang, Shayne Wadle, Yuxuan Xiong, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.01041" target="_blank" rel="noopener">arXiv:2608.01041</a> · 2026-08-02T06:55:43Z</p>
-      <p class="summary">
-        <span class="en">The authors find that ML performance predictors can rank structural hardware settings well in aggregate yet miss counter-intuitive execution windows. Such windows make up 22.4% of non-tied cases in the study, cautioning against using fast predictors as final policy selectors.</span>
-        <span class="zh">作者发现，机器学习性能预测器可在总体上较好地排序硬件结构设置，却会错过反直觉的执行窗口。此类窗口占研究中非平局情形的22.4%，因此不宜把快速预测器直接作为最终策略选择器。</span>
+        <span class="en">RTLCurator learns a behavior-aware compatibility prior from a small set of validated examples to select training data for RTL-generating models. Only 24.4% and 53.5% of pairs in two common synthetic RTL datasets pass generated functional tests, the paper says. By balancing alignment, diversity, and complexity, it seeks to retain data beyond simple correct modules, but remains dependent on representative validation labels.</span>
+        <span class="zh">RTLCurator从少量已验证样本中学习行为感知的兼容性先验，用于筛选RTL生成模型的训练数据。论文指出，两个常用合成RTL数据集分别仅有24.4%和53.5%的样本对能通过自动生成的功能测试。该方法平衡对齐度、多样性和复杂度，试图保留超越简单正确模块的数据，但仍依赖具有代表性的验证标签。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.01038" target="_blank" rel="noopener">
-          <span class="en">Dynamic selection among modern microarchitectural policies</span>
-          <span class="zh">现代微架构策略的动态选择</span>
+        <a href="https://arxiv.org/abs/2607.25283" target="_blank" rel="noopener">
+          <span class="en">ContractHIL-HLS: Contract-Aligned Hardware-in-the-Loop Workflow for HLS</span>
+          <span class="zh">ContractHIL-HLS：契约对齐、硬件在环的HLS工作流</span>
         </a>
       </h3>
-      <p class="authors">Yanxin Zhang, Ian McDougall, Junnan Li, et al.</p>
+      <p class="authors">Jingbo Zhang, Haoxiang Sun, Wenbo Wang, Wenbo Zhang</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.01038" target="_blank" rel="noopener">arXiv:2608.01038</a> · 2026-08-02T06:49:51Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.25283" target="_blank" rel="noopener">arXiv:2607.25283</a> · 2026-07-28T04:41:13Z</p>
       <p class="summary">
-        <span class="en">A composition study across 490 phases finds that the best global static prefetcher-and-replacement stack still trails a phase oracle by 1.33%. A selector changing only the L1D prefetcher can come within 0.039% IPC of an eight-configuration oracle, suggesting a narrow control interface.</span>
-        <span class="zh">一项覆盖490个阶段的组合研究发现，最佳全局静态预取与替换策略组合仍比阶段预言机低1.33%。仅切换L1D预取器的选择器即可达到距八配置预言机0.039% IPC以内，说明可以采用范围有限的控制接口。</span>
+        <span class="en">ContractHIL-HLS turns natural-language design requests into explicit interfaces, constraints, checks, and rollback rules, then feeds HLS, Vivado, PYNQ, power, and failure evidence back into generation. On 94 HLS-Eval tasks, its structured contract lifted estimated single-sample testbench pass rate from 64.0% to 70.2%. The feedback loop makes LLM-assisted HLS more verifiable, though board-level closure remains harder than benchmark tasks.</span>
+        <span class="zh">ContractHIL-HLS将自然语言设计需求转化为明确的接口、约束、检查和回滚规则，再把HLS、Vivado、PYNQ、功耗与失败证据反馈到生成过程。在94个HLS-Eval任务上，结构化契约将估计的单样本测试平台通过率从64.0%提高至70.2%。该反馈循环使LLM辅助HLS更可验证，但板级收敛仍比基准任务更难。</span>
       </p>
     </article>
   </section>
@@ -400,47 +400,53 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.00894" target="_blank" rel="noopener">
-          <span class="en">Zomboss: compiler-mediated kernel generation for emerging accelerators</span>
-          <span class="zh">Zomboss：面向新兴加速器的编译器介导内核生成</span>
+        <a href="https://arxiv.org/abs/2607.29076" target="_blank" rel="noopener">
+          <span class="en">Selective KV-Cache Protection for Analog Compute-in-Memory LLM Inference</span>
+          <span class="zh">用于模拟存算一体LLM推理的选择性KV缓存保护</span>
         </a>
       </h3>
-      <p class="authors">Ruijie Gao, Jirong Yang, Barry Lyu, et al.</p>
+      <p class="authors">Yuannuo Feng, Wenyong Zhou, Yuang Ma, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.00894" target="_blank" rel="noopener">arXiv:2608.00894</a> · 2026-08-01T23:22:04Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.29076" target="_blank" rel="noopener">arXiv:2607.29076</a> · 2026-07-31T06:56:20Z</p>
       <p class="summary">
-        <span class="en">Zomboss moves accelerator semantics and legality constraints into a reusable compiler artifact, leaving a neural agent to search workload-specific mappings. It returns verified kernels on all 56 Gemmini and PLENA instances and reports 3.34× geometric-mean speedup over the Gemmini compiler default.</span>
-        <span class="zh">Zomboss将加速器语义和合法性约束编译为可复用工件，让神经代理只搜索工作负载相关的映射。它在56个Gemmini和PLENA实例上均返回已验证内核，并报告相对Gemmini编译器默认方案3.34倍的几何平均加速。</span>
+        <span class="en">The paper identifies initial and recent tokens as especially vulnerable to analog noise when KV-cache updates run on compute-in-memory arrays. Its scheme keeps those tokens on a higher-precision digital path while sending most cache data through analog hardware. Across nine LLMs, average perplexity falls from 33.91 to 11.95 under analog noise, but the trade-off depends on programming overhead and the noise model.</span>
+        <span class="zh">论文发现，当KV缓存更新在存算一体阵列上运行时，初始token和最近token对模拟噪声尤其敏感。其方案将这些token保留在高精度数字路径，同时把大部分缓存数据交由模拟硬件处理。作者在9个LLM上报告，模拟噪声下平均困惑度从33.91降至11.95，但权衡取决于编程开销和噪声模型。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.00867" target="_blank" rel="noopener">
-          <span class="en">NUNA: network locality for multi-die GPU scale-up</span>
-          <span class="zh">NUNA：多芯粒GPU扩展中的网络局部性</span>
+        <a href="https://arxiv.org/abs/2607.24669" target="_blank" rel="noopener">
+          <span class="en">Heterogeneous Accelerator for Multitask RF Signal Recognition</span>
+          <span class="zh">面向多任务射频信号识别的异构加速器</span>
         </a>
       </h3>
-      <p class="authors">Conor James Green, William Won, Tuan Ta, Bradford M. Beckmann</p>
+      <p class="authors">Zhifan Song, Haralampos-G. Stratigopoulos, Hassan Aboushady</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.00867" target="_blank" rel="noopener">arXiv:2608.00867</a> · 2026-08-01T21:01:52Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.24669" target="_blank" rel="noopener">arXiv:2607.24669</a> · 2026-07-27T17:10:06Z</p>
       <p class="summary">
-        <span class="en">NUNA treats physical position inside large multi-die GPU systems as a network-locality problem for collective communication. Placement plus routing achieves up to 1.8× faster collectives and a 7% mean time-per-output-token improvement in the evaluated inference workloads.</span>
-        <span class="zh">NUNA将大型多芯粒GPU系统中的物理位置视为集体通信的网络局部性问题。放置与路由结合后，在所评估的推理工作负载上实现最高1.8倍的集体通信加速，以及平均7%的每输出token时间改善。</span>
+        <span class="en">This accelerator combines an attention-enhanced CNN, learnable streaming decimation, fused convolution-pooling, DMA streaming, and CPU co-execution for RF tasks. It reports 98 microseconds per frame, at least 99% average modulation-recognition accuracy above 4 dB SNR, and 99.5% for GNSS-jamming classification. Dataset accuracy is encouraging, but does not fully characterize field robustness.</span>
+        <span class="zh">该加速器将带注意力的CNN、可学习流式抽取、融合卷积—池化、DMA流和CPU协同执行用于射频任务。作者报告每帧98微秒延迟，在4 dB以上SNR的调制识别中平均准确率至少99%，GNSS干扰分类为99.5%。数据集准确率令人鼓舞，但尚不能完全说明现场鲁棒性。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与体系结构</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.00720" target="_blank" rel="noopener">
-          <span class="en">CascadeLUT: streaming FPGA inference under bandwidth constraints</span>
-          <span class="zh">CascadeLUT：带宽受限条件下的FPGA流式推理</span>
+        <a href="https://arxiv.org/abs/2607.24221" target="_blank" rel="noopener">
+          <span class="en">DICE: End-to-End PHY Modeling for Chiplet Simulation</span>
+          <span class="zh">DICE：用于chiplet仿真的端到端PHY建模</span>
         </a>
       </h3>
-      <p class="authors">Oliver Cassidy, Marta Andronic, George A. Constantinides</p>
+      <p class="authors">Rashid Aligholipour, Stefanos Kaxiras, Yuan Yao</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.00720" target="_blank" rel="noopener">arXiv:2608.00720</a> · 2026-08-01T15:40:13Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2607.24221" target="_blank" rel="noopener">arXiv:2607.24221</a> · 2026-07-27T09:53:10Z</p>
       <p class="summary">
-        <span class="en">CascadeLUT orders features so LUT-based FPGA models can refine predictions as data arrives instead of buffering a full sample. It reports 4.0–12.5× lower latency and up to 13.8× lower energy per sample than its LUT baselines, trading extra LUT use for less data movement.</span>
-        <span class="zh">CascadeLUT对特征排序，使基于查找表的FPGA模型能在数据到达时逐步优化预测，而无需缓存完整样本。它相对其LUT基线报告4.0至12.5倍更低时延及最高13.8倍更低的单样本能耗，以更多LUT资源换取更少的数据移动。</span>
+        <span class="en">DICE adds runtime-dependent PHY behavior to chiplet simulation, accounting for channel noise, crosstalk, jitter, iterative FEC decoding, retransmissions, and application traffic. The authors argue that fixed-latency links distort packet behavior as short-reach interconnects approach signal-integrity limits. The detail can improve architectural decisions, but credible early-stage device and channel parameters are needed.</span>
+        <span class="zh">DICE将运行时相关的PHY行为引入chiplet仿真，纳入信道噪声、串扰、抖动、迭代FEC解码、重传和应用流量。作者认为，当短距互连接近信号完整性极限时，固定延迟链路会扭曲数据包行为。细节建模可改善架构决策，但需要可信的早期器件和信道参数。</span>
       </p>
     </article>
   </section>
@@ -468,8 +474,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-04 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-04 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-03 01:18 UTC · <a href="../2026-08-03.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-03 01:18 UTC · <a href="../2026-08-03.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
