@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-05">
+<meta name="edition-date" content="2026-08-04">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Making Compute Systems More Physically Aware — Semi Research 2026-08-05</title>
+<title>Design tools confront data movement and verification — Semi Research 2026-08-04</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-04.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Wednesday, August 5, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月5日 星期三</span>
+      <span class="en">Research digest · Tuesday, August 4, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月4日 星期二</span>
     </div>
     <h1>
-      <span class="en">Making Compute Systems More Physically Aware</span>
-      <span class="zh">让计算系统更具物理感知能力</span>
+      <span class="en">Design tools confront data movement and verification</span>
+      <span class="zh">设计工具直面数据移动与验证</span>
     </h1>
     <p class="dek">
-      <span class="en">This week’s papers connect hardware efficiency to physical constraints: photonic loss, transistor hotspots, three-dimensional atom transport, and layout power. The common goal is to move optimization closer to device and system behavior.</span>
-      <span class="zh">本周论文将硬件效率与物理约束联系起来，包括光子损耗、晶体管热点、三维原子搬运和版图功耗。它们的共同目标是让优化更贴近器件和系统行为。</span>
+      <span class="en">This selection tests design automation against formal verification, policy selection, multi-die communication, and bandwidth-limited inference. The strongest gains come with explicit constraints rather than unconstrained code generation.</span>
+      <span class="zh">本期论文将设计自动化置于形式验证、策略选择、多芯粒通信和带宽受限推理等边界条件下检验。最显著的增益来自明确约束，而非无约束的代码生成。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -336,39 +336,60 @@
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="eda">
     <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.03146" target="_blank" rel="noopener">
-          <span class="en">Foundry-compatible silicon-photonics MEMS optical switch</span>
-          <span class="zh">兼容晶圆厂工艺的硅光MEMS光开关</span>
+        <a href="https://arxiv.org/abs/2608.01045" target="_blank" rel="noopener">
+          <span class="en">Forbench: symbolic simulation for more formal testbenches</span>
+          <span class="zh">Forbench：让测试平台更具形式化能力的符号仿真</span>
         </a>
       </h3>
-      <p class="authors">Arkadev Roy, Daniel Klawson, Jianheng Luo, et al.</p>
+      <p class="authors">Ziyi Yang, Wenbin Che, Ziyue Zheng, Guangyu Hu, Hongce Zhang</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03146" target="_blank" rel="noopener">arXiv:2608.03146</a> · 2026-08-04T05:23:12Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01045" target="_blank" rel="noopener">arXiv:2608.01045</a> · 2026-08-02T07:02:26Z</p>
       <p class="summary">
-        <span class="en">The authors demonstrate a C-band silicon-photonics MEMS switch made in a zero-change foundry-compatible flow with BEOL post-processing. It reports more than 30 dB extinction, under 1.5 dB insertion loss, and roughly 20 nW static power, a strong combination if endurance and array integration hold up.</span>
-        <span class="zh">作者展示了一种采用零改动、兼容晶圆厂流程并结合BEOL后处理的C波段硅光MEMS光开关。该器件报告超过30 dB消光比、低于1.5 dB插入损耗和约20 nW静态功耗；若耐久性和阵列集成表现可靠，这一组合颇具吸引力。</span>
+        <span class="en">Forbench retains a simulation-style workflow while adding solver-backed symbolic signals and state transitions to explore RTL behavior beyond sampled tests. It aims to lower the property-writing barrier to formal verification; its practical value will depend on scaling the symbolic engine to large designs.</span>
+        <span class="zh">Forbench保留仿真式工作流，同时加入由求解器支持的符号信号和状态转换，以探索超出抽样测试范围的RTL行为。它试图降低形式验证中的属性编写门槛，但其实用价值取决于符号引擎能否扩展到大型设计。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与体系结构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.01041" target="_blank" rel="noopener">
+          <span class="en">Limits of machine-learned ranking for microarchitectural policies</span>
+          <span class="zh">机器学习排序在微架构策略中的局限</span>
+        </a>
+      </h3>
+      <p class="authors">Yanxin Zhang, Shayne Wadle, Yuxuan Xiong, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01041" target="_blank" rel="noopener">arXiv:2608.01041</a> · 2026-08-02T06:55:43Z</p>
+      <p class="summary">
+        <span class="en">The authors find that ML performance predictors can rank structural hardware settings well in aggregate yet miss counter-intuitive execution windows. Such windows make up 22.4% of non-tied cases in the study, cautioning against using fast predictors as final policy selectors.</span>
+        <span class="zh">作者发现，机器学习性能预测器可在总体上较好地排序硬件结构设置，却会错过反直觉的执行窗口。此类窗口占研究中非平局情形的22.4%，因此不宜把快速预测器直接作为最终策略选择器。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.01257" target="_blank" rel="noopener">
-          <span class="en">Active passivation steers hotspots in GaN transistors</span>
-          <span class="zh">主动钝化调控GaN晶体管热点位置</span>
+        <a href="https://arxiv.org/abs/2608.01038" target="_blank" rel="noopener">
+          <span class="en">Dynamic selection among modern microarchitectural policies</span>
+          <span class="zh">现代微架构策略的动态选择</span>
         </a>
       </h3>
-      <p class="authors">Yicheng Wei, Sihang Liu, Zimu Jiang, et al.</p>
+      <p class="authors">Yanxin Zhang, Ian McDougall, Junnan Li, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.01257" target="_blank" rel="noopener">arXiv:2608.01257</a> · 2026-08-02T14:06:53Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01038" target="_blank" rel="noopener">arXiv:2608.01038</a> · 2026-08-02T06:49:51Z</p>
       <p class="summary">
-        <span class="en">This work uses active-passivation length to shift the hotspot in GaN transistors from the gate edge to the drain-side passivation edge. Micro-Raman thermography and multiphysics simulation tie the movement to peak electric field and localized Joule heating, offering a lever for power-device thermal reliability.</span>
-        <span class="zh">该研究通过改变主动钝化层长度，将GaN晶体管热点从栅极边缘转移至漏极侧钝化层边缘。微拉曼测温和多物理场仿真将这一迁移与峰值电场及局部焦耳热相关联，为功率器件热可靠性提供了设计手段。</span>
+        <span class="en">A composition study across 490 phases finds that the best global static prefetcher-and-replacement stack still trails a phase oracle by 1.33%. A selector changing only the L1D prefetcher can come within 0.039% IPC of an eight-configuration oracle, suggesting a narrow control interface.</span>
+        <span class="zh">一项覆盖490个阶段的组合研究发现，最佳全局静态预取与替换策略组合仍比阶段预言机低1.33%。仅切换L1D预取器的选择器即可达到距八配置预言机0.039% IPC以内，说明可以采用范围有限的控制接口。</span>
       </p>
     </article>
   </section>
@@ -379,74 +400,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.03033" target="_blank" rel="noopener">
-          <span class="en">FPGA partial reconfiguration for LLM nonlinear functions</span>
-          <span class="zh">利用FPGA局部重构实现LLM非线性函数计算</span>
+        <a href="https://arxiv.org/abs/2608.00894" target="_blank" rel="noopener">
+          <span class="en">Zomboss: compiler-mediated kernel generation for emerging accelerators</span>
+          <span class="zh">Zomboss：面向新兴加速器的编译器介导内核生成</span>
         </a>
       </h3>
-      <p class="authors">Roger Morales-Monge, Nazareth Jimenez-Chacon, Jose Gabriel Villalobos-Alvarado, et al.</p>
+      <p class="authors">Ruijie Gao, Jirong Yang, Barry Lyu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03033" target="_blank" rel="noopener">arXiv:2608.03033</a> · 2026-08-04T02:27:48Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.00894" target="_blank" rel="noopener">arXiv:2608.00894</a> · 2026-08-01T23:22:04Z</p>
       <p class="summary">
-        <span class="en">The paper uses FPGA partial reconfiguration to swap piecewise-linear exponential and sigmoid units for LLM acceleration. Compared with a static design holding both operators, it reports up to 43% fewer LUTs and up to 50% fewer flip-flops, BRAMs, and DSPs, subject to reconfiguration overhead in real workloads.</span>
-        <span class="zh">论文利用FPGA局部重构来切换面向LLM加速的分段线性指数和sigmoid单元。相对于同时固定集成两种算子的静态设计，它报告最多减少43%的LUT，并最多减少50%的触发器、BRAM和DSP，但真实工作负载仍要考虑重构开销。</span>
+        <span class="en">Zomboss moves accelerator semantics and legality constraints into a reusable compiler artifact, leaving a neural agent to search workload-specific mappings. It returns verified kernels on all 56 Gemmini and PLENA instances and reports 3.34× geometric-mean speedup over the Gemmini compiler default.</span>
+        <span class="zh">Zomboss将加速器语义和合法性约束编译为可复用工件，让神经代理只搜索工作负载相关的映射。它在56个Gemmini和PLENA实例上均返回已验证内核，并报告相对Gemmini编译器默认方案3.34倍的几何平均加速。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">
-          <span class="en">Celty co-designs a sparse GPU path for LLM decoding</span>
-          <span class="zh">Celty为LLM解码协同设计稀疏GPU执行路径</span>
+        <a href="https://arxiv.org/abs/2608.00867" target="_blank" rel="noopener">
+          <span class="en">NUNA: network locality for multi-die GPU scale-up</span>
+          <span class="zh">NUNA：多芯粒GPU扩展中的网络局部性</span>
         </a>
       </h3>
-      <p class="authors">Ruokai Yin, Priyadarshini Panda</p>
+      <p class="authors">Conor James Green, William Won, Tuan Ta, Bradford M. Beckmann</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">arXiv:2608.01536</a> · 2026-08-02T23:10:04Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.00867" target="_blank" rel="noopener">arXiv:2608.00867</a> · 2026-08-01T21:01:52Z</p>
       <p class="summary">
-        <span class="en">Celty targets single-user LLM decoding with both pruned weights and runtime activation sparsity, a case conventional GPU kernels handle poorly. Its compressed format, kernel, and proposed SIMT core work together to avoid index reconstruction and memory traffic; the benefit will depend on attainable sparsity and hardware adoption.</span>
-        <span class="zh">Celty面向同时具有剪枝权重和运行时激活稀疏性的单用户LLM解码，这类工作负载通常难以被传统GPU内核高效处理。其压缩格式、内核和拟议SIMT核心协同设计，以避免索引重建和多余内存访问；实际收益取决于可实现稀疏度及硬件采用。</span>
+        <span class="en">NUNA treats physical position inside large multi-die GPU systems as a network-locality problem for collective communication. Placement plus routing achieves up to 1.8× faster collectives and a 7% mean time-per-output-token improvement in the evaluated inference workloads.</span>
+        <span class="zh">NUNA将大型多芯粒GPU系统中的物理位置视为集体通信的网络局部性问题。放置与路由结合后，在所评估的推理工作负载上实现最高1.8倍的集体通信加速，以及平均7%的每输出token时间改善。</span>
       </p>
     </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">Electronic Design Automation</span>
-      <span class="zh">电子设计自动化</span>
-    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.03285" target="_blank" rel="noopener">
-          <span class="en">Fovea brings physical constraints into wafer-scale design exploration</span>
-          <span class="zh">Fovea将物理约束纳入晶圆级设计空间探索</span>
+        <a href="https://arxiv.org/abs/2608.00720" target="_blank" rel="noopener">
+          <span class="en">CascadeLUT: streaming FPGA inference under bandwidth constraints</span>
+          <span class="zh">CascadeLUT：带宽受限条件下的FPGA流式推理</span>
         </a>
       </h3>
-      <p class="authors">Jinxi Li, Huizheng Wang, Jinyi Deng, et al.</p>
+      <p class="authors">Oliver Cassidy, Marta Andronic, George A. Constantinides</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03285" target="_blank" rel="noopener">arXiv:2608.03285</a> · 2026-08-04T08:00:29Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.00720" target="_blank" rel="noopener">arXiv:2608.00720</a> · 2026-08-01T15:40:13Z</p>
       <p class="summary">
-        <span class="en">Fovea formulates wafer-scale architecture exploration around coupled constraints including reticle compliance, wafer tiling, die area, die-to-die capability, and placement. It calibrates disagreement between low-cost and reference evaluators before refinement, reducing the risk that a fixed coarse shortlist misses full-fidelity winners.</span>
-        <span class="zh">Fovea围绕光罩合规、晶圆平铺、芯粒面积、芯粒间互连能力和布局等耦合约束来构建设计空间。它在细化候选方案前校准低成本评估器与参考评估器之间的偏差，从而降低固定粗筛名单漏掉全保真优胜设计的风险。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.01316" target="_blank" rel="noopener">
-          <span class="en">Piqasso compiles for three-dimensional neutral-atom computers</span>
-          <span class="zh">Piqasso面向三维中性原子量子计算机进行编译</span>
-        </a>
-      </h3>
-      <p class="authors">Chen Huang, Zhemin Zhang, Zhao Zhang, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.01316" target="_blank" rel="noopener">arXiv:2608.01316</a> · 2026-08-02T15:34:47Z</p>
-      <p class="summary">
-        <span class="en">Piqasso compiles for three-dimensional neutral-atom arrays by separating storage, entanglement, and readout into layers, then routing atoms with vertical hops and multi-AOD scheduling. Across 34 circuits it reports 2.1× less transport distance, up to 7.3× faster execution, 2.2× higher movement fidelity, and 1.8× fewer serialized transport rounds than a planar baseline.</span>
-        <span class="zh">Piqasso面向三维中性原子阵列进行编译，将存储、纠缠和读出分置于不同层，并通过垂直搬运和多AOD调度完成原子路由。在34个电路上，它相对于平面基线报告2.1倍更短的搬运距离、最高7.3倍更快执行、2.2倍更高移动保真度和1.8倍更少的串行搬运轮次。</span>
+        <span class="en">CascadeLUT orders features so LUT-based FPGA models can refine predictions as data arrives instead of buffering a full sample. It reports 4.0–12.5× lower latency and up to 13.8× lower energy per sample than its LUT baselines, trading extra LUT use for less data movement.</span>
+        <span class="zh">CascadeLUT对特征排序，使基于查找表的FPGA模型能在数据到达时逐步优化预测，而无需缓存完整样本。它相对其LUT基线报告4.0至12.5倍更低时延及最高13.8倍更低的单样本能耗，以更多LUT资源换取更少的数据移动。</span>
       </p>
     </article>
   </section>
@@ -474,8 +468,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-05 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-05 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-04 01:14 UTC · <a href="../2026-08-04.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-04 01:14 UTC · <a href="../2026-08-04.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
