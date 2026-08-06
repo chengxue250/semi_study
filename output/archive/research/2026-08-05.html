@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-06">
+<meta name="edition-date" content="2026-08-05">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory movement reshapes accelerator design — Semi Research 2026-08-06</title>
+<title>Making Compute Systems More Physically Aware — Semi Research 2026-08-05</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-05.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, August 6, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月6日 星期四</span>
+      <span class="en">Research digest · Wednesday, August 5, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月5日 星期三</span>
     </div>
     <h1>
-      <span class="en">Memory movement reshapes accelerator design</span>
-      <span class="zh">数据搬运重塑加速器设计</span>
+      <span class="en">Making Compute Systems More Physically Aware</span>
+      <span class="zh">让计算系统更具物理感知能力</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers treat memory bandwidth, KV-cache representation, and quantization as first-order architecture choices. They span PIM-GPU systems, dedicated inference datapaths, wafer processing, and power-aware EDA.</span>
-      <span class="zh">本周论文将内存带宽、KV缓存表示和量化视为一阶架构选择。研究覆盖PIM-GPU系统、专用推理数据通路、晶圆加工以及面向功耗的EDA。</span>
+      <span class="en">This week’s papers connect hardware efficiency to physical constraints: photonic loss, transistor hotspots, three-dimensional atom transport, and layout power. The common goal is to move optimization closer to device and system behavior.</span>
+      <span class="zh">本周论文将硬件效率与物理约束联系起来，包括光子损耗、晶体管热点、三维原子搬运和版图功耗。它们的共同目标是让优化更贴近器件和系统行为。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -336,117 +336,117 @@
     </div>
   </header>
 
-    <section class="area" id="accelerators">
-    <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.04428" target="_blank" rel="noopener">
-          <span class="en">Deltoris: Bit-sparse speculative inference for real-time VLA models</span>
-          <span class="zh">Deltoris：面向实时VLA模型的位级稀疏推测推理</span>
-        </a>
-      </h3>
-      <p class="authors">Zheng Liu, Zeyu Guo, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.04428" target="_blank" rel="noopener">arXiv:2608.04428</a> · 2026-08-05T04:17:03Z</p>
-      <p class="summary">
-        <span class="en">Deltoris co-designs bit-level temporal sparsity and speculative inference for diffusion-based vision-language-action models. The authors report up to 34.2× speedup over mobile GPUs and 6.1× over a prior accelerator for 50–200 Hz control loops. These are proposed-accelerator evaluations, so hardware cost and model coverage remain open questions.</span>
-        <span class="zh">Deltoris针对基于扩散的视觉-语言-动作模型，将位级时间稀疏性与推测推理进行协同设计。作者报告称，面向50至200Hz控制循环时，其速度最高可达移动GPU的34.2倍、此前加速器的6.1倍。这些结果基于所提出的加速器评估，硬件成本和模型覆盖范围仍是未解问题。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.04169" target="_blank" rel="noopener">
-          <span class="en">Design principles for heterogeneous DRAM-PIM-GPU systems</span>
-          <span class="zh">异构DRAM-PIM-GPU系统的设计原则</span>
-        </a>
-      </h3>
-      <p class="authors">Corey Lammie, Hadjer Benmeziane, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.04169" target="_blank" rel="noopener">arXiv:2608.04169</a> · 2026-08-04T19:26:54Z</p>
-      <p class="summary">
-        <span class="en">This study evaluates DRAM-PIM-GPU systems for decode-phase LLM inference across OPT and Mamba2 workloads. It finds static power can make dynamic-only models overstate tokens per watt by up to 3.85×, while channel count and hierarchy choices dominate outcomes. It is a design-space study rather than a new silicon implementation, but makes deployment assumptions explicit.</span>
-        <span class="zh">该研究在OPT和Mamba2工作负载上评估了解码阶段LLM推理的DRAM-PIM-GPU系统。研究发现，静态功耗可使仅考虑动态功耗的模型将每瓦token数高估最多3.85倍，而通道数和层级配置主导结果。这是一项设计空间研究而非新的芯片实现，但明确了部署假设的重要性。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="ai-research">
-    <h2>
-      <span class="en">AI Systems &amp; Inference</span>
-      <span class="zh">AI系统与推理</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.04074" target="_blank" rel="noopener">
-          <span class="en">KV-cache vector quantization that preserves attention</span>
-          <span class="zh">保持注意力特性的KV缓存向量量化</span>
-        </a>
-      </h3>
-      <p class="authors">Samuel Fernández-Menduiña, Amir Ziashahabi, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.04074" target="_blank" rel="noopener">arXiv:2608.04074</a> · 2026-08-04T16:10:59Z</p>
-      <p class="summary">
-        <span class="en">This paper frames KV-cache quantization as transform coding whose distortion is attention-product error, not generic reconstruction error. It derives calibration-based transforms for keys and values to make two-bit-per-element compression more attention-aware. The serving benefit will depend on transform overhead and workload stability.</span>
-        <span class="zh">该论文将KV缓存量化表述为变换编码问题，其失真度量是注意力乘积误差，而非通用重构误差。它为键和值推导基于校准数据的变换，使每元素两比特的压缩更能保持注意力特性。实际服务收益将取决于变换开销和工作负载稳定性。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.03229" target="_blank" rel="noopener">
-          <span class="en">Signed-digit KV caches for ternary LLM inference</span>
-          <span class="zh">面向三值LLM推理的有符号数字KV缓存</span>
-        </a>
-      </h3>
-      <p class="authors">Ziang Duan, Jiajun Wu, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03229" target="_blank" rel="noopener">arXiv:2608.03229</a> · 2026-08-04T07:00:20Z</p>
-      <p class="summary">
-        <span class="en">The authors store online K/V states as scaled multi-plane signed digits so attention can use the lookup-table machinery of ternary projections. The design avoids dense K/V materialization and handles incomplete cache blocks during causal decoding. The abstract does not establish end-to-end model quality or silicon efficiency.</span>
-        <span class="zh">作者提出将在线生成的K/V状态存为缩放的多平面有符号数字，使注意力计算能够复用三值投影的查找表机制。该设计避免K/V的稠密实体化，并处理自回归解码中未完成的缓存块。摘要未证明端到端模型质量或芯片效率。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="devices">
+    <section class="area" id="devices">
     <h2>
       <span class="en">Devices &amp; Process</span>
       <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.03814" target="_blank" rel="noopener">
-          <span class="en">Self-focusing control for precise 4H-SiC wafer slicing</span>
-          <span class="zh">用于精确4H-SiC晶圆切片的自聚焦控制</span>
+        <a href="https://arxiv.org/abs/2608.03146" target="_blank" rel="noopener">
+          <span class="en">Foundry-compatible silicon-photonics MEMS optical switch</span>
+          <span class="zh">兼容晶圆厂工艺的硅光MEMS光开关</span>
         </a>
       </h3>
-      <p class="authors">Dong Hee Kang, Jaeseung Lim, et al.</p>
+      <p class="authors">Arkadev Roy, Daniel Klawson, Jianheng Luo, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03814" target="_blank" rel="noopener">arXiv:2608.03814</a> · 2026-08-04T15:24:12Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03146" target="_blank" rel="noopener">arXiv:2608.03146</a> · 2026-08-04T05:23:12Z</p>
       <p class="summary">
-        <span class="en">The work links femtosecond-laser pulse energy and processing depth to Kerr self-focusing during 4H-SiC wafer slicing. Experiments, modelling, and ray-optics simulations connect the effect to surface texture and separation stress. Better control could support thin SiC layers, although production yield is not yet demonstrated.</span>
-        <span class="zh">该工作将飞秒激光脉冲能量和加工深度与4H-SiC晶圆切片过程中的Kerr自聚焦联系起来。实验、建模和光线光学仿真将其与表面纹理及分离应力相关联。更好的工艺控制有望支持薄SiC层，但尚未证明量产良率。</span>
+        <span class="en">The authors demonstrate a C-band silicon-photonics MEMS switch made in a zero-change foundry-compatible flow with BEOL post-processing. It reports more than 30 dB extinction, under 1.5 dB insertion loss, and roughly 20 nW static power, a strong combination if endurance and array integration hold up.</span>
+        <span class="zh">作者展示了一种采用零改动、兼容晶圆厂流程并结合BEOL后处理的C波段硅光MEMS光开关。该器件报告超过30 dB消光比、低于1.5 dB插入损耗和约20 nW静态功耗；若耐久性和阵列集成表现可靠，这一组合颇具吸引力。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.01257" target="_blank" rel="noopener">
+          <span class="en">Active passivation steers hotspots in GaN transistors</span>
+          <span class="zh">主动钝化调控GaN晶体管热点位置</span>
+        </a>
+      </h3>
+      <p class="authors">Yicheng Wei, Sihang Liu, Zimu Jiang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01257" target="_blank" rel="noopener">arXiv:2608.01257</a> · 2026-08-02T14:06:53Z</p>
+      <p class="summary">
+        <span class="en">This work uses active-passivation length to shift the hotspot in GaN transistors from the gate edge to the drain-side passivation edge. Micro-Raman thermography and multiphysics simulation tie the movement to peak electric field and localized Joule heating, offering a lever for power-device thermal reliability.</span>
+        <span class="zh">该研究通过改变主动钝化层长度，将GaN晶体管热点从栅极边缘转移至漏极侧钝化层边缘。微拉曼测温和多物理场仿真将这一迁移与峰值电场及局部焦耳热相关联，为功率器件热可靠性提供了设计手段。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.03033" target="_blank" rel="noopener">
+          <span class="en">FPGA partial reconfiguration for LLM nonlinear functions</span>
+          <span class="zh">利用FPGA局部重构实现LLM非线性函数计算</span>
+        </a>
+      </h3>
+      <p class="authors">Roger Morales-Monge, Nazareth Jimenez-Chacon, Jose Gabriel Villalobos-Alvarado, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03033" target="_blank" rel="noopener">arXiv:2608.03033</a> · 2026-08-04T02:27:48Z</p>
+      <p class="summary">
+        <span class="en">The paper uses FPGA partial reconfiguration to swap piecewise-linear exponential and sigmoid units for LLM acceleration. Compared with a static design holding both operators, it reports up to 43% fewer LUTs and up to 50% fewer flip-flops, BRAMs, and DSPs, subject to reconfiguration overhead in real workloads.</span>
+        <span class="zh">论文利用FPGA局部重构来切换面向LLM加速的分段线性指数和sigmoid单元。相对于同时固定集成两种算子的静态设计，它报告最多减少43%的LUT，并最多减少50%的触发器、BRAM和DSP，但真实工作负载仍要考虑重构开销。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">
+          <span class="en">Celty co-designs a sparse GPU path for LLM decoding</span>
+          <span class="zh">Celty为LLM解码协同设计稀疏GPU执行路径</span>
+        </a>
+      </h3>
+      <p class="authors">Ruokai Yin, Priyadarshini Panda</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">arXiv:2608.01536</a> · 2026-08-02T23:10:04Z</p>
+      <p class="summary">
+        <span class="en">Celty targets single-user LLM decoding with both pruned weights and runtime activation sparsity, a case conventional GPU kernels handle poorly. Its compressed format, kernel, and proposed SIMT core work together to avoid index reconstruction and memory traffic; the benefit will depend on attainable sparsity and hardware adoption.</span>
+        <span class="zh">Celty面向同时具有剪枝权重和运行时激活稀疏性的单用户LLM解码，这类工作负载通常难以被传统GPU内核高效处理。其压缩格式、内核和拟议SIMT核心协同设计，以避免索引重建和多余内存访问；实际收益取决于可实现稀疏度及硬件采用。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
+      <span class="en">Electronic Design Automation</span>
+      <span class="zh">电子设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.03778" target="_blank" rel="noopener">
-          <span class="en">DiffPower: Differentiable GPU switching-power analysis</span>
-          <span class="zh">DiffPower：可微分GPU开关功耗分析</span>
+        <a href="https://arxiv.org/abs/2608.03285" target="_blank" rel="noopener">
+          <span class="en">Fovea brings physical constraints into wafer-scale design exploration</span>
+          <span class="zh">Fovea将物理约束纳入晶圆级设计空间探索</span>
         </a>
       </h3>
-      <p class="authors">Isaac Jacobson, Zheng Zhao, et al.</p>
+      <p class="authors">Jinxi Li, Huizheng Wang, Jinyi Deng, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03778" target="_blank" rel="noopener">arXiv:2608.03778</a> · 2026-08-04T15:00:49Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03285" target="_blank" rel="noopener">arXiv:2608.03285</a> · 2026-08-04T08:00:29Z</p>
       <p class="summary">
-        <span class="en">DiffPower converts netlists into PDK-agnostic bytecode and uses reverse-mode automatic differentiation for GPU-accelerated switching-power analysis. It reports up to 1,002× speedup over single-threaded CPU propagation and a median toggle-rate correlation of 0.96 across ten designs. Signoff accuracy will require validation against production flows.</span>
-        <span class="zh">DiffPower将网表转换为与PDK无关的字节码，并使用反向模式自动微分实现GPU加速的开关功耗分析。它报告相对单线程CPU传播最高1002倍加速，并在十个设计上取得0.96的开关率相关系数中位数。签核精度仍需相对量产流程验证。</span>
+        <span class="en">Fovea formulates wafer-scale architecture exploration around coupled constraints including reticle compliance, wafer tiling, die area, die-to-die capability, and placement. It calibrates disagreement between low-cost and reference evaluators before refinement, reducing the risk that a fixed coarse shortlist misses full-fidelity winners.</span>
+        <span class="zh">Fovea围绕光罩合规、晶圆平铺、芯粒面积、芯粒间互连能力和布局等耦合约束来构建设计空间。它在细化候选方案前校准低成本评估器与参考评估器之间的偏差，从而降低固定粗筛名单漏掉全保真优胜设计的风险。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.01316" target="_blank" rel="noopener">
+          <span class="en">Piqasso compiles for three-dimensional neutral-atom computers</span>
+          <span class="zh">Piqasso面向三维中性原子量子计算机进行编译</span>
+        </a>
+      </h3>
+      <p class="authors">Chen Huang, Zhemin Zhang, Zhao Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01316" target="_blank" rel="noopener">arXiv:2608.01316</a> · 2026-08-02T15:34:47Z</p>
+      <p class="summary">
+        <span class="en">Piqasso compiles for three-dimensional neutral-atom arrays by separating storage, entanglement, and readout into layers, then routing atoms with vertical hops and multi-AOD scheduling. Across 34 circuits it reports 2.1× less transport distance, up to 7.3× faster execution, 2.2× higher movement fidelity, and 1.8× fewer serialized transport rounds than a planar baseline.</span>
+        <span class="zh">Piqasso面向三维中性原子阵列进行编译，将存储、纠缠和读出分置于不同层，并通过垂直搬运和多AOD调度完成原子路由。在34个电路上，它相对于平面基线报告2.1倍更短的搬运距离、最高7.3倍更快执行、2.2倍更高移动保真度和1.8倍更少的串行搬运轮次。</span>
       </p>
     </article>
   </section>
@@ -474,8 +474,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-06 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-06 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-05 01:14 UTC · <a href="../2026-08-05.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-05 01:14 UTC · <a href="../2026-08-05.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
