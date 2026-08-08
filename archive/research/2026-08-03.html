@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-03">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Hardware-aware design confronts data movement — Semi Research 2026-08-03</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-08-03.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Monday, August 3, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月3日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Hardware-aware design confronts data movement</span>
+      <span class="zh">硬件感知设计直面数据移动瓶颈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s selection shifts attention from nominal operations to the interfaces that make them useful: unstable clocks, KV-cache noise, chiplet PHYs, and HLS verification. Several papers offer measured or simulated gains, but their practical value hinges on device variation and system-level integration.</span>
+      <span class="zh">本周论文把关注点从名义运算能力转向决定其实用性的接口：不稳定时钟、KV缓存噪声、chiplet PHY以及HLS验证。多篇工作给出测量或仿真增益，但其实际价值仍取决于器件变异和系统级集成。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.29357" target="_blank" rel="noopener">
+          <span class="en">Low-Power PLL-Based Clock Stabilization for Flexible IGZO Mixed-Signal Systems</span>
+          <span class="zh">面向柔性IGZO混合信号系统的低功耗PLL时钟稳定技术</span>
+        </a>
+      </h3>
+      <p class="authors">Paula Carolina Lozano Duarte, Georgios Zervakis, Mehdi Tahoori</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.29357" target="_blank" rel="noopener">arXiv:2607.29357</a> · 2026-07-31T12:46:00Z</p>
+      <p class="summary">
+        <span class="en">The authors propose a PLL tailored to n-type-only amorphous IGZO thin-film transistors, using low-bandwidth feedback to stabilize a ring-oscillator clock under large process, voltage, and temperature variation. It targets flexible mixed-signal electronics, where conventional clock sources can consume up to 90% of system power. This is a temporal stabilizer rather than a precision synthesizer, so its value depends on tolerance for residual jitter and drift.</span>
+        <span class="zh">作者提出面向仅含n型非晶IGZO薄膜晶体管的PLL，以低带宽反馈在较大的工艺、电压和温度变化下稳定环形振荡器时钟。其目标是柔性混合信号电子系统，传统时钟源在此类系统中可消耗高达90%的系统功耗。这更像时间稳定器而非高精度频率合成器，因此价值取决于应用对残余抖动和漂移的容忍度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.29283" target="_blank" rel="noopener">
+          <span class="en">RTLCurator: Label-Efficient Data Curation for RTL Generation</span>
+          <span class="zh">RTLCurator：面向RTL生成的高标签效率数据筛选</span>
+        </a>
+      </h3>
+      <p class="authors">Siyang Cai, Cangyuan Li, Wenjing Chang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.29283" target="_blank" rel="noopener">arXiv:2607.29283</a> · 2026-07-31T10:55:01Z</p>
+      <p class="summary">
+        <span class="en">RTLCurator learns a behavior-aware compatibility prior from a small set of validated examples to select training data for RTL-generating models. Only 24.4% and 53.5% of pairs in two common synthetic RTL datasets pass generated functional tests, the paper says. By balancing alignment, diversity, and complexity, it seeks to retain data beyond simple correct modules, but remains dependent on representative validation labels.</span>
+        <span class="zh">RTLCurator从少量已验证样本中学习行为感知的兼容性先验，用于筛选RTL生成模型的训练数据。论文指出，两个常用合成RTL数据集分别仅有24.4%和53.5%的样本对能通过自动生成的功能测试。该方法平衡对齐度、多样性和复杂度，试图保留超越简单正确模块的数据，但仍依赖具有代表性的验证标签。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.25283" target="_blank" rel="noopener">
+          <span class="en">ContractHIL-HLS: Contract-Aligned Hardware-in-the-Loop Workflow for HLS</span>
+          <span class="zh">ContractHIL-HLS：契约对齐、硬件在环的HLS工作流</span>
+        </a>
+      </h3>
+      <p class="authors">Jingbo Zhang, Haoxiang Sun, Wenbo Wang, Wenbo Zhang</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.25283" target="_blank" rel="noopener">arXiv:2607.25283</a> · 2026-07-28T04:41:13Z</p>
+      <p class="summary">
+        <span class="en">ContractHIL-HLS turns natural-language design requests into explicit interfaces, constraints, checks, and rollback rules, then feeds HLS, Vivado, PYNQ, power, and failure evidence back into generation. On 94 HLS-Eval tasks, its structured contract lifted estimated single-sample testbench pass rate from 64.0% to 70.2%. The feedback loop makes LLM-assisted HLS more verifiable, though board-level closure remains harder than benchmark tasks.</span>
+        <span class="zh">ContractHIL-HLS将自然语言设计需求转化为明确的接口、约束、检查和回滚规则，再把HLS、Vivado、PYNQ、功耗与失败证据反馈到生成过程。在94个HLS-Eval任务上，结构化契约将估计的单样本测试平台通过率从64.0%提高至70.2%。该反馈循环使LLM辅助HLS更可验证，但板级收敛仍比基准任务更难。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.29076" target="_blank" rel="noopener">
+          <span class="en">Selective KV-Cache Protection for Analog Compute-in-Memory LLM Inference</span>
+          <span class="zh">用于模拟存算一体LLM推理的选择性KV缓存保护</span>
+        </a>
+      </h3>
+      <p class="authors">Yuannuo Feng, Wenyong Zhou, Yuang Ma, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.29076" target="_blank" rel="noopener">arXiv:2607.29076</a> · 2026-07-31T06:56:20Z</p>
+      <p class="summary">
+        <span class="en">The paper identifies initial and recent tokens as especially vulnerable to analog noise when KV-cache updates run on compute-in-memory arrays. Its scheme keeps those tokens on a higher-precision digital path while sending most cache data through analog hardware. Across nine LLMs, average perplexity falls from 33.91 to 11.95 under analog noise, but the trade-off depends on programming overhead and the noise model.</span>
+        <span class="zh">论文发现，当KV缓存更新在存算一体阵列上运行时，初始token和最近token对模拟噪声尤其敏感。其方案将这些token保留在高精度数字路径，同时把大部分缓存数据交由模拟硬件处理。作者在9个LLM上报告，模拟噪声下平均困惑度从33.91降至11.95，但权衡取决于编程开销和噪声模型。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.24669" target="_blank" rel="noopener">
+          <span class="en">Heterogeneous Accelerator for Multitask RF Signal Recognition</span>
+          <span class="zh">面向多任务射频信号识别的异构加速器</span>
+        </a>
+      </h3>
+      <p class="authors">Zhifan Song, Haralampos-G. Stratigopoulos, Hassan Aboushady</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.24669" target="_blank" rel="noopener">arXiv:2607.24669</a> · 2026-07-27T17:10:06Z</p>
+      <p class="summary">
+        <span class="en">This accelerator combines an attention-enhanced CNN, learnable streaming decimation, fused convolution-pooling, DMA streaming, and CPU co-execution for RF tasks. It reports 98 microseconds per frame, at least 99% average modulation-recognition accuracy above 4 dB SNR, and 99.5% for GNSS-jamming classification. Dataset accuracy is encouraging, but does not fully characterize field robustness.</span>
+        <span class="zh">该加速器将带注意力的CNN、可学习流式抽取、融合卷积—池化、DMA流和CPU协同执行用于射频任务。作者报告每帧98微秒延迟，在4 dB以上SNR的调制识别中平均准确率至少99%，GNSS干扰分类为99.5%。数据集准确率令人鼓舞，但尚不能完全说明现场鲁棒性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与体系结构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.24221" target="_blank" rel="noopener">
+          <span class="en">DICE: End-to-End PHY Modeling for Chiplet Simulation</span>
+          <span class="zh">DICE：用于chiplet仿真的端到端PHY建模</span>
+        </a>
+      </h3>
+      <p class="authors">Rashid Aligholipour, Stefanos Kaxiras, Yuan Yao</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.24221" target="_blank" rel="noopener">arXiv:2607.24221</a> · 2026-07-27T09:53:10Z</p>
+      <p class="summary">
+        <span class="en">DICE adds runtime-dependent PHY behavior to chiplet simulation, accounting for channel noise, crosstalk, jitter, iterative FEC decoding, retransmissions, and application traffic. The authors argue that fixed-latency links distort packet behavior as short-reach interconnects approach signal-integrity limits. The detail can improve architectural decisions, but credible early-stage device and channel parameters are needed.</span>
+        <span class="zh">DICE将运行时相关的PHY行为引入chiplet仿真，纳入信道噪声、串扰、抖动、迭代FEC解码、重传和应用流量。作者认为，当短距互连接近信号完整性极限时，固定延迟链路会扭曲数据包行为。细节建模可改善架构决策，但需要可信的早期器件和信道参数。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-03 01:18 UTC · <a href="../2026-08-03.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-03 01:18 UTC · <a href="../2026-08-03.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-05">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Presses the Whole Stack — Semi News 2026-07-05</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Sunday, July 5, 2026</span>
+      <span class="zh">2026年7月5日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Presses the Whole Stack</span>
+      <span class="zh">AI需求压紧整条芯片栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Capacity stories are moving from single-chip roadmaps into memory fabs, foundry pricing, packaging workarounds, and equipment exposure. The day&#x27;s strongest signals show AI demand still absorbing supply, while export controls and local sourcing keep reshaping where that supply can move.</span>
+      <span class="zh">产能叙事正在从单颗芯片路线图扩展到存储厂、代工价格、先进封装绕行方案和设备敞口。今天最强的信号显示，AI需求仍在吸收新增供给，同时出口管制和本土化采购继续改写供应流向。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxPUzVnM3F3WWpvZHNabnBydlVILXI1YUg4QUVVd2JPaVZtV1lDRnkxMTd6RWU4WnNhdExjYzl0aV9aSWVXQ0hqck9yRGlSbmJSNU50TFExZmZmM2ViYXQxOFQtcC1GLTJvTm02SkUzWDlzMktkcHROQkJSYUlFdjNxS1EzSjJpY2tJU0hyUHNmY3B4b21WcUEyOTA1eXlvS0hMSmd4WEl6MDNENDRjNkhzeEFzZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Qualcomm pushes data-center-class AI toward smartphones</span>
+          <span class="zh">Qualcomm试图把数据中心级AI能力推向手机</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 3h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Qualcomm is pitching smartphone silicon as a way to bring more data-center-style AI capability onto the device, according to the candidate feed. The practical question is memory bandwidth and power, not only TOPS: handset inference has to run within a thermal envelope that server accelerators never face. If Qualcomm can move larger models locally, it shifts some demand from cloud inference toward edge-optimized accelerators and high-bandwidth mobile memory.</span>
+        <span class="zh">候选源称，Qualcomm正在把手机芯片定位为承载更多数据中心式AI能力的载体。真正的约束不只是TOPS，而是内存带宽和功耗：手机端推理必须在服务器加速器无需面对的热设计范围内运行。如果Qualcomm能把更大的模型放到本地执行，部分云端推理需求会转向边缘侧加速器和高带宽移动内存。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBIZUU3NExlZzJxTTdCYXhtVFBQTlJtNElhdVFmSEI4X290WnRUTHVFU0xSbXNlZHd1UTQ3QUI4YUJZdXh4V01hanN2VkF3Uk5zTkVVRmlXLXMwTkJpOTlSREdoQ05QNkFCQUhtTFJlQWlzc1pHMnc?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC is reported to seek a 10% advanced-node price hike</span>
+          <span class="zh">据报TSMC拟将先进制程价格上调10%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">finance.biggo.com</span> · 12h ago</span>
+        <span class="zh"><span class="source">finance.biggo.com</span> · 12小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A market report says TSMC may raise advanced-process pricing by 10%, while Goldman Sachs lifted its ADR target to $600. The number matters because AI accelerators and premium mobile SoCs have less room to avoid TSMC&#x27;s leading nodes than older compute markets did. If the hike holds, customers are effectively paying for scarce N3/N2-class capacity and advanced packaging priority, not only wafer starts.</span>
+        <span class="zh">市场报道称，TSMC可能把先进制程报价上调10%，同时Goldman Sachs将其ADR目标价上调至600美元。这个数字重要，是因为AI加速器和高端手机SoC比以往成熟计算市场更难绕开TSMC领先制程。如果涨价落地，客户支付的不只是晶圆投片量，还包括稀缺N3/N2级产能和先进封装优先级。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/huawei-kirin-2026-paper-shows-hybrid-bonding-for-3d-stacking-to-boost-competition/" target="_blank" rel="noopener">
+          <span class="en">Huawei details hybrid bonding for a 3D-stacked Kirin design</span>
+          <span class="zh">Huawei披露面向3D堆叠Kirin设计的混合键合工艺</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 10h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Huawei described a hybrid-bonding path for a 2026 Kirin 3D-stacked design, framing packaging as a way to recover bandwidth and efficiency while access to advanced lithography remains constrained. The candidate report says the work targets better efficiency and bandwidth through vertical integration rather than a simple node shrink. That keeps advanced packaging central to China&#x27;s mobile-silicon roadmap when EUV access is unavailable.</span>
+        <span class="zh">Huawei披露了面向2026年Kirin 3D堆叠设计的混合键合路径，把先进封装作为在先进光刻受限时恢复带宽和能效的手段。候选报道称，这项工作通过垂直集成提升效率和带宽，而不是依赖单纯制程缩小。在无法获得EUV的背景下，先进封装仍是中国移动芯片路线图的核心工具。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory &amp; Storage</span>
+      <span class="zh">存储与SSD</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNaHdaWENfYi05TkMxaWpkaUtpNEIyWlJ3U041cWUxTXQ5eWtvQjlNcGczUS1oTnZUR0FGVVMtRVhERGY0UUw1NVJxWFhsMGVWeUg2M1dBcEZsMkxtWVVVOHRncDJaSkJsLWZwaFNLZmszUDNSSGRaTWhKV1BEeU11YXluRDJFMW1Zb1oyV2JLVzNYTU1pazNtN2FsUjNwSjA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron breaks ground on a $9.3B Hiroshima HBM expansion</span>
+          <span class="zh">Micron启动广岛93亿美元HBM扩建项目</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Moomoo</span> · 2h ago</span>
+        <span class="zh"><span class="source">Moomoo</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron broke ground on a $9.3 billion expansion project in Hiroshima, with HBM shipments expected in the second half of 2028. The timing is important: new high-bandwidth memory capacity arriving in 2028 speaks to sustained AI demand, not a short-cycle spot shortage. It also adds another Japan-based node to the memory supply chain as customers try to diversify beyond Korea-heavy HBM sourcing.</span>
+        <span class="zh">Micron在广岛启动总额93亿美元的扩建项目，HBM出货预计在2028年下半年开始。这个时间点重要：2028年才释放的新HBM产能说明行业押注的是持续AI需求，而不是短周期现货缺口。该项目也为存储供应链增加了一个日本基地，帮助客户降低对韩国HBM供给的集中度。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE1YVVltWnNudkdYWFoyeFktLTZHYWc0UmFiRW1vQl9Hc1N6dlNfeTFCbDdlQXVNcDZicmRlZVc2MjU0UUZWdGVYUUxkRTVrQVlya2JYMC15dDVQdVQ3SGZ5TXNoM3diOUhxYWdDZWcza0FlRWI4Zmc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nomura argues memory&#x27;s feared headwinds are delayed or demand-positive</span>
+          <span class="zh">Nomura称存储两大逆风被高估或反而利多需求</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">finance.biggo.com</span> · 8h ago</span>
+        <span class="zh"><span class="source">finance.biggo.com</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nomura pushed back on two concerns for memory stocks: Korean capacity expansion is described as a distant solution, and Meta&#x27;s AI compute leasing is framed as demand support rather than demand destruction. The point is that lead times matter more than headline capex when HBM and DDR5 supply is already allocated. For memory makers, the risk is less near-term oversupply than whether customers keep paying for scarce high-end bits through the next investment wave.</span>
+        <span class="zh">Nomura反驳了存储股面临的两项担忧：韩国扩产被视为较远期的解法，而Meta租赁AI算力被解读为需求支撑而非需求破坏。关键在于，当HBM和DDR5供给已经被分配时，交付周期比资本开支标题更重要。对存储厂而言，近期风险不是马上过剩，而是客户能否在下一轮投资中继续为稀缺高端bit付费。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/apples-a20-pro-to-break-a-13-year-convention-with-the-96-bit-lpddr6-but-pinches-pennies-on-the-iphone-18-pro-duos-nand-as-a-counter/" target="_blank" rel="noopener">
+          <span class="en">Apple&#x27;s A20 Pro is rumored to move to a 96-bit LPDDR6 interface</span>
+          <span class="zh">Apple A20 Pro据称将转向96位LPDDR6接口</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 5h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A supply-chain rumor says Apple&#x27;s A20 Pro may abandon its long-running 64-bit mobile memory convention for a 96-bit LPDDR6 interface, while offsetting cost pressure with NAND choices. If accurate, the change would point to higher local AI and graphics bandwidth needs in the iPhone 18 Pro generation. It also shows how memory cost is becoming a system-level tradeoff, not a component line item.</span>
+        <span class="zh">供应链传闻称，Apple A20 Pro可能放弃长期采用的64位移动内存惯例，改用96位LPDDR6接口，并通过NAND配置抵消成本压力。如果属实，这意味着iPhone 18 Pro一代的本地AI和图形负载需要更高带宽。它也说明内存成本正在变成系统级取舍，而不只是单一元件成本。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/silicon-motion-shows-off-enterprise-sm8008-sm8388-ssd-controllers-at-computex-2026/" target="_blank" rel="noopener">
+          <span class="en">Silicon Motion shows SM8008 and SM8388 enterprise SSD controllers</span>
+          <span class="zh">Silicon Motion展示SM8008与SM8388企业级SSD控制器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 8h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Silicon Motion showed its SM8008 and SM8388 enterprise SSD controllers at Computex 2026. Controller roadmaps matter because AI storage demand is not only about NAND bits; it also depends on latency, queue depth, firmware maturity, and power behavior in dense servers. The announcement keeps third-party controller vendors in the enterprise SSD race as hyperscale storage tiers expand.</span>
+        <span class="zh">Silicon Motion在Computex 2026展示了SM8008和SM8388企业级SSD控制器。控制器路线图重要，是因为AI存储需求不只取决于NAND bit，还取决于延迟、队列深度、固件成熟度和高密度服务器中的功耗表现。随着超大规模存储层扩张，第三方控制器厂商仍在企业级SSD竞争中占有位置。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxPN0JKd3dRdHpjM1lJOUhKM3RCNmlpNFV3bndDQkQ4NU5kLTVsTFlVQVpORWFGU2dReFNhOW1RZlFRWFQySnZWYVN0alhTeXhLcHE0c0dsMkVtNUxRc0Q5VS02aEFnRzBURm1CdTQ5eWJWelRERVhRay1hNVlZeWRldG92Z0FhN1FueEladGpRYUJhamdlVDZwMzZGMEpKa3BjU3hHdUZNdmVEYmtsaGpDYmpPcW0xclJHOGpoeC11UWkyYXdXX2FZUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML&#x27;s July 15 update becomes a test for China exports and High-NA EUV</span>
+          <span class="zh">ASML 7月15日更新将检验中国出口与High-NA EUV需求</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Ad-hoc-news.de</span> · 11h ago</span>
+        <span class="zh"><span class="source">Ad-hoc-news.de</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML&#x27;s next earnings update is being framed around two variables: China export exposure and the pace of High-NA EUV adoption. That is the right lens for the equipment stack because ASML&#x27;s backlog depends on both policy permissions and customer willingness to absorb the next lithography cost step. Any shift in China revenue or High-NA timing would ripple into leading-node foundry and memory capex plans.</span>
+        <span class="zh">ASML下一次业绩更新被市场聚焦在两个变量上：中国出口敞口和High-NA EUV导入速度。这个观察角度适合设备链，因为ASML的积压订单同时取决于政策许可和客户承担下一代光刻成本的意愿。中国收入或High-NA时间表的任何变化，都会传导到领先制程代工和存储资本开支计划。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOZ2loQ1J0Qm0zZnlBWUo0OFNJUEM5RFgxeWNqZlA4aUYxQ1l1WlR4Y1JUOUo2dWoyUlhXMGdGVVdDNFo2cE5uVUtnZjY1dmVNcWJxTnpLaXNzek5WRFdYQ0Y3RnpYQnphd0RMWTJ0UGxidUcxdGphOTBKLW1VakI1bFN6ckhhUDc3dlI4aWlZZllJbHdzUFBVaUpoLUhvZDZobVh3UVRnVlpXNlNYRjEyX2hiNUkySEZkM1BHaUtKNzMyTGgyODFRdGVqWTY4aGhxZmMyTGNlY09jbEtNOUE?oc=5" target="_blank" rel="noopener">
+          <span class="en">A semiconductor manufacturing test bed rides on a Falcon 9 launch</span>
+          <span class="zh">半导体制造测试平台搭乘Falcon 9发射</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Spaceflight Now</span> · 3h ago</span>
+        <span class="zh"><span class="source">Spaceflight Now</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A semiconductor manufacturing test bed is flying alongside Starlink satellites on a Falcon 9 mission, according to Spaceflight Now coverage in the candidate feed. The item is early-stage rather than a production supply story, but it signals continued experimentation with off-Earth processing environments. For materials and process engineers, the question is whether microgravity can produce repeatable advantages that justify launch and recovery costs.</span>
+        <span class="zh">候选源中Spaceflight Now的报道显示，一个半导体制造测试平台正随Falcon 9任务与Starlink卫星一同发射。这不是量产供应新闻，而是早期工艺实验信号，表明行业仍在探索地外加工环境。对材料和工艺工程师而言，关键问题是微重力能否带来可重复优势，并足以覆盖发射和回收成本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/ssds/chinese-ymtc-ssds-make-their-way-into-retail-lenovo-laptops-media-outlet-slams-ymtc-pcie-4-0-drive-for-below-average-for-an-ssd-in-an-office-laptop-in-review" target="_blank" rel="noopener">
+          <span class="en">YMTC SSDs appear in retail Lenovo laptops despite U.S. restrictions</span>
+          <span class="zh">受美国限制的YMTC SSD出现在Lenovo零售笔记本中</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tom&#x27;s Hardware reports that Lenovo has begun using YMTC SSDs in some retail laptop models, despite YMTC&#x27;s place on the U.S. Commerce Department Entity List and its Pentagon designation as a Chinese military company. The drives were criticized in a review as below average for an office-laptop SSD, but the policy signal is more important than the benchmark. Restricted suppliers can still surface through global OEM bills of materials, making enforcement and sourcing audits more complicated.</span>
+        <span class="zh">Tom&#x27;s Hardware报道称，Lenovo已在部分零售笔记本型号中采用YMTC SSD，尽管YMTC被列入美国商务部实体清单，并被五角大楼认定为中国军方企业。评测中该PCIe 4.0 SSD被批评为办公室笔记本中表现低于平均水平，但政策信号比单次基准测试更重要。受限制供应商仍可能通过全球OEM物料清单进入市场，这让执法和采购审计更复杂。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-05 01:13 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-05 01:13 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

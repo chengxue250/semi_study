@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-25">
+<meta name="generator" content="semi-news-daily (research)">
+<title>The MoE Serving Stack Hardens — From NAND-CIM to Ascend-Native Scheduling — Semi Research 2026-05-25</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Lang visibility */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-05-25.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Monday, May 25, 2026</span>
+      <span class="zh">研究摘要 · 2026年5月25日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">The MoE Serving Stack Hardens — From NAND-CIM to Ascend-Native Scheduling</span>
+      <span class="zh">MoE服务栈成型——从NAND CIM到Ascend本地化调度</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Three of this week&#x27;s strongest papers attack different layers of the same MoE-serving problem: NASiC stores all experts inside 3D NAND CIM for on-device inference, HyperParallel-MoE schedules MoE training across Huawei Ascend NPU AIC/AIV units, and AlignedServe re-orders prefix-aware batching to close per-iteration bubbles. Plus a 3D NAND-CIM angle that lands in the same week as the Huawei 1.4nm claim, a chiral-antiferromagnet switching demo for sub-millitesla spintronics, and a general-purpose photonic compute primitive.</span>
+      <span class="zh">本周最强的三篇论文从不同层次攻击同一个MoE服务问题:NASiC将所有专家存入3D NAND CIM、实现端侧推理;HyperParallel-MoE在华为Ascend NPU的AIC/AIV单元间调度MoE训练;AlignedServe以前缀感知重新排序批处理,消除每迭代内部气泡。叠加在Huawei 1.4nm同周出现的NAND-CIM议题、亚毫特斯拉自旋电子学的Mn3Sn手性反铁磁开关演示、以及通用化的光子计算原语。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23646" target="_blank" rel="noopener">
+          <span class="en">Graphene photodetector with engineered hot-carrier cooling for silicon-photonic integration</span>
+          <span class="zh">面向硅光集成的、可工程化热载流子冷却动力学的石墨烯光电探测器</span>
+        </a><span class="tag">device-fab</span><span class="tag">silicon-photonics</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23646" target="_blank" rel="noopener">arXiv:2605.23646</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Graphene photodetectors run on the photo-thermoelectric effect, which means the performance ceiling is set by how fast the hot carriers cool. The group engineers the cooling pathway (substrate, gating, dielectric stack) and shows measurable changes in detector bandwidth and responsivity. The interest for silicon photonics is direct: a tunable-bandwidth detector that needs no bias voltage is exactly the integration story graphene has promised since 2012 but rarely delivered cleanly.</span>
+        <span class="zh">石墨烯光电探测器依赖光热电效应,性能上限取决于热载流子冷却速度。作者通过基底、栅极与介质叠层来工程化冷却通道,在探测器带宽与响应度上获得可观测的变化。对硅光集成意义直接:可调带宽、无需偏置电压的探测器,正是石墨烯自2012年以来一直承诺、却很少干净实现的集成故事。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23205" target="_blank" rel="noopener">
+          <span class="en">Sub-millitesla switching of chiral antiferromagnetic order in Mn₃Sn via pulsed thermal annealing</span>
+          <span class="zh">通过脉冲热退火,在Mn₃Sn中以亚毫特斯拉场切换手性反铁磁有序</span>
+        </a><span class="tag">device-physics</span><span class="tag">spintronics</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23205" target="_blank" rel="noopener">arXiv:2605.23205</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Antiferromagnetic spintronics has been stuck on the same wall for a decade: AFM order doesn&#x27;t move under fields you can actually generate on-chip. The group combines a heat pulse with a 0.1 mT magnetic field — about three orders of magnitude below what previous Mn₃Sn switching needed — and reliably flips the chiral AFM state, confirmed via anomalous Hall measurements. If this scales, AFM memory bits become a real device-design option rather than a permanent &#x27;two years away&#x27; story.</span>
+        <span class="zh">反铁磁自旋电子学已有十年卡在同一道墙前:AFM有序在片上可生成的磁场下不动。作者将热脉冲与仅0.1 mT的小磁场配合——比此前Mn₃Sn切换所需场量低约三个数量级——可靠地翻转手性AFM态,异常霍尔测量给出验证。若可扩展,AFM存储位将成为真实的器件设计选项,而非长期&#x27;两年后量产&#x27;的故事。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与体系结构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23833" target="_blank" rel="noopener">
+          <span class="en">DORA: dataflow-instruction orchestration for diverse DNN accelerator workloads</span>
+          <span class="zh">DORA:面向多样化DNN加速器负载的数据流-指令编排架构</span>
+        </a><span class="tag">architecture</span><span class="tag">DNN-accelerator</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23833" target="_blank" rel="noopener">arXiv:2605.23833</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Generic DNN accelerators waste 30-60% of their compute on the wrong workloads — a tensor-core-heavy design idles during attention, a dataflow design idles during MoE routing, etc. DORA proposes a hybrid: an outer-loop instruction-driven scheduler that picks dataflow patterns per layer, rather than fixing one dataflow at design time. Simulation-only, but the architectural argument — &#x27;one fabric, many dataflows, scheduler decides&#x27; — is what the field has been groping toward for several generations.</span>
+        <span class="zh">通用DNN加速器在错误负载下浪费30-60%的算力——以Tensor Core为主的设计在注意力阶段空转,以数据流为主的设计在MoE路由阶段空转,等等。DORA提出混合方案:外层指令驱动的调度器在每层选择不同的数据流模式,而非在设计时固定一种数据流。当前为仿真级,但&#x27;一套基底、多种数据流、由调度器决定&#x27;的架构主张,正是业界几代以来摸索的方向。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23294" target="_blank" rel="noopener">
+          <span class="en">NASiC: 3D NAND-based CIM macro for on-device MoE LLM inference</span>
+          <span class="zh">NASiC:面向端侧MoE大模型推理的3D NAND-CIM宏</span>
+        </a><span class="tag">CIM</span><span class="tag">3D-NAND</span><span class="tag">MoE</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23294" target="_blank" rel="noopener">arXiv:2605.23294</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Edge MoE deployment is blocked by capacity: every expert needs to be resident for routing to work, and DRAM-resident experts blow the on-device memory budget. NASiC puts the whole expert pool into 3D NAND CIM cells with a CAM-based router that selects the active expert in-place, returning only the activations on the bus. Architecturally the move is to treat parameter storage as the compute substrate, not as a separate memory tier. The Samsung 900-layer V-NAND story this week (front-page above) starts to look strategic when read alongside this paper.</span>
+        <span class="zh">边缘端MoE部署的瓶颈在容量:所有专家必须常驻才能完成路由,DRAM驻留则爆掉端侧内存预算。NASiC将整个专家池存入3D NAND CIM单元,使用CAM路由器原地选择激活专家,仅在总线上返回激活值。架构层意图是将参数存储视为计算基底,而非独立的内存层。本周头版的三星900层V-NAND故事,与本文对照阅读时开始呈现战略意义。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23796" target="_blank" rel="noopener">
+          <span class="en">UniSpike: eliminating duplicate address transmissions in many-core neuromorphic systems</span>
+          <span class="zh">UniSpike:在多核类脑系统中消除重复地址传输</span>
+        </a><span class="tag">neuromorphic</span><span class="tag">NoC</span><span class="tag">SNN</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23796" target="_blank" rel="noopener">arXiv:2605.23796</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">On packet-based neuromorphic chips, a spike&#x27;s payload is one bit but the destination address consumes the rest of the packet — and across representative SNN workloads, **49% of total traffic is duplicate-address transmission**. UniSpike compresses this by exploiting locality in destination patterns; the savings translate directly to energy because NoC traffic is the dominant power-draw on these chips. Concrete, measurable, and orthogonal to the spike-coding work other groups have been doing.</span>
+        <span class="zh">在基于数据包的类脑芯片上,脉冲负载只有一比特,但目的地址消耗了数据包剩下的全部容量——在代表性SNN负载上,**总流量的49%是重复地址传输**。UniSpike利用目的模式的局部性进行压缩;由于NoC流量是这类芯片的主要功耗源,节省直接折算为能耗降低。具体、可测量,且与其他组在脉冲编码方向上的工作正交。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23226" target="_blank" rel="noopener">
+          <span class="en">MASQ: stage-wise multi-precision (MXINT8/4/2) quantization accelerator for masked diffusion</span>
+          <span class="zh">MASQ:面向掩码扩散的阶段化多精度(MXINT8/4/2)量化加速器</span>
+        </a><span class="tag">quantization</span><span class="tag">diffusion</span><span class="tag">accelerator</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23226" target="_blank" rel="noopener">arXiv:2605.23226</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Masked diffusion re-processes the whole image at every timestep even though only the masked region is being generated — pure compute waste. MASQ co-designs a hardware-software accelerator that assigns precision per stage (MXINT8 → MXINT4 → MXINT2) based on which timesteps tolerate quantization. The framing follows yesterday&#x27;s Mix-Quant theme (phase as a first-class quantization dimension) but for image diffusion instead of LLM serving — and gives concrete silicon-budget numbers.</span>
+        <span class="zh">掩码扩散每个时步都对整张图像重新处理,即便仅需生成被掩码区域——纯算力浪费。MASQ给出软硬件协同的加速器,按阶段(MXINT8→MXINT4→MXINT2)分配精度,依据&#x27;哪些时步容忍量化&#x27;决定。框架延续上版Mix-Quant的主题(将&#x27;阶段&#x27;作为一等量化维度),但对象是图像扩散而非LLM服务,并给出具体硅片预算数字。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research (hardware-relevant)</span>
+      <span class="zh">AI研究(与硬件相关)</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23764" target="_blank" rel="noopener">
+          <span class="en">HyperParallel-MoE: multi-core interleaved scheduling for MoE training on Huawei Ascend NPUs</span>
+          <span class="zh">HyperParallel-MoE:华为Ascend NPU上MoE训练的多核交错调度</span>
+        </a><span class="tag">MoE</span><span class="tag">Ascend</span><span class="tag">training-systems</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      <p class="affil">Huawei</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23764" target="_blank" rel="noopener">arXiv:2605.23764</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Ascend NPUs expose two heterogeneous compute pools — AIC (matrix) and AIV (vector) — with explicit cross-queue synchronization. Existing MoE training frameworks serialize kernels and leave one pool idle while the other works. HyperParallel-MoE schedules MoE operators to keep both pools busy via interleaving, with measured speedups on representative MoE workloads. Notable as Huawei publishing its own scheduling story in the same week as the LogicFolding announcement — both papers are arguments that &#x27;we can route around Western tooling.&#x27;</span>
+        <span class="zh">Ascend NPU暴露两类异构算力——AIC(矩阵)与AIV(向量)——并支持显式跨队列同步。现有MoE训练框架按内核串行执行,一类单元工作时另一类空闲。HyperParallel-MoE通过交错调度MoE算子,使两类单元同时忙起来,并在代表性MoE负载上给出实测加速。值得关注的是:华为在LogicFolding发布同周公布自家调度方案,两篇都在传递&#x27;我们可以绕开西方工具链&#x27;的论点。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23389" target="_blank" rel="noopener">
+          <span class="en">AlignedServe: prefix-aware batching to close per-decode-iteration bubbles in LLM serving</span>
+          <span class="zh">AlignedServe:以前缀感知批处理消除LLM服务中每解码迭代内的气泡</span>
+        </a><span class="tag">LLM-serving</span><span class="tag">scheduling</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23389" target="_blank" rel="noopener">arXiv:2605.23389</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">Existing LLM-serving systems chase request-level and batch-level bubbles, but tokens *within* a single decode iteration also have wildly different costs because of varying KV-cache lengths — and that iteration-internal gap was previously unaddressed. AlignedServe orders tokens by KV length per iteration so similar-cost tokens execute together, dramatically reducing the slowdown caused by the one long-context token that previously stalled the whole batch. Small implementation change, real throughput delta.</span>
+        <span class="zh">现有LLM服务系统在请求级与批级追逐气泡,但单个解码迭代*内部*的token因KV缓存长度差异巨大也有不同成本——这一迭代内部气泡此前未被处理。AlignedServe按每迭代内的KV长度排序token,使开销相近的token集中执行,显著减少&#x27;一个长上下文token拖累整批&#x27;造成的减速。代码改动小,吞吐量提升真实。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA, Verification &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.23549" target="_blank" rel="noopener">
+          <span class="en">DAE4HLS: exposing memory-level parallelism to HLS via explicit decoupling</span>
+          <span class="zh">DAE4HLS:通过显式解耦将内存级并行暴露给HLS</span>
+        </a><span class="tag">EDA</span><span class="tag">HLS</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.23549" target="_blank" rel="noopener">arXiv:2605.23549</a> · 2026-05-22</p>
+      <p class="summary">
+        <span class="en">High-Level Synthesis is great at sequential memory access patterns and small scratchpad-fitting data, and terrible at everything else — which means most non-trivial accelerator designs still get hand-written at the RTL level. DAE4HLS adds an explicit decoupling primitive that exposes memory-level parallelism the synthesizer can actually exploit, broadening the class of designs HLS can produce. Tooling paper, but the right kind: less &#x27;AI-generated RTL&#x27; (still messy) and more &#x27;give the compiler the information it always needed.&#x27;</span>
+        <span class="zh">高层综合(HLS)在顺序内存访问与适合便签存储器的小数据集上表现良好,在其他场景则相对失败——这意味着多数非平凡的加速器设计仍由人工写RTL。DAE4HLS增加显式解耦原语,将内存级并行暴露给综合器,扩展了HLS可处理的设计类别。是工具论文,但属于正确的方向:相比&#x27;AI生成RTL&#x27;(仍混乱),&#x27;把编译器一直需要的信息交给它&#x27;更扎实。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-25 14:00 UTC · <a href="../2026-05-25.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-05-25 14:00 UTC · <a href="../2026-05-25.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
