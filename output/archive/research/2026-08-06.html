@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-08">
+<meta name="edition-date" content="2026-08-06">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Hardware brings sparsity and resilience closer — Semi Research 2026-08-08</title>
+<title>Memory movement reshapes accelerator design — Semi Research 2026-08-06</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-06.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Saturday, August 8, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月8日 星期六</span>
+      <span class="en">Research digest · Thursday, August 6, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月6日 星期四</span>
     </div>
     <h1>
-      <span class="en">Hardware brings sparsity and resilience closer</span>
-      <span class="zh">硬件把稀疏性与韧性推向更近处</span>
+      <span class="en">Memory movement reshapes accelerator design</span>
+      <span class="zh">数据搬运重塑加速器设计</span>
     </h1>
     <p class="dek">
-      <span class="en">This week’s papers work on the data paths around neural computation: sparse die-to-die links, asynchronous control, compute-in-memory precision, and error resilience. Several contributions are measured designs, making their energy and area claims more actionable than architecture-only proposals.</span>
-      <span class="zh">本周论文聚焦神经计算周边的数据路径：稀疏的裸片间互连、异步控制、存内计算精度和错误韧性。多项工作给出了实测设计，因此其能耗和面积主张比纯架构提案更具可操作性。</span>
+      <span class="en">This week&#x27;s papers treat memory bandwidth, KV-cache representation, and quantization as first-order architecture choices. They span PIM-GPU systems, dedicated inference datapaths, wafer processing, and power-aware EDA.</span>
+      <span class="zh">本周论文将内存带宽、KV缓存表示和量化视为一阶架构选择。研究覆盖PIM-GPU系统、专用推理数据通路、晶圆加工以及面向功耗的EDA。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -336,111 +336,117 @@
     </div>
   </header>
 
-    <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.04780" target="_blank" rel="noopener">
-          <span class="en">Dynamic quantum circuits on a hybrid superconducting qubit-cavity processor</span>
-          <span class="zh">混合超导量子比特-腔体处理器上的动态量子电路</span>
-        </a>
-      </h3>
-      <p class="authors">Hongbo Wu, Ling Hu, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.04780" target="_blank" rel="noopener">arXiv:2608.04780</a> · 2026-08-05</p>
-      <p class="summary">
-        <span class="en">This experiment uses mid-circuit measurement, reset, reuse, and feed-forward on a superconducting qubit-cavity processor. It reports 82% average success on a 10-bit Bernstein-Vazirani task, sub-10^-3 error in 8-bit phase estimation, and a dynamic implementation of Shor factoring 15 with over 99.8% squared statistical overlap. The result makes a concrete case for dynamic circuits as a way to trade control complexity for fewer physical resources.</span>
-        <span class="zh">该实验在超导量子比特-腔体处理器上使用了线路中测量、复位、复用和前馈控制。它在10比特Bernstein-Vazirani任务上报告了82%的平均成功率，在8比特相位估计中实现低于10^-3的误差，并以超过99.8%的平方统计重叠度动态实现了对15的Shor分解。结果为动态电路提供了具体证据：可用更复杂的控制来换取更少的物理资源。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Reliability</span>
-      <span class="zh">电路与可靠性</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1145/3822454.3822495" target="_blank" rel="noopener">
-          <span class="en">Permanent-fault analysis for asynchronous neuromorphic NoCs</span>
-          <span class="zh">异步神经形态片上网络的永久故障分析</span>
-        </a>
-      </h3>
-      <p class="authors">Giuseppe Chessa, Yuyi Yang, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1145/3822454.3822495" target="_blank" rel="noopener">Proceedings of the International Conference on Neuromorphic Systems</a> · 2026-08-04</p>
-      <p class="summary">
-        <span class="en">The authors couple a gate-level asynchronous NoC model with an SNN simulator to trace permanent routing faults into application behavior. Localized stuck-at faults caused accuracy losses of up to 10% in navigation and 36% in a keyword-spotting case. The cross-layer result shows that spike-routing reliability can dominate even when neuron and memory blocks are sound.</span>
-        <span class="zh">作者将门级异步NoC模型与SNN模拟器耦合，用于追踪永久路由故障如何传导至应用行为。局部卡死故障在导航任务中最多造成10%的准确率损失，在关键词识别案例中最多造成36%的损失。该跨层结果表明，即使神经元和存储模块正常，脉冲路由可靠性也可能成为主导因素。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1109/TVLSI.2026.3692208" target="_blank" rel="noopener">
-          <span class="en">Reed-Solomon decoding tailored to HBM3 error correction</span>
-          <span class="zh">面向HBM3纠错的Reed-Solomon解码架构</span>
-        </a>
-      </h3>
-      <p class="authors">Jaehoon Kwon, Jeongmin Kim, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3692208" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-08-01</p>
-      <p class="summary">
-        <span class="en">The paper optimizes a decoder for HBM3’s mandatory (19,17) single-symbol-error-correcting Reed-Solomon code. By replacing costly Galois-field inverse LUTs with comparison search and constant multiplications, it reports up to 97% less area and 81% higher speed in 28-nm synthesis. Compact on-memory error correction becomes more consequential as HBM stacks grow in capacity and interface width.</span>
-        <span class="zh">论文针对HBM3强制采用的(19,17)单符号纠错Reed-Solomon码优化了解码器。通过以比较搜索和常数乘法替代昂贵的伽罗瓦域逆元查找表，28nm综合结果显示其面积最多降低97%，速度最多提高81%。随着HBM堆叠的容量和接口宽度提升，紧凑的存储器内纠错将愈发重要。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
+    <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3822454.3822475" target="_blank" rel="noopener">
-          <span class="en">Temporal-sparse die-to-die communication for heterogeneous neuromorphic systems</span>
-          <span class="zh">面向异构神经形态系统的时域稀疏裸片间通信</span>
+        <a href="https://arxiv.org/abs/2608.04428" target="_blank" rel="noopener">
+          <span class="en">Deltoris: Bit-sparse speculative inference for real-time VLA models</span>
+          <span class="zh">Deltoris：面向实时VLA模型的位级稀疏推测推理</span>
         </a>
       </h3>
-      <p class="authors">Joshua Nardone, Rui-Jie Zhu, et al.</p>
+      <p class="authors">Zheng Liu, Zeyu Guo, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3822454.3822475" target="_blank" rel="noopener">Proceedings of the International Conference on Neuromorphic Systems</a> · 2026-08-04</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.04428" target="_blank" rel="noopener">arXiv:2608.04428</a> · 2026-08-05T04:17:03Z</p>
       <p class="summary">
-        <span class="en">The design keeps dense ANN computation within a die but uses learnably sparse spiking layers at bandwidth-limited die boundaries. That partitioning aims to reduce inter-die traffic without asking an entire network to adopt spiking computation. System benefit will depend on the sparsity achieved after training, but it is a direct response to packaging bandwidth limits.</span>
-        <span class="zh">该设计将密集ANN计算保留在裸片内部，但在带宽受限的裸片边界使用可学习稀疏的脉冲层。这样的划分旨在减少裸片间流量，而不要求整个网络采用脉冲计算。系统收益仍取决于训练后实际达到的稀疏度，但它直接回应了封装带宽限制。</span>
+        <span class="en">Deltoris co-designs bit-level temporal sparsity and speculative inference for diffusion-based vision-language-action models. The authors report up to 34.2× speedup over mobile GPUs and 6.1× over a prior accelerator for 50–200 Hz control loops. These are proposed-accelerator evaluations, so hardware cost and model coverage remain open questions.</span>
+        <span class="zh">Deltoris针对基于扩散的视觉-语言-动作模型，将位级时间稀疏性与推测推理进行协同设计。作者报告称，面向50至200Hz控制循环时，其速度最高可达移动GPU的34.2倍、此前加速器的6.1倍。这些结果基于所提出的加速器评估，硬件成本和模型覆盖范围仍是未解问题。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCSII.2026.3693271" target="_blank" rel="noopener">
-          <span class="en">SACIM: an asynchronous charge-domain CIM for CNN inference</span>
-          <span class="zh">SACIM：用于CNN推理的异步电荷域存内计算</span>
+        <a href="https://arxiv.org/abs/2608.04169" target="_blank" rel="noopener">
+          <span class="en">Design principles for heterogeneous DRAM-PIM-GPU systems</span>
+          <span class="zh">异构DRAM-PIM-GPU系统的设计原则</span>
         </a>
       </h3>
-      <p class="authors">Tingran Chen, Xiaoya Wang, et al.</p>
+      <p class="authors">Corey Lammie, Hadjer Benmeziane, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCSII.2026.3693271" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems - II - Express Briefs</a> · 2026-08-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.04169" target="_blank" rel="noopener">arXiv:2608.04169</a> · 2026-08-04T19:26:54Z</p>
       <p class="summary">
-        <span class="en">SACIM combines signed-weight bit cells, a clock-free controller, and a pulse-based ADC to improve latency and parallelism in charge-domain analog CIM. Fabricated in 40 nm, the prototype reports 655.78 TOPS/W peak efficiency, 1,180.4 GOPS throughput, and 5.1 μW static power. Mapping accuracy and peripheral overhead at larger array and model sizes remain the important scaling questions.</span>
-        <span class="zh">SACIM结合了有符号权重位单元、无时钟控制器和脉冲式ADC，以改善电荷域模拟CIM的延迟和并行度。该40nm原型报告峰值能效655.78 TOPS/W、吞吐量1,180.4 GOPS以及5.1微瓦静态功耗。在更大阵列和模型规模下的映射精度与外围开销仍是关键扩展问题。</span>
+        <span class="en">This study evaluates DRAM-PIM-GPU systems for decode-phase LLM inference across OPT and Mamba2 workloads. It finds static power can make dynamic-only models overstate tokens per watt by up to 3.85×, while channel count and hierarchy choices dominate outcomes. It is a design-space study rather than a new silicon implementation, but makes deployment assumptions explicit.</span>
+        <span class="zh">该研究在OPT和Mamba2工作负载上评估了解码阶段LLM推理的DRAM-PIM-GPU系统。研究发现，静态功耗可使仅考虑动态功耗的模型将每瓦token数高估最多3.85倍，而通道数和层级配置主导结果。这是一项设计空间研究而非新的芯片实现，但明确了部署假设的重要性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Systems &amp; Inference</span>
+      <span class="zh">AI系统与推理</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.04074" target="_blank" rel="noopener">
+          <span class="en">KV-cache vector quantization that preserves attention</span>
+          <span class="zh">保持注意力特性的KV缓存向量量化</span>
+        </a>
+      </h3>
+      <p class="authors">Samuel Fernández-Menduiña, Amir Ziashahabi, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.04074" target="_blank" rel="noopener">arXiv:2608.04074</a> · 2026-08-04T16:10:59Z</p>
+      <p class="summary">
+        <span class="en">This paper frames KV-cache quantization as transform coding whose distortion is attention-product error, not generic reconstruction error. It derives calibration-based transforms for keys and values to make two-bit-per-element compression more attention-aware. The serving benefit will depend on transform overhead and workload stability.</span>
+        <span class="zh">该论文将KV缓存量化表述为变换编码问题，其失真度量是注意力乘积误差，而非通用重构误差。它为键和值推导基于校准数据的变换，使每元素两比特的压缩更能保持注意力特性。实际服务收益将取决于变换开销和工作负载稳定性。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/JSSC.2026.3668132" target="_blank" rel="noopener">
-          <span class="en">A 28-nm floating-point SRAM CIM macro for edge AI</span>
-          <span class="zh">面向边缘AI的28nm浮点SRAM存内计算宏</span>
+        <a href="https://arxiv.org/abs/2608.03229" target="_blank" rel="noopener">
+          <span class="en">Signed-digit KV caches for ternary LLM inference</span>
+          <span class="zh">面向三值LLM推理的有符号数字KV缓存</span>
         </a>
       </h3>
-      <p class="authors">Yiyang Yuan, Zhongyi Sun, et al.</p>
+      <p class="authors">Ziang Duan, Jiajun Wu, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3668132" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-08-01</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03229" target="_blank" rel="noopener">arXiv:2608.03229</a> · 2026-08-04T07:00:20Z</p>
       <p class="summary">
-        <span class="en">This 192-Kb, 28-nm macro combines digital and analog CIM with an outer-product FP/INT dataflow and a residual ADC intended to cut conversion overhead. It reports 72.12 TFLOPS/W peak energy efficiency and only 0.05% ResNet-18 accuracy loss on CIFAR-100 using BF16 inputs, weights, and outputs. The work addresses the CIM challenge of gaining efficiency without abandoning floating-point-compatible accuracy.</span>
-        <span class="zh">这枚192Kb、28nm宏将数字与模拟CIM结合，采用外积式FP/INT数据流和残差ADC以降低转换开销。它报告峰值能效72.12 TFLOPS/W，在CIFAR-100上使用BF16输入、权重和输出运行ResNet-18时准确率仅损失0.05%。该工作处理了CIM的一项关键矛盾：在不牺牲兼容浮点精度的前提下提升能效。</span>
+        <span class="en">The authors store online K/V states as scaled multi-plane signed digits so attention can use the lookup-table machinery of ternary projections. The design avoids dense K/V materialization and handles incomplete cache blocks during causal decoding. The abstract does not establish end-to-end model quality or silicon efficiency.</span>
+        <span class="zh">作者提出将在线生成的K/V状态存为缩放的多平面有符号数字，使注意力计算能够复用三值投影的查找表机制。该设计避免K/V的稠密实体化，并处理自回归解码中未完成的缓存块。摘要未证明端到端模型质量或芯片效率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.03814" target="_blank" rel="noopener">
+          <span class="en">Self-focusing control for precise 4H-SiC wafer slicing</span>
+          <span class="zh">用于精确4H-SiC晶圆切片的自聚焦控制</span>
+        </a>
+      </h3>
+      <p class="authors">Dong Hee Kang, Jaeseung Lim, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03814" target="_blank" rel="noopener">arXiv:2608.03814</a> · 2026-08-04T15:24:12Z</p>
+      <p class="summary">
+        <span class="en">The work links femtosecond-laser pulse energy and processing depth to Kerr self-focusing during 4H-SiC wafer slicing. Experiments, modelling, and ray-optics simulations connect the effect to surface texture and separation stress. Better control could support thin SiC layers, although production yield is not yet demonstrated.</span>
+        <span class="zh">该工作将飞秒激光脉冲能量和加工深度与4H-SiC晶圆切片过程中的Kerr自聚焦联系起来。实验、建模和光线光学仿真将其与表面纹理及分离应力相关联。更好的工艺控制有望支持薄SiC层，但尚未证明量产良率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.03778" target="_blank" rel="noopener">
+          <span class="en">DiffPower: Differentiable GPU switching-power analysis</span>
+          <span class="zh">DiffPower：可微分GPU开关功耗分析</span>
+        </a>
+      </h3>
+      <p class="authors">Isaac Jacobson, Zheng Zhao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03778" target="_blank" rel="noopener">arXiv:2608.03778</a> · 2026-08-04T15:00:49Z</p>
+      <p class="summary">
+        <span class="en">DiffPower converts netlists into PDK-agnostic bytecode and uses reverse-mode automatic differentiation for GPU-accelerated switching-power analysis. It reports up to 1,002× speedup over single-threaded CPU propagation and a median toggle-rate correlation of 0.96 across ten designs. Signoff accuracy will require validation against production flows.</span>
+        <span class="zh">DiffPower将网表转换为与PDK无关的字节码，并使用反向模式自动微分实现GPU加速的开关功耗分析。它报告相对单线程CPU传播最高1002倍加速，并在十个设计上取得0.96的开关率相关系数中位数。签核精度仍需相对量产流程验证。</span>
       </p>
     </article>
   </section>
@@ -468,8 +474,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-08 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-08 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-06 01:16 UTC · <a href="../2026-08-06.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-06 01:16 UTC · <a href="../2026-08-06.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
