@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-09">
+<meta name="edition-date" content="2026-08-10">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory systems become the accelerator — Semi Research 2026-08-09</title>
+<title>Inference efficiency shifts across the stack — Semi Research 2026-08-10</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,20 +319,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, August 9, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月9日 星期日</span>
+      <span class="en">Research digest · Monday, August 10, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月10日 星期一</span>
     </div>
     <h1>
-      <span class="en">Memory systems become the accelerator</span>
-      <span class="zh">存储系统正在成为加速器</span>
+      <span class="en">Inference efficiency shifts across the stack</span>
+      <span class="zh">推理效率向全栈迁移</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s papers move memory management, low-precision formats, and near-memory execution into the center of AI-system design. At the same time, measurement and EDA work targets the tools needed to validate those increasingly complex systems.</span>
-      <span class="zh">本周论文将存储管理、低精度格式与近存计算推到AI系统设计的核心位置。与此同时，测量与EDA研究也在完善验证这些日益复杂系统所需的工具链。</span>
+      <span class="en">This week’s papers connect low-bit formats, sparsity, scheduling, and memory-centric circuits to the practical cost of serving models. The strongest results range from silicon prototypes to system-level measurements, with several claims still based on simulation or preprint evaluation.</span>
+      <span class="zh">本周论文将低比特格式、稀疏性、调度和以存储为中心的电路，连接到模型服务的实际成本问题。最有力的结果覆盖硅原型和系统级测量，但也有若干结论仍基于仿真或预印本评估。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
@@ -343,53 +343,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1021/acsphotonics.6c00642" target="_blank" rel="noopener">
-          <span class="en">CMOS-compatible bismuth photodetector for SWIR silicon waveguides</span>
-          <span class="zh">面向短波红外硅波导的CMOS兼容铋光电探测器</span>
+        <a href="https://doi.org/10.3390/mi17080931" target="_blank" rel="noopener">
+          <span class="en">Ferroelectric Hafnium Oxide for In-Memory Computing</span>
+          <span class="zh">面向存算一体的铁电氧化铪</span>
         </a>
       </h3>
-      <p class="authors">Liqiang Qi, Jiaqi Wang, Zhibin Yang, et al.</p>
+      <p class="authors">Chen He, Wei Li, Jianjun Li, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1021/acsphotonics.6c00642" target="_blank" rel="noopener">ACS Photonics</a> · 2026-08-06</p>
+      <p class="venue"><a href="https://doi.org/10.3390/mi17080931" target="_blank" rel="noopener">Micromachines</a> · 2026-08-04</p>
       <p class="summary">
-        <span class="en">The authors directly grow a two-dimensional bismuth film at low temperature in a back-end CMOS-compatible flow to make a waveguide-integrated SWIR detector. At 2200 nm, the device reports about 2 dB/μm absorption, 185.3 mA/W responsivity, and 201.4 nA dark current. Transfer-free growth could make wafer-scale integration more practical, although performance will still need to be tested across full process variation and packaging conditions.</span>
-        <span class="zh">作者采用与CMOS后段工艺兼容的低温直接生长方法，在硅波导上制备二维铋短波红外探测器。器件在2200nm处报告约2 dB/μm吸收系数、185.3 mA/W响应度和201.4 nA暗电流。免转移生长有望提升晶圆级集成可制造性，但仍需在完整工艺波动和封装条件下验证其性能。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.03814" target="_blank" rel="noopener">
-          <span class="en">Controlling self-focusing in femtosecond slicing of 4H-SiC wafers</span>
-          <span class="zh">4H-SiC晶圆飞秒激光切片中的自聚焦控制</span>
-        </a>
-      </h3>
-      <p class="authors">Dong Hee Kang, Jaeseung Lim, Mishfaqur Rahman, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.03814" target="_blank" rel="noopener">arXiv:2608.03814</a> · 2026-08-04</p>
-      <p class="summary">
-        <span class="en">This work links Kerr-induced self-focusing during femtosecond laser slicing of 4H-SiC to pulse energy, processing depth, surface texture, and separation stress. The result provides a process-control route for producing thin SiC layers, which are increasingly relevant to power devices and heterogeneous integration. Its practical value will depend on throughput, yield, and equipment repeatability beyond the reported experiments.</span>
-        <span class="zh">该研究将4H-SiC飞秒激光切片中的Kerr效应自聚焦与脉冲能量、加工深度、表面纹理和分离应力关联起来。结果为制备薄型SiC层提供了工艺控制路径，这对功率器件和异构集成日益重要。其工程价值仍取决于实验之外的吞吐量、良率与设备重复性。</span>
+        <span class="en">This review connects hafnia-based ferroelectric materials, memory devices, circuit primitives, and system-level in-memory computing. It explains how polarization engineering and defect control constrain precision, endurance, scalability, and the circuit functions that can be implemented. The article is a synthesis rather than a new device demonstration, but it is useful for separating CMOS-compatible promise from integration bottlenecks.</span>
+        <span class="zh">这篇综述将基于氧化铪的铁电材料、存储器件、电路原语和系统级存算一体联系起来。文章说明极化工程和缺陷控制如何约束精度、耐久性、可扩展性以及可实现的电路功能。它并非新的器件演示，但有助于区分CMOS兼容的潜力与集成瓶颈。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Systems</span>
-      <span class="zh">电路与系统</span>
+      <span class="en">Circuits &amp; Architectures</span>
+      <span class="zh">电路与体系结构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.05339" target="_blank" rel="noopener">
-          <span class="en">PowerScope: ML-based intra-cycle power estimation</span>
-          <span class="zh">PowerScope：基于机器学习的周期内功耗估计</span>
+        <a href="https://doi.org/10.1109/JSSC.2026.3669040" target="_blank" rel="noopener">
+          <span class="en">A 350-pW 65-nm CMOS arrhythmia detector with Bayesian uncertainty</span>
+          <span class="zh">采用贝叶斯不确定性量化的350 pW、65 nm CMOS心律失常检测器</span>
         </a>
       </h3>
-      <p class="authors">Jayanth Balasubramanian, Sujay Pandit, Radha Vaidya, et al.</p>
+      <p class="authors">Zephan M. Enciso, Jianbo Liu, Boyang Cheng, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.05339" target="_blank" rel="noopener">arXiv:2608.05339</a> · 2026-08-05</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3669040" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">PowerScope estimates sub-cycle power directly from RTL simulation traces, avoiding per-workload post-layout gate-level analysis. Across its benchmark suite, it reports 5.88% median and 9% mean absolute percentage error versus commercial post-layout estimates while running roughly 80 times faster. That could shorten PDN and voltage-droop iteration, but the reported accuracy must transfer to new libraries and physical-design flows to be broadly useful.</span>
-        <span class="zh">PowerScope直接从RTL仿真轨迹估计子周期功耗，避免逐工作负载执行后布局门级功耗分析。在其基准套件上，系统相对商业后布局估计的中位绝对百分比误差为5.88%、平均误差为9%，速度约快80倍。这可能缩短PDN和压降分析迭代，但其准确性仍需迁移到新的标准单元库和物理设计流程中验证。</span>
+        <span class="en">The authors report a 0.816-mm² implantable ventricular-arrhythmia detection engine in 65-nm CMOS that consumes 350 pW. It combines a digital one-dimensional convolution front end with a mixed-signal compute-in-memory Bayesian classifier and a 360-fJ/sample random-number generator. Integrating uncertainty estimates is important for selective prediction, although clinical performance and robustness remain separate validation questions.</span>
+        <span class="zh">作者报告了一款采用65 nm CMOS、面积0.816 mm²、功耗350 pW的植入式室性心律失常检测引擎。该芯片将数字一维卷积前端与混合信号存算一体贝叶斯分类器及360 fJ/样本随机数发生器结合。集成不确定性估计对选择性预测很重要，但临床性能与鲁棒性仍需独立验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3656981" target="_blank" rel="noopener">
+          <span class="en">A 94.8-nW battery-free intelligent silicon platform</span>
+          <span class="zh">功耗94.8 nW的无电池智能硅平台</span>
+        </a>
+      </h3>
+      <p class="authors">Haochen Zhang, Wei-Han Yu, Zhongyu Zhao, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3656981" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">This 65-nm CMOS platform targets distributed multimodal sensing with event-driven computing and digital compute-in-memory. It reports 94.8 nW in inference mode, 340.4 nW during training, and 90.6% accuracy on a condition-monitoring task. The result shows how sparsity-aware scheduling and low-bit learning can stretch energy budgets, though the reported workload is much narrower than general-purpose edge AI.</span>
+        <span class="zh">该65 nm CMOS平台面向分布式多模态感测，采用事件驱动计算和数字存算一体。论文报告其推理模式功耗为94.8 nW、训练模式为340.4 nW，并在状态监测任务上获得90.6%的准确率。结果表明稀疏性感知调度和低比特学习能够延展能耗预算，但所报告负载远窄于通用边缘AI。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TMAG.2026.3704383" target="_blank" rel="noopener">
+          <span class="en">VCMA-MRAM in-memory arithmetic for subtractors and dividers</span>
+          <span class="zh">用于减法器和除法器的VCMA-MRAM存内算术架构</span>
+        </a>
+      </h3>
+      <p class="authors">Qilong Tang, Wei Duan, Zijun Zhu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TMAG.2026.3704383" target="_blank" rel="noopener">IEEE Transactions on Magnetics</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The paper proposes a voltage-controlled magnetic-anisotropy MRAM architecture that performs logic directly inside the array to build subtractors and dividers. In 45-nm CMOS simulation, the design reports 512 GOPS peak throughput and 99.853 TOPS/W; its 8-bit subtractor is claimed to reduce area by 43.85% and latency by 53.66%. These are simulation-based figures, so device variation, write reliability, and peripheral cost remain central implementation risks.</span>
+        <span class="zh">论文提出一种基于电压控制磁各向异性MRAM的架构，在阵列内直接执行逻辑以构建减法器和除法器。在45 nm CMOS仿真中，该设计报告峰值吞吐量512 GOPS、能效99.853 TOPS/W；其8位减法器据称面积减少43.85%、延迟降低53.66%。这些数值基于仿真，因此器件波动、写入可靠性和外围电路成本仍是关键实现风险。</span>
       </p>
     </article>
   </section>
@@ -400,110 +415,98 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.05483" target="_blank" rel="noopener">
-          <span class="en">PLoRA: pooled near-data memory for multi-LoRA serving</span>
-          <span class="zh">PLoRA：用于多LoRA服务的近数据池化内存</span>
+        <a href="http://arxiv.org/abs/2608.03867" target="_blank" rel="noopener">
+          <span class="en">AdaMX: Heterogeneity-aware microscaling for low-bit LLM inference</span>
+          <span class="zh">AdaMX：面向低比特LLM推理的异构感知微缩放</span>
         </a>
       </h3>
-      <p class="authors">Zhongkai Yu, Ohm Rishabh Venkatachalam, Zheng Wang, et al.</p>
+      <p class="authors">Junyi Luo, Xin Jiang, Tai-Hao Wen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.05483" target="_blank" rel="noopener">arXiv:2608.05483</a> · 2026-08-06</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.03867" target="_blank" rel="noopener">arXiv:2608.03867</a> · 2026-08-04</p>
       <p class="summary">
-        <span class="en">PLoRA proposes placing LoRA adapters and KV cache in pooled memory with near-data processing, returning reduced results rather than repeatedly staging adapters through CPU DRAM and PCIe. Its runtime chooses among execution and caching strategies per adapter. The design directly addresses the memory-heavy nature of serving thousands of specialized adapters, but it depends on the availability and software maturity of coherent pooled-memory fabrics.</span>
-        <span class="zh">PLoRA提出将LoRA适配器和KV Cache置于带近数据处理能力的池化内存中，只返回规约结果，而非反复经由CPU DRAM和PCIe搬运适配器。其运行时会针对每个适配器选择执行与缓存策略。该设计直指数千个专用适配器服务的存储瓶颈，但依赖于一致性池化内存互连的可用性和软件成熟度。</span>
+        <span class="en">AdaMX selects precision-recovery schemes per block and different representations for weights and activations, rather than applying one MXFP4 treatment everywhere. The team implements the decoder, compute unit, and quantization logic in a 22-nm FD-SOI accelerator prototype, reporting roughly 1% system-energy overhead versus an otherwise identical MXFP4 accelerator. The work is useful because it puts hardware cost beside quantization flexibility, but the reported comparison depends on the chosen baseline and models.</span>
+        <span class="zh">AdaMX按块选择精度恢复机制，并为权重和激活采用不同表示，而不是在所有位置使用同一种MXFP4处理方式。团队在22 nm FD-SOI加速器原型中实现了解码器、计算单元和量化逻辑，报告相对同等MXFP4加速器约1%的系统能耗开销。该工作将硬件成本与量化灵活性并置，但其比较结果依赖于所选基线和模型。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.03555" target="_blank" rel="noopener">
-          <span class="en">KARAT splits sparse-attention serving across GPUs and processing-near-memory</span>
-          <span class="zh">KARAT将稀疏注意力服务拆分至GPU与近存计算节点</span>
+        <a href="http://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">
+          <span class="en">Celty: GPU kernel and SIMT co-design for dual-sparse LLM inference</span>
+          <span class="zh">Celty：面向双稀疏LLM推理的GPU内核与SIMT协同设计</span>
         </a>
       </h3>
-      <p class="authors">Hyungkyu Ham, Junhyeong Bae, Seungheon Lee, et al.</p>
+      <p class="authors">Ruokai Yin, Priyadarshini Panda</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03555" target="_blank" rel="noopener">arXiv:2608.03555</a> · 2026-08-04</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">arXiv:2608.01536</a> · 2026-08-02</p>
       <p class="summary">
-        <span class="en">KARAT keeps model weights and projection or MoE work on GPUs while placing KV cache, retrieval indices, and their memory-reading operations on processing-near-memory nodes. The heterogeneous split is designed for retrieval-based sparse attention at very long context lengths. It is a useful architectural direction, although its benefit will hinge on link latency, scheduling overhead, and how quickly sparse-attention algorithms change.</span>
-        <span class="zh">KARAT将模型权重以及投影和MoE计算保留在GPU上，把KV Cache、检索索引及相应的内存读取操作放到近存计算节点。该异构划分针对超长上下文的检索式稀疏注意力设计。这是一条有价值的架构路径，但其收益取决于互连延迟、调度开销以及稀疏注意力算法的演进速度。</span>
+        <span class="en">Celty targets the sparse-matrix–sparse-vector workload created when weight pruning meets runtime activation sparsity in single-user LLM decoding. It co-designs an RLC-CSC sparse format, GPU kernel, and a SIMT core with a pipelined decoder to avoid costly index reconstruction and memory accesses. The idea addresses a real mismatch between sparsity algorithms and commodity kernels, while the microarchitecture portion remains a proposed design rather than deployed GPU silicon.</span>
+        <span class="zh">Celty针对单用户LLM解码中权重剪枝与运行时激活稀疏叠加形成的稀疏矩阵—稀疏向量负载。它协同设计RLC-CSC稀疏格式、GPU内核和带流水线解码器的SIMT核心，以避免高代价的索引重建和内存访问。该思路解决了稀疏算法与通用内核间的真实错配，但其中的微架构部分仍是提案，而非已部署的GPU硅实现。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.04734" target="_blank" rel="noopener">
-          <span class="en">Chebyshev systolic array unifies activation and softmax approximation</span>
-          <span class="zh">基于Chebyshev的脉动阵列统一激活函数与Softmax近似</span>
+        <a href="https://doi.org/10.1109/TCSI.2026.3692866" target="_blank" rel="noopener">
+          <span class="en">DSLA: dual-sparsity LLM accelerator with HiMix-BFP</span>
+          <span class="zh">DSLA：采用HiMix-BFP的双稀疏LLM加速器</span>
         </a>
       </h3>
-      <p class="authors">Benedikt Schaible, Anirudh Suresh Bharadwaj, Ulf Schlichtmann, et al.</p>
+      <p class="authors">Zikang Zhou, Siyao Dai, Yaqi Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.04734" target="_blank" rel="noopener">arXiv:2608.04734</a> · 2026-08-05</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3692866" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems I: Regular Papers</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">The paper uses Chebyshev-polynomial approximations in a systolic-array unit that handles both nonlinear activations and softmax. It reports up to 71% lower tanh mean absolute error than a CORDIC baseline with 4.6% less area and 5.1% less power, plus lower softmax KL divergence. Sharing hardware across these functions can improve accelerator utilization, though approximation quality remains workload and precision dependent.</span>
-        <span class="zh">论文用Chebyshev多项式近似构建脉动阵列单元，同时处理非线性激活函数和Softmax。相对CORDIC基线，作者报告tanh平均绝对误差最高降低71%，面积减少4.6%、功耗降低5.1%，Softmax的KL散度也更低。跨函数共享硬件可提升加速器利用率，但近似精度仍取决于工作负载和数值精度。</span>
+        <span class="en">DSLA combines a HiMix block-floating-point representation with exploitation of sparsity in both data and bit slices for edge LLM inference. The paper argues that conventional BFP and bidirectional BFP lose too much accuracy at ultra-low precision because of outliers. Its contribution is an accelerator-oriented way to recover accuracy while turning exponent-alignment behavior into an additional energy-saving opportunity; deployment results will determine the practical gain.</span>
+        <span class="zh">DSLA将HiMix块浮点表示与数据和位片两个层面的稀疏性利用结合，用于边缘LLM推理。论文认为，传统BFP和双向BFP在超低精度下会因离群值损失过多准确率。其贡献在于以加速器为导向恢复精度，同时把指数对齐行为转化为额外节能机会；实际部署结果将决定其可获得的收益。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Systems &amp; Models</span>
-      <span class="zh">AI系统与模型</span>
+      <span class="en">AI Systems &amp; Inference</span>
+      <span class="zh">AI系统与推理</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.03867" target="_blank" rel="noopener">
-          <span class="en">AdaMX: heterogeneity-aware microscaling for low-bit LLM inference</span>
-          <span class="zh">AdaMX：面向低比特LLM推理的异构感知微缩放</span>
+        <a href="https://doi.org/10.1145/3770855.3817626" target="_blank" rel="noopener">
+          <span class="en">OrionInfer: adaptive parallelism and live migration for LLM serving</span>
+          <span class="zh">OrionInfer：用于LLM服务的自适应并行与在线迁移</span>
         </a>
       </h3>
-      <p class="authors">Junyi Luo, Xinting Jiang, Tai-Hao Wen, et al.</p>
+      <p class="authors">Jingqi Feng, Guang Yang, Yukai Huang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.03867" target="_blank" rel="noopener">arXiv:2608.03867</a> · 2026-08-04</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3770855.3817626" target="_blank" rel="noopener">Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2</a> · 2026-08-08</p>
       <p class="summary">
-        <span class="en">AdaMX varies both the representation and precision-recovery scheme across quantization blocks and between weights and activations, rather than applying one MXFP4 treatment everywhere. The authors implement a 22 nm FD-SOI accelerator prototype and report about 1% system-energy overhead versus an otherwise identical MXFP4 design. The proposition is compelling because it targets accuracy lost to fixed formats, but its gains need comparison across models and production compiler stacks.</span>
-        <span class="zh">AdaMX不再对所有量化块统一采用一种MXFP4处理方式，而是分别调整表示格式和精度恢复方案，并区分权重与激活值。作者实现了22nm FD-SOI加速器原型，相比其他条件相同的MXFP4设计，系统能耗开销约为1%。该方法直指固定格式带来的精度损失，但其收益仍需在更多模型和生产级编译器栈上比较。</span>
+        <span class="en">OrionInfer switches between data parallelism and tensor parallelism at runtime, while using live migration to rebalance memory pressure. The authors report up to 25% lower average time-to-first-token than a data-parallel-priority configuration at low load, and 50%–90% lower P99 tail latency than a tensor-parallel-priority configuration in many high-traffic cases. The work makes serving policy dynamic, though benefits will depend on migration overhead and the workload mix at an operator.</span>
+        <span class="zh">OrionInfer可在运行时切换数据并行与张量并行，并通过在线迁移重新平衡内存压力。作者报告，在低负载下，相比优先数据并行的配置，平均首Token时间最多降低25%；在许多高流量场景中，相比优先张量并行的配置，P99尾延迟降低50%至90%。该工作使服务策略动态化，但收益仍取决于迁移开销和运营方的实际负载组合。</span>
       </p>
     </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">EDA &amp; Design Automation</span>
-      <span class="zh">EDA与设计自动化</span>
-    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.04032" target="_blank" rel="noopener">
-          <span class="en">EDATracer: evidence-grounded analysis across EDA artifacts</span>
-          <span class="zh">EDATracer：跨EDA工件的证据可追溯分析</span>
+        <a href="http://arxiv.org/abs/2608.05303" target="_blank" rel="noopener">
+          <span class="en">EdgeXpert: MoE and speculative decoding for memory-efficient edge inference</span>
+          <span class="zh">EdgeXpert：面向高效边缘推理的MoE与推测解码</span>
         </a>
       </h3>
-      <p class="authors">Phat Tieu, Sayanti Jana, Matthew DeLorenzo, et al.</p>
+      <p class="authors">Sangwoo Ha, Hyunwoo Seo, Y. Jo, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.04032" target="_blank" rel="noopener">arXiv:2608.04032</a> · 2026-08-02</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.05303" target="_blank" rel="noopener">arXiv:2608.05303</a> · 2026-08-05</p>
       <p class="summary">
-        <span class="en">EDATracer combines a knowledge graph and vector index to let agents retrieve evidence across RTL and source files, scripts, logs, netlists, and reports. Its new dataset contains 18.9 GB from 2,787 synthesizable open-source designs and a 90-question benchmark; the paper reports average pass@1 gains of 6.4 and 7.2 percentage points over Cursor and Claude Code. The benchmark is a meaningful step toward auditable EDA agents, though performance on proprietary flows and tool outputs remains an open question.</span>
-        <span class="zh">EDATracer结合知识图谱与向量索引，使智能体能够跨RTL和源文件、脚本、日志、网表及报告检索证据。其新数据集包含来自2,787个可综合开源设计的18.9GB数据，并提供90道题的基准；论文报告其平均pass@1比Cursor和Claude Code分别高6.4和7.2个百分点。该基准推动EDA智能体走向可审计，但在专有流程和工具输出上的表现仍有待验证。</span>
+        <span class="en">EdgeXpert is a hardware–software co-design that combines mixture-of-experts routing with speculative decoding for on-device LLMs. It uses prompt-wise expert reuse in prefill and depth-aware expert coalescing in decoding to reduce external-memory traffic. The paper targets an important edge bottleneck, but its claimed advantage rests on how well expert reuse preserves model quality across prompts and candidate tokens.</span>
+        <span class="zh">EdgeXpert是一项软硬件协同设计，将Mixture-of-Experts路由与推测解码结合，用于端侧LLM。它在prefill阶段使用按提示词复用专家，在解码阶段使用深度感知的专家合并，以降低外部存储访问。论文瞄准了重要的边缘瓶颈，但其优势取决于专家复用能否在不同提示词和候选Token间保持模型质量。</span>
       </p>
     </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
-    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.06318" target="_blank" rel="noopener">
-          <span class="en">Ant-Q addresses the control-memory bottleneck in quantum experiments</span>
-          <span class="zh">Ant-Q缓解量子实验中的控制存储瓶颈</span>
+        <a href="http://arxiv.org/abs/2608.03036" target="_blank" rel="noopener">
+          <span class="en">LLM Serving in the Wild: framework adoption in open-source systems</span>
+          <span class="zh">真实世界中的LLM服务：开源系统中的框架采用情况</span>
         </a>
       </h3>
-      <p class="authors">Yicheng Guang, Neel Vora, Yilun Xu, et al.</p>
+      <p class="authors">Forough Majidi, Mohammad Mehdi Morovati, F. Khomh, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.06318" target="_blank" rel="noopener">arXiv:2608.06318</a> · 2026-08-06</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.03036" target="_blank" rel="noopener">arXiv:2608.03036</a> · 2026-08-04</p>
       <p class="summary">
-        <span class="en">Ant-Q combines DRAM and on-chip BRAM in a memory hierarchy intended to preserve deterministic timing while pipelining quantum-circuit execution. Across 26 experimental and computing circuits, the authors report reducing circuit-loading and readout-uplink overhead relative to execution time from 22.90–1417.05% to near zero. The work identifies control electronics as a throughput limiter, though integration into QubiC 3.0 will be the more consequential test of its real-world impact.</span>
-        <span class="zh">Ant-Q将DRAM与片上BRAM组合成存储层级，旨在在流水化执行量子电路时保持确定性时序。作者在26个实验和计算电路上报告，将相对执行时间为22.90%至1417.05%的电路加载与读出上行开销降至接近零。该研究指出控制电子学是吞吐量限制因素，但其集成到QubiC 3.0后的表现才是更关键的实际检验。</span>
+        <span class="en">This empirical study examines how open-source projects use vLLM, SGLang, TensorRT-LLM, LMDeploy, and FlashInfer. It finds vLLM is the most visible framework, while parallel computation, memory management, and network pruning are the most common serving-method categories; multi-framework use is limited. That evidence is a useful counterweight to benchmark-driven claims, although public repositories may not represent proprietary production deployments.</span>
+        <span class="zh">这项实证研究考察了开源项目如何使用vLLM、SGLang、TensorRT-LLM、LMDeploy和FlashInfer。研究发现vLLM的可见度和采用度最高，并行计算、内存管理和网络剪枝是最常见的服务方法类别；多框架并用较少。这一证据可为基准测试驱动的主张提供现实参照，但公开仓库未必代表专有生产部署。</span>
       </p>
     </article>
   </section>
@@ -531,8 +534,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-09 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-09 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-10 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-10 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
