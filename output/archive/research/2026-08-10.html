@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-10">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Inference efficiency shifts across the stack — Semi Research 2026-08-10</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-08-10.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Monday, August 10, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月10日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Inference efficiency shifts across the stack</span>
+      <span class="zh">推理效率向全栈迁移</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week’s papers connect low-bit formats, sparsity, scheduling, and memory-centric circuits to the practical cost of serving models. The strongest results range from silicon prototypes to system-level measurements, with several claims still based on simulation or preprint evaluation.</span>
+      <span class="zh">本周论文将低比特格式、稀疏性、调度和以存储为中心的电路，连接到模型服务的实际成本问题。最有力的结果覆盖硅原型和系统级测量，但也有若干结论仍基于仿真或预印本评估。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.3390/mi17080931" target="_blank" rel="noopener">
+          <span class="en">Ferroelectric Hafnium Oxide for In-Memory Computing</span>
+          <span class="zh">面向存算一体的铁电氧化铪</span>
+        </a>
+      </h3>
+      <p class="authors">Chen He, Wei Li, Jianjun Li, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/mi17080931" target="_blank" rel="noopener">Micromachines</a> · 2026-08-04</p>
+      <p class="summary">
+        <span class="en">This review connects hafnia-based ferroelectric materials, memory devices, circuit primitives, and system-level in-memory computing. It explains how polarization engineering and defect control constrain precision, endurance, scalability, and the circuit functions that can be implemented. The article is a synthesis rather than a new device demonstration, but it is useful for separating CMOS-compatible promise from integration bottlenecks.</span>
+        <span class="zh">这篇综述将基于氧化铪的铁电材料、存储器件、电路原语和系统级存算一体联系起来。文章说明极化工程和缺陷控制如何约束精度、耐久性、可扩展性以及可实现的电路功能。它并非新的器件演示，但有助于区分CMOS兼容的潜力与集成瓶颈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architectures</span>
+      <span class="zh">电路与体系结构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3669040" target="_blank" rel="noopener">
+          <span class="en">A 350-pW 65-nm CMOS arrhythmia detector with Bayesian uncertainty</span>
+          <span class="zh">采用贝叶斯不确定性量化的350 pW、65 nm CMOS心律失常检测器</span>
+        </a>
+      </h3>
+      <p class="authors">Zephan M. Enciso, Jianbo Liu, Boyang Cheng, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3669040" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The authors report a 0.816-mm² implantable ventricular-arrhythmia detection engine in 65-nm CMOS that consumes 350 pW. It combines a digital one-dimensional convolution front end with a mixed-signal compute-in-memory Bayesian classifier and a 360-fJ/sample random-number generator. Integrating uncertainty estimates is important for selective prediction, although clinical performance and robustness remain separate validation questions.</span>
+        <span class="zh">作者报告了一款采用65 nm CMOS、面积0.816 mm²、功耗350 pW的植入式室性心律失常检测引擎。该芯片将数字一维卷积前端与混合信号存算一体贝叶斯分类器及360 fJ/样本随机数发生器结合。集成不确定性估计对选择性预测很重要，但临床性能与鲁棒性仍需独立验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3656981" target="_blank" rel="noopener">
+          <span class="en">A 94.8-nW battery-free intelligent silicon platform</span>
+          <span class="zh">功耗94.8 nW的无电池智能硅平台</span>
+        </a>
+      </h3>
+      <p class="authors">Haochen Zhang, Wei-Han Yu, Zhongyu Zhao, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3656981" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">This 65-nm CMOS platform targets distributed multimodal sensing with event-driven computing and digital compute-in-memory. It reports 94.8 nW in inference mode, 340.4 nW during training, and 90.6% accuracy on a condition-monitoring task. The result shows how sparsity-aware scheduling and low-bit learning can stretch energy budgets, though the reported workload is much narrower than general-purpose edge AI.</span>
+        <span class="zh">该65 nm CMOS平台面向分布式多模态感测，采用事件驱动计算和数字存算一体。论文报告其推理模式功耗为94.8 nW、训练模式为340.4 nW，并在状态监测任务上获得90.6%的准确率。结果表明稀疏性感知调度和低比特学习能够延展能耗预算，但所报告负载远窄于通用边缘AI。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TMAG.2026.3704383" target="_blank" rel="noopener">
+          <span class="en">VCMA-MRAM in-memory arithmetic for subtractors and dividers</span>
+          <span class="zh">用于减法器和除法器的VCMA-MRAM存内算术架构</span>
+        </a>
+      </h3>
+      <p class="authors">Qilong Tang, Wei Duan, Zijun Zhu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TMAG.2026.3704383" target="_blank" rel="noopener">IEEE Transactions on Magnetics</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The paper proposes a voltage-controlled magnetic-anisotropy MRAM architecture that performs logic directly inside the array to build subtractors and dividers. In 45-nm CMOS simulation, the design reports 512 GOPS peak throughput and 99.853 TOPS/W; its 8-bit subtractor is claimed to reduce area by 43.85% and latency by 53.66%. These are simulation-based figures, so device variation, write reliability, and peripheral cost remain central implementation risks.</span>
+        <span class="zh">论文提出一种基于电压控制磁各向异性MRAM的架构，在阵列内直接执行逻辑以构建减法器和除法器。在45 nm CMOS仿真中，该设计报告峰值吞吐量512 GOPS、能效99.853 TOPS/W；其8位减法器据称面积减少43.85%、延迟降低53.66%。这些数值基于仿真，因此器件波动、写入可靠性和外围电路成本仍是关键实现风险。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.03867" target="_blank" rel="noopener">
+          <span class="en">AdaMX: Heterogeneity-aware microscaling for low-bit LLM inference</span>
+          <span class="zh">AdaMX：面向低比特LLM推理的异构感知微缩放</span>
+        </a>
+      </h3>
+      <p class="authors">Junyi Luo, Xin Jiang, Tai-Hao Wen, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.03867" target="_blank" rel="noopener">arXiv:2608.03867</a> · 2026-08-04</p>
+      <p class="summary">
+        <span class="en">AdaMX selects precision-recovery schemes per block and different representations for weights and activations, rather than applying one MXFP4 treatment everywhere. The team implements the decoder, compute unit, and quantization logic in a 22-nm FD-SOI accelerator prototype, reporting roughly 1% system-energy overhead versus an otherwise identical MXFP4 accelerator. The work is useful because it puts hardware cost beside quantization flexibility, but the reported comparison depends on the chosen baseline and models.</span>
+        <span class="zh">AdaMX按块选择精度恢复机制，并为权重和激活采用不同表示，而不是在所有位置使用同一种MXFP4处理方式。团队在22 nm FD-SOI加速器原型中实现了解码器、计算单元和量化逻辑，报告相对同等MXFP4加速器约1%的系统能耗开销。该工作将硬件成本与量化灵活性并置，但其比较结果依赖于所选基线和模型。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">
+          <span class="en">Celty: GPU kernel and SIMT co-design for dual-sparse LLM inference</span>
+          <span class="zh">Celty：面向双稀疏LLM推理的GPU内核与SIMT协同设计</span>
+        </a>
+      </h3>
+      <p class="authors">Ruokai Yin, Priyadarshini Panda</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">arXiv:2608.01536</a> · 2026-08-02</p>
+      <p class="summary">
+        <span class="en">Celty targets the sparse-matrix–sparse-vector workload created when weight pruning meets runtime activation sparsity in single-user LLM decoding. It co-designs an RLC-CSC sparse format, GPU kernel, and a SIMT core with a pipelined decoder to avoid costly index reconstruction and memory accesses. The idea addresses a real mismatch between sparsity algorithms and commodity kernels, while the microarchitecture portion remains a proposed design rather than deployed GPU silicon.</span>
+        <span class="zh">Celty针对单用户LLM解码中权重剪枝与运行时激活稀疏叠加形成的稀疏矩阵—稀疏向量负载。它协同设计RLC-CSC稀疏格式、GPU内核和带流水线解码器的SIMT核心，以避免高代价的索引重建和内存访问。该思路解决了稀疏算法与通用内核间的真实错配，但其中的微架构部分仍是提案，而非已部署的GPU硅实现。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCSI.2026.3692866" target="_blank" rel="noopener">
+          <span class="en">DSLA: dual-sparsity LLM accelerator with HiMix-BFP</span>
+          <span class="zh">DSLA：采用HiMix-BFP的双稀疏LLM加速器</span>
+        </a>
+      </h3>
+      <p class="authors">Zikang Zhou, Siyao Dai, Yaqi Chen, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3692866" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems I: Regular Papers</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">DSLA combines a HiMix block-floating-point representation with exploitation of sparsity in both data and bit slices for edge LLM inference. The paper argues that conventional BFP and bidirectional BFP lose too much accuracy at ultra-low precision because of outliers. Its contribution is an accelerator-oriented way to recover accuracy while turning exponent-alignment behavior into an additional energy-saving opportunity; deployment results will determine the practical gain.</span>
+        <span class="zh">DSLA将HiMix块浮点表示与数据和位片两个层面的稀疏性利用结合，用于边缘LLM推理。论文认为，传统BFP和双向BFP在超低精度下会因离群值损失过多准确率。其贡献在于以加速器为导向恢复精度，同时把指数对齐行为转化为额外节能机会；实际部署结果将决定其可获得的收益。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Systems &amp; Inference</span>
+      <span class="zh">AI系统与推理</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3770855.3817626" target="_blank" rel="noopener">
+          <span class="en">OrionInfer: adaptive parallelism and live migration for LLM serving</span>
+          <span class="zh">OrionInfer：用于LLM服务的自适应并行与在线迁移</span>
+        </a>
+      </h3>
+      <p class="authors">Jingqi Feng, Guang Yang, Yukai Huang, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3770855.3817626" target="_blank" rel="noopener">Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2</a> · 2026-08-08</p>
+      <p class="summary">
+        <span class="en">OrionInfer switches between data parallelism and tensor parallelism at runtime, while using live migration to rebalance memory pressure. The authors report up to 25% lower average time-to-first-token than a data-parallel-priority configuration at low load, and 50%–90% lower P99 tail latency than a tensor-parallel-priority configuration in many high-traffic cases. The work makes serving policy dynamic, though benefits will depend on migration overhead and the workload mix at an operator.</span>
+        <span class="zh">OrionInfer可在运行时切换数据并行与张量并行，并通过在线迁移重新平衡内存压力。作者报告，在低负载下，相比优先数据并行的配置，平均首Token时间最多降低25%；在许多高流量场景中，相比优先张量并行的配置，P99尾延迟降低50%至90%。该工作使服务策略动态化，但收益仍取决于迁移开销和运营方的实际负载组合。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.05303" target="_blank" rel="noopener">
+          <span class="en">EdgeXpert: MoE and speculative decoding for memory-efficient edge inference</span>
+          <span class="zh">EdgeXpert：面向高效边缘推理的MoE与推测解码</span>
+        </a>
+      </h3>
+      <p class="authors">Sangwoo Ha, Hyunwoo Seo, Y. Jo, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.05303" target="_blank" rel="noopener">arXiv:2608.05303</a> · 2026-08-05</p>
+      <p class="summary">
+        <span class="en">EdgeXpert is a hardware–software co-design that combines mixture-of-experts routing with speculative decoding for on-device LLMs. It uses prompt-wise expert reuse in prefill and depth-aware expert coalescing in decoding to reduce external-memory traffic. The paper targets an important edge bottleneck, but its claimed advantage rests on how well expert reuse preserves model quality across prompts and candidate tokens.</span>
+        <span class="zh">EdgeXpert是一项软硬件协同设计，将Mixture-of-Experts路由与推测解码结合，用于端侧LLM。它在prefill阶段使用按提示词复用专家，在解码阶段使用深度感知的专家合并，以降低外部存储访问。论文瞄准了重要的边缘瓶颈，但其优势取决于专家复用能否在不同提示词和候选Token间保持模型质量。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.03036" target="_blank" rel="noopener">
+          <span class="en">LLM Serving in the Wild: framework adoption in open-source systems</span>
+          <span class="zh">真实世界中的LLM服务：开源系统中的框架采用情况</span>
+        </a>
+      </h3>
+      <p class="authors">Forough Majidi, Mohammad Mehdi Morovati, F. Khomh, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.03036" target="_blank" rel="noopener">arXiv:2608.03036</a> · 2026-08-04</p>
+      <p class="summary">
+        <span class="en">This empirical study examines how open-source projects use vLLM, SGLang, TensorRT-LLM, LMDeploy, and FlashInfer. It finds vLLM is the most visible framework, while parallel computation, memory management, and network pruning are the most common serving-method categories; multi-framework use is limited. That evidence is a useful counterweight to benchmark-driven claims, although public repositories may not represent proprietary production deployments.</span>
+        <span class="zh">这项实证研究考察了开源项目如何使用vLLM、SGLang、TensorRT-LLM、LMDeploy和FlashInfer。研究发现vLLM的可见度和采用度最高，并行计算、内存管理和网络剪枝是最常见的服务方法类别；多框架并用较少。这一证据可为基准测试驱动的主张提供现实参照，但公开仓库未必代表专有生产部署。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-10 01:15 UTC · <a href="../2026-08-10.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-10 01:15 UTC · <a href="../2026-08-10.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
