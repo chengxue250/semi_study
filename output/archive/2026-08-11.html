@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-11">
+<meta name="generator" content="semi-news-daily">
+<title>AI infrastructure confronts a memory and integration bill — Semi News 2026-08-11</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Tuesday, August 11, 2026</span>
+      <span class="zh">2026年8月11日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">AI infrastructure confronts a memory and integration bill</span>
+      <span class="zh">AI基础设施直面存储与集成成本</span>
+    </h1>
+    <p class="dek">
+      <span class="en">A possible Rubin memory reconfiguration, a multibillion-dollar sensor alliance, and a new custom-chip cycle point to the same constraint: AI capacity is being set by more than compute. The supporting software, packaging and memory layers are moving into the foreground.</span>
+      <span class="zh">Rubin可能调整内存配置、数十亿美元的图像传感器联盟以及新一轮自研芯片，指向同一约束：AI产能并不只由算力决定。支撑它的软件、封装和存储层正走到台前。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPenR3bGI3XzFrd0ZXY205bU84b3ZLUFR5VEFhYjBGMEVWekNKeHhWZnJYaEE2TC1ETk9oNVZreEJDeEZWaU8zbjVVMHhNRlZjcGRQNXRXWlJOOTdFQWJ3RkNCRmVrdDJuOTl6eTRTUzRQdXNNN3g3RkdnUHp2eFlPM3lCM2xQN3NYSlJ3bmFyXzNpNHo2SzUwNGZqN0RVVjh5cjF4ZUNvWTNId1MyZG9IdkdvMzNGb1VkSUZGZXdRWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Microsoft reportedly plans a next-generation AI chip reveal for September</span>
+          <span class="zh">微软据报计划于9月发布下一代AI芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 7h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Microsoft plans to unveil a next-generation AI chip in September, according to a Reuters report citing The Information. A new in-house accelerator would give Azure another lever over the cost and availability of AI compute as hyperscalers diversify away from an all-GPU supply chain. The report is forward-looking, so specifications and production timing remain unconfirmed.</span>
+        <span class="zh">路透援引The Information报道，微软计划在9月发布下一代AI芯片。若推出新的自研加速器，Azure在AI算力成本和供给上将多一个调节手段，也能降低对单一GPU供应链的依赖。该消息仍属前瞻性报道，规格和量产时间尚未得到确认。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/eda/372113-nvidia-brings-agentic-ai-toolkit-to-eda/" target="_blank" rel="noopener">
+          <span class="en">Nvidia expands its agentic-AI toolkit into EDA</span>
+          <span class="zh">Nvidia将智能体AI工具包扩展至EDA</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 4h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia has expanded its Agent Toolkit with PhysicsNeMo and CUDA-X libraries aimed at engineering and EDA workflows. The move is about connecting reasoning agents to simulation and domain software rather than using them only for code or document assistance. Its practical value will depend on whether chip-design teams can validate outputs inside established signoff flows.</span>
+        <span class="zh">Nvidia扩展了其Agent Toolkit，并加入面向工程与EDA工作流的PhysicsNeMo和CUDA-X库。重点是把推理智能体接入仿真和领域软件，而不只用于代码或文档辅助。其实际价值仍取决于芯片设计团队能否在既有签核流程中验证这些输出。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/gpus/geforce-rtx-50-series-gpu-prices-spike-as-much-as-39-percent-as-blackwell-price-hikes-hit-the-us-rtx-5070-gets-a-36-percent-hike-rtx-5060-up-27-percent-at-the-median-of-newegg-listings" target="_blank" rel="noopener">
+          <span class="en">US retail prices for GeForce RTX 50 GPUs rise sharply</span>
+          <span class="zh">美国零售端GeForce RTX 50 GPU价格大幅上涨</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Newegg listings show some GeForce RTX 50-series cards priced as much as 39% above June levels, with median increases of 36% for the RTX 5070 and 27% for the RTX 5060. The report follows price increases in other regions and suggests Blackwell availability or channel pricing is tightening in the US. These are retail observations, not an announced Nvidia list-price change.</span>
+        <span class="zh">Newegg商品页面显示，部分GeForce RTX 50系列显卡价格较6月最高上涨39%；RTX 5070和RTX 5060的中位涨幅分别为36%和27%。该报道延续了其他地区的涨价迹象，表明Blackwell的供给或渠道定价在美国趋紧。这些是零售端观察，并非Nvidia宣布调整建议零售价。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPMV9pbjNNRFAwY0V4aGN6OHVXWUxoTTJ3eWZ4aFlwS1JFbnpOY29jbDhJX0tqdTczMUo0Q0tEeHgxd1dVNW4ySlFqUzJSVzRRRzR6Mlk0NG85dnR4cTVxMXhKMUQ1bklWNnJsVEpfV0FrWE5uUVpLczFlNFdnanI1ZkxUTGNZb2VDODM4?oc=5" target="_blank" rel="noopener">
+          <span class="en">Sony and TSMC commit $6.3 billion to next-generation image sensors</span>
+          <span class="zh">Sony与台积电投入63亿美元开发下一代图像传感器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 7h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Sony and TSMC are reported to be committing $6.3 billion to a next-generation image-sensor plant and related development. The partnership extends TSMC&#x27;s role beyond logic foundry work into a strategically important specialty-semiconductor supply chain. It also puts more capital behind sensor technology as Samsung and Chinese rivals press into the market.</span>
+        <span class="zh">据报道，Sony与台积电将为下一代图像传感器工厂及相关研发投入63亿美元。这项合作把台积电的角色从逻辑代工延伸至重要的特色半导体供应链。随着三星和中国竞争者加码，该项目也为传感器技术投入了更多资本。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/ip/371846-synopsys-and-intel-foundry-enable-system-level-design-on-intel-14a/" target="_blank" rel="noopener">
+          <span class="en">Synopsys and Intel Foundry target system-level design for Intel 14A</span>
+          <span class="zh">Synopsys与Intel Foundry面向Intel 14A推进系统级设计</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Synopsys and Intel Foundry expanded their collaboration around Intel 14A with production-oriented EDA, IP, multiphysics analysis and multi-die integration support. The objective is to reduce the design enablement work customers face before committing to the node. For Intel Foundry, a credible ecosystem is as important as the process roadmap in converting interest into tape-outs.</span>
+        <span class="zh">Synopsys与Intel Foundry围绕Intel 14A扩大合作，覆盖面向量产的EDA、IP、多物理场分析和多裸片集成支持。目标是降低客户在采用该制程前需要完成的设计使能工作。对Intel Foundry而言，可信的生态系统与制程路线图同样关键，才能把意向转化为流片。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/gpus/nvidia-reportedly-testing-lower-memory-configs-of-rubin-ultra-as-memory-shortage-bites-back-designs-tested-include-as-little-as-192-gb-and-step-back-to-hbm4" target="_blank" rel="noopener">
+          <span class="en">Nvidia reportedly tests lower-memory Rubin Ultra configurations</span>
+          <span class="zh">Nvidia据报测试更低内存配置的Rubin Ultra</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia is reportedly testing at least three Rubin Ultra configurations, including a design with 192 GB of memory instead of the previously announced 1 TB of HBM4E. The reported alternatives also step back to HBM4, underscoring how advanced-memory availability can reshape accelerator configuration choices. Nvidia has not confirmed the tests, so the final product mix may differ.</span>
+        <span class="zh">据报道，Nvidia正在测试至少三种Rubin Ultra配置，其中一种内存容量为192 GB，而此前公布的方案为1 TB HBM4E。报道中的替代方案还回退至HBM4，凸显先进存储供给能够改变加速器的配置选择。Nvidia尚未确认这些测试，最终产品组合仍可能不同。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.embedded.com/silicon-motion-unveils-performashape-technology-for-ai-ssds/" target="_blank" rel="noopener">
+          <span class="en">Silicon Motion introduces PerformaShape for AI-oriented SSD tiers</span>
+          <span class="zh">Silicon Motion推出面向AI SSD层级的PerformaShape技术</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Embedded.com</span> · 56m ago</span>
+        <span class="zh"><span class="source">Embedded.com</span> · 56分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Silicon Motion introduced its MonTitan SSD reference-design kit with PerformaShape technology at FMS 2026. The design targets enterprise SSDs used as a persistent tier for workloads such as KV-cache offload in agentic AI systems. It reflects the push to make flash behavior more predictable when memory capacity, rather than raw compute, limits inference deployments.</span>
+        <span class="zh">Silicon Motion在FMS 2026发布集成PerformaShape技术的MonTitan SSD参考设计套件。该设计面向企业级SSD作为持久层使用的场景，例如智能体AI系统中的KV缓存卸载。它反映出当内存容量而非原始算力限制推理部署时，业界正寻求让闪存表现更可预测。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxQQzlBQzVQa2tfNjREa1FBaF8zaUtlb1hLY25mTEdfVl81bDBqbTJvSUp6N25vUWcxdWFpZDRXbndZRTBOUDRBMUFZdExjZHBxaThZRmVBdGhoNWMyb2ZTdGxkSDQtRWVtS1lmVjc5Qm81aHNQLUw0NjhZU252SFlUZGZaUU5Nd3NZVlB1aGlfU3VCLW9X?oc=5" target="_blank" rel="noopener">
+          <span class="en">US House China committee chair presses for Huawei export-rule enforcement</span>
+          <span class="zh">美国众议院中国问题委员会主席敦促执行华为出口规则</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span> · 7h ago</span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Representative John Moolenaar urged the Trump administration to enforce chip export rules relating to Huawei, citing a potential loophole in current policy. The intervention keeps attention on whether controls can prevent advanced capability from reaching restricted Chinese technology firms through indirect channels. It is a policy request, not a newly announced regulatory action.</span>
+        <span class="zh">众议员John Moolenaar敦促特朗普政府执行涉及华为的芯片出口规则，并指出现行政策可能存在漏洞。这一呼吁再次聚焦于管制能否阻止先进能力经由间接渠道流向受限的中国科技企业。这是政策诉求，而非新公布的监管行动。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">业绩与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE1CN28tNlFiTXphRHRwU0lwVndUUHh0YW11VFlCSE5ta0kzdlp0dVlOcFJlckZXQ2NTcDl4dzNaZXRKUVhxNUx6bVUxWWJ1SS0xbFc5azZQaVFfb2I0LWZHcC03TlVZb2RZZ1cwWU1HVmhZTm1m?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC July revenue rises 44.7% to a record NT$467.58 billion</span>
+          <span class="zh">台积电7月营收增长44.7%，创4,675.8亿新台币新高</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 8h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s July revenue reportedly rose 44.7% year on year to a record NT$467.58 billion. The monthly figure extends the evidence that demand for leading-edge logic and AI-related capacity remains unusually strong. Monthly revenue is not a full earnings release, but it is a timely signal for foundry utilization and the broader supply chain.</span>
+        <span class="zh">据报道，台积电7月营收同比增长44.7%，达到创纪录的4,675.8亿新台币。这一月度数据进一步显示，先进逻辑和AI相关产能的需求仍异常强劲。月营收并非完整财报，但可及时反映晶圆厂产能利用率及更广泛供应链的动向。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-11 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-11 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

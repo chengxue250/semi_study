@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-12">
+<meta name="edition-date" content="2026-08-11">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory hierarchy becomes the inference design point — Semi Research 2026-08-12</title>
+<title>Inference research turns memory movement into architecture — Semi Research 2026-08-11</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-11.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,20 +319,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Wednesday, August 12, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月12日 星期三</span>
+      <span class="en">Research digest · Tuesday, August 11, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月11日 星期二</span>
     </div>
     <h1>
-      <span class="en">Memory hierarchy becomes the inference design point</span>
-      <span class="zh">存储层级成为推理设计的核心</span>
+      <span class="en">Inference research turns memory movement into architecture</span>
+      <span class="zh">推理研究将内存移动变成架构问题</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s systems work shifts KV caches, LoRA adapters and model weights across HBM, host and pooled memory. Photonics research meanwhile advances manufacturable building blocks for integrated optical systems.</span>
-      <span class="zh">本周系统研究将KV缓存、LoRA适配器和模型权重重新分配到HBM、主机内存与池化内存之间。同时，光子学研究推进了可制造的集成光学系统基础模块。</span>
+      <span class="en">This week&#x27;s papers treat KV caches, heterogeneous memory and data transfer as first-class design variables rather than implementation details. The stronger results pair algorithm changes with an explicit hardware or serving-system assumption.</span>
+      <span class="zh">本周论文将KV缓存、异构内存和数据传输视为一等设计变量，而非实现细节。更有说服力的工作都把算法改动与明确的硬件或推理系统假设结合起来。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
     </div>
   </header>
 
@@ -343,68 +343,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.09631" target="_blank" rel="noopener">
-          <span class="en">A fully integrated dispersion-managed femtosecond mode-locked laser</span>
-          <span class="zh">全集成色散管理飞秒锁模激光器</span>
+        <a href="https://doi.org/10.1126/sciadv.aec4563" target="_blank" rel="noopener">
+          <span class="en">Monolithic polarization-doped InGaN p-FETs and GaN n-FETs for complementary logic</span>
+          <span class="zh">用于互补逻辑的单片极化掺杂InGaN p-FET与GaN n-FET</span>
         </a>
       </h3>
-      <p class="authors">Xurong Li, Xuan Yang, Z. Qiu, et al.</p>
+      <p class="authors">Jingjing Yu, Teng Li, Yunhong Lao, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.09631" target="_blank" rel="noopener">arXiv:2608.09631</a> · 2026-08-10</p>
+      <p class="venue"><a href="https://doi.org/10.1126/sciadv.aec4563" target="_blank" rel="noopener">Science Advances</a> · 2026-08-07</p>
       <p class="summary">
-        <span class="en">The authors demonstrate a self-starting integrated mode-locked laser using erbium-implanted silicon-nitride gain waveguides, chirped Bragg gratings and a saturable-absorber mirror. It operates from 0.5 to 1.2 GHz with pulses as short as 300 fs and a 27.3 mW mode-locking threshold, targeting a repetition-rate regime that chip-scale sources have struggled to reach.</span>
-        <span class="zh">作者展示了一种自启动全集成锁模激光器，采用掺铒氮化硅增益波导、啁啾布拉格光栅和可饱和吸收镜。该器件工作频率为0.5至1.2 GHz，最短脉冲300 fs，锁模阈值27.3 mW，瞄准片上光源长期难以覆盖的低重复频率区间。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.09003" target="_blank" rel="noopener">
-          <span class="en">Wafer-scale monolithic Ce:YIG magneto-optical isolators on silicon</span>
-          <span class="zh">硅上晶圆级单片Ce:YIG磁光隔离器</span>
-        </a>
-      </h3>
-      <p class="authors">Tianchi Zhang, Yucong Yang, Weihao Yang, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.09003" target="_blank" rel="noopener">arXiv:2608.09003</a> · 2026-08-10</p>
-      <p class="summary">
-        <span class="en">This work reports RF-sputtered Ce:YIG films on 4-inch silicon wafers and demonstrates ring-resonator magneto-optical isolators. The films show a 2,318 deg/cm Faraday effect, 80 dB/cm propagation loss and 3.5% thickness uniformity; the result addresses a key scale-up obstacle for nonreciprocal silicon-photonic components.</span>
-        <span class="zh">该工作报告了在4英寸硅晶圆上通过射频溅射制备Ce:YIG薄膜，并演示环形谐振器磁光隔离器。薄膜的法拉第旋转为2318 deg/cm、传播损耗80 dB/cm、厚度均匀性3.5%，直指非互易硅光子器件规模化的一项关键障碍。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Systems &amp; Architecture</span>
-      <span class="zh">系统与架构</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.08482" target="_blank" rel="noopener">
-          <span class="en">FlashBoot: Sub-second weight loading for rack-scale large models</span>
-          <span class="zh">FlashBoot：机架级大模型的亚秒级权重加载</span>
-        </a>
-      </h3>
-      <p class="authors">Issac Zhu, Hscos Zhang, Ke Jiang, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.08482" target="_blank" rel="noopener">arXiv:2608.08482</a> · 2026-08-09</p>
-      <p class="summary">
-        <span class="en">FlashBoot redesigns model bring-up around an exportable contiguous tensor layout, bulk zero-copy host transfers and remote GPU cloning. The paper argues that existing loaders waste fabric bandwidth through fragmented tensors and 10–110 second NCCL setup, making this work relevant to elastic MoE serving where racks must become ready quickly.</span>
-        <span class="zh">FlashBoot围绕可导出的连续张量布局、批量零拷贝主机传输和远程GPU克隆重新设计模型启动流程。论文指出，现有加载器因张量碎片化以及10至110秒的NCCL初始化而浪费互连带宽，因此对需要快速就绪的弹性MoE机架服务具有现实意义。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.08751" target="_blank" rel="noopener">
-          <span class="en">InSituANN: PCIe-efficient billion-scale vector search</span>
-          <span class="zh">InSituANN：高PCIe效率的十亿级向量检索</span>
-        </a>
-      </h3>
-      <p class="authors">Yuemeng Xu, Zongxi Liu, Junyu Long, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.08751" target="_blank" rel="noopener">arXiv:2608.08751</a> · 2026-08-09</p>
-      <p class="summary">
-        <span class="en">InSituANN keeps base vectors in host memory, performs fine search in place and uses a GPU for compact routing and optional pruning, avoiding PCIe transfers of high-dimensional vectors. On SIFT-1B, it reports a 5.2-minute IVF index build, about 350 times faster than the cited comparison, making retrieval infrastructure less dependent on GPU-resident capacity.</span>
-        <span class="zh">InSituANN将原始向量保留在主机内存中原位执行精细检索，并以GPU处理紧凑路由和可选剪枝，从而避免经PCIe传输高维基础向量。在SIFT-1B上，它报告5.2分钟完成IVF索引构建，约为论文对比方案的350倍，使检索基础设施对GPU常驻容量的依赖更低。</span>
+        <span class="en">The authors monolithically integrate polarization-doped InGaN p-FETs with GaN n-FETs, addressing the weak p-type doping that has held back III-nitride complementary logic. Their p-FET exceeds 20 mA/mm; an inverter reaches 154.1 V/V gain and a ring oscillator posts 10.4 ns per stage. The work also integrates logic buffers with high-voltage GaN power transistors, though it is still a technology-platform result rather than a commercial process flow.</span>
+        <span class="zh">作者将极化掺杂的InGaN p-FET与GaN n-FET单片集成，试图解决长期制约III族氮化物互补逻辑的p型掺杂效率问题。其p-FET电流密度超过20 mA/mm，反相器增益达到154.1 V/V，环形振荡器的单级延迟为10.4 ns。论文还展示了与高压GaN功率晶体管集成的逻辑缓冲器，但这仍是技术平台成果，尚非商业工艺流程。</span>
       </p>
     </article>
   </section>
@@ -415,83 +364,98 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.05483" target="_blank" rel="noopener">
-          <span class="en">PLoRA: NDP-enhanced pooled memory for Multi-LoRA serving</span>
-          <span class="zh">PLoRA：面向多LoRA服务的NDP增强池化内存</span>
+        <a href="http://arxiv.org/abs/2608.06989" target="_blank" rel="noopener">
+          <span class="en">Dual-view memory for dynamic NPU-PIM LLM inference</span>
+          <span class="zh">面向动态NPU-PIM大模型推理的双视图内存</span>
         </a>
       </h3>
-      <p class="authors">Zhongkai Yu, O. Venkatachalam, Zheng Wang, et al.</p>
+      <p class="authors">Shixin Zhao, Lian Liu, Tian Han, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.05483" target="_blank" rel="noopener">arXiv:2608.05483</a> · 2026-08-06</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.06989" target="_blank" rel="noopener">arXiv:2608.06989</a> · 2026-08-07</p>
       <p class="summary">
-        <span class="en">PLoRA proposes a pooled-memory serving design that keeps LoRA adapters and KV cache in the pool, using near-data processing to return reduced results rather than moving all data to the GPU. It addresses deployments with thousands of adapters, where CPU-DRAM staging over PCIe consumes both capacity and kernel-launch overhead; its benefit depends on the availability of memory-semantic fabrics and NDP support.</span>
-        <span class="zh">PLoRA提出一种池化内存服务设计，将LoRA适配器和KV缓存留在内存池中，通过近数据处理只返回归约结果，而非把全部数据搬到GPU。它针对拥有数千个适配器的部署场景，解决CPU DRAM经PCIe调入所造成的容量和内核启动开销；其收益仍取决于具备内存语义的互连和NDP支持。</span>
+        <span class="en">This paper argues that a single device-biased memory layout breaks down when an LLM tensor can move between an NPU and PIM across prefill, decode or MoE routing. Its PIM-as-Flexible-Memory design keeps a joint physical layout while exposing device-specific logical views, avoiding duplication and relayout. The open question is the translation and scheduling overhead on real NPU-PIM hardware.</span>
+        <span class="zh">论文认为，当同一大模型张量会在预填充、解码或MoE路由阶段于NPU和PIM之间移动时，单一的设备偏置内存布局会失效。其PIM-as-Flexible-Memory设计保留联合优化的物理布局，同时向不同设备提供各自的逻辑视图，从而避免复制和重排。未解问题是实际NPU-PIM硬件上的地址转换和调度开销。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1063/5.0334562" target="_blank" rel="noopener">
-          <span class="en">Phase-change microring nonlinear activations for photonic neural networks</span>
-          <span class="zh">用于光子神经网络的相变微环非线性激活</span>
+        <a href="http://arxiv.org/abs/2608.03741" target="_blank" rel="noopener">
+          <span class="en">HeteroPanacea models prefill-decode-attention-FFN specialization</span>
+          <span class="zh">HeteroPanacea建模预填充、解码、注意力与FFN专用化</span>
         </a>
       </h3>
-      <p class="authors">Wentao Zhong, Yida Dong, Wenlu Zhong, et al.</p>
+      <p class="authors">Przemyslaw Forys, Haoran Wu, Can Xiao, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1063/5.0334562" target="_blank" rel="noopener">APL Photonics</a> · 2026-08-01</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.03741" target="_blank" rel="noopener">arXiv:2608.03741</a> · 2026-08-04</p>
       <p class="summary">
-        <span class="en">A GST superlattice on a silicon microring is used to demonstrate five reconfigurable nonlinear activation functions, including ReLU and softplus. The device reaches a 1.76 mW activation threshold and up to 1 MHz operation; a system-level MNIST experiment improves reported accuracy from 95.35% to 99.24%, though that benchmark does not establish an end-to-end optical-compute advantage.</span>
-        <span class="zh">研究在硅微环上集成GST超晶格，演示了包括ReLU和softplus在内的五种可重构非线性激活函数。器件激活阈值为1.76 mW、最高工作速度1 MHz；系统级MNIST实验报告准确率从95.35%升至99.24%，但这一基准尚不足以证明端到端光计算优势。</span>
+        <span class="en">HeteroPanacea is a simulation framework for agentic inference that separates prefill, decode, attention and FFN onto heterogeneous hardware choices. It combines disaggregated quantization, automated parallelization scheduling and device specialization to explore architecture trade-offs. Its conclusions necessarily depend on modeled hardware and workload assumptions.</span>
+        <span class="zh">HeteroPanacea是面向智能体推理的仿真框架，将预填充、解码、注意力和FFN映射到不同的异构硬件选择。它结合了解耦量化、自动并行调度和设备专用化来考察架构取舍。其结论必然依赖所建模的硬件和负载假设。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Systems &amp; Inference</span>
-      <span class="zh">AI系统与推理</span>
+      <span class="en">AI Inference Systems &amp; Algorithms</span>
+      <span class="zh">AI推理系统与算法</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.08097" target="_blank" rel="noopener">
-          <span class="en">OasisKV: Lookahead sparse prefetching beyond HBM</span>
-          <span class="zh">OasisKV：突破HBM容量的前瞻稀疏预取</span>
+        <a href="http://arxiv.org/abs/2608.06763" target="_blank" rel="noopener">
+          <span class="en">CubicQuant: parametric non-uniform low-bit weights for LLM inference</span>
+          <span class="zh">CubicQuant：用于大模型推理的参数化非均匀低比特权重</span>
         </a>
       </h3>
-      <p class="authors">Can Xiao, Sukmin Cho, Junbong We, et al.</p>
+      <p class="authors">Xu Gao</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.08097" target="_blank" rel="noopener">arXiv:2608.08097</a> · 2026-08-08</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.06763" target="_blank" rel="noopener">arXiv:2608.06763</a> · 2026-08-07</p>
       <p class="summary">
-        <span class="en">OasisKV decouples full KV-cache storage from HBM during LLM decoding, retaining only predicted-relevant entries in HBM and prefetching blocks from higher-capacity tiers. Built on vLLM, it uses speculative-decoding lookahead to predict future important tokens, offering a systems path to larger contexts without assuming that all KV state fits on the accelerator.</span>
-        <span class="zh">OasisKV在LLM解码期间将完整KV缓存存储与HBM解耦，只将预测为相关的条目保留在HBM中，并从更大容量的层级预取数据块。该系统基于vLLM，利用推测解码的前瞻信息预测未来重要token，为更长上下文提供了一条不要求所有KV状态都装入加速器的系统路径。</span>
+        <span class="en">CubicQuant proposes a monotonic cubic mapping that turns dense integer codes into non-uniform weight reconstruction levels from 1 to 8 bits. It aims to retain the flexibility of learned codebooks without irregular decoding or extensive metadata, and describes packed-weight GPU execution. The central trade-off is whether per-group curve fitting improves enough over conventional quantization to justify extra format and kernel complexity.</span>
+        <span class="zh">CubicQuant提出单调三次映射，将密集整数编码转换为1至8比特的非均匀权重重建等级。它试图保留学习型码本的灵活性，同时避免不规则解码和大量元数据，并给出了打包权重的GPU执行方式。关键取舍在于，按组拟合曲线带来的提升是否足以抵消额外的格式与内核复杂度。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.07009" target="_blank" rel="noopener">
-          <span class="en">HiSparse: Hierarchical KV cache management for sparse-attention decoding</span>
-          <span class="zh">HiSparse：面向稀疏注意力解码的分层KV缓存管理</span>
+        <a href="http://arxiv.org/abs/2608.06557" target="_blank" rel="noopener">
+          <span class="en">Cascade: latency-budget scheduling for fair LLM serving</span>
+          <span class="zh">Cascade：面向公平大模型服务的延迟预算调度</span>
         </a>
       </h3>
-      <p class="authors">Zhiqiang Xie, Zhangheng Huang, Ting-Jun Huang, et al.</p>
+      <p class="authors">Muhammad Adnan, R. Mahapatra, Prashant J. Nair, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.07009" target="_blank" rel="noopener">arXiv:2608.07009</a> · 2026-08-07</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.06557" target="_blank" rel="noopener">arXiv:2608.06557</a> · 2026-08-06</p>
       <p class="summary">
-        <span class="en">HiSparse keeps full KV history in host memory while bounding each request&#x27;s GPU footprint with a fixed-size cache, preserving exact model outputs for sparse-attention methods. Its fused CUDA path combines hit detection, replacement and host-device fetches inside the decode graph, and the authors evaluate it on H200, B200 and GH200 systems; the approach is most applicable when sparse selection remains effective.</span>
-        <span class="zh">HiSparse将完整KV历史保留在主机内存中，同时以固定大小的GPU缓存限制每个请求的显存占用，并保持稀疏注意力方法的模型输出精确一致。其融合CUDA路径在解码图内完成命中检测、替换和主机至设备取数，作者在H200、B200和GH200系统上评估；该方法最适合稀疏选择仍有效的场景。</span>
+        <span class="en">Cascade assigns each request a continuously updated latency budget derived from its SLO, predicted remaining work, KV-cache state and current load. It uses that budget to coordinate both request ordering and KV-cache management, rather than treating deadlines as a queueing rule alone. Accurate remaining-time prediction remains the critical dependency.</span>
+        <span class="zh">Cascade为每个请求分配持续更新的延迟预算，依据其SLO、剩余工作量预测、KV缓存状态和当前负载计算。该预算同时协调请求排序与KV缓存管理，而不是只把截止时间当作排队规则。关键仍在于剩余时间预测是否准确。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.02691" target="_blank" rel="noopener">
-          <span class="en">Output-aware rotation for INT2 KV-cache quantization</span>
-          <span class="zh">面向输出的INT2 KV缓存旋转量化</span>
+        <a href="http://arxiv.org/abs/2608.04991" target="_blank" rel="noopener">
+          <span class="en">RAC compresses activations for split LLM inference</span>
+          <span class="zh">RAC为分割式大模型推理压缩激活值</span>
         </a>
       </h3>
-      <p class="authors">Vincent-Daniel Yun, Woosang Lim, Minsoo Cheong, et al.</p>
+      <p class="authors">Guotao Yang, M. Zhao, Haopeng Li, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.02691" target="_blank" rel="noopener">arXiv:2608.02691</a> · 2026-08-03</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.04991" target="_blank" rel="noopener">arXiv:2608.04991</a> · 2026-08-05</p>
       <p class="summary">
-        <span class="en">OptR learns per-head orthogonal corrections for INT2 KV-cache quantization by minimizing error after attention and the output projection, rather than optimizing a pre-output proxy. Across three models and five reasoning and coding benchmarks, it improves on QuaRot and OSCAR while retaining a paged KV-cache format with negligible stated overhead, making the method relevant where two-bit cache compression is necessary.</span>
-        <span class="zh">OptR通过最小化注意力和输出投影之后的误差，为INT2 KV缓存量化学习逐头正交校正，而不是优化输出前的代理误差。它在三种模型、五项推理与编程基准上优于QuaRot和OSCAR，同时保留分页KV缓存格式且声称开销可忽略，适用于必须采用2比特缓存压缩的场景。</span>
+        <span class="en">RAC reduces the communication bottleneck in local-cloud-local split inference by compressing boundary activations with references from repeated context. It combines exact-token retrieval, causal predictors, grouped affine alignment and calibrated residual quantization. The authors report raw-to-RAC ratios of 1.24–2.72× for time to first token and 1.01–2.79× for time per output token; the benefit should be strongest where repeated context exists and network transfer dominates.</span>
+        <span class="zh">RAC利用重复上下文提供的参考信息压缩边界激活值，以缓解本地—云端—本地分割推理中的通信瓶颈。它结合精确token检索、因果预测器、分组仿射对齐和校准残差量化。作者报告首token时间的Raw-to-RAC比值为1.24–2.72倍、每输出token时间为1.01–2.79倍；收益在重复上下文存在且网络传输占主导时最明显。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.02947" target="_blank" rel="noopener">
+          <span class="en">ATFlash prunes attention by RoPE wavelength</span>
+          <span class="zh">ATFlash按RoPE波长裁剪注意力计算</span>
+        </a>
+      </h3>
+      <p class="authors">Shun-ichiro Hayashi, Daichi Mukunoki, Tetsuya Hoshino, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.02947" target="_blank" rel="noopener">arXiv:2608.02947</a> · 2026-08-03</p>
+      <p class="summary">
+        <span class="en">ATFlash uses the frequency-pair structure of rotary position embeddings to give each RoPE wavelength its own distance window. Unlike a conventional sliding window, every key remains reachable through low-frequency pairs while shorter-wavelength terms are pruned. On Qwen2.5-0.5B and Llama-3.2-3B, it removes 37–48% of query-key inner-product terms while retaining a 96–98% top-1 match rate, though the evidence is limited to the evaluated models and benchmarks.</span>
+        <span class="zh">ATFlash利用旋转位置编码的频率对结构，为每个RoPE波长设置独立的距离窗口。不同于传统滑动窗口，每个key仍可通过低频对访问，而短波长项被裁剪。在Qwen2.5-0.5B和Llama-3.2-3B上，它去除了37–48%的query-key内积项，同时保持96–98%的top-1匹配率；不过证据仍限于所评测的模型与基准。</span>
       </p>
     </article>
   </section>
@@ -519,8 +483,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-12 01:12 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-12 01:12 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-11 01:15 UTC · <a href="../2026-08-11.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-11 01:15 UTC · <a href="../2026-08-11.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
