@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-12">
+<meta name="generator" content="semi-news-daily">
+<title>Memory and packaging reset AI economics — Semi News 2026-08-12</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, August 12, 2026</span>
+      <span class="zh">2026年8月12日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Memory and packaging reset AI economics</span>
+      <span class="zh">存储与封装重塑AI经济性</span>
+    </h1>
+    <p class="dek">
+      <span class="en">HBM availability, 3D integration and system-memory costs are moving from component details to constraints on AI deployment. Foundries and challengers alike are responding with capacity, packaging and financing decisions.</span>
+      <span class="zh">HBM供给、3D集成和系统级存储成本，正从零部件细节变为AI部署的硬约束。晶圆厂与新兴挑战者都在以产能、封装和融资决策回应这一变化。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/nvidias-kyber-racks-to-sport-340-4tb-of-dram-with-hbm4e-priced-at-19-76-gb-and-each-rack-reportedly-priced-at-41-6-million/" target="_blank" rel="noopener">
+          <span class="en">NVIDIA&#x27;s Kyber rack memory bill comes into view</span>
+          <span class="zh">NVIDIA Kyber机架的存储成本浮出水面</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 6h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report puts NVIDIA&#x27;s planned Vera Rubin Ultra Kyber rack at 340.4 TB of DRAM and estimates a $41.6 million price per rack, with HBM4E at $19.76 per GB. The figures are not company guidance, but they illustrate how memory and interconnect choices can dominate the bill of materials for next-generation AI systems.</span>
+        <span class="zh">一篇报道估计，NVIDIA规划中的Vera Rubin Ultra Kyber机架将配备340.4 TB DRAM，单机架价格约4160万美元，HBM4E单价约19.76美元/GB。这些数字并非公司指引，但显示在下一代AI系统中，存储和互连配置可能主导物料成本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPRkZGSWRNR295dlQwOFN1VmF4TzJfc0lPcURPYjQxdkFMbGNfWXpxam95azFnRkRxZkFLMUk2dXZPVXNESG9NakdydElTX0NucmJZNld2ZmxDWTV6dWRPaUFBblFtdmRRb2dkdDJmRjNISHlId1liTWVpc3AwSHpCX3NfbWstbGw2Z1oyQk1oX0hrSVZT?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC targets a one-year 3DIC development cycle</span>
+          <span class="zh">台积电瞄准一年期3DIC开发周期</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 1h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is addressing CoWoS material risks while seeking to compress its 3DIC development cycle to one year, according to DigiTimes. Faster iteration in advanced packaging matters because CoWoS and related 3D integration technologies have become a practical limiter on AI-accelerator delivery, not merely an add-on to logic manufacturing.</span>
+        <span class="zh">据DigiTimes报道，台积电正应对CoWoS材料风险，并力争将3DIC开发周期压缩至一年。先进封装更快迭代具有关键意义，因为CoWoS及相关3D集成技术已成为AI加速器交付的实际制约，而不再只是逻辑制造的附加环节。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxNendFQkFNYXc2blY0eDRZd1F6d2JVdFJ0eDFWUUs1dTc3dWxlYVBJWUdaejR5T1hQN1M3QlV5R2R1VEhpeG1MU0hCanRONXBGYzAzVV91aW5PNXRvSlBqSmI0NS03UlphVHpSZ29ZbDRKalRiS1hoTmpEOTRCNU9Nd1p3S3NjOGNtZUdZemlQVHJiR2VPTzg5RzZHU3pyQzVJSnlDS3p2WkFLUTZKb0tyN1c1ZlM?oc=5" target="_blank" rel="noopener">
+          <span class="en">Sony Semiconductor and TSMC plan ¥747 billion sensor investment</span>
+          <span class="zh">索尼半导体与台积电计划投资7470亿日元开发传感器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 3h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Sony Semiconductor and TSMC are reported to invest ¥747 billion in next-generation image sensors. The proposed commitment would extend their manufacturing partnership beyond conventional sensor supply and underscores the growing capital intensity of advanced imaging as automotive and edge-AI demand broadens.</span>
+        <span class="zh">报道称，索尼半导体和台积电将向下一代图像传感器投资7470亿日元。这项拟议投资将把双方合作从传统传感器供给延伸到更深层的制造协同，也凸显汽车和边缘AI需求扩展后先进成像领域不断上升的资本强度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxNSkZ2eXQxaFFQZVlPdHI5TUpCcXJMN2FTWFNiVndhR0IxcHJPeFlqVDlaSXIyc0RPNUhmcTUxQ1dhS3Z6VDdPdy1odkQ3emhxelBQbEJ3ZmhXR2tkcjZJeVZBOWprdFl3TS0xclV3Um5qUXRKTXNWMmwwQ0ktVXlOaDZSQU5nbDEzaWFWMTFUMHNGZFNkS1lGVzhzTFZaRHN4Y2U5YTE4R2JVajNQWkZZZVJicWZaUms?oc=5" target="_blank" rel="noopener">
+          <span class="en">HBM supply constraints shift attention to utilization</span>
+          <span class="zh">HBM供给约束使焦点转向利用效率</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span> · 2h ago</span>
+        <span class="zh"><span class="source">GNews — HBM</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">HBM supply is reportedly reaching limits, shifting the memory contest from peak bandwidth toward how effectively capacity is allocated and used. For accelerator vendors and cloud operators, that makes software scheduling, packaging yields and usable memory per system as consequential as headline bandwidth specifications.</span>
+        <span class="zh">报道称，HBM供给正触及上限，存储竞争的重点从峰值带宽转向容量能否被有效分配和利用。对加速器厂商和云运营商而言，软件调度、封装良率以及每套系统的可用存储量，正变得与标称带宽同样重要。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/cxmt-hits-90-yield-on-17nm-ddr5-chips-closing-the-gap-with-micron-others-report/" target="_blank" rel="noopener">
+          <span class="en">CXMT reportedly reaches 90% yield on 17 nm DDR5</span>
+          <span class="zh">报道称长鑫存储17nm DDR5良率达到90%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chinese memory maker CXMT has reportedly achieved a 90% yield on DDR5 chips made on its 17 nm process. If sustained in volume production, that result would strengthen its ability to supply the domestic market during a global memory shortage and narrow the manufacturing gap with established DRAM suppliers.</span>
+        <span class="zh">报道称，中国存储厂商长鑫存储的17nm DDR5芯片良率已达到90%。若能在量产中维持这一水平，该成果将增强其在全球存储紧张期间服务国内市场的能力，并缩小与成熟DRAM供应商之间的制造差距。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/" target="_blank" rel="noopener">
+          <span class="en">Samsung delays High-NA EUV toward its 1 nm node</span>
+          <span class="zh">三星将High-NA EUV推迟至1nm节点</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung is reportedly planning to reserve ASML&#x27;s High-NA EUV tools for 1 nm volume production, potentially as early as 2030, rather than introduce them sooner. The delay aligns it with TSMC&#x27;s cautious rollout and shows that tool availability alone does not settle the economics, process maturity and throughput trade-offs of High-NA lithography.</span>
+        <span class="zh">报道称，三星计划将ASML的High-NA EUV设备留待1nm节点量产使用，最早可能在2030年，而非更早导入。这一延后与台积电的谨慎部署相呼应，表明即使设备可得，High-NA光刻的经济性、工艺成熟度和吞吐量取舍仍未定论。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPYU55bUVtSkMySDZUS2RPRWpBTTRRZHhucjFpaUxWM0RoV0NuMVFPNFh1T29XMkpSR1NYRm5Oc1hUc1hnWTNVOXd5T29qXzNVTWdxRWxpal9oT1VCNk1kQVNYeW9fVDBZNG1jODVJNHN3R0lMQ19KSmwtY2JNQXM1V3ptYk7SAYoBQVVfeXFMTmt2WjUtTThxd2gzZnhqcW8wejI3WWdRNDlaZGFLaVFTZXQyZ0tkLW80RW4wSXFoMDBlNTVjZ1pnNFBpQzBQZjJFY0xHQ3Q5S2p4OHdSV05QZi01eG5XcFFmOGVHWmV6MndsZ2dNNU9NLU9FVHUzMkpmaE1DTGVEcS12NXBHcl9CWlJ3?oc=5" target="_blank" rel="noopener">
+          <span class="en">China risk shadows NVIDIA&#x27;s proposed $500 billion financing plan</span>
+          <span class="zh">中国风险笼罩NVIDIA拟议5000亿美元融资计划</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span> · 4h ago</span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CNBC examines how China-related risks could complicate Jensen Huang&#x27;s reported $500 billion AI financing plan. The story links financing ambition to the export-control environment: restrictions on market access and product eligibility can affect the demand assumptions behind large-scale AI infrastructure commitments.</span>
+        <span class="zh">CNBC分析称，与中国相关的风险可能使黄仁勋据报提出的5000亿美元AI融资计划更为复杂。报道将融资雄心与出口管制环境联系起来：市场准入和产品资格限制会影响大规模AI基础设施投入所依赖的需求假设。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVlI2NFAyMHN4MEZRbl84elpsTmt2ZDE4ZDF5OG1reExiNUhab1Z4VzZEdk10ME91LVEtZE5KeDFpNHRTUFJOTTF1cWRFXzEwcnJPeFo3ekRCeks2M0xNRlRCZXBZNjd0LUt5SmhHZk04eHI2LXNjMkwyM2RFaXVRbmJ5ZDhBUkhZZVJCdy1uVVVhdlJ6dVNTazM4THUzb2xWX0pCamtRaVYyUVZoc0J4M0NDVk9mVFUzdkJYYWt3amVONG1XbDVtaFlvSm11Rko3YkQwZ3dqUdIB1wFBVV95cUxPSXo3SnhBYS15Q3M5b3hpbzBHWkpjdl9EeVpndVBsRUZKVWhqemNHTGJVbC1UWjFaS0h6YjFwVGRWMFg2eHczWkMtWGpVaHpRdGNpN1k0STI1UTRhN2ZkMVh5S1lQSi0ybTJwaC1RdEI0czNwQl92alUzTkxocWFWc0doUG5OLVZhOUxxUEc0bVI5SGRNRkhlM0lod2pJdy11NEk1Zm9Telc4TlVhaTFWSEFxUEQwcm8zTVRVUm01Yi1oTmhJREc5WTRSQlVQdXNCVHRlNV9sOA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Survey questions strategic return from US export controls</span>
+          <span class="zh">调查质疑美国出口管制的战略回报</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span> · 8h ago</span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A survey reported by the South China Morning Post argues that US export controls have produced no strategic gain while hurting American firms. It is an industry view rather than a policy finding, but it highlights the persistent debate over whether restrictions change technology access faster than they redirect supply chains and R&amp;D spending.</span>
+        <span class="zh">《南华早报》报道的一项调查认为，美国出口管制未带来战略收益，却损害了美国企业利益。这是产业界观点而非政策结论，但它凸显了长期争论：限制措施究竟能否比供应链和研发投入的重定向更快地改变技术获取。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">业绩与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE5sMmZleDVKQVVtMGc1Qm5KT1NpNmV1eHNablZ6UkZWeDVOWlBlSmljT3BHOTFBVllxYVU1XzI3aDdQSUl5T0I1M1E3UFc2UkU1WEZ4bmgya1ZTb1BEcWtlQ1pjakR2dVhlQzBiczNibTJSQk5qZU8zUU5MSQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Global semiconductor sales rise 35.1% in Q2</span>
+          <span class="zh">全球半导体销售额二季度增长35.1%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 8h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Global semiconductor sales increased 35.1% in the second quarter of 2026, according to the reported industry tally. The growth rate provides a broad demand backdrop for capacity and equipment decisions, though it does not by itself show how gains are divided between AI, memory, automotive and consumer markets.</span>
+        <span class="zh">据报道的行业统计，2026年第二季度全球半导体销售额增长35.1%。这一增速为产能和设备决策提供了广泛的需求背景，但本身并不能说明AI、存储、汽车和消费市场之间如何分配增长。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQcGItaGp5YkhxWnhuMndPTUc4bEMwQmlsMUJtcXRUaXZOVHR3dlNEZlpoQy10d3h4MzhFY3V2UUhBODRQN1BkV01vX21IMHRrWkxSWjhDd2ZKdWx5RVdHc1FnSGNBMjBvUm5STXB5bmdRQjVsWW05aFhPNEdmZXloc3RMTS1ncUppbjk4VXJ3V0xFZUJoX1VlSXg0UE9fOElrZHc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Korea&#x27;s Rebellions raises $640 million at a $2.6 billion valuation</span>
+          <span class="zh">韩国Rebellions以26亿美元估值融资6.4亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Rebellions / Furiosa</span> · 7h ago</span>
+        <span class="zh"><span class="source">GNews — Rebellions / Furiosa</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Korean AI-chip company Rebellions has reportedly raised $640 million at a $2.6 billion valuation. The capital gives the company more runway to develop and deploy inference hardware, but competing with NVIDIA still depends on software compatibility, customer qualification and access to advanced packaging and memory.</span>
+        <span class="zh">据报道，韩国AI芯片公司Rebellions以26亿美元估值融资6.4亿美元。这笔资金为其开发和部署推理硬件提供了更长的周期，但能否与NVIDIA竞争仍取决于软件兼容性、客户认证以及先进封装和存储的获取能力。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-12 01:12 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-12 01:12 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

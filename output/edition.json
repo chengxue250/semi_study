@@ -1,244 +1,373 @@
 {
-  "date": "2026-08-12",
+  "date": "2026-08-13",
   "theme": {
-    "en": "Memory and packaging reset AI economics",
-    "zh": "存储与封装重塑AI经济性"
+    "en": "Memory and Packaging Set AI's Pace",
+    "zh": "存储与封装决定AI扩张节奏"
   },
   "dek": {
-    "en": "HBM availability, 3D integration and system-memory costs are moving from component details to constraints on AI deployment. Foundries and challengers alike are responding with capacity, packaging and financing decisions.",
-    "zh": "HBM供给、3D集成和系统级存储成本，正从零部件细节变为AI部署的硬约束。晶圆厂与新兴挑战者都在以产能、封装和融资决策回应这一变化。"
+    "en": "Nvidia tests leaner Rubin Ultra memory configurations while TSMC reports mature yields on selected CoWoS products. Capital is following the bottlenecks, from Sony's Japan investment to Meta's reuse of DDR4 through CXL.",
+    "zh": "Nvidia测试更精简的Rubin Ultra存储配置，台积电则披露部分CoWoS产品已达到成熟良率。资本与系统设计正追随瓶颈移动，从Sony在日本的投资，到Meta借助CXL复用DDR4。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "NVIDIA's Kyber rack memory bill comes into view", "zh": "NVIDIA Kyber机架的存储成本浮出水面"},
-          "summary": {"en": "A report puts NVIDIA's planned Vera Rubin Ultra Kyber rack at 340.4 TB of DRAM and estimates a $41.6 million price per rack, with HBM4E at $19.76 per GB. The figures are not company guidance, but they illustrate how memory and interconnect choices can dominate the bill of materials for next-generation AI systems.", "zh": "一篇报道估计，NVIDIA规划中的Vera Rubin Ultra Kyber机架将配备340.4 TB DRAM，单机架价格约4160万美元，HBM4E单价约19.76美元/GB。这些数字并非公司指引，但显示在下一代AI系统中，存储和互连配置可能主导物料成本。"},
-          "source": "Wccftech",
-          "url": "https://wccftech.com/nvidias-kyber-racks-to-sport-340-4tb-of-dram-with-hbm4e-priced-at-19-76-gb-and-each-rack-reportedly-priced-at-41-6-million/",
-          "published": "2026-08-11T18:44:47+00:00"
+          "featured": false,
+          "title": {
+            "en": "AMD Centers Its Next Growth Phase on Rack-Scale AI",
+            "zh": "AMD将机架级AI置于下一阶段增长核心"
+          },
+          "summary": {
+            "en": "AMD CEO Lisa Su laid out a full-stack AI strategy spanning GPUs, CPUs, networking, software, and rack-scale systems for agentic workloads. The framing matters because AMD is competing for the architecture of the entire AI rack, where system integration and software can be as decisive as accelerator specifications.",
+            "zh": "AMD CEO苏姿丰提出覆盖GPU、CPU、网络、软件与机架级系统的全栈AI战略，重点面向智能体工作负载。这一定位意味着AMD争夺的不只是加速器份额，而是整套AI机架架构；系统集成与软件的重要性正接近单颗芯片规格。"
+          },
+          "source": "EE Times Asia",
+          "url": "https://www.eetasia.com/lisa-su-puts-rack-scale-ai-at-center-of-amds-next-growth-phase/",
+          "published": "2026-08-12T23:13:20+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Nebius Sets Out a Rapid Path to 1 GW of AI Capacity",
+            "zh": "Nebius规划快速扩至1 GW AI算力容量"
+          },
+          "summary": {
+            "en": "GPU cloud provider Nebius is pursuing a rapid expansion toward 1 GW of powered capacity and expects to use multiple financing routes to fund it. The plan is another measure of how quickly accelerator demand is translating into power, construction, and balance-sheet requirements rather than chip orders alone.",
+            "zh": "GPU云服务商Nebius计划快速扩张至1 GW供电容量，并准备通过多种融资方式支撑建设。该计划再次表明，加速器需求正迅速转化为电力、基础设施与资产负债表压力，而不只是芯片采购订单。"
+          },
+          "source": "The Register",
+          "url": "https://www.theregister.com/off-prem/2026/08/12/rent-a-gpu-outfit-nebius-promises-rapid-1-gw-powerup-plan-isnt-nebulous/5287086",
+          "published": "2026-08-12T22:56:39+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "featured": true,
-          "title": {"en": "TSMC targets a one-year 3DIC development cycle", "zh": "台积电瞄准一年期3DIC开发周期"},
-          "summary": {"en": "TSMC is addressing CoWoS material risks while seeking to compress its 3DIC development cycle to one year, according to DigiTimes. Faster iteration in advanced packaging matters because CoWoS and related 3D integration technologies have become a practical limiter on AI-accelerator delivery, not merely an add-on to logic manufacturing.", "zh": "据DigiTimes报道，台积电正应对CoWoS材料风险，并力争将3DIC开发周期压缩至一年。先进封装更快迭代具有关键意义，因为CoWoS及相关3D集成技术已成为AI加速器交付的实际制约，而不再只是逻辑制造的附加环节。"},
-          "source": "GNews — TSMC",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRkZGSWRNR295dlQwOFN1VmF4TzJfc0lPcURPYjQxdkFMbGNfWXpxam95azFnRkRxZkFLMUk2dXZPVXNESG9NakdydElTX0NucmJZNld2ZmxDWTV6dWRPaUFBblFtdmRRb2dkdDJmRjNISHlId1liTWVpc3AwSHpCX3NfbWstbGw2Z1oyQk1oX0hrSVZT?oc=5",
-          "published": "2026-08-12T00:02:58+00:00"
+          "title": {
+            "en": "Sony-TSMC Deal Lifts Overseas Investment in Japan Chipmaking to $37 Billion",
+            "zh": "Sony与台积电交易将日本芯片业海外投资推至370亿美元"
+          },
+          "summary": {
+            "en": "A Sony-TSMC agreement brings total overseas investment in Japan's chipmaking sector to $37 billion, according to Nikkei Asia. The total shows how Japan is pairing domestic industrial policy with foreign capital and customer commitments to rebuild manufacturing depth.",
+            "zh": "据Nikkei Asia报道，Sony与台积电达成交易后，日本芯片制造领域吸引的海外投资总额达到370亿美元。这一规模显示，日本正把国内产业政策、海外资本与客户承诺结合起来，重建半导体制造纵深。"
+          },
+          "source": "Nikkei Asia",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNnAxdlVDWkZEUmQ1ZzhlbUhlM0x1VnVyMzBXUkk5Y3I3WE9vTU0tUUJIVW5sRFY0RnFOOEMySnBVTFRiM25RdXFIdUphX3R1QmcxTThuNzEtTlRiTjBMbmVhU3dldU8yaFVwVzZZY3JjUHJrWDZVZmt2X2k4d3p2N1V2RzlMMkVTVktkNDlUeWhJdDdmdWZhRno3LW04STFYbW5veGxHUkdwQ3FCQlE5dzVqM1hIQ3cyZXZXbF9Rcw?oc=5",
+          "published": "2026-08-12T21:52:00+00:00"
         },
         {
           "featured": true,
-          "title": {"en": "Sony Semiconductor and TSMC plan ¥747 billion sensor investment", "zh": "索尼半导体与台积电计划投资7470亿日元开发传感器"},
-          "summary": {"en": "Sony Semiconductor and TSMC are reported to invest ¥747 billion in next-generation image sensors. The proposed commitment would extend their manufacturing partnership beyond conventional sensor supply and underscores the growing capital intensity of advanced imaging as automotive and edge-AI demand broadens.", "zh": "报道称，索尼半导体和台积电将向下一代图像传感器投资7470亿日元。这项拟议投资将把双方合作从传统传感器供给延伸到更深层的制造协同，也凸显汽车和边缘AI需求扩展后先进成像领域不断上升的资本强度。"},
-          "source": "Reuters Technology (Google News)",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNendFQkFNYXc2blY0eDRZd1F6d2JVdFJ0eDFWUUs1dTc3dWxlYVBJWUdaejR5T1hQN1M3QlV5R2R1VEhpeG1MU0hCanRONXBGYzAzVV91aW5PNXRvSlBqSmI0NS03UlphVHpSZ29ZbDRKalRiS1hoTmpEOTRCNU9Nd1p3S3NjOGNtZUdZemlQVHJiR2VPTzg5RzZHU3pyQzVJSnlDS3p2WkFLUTZKb0tyN1c1ZlM?oc=5",
-          "published": "2026-08-11T21:34:59+00:00"
+          "title": {
+            "en": "TSMC Reports 98% Yield on Selected CoWoS AI Packages",
+            "zh": "台积电称部分CoWoS AI封装良率达98%"
+          },
+          "summary": {
+            "en": "TSMC says selected AI products using a 5.5-reticle-size CoWoS implementation have reached 98% packaging yield. The company also points to a 14-reticle-size CoWoS roadmap for 2029, underscoring that larger packages—not only leading-edge lithography—are becoming central to accelerator scaling.",
+            "zh": "台积电表示，采用5.5倍光罩尺寸CoWoS方案的部分AI产品，封装良率已达到98%。公司还提出到2029年扩展至14倍光罩尺寸的路线图，说明加速器扩展越来越依赖更大封装，而不只是先进光刻制程。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/tsmc-exec-makes-big-announcement-confirms-98-yield-for-cowos-packaged-ai-chips/",
+          "published": "2026-08-12T17:41:00+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "HBM supply constraints shift attention to utilization", "zh": "HBM供给约束使焦点转向利用效率"},
-          "summary": {"en": "HBM supply is reportedly reaching limits, shifting the memory contest from peak bandwidth toward how effectively capacity is allocated and used. For accelerator vendors and cloud operators, that makes software scheduling, packaging yields and usable memory per system as consequential as headline bandwidth specifications.", "zh": "报道称，HBM供给正触及上限，存储竞争的重点从峰值带宽转向容量能否被有效分配和利用。对加速器厂商和云运营商而言，软件调度、封装良率以及每套系统的可用存储量，正变得与标称带宽同样重要。"},
-          "source": "GNews — HBM",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNSkZ2eXQxaFFQZVlPdHI5TUpCcXJMN2FTWFNiVndhR0IxcHJPeFlqVDlaSXIyc0RPNUhmcTUxQ1dhS3Z6VDdPdy1odkQ3emhxelBQbEJ3ZmhXR2tkcjZJeVZBOWprdFl3TS0xclV3Um5qUXRKTXNWMmwwQ0ktVXlOaDZSQU5nbDEzaWFWMTFUMHNGZFNkS1lGVzhzTFZaRHN4Y2U5YTE4R2JVajNQWkZZZVJicWZaUms?oc=5",
-          "published": "2026-08-11T23:00:00+00:00"
+          "featured": true,
+          "title": {
+            "en": "Nvidia Tests Rubin Ultra With as Little as 192 GB of HBM",
+            "zh": "Nvidia测试最低192 GB HBM的Rubin Ultra配置"
+          },
+          "summary": {
+            "en": "Nvidia is reportedly testing lower-memory Rubin Ultra designs, including configurations with 192 GB and a move back to HBM4, as memory supply tightens. These are tests rather than a final product decision, but they show that HBM availability can reach far enough upstream to reshape accelerator configurations.",
+            "zh": "据报道，在存储供应趋紧之际，Nvidia正在测试更低容量的Rubin Ultra设计，其中包括192 GB配置以及回退至HBM4的方案。这些仍是测试而非最终产品决定，但已表明HBM供应足以向上游传导，直接改变加速器配置。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxNNFZrdGxyV2c1Wk1DdF9sQ1lMYUJpdnB1bUZIRS14MmhKSXZWZGt3a0k3TkIzcUxTam5ENHdISng5OGUxVkdoeGRhYkJJX0Rpa290ZkE3LU9Ncks3SHhBVkNjclpkRTE2NFRNOFg1YmRlWWR4dzJ0UzMwSmR5Z3RIZmZsbWlOREd5N1BzVHZfV1A1d1BuOFlZa21ER3RMVE0tTzJtUXNJOGhOb3RyVWQzOEduSFBHVDhSMUh6T211WGw2OV92eGJYVDVfQk1kOU5FbGJ4bTlGUjdsN0dBM0lXWi1Odm1nenNvd3dBd2k4VnRSTHBIWUVHLVB2NWNyLUczSnJ0dWRCcUZpbDdGQk5ibTBCZ05sRTR0RW9zX0NacTY1c2hCYXJQMTJUaU0?oc=5",
+          "published": "2026-08-12T17:33:28+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "CXMT reportedly reaches 90% yield on 17 nm DDR5", "zh": "报道称长鑫存储17nm DDR5良率达到90%"},
-          "summary": {"en": "Chinese memory maker CXMT has reportedly achieved a 90% yield on DDR5 chips made on its 17 nm process. If sustained in volume production, that result would strengthen its ability to supply the domestic market during a global memory shortage and narrow the manufacturing gap with established DRAM suppliers.", "zh": "报道称，中国存储厂商长鑫存储的17nm DDR5芯片良率已达到90%。若能在量产中维持这一水平，该成果将增强其在全球存储紧张期间服务国内市场的能力，并缩小与成熟DRAM供应商之间的制造差距。"},
-          "source": "Wccftech",
-          "url": "https://wccftech.com/cxmt-hits-90-yield-on-17nm-ddr5-chips-closing-the-gap-with-micron-others-report/",
-          "published": "2026-08-11T17:24:27+00:00"
+          "title": {
+            "en": "Meta Uses CXL and Old DDR4 to Cut Server Count 25%",
+            "zh": "Meta借助CXL复用DDR4，将服务器数量减少25%"
+          },
+          "summary": {
+            "en": "Meta cut the server count for a workload by 25% by pooling and reusing older DDR4 memory through CXL. The result gives CXL a concrete utilization case, though mismatched DIMMs, power overhead, and telemetry complexity make the approach harder to reproduce outside hyperscale fleets.",
+            "zh": "Meta通过CXL池化并复用旧DDR4，使某项工作负载所需的服务器数量减少25%。这一结果为CXL提供了具体的资源利用案例，但DIMM规格混杂、额外功耗与遥测复杂度，会让非超大规模运营商更难复制。"
+          },
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/meta-cuts-server-count-25-by-reusing-old-memory-can-anyone-else-do-it/",
+          "published": "2026-08-12T18:40:03+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Samsung delays High-NA EUV toward its 1 nm node", "zh": "三星将High-NA EUV推迟至1nm节点"},
-          "summary": {"en": "Samsung is reportedly planning to reserve ASML's High-NA EUV tools for 1 nm volume production, potentially as early as 2030, rather than introduce them sooner. The delay aligns it with TSMC's cautious rollout and shows that tool availability alone does not settle the economics, process maturity and throughput trade-offs of High-NA lithography.", "zh": "报道称，三星计划将ASML的High-NA EUV设备留待1nm节点量产使用，最早可能在2030年，而非更早导入。这一延后与台积电的谨慎部署相呼应，表明即使设备可得，High-NA光刻的经济性、工艺成熟度和吞吐量取舍仍未定论。"},
-          "source": "Wccftech",
-          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
-          "published": "2026-08-11T15:26:35+00:00"
-        }
-      ]
-    },
-    {
-      "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
-      "stories": [
-        {
-          "featured": false,
-          "title": {"en": "China risk shadows NVIDIA's proposed $500 billion financing plan", "zh": "中国风险笼罩NVIDIA拟议5000亿美元融资计划"},
-          "summary": {"en": "CNBC examines how China-related risks could complicate Jensen Huang's reported $500 billion AI financing plan. The story links financing ambition to the export-control environment: restrictions on market access and product eligibility can affect the demand assumptions behind large-scale AI infrastructure commitments.", "zh": "CNBC分析称，与中国相关的风险可能使黄仁勋据报提出的5000亿美元AI融资计划更为复杂。报道将融资雄心与出口管制环境联系起来：市场准入和产品资格限制会影响大规模AI基础设施投入所依赖的需求假设。"},
-          "source": "GNews — Chip export controls",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPYU55bUVtSkMySDZUS2RPRWpBTTRRZHhucjFpaUxWM0RoV0NuMVFPNFh1T29XMkpSR1NYRm5Oc1hUc1hnWTNVOXd5T29qXzNVTWdxRWxpal9oT1VCNk1kQVNYeW9fVDBZNG1jODVJNHN3R0lMQ19KSmwtY2JNQXM1V3ptYk7SAYoBQVVfeXFMTmt2WjUtTThxd2gzZnhqcW8wejI3WWdRNDlaZGFLaVFTZXQyZ0tkLW80RW4wSXFoMDBlNTVjZ1pnNFBpQzBQZjJFY0xHQ3Q5S2p4OHdSV05QZi01eG5XcFFmOGVHWmV6MndsZ2dNNU9NLU9FVHUzMkpmaE1DTGVEcS12NXBHcl9CWlJ3?oc=5",
-          "published": "2026-08-11T21:01:13+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "Survey questions strategic return from US export controls", "zh": "调查质疑美国出口管制的战略回报"},
-          "summary": {"en": "A survey reported by the South China Morning Post argues that US export controls have produced no strategic gain while hurting American firms. It is an industry view rather than a policy finding, but it highlights the persistent debate over whether restrictions change technology access faster than they redirect supply chains and R&D spending.", "zh": "《南华早报》报道的一项调查认为，美国出口管制未带来战略收益，却损害了美国企业利益。这是产业界观点而非政策结论，但它凸显了长期争论：限制措施究竟能否比供应链和研发投入的重定向更快地改变技术获取。"},
-          "source": "GNews — Chip export controls",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVlI2NFAyMHN4MEZRbl84elpsTmt2ZDE4ZDF5OG1reExiNUhab1Z4VzZEdk10ME91LVEtZE5KeDFpNHRTUFJOTTF1cWRFXzEwcnJPeFo3ekRCeks2M0xNRlRCZXBZNjd0LUt5SmhHZk04eHI2LXNjMkwyM2RFaXVRbmJ5ZDhBUkhZZVJCdy1uVVVhdlJ6dVNTazM4THUzb2xWX0pCamtRaVYyUVZoc0J4M0NDVk9mVFUzdkJYYWt3amVONG1XbDVtaFlvSm11Rko3YkQwZ3dqUdIB1wFBVV95cUxPSXo3SnhBYS15Q3M5b3hpbzBHWkpjdl9EeVpndVBsRUZKVWhqemNHTGJVbC1UWjFaS0h6YjFwVGRWMFg2eHczWkMtWGpVaHpRdGNpN1k0STI1UTRhN2ZkMVh5S1lQSi0ybTJwaC1RdEI0czNwQl92alUzTkxocWFWc0doUG5OLVZhOUxxUEc0bVI5SGRNRkhlM0lod2pJdy11NEk1Zm9Telc4TlVhaTFWSEFxUEQwcm8zTVRVUm01Yi1oTmhJREc5WTRSQlVQdXNCVHRlNV9sOA?oc=5",
-          "published": "2026-08-11T16:38:15+00:00"
+          "title": {
+            "en": "Korean TC Bonder Rivals Split on Profitability",
+            "zh": "韩国TC Bonder厂商盈利表现分化"
+          },
+          "summary": {
+            "en": "Hanmi Semiconductor is defending profitability while rival Hanwha Semitek faces financial strain in Korea's TC bonder market. The divergence is a reminder that strong HBM packaging demand does not translate uniformly into margins, particularly as suppliers invest to qualify tools and expand capacity.",
+            "zh": "在韩国TC Bonder市场，Hanmi Semiconductor维持盈利能力，而竞争对手Hanwha Semitek面临财务压力。这种分化说明，旺盛的HBM封装需求不会自动转化为一致的利润率，尤其是在供应商仍需投入设备验证与扩产的阶段。"
+          },
+          "source": "ChosunBiz",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNY0Y2Y3RyYTdGenZXOWZXcjk0ZjB6b3BKelhxZElQQV9zVkJzOXRGX194Ym9oVUV1QlluQktEeHU4RWtvWkN4c2poa1hUM2ZxY0RrZ3p2U0o0OWVjbGdJMXZtQjYtOGJqaEpGblQwQUFvbFZOU2FqSXdKOVFRalVvanp2aWdoMEx5aF9lVFVB0gGOAUFVX3lxTE1jRjZjdHJhN0Z6dlc5ZldyOTRmMHpvcEp6WHFkSVBBX3NWQnM5dEZfX3hib2hVRXVCWW5CS0R4dThFa29aQ3hzamhrWFQzZnFjRGtnenZTSjQ5ZWNsZ0kxdm1CNi04YmpoSkZuVDBBQW9sVk5TYWpJd0o5UVFqVW9qenZpZ2gwTHloX2VUVUE?oc=5",
+          "published": "2026-08-12T21:01:00+00:00"
         }
       ]
     },
     {
       "id": "earnings",
-      "title": {"en": "Earnings & Markets", "zh": "业绩与市场"},
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "财报与市场"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Global semiconductor sales rise 35.1% in Q2", "zh": "全球半导体销售额二季度增长35.1%"},
-          "summary": {"en": "Global semiconductor sales increased 35.1% in the second quarter of 2026, according to the reported industry tally. The growth rate provides a broad demand backdrop for capacity and equipment decisions, though it does not by itself show how gains are divided between AI, memory, automotive and consumer markets.", "zh": "据报道的行业统计，2026年第二季度全球半导体销售额增长35.1%。这一增速为产能和设备决策提供了广泛的需求背景，但本身并不能说明AI、存储、汽车和消费市场之间如何分配增长。"},
-          "source": "Reuters Technology (Google News)",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5sMmZleDVKQVVtMGc1Qm5KT1NpNmV1eHNablZ6UkZWeDVOWlBlSmljT3BHOTFBVllxYVU1XzI3aDdQSUl5T0I1M1E3UFc2UkU1WEZ4bmgya1ZTb1BEcWtlQ1pjakR2dVhlQzBiczNibTJSQk5qZU8zUU5MSQ?oc=5",
-          "published": "2026-08-11T16:29:54+00:00"
+          "title": {
+            "en": "Valens Raises Its 2026 Revenue Outlook",
+            "zh": "Valens上调2026年营收展望"
+          },
+          "summary": {
+            "en": "Valens Semiconductor raised its 2026 revenue outlook, sending its shares higher. The revision improves demand visibility for the chip supplier and matters more than the immediate stock move because guidance resets expectations for the remaining quarters.",
+            "zh": "Valens Semiconductor上调2026年营收展望，推动股价上涨。相较于短期市场反应，业绩指引的调整更重要，因为它提高了需求能见度，并重新设定市场对余下季度的预期。"
+          },
+          "source": "Simply Wall St",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOb2p6V1U5alJIUUd3ZFJzcWlYY2Z6SS1MRzFKTXhJWTZtRkxkS05lcTNBWVh4cFdFcVB3aFVtVF9ZVzNhOXpHR0FCbUh0V0thMVd0X2FLRVhQUGc4S3RnTWkyd2dlaEpkQXhBOW4yVmgxOUpYYlo1bWswamVYSGU5cE5iMWRBSWRaemNXbkRBbF9VQjFRajZHMUwtWmZVRWVYWW1PVDNVV1RzWmJ5Yi1NcTdVQzQyZkstVUhzNnJUOUdXQWtxNktCTUljTVN0YUJMU3QxRlBUeTLSAd4BQVVfeXFMUHNQaks3UWZSNW1wdm13czhoYkV3VlVLbjlmbnVycmQzR2lvV1VXU1BHSXMyX21oZmFtai1KTFd4aFpYbEY0X0htNzlVRGJ4bGRKXzAwdHlvOTZOVk9fX3RtVkc3QjF5bWxpSDdSU00yNl81RHM2T1FPVjJqb2YtYXpjQmNGM0xFWGQ1YnpielVfak0zVDRyblJwUTZibEpvM0ZLTDhpRHQtdUpkYVl5V25ZVTVFaENwYVdWTzVwd1lKSHBXMUNWZjB0azBlS1VScVAxLUN2bXd0b29EQU9B?oc=5",
+          "published": "2026-08-12T22:56:48+00:00"
         }
       ]
     },
     {
       "id": "challengers",
-      "title": {"en": "Challengers", "zh": "挑战者"},
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Korea's Rebellions raises $640 million at a $2.6 billion valuation", "zh": "韩国Rebellions以26亿美元估值融资6.4亿美元"},
-          "summary": {"en": "Korean AI-chip company Rebellions has reportedly raised $640 million at a $2.6 billion valuation. The capital gives the company more runway to develop and deploy inference hardware, but competing with NVIDIA still depends on software compatibility, customer qualification and access to advanced packaging and memory.", "zh": "据报道，韩国AI芯片公司Rebellions以26亿美元估值融资6.4亿美元。这笔资金为其开发和部署推理硬件提供了更长的周期，但能否与NVIDIA竞争仍取决于软件兼容性、客户认证以及先进封装和存储的获取能力。"},
-          "source": "GNews — Rebellions / Furiosa",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQcGItaGp5YkhxWnhuMndPTUc4bEMwQmlsMUJtcXRUaXZOVHR3dlNEZlpoQy10d3h4MzhFY3V2UUhBODRQN1BkV01vX21IMHRrWkxSWjhDd2ZKdWx5RVdHc1FnSGNBMjBvUm5STXB5bmdRQjVsWW05aFhPNEdmZXloc3RMTS1ncUppbjk4VXJ3V0xFZUJoX1VlSXg0UE9fOElrZHc?oc=5",
-          "published": "2026-08-11T17:12:05+00:00"
+          "title": {
+            "en": "Cerebras Core Revenue Jumps 103% in Q2",
+            "zh": "Cerebras第二季度核心营收增长103%"
+          },
+          "summary": {
+            "en": "Cerebras reported a 103% year-over-year increase in core revenue for the second quarter. The growth is a meaningful commercialization signal for wafer-scale computing, although one quarter of expansion does not by itself establish the durability or breadth of customer demand.",
+            "zh": "Cerebras报告第二季度核心营收同比增长103%。这一增速为晶圆级计算的商业化提供了实质信号，但单季扩张仍不足以证明客户需求具备长期持续性与足够广度。"
+          },
+          "source": "Investor's Business Daily",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPUnAyQy1vNERqQ281UkpHT25seWEtTTRaMlJtbHgtUFkxN3Qtb0NQZ3hDekZqWUJqQWZ1Zi1yUXNPN2h0TFdvN0NVZGVfSmVFZ2dtYXIyTTV4eG1OZlNtSVN2c0xaeTU0RkhxMlRWVnF0VGlsdzhpYU50bmJ6MTQ5QXFpQ3RhQQ?oc=5",
+          "published": "2026-08-12T20:24:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Tenstorrent Posts GCC Patches for Its Ascalon XG Core",
+            "zh": "Tenstorrent为Ascalon XG核心提交GCC补丁"
+          },
+          "summary": {
+            "en": "Tenstorrent posted GCC compiler patches for its Ascalon XG processor core. Upstream compiler work is not proof of a shipping product, but it is a necessary step toward a usable software ecosystem and gives developers an earlier view of the core's support requirements.",
+            "zh": "Tenstorrent为其Ascalon XG处理器核心提交了GCC编译器补丁。上游编译器工作并不等同于产品已经出货，但它是构建可用软件生态的必要步骤，也让开发者更早看到该核心的支持需求。"
+          },
+          "source": "Phoronix",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE81NC1NZzg0Y3dSV05CTW5YVkhuTUd1aTRBYzJ3SF92amxKcHJQa2x5ZnVxMGp2LVY4ZG9fd0xLd1NDbmFJWUQyUEtZR1hUNEduQXNCRVdZZEo5c1J4TkRNWTUwX3RWd28?oc=5",
+          "published": "2026-08-12T20:14:00+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Memory hierarchy becomes the inference design point", "zh": "存储层级成为推理设计的核心"},
-    "dek": {"en": "This week's systems work shifts KV caches, LoRA adapters and model weights across HBM, host and pooled memory. Photonics research meanwhile advances manufacturable building blocks for integrated optical systems.", "zh": "本周系统研究将KV缓存、LoRA适配器和模型权重重新分配到HBM、主机内存与池化内存之间。同时，光子学研究推进了可制造的集成光学系统基础模块。"},
+    "theme": {
+      "en": "Measured Hardware Grounds Neuromorphic Ambitions",
+      "zh": "实测硬件让神经形态计算落地"
+    },
+    "dek": {
+      "en": "This week's strongest work moves beyond model-level claims into fabricated circuits, open implementation flows, and measured accelerator tradeoffs. The caveats remain visible: several demonstrations are small, workload-specific, or supported by simulation beyond the initial hardware proof.",
+      "zh": "本周较强的工作不再停留于模型层面，而是进入已制造电路、开放实现流程与实测加速器权衡。局限也很清楚：多项演示规模仍小、负载较窄，或在初步硬件验证之外仍依赖仿真。"
+    },
     "areas": [
       {
         "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
         "papers": [
           {
-            "title": {"en": "A fully integrated dispersion-managed femtosecond mode-locked laser", "zh": "全集成色散管理飞秒锁模激光器"},
-            "authors": "Xurong Li, Xuan Yang, Z. Qiu, et al.",
+            "title": {
+              "en": "PbS Colloidal Quantum-Dot Imagers From Devices to CMOS Integration",
+              "zh": "从单器件到CMOS集成的PbS胶体量子点成像器"
+            },
+            "authors": "X. Hong, S. Zhang, R. Han, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.09631",
-            "venue_url": "http://arxiv.org/abs/2608.09631",
-            "summary": {"en": "The authors demonstrate a self-starting integrated mode-locked laser using erbium-implanted silicon-nitride gain waveguides, chirped Bragg gratings and a saturable-absorber mirror. It operates from 0.5 to 1.2 GHz with pulses as short as 300 fs and a 27.3 mW mode-locking threshold, targeting a repetition-rate regime that chip-scale sources have struggled to reach.", "zh": "作者展示了一种自启动全集成锁模激光器，采用掺铒氮化硅增益波导、啁啾布拉格光栅和可饱和吸收镜。该器件工作频率为0.5至1.2 GHz，最短脉冲300 fs，锁模阈值27.3 mW，瞄准片上光源长期难以覆盖的低重复频率区间。"},
-            "published": "2026-08-10"
-          },
-          {
-            "title": {"en": "Wafer-scale monolithic Ce:YIG magneto-optical isolators on silicon", "zh": "硅上晶圆级单片Ce:YIG磁光隔离器"},
-            "authors": "Tianchi Zhang, Yucong Yang, Weihao Yang, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2608.09003",
-            "venue_url": "http://arxiv.org/abs/2608.09003",
-            "summary": {"en": "This work reports RF-sputtered Ce:YIG films on 4-inch silicon wafers and demonstrates ring-resonator magneto-optical isolators. The films show a 2,318 deg/cm Faraday effect, 80 dB/cm propagation loss and 3.5% thickness uniformity; the result addresses a key scale-up obstacle for nonreciprocal silicon-photonic components.", "zh": "该工作报告了在4英寸硅晶圆上通过射频溅射制备Ce:YIG薄膜，并演示环形谐振器磁光隔离器。薄膜的法拉第旋转为2318 deg/cm、传播损耗80 dB/cm、厚度均匀性3.5%，直指非互易硅光子器件规模化的一项关键障碍。"},
-            "published": "2026-08-10"
+            "venue": "FlexMat",
+            "venue_url": "https://doi.org/10.1002/flm2.70119",
+            "summary": {
+              "en": "This review maps PbS colloidal quantum-dot imagers from band-structure engineering and defect passivation through flexible arrays and monolithic integration with CMOS readout circuits. Size-tunable bandgaps and solution processing could reduce the cost and integration complexity of visible-to-NIR imaging compared with conventional III-V approaches. It is a synthesis of prior results rather than a new measured array, so the value lies in its cross-layer comparison and remaining-manufacturability agenda.",
+              "zh": "这篇综述梳理了PbS胶体量子点成像器从能带工程、缺陷钝化，到柔性阵列及与CMOS读出电路单片集成的发展路径。可调带隙与溶液加工有望相较传统III-V方案降低可见光至近红外成像的成本与集成复杂度。该文是既有成果的综合而非新的实测阵列，其价值主要在于跨层比较以及对剩余制造问题的归纳。"
+            },
+            "published": "2026-08-08"
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Systems & Architecture", "zh": "系统与架构"},
+        "title": {
+          "en": "Circuits & Architecture",
+          "zh": "电路与架构"
+        },
         "papers": [
           {
-            "title": {"en": "FlashBoot: Sub-second weight loading for rack-scale large models", "zh": "FlashBoot：机架级大模型的亚秒级权重加载"},
-            "authors": "Issac Zhu, Hscos Zhang, Ke Jiang, et al.",
+            "title": {
+              "en": "High-Gain Readout for Low-Charge Semiconductor Detectors",
+              "zh": "面向低电荷半导体探测器的高增益读出电路"
+            },
+            "authors": "D. Zhang, K. Ma, J. Zhang, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.08482",
-            "venue_url": "http://arxiv.org/abs/2608.08482",
-            "summary": {"en": "FlashBoot redesigns model bring-up around an exportable contiguous tensor layout, bulk zero-copy host transfers and remote GPU cloning. The paper argues that existing loaders waste fabric bandwidth through fragmented tensors and 10–110 second NCCL setup, making this work relevant to elastic MoE serving where racks must become ready quickly.", "zh": "FlashBoot围绕可导出的连续张量布局、批量零拷贝主机传输和远程GPU克隆重新设计模型启动流程。论文指出，现有加载器因张量碎片化以及10至110秒的NCCL初始化而浪费互连带宽，因此对需要快速就绪的弹性MoE机架服务具有现实意义。"},
-            "published": "2026-08-09"
+            "venue": "arXiv:2608.07963",
+            "venue_url": "http://arxiv.org/abs/2608.07963",
+            "summary": {
+              "en": "A three-stage SiGe:C-BJT and LTC6431 preamplifier board delivers 115.27 mV ns/fC charge gain across a 0.5-25 fC input range and 34.0-594.3 MHz bandwidth. Measurements with LGAD, PIN, and 3D silicon detectors reach timing resolutions of 36.41 ps, 76.10 ps, and 39.40 ps, respectively. The board is experimentally validated, but it is a discrete readout implementation rather than a monolithic front end.",
+              "zh": "这块三级前置放大板采用SiGe:C BJT与LTC6431，在0.5-25 fC输入范围内实现115.27 mV ns/fC电荷增益，带宽为34.0-594.3 MHz。搭配LGAD、PIN与3D硅探测器时，实测时间分辨率分别达到36.41 ps、76.10 ps与39.40 ps。该方案经过实验验证，但仍是分立式读出实现，并非单片集成前端。"
+            },
+            "published": "2026-08-08"
           },
           {
-            "title": {"en": "InSituANN: PCIe-efficient billion-scale vector search", "zh": "InSituANN：高PCIe效率的十亿级向量检索"},
-            "authors": "Yuemeng Xu, Zongxi Liu, Junyu Long, et al.",
+            "title": {
+              "en": "Noise-Reconfigurable ECG Amplifier With 142.8-GOhm Input Impedance",
+              "zh": "输入阻抗142.8 GOhm的噪声可重构ECG放大器"
+            },
+            "authors": "H. Zheng, X. Liu",
             "affiliation": "",
-            "venue": "arXiv:2608.08751",
-            "venue_url": "http://arxiv.org/abs/2608.08751",
-            "summary": {"en": "InSituANN keeps base vectors in host memory, performs fine search in place and uses a GPU for compact routing and optional pruning, avoiding PCIe transfers of high-dimensional vectors. On SIFT-1B, it reports a 5.2-minute IVF index build, about 350 times faster than the cited comparison, making retrieval infrastructure less dependent on GPU-resident capacity.", "zh": "InSituANN将原始向量保留在主机内存中原位执行精细检索，并以GPU处理紧凑路由和可选剪枝，从而避免经PCIe传输高维基础向量。在SIFT-1B上，它报告5.2分钟完成IVF索引构建，约为论文对比方案的350倍，使检索基础设施对GPU常驻容量的依赖更低。"},
-            "published": "2026-08-09"
-          }
-        ]
-      },
-      {
-        "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
-        "papers": [
-          {
-            "title": {"en": "PLoRA: NDP-enhanced pooled memory for Multi-LoRA serving", "zh": "PLoRA：面向多LoRA服务的NDP增强池化内存"},
-            "authors": "Zhongkai Yu, O. Venkatachalam, Zheng Wang, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2608.05483",
-            "venue_url": "http://arxiv.org/abs/2608.05483",
-            "summary": {"en": "PLoRA proposes a pooled-memory serving design that keeps LoRA adapters and KV cache in the pool, using near-data processing to return reduced results rather than moving all data to the GPU. It addresses deployments with thousands of adapters, where CPU-DRAM staging over PCIe consumes both capacity and kernel-launch overhead; its benefit depends on the availability of memory-semantic fabrics and NDP support.", "zh": "PLoRA提出一种池化内存服务设计，将LoRA适配器和KV缓存留在内存池中，通过近数据处理只返回归约结果，而非把全部数据搬到GPU。它针对拥有数千个适配器的部署场景，解决CPU DRAM经PCIe调入所造成的容量和内核启动开销；其收益仍取决于具备内存语义的互连和NDP支持。"},
-            "published": "2026-08-06"
-          },
-          {
-            "title": {"en": "Phase-change microring nonlinear activations for photonic neural networks", "zh": "用于光子神经网络的相变微环非线性激活"},
-            "authors": "Wentao Zhong, Yida Dong, Wenlu Zhong, et al.",
-            "affiliation": "",
-            "venue": "APL Photonics",
-            "venue_url": "https://doi.org/10.1063/5.0334562",
-            "summary": {"en": "A GST superlattice on a silicon microring is used to demonstrate five reconfigurable nonlinear activation functions, including ReLU and softplus. The device reaches a 1.76 mW activation threshold and up to 1 MHz operation; a system-level MNIST experiment improves reported accuracy from 95.35% to 99.24%, though that benchmark does not establish an end-to-end optical-compute advantage.", "zh": "研究在硅微环上集成GST超晶格，演示了包括ReLU和softplus在内的五种可重构非线性激活函数。器件激活阈值为1.76 mW、最高工作速度1 MHz；系统级MNIST实验报告准确率从95.35%升至99.24%，但这一基准尚不足以证明端到端光计算优势。"},
+            "venue": "IEEE Journal of Solid-State Circuits",
+            "venue_url": "https://doi.org/10.1109/JSSC.2026.3654848",
+            "summary": {
+              "en": "This chopper-stabilized ECG analog front end combines time-division multiplexing with new impedance-boosting and DC-servo loops to reach 142.8 GOhm input impedance. The ASIC can trade channel count against input-referred noise by reconfiguring among four-, two-, and one-channel modes. The design targets electrode-offset and leakage problems that often dominate wearable biopotential interfaces, with measured silicon reported in JSSC.",
+              "zh": "这款斩波稳定ECG模拟前端结合时分复用、新型阻抗提升环路与DC伺服环路，实现142.8 GOhm输入阻抗。ASIC可在4通道、2通道与1通道模式间重构，以通道数换取更低的输入参考噪声。设计针对可穿戴生物电接口中常见的电极失调与漏电问题，JSSC论文给出了实测芯片结果。"
+            },
             "published": "2026-08-01"
           }
         ]
       },
       {
-        "id": "ai-research",
-        "title": {"en": "AI Systems & Inference", "zh": "AI系统与推理"},
+        "id": "accelerators",
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
         "papers": [
           {
-            "title": {"en": "OasisKV: Lookahead sparse prefetching beyond HBM", "zh": "OasisKV：突破HBM容量的前瞻稀疏预取"},
-            "authors": "Can Xiao, Sukmin Cho, Junbong We, et al.",
+            "title": {
+              "en": "A Memristive Neuron That Learns on Chip",
+              "zh": "可在芯片上学习的忆阻神经元"
+            },
+            "authors": "N. Jimenez Olalla, A. Long Ching Ip, M. Baumann, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.08097",
-            "venue_url": "http://arxiv.org/abs/2608.08097",
-            "summary": {"en": "OasisKV decouples full KV-cache storage from HBM during LLM decoding, retaining only predicted-relevant entries in HBM and prefetching blocks from higher-capacity tiers. Built on vLLM, it uses speculative-decoding lookahead to predict future important tokens, offering a systems path to larger contexts without assuming that all KV state fits on the accelerator.", "zh": "OasisKV在LLM解码期间将完整KV缓存存储与HBM解耦，只将预测为相关的条目保留在HBM中，并从更大容量的层级预取数据块。该系统基于vLLM，利用推测解码的前瞻信息预测未来重要token，为更长上下文提供了一条不要求所有KV状态都装入加速器的系统路径。"},
-            "published": "2026-08-08"
+            "venue": "Neuromorphic Computing and Engineering",
+            "venue_url": "https://doi.org/10.1088/2634-4386/ae9640",
+            "summary": {
+              "en": "A physical memristor-and-op-amp neuron implements a biologically inspired local learning rule and learns XOR, AND, and OR in a small network. Moving adaptation into the circuit addresses a core limitation of neuromorphic systems that still depend on offline software training. The hardware proof is limited to elementary logic; the compressed-MNIST scaling result comes from SPICE rather than a larger fabricated network.",
+              "zh": "一个由忆阻器与运算放大器构成的物理神经元实现了受生物机制启发的局部学习规则，并在小型网络中学会XOR、AND与OR。把适应过程放入电路，可直接触及当前神经形态系统仍依赖离线软件训练的核心限制。硬件验证仅覆盖基础逻辑，压缩MNIST的扩展结果仍来自SPICE仿真，而非更大规模的已制造网络。"
+            },
+            "published": "2026-08-06"
           },
           {
-            "title": {"en": "HiSparse: Hierarchical KV cache management for sparse-attention decoding", "zh": "HiSparse：面向稀疏注意力解码的分层KV缓存管理"},
-            "authors": "Zhiqiang Xie, Zhangheng Huang, Ting-Jun Huang, et al.",
+            "title": {
+              "en": "A Client-Side CKKS Accelerator With Dynamic Twiddle Generation",
+              "zh": "采用动态旋转因子生成的客户端CKKS加速器"
+            },
+            "authors": "P. Sun, M. Ikeda",
             "affiliation": "",
-            "venue": "arXiv:2608.07009",
-            "venue_url": "http://arxiv.org/abs/2608.07009",
-            "summary": {"en": "HiSparse keeps full KV history in host memory while bounding each request's GPU footprint with a fixed-size cache, preserving exact model outputs for sparse-attention methods. Its fused CUDA path combines hit detection, replacement and host-device fetches inside the decode graph, and the authors evaluate it on H200, B200 and GH200 systems; the approach is most applicable when sparse selection remains effective.", "zh": "HiSparse将完整KV历史保留在主机内存中，同时以固定大小的GPU缓存限制每个请求的显存占用，并保持稀疏注意力方法的模型输出精确一致。其融合CUDA路径在解码图内完成命中检测、替换和主机至设备取数，作者在H200、B200和GH200系统上评估；该方法最适合稀疏选择仍有效的场景。"},
-            "published": "2026-08-07"
+            "venue": "IEEE Transactions on VLSI Systems",
+            "venue_url": "https://doi.org/10.1109/TVLSI.2026.3695913",
+            "summary": {
+              "en": "This accelerator targets the less-studied client side of CKKS homomorphic encryption, unifying NTT and FFT multiplication while generating twiddle factors dynamically instead of storing large tables. Evaluations on a TSMC 28 nm ASIC and Xilinx UltraScale+ FPGA show more than 40% lower area or gate count and a 1.2x end-to-end speedup against representative hardware baselines. The gains are practical but moderate at system level, making the memory and area reductions as important as raw latency.",
+              "zh": "该加速器面向研究较少的CKKS同态加密客户端，将NTT与FFT乘法统一，并动态生成旋转因子，从而避免存储大型常量表。在TSMC 28 nm ASIC与Xilinx UltraScale+ FPGA上的评估显示，相较代表性硬件基线，面积或门数降低超过40%，端到端速度提升1.2倍。系统级速度增益较为温和，因此存储与面积节省与延迟改善同样重要。"
+            },
+            "published": "2026-08-01"
           },
           {
-            "title": {"en": "Output-aware rotation for INT2 KV-cache quantization", "zh": "面向输出的INT2 KV缓存旋转量化"},
-            "authors": "Vincent-Daniel Yun, Woosang Lim, Minsoo Cheong, et al.",
+            "title": {
+              "en": "SYNtzulA Open Hardware for Near-Sensor SNN Inference",
+              "zh": "用于近传感器SNN推理的SYNtzulA开放硬件"
+            },
+            "authors": "L. Martis, G. Leone, L. Raffo, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.02691",
-            "venue_url": "http://arxiv.org/abs/2608.02691",
-            "summary": {"en": "OptR learns per-head orthogonal corrections for INT2 KV-cache quantization by minimizing error after attention and the output projection, rather than optimizing a pre-output proxy. Across three models and five reasoning and coding benchmarks, it improves on QuaRot and OSCAR while retaining a paged KV-cache format with negligible stated overhead, making the method relevant where two-bit cache compression is necessary.", "zh": "OptR通过最小化注意力和输出投影之后的误差，为INT2 KV缓存量化学习逐头正交校正，而不是优化输出前的代理误差。它在三种模型、五项推理与编程基准上优于QuaRot和OSCAR，同时保留分页KV缓存格式且声称开销可忽略，适用于必须采用2比特缓存压缩的场景。"},
-            "published": "2026-08-03"
+            "venue": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+            "venue_url": "https://doi.org/10.1109/TCAD.2025.3645186",
+            "summary": {
+              "en": "SYNtzulA integrates a RISC-V soft core and sparse SNN accelerator in a 6.8 mm2 SoC built with the open IHP-SG13G2 130 nm PDK and OpenROAD flow. The chip runs at up to 125 MHz, reaches 2 GSOP/s, and reports 36.5 pJ per synaptic operation. Its older node and modest throughput limit direct comparison with commercial neuromorphic processors, but silicon from a fully open flow makes the platform unusually reproducible.",
+              "zh": "SYNtzulA在6.8 mm2 SoC中集成RISC-V软核与稀疏SNN加速器，采用开放的IHP-SG13G2 130 nm PDK和OpenROAD流程实现。芯片最高运行于125 MHz，达到2 GSOP/s，单次突触操作能耗为36.5 pJ。较老制程与有限吞吐量使其难以直接对标商用神经形态处理器，但完全开放流程产出的实测芯片具备少见的可复现性。"
+            },
+            "published": "2026-08-01"
+          },
+          {
+            "title": {
+              "en": "Time-Multiplexed FPGA SNN Accelerator With Pipelined Readout",
+              "zh": "采用流水线读出的时分复用FPGA SNN加速器"
+            },
+            "authors": "R. Ansari, M. Wielgosz",
+            "affiliation": "",
+            "venue": "arXiv:2608.00595",
+            "venue_url": "http://arxiv.org/abs/2608.00595",
+            "summary": {
+              "en": "A time-multiplexed spike feeder, localized weight memories, and pipelined argmax readout raise an Artix-7 SNN accelerator's maximum clock from 13.3 MHz to 167 MHz. The measured implementation processes an image in 82 microseconds using a 784-64-10 network. The large frequency gain addresses a real routing bottleneck, but MNIST and the small topology leave efficiency on modern workloads unresolved.",
+              "zh": "通过时分复用脉冲输入、本地化权重存储与流水线argmax读出，这款Artix-7 SNN加速器的最高频率从13.3 MHz提升至167 MHz。实测实现采用784-64-10网络，单张图像处理延迟为82微秒。频率提升解决了真实的布线关键路径，但MNIST与小型网络拓扑仍不足以说明其在现代工作负载上的效率。"
+            },
+            "published": "2026-08-01"
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {
+          "en": "EDA & Design Tools",
+          "zh": "EDA与设计工具"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Open, Silicon-Verified Asynchronous Periphery for Neuromorphic Chips",
+              "zh": "面向神经形态芯片的开放式实硅验证异步外围电路"
+            },
+            "authors": "H. Greatorex, M. Cotteret, M. Mastella, et al.",
+            "affiliation": "",
+            "venue": "International Conference on Systems",
+            "venue_url": "https://doi.org/10.1145/3822454.3822459",
+            "summary": {
+              "en": "This work releases reusable asynchronous peripheral circuits for mixed-signal neuromorphic processors using ACT, quasi-delay-insensitive design, and dual-rail encoding. The library is validated from behavioral models through fabricated-silicon timing measurements, addressing a practical block that many research groups currently redesign from scratch. Its impact will depend on portability across processes and interfaces, but silicon verification makes it more useful than a template-only release.",
+              "zh": "该工作发布了一套可复用的混合信号神经形态处理器异步外围电路，采用ACT、准延迟无关设计与双轨编码。其验证覆盖行为模型到已制造芯片的时序测量，针对许多研究团队目前需要重复设计的实际障碍。该库的影响力仍取决于跨制程与接口的可移植性，但实硅验证使其价值高于仅提供模板的开源项目。"
+            },
+            "published": "2026-08-04"
           }
         ]
       }

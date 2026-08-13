@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-13">
+<meta name="edition-date" content="2026-08-12">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Measured Hardware Grounds Neuromorphic Ambitions — Semi Research 2026-08-13</title>
+<title>Memory hierarchy becomes the inference design point — Semi Research 2026-08-12</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-12.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,20 +319,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, August 13, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月13日 星期四</span>
+      <span class="en">Research digest · Wednesday, August 12, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月12日 星期三</span>
     </div>
     <h1>
-      <span class="en">Measured Hardware Grounds Neuromorphic Ambitions</span>
-      <span class="zh">实测硬件让神经形态计算落地</span>
+      <span class="en">Memory hierarchy becomes the inference design point</span>
+      <span class="zh">存储层级成为推理设计的核心</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest work moves beyond model-level claims into fabricated circuits, open implementation flows, and measured accelerator tradeoffs. The caveats remain visible: several demonstrations are small, workload-specific, or supported by simulation beyond the initial hardware proof.</span>
-      <span class="zh">本周较强的工作不再停留于模型层面，而是进入已制造电路、开放实现流程与实测加速器权衡。局限也很清楚：多项演示规模仍小、负载较窄，或在初步硬件验证之外仍依赖仿真。</span>
+      <span class="en">This week&#x27;s systems work shifts KV caches, LoRA adapters and model weights across HBM, host and pooled memory. Photonics research meanwhile advances manufacturable building blocks for integrated optical systems.</span>
+      <span class="zh">本周系统研究将KV缓存、LoRA适配器和模型权重重新分配到HBM、主机内存与池化内存之间。同时，光子学研究推进了可制造的集成光学系统基础模块。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 8篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
@@ -343,53 +343,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/flm2.70119" target="_blank" rel="noopener">
-          <span class="en">PbS Colloidal Quantum-Dot Imagers From Devices to CMOS Integration</span>
-          <span class="zh">从单器件到CMOS集成的PbS胶体量子点成像器</span>
+        <a href="http://arxiv.org/abs/2608.09631" target="_blank" rel="noopener">
+          <span class="en">A fully integrated dispersion-managed femtosecond mode-locked laser</span>
+          <span class="zh">全集成色散管理飞秒锁模激光器</span>
         </a>
       </h3>
-      <p class="authors">X. Hong, S. Zhang, R. Han, et al.</p>
+      <p class="authors">Xurong Li, Xuan Yang, Z. Qiu, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/flm2.70119" target="_blank" rel="noopener">FlexMat</a> · 2026-08-08</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.09631" target="_blank" rel="noopener">arXiv:2608.09631</a> · 2026-08-10</p>
       <p class="summary">
-        <span class="en">This review maps PbS colloidal quantum-dot imagers from band-structure engineering and defect passivation through flexible arrays and monolithic integration with CMOS readout circuits. Size-tunable bandgaps and solution processing could reduce the cost and integration complexity of visible-to-NIR imaging compared with conventional III-V approaches. It is a synthesis of prior results rather than a new measured array, so the value lies in its cross-layer comparison and remaining-manufacturability agenda.</span>
-        <span class="zh">这篇综述梳理了PbS胶体量子点成像器从能带工程、缺陷钝化，到柔性阵列及与CMOS读出电路单片集成的发展路径。可调带隙与溶液加工有望相较传统III-V方案降低可见光至近红外成像的成本与集成复杂度。该文是既有成果的综合而非新的实测阵列，其价值主要在于跨层比较以及对剩余制造问题的归纳。</span>
+        <span class="en">The authors demonstrate a self-starting integrated mode-locked laser using erbium-implanted silicon-nitride gain waveguides, chirped Bragg gratings and a saturable-absorber mirror. It operates from 0.5 to 1.2 GHz with pulses as short as 300 fs and a 27.3 mW mode-locking threshold, targeting a repetition-rate regime that chip-scale sources have struggled to reach.</span>
+        <span class="zh">作者展示了一种自启动全集成锁模激光器，采用掺铒氮化硅增益波导、啁啾布拉格光栅和可饱和吸收镜。该器件工作频率为0.5至1.2 GHz，最短脉冲300 fs，锁模阈值27.3 mW，瞄准片上光源长期难以覆盖的低重复频率区间。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.09003" target="_blank" rel="noopener">
+          <span class="en">Wafer-scale monolithic Ce:YIG magneto-optical isolators on silicon</span>
+          <span class="zh">硅上晶圆级单片Ce:YIG磁光隔离器</span>
+        </a>
+      </h3>
+      <p class="authors">Tianchi Zhang, Yucong Yang, Weihao Yang, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.09003" target="_blank" rel="noopener">arXiv:2608.09003</a> · 2026-08-10</p>
+      <p class="summary">
+        <span class="en">This work reports RF-sputtered Ce:YIG films on 4-inch silicon wafers and demonstrates ring-resonator magneto-optical isolators. The films show a 2,318 deg/cm Faraday effect, 80 dB/cm propagation loss and 3.5% thickness uniformity; the result addresses a key scale-up obstacle for nonreciprocal silicon-photonic components.</span>
+        <span class="zh">该工作报告了在4英寸硅晶圆上通过射频溅射制备Ce:YIG薄膜，并演示环形谐振器磁光隔离器。薄膜的法拉第旋转为2318 deg/cm、传播损耗80 dB/cm、厚度均匀性3.5%，直指非互易硅光子器件规模化的一项关键障碍。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">Systems &amp; Architecture</span>
+      <span class="zh">系统与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.07963" target="_blank" rel="noopener">
-          <span class="en">High-Gain Readout for Low-Charge Semiconductor Detectors</span>
-          <span class="zh">面向低电荷半导体探测器的高增益读出电路</span>
+        <a href="http://arxiv.org/abs/2608.08482" target="_blank" rel="noopener">
+          <span class="en">FlashBoot: Sub-second weight loading for rack-scale large models</span>
+          <span class="zh">FlashBoot：机架级大模型的亚秒级权重加载</span>
         </a>
       </h3>
-      <p class="authors">D. Zhang, K. Ma, J. Zhang, et al.</p>
+      <p class="authors">Issac Zhu, Hscos Zhang, Ke Jiang, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.07963" target="_blank" rel="noopener">arXiv:2608.07963</a> · 2026-08-08</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.08482" target="_blank" rel="noopener">arXiv:2608.08482</a> · 2026-08-09</p>
       <p class="summary">
-        <span class="en">A three-stage SiGe:C-BJT and LTC6431 preamplifier board delivers 115.27 mV ns/fC charge gain across a 0.5-25 fC input range and 34.0-594.3 MHz bandwidth. Measurements with LGAD, PIN, and 3D silicon detectors reach timing resolutions of 36.41 ps, 76.10 ps, and 39.40 ps, respectively. The board is experimentally validated, but it is a discrete readout implementation rather than a monolithic front end.</span>
-        <span class="zh">这块三级前置放大板采用SiGe:C BJT与LTC6431，在0.5-25 fC输入范围内实现115.27 mV ns/fC电荷增益，带宽为34.0-594.3 MHz。搭配LGAD、PIN与3D硅探测器时，实测时间分辨率分别达到36.41 ps、76.10 ps与39.40 ps。该方案经过实验验证，但仍是分立式读出实现，并非单片集成前端。</span>
+        <span class="en">FlashBoot redesigns model bring-up around an exportable contiguous tensor layout, bulk zero-copy host transfers and remote GPU cloning. The paper argues that existing loaders waste fabric bandwidth through fragmented tensors and 10–110 second NCCL setup, making this work relevant to elastic MoE serving where racks must become ready quickly.</span>
+        <span class="zh">FlashBoot围绕可导出的连续张量布局、批量零拷贝主机传输和远程GPU克隆重新设计模型启动流程。论文指出，现有加载器因张量碎片化以及10至110秒的NCCL初始化而浪费互连带宽，因此对需要快速就绪的弹性MoE机架服务具有现实意义。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/JSSC.2026.3654848" target="_blank" rel="noopener">
-          <span class="en">Noise-Reconfigurable ECG Amplifier With 142.8-GOhm Input Impedance</span>
-          <span class="zh">输入阻抗142.8 GOhm的噪声可重构ECG放大器</span>
+        <a href="http://arxiv.org/abs/2608.08751" target="_blank" rel="noopener">
+          <span class="en">InSituANN: PCIe-efficient billion-scale vector search</span>
+          <span class="zh">InSituANN：高PCIe效率的十亿级向量检索</span>
         </a>
       </h3>
-      <p class="authors">H. Zheng, X. Liu</p>
+      <p class="authors">Yuemeng Xu, Zongxi Liu, Junyu Long, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3654848" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-08-01</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.08751" target="_blank" rel="noopener">arXiv:2608.08751</a> · 2026-08-09</p>
       <p class="summary">
-        <span class="en">This chopper-stabilized ECG analog front end combines time-division multiplexing with new impedance-boosting and DC-servo loops to reach 142.8 GOhm input impedance. The ASIC can trade channel count against input-referred noise by reconfiguring among four-, two-, and one-channel modes. The design targets electrode-offset and leakage problems that often dominate wearable biopotential interfaces, with measured silicon reported in JSSC.</span>
-        <span class="zh">这款斩波稳定ECG模拟前端结合时分复用、新型阻抗提升环路与DC伺服环路，实现142.8 GOhm输入阻抗。ASIC可在4通道、2通道与1通道模式间重构，以通道数换取更低的输入参考噪声。设计针对可穿戴生物电接口中常见的电极失调与漏电问题，JSSC论文给出了实测芯片结果。</span>
+        <span class="en">InSituANN keeps base vectors in host memory, performs fine search in place and uses a GPU for compact routing and optional pruning, avoiding PCIe transfers of high-dimensional vectors. On SIFT-1B, it reports a 5.2-minute IVF index build, about 350 times faster than the cited comparison, making retrieval infrastructure less dependent on GPU-resident capacity.</span>
+        <span class="zh">InSituANN将原始向量保留在主机内存中原位执行精细检索，并以GPU处理紧凑路由和可选剪枝，从而避免经PCIe传输高维基础向量。在SIFT-1B上，它报告5.2分钟完成IVF索引构建，约为论文对比方案的350倍，使检索基础设施对GPU常驻容量的依赖更低。</span>
       </p>
     </article>
   </section>
@@ -400,83 +415,83 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1088/2634-4386/ae9640" target="_blank" rel="noopener">
-          <span class="en">A Memristive Neuron That Learns on Chip</span>
-          <span class="zh">可在芯片上学习的忆阻神经元</span>
+        <a href="http://arxiv.org/abs/2608.05483" target="_blank" rel="noopener">
+          <span class="en">PLoRA: NDP-enhanced pooled memory for Multi-LoRA serving</span>
+          <span class="zh">PLoRA：面向多LoRA服务的NDP增强池化内存</span>
         </a>
       </h3>
-      <p class="authors">N. Jimenez Olalla, A. Long Ching Ip, M. Baumann, et al.</p>
+      <p class="authors">Zhongkai Yu, O. Venkatachalam, Zheng Wang, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1088/2634-4386/ae9640" target="_blank" rel="noopener">Neuromorphic Computing and Engineering</a> · 2026-08-06</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.05483" target="_blank" rel="noopener">arXiv:2608.05483</a> · 2026-08-06</p>
       <p class="summary">
-        <span class="en">A physical memristor-and-op-amp neuron implements a biologically inspired local learning rule and learns XOR, AND, and OR in a small network. Moving adaptation into the circuit addresses a core limitation of neuromorphic systems that still depend on offline software training. The hardware proof is limited to elementary logic; the compressed-MNIST scaling result comes from SPICE rather than a larger fabricated network.</span>
-        <span class="zh">一个由忆阻器与运算放大器构成的物理神经元实现了受生物机制启发的局部学习规则，并在小型网络中学会XOR、AND与OR。把适应过程放入电路，可直接触及当前神经形态系统仍依赖离线软件训练的核心限制。硬件验证仅覆盖基础逻辑，压缩MNIST的扩展结果仍来自SPICE仿真，而非更大规模的已制造网络。</span>
+        <span class="en">PLoRA proposes a pooled-memory serving design that keeps LoRA adapters and KV cache in the pool, using near-data processing to return reduced results rather than moving all data to the GPU. It addresses deployments with thousands of adapters, where CPU-DRAM staging over PCIe consumes both capacity and kernel-launch overhead; its benefit depends on the availability of memory-semantic fabrics and NDP support.</span>
+        <span class="zh">PLoRA提出一种池化内存服务设计，将LoRA适配器和KV缓存留在内存池中，通过近数据处理只返回归约结果，而非把全部数据搬到GPU。它针对拥有数千个适配器的部署场景，解决CPU DRAM经PCIe调入所造成的容量和内核启动开销；其收益仍取决于具备内存语义的互连和NDP支持。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TVLSI.2026.3695913" target="_blank" rel="noopener">
-          <span class="en">A Client-Side CKKS Accelerator With Dynamic Twiddle Generation</span>
-          <span class="zh">采用动态旋转因子生成的客户端CKKS加速器</span>
+        <a href="https://doi.org/10.1063/5.0334562" target="_blank" rel="noopener">
+          <span class="en">Phase-change microring nonlinear activations for photonic neural networks</span>
+          <span class="zh">用于光子神经网络的相变微环非线性激活</span>
         </a>
       </h3>
-      <p class="authors">P. Sun, M. Ikeda</p>
+      <p class="authors">Wentao Zhong, Yida Dong, Wenlu Zhong, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3695913" target="_blank" rel="noopener">IEEE Transactions on VLSI Systems</a> · 2026-08-01</p>
+      <p class="venue"><a href="https://doi.org/10.1063/5.0334562" target="_blank" rel="noopener">APL Photonics</a> · 2026-08-01</p>
       <p class="summary">
-        <span class="en">This accelerator targets the less-studied client side of CKKS homomorphic encryption, unifying NTT and FFT multiplication while generating twiddle factors dynamically instead of storing large tables. Evaluations on a TSMC 28 nm ASIC and Xilinx UltraScale+ FPGA show more than 40% lower area or gate count and a 1.2x end-to-end speedup against representative hardware baselines. The gains are practical but moderate at system level, making the memory and area reductions as important as raw latency.</span>
-        <span class="zh">该加速器面向研究较少的CKKS同态加密客户端，将NTT与FFT乘法统一，并动态生成旋转因子，从而避免存储大型常量表。在TSMC 28 nm ASIC与Xilinx UltraScale+ FPGA上的评估显示，相较代表性硬件基线，面积或门数降低超过40%，端到端速度提升1.2倍。系统级速度增益较为温和，因此存储与面积节省与延迟改善同样重要。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1109/TCAD.2025.3645186" target="_blank" rel="noopener">
-          <span class="en">SYNtzulA Open Hardware for Near-Sensor SNN Inference</span>
-          <span class="zh">用于近传感器SNN推理的SYNtzulA开放硬件</span>
-        </a>
-      </h3>
-      <p class="authors">L. Martis, G. Leone, L. Raffo, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2025.3645186" target="_blank" rel="noopener">IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</a> · 2026-08-01</p>
-      <p class="summary">
-        <span class="en">SYNtzulA integrates a RISC-V soft core and sparse SNN accelerator in a 6.8 mm2 SoC built with the open IHP-SG13G2 130 nm PDK and OpenROAD flow. The chip runs at up to 125 MHz, reaches 2 GSOP/s, and reports 36.5 pJ per synaptic operation. Its older node and modest throughput limit direct comparison with commercial neuromorphic processors, but silicon from a fully open flow makes the platform unusually reproducible.</span>
-        <span class="zh">SYNtzulA在6.8 mm2 SoC中集成RISC-V软核与稀疏SNN加速器，采用开放的IHP-SG13G2 130 nm PDK和OpenROAD流程实现。芯片最高运行于125 MHz，达到2 GSOP/s，单次突触操作能耗为36.5 pJ。较老制程与有限吞吐量使其难以直接对标商用神经形态处理器，但完全开放流程产出的实测芯片具备少见的可复现性。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.00595" target="_blank" rel="noopener">
-          <span class="en">Time-Multiplexed FPGA SNN Accelerator With Pipelined Readout</span>
-          <span class="zh">采用流水线读出的时分复用FPGA SNN加速器</span>
-        </a>
-      </h3>
-      <p class="authors">R. Ansari, M. Wielgosz</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.00595" target="_blank" rel="noopener">arXiv:2608.00595</a> · 2026-08-01</p>
-      <p class="summary">
-        <span class="en">A time-multiplexed spike feeder, localized weight memories, and pipelined argmax readout raise an Artix-7 SNN accelerator&#x27;s maximum clock from 13.3 MHz to 167 MHz. The measured implementation processes an image in 82 microseconds using a 784-64-10 network. The large frequency gain addresses a real routing bottleneck, but MNIST and the small topology leave efficiency on modern workloads unresolved.</span>
-        <span class="zh">通过时分复用脉冲输入、本地化权重存储与流水线argmax读出，这款Artix-7 SNN加速器的最高频率从13.3 MHz提升至167 MHz。实测实现采用784-64-10网络，单张图像处理延迟为82微秒。频率提升解决了真实的布线关键路径，但MNIST与小型网络拓扑仍不足以说明其在现代工作负载上的效率。</span>
+        <span class="en">A GST superlattice on a silicon microring is used to demonstrate five reconfigurable nonlinear activation functions, including ReLU and softplus. The device reaches a 1.76 mW activation threshold and up to 1 MHz operation; a system-level MNIST experiment improves reported accuracy from 95.35% to 99.24%, though that benchmark does not establish an end-to-end optical-compute advantage.</span>
+        <span class="zh">研究在硅微环上集成GST超晶格，演示了包括ReLU和softplus在内的五种可重构非线性激活函数。器件激活阈值为1.76 mW、最高工作速度1 MHz；系统级MNIST实验报告准确率从95.35%升至99.24%，但这一基准尚不足以证明端到端光计算优势。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="eda">
+  <section class="area" id="ai-research">
     <h2>
-      <span class="en">EDA &amp; Design Tools</span>
-      <span class="zh">EDA与设计工具</span>
+      <span class="en">AI Systems &amp; Inference</span>
+      <span class="zh">AI系统与推理</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3822454.3822459" target="_blank" rel="noopener">
-          <span class="en">Open, Silicon-Verified Asynchronous Periphery for Neuromorphic Chips</span>
-          <span class="zh">面向神经形态芯片的开放式实硅验证异步外围电路</span>
+        <a href="http://arxiv.org/abs/2608.08097" target="_blank" rel="noopener">
+          <span class="en">OasisKV: Lookahead sparse prefetching beyond HBM</span>
+          <span class="zh">OasisKV：突破HBM容量的前瞻稀疏预取</span>
         </a>
       </h3>
-      <p class="authors">H. Greatorex, M. Cotteret, M. Mastella, et al.</p>
+      <p class="authors">Can Xiao, Sukmin Cho, Junbong We, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3822454.3822459" target="_blank" rel="noopener">International Conference on Systems</a> · 2026-08-04</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.08097" target="_blank" rel="noopener">arXiv:2608.08097</a> · 2026-08-08</p>
       <p class="summary">
-        <span class="en">This work releases reusable asynchronous peripheral circuits for mixed-signal neuromorphic processors using ACT, quasi-delay-insensitive design, and dual-rail encoding. The library is validated from behavioral models through fabricated-silicon timing measurements, addressing a practical block that many research groups currently redesign from scratch. Its impact will depend on portability across processes and interfaces, but silicon verification makes it more useful than a template-only release.</span>
-        <span class="zh">该工作发布了一套可复用的混合信号神经形态处理器异步外围电路，采用ACT、准延迟无关设计与双轨编码。其验证覆盖行为模型到已制造芯片的时序测量，针对许多研究团队目前需要重复设计的实际障碍。该库的影响力仍取决于跨制程与接口的可移植性，但实硅验证使其价值高于仅提供模板的开源项目。</span>
+        <span class="en">OasisKV decouples full KV-cache storage from HBM during LLM decoding, retaining only predicted-relevant entries in HBM and prefetching blocks from higher-capacity tiers. Built on vLLM, it uses speculative-decoding lookahead to predict future important tokens, offering a systems path to larger contexts without assuming that all KV state fits on the accelerator.</span>
+        <span class="zh">OasisKV在LLM解码期间将完整KV缓存存储与HBM解耦，只将预测为相关的条目保留在HBM中，并从更大容量的层级预取数据块。该系统基于vLLM，利用推测解码的前瞻信息预测未来重要token，为更长上下文提供了一条不要求所有KV状态都装入加速器的系统路径。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.07009" target="_blank" rel="noopener">
+          <span class="en">HiSparse: Hierarchical KV cache management for sparse-attention decoding</span>
+          <span class="zh">HiSparse：面向稀疏注意力解码的分层KV缓存管理</span>
+        </a>
+      </h3>
+      <p class="authors">Zhiqiang Xie, Zhangheng Huang, Ting-Jun Huang, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.07009" target="_blank" rel="noopener">arXiv:2608.07009</a> · 2026-08-07</p>
+      <p class="summary">
+        <span class="en">HiSparse keeps full KV history in host memory while bounding each request&#x27;s GPU footprint with a fixed-size cache, preserving exact model outputs for sparse-attention methods. Its fused CUDA path combines hit detection, replacement and host-device fetches inside the decode graph, and the authors evaluate it on H200, B200 and GH200 systems; the approach is most applicable when sparse selection remains effective.</span>
+        <span class="zh">HiSparse将完整KV历史保留在主机内存中，同时以固定大小的GPU缓存限制每个请求的显存占用，并保持稀疏注意力方法的模型输出精确一致。其融合CUDA路径在解码图内完成命中检测、替换和主机至设备取数，作者在H200、B200和GH200系统上评估；该方法最适合稀疏选择仍有效的场景。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.02691" target="_blank" rel="noopener">
+          <span class="en">Output-aware rotation for INT2 KV-cache quantization</span>
+          <span class="zh">面向输出的INT2 KV缓存旋转量化</span>
+        </a>
+      </h3>
+      <p class="authors">Vincent-Daniel Yun, Woosang Lim, Minsoo Cheong, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.02691" target="_blank" rel="noopener">arXiv:2608.02691</a> · 2026-08-03</p>
+      <p class="summary">
+        <span class="en">OptR learns per-head orthogonal corrections for INT2 KV-cache quantization by minimizing error after attention and the output projection, rather than optimizing a pre-output proxy. Across three models and five reasoning and coding benchmarks, it improves on QuaRot and OSCAR while retaining a paged KV-cache format with negligible stated overhead, making the method relevant where two-bit cache compression is necessary.</span>
+        <span class="zh">OptR通过最小化注意力和输出投影之后的误差，为INT2 KV缓存量化学习逐头正交校正，而不是优化输出前的代理误差。它在三种模型、五项推理与编程基准上优于QuaRot和OSCAR，同时保留分页KV缓存格式且声称开销可忽略，适用于必须采用2比特缓存压缩的场景。</span>
       </p>
     </article>
   </section>
@@ -504,8 +519,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-13 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-13 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-12 01:12 UTC · <a href="../2026-08-12.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-12 01:12 UTC · <a href="../2026-08-12.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
