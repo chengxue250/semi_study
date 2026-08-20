@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-14">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Integration Moves from Devices to Full Systems — Semi Research 2026-08-14</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-08-14.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Friday, August 14, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月14日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">Integration Moves from Devices to Full Systems</span>
+      <span class="zh">集成从单器件走向完整系统</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s strongest work connects materials and devices to manufacturable stacks, network behavior, and system-level performance. Wafer-scale oxide integration, photonic compute, MoE switching, and tunable quantum structures all show that interfaces now determine whether a promising device becomes useful hardware.</span>
+      <span class="zh">本周最值得关注的研究把材料与器件进一步连接到可制造堆叠、网络行为和系统级性能。晶圆级氧化物集成、光子计算、MoE交换与可调量子结构共同表明，接口设计正决定一种潜力器件能否成为实用硬件。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.09508" target="_blank" rel="noopener">
+          <span class="en">200 mm Wafer-Scale Monolithic 3D Integration of ALD Oxide Semiconductors</span>
+          <span class="zh">200 mm晶圆级ALD氧化物半导体单片3D集成</span>
+        </a>
+      </h3>
+      <p class="authors">C. Niu, L. Long, L. Zheng, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.09508" target="_blank" rel="noopener">arXiv:2608.09508</a> · 2026-08-10</p>
+      <p class="summary">
+        <span class="en">The team fabricated more than 100,000 ALD InOx devices across three monolithically integrated tiers on 200 mm silicon, including ferroelectric and enhancement- and depletion-mode FETs. Threshold-voltage variation reaches 0.04 V standard deviation, electron mobility reaches 91.6 cm²/V·s, and cross-tier circuits operate; a modeled four-tier CIM accelerator delivers 1.4×–2.9× speedup over 2D baselines. The wafer-scale device data are the key result, while the accelerator comparison remains design-level evidence and the preprint does not yet establish production yield or long-term reliability.</span>
+        <span class="zh">研究团队在200 mm硅片上单片集成三层、超过100,000个ALD InOx器件，包括铁电FET以及增强型和耗尽型FET。器件阈值电压标准差低至0.04 V，电子迁移率最高91.6 cm²/V·s，跨层电路可以工作；基于该工艺设计的四层CIM加速器相对2D基线获得1.4×–2.9×加速。晶圆级器件数据是核心成果，但加速器比较仍属于设计层证据，预印本也尚未证明量产良率和长期可靠性。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1126/sciadv.aef5518" target="_blank" rel="noopener">
+          <span class="en">Telecom Light Sources from MoS₂/WSe₂ Moiré Superlattices on Silicon Photonics</span>
+          <span class="zh">硅光平台上的MoS₂/WSe₂莫尔超晶格通信波段光源</span>
+        </a>
+      </h3>
+      <p class="authors">X. Huang, H. Fang, S. Kadkhodazadeh, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1126/sciadv.aef5518" target="_blank" rel="noopener">Science Advances</a> · 2026-08-07</p>
+      <p class="summary">
+        <span class="en">MoS₂/WSe₂ moiré superlattices coupled to a silicon-photonic nanobeam cavity produce a waveguide-integrated light source in the telecom O-band at room temperature. The device reports near-unity interference visibility and a coherence length of about 3.8 mm, substantially extending the coherence demonstrated by earlier 2D-material emitters. Stable ambient operation is encouraging for integration, although the paper does not by itself establish electrical pumping or foundry-scale manufacturing.</span>
+        <span class="zh">MoS₂/WSe₂莫尔超晶格与硅光纳米梁腔耦合，在室温下实现了通信O波段的波导集成光源。器件报告接近1的干涉可见度和约3.8 mm相干长度，明显超过此前二维材料发光器件的相干表现。其环境稳定性有利于集成，但论文尚不能证明电泵浦能力或晶圆代工规模的制造可行性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.09075" target="_blank" rel="noopener">
+          <span class="en">SLAC Exposes CPU-to-GPU Cache Side Channels on Apple Silicon</span>
+          <span class="zh">SLAC揭示Apple Silicon上的CPU到GPU缓存侧信道</span>
+        </a>
+      </h3>
+      <p class="authors">T. Xu, S. K. Roy, R. Ding, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.09075" target="_blank" rel="noopener">arXiv:2608.09075</a> · 2026-08-10</p>
+      <p class="summary">
+        <span class="en">SLAC shows that an unprivileged CPU process can observe cache-set footprints left by GPU memory accesses in the shared system-level cache of Apple Silicon. After reverse-engineering the M1 cache indexing, the authors build a Prime+Probe-style CPU-to-GPU channel; GPU-assisted priming increases covert-channel throughput by 6.4×. The result identifies a fine-grained cross-domain attack surface, but it is a preprint demonstrated on M1-class behavior and should not yet be generalized to every Apple generation.</span>
+        <span class="zh">SLAC发现，在Apple Silicon共享的系统级缓存中，非特权CPU进程可以观察GPU访存留下的缓存组足迹。团队逆向分析M1缓存索引后，构建了Prime+Probe式CPU到GPU侧信道；借助GPU进行预填充后，隐蔽信道吞吐率提高6.4×。该结果揭示了细粒度跨域攻击面，但目前仍是基于M1行为的预印本，不宜直接推广到所有Apple芯片世代。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.07241" target="_blank" rel="noopener">
+          <span class="en">Giant Backward Brillouin Interaction in Foundry-Accessible InP Photonics</span>
+          <span class="zh">可晶圆代工InP光子平台中的巨型后向布里渊相互作用</span>
+        </a>
+      </h3>
+      <p class="authors">R. te Morsche, L. Puts, W. Yao, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.07241" target="_blank" rel="noopener">arXiv:2608.07241</a> · 2026-08-07</p>
+      <p class="summary">
+        <span class="en">The work reports the first measured backward stimulated Brillouin scattering in generic InP waveguides, with gain coefficients reaching 737 ± 54 W⁻¹m⁻¹. Achieving that interaction in a mature, foundry-accessible platform could add narrowband filtering, delay, and microwave-photonic functions without a bespoke material stack. The result is a preprint and the reported gain comes from a specific waveguide and acoustic-mode configuration, so circuit-scale loss and reproducibility remain the practical tests.</span>
+        <span class="zh">该研究首次在通用InP波导中测得后向受激布里渊散射，增益系数最高达到737 ± 54 W⁻¹m⁻¹。在成熟、可晶圆代工的平台上获得这一相互作用，有望无需定制材料堆叠即可加入窄带滤波、延迟和微波光子功能。该结果仍是预印本，且高增益来自特定波导与声学模式配置，电路级损耗和重复性仍需验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsphotonics.6c01125" target="_blank" rel="noopener">
+          <span class="en">A Subvolt Dual-Mode Silicon Microring for Analog Optical Computing</span>
+          <span class="zh">面向模拟光计算的亚伏双模式硅微环</span>
+        </a>
+      </h3>
+      <p class="authors">S. Biswas, S. M. Bari, A. X. Wang</p>
+
+      <p class="venue"><a href="https://doi.org/10.1021/acsphotonics.6c01125" target="_blank" rel="noopener">ACS Photonics</a> · 2026-08-10</p>
+      <p class="summary">
+        <span class="en">A MOSCAP silicon microring gated by a high-mobility transparent conductive oxide reaches 175 pm/V tuning efficiency, VπL of 0.09 V·cm, more than 6 dB extinction at 0.5 V, and 13.5 fJ/bit. Accumulation and depletion biasing let the same device encode 5- to 6-bit analog weights or provide a nonlinear optical response, reducing the need for separate photonic elements. These are strong measured device metrics, but scaling one ring into a calibrated multi-ring computing system remains the decisive systems challenge.</span>
+        <span class="zh">一种由高迁移率透明导电氧化物栅控的MOSCAP硅微环实现175 pm/V调谐效率、0.09 V·cm的VπL、0.5 V驱动下超过6 dB消光比，以及13.5 fJ/bit能效。通过积累区和耗尽区偏置，同一器件既可编码5至6 bit模拟权重，也可提供非线性光响应，从而减少独立光子器件数量。器件实测指标很强，但从单个微环扩展到可校准的多微环计算系统仍是决定性的系统挑战。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/adfm.77601" target="_blank" rel="noopener">
+          <span class="en">Polarity-Addressed Reset Stabilizes SiNW-FET Reservoir Computing</span>
+          <span class="zh">极性寻址复位稳定SiNW-FET储备池计算</span>
+        </a>
+      </h3>
+      <p class="authors">L. Yan, Y. Zhang, M. Wei, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1002/adfm.77601" target="_blank" rel="noopener">Advanced Functional Materials</a> · 2026-08-07</p>
+      <p class="summary">
+        <span class="en">Trap-engineered Schottky silicon-nanowire FETs use source-drain polarity reversal as a device-native reset that clears accumulated state during continuous event-stream inference. The authors integrate roughly 20 nm nanowires into an addressable 4×4 top-gated array and trigger sparse resets from online drift statistics, addressing a failure mode hidden by segmented benchmarks. The measured array makes the reliability problem concrete, though its small scale and gesture-recognition workload leave larger reservoirs and broader tasks untested.</span>
+        <span class="zh">陷阱工程Schottky硅纳米线FET利用源漏极性反转实现器件原生复位，在连续事件流推理中清除累积状态。研究团队把直径约20 nm的纳米线集成为可寻址4×4顶栅阵列，并根据在线漂移统计稀疏触发复位，解决分段基准测试会掩盖的失效模式。实测阵列把可靠性问题具体化，但规模较小且仅使用手势识别任务，更大储备池和更广泛工作负载仍未验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3789240.3829178" target="_blank" rel="noopener">
+          <span class="en">HyNA Uses Hybrid Switch Silicon to Tame MoE Tail Latency</span>
+          <span class="zh">HyNA以混合交换芯片抑制MoE尾延迟</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Liu, T. Liu, H. Yao</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3829178" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
+      <p class="summary">
+        <span class="en">HyNA combines wire-speed reconfigurable match tables with embedded RISC-V cores so sparse, bursty MoE aggregation—including collisions and overflow handling—stays inside the switch ASIC. The design removes dedicated parameter-server nodes and is evaluated with a 100 Gbps FPGA prototype plus 7 nm ASIC synthesis, turning host fallback round trips into deterministic on-chip handling. The systems idea directly targets MoE communication tails, but the final performance and power claims still mix prototype measurements with synthesized rather than taped-out silicon.</span>
+        <span class="zh">HyNA把线速可重构匹配表与嵌入式RISC-V核心结合，使稀疏、突发的MoE聚合流量连同冲突和溢出处理都留在交换ASIC内部。该设计取消专用参数服务器节点，并通过100 Gbps FPGA原型和7 nm ASIC综合评估，把主机回退的网络往返变为确定性的片上处理。其系统思路直接针对MoE通信尾延迟，但最终性能与功耗结论仍混合了原型实测和综合结果，而非流片芯片数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum &amp; Nonlinear Photonics</span>
+      <span class="zh">量子与非线性光子学</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.07426" target="_blank" rel="noopener">
+          <span class="en">Tunable Bound States Reshape Four-Wave Mixing in SiN Microresonators</span>
+          <span class="zh">可调连续域束缚态重塑SiN微谐振器四波混频</span>
+        </a>
+      </h3>
+      <p class="authors">E. C. Lima, M. Clementi, A. Viola, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.07426" target="_blank" rel="noopener">arXiv:2608.07426</a> · 2026-08-07</p>
+      <p class="summary">
+        <span class="en">An electrically tunable Friedrich-Wintgen bound state in the continuum reaches Q above 10⁶ in coupled silicon-nitride microresonators and can be populated through spontaneous four-wave mixing despite being dark to linear excitation. Placing the idler at the bound-state condition increases parametric gain by 12 dB and lowers the oscillation threshold by 1.6 dB, while changing photon-pair correlations and coherence. The experiment points to reconfigurable quantum and nonlinear sources, but it remains a preprint and does not yet address packaging, control overhead, or device-to-device variation.</span>
+        <span class="zh">耦合SiN微谐振器中的电可调Friedrich-Wintgen连续域束缚态实现超过10⁶的Q值；尽管线性激励无法直接访问，该模式仍可通过自发四波混频被占据。把闲频模式调到束缚态条件后，参量增益提高12 dB，振荡阈值降低1.6 dB，同时改变光子对的关联与相干性。该实验为可重构量子和非线性光源提供路径，但目前仍是预印本，尚未处理封装、控制开销和器件间差异。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-14 01:14 UTC · <a href="../2026-08-14.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-14 01:14 UTC · <a href="../2026-08-14.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

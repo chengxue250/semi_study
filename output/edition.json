@@ -1,419 +1,248 @@
 {
-  "date": "2026-08-14",
-  "theme": {
-    "en": "AI Infrastructure Spreads Across the Silicon Stack",
-    "zh": "AI基础设施贯穿整个硅栈"
-  },
+  "date": "2026-08-20",
+  "theme": {"en": "AI Demand Reprices the Chip Stack", "zh": "AI需求重定价整条芯片栈"},
   "dek": {
-    "en": "AI capacity is no longer only a GPU story: memory, optical I/O, PCIe fabrics, advanced packaging, foundry capacity, and process-tool labs are all scaling around it. The day's announcements show the bottleneck—and the investment—moving through every layer of the hardware stack.",
-    "zh": "AI算力扩张已不只是GPU的故事：存储、光互连、PCIe互连、先进封装、晶圆代工和工艺设备实验室都在同步扩容。今日消息显示，瓶颈与投资正在硬件栈的各层之间转移。"
+    "en": "Tight foundry capacity is giving Samsung room to raise prices, while Google, Cerebras, and AMD broaden the architectural contest around AI infrastructure. The pressure now reaches from wafers and packaging to memory, interconnect, and power delivery.",
+    "zh": "晶圆代工产能趋紧，让三星获得提价空间；与此同时，Google、Cerebras与AMD正扩大AI基础设施的架构竞争。压力已从晶圆与封装延伸至存储、互连和供电。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {
-        "en": "AI & Accelerators",
-        "zh": "AI与加速器"
-      },
-      "stories": [
-        {
-          "featured": false,
-          "title": {
-            "en": "Microchip Shows a 160-Lane PCIe Gen6 Switch at FMS 2026",
-            "zh": "Microchip在FMS 2026展示160通道PCIe Gen6交换芯片"
-          },
-          "summary": {
-            "en": "Microchip demonstrated a 160-lane Switchtec PCIe Gen6 switch at FMS 2026 alongside an XpressConnect PCIe 6 retimer. The combination targets the signal reach and fabric fan-out needed to connect accelerators, memory, and hosts at rack scale. This is a trade-show demonstration rather than evidence of volume deployment, but it shows PCIe 6 infrastructure moving toward complete switching and retiming platforms.",
-            "zh": "Microchip在FMS 2026展示了160通道Switchtec PCIe Gen6交换芯片，并配套演示XpressConnect PCIe 6重定时器。该组合面向机架级加速器、存储与主机互连所需的信号传输距离和扇出能力。目前这仍是展会演示，而非规模部署，但说明PCIe 6基础设施正从单一器件走向完整的交换与重定时平台。"
-          },
-          "source": "ServeTheHome",
-          "url": "https://www.servethehome.com/microchip-switchtec-160-lane-pcie-gen6-switch-shown-at-fms-2026-with-xpressconnect-pcie-6-retimer/",
-          "published": "2026-08-13T18:00:18+00:00"
-        }
-      ]
-    },
-    {
-      "id": "foundry",
-      "title": {
-        "en": "Foundry & Manufacturing",
-        "zh": "晶圆代工与制造"
-      },
-      "stories": [
-        {
-          "featured": false,
-          "title": {
-            "en": "Sony and TSMC Plan a $6.3 Billion Image-Sensor Venture",
-            "zh": "Sony与TSMC拟建$6.3B下一代图像传感器合资项目"
-          },
-          "summary": {
-            "en": "Sony and TSMC are planning a $6.3 billion joint venture for next-generation image sensors. If completed, the project would pair Sony's sensor franchise with TSMC's manufacturing scale and deepen the foundry's exposure to specialty imaging silicon beyond leading-edge logic. The report describes a plan, so ownership, location, process mix, and construction timing remain key open details.",
-            "zh": "Sony与TSMC计划成立规模达$6.3B的合资项目，生产下一代图像传感器。若项目落地，Sony的传感器业务将与TSMC的制造规模结合，也会让后者在先进逻辑之外进一步扩大特色图像芯片业务。报道目前仍停留在计划阶段，股权、选址、制程组合和建设时间仍是关键待定项。"
-          },
-          "source": "BW Businessworld",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPd2o2aV9QMGEwOGVxd0pjcmNSVF9ONlVQcDJnUFJxSlhPWU9JYjlBVkMxMVpfMzZKbEJMZVZXR21DbnViZDc0RlFDcEhhbU5xbU1KaWotcmNfekJOZ0dpT3ZMeVItV19SNXFSckpCbjNNMUN5QkVmY3AzYWNldXh0aURzUGZ2eGwtX0lLcXhxcmRXODJ5aWxqd082MA?oc=5",
-          "published": "2026-08-13T18:14:06+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Chinese Foundries Post Triple-Digit Quarterly Growth",
-            "zh": "中国晶圆代工厂录得季度三位数增长"
-          },
-          "summary": {
-            "en": "Chinese foundries recorded triple-digit quarterly growth, according to gasworld. The acceleration points to a sharp domestic manufacturing ramp, with implications for mature-node supply, industrial-gas demand, and equipment utilization. The candidate report does not specify whether the growth measure is revenue, output, or another operating metric, so the headline rate should not be read as a direct capacity figure.",
-            "zh": "据gasworld报道，中国晶圆代工厂录得季度三位数增长。这一加速势头指向国内制造快速爬坡，并将影响成熟制程供给、工业气体需求和设备利用率。候选报道未说明增长口径是收入、产量还是其他运营指标，因此不能把标题中的增速直接等同于产能增幅。"
-          },
-          "source": "gasworld",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQdnFJZE5lNkhxMno5UDR5WE5mVVBVbzVNbm5wWTdoTFNwUVozWXk1R2RheEpKU0tLZHRsdE44d1lrc3FHVTZ1MmVjeXVFMV9JWmxTYVpIWEFfLWdZd2ZsZjR5bmJDSlliakJnZ1N4bDBQTEVvZXpjNHE5SHpCLXExQzFlSWZaNDRDMUh5LVpwQTNiMjd4akE0TE5GUHhtQjFGMUdZUw?oc=5",
-          "published": "2026-08-13T16:09:17+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Rapidus Targets Eight-Reticle Interposers by 2030",
-            "zh": "Rapidus计划2030年实现八倍光罩尺寸中介层"
-          },
-          "summary": {
-            "en": "Rapidus is targeting interposers spanning eight reticles by 2030. That scale would support much larger multi-chip packages and reflects how advanced packaging is becoming part of the foundry roadmap, not a downstream afterthought. The date is a target rather than a production commitment, leaving process readiness, yield, and customer qualification to be demonstrated.",
-            "zh": "Rapidus计划到2030年实现覆盖八倍光罩尺寸的中介层。这一尺寸可承载更大的多芯片封装，也表明先进封装已进入晶圆代工路线图核心，而不再只是后段配套。2030年仍是目标而非量产承诺，工艺成熟度、良率和客户认证仍有待验证。"
-          },
-          "source": "DigiTimes",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOX1ZMQmJpVzBVeGVJYlF3NVFEcE9FZllJdXBDRG9vWGpBZnpENmdiWTlialBEOWdQX0Z0QTFLWURBRzNtRDhEbHZ3SklMazBBem9jam9xYW1wQjdQSm1vaDg3djZPcHNHdXg5a1Q2UE9aZTdoQ0NLd3VzX0xkbUlUZlF4cTZtR2tFNFk4?oc=5",
-          "published": "2026-08-13T23:30:23+00:00"
-        }
-      ]
-    },
-    {
-      "id": "memory",
-      "title": {
-        "en": "Memory",
-        "zh": "存储"
-      },
+      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
       "stories": [
         {
           "featured": true,
-          "title": {
-            "en": "Nvidia GPU Prices Rise 87% in 17 Months as HBM Tightens",
-            "zh": "HBM供应趋紧推动Nvidia GPU价格17个月上涨87%"
-          },
+          "title": {"en": "Cerebras turns three wafer-scale engines into the CS-4 rack", "zh": "Cerebras以三颗晶圆级引擎构建CS-4机架"},
           "summary": {
-            "en": "Nvidia GPU prices have climbed 87% over 17 months as tight HBM supply constrains accelerator availability, Seoul Economic Daily reports. The increase shows that memory availability is feeding directly into system pricing rather than remaining a component-level issue. It also raises the value of capacity commitments and alternative memory tiers for customers planning large AI clusters.",
-            "zh": "据《首尔经济日报》报道，受HBM供应紧张限制加速器供给影响，Nvidia GPU价格在17个月内上涨87%。这说明存储供给已经直接传导至整机价格，不再只是元器件层面的问题。对于规划大型AI集群的客户而言，锁定产能和引入替代存储层的价值随之上升。"
+            "en": "Cerebras introduced CS-4, a rack-scale system built around three WSE-3 Turbo wafer-scale processors. The company claims that selected generation workloads can run roughly 30 times faster than a conventional GPU rack, but that comparison remains vendor-supplied and workload-dependent. The more durable architectural signal is the emphasis on dense power delivery, low-latency wafer links, and rack-level co-design.",
+            "zh": "Cerebras发布CS-4机架级系统，核心由三颗WSE-3 Turbo晶圆级处理器组成。公司宣称，在特定生成任务上，其速度约为传统GPU机架的30倍，但这一对比仍来自厂商，且高度依赖具体工作负载。更值得关注的架构信号，是高密度供电、低延迟晶圆互连与机架级协同设计。"
           },
-          "source": "Seoul Economic Daily",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdEhOcjd1ZWtaV3VCNTh3Vk41Z3RtMmVsTUdLRG13SW1ZMHhtWXctTUV3MDl1alFiaFBiX2VPd3JqcU5uUnJDVGgzdExfOUd5dXh0N0pZRE1YdU5jeDN2Rm9EczRHa2hvTk5kYnRJTG5QNE9xbTY4cWZESlRqR2M3eGN6cWVaSGNsUU5sMGI4WEFkUXFwR1NkX1U5ZUdya2h5MUpF?oc=5",
-          "published": "2026-08-13T21:06:05+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "HBF Consortium Publishes Its First High Bandwidth Flash Specification",
-            "zh": "HBF联盟发布首个High Bandwidth Flash规范"
-          },
-          "summary": {
-            "en": "The HBF consortium released its first High Bandwidth Flash specification, positioning flash as a new tier for AI workloads constrained by HBM capacity. HBF would not replace HBM's latency role, but a standardized high-bandwidth flash layer could keep larger model states closer to accelerators than conventional SSD storage. A specification is only the starting point; controller support, packaging, endurance, and shipping silicon will determine whether the tier becomes practical.",
-            "zh": "HBF联盟发布首个High Bandwidth Flash规范，试图为受HBM容量限制的AI工作负载增加新的存储层。HBF不会取代HBM的低延迟角色，但标准化的高带宽闪存层有望让更大规模的模型状态比传统SSD更靠近加速器。规范只是起点，控制器支持、封装、耐久性和实际出货芯片将决定这一层级能否落地。"
-          },
-          "source": "Crypto Briefing",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1zUFRWSXF1Sl8xbGlWZ3hUa21zRGpnb0ZITEV3NjQza1NuZEhra2hsSVRwZGpUX1BwRWVjZWg5THR3YmdGazVEbVpZcU9uUjFpNzFQRXlETnhkSVlSMmV6dmlFMXNUbE9ld1F5WWlPNlE1OU0wdWljLVhGMElpT2s?oc=5",
-          "published": "2026-08-13T15:37:17+00:00"
-        }
-      ]
-    },
-    {
-      "id": "equipment",
-      "title": {
-        "en": "Equipment & Materials",
-        "zh": "设备与材料"
-      },
-      "stories": [
-        {
-          "featured": true,
-          "title": {
-            "en": "Lam Research Plans More Than $3 Billion for Its Global Lab Network",
-            "zh": "Lam Research拟投入逾$3B扩大全球实验室网络"
-          },
-          "summary": {
-            "en": "Lam Research plans to invest more than $3 billion to expand its global laboratory network. The spending signals that process development and customer co-engineering are scaling alongside AI-driven fab investment, particularly as new materials and 3D structures lengthen qualification cycles. The announcement is an investment envelope, and the timing and capacity added at individual sites will matter more than the headline total.",
-            "zh": "Lam Research计划投入超过$3B，扩大全球实验室网络。这笔投入表明，随着新材料和3D结构拉长验证周期，工艺开发与客户协同工程正和AI驱动的晶圆厂投资同步扩张。该数字属于投资总额框架，实际影响更取决于各站点的投入时间和新增能力。"
-          },
-          "source": "TradingView",
-          "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQTUhGaEhQajhFUFBNT3JnZXFLRFdJMmVGam1sWEpzUkc4YnVxN0tBb3ZsMHd2ZUpxZHJaa2VnWTNUQTdyc2djZlJReEZmTE82d24xVkptOHZVZW04UmtiM2t0TGoxVnZyblhGWndSMk11dy1meG1OOC1nRFZjU0NlUWhKcEFmRFZ1Nk5EbkQzTThFS2MtZVZXZ1BRdmtPWUMwOXVGd0k5ZGJ3dnRfRXV3eWlQOVdkY2hiMkN4S3JleUJEYUVfUXZQWEIyc2tFZTAxVU1nNnJGUHhDbUhWYjRYS28zdkx6OGduSlBPaGVhenpQemxxbnZVbTBvWjZ0eEpBLUtVd0NZblV1Q0dtRmw4SVZn?oc=5",
-          "published": "2026-08-13T20:30:00+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Samsung Electro-Mechanics Delays Its Glass-Substrate Investment",
-            "zh": "Samsung Electro-Mechanics推迟半导体玻璃基板投资"
-          },
-          "summary": {
-            "en": "Samsung Electro-Mechanics has delayed an investment in semiconductor glass substrates. The move pushes out one prospective source of large, dimensionally stable substrates for advanced packages just as AI systems are driving package sizes upward. A delay does not invalidate the technology, but it does indicate that cost, process maturity, or customer timing has not yet cleared the company's investment threshold.",
-            "zh": "Samsung Electro-Mechanics已推迟半导体玻璃基板投资。在AI系统推动封装尺寸持续增大的背景下，这会延后一个潜在的大尺寸、高尺寸稳定性基板供应来源。推迟并不等于否定技术路线，但说明成本、工艺成熟度或客户导入时间尚未达到公司的投资门槛。"
-          },
-          "source": "The Elec",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1WRWRUZ0t3R1dob1V5UjhJNTdGTWtuSmdrdXZ1NFhzYmZ1cktCQ3I3QUo5azhldzhHNFJ3ZEdJdHJDWVZLRWpxVXJzSkwyWkZfTTRMRXhMbWFYQzBXN0NHYVRkaDJlVFU?oc=5",
-          "published": "2026-08-13T22:38:58+00:00"
-        }
-      ]
-    },
-    {
-      "id": "policy",
-      "title": {
-        "en": "Policy & Geopolitics",
-        "zh": "政策与地缘政治"
-      },
-      "stories": [
-        {
-          "featured": false,
-          "title": {
-            "en": "Washington Maps How China Rents Nvidia Chips It Cannot Buy",
-            "zh": "华盛顿追踪中国如何租用无法购买的Nvidia芯片"
-          },
-          "summary": {
-            "en": "US officials are mapping how Chinese users rent access to Nvidia chips that export controls prevent them from purchasing. The focus shifts enforcement from physical chip shipments toward remote compute and cloud access, where ownership and use occur in different jurisdictions. The mapping effort is not itself a new restriction, but it identifies the policy boundary likely to draw the next round of scrutiny.",
-            "zh": "美国官员正在梳理中国用户如何租用因出口管制而无法直接购买的Nvidia芯片。监管重点由实体芯片出货延伸到远程算力和云端访问，因为设备所有权与实际使用可能分属不同司法辖区。此次梳理本身并非新限制，但指出了下一轮审查最可能聚焦的政策边界。"
-          },
-          "source": "WION",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOVGZHVldVY3RITElyUUo1anB3dlhZTmVEcWh3TTcwUTJRS2c5bVQwUWtlSGQ4c0Mtb2h1ZkphNGtzWkRTWVJwMVNSTzd1QWxqQ2VkZUVMTVVjazRmSDZwc2NHb1NhUTVBWmpTU04xbGV0VFBPUVZ4dTRkV0ZWWFdmNW9adjFTdkRqWmFudER6OVNUSHBsQWZrS2pEaUU1Z1BiU3FfTUEzcVlfclMtaE5NY0RJS2hkRlHSAbwBQVVfeXFMTWpmVjdUTW9sdEdPQVRxcjBpTVliUXJ0YnFxQmJWMHJBdXgwWjhRdnRpT1NmN3Jsa3ZRRVBDUDEtZkpxWVlvc0dyYlJiaUFJaUVSOEsxam9TellmSXZlWlFTbGF2OEhTc0ZqS2ZvT1dyWXhMQmszRWZqUi1NY0x2alVuN1I2cGtPS3V0YzFkT254V1BYWU9jOFp1eW1OX1ZhMlBMRjBTRG1xLUl1ODdrU0JycjRBRFQ4T1VIdno?oc=5",
-          "published": "2026-08-13T21:08:00+00:00"
-        }
-      ]
-    },
-    {
-      "id": "earnings",
-      "title": {
-        "en": "Earnings & Markets",
-        "zh": "财报与市场"
-      },
-      "stories": [
-        {
-          "featured": false,
-          "title": {
-            "en": "Applied Materials' Q4 Outlook Tops Expectations",
-            "zh": "Applied Materials第四财季指引高于预期"
-          },
-          "summary": {
-            "en": "Applied Materials issued fourth-quarter revenue and earnings guidance above expectations, even as its shares slipped in after-hours trading. The outlook suggests wafer-fab equipment demand remains firm enough to support near-term results despite investor caution. With no forecast figures in the candidate feed, the significance is the direction of guidance rather than the size of the beat.",
-            "zh": "Applied Materials给出的第四财季收入和盈利指引高于市场预期，但股价在盘后交易中仍然下跌。这一展望说明，尽管投资者态度谨慎，晶圆制造设备需求仍足以支撑近期业绩。候选信息未提供具体预测数字，因此重点在于指引方向，而非超预期幅度。"
-          },
-          "source": "TradingView",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOcFZ4MklGVUUxRXpiQzE0eVViVFJZVDZvZWVyS29PUUtzMUlyY2dhb3ZERnN5YnBJNzFHOUpUVU93c0QtUy13YXQ0bnk1OU5Wc01WX1ZOX1M4NzFaUm00bGVLRFRzWjNoczdjX0RjNzJ5QVE4WWE4T3FjdUJ3WVVHeVVVRXFFNWFXMnRxem1fYVBpbHVERjRfOV96QkhpNXNVRGxZYkFCeXFpR0JaLVk3Z01vRVFsZFE2TFphcUJkaHJJTEFZdDFMcWlqUjlSZG1PbHpGTTlGcUtBdw?oc=5",
-          "published": "2026-08-13T21:04:20+00:00"
-        }
-      ]
-    },
-    {
-      "id": "challengers",
-      "title": {
-        "en": "Challengers & New Silicon",
-        "zh": "新势力与新硅"
-      },
-      "stories": [
-        {
-          "featured": false,
-          "title": {
-            "en": "Lightmatter Leads a 19-Company Silicon-Photonics Infrastructure Initiative",
-            "zh": "Lightmatter牵头19家公司推进硅光基础设施标准化"
-          },
-          "summary": {
-            "en": "Lightmatter launched a 19-company initiative to standardize infrastructure ready for silicon photonics. The coalition gives optical I/O suppliers and system builders a shared architecture discussion as electrical interconnects encounter power and reach limits in larger AI clusters. Its value will depend on concrete specifications and adoption; formation of the group alone does not guarantee interoperable products.",
-            "zh": "Lightmatter发起由19家公司参与的计划，推动适配硅光技术的基础设施标准化。随着大型AI集群中的电互连遭遇功耗和传输距离限制，该联盟为光I/O供应商与系统厂商提供共同的架构讨论平台。其价值最终取决于具体规范和产业采用，仅成立组织并不能保证产品互操作。"
-          },
-          "source": "Data Center Dynamics",
-          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNMmxwb2lPTHdoN3lwZUdqRmZ0MFBWanFkenp0RzhteFQ2SjlOWWFMUFg5dHV0WVloLXlvdkNXY1FmQW9sVEQyTU9lNHdRYk8xT2Q5OGlFZFV2UkxWUzE3SlM5Zl9XRUpSZTZxck5TbmhsNkNLOGU3Y20tR20tLWs0Qzlob1NTMkJqemVoc0NoelB2VWUzZFpSMllPXzFjVWN3Qm5UeGlnNl9hUTdQQ2NnNXFCT0VZeTlBLWVFZnJfOEMycWs2dW1EcXg5RlJOZjBqbS1HTXlGNk9tYThWOERoMA?oc=5",
-          "published": "2026-08-13T20:05:19+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/cerebras-cs-4-generates-in-1-second-what-a-gpu-rack-needs-30-seconds-for-powered-by-4-trillion-transistor-wse-3-turbo/",
+          "published": "2026-08-19T20:45:12+00:00"
         },
         {
           "featured": true,
-          "title": {
-            "en": "Cerebras Runs OpenAI's GPT-5.6 Sol at 750 Tokens per Second",
-            "zh": "Cerebras以每秒750个token运行OpenAI GPT-5.6 Sol"
-          },
+          "title": {"en": "Google adds Marvell to its custom-silicon bench", "zh": "Google将Marvell纳入定制芯片合作阵容"},
           "summary": {
-            "en": "Cerebras is powering a new ultrafast tier for OpenAI's GPT-5.6 Sol at up to 750 tokens per second. A named, customer-facing deployment is meaningful evidence for wafer-scale inference beyond benchmark demonstrations, especially for latency-sensitive interactive workloads. The reported throughput does not by itself disclose batch size, context length, quality settings, or service economics, which are necessary for direct platform comparisons.",
-            "zh": "Cerebras为OpenAI GPT-5.6 Sol的新ultrafast服务层提供算力，速度最高达到每秒750个token。具名且面向客户的部署，是晶圆级推理超越基准演示的重要证据，尤其适用于对延迟敏感的交互式工作负载。不过，该吞吐率未单独披露批量大小、上下文长度、质量设置和服务成本，尚不足以直接比较不同平台。"
+            "en": "Google has selected Marvell for custom-silicon programs connected to the TPU ecosystem, including inference, storage, networking, memory-interface, and near-memory functions. Marvell also granted Google a warrant covering nearly 59 million shares, potentially worth about $12.2 billion. The agreement diversifies Google's supply and design options without necessarily displacing Broadcom from the TPU roadmap.",
+            "zh": "Google选择Marvell参与与TPU生态相关的定制芯片项目，范围包括推理、存储、网络、存储接口和近存计算。Marvell还向Google授予近5900万股的认股权，潜在价值约122亿美元。这项协议扩大了Google的供应与设计选择，但并不意味着Broadcom将被排除出TPU路线图。"
           },
-          "source": "Unite.AI",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQdEdWaGZEWU5STUVJYzFDUjYxQjZhTFZMLVpsMlowTUdJYy1CMTN6NjRLaUh6TFFaT2FHRjI0VFRtOXV1Q1YwejZaV19fMmpmWk5vUG5fWDhDcEQ4TjdyeEVlQ2lYaEt2MHlHVTR1WFVRcGlGNW1NMWgtSnJrWDVnOXZac0s0M3gwekE1MlIwRWh6M1J2Y2RJLWVQemsyZnJkel9SVQ?oc=5",
-          "published": "2026-08-13T18:37:01+00:00"
+          "source": "The Register",
+          "url": "https://www.theregister.com/off-prem/2026/08/19/google-pits-marvell-against-broadcom-as-it-chases-ai-crown/5289902",
+          "published": "2026-08-19T19:33:15+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "AMD sets an aggressive 2030 rack-efficiency target", "zh": "AMD设定激进的2030年机架能效目标"},
+          "summary": {
+            "en": "AMD says two rack-scale systems planned for 2030 could provide the AI performance of 570 MI300X-era racks while using far less electricity. The claim describes a long-range company target rather than shipping hardware, so it should be read as a roadmap for packaging, networking, memory, and cooling improvements. It nevertheless shows how quickly power efficiency has become a first-order accelerator metric.",
+            "zh": "AMD表示，计划于2030年推出的两套机架级系统，有望提供相当于570套MI300X时代机架的AI性能，同时显著降低用电量。该说法描述的是长期公司目标，而非已出货硬件，因此更适合作为封装、网络、存储与散热改进的路线图来理解。它仍清楚表明，能效已迅速成为加速器的一级竞争指标。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/amd-claims-just-two-of-its-2030-ai-racks-will-match-570-of-its-mi300x-racks-slashing-electricity-use-by-20x/",
+          "published": "2026-08-19T16:17:03+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Hot Chips shifts its lens toward agentic computing", "zh": "Hot Chips将焦点转向智能体计算"},
+          "summary": {
+            "en": "The Hot Chips 2026 program is framing new processors and systems around agentic workloads rather than isolated model execution. That shift matters because long-running agents stress memory capacity, tool orchestration, storage I/O, and network latency differently from batch training. The conference agenda offers an early map of which hardware vendors believe those bottlenecks will become commercial priorities.",
+            "zh": "Hot Chips 2026议程正围绕智能体工作负载，而非单次模型执行，来组织新处理器与系统架构。长时间运行的智能体对存储容量、工具编排、存储I/O和网络延迟的压力，与批量训练明显不同。会议议程由此提供了一张早期地图，显示硬件厂商认为哪些瓶颈将率先成为商业重点。"
+          },
+          "source": "SemiWiki",
+          "url": "https://semiwiki.com/events/372278-hot-chips-2026-architectures-for-the-agentic-computing-era/",
+          "published": "2026-08-19T21:00:08+00:00"
+        }
+      ]
+    },
+    {
+      "id": "foundry-manufacturing",
+      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "stories": [
+        {
+          "featured": true,
+          "title": {"en": "Samsung raises advanced-foundry prices by as much as 15%", "zh": "三星先进制程代工价格最高上调15%"},
+          "summary": {
+            "en": "Samsung reportedly raised prices for new 4 nm, 5 nm, and 8 nm foundry orders in July, with some increases reaching 15%. Its Pyeongtaek SF4 line has been running at full capacity as AI demand and limited alternatives push customers toward Samsung. Higher utilization and pricing could pull the loss-making foundry unit toward profitability, but sustained gains still depend on yield and customer execution.",
+            "zh": "据报道，三星在7月上调了4纳米、5纳米和8纳米新代工订单的价格，部分涨幅达到15%。在AI需求上升、替代产能有限的情况下，其平泽SF4产线已满负荷运行，客户正在转向三星。更高的利用率与价格可能推动亏损中的代工部门接近盈利，但持续改善仍取决于良率与客户项目执行。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/samsung-raises-advanced-foundry-prices-by-up-to-15-percent-as-ai-demand-fills-its-4nm-lines",
+          "published": "2026-08-19T16:15:53+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "TSMC Arizona crosses 4% of group sales", "zh": "台积电亚利桑那厂贡献集团营收超过4%"},
+          "summary": {
+            "en": "TSMC's Arizona operation has reportedly moved above 4% of group sales as U.S. customer orders ramp. That contribution suggests the overseas fab is becoming financially material rather than remaining a policy demonstration project. The next test is whether utilization and pricing can offset the structurally higher cost of U.S. production.",
+            "zh": "据报道，随着美国客户订单爬坡，台积电亚利桑那业务对集团营收的贡献已超过4%。这一占比表明，该海外晶圆厂正在产生实质财务影响，而不再只是政策示范项目。下一项考验是，利用率与定价能否抵消美国制造的结构性高成本。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/tsmcs-arizona-fab-crosses-4-of-group-sales-as-orders-reshape-us-chip-economics/",
+          "published": "2026-08-19T22:14:51+00:00"
+        }
+      ]
+    },
+    {
+      "id": "design-ip",
+      "title": {"en": "Design, IP & Verification", "zh": "设计、IP与验证"},
+      "stories": [
+        {
+          "featured": false,
+          "title": {"en": "Chip-design security explores multi-agent automation", "zh": "芯片设计安全探索多智能体自动化"},
+          "summary": {
+            "en": "An ESD Alliance webinar is examining how multi-agent assistants could automate parts of SoC design, verification, and security analysis. The practical opportunity lies in coordinating specialized tools and evidence rather than asking one model to replace an engineering flow. Adoption will depend on traceability, reproducibility, and containment of generated errors in sign-off work.",
+            "zh": "一场ESD Alliance网络研讨会正在讨论，多智能体助手如何自动化SoC设计、验证与安全分析的部分环节。现实机会在于协调专业工具与证据，而不是让单一模型取代完整工程流程。其采用速度将取决于可追溯性、可复现性，以及在签核工作中限制生成错误的能力。"
+          },
+          "source": "SemiWiki",
+          "url": "https://semiwiki.com/semiconductor-services/esd-alliance/372333-latest-savage-on-security-webinar-focuses-on-gen-ai-for-chip-design-and-security/",
+          "published": "2026-08-19T17:00:36+00:00"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure-systems",
+      "title": {"en": "Infrastructure & Systems", "zh": "基础设施与系统"},
+      "stories": [
+        {
+          "featured": false,
+          "title": {"en": "China moves AI data centers toward energy-rich western provinces", "zh": "中国将AI数据中心转向能源富集的西部地区"},
+          "summary": {
+            "en": "Chinese technology companies are expanding AI data-center construction in inland provinces where land and surplus power are easier to secure. The strategy can lower infrastructure constraints, but long-distance networking, cooling, utilization, and access to advanced accelerators still determine economics. It also makes electricity geography an increasingly important part of China's domestic compute strategy.",
+            "zh": "中国科技公司正在内陆省份扩建AI数据中心，那里更容易获得土地和富余电力。这一策略可以缓解基础设施约束，但长距离网络、散热、利用率以及先进加速器供应仍将决定经济性。电力的地理分布也因此成为中国本土算力战略中越来越重要的一部分。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/data-centers/china-shifting-massive-ai-data-center-complexes-to-rural-provinces-to-tap-surplus-energy-eastern-data-western-computing-strategy-has-chinese-tech-giants-huawei-and-tencent-building-ai-infrastructure-guizhou",
+          "published": "2026-08-19T15:49:04+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Qualcomm retracts selected Snapdragon C efficiency benchmarks", "zh": "高通撤回部分Snapdragon C能效基准数据"},
+          "summary": {
+            "en": "Qualcomm removed selected idle-app and web-browsing power-efficiency results from its Snapdragon C presentation less than a week after publication. The retraction does not invalidate every performance claim, but it narrows the evidence available for judging platform efficiency. For system buyers, it reinforces the need for reproducible workload definitions and independent measurements.",
+            "zh": "Snapdragon C演示发布不到一周，高通便移除了部分空闲应用和网页浏览能效结果。此次撤回并不否定全部性能主张，但缩小了评估平台能效时可用的证据范围。对于系统采购者而言，这再次强调了可复现工作负载定义与独立测量的重要性。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/laptops/qualcomm-retracts-select-snapdragon-c-power-efficiency-benchmarks-nearly-a-week-after-publication-updated-slide-removes-idle-apps-and-web-browsing-results",
+          "published": "2026-08-19T15:28:29+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {
-      "en": "Integration Moves from Devices to Full Systems",
-      "zh": "集成从单器件走向完整系统"
-    },
+    "theme": {"en": "Inference Bottlenecks Move Beyond Compute", "zh": "推理瓶颈走出计算核心"},
     "dek": {
-      "en": "This week's strongest work connects materials and devices to manufacturable stacks, network behavior, and system-level performance. Wafer-scale oxide integration, photonic compute, MoE switching, and tunable quantum structures all show that interfaces now determine whether a promising device becomes useful hardware.",
-      "zh": "本周最值得关注的研究把材料与器件进一步连接到可制造堆叠、网络行为和系统级性能。晶圆级氧化物集成、光子计算、MoE交换与可调量子结构共同表明，接口设计正决定一种潜力器件能否成为实用硬件。"
+      "en": "New work targets the data movement, mixed precision, memory hierarchy, and device integration that increasingly govern useful AI throughput. Measured silicon in event vision and emerging memory provides a counterweight to simulation-only system proposals.",
+      "zh": "最新研究开始聚焦数据搬运、混合精度、存储层级与器件集成，这些因素正日益决定AI的有效吞吐。事件视觉与新型存储中的实测芯片结果，也为以仿真为主的系统方案提供了重要参照。"
     },
     "areas": [
       {
-        "id": "devices",
-        "title": {
-          "en": "Devices & Process",
-          "zh": "器件与工艺"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "200 mm Wafer-Scale Monolithic 3D Integration of ALD Oxide Semiconductors",
-              "zh": "200 mm晶圆级ALD氧化物半导体单片3D集成"
-            },
-            "authors": "C. Niu, L. Long, L. Zheng, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2608.09508",
-            "venue_url": "http://arxiv.org/abs/2608.09508",
-            "summary": {
-              "en": "The team fabricated more than 100,000 ALD InOx devices across three monolithically integrated tiers on 200 mm silicon, including ferroelectric and enhancement- and depletion-mode FETs. Threshold-voltage variation reaches 0.04 V standard deviation, electron mobility reaches 91.6 cm²/V·s, and cross-tier circuits operate; a modeled four-tier CIM accelerator delivers 1.4×–2.9× speedup over 2D baselines. The wafer-scale device data are the key result, while the accelerator comparison remains design-level evidence and the preprint does not yet establish production yield or long-term reliability.",
-              "zh": "研究团队在200 mm硅片上单片集成三层、超过100,000个ALD InOx器件，包括铁电FET以及增强型和耗尽型FET。器件阈值电压标准差低至0.04 V，电子迁移率最高91.6 cm²/V·s，跨层电路可以工作；基于该工艺设计的四层CIM加速器相对2D基线获得1.4×–2.9×加速。晶圆级器件数据是核心成果，但加速器比较仍属于设计层证据，预印本也尚未证明量产良率和长期可靠性。"
-            },
-            "published": "2026-08-10"
-          },
-          {
-            "title": {
-              "en": "Telecom Light Sources from MoS₂/WSe₂ Moiré Superlattices on Silicon Photonics",
-              "zh": "硅光平台上的MoS₂/WSe₂莫尔超晶格通信波段光源"
-            },
-            "authors": "X. Huang, H. Fang, S. Kadkhodazadeh, et al.",
-            "affiliation": "",
-            "venue": "Science Advances",
-            "venue_url": "https://doi.org/10.1126/sciadv.aef5518",
-            "summary": {
-              "en": "MoS₂/WSe₂ moiré superlattices coupled to a silicon-photonic nanobeam cavity produce a waveguide-integrated light source in the telecom O-band at room temperature. The device reports near-unity interference visibility and a coherence length of about 3.8 mm, substantially extending the coherence demonstrated by earlier 2D-material emitters. Stable ambient operation is encouraging for integration, although the paper does not by itself establish electrical pumping or foundry-scale manufacturing.",
-              "zh": "MoS₂/WSe₂莫尔超晶格与硅光纳米梁腔耦合，在室温下实现了通信O波段的波导集成光源。器件报告接近1的干涉可见度和约3.8 mm相干长度，明显超过此前二维材料发光器件的相干表现。其环境稳定性有利于集成，但论文尚不能证明电泵浦能力或晶圆代工规模的制造可行性。"
-            },
-            "published": "2026-08-07"
-          }
-        ]
-      },
-      {
-        "id": "circuits",
-        "title": {
-          "en": "Circuits, Architecture & Reliability",
-          "zh": "电路、架构与可靠性"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "SLAC Exposes CPU-to-GPU Cache Side Channels on Apple Silicon",
-              "zh": "SLAC揭示Apple Silicon上的CPU到GPU缓存侧信道"
-            },
-            "authors": "T. Xu, S. K. Roy, R. Ding, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2608.09075",
-            "venue_url": "http://arxiv.org/abs/2608.09075",
-            "summary": {
-              "en": "SLAC shows that an unprivileged CPU process can observe cache-set footprints left by GPU memory accesses in the shared system-level cache of Apple Silicon. After reverse-engineering the M1 cache indexing, the authors build a Prime+Probe-style CPU-to-GPU channel; GPU-assisted priming increases covert-channel throughput by 6.4×. The result identifies a fine-grained cross-domain attack surface, but it is a preprint demonstrated on M1-class behavior and should not yet be generalized to every Apple generation.",
-              "zh": "SLAC发现，在Apple Silicon共享的系统级缓存中，非特权CPU进程可以观察GPU访存留下的缓存组足迹。团队逆向分析M1缓存索引后，构建了Prime+Probe式CPU到GPU侧信道；借助GPU进行预填充后，隐蔽信道吞吐率提高6.4×。该结果揭示了细粒度跨域攻击面，但目前仍是基于M1行为的预印本，不宜直接推广到所有Apple芯片世代。"
-            },
-            "published": "2026-08-10"
-          },
-          {
-            "title": {
-              "en": "Giant Backward Brillouin Interaction in Foundry-Accessible InP Photonics",
-              "zh": "可晶圆代工InP光子平台中的巨型后向布里渊相互作用"
-            },
-            "authors": "R. te Morsche, L. Puts, W. Yao, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2608.07241",
-            "venue_url": "http://arxiv.org/abs/2608.07241",
-            "summary": {
-              "en": "The work reports the first measured backward stimulated Brillouin scattering in generic InP waveguides, with gain coefficients reaching 737 ± 54 W⁻¹m⁻¹. Achieving that interaction in a mature, foundry-accessible platform could add narrowband filtering, delay, and microwave-photonic functions without a bespoke material stack. The result is a preprint and the reported gain comes from a specific waveguide and acoustic-mode configuration, so circuit-scale loss and reproducibility remain the practical tests.",
-              "zh": "该研究首次在通用InP波导中测得后向受激布里渊散射，增益系数最高达到737 ± 54 W⁻¹m⁻¹。在成熟、可晶圆代工的平台上获得这一相互作用，有望无需定制材料堆叠即可加入窄带滤波、延迟和微波光子功能。该结果仍是预印本，且高增益来自特定波导与声学模式配置，电路级损耗和重复性仍需验证。"
-            },
-            "published": "2026-08-07"
-          }
-        ]
-      },
-      {
         "id": "accelerators",
-        "title": {
-          "en": "AI Accelerators & Compute-in-Memory",
-          "zh": "AI加速器与存算一体"
-        },
+        "title": {"en": "Accelerators & Workloads", "zh": "加速器与工作负载"},
         "papers": [
           {
-            "title": {
-              "en": "A Subvolt Dual-Mode Silicon Microring for Analog Optical Computing",
-              "zh": "面向模拟光计算的亚伏双模式硅微环"
-            },
-            "authors": "S. Biswas, S. M. Bari, A. X. Wang",
+            "title": {"en": "ETHEREAL brings event-driven graph vision to measured silicon", "zh": "ETHEREAL将事件驱动图视觉落实到实测芯片"},
+            "authors": "Adrian Kneip, Martin Lefebvre, D. Gehrig, et al.",
             "affiliation": "",
-            "venue": "ACS Photonics",
-            "venue_url": "https://doi.org/10.1021/acsphotonics.6c01125",
-            "summary": {
-              "en": "A MOSCAP silicon microring gated by a high-mobility transparent conductive oxide reaches 175 pm/V tuning efficiency, VπL of 0.09 V·cm, more than 6 dB extinction at 0.5 V, and 13.5 fJ/bit. Accumulation and depletion biasing let the same device encode 5- to 6-bit analog weights or provide a nonlinear optical response, reducing the need for separate photonic elements. These are strong measured device metrics, but scaling one ring into a calibrated multi-ring computing system remains the decisive systems challenge.",
-              "zh": "一种由高迁移率透明导电氧化物栅控的MOSCAP硅微环实现175 pm/V调谐效率、0.09 V·cm的VπL、0.5 V驱动下超过6 dB消光比，以及13.5 fJ/bit能效。通过积累区和耗尽区偏置，同一器件既可编码5至6 bit模拟权重，也可提供非线性光响应，从而减少独立光子器件数量。器件实测指标很强，但从单个微环扩展到可校准的多微环计算系统仍是决定性的系统挑战。"
-            },
-            "published": "2026-08-10"
+            "venue": "arXiv:2608.17787",
+            "venue_url": "http://arxiv.org/abs/2608.17787",
+            "summary": {"en": "ETHEREAL is a dedicated processor for event-driven graph neural networks, combining a neighbor-parallel spline-convolution engine with a split 2D/3D memory hierarchy. Measured results report 25.6 microseconds per inference and 1.6 microjoules on a VGA event-vision workload. The silicon result is notable, although broader comparisons will require more workloads and complete system power accounting.", "zh": "ETHEREAL是一款面向事件驱动图神经网络的专用处理器，结合邻居并行样条卷积引擎与二维/三维分层存储结构。实测结果显示，在VGA事件视觉任务上，每次推理延迟为25.6微秒、能耗为1.6微焦耳。该芯片结果具有意义，但更全面的比较仍需要更多工作负载与完整系统功耗核算。"},
+            "published": "2026-08-18"
           },
           {
-            "title": {
-              "en": "Polarity-Addressed Reset Stabilizes SiNW-FET Reservoir Computing",
-              "zh": "极性寻址复位稳定SiNW-FET储备池计算"
-            },
-            "authors": "L. Yan, Y. Zhang, M. Wei, et al.",
+            "title": {"en": "TileMix routes attention precision at hardware-sized tiles", "zh": "TileMix以硬件对齐分块调度注意力精度"},
+            "authors": "Hanzhi Zhang, Qiao Zhang, Qinglei Cao, et al.",
             "affiliation": "",
-            "venue": "Advanced Functional Materials",
-            "venue_url": "https://doi.org/10.1002/adfm.77601",
-            "summary": {
-              "en": "Trap-engineered Schottky silicon-nanowire FETs use source-drain polarity reversal as a device-native reset that clears accumulated state during continuous event-stream inference. The authors integrate roughly 20 nm nanowires into an addressable 4×4 top-gated array and trigger sparse resets from online drift statistics, addressing a failure mode hidden by segmented benchmarks. The measured array makes the reliability problem concrete, though its small scale and gesture-recognition workload leave larger reservoirs and broader tasks untested.",
-              "zh": "陷阱工程Schottky硅纳米线FET利用源漏极性反转实现器件原生复位，在连续事件流推理中清除累积状态。研究团队把直径约20 nm的纳米线集成为可寻址4×4顶栅阵列，并根据在线漂移统计稀疏触发复位，解决分段基准测试会掩盖的失效模式。实测阵列把可靠性问题具体化，但规模较小且仅使用手势识别任务，更大储备池和更广泛工作负载仍未验证。"
-            },
-            "published": "2026-08-07"
+            "venue": "arXiv:2608.17336",
+            "venue_url": "http://arxiv.org/abs/2608.17336",
+            "summary": {"en": "TileMix assigns FP16 or INT8 execution to hardware-aligned attention score tiles while maintaining one shared online-softmax state. It preserves dense token connectivity and supports grouped-query attention, variable-length batches, and INT8 KV caches without retraining. A100 results are promising, but portability depends on whether other accelerator kernels can expose equally efficient tile-level routing.", "zh": "TileMix为硬件对齐的注意力分数块分配FP16或INT8执行路径，同时维护共享的在线softmax状态。该方法保留稠密token连接，并支持分组查询注意力、变长批次和INT8 KV缓存，无需重新训练。A100结果具有潜力，但能否迁移到其他加速器，取决于其内核是否能同样高效地提供分块级精度调度。"},
+            "published": "2026-08-18"
+          },
+          {
+            "title": {"en": "AgentSysBench characterizes the systems cost of agentic AI", "zh": "AgentSysBench刻画智能体AI的系统成本"},
+            "authors": "Chaokun Chang, Yukun Zhou, Kaihua Fu, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.15127",
+            "venue_url": "http://arxiv.org/abs/2608.15127",
+            "summary": {"en": "AgentSysBench measures ten agentic applications and finds that non-LLM components dominate latency in half of them. Sandbox working sets reach 28 GB per session, resource affinities vary sharply, and production state can remain idle for minutes or hours. The study argues that agent serving needs coordinated CPU, GPU, memory, sandbox, and control-plane scheduling rather than model-only optimization.", "zh": "AgentSysBench测量了10类智能体应用，发现其中一半的延迟主要来自非LLM组件。单会话沙箱工作集最高达到28 GB，不同组件的资源偏好差异明显，生产环境中的状态还可能空闲数分钟至数小时。研究据此指出，智能体服务需要协同调度CPU、GPU、存储、沙箱与控制平面，而不能只优化模型推理。"},
+            "published": "2026-08-15"
           }
         ]
       },
       {
-        "id": "ai-research",
-        "title": {
-          "en": "AI Research for Hardware",
-          "zh": "面向硬件的AI研究"
-        },
+        "id": "memory-systems",
+        "title": {"en": "Memory & Interconnect Systems", "zh": "存储与互联系统"},
         "papers": [
           {
-            "title": {
-              "en": "HyNA Uses Hybrid Switch Silicon to Tame MoE Tail Latency",
-              "zh": "HyNA以混合交换芯片抑制MoE尾延迟"
-            },
-            "authors": "Y. Liu, T. Liu, H. Yao",
+            "title": {"en": "ARK coordinates paths for disaggregated KV-cache transfers", "zh": "ARK为解耦式KV缓存传输协调路径"},
+            "authors": "Hung-Chun Lin, Ting-Wei Hsu, Chung-En Ho, Ahmed Saeed",
             "affiliation": "",
             "venue": "ACM SIGCOMM 2026",
-            "venue_url": "https://doi.org/10.1145/3789240.3829178",
-            "summary": {
-              "en": "HyNA combines wire-speed reconfigurable match tables with embedded RISC-V cores so sparse, bursty MoE aggregation—including collisions and overflow handling—stays inside the switch ASIC. The design removes dedicated parameter-server nodes and is evaluated with a 100 Gbps FPGA prototype plus 7 nm ASIC synthesis, turning host fallback round trips into deterministic on-chip handling. The systems idea directly targets MoE communication tails, but the final performance and power claims still mix prototype measurements with synthesized rather than taped-out silicon.",
-              "zh": "HyNA把线速可重构匹配表与嵌入式RISC-V核心结合，使稀疏、突发的MoE聚合流量连同冲突和溢出处理都留在交换ASIC内部。该设计取消专用参数服务器节点，并通过100 Gbps FPGA原型和7 nm ASIC综合评估，把主机回退的网络往返变为确定性的片上处理。其系统思路直接针对MoE通信尾延迟，但最终性能与功耗结论仍混合了原型实测和综合结果，而非流片芯片数据。"
-            },
+            "venue_url": "https://doi.org/10.1145/3789240.3828750",
+            "summary": {"en": "ARK treats KV-cache transfers between prefill and decode pools as long-lived elephant flows that can justify lightweight coordination. Senders reserve source-port hashes that spread simultaneous RDMA flows across spine links without switch changes. Simulations report up to 34% lower P95 flow-completion time and 12.9% lower mean time to first token, with hardware-scale validation still needed.", "zh": "ARK将预填充与解码资源池之间的KV缓存传输视为长时大象流，从而使轻量协调具有经济性。发送端通过预留源端口哈希，将并发RDMA流分散到不同脊交换链路，无需修改交换机。仿真显示，P95流完成时间最高降低34%，平均首token时间最高降低12.9%，但仍需要硬件规模验证。"},
+            "published": "2026-08-17"
+          },
+          {
+            "title": {"en": "DualPath uses idle decode-side I/O for agentic KV caches", "zh": "DualPath利用解码侧闲置I/O搬运智能体KV缓存"},
+            "authors": "Yongtong Wu, Shaoyuan Chen, Rilin Huang, et al.",
+            "affiliation": "",
+            "venue": "ACM SIGCOMM 2026",
+            "venue_url": "https://doi.org/10.1145/3789240.3829159",
+            "summary": {"en": "DualPath adds a storage-to-decode route for loading KV caches, then transfers data to prefill engines over RDMA. This uses NIC bandwidth that otherwise sits idle while prefill-side storage links saturate. Production-style experiments report up to 1.87 times higher offline throughput, though benefits depend on topology, scheduler quality, and interference control.", "zh": "DualPath增加了一条存储到解码引擎的KV缓存加载路径，再通过RDMA将数据传给预填充引擎。这样可利用原本闲置的解码侧NIC带宽，缓解预填充侧存储链路饱和。类生产实验报告离线吞吐最高提升1.87倍，但收益取决于网络拓扑、调度质量与干扰控制。"},
+            "published": "2026-08-11"
+          },
+          {
+            "title": {"en": "A CXL memory expander replaces NVMe staging for GPU data", "zh": "CXL内存扩展器替代GPU数据的NVMe暂存层"},
+            "authors": "Veerasenareddy Burru, Pradeep Kumar Nalla, Alok Prasad",
+            "affiliation": "",
+            "venue": "ACM SIGCOMM 2026",
+            "venue_url": "https://doi.org/10.1145/3789240.3822568",
+            "summary": {"en": "This work evaluates a CXL memory expander with an on-device DMA controller as a staging tier between host capacity and GPU HBM. PCIe peer-to-peer DMA works around the lack of native GPU participation in CXL and reaches a reported 51 GB/s read bandwidth, well above a single enterprise NVMe drive. The result is a useful systems prototype, but cost, capacity, and multi-device contention determine deployment value.", "zh": "该研究评估了一种带片上DMA控制器的CXL内存扩展器，将其作为主机容量与GPU HBM之间的暂存层。PCIe点对点DMA绕过了GPU无法原生参与CXL协议的问题，报告读取带宽达到51 GB/s，明显高于单块企业级NVMe硬盘。该原型具有系统价值，但实际部署仍取决于成本、容量与多设备争用。"},
             "published": "2026-08-11"
           }
         ]
       },
       {
-        "id": "quantum",
-        "title": {
-          "en": "Quantum & Nonlinear Photonics",
-          "zh": "量子与非线性光子学"
-        },
+        "id": "devices-memory",
+        "title": {"en": "Devices & Emerging Memory", "zh": "器件与新型存储"},
         "papers": [
           {
-            "title": {
-              "en": "Tunable Bound States Reshape Four-Wave Mixing in SiN Microresonators",
-              "zh": "可调连续域束缚态重塑SiN微谐振器四波混频"
-            },
-            "authors": "E. C. Lima, M. Clementi, A. Viola, et al.",
+            "title": {"en": "IGZO capacitive cells perform differentiable in-memory distance", "zh": "IGZO电容单元实现可微分存内距离计算"},
+            "authors": "Changhoon Joe, K. Byun, Minseung Kang, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.07426",
-            "venue_url": "http://arxiv.org/abs/2608.07426",
-            "summary": {
-              "en": "An electrically tunable Friedrich-Wintgen bound state in the continuum reaches Q above 10⁶ in coupled silicon-nitride microresonators and can be populated through spontaneous four-wave mixing despite being dark to linear excitation. Placing the idler at the bound-state condition increases parametric gain by 12 dB and lowers the oscillation threshold by 1.6 dB, while changing photon-pair correlations and coherence. The experiment points to reconfigurable quantum and nonlinear sources, but it remains a preprint and does not yet address packaging, control overhead, or device-to-device variation.",
-              "zh": "耦合SiN微谐振器中的电可调Friedrich-Wintgen连续域束缚态实现超过10⁶的Q值；尽管线性激励无法直接访问，该模式仍可通过自发四波混频被占据。把闲频模式调到束缚态条件后，参量增益提高12 dB，振荡阈值降低1.6 dB，同时改变光子对的关联与相干性。该实验为可重构量子和非线性光源提供路径，但目前仍是预印本，尚未处理封装、控制开销和器件间差异。"
-            },
-            "published": "2026-08-07"
+            "venue": "npj Unconventional Computing",
+            "venue_url": "https://doi.org/10.1038/s44335-026-00091-3",
+            "summary": {"en": "The authors implement analog in-memory distance computing with IGZO thin-film transistor capacitive units, combining embedding extraction and similarity search. Continuous outputs enable hardware-in-the-loop representation learning without a separate digital distance engine. One-shot learning reportedly matches GPU accuracy with up to 576 times better energy efficiency, although array scale and peripheral overhead remain important caveats.", "zh": "作者利用IGZO薄膜晶体管电容单元实现模拟存内距离计算，将嵌入提取与相似度搜索结合在同一架构中。连续输出支持硬件在环表征学习，无需独立数字距离计算引擎。一次学习任务据称可达到GPU相近精度，并实现最高576倍能效提升，但阵列规模与外围电路开销仍是重要限制。"},
+            "published": "2026-08-14"
+          },
+          {
+            "title": {"en": "HfO2 RRAM is tested down to 1.5 kelvin", "zh": "HfO2 RRAM完成低至1.5开尔文测试"},
+            "authors": "Emilio Perez-Bosch Quesada, Alberto Mistroni, Ruolan Jia, et al.",
+            "affiliation": "",
+            "venue": "Advanced Electronic Materials",
+            "venue_url": "https://doi.org/10.1002/aelm.202500798",
+            "summary": {"en": "This study evaluates 1T1R HfO2-based RRAM from room temperature down to 1.5 K for cryogenic memory use. Lower temperatures improve low-resistance-state separation but raise current and reset-voltage challenges, with the access transistor driving much of the behavior. Gate-bias tuning improves programming, indicating that cryogenic memory design must co-optimize the selector and resistive element.", "zh": "该研究面向低温存储应用，测试了从室温到1.5 K的1T1R HfO2 RRAM。低温改善了低阻态分离度，却带来更高电流与复位电压问题，其中访问晶体管主导了大部分变化。通过调整栅极偏置可改善编程，说明低温存储必须协同优化选择器与阻变单元。"},
+            "published": "2026-08-13"
+          },
+          {
+            "title": {"en": "A plasma process thins ferroelectric HZO below 10 nm", "zh": "等离子工艺将铁电HZO减薄至10纳米以下"},
+            "authors": "Vincent Michaud, C. Boixaderas, L. Grenouillet, et al.",
+            "affiliation": "",
+            "venue": "Journal of Vacuum Science & Technology A",
+            "venue_url": "https://doi.org/10.1116/6.0005641",
+            "summary": {"en": "The work crystallizes a 10 nm HZO layer between TiN electrodes at 400 degrees Celsius, then selectively removes the top electrode and plasma-thins the ferroelectric film. This sequence targets sub-10 nm HZO while staying within a back-end-compatible thermal budget. The process addresses a practical integration barrier, though electrical endurance and uniformity after thinning remain the next tests.", "zh": "该工艺先在TiN电极之间以400摄氏度结晶10纳米HZO层，再选择性去除顶部电极并通过等离子体减薄铁电薄膜。其目标是在后端兼容热预算内获得10纳米以下HZO。该方案解决了一项实际集成障碍，但减薄后的电学耐久性与均匀性仍需进一步验证。"},
+            "published": "2026-08-12"
+          },
+          {
+            "title": {"en": "Area-ratio control expands the operating window of ferroelectric GaN", "zh": "面积比控制拓宽铁电GaN器件工作窗口"},
+            "authors": "Jongmin Park, H. Joo, Geonwook Yoo",
+            "affiliation": "",
+            "venue": "Applied Physics Letters",
+            "venue_url": "https://doi.org/10.1063/5.0347885",
+            "summary": {"en": "An AlScN/GaN ferroelectric HEMT uses an 8:1 area-ratio-controlled MFMIS gate stack to manage voltage partitioning. The device reports a 26.8 mV/dec subthreshold slope, a 5.7 V DC memory window, and endurance to 30 million cycles. The results support reconfigurable GaN devices, but system relevance will depend on variability, retention, and fabrication compatibility.", "zh": "这款AlScN/GaN铁电HEMT采用8:1面积比控制的MFMIS栅堆栈，以调节电压分配。器件报告26.8 mV/dec亚阈值摆幅、5.7 V直流存储窗口，并承受3000万次循环。结果支持可重构GaN器件方向，但系统价值仍取决于一致性、保持特性与制造兼容性。"},
+            "published": "2026-08-10"
           }
         ]
       }

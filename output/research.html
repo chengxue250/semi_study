@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-14">
+<meta name="edition-date" content="2026-08-20">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Integration Moves from Devices to Full Systems — Semi Research 2026-08-14</title>
+<title>Inference Bottlenecks Move Beyond Compute — Semi Research 2026-08-20</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,170 +319,188 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, August 14, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月14日 星期五</span>
+      <span class="en">Research digest · Thursday, August 20, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月20日 星期四</span>
     </div>
     <h1>
-      <span class="en">Integration Moves from Devices to Full Systems</span>
-      <span class="zh">集成从单器件走向完整系统</span>
+      <span class="en">Inference Bottlenecks Move Beyond Compute</span>
+      <span class="zh">推理瓶颈走出计算核心</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest work connects materials and devices to manufacturable stacks, network behavior, and system-level performance. Wafer-scale oxide integration, photonic compute, MoE switching, and tunable quantum structures all show that interfaces now determine whether a promising device becomes useful hardware.</span>
-      <span class="zh">本周最值得关注的研究把材料与器件进一步连接到可制造堆叠、网络行为和系统级性能。晶圆级氧化物集成、光子计算、MoE交换与可调量子结构共同表明，接口设计正决定一种潜力器件能否成为实用硬件。</span>
+      <span class="en">New work targets the data movement, mixed precision, memory hierarchy, and device integration that increasingly govern useful AI throughput. Measured silicon in event vision and emerging memory provides a counterweight to simulation-only system proposals.</span>
+      <span class="zh">最新研究开始聚焦数据搬运、混合精度、存储层级与器件集成，这些因素正日益决定AI的有效吞吐。事件视觉与新型存储中的实测芯片结果，也为以仿真为主的系统方案提供了重要参照。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 8篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="accelerators">
     <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
+      <span class="en">Accelerators &amp; Workloads</span>
+      <span class="zh">加速器与工作负载</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.09508" target="_blank" rel="noopener">
-          <span class="en">200 mm Wafer-Scale Monolithic 3D Integration of ALD Oxide Semiconductors</span>
-          <span class="zh">200 mm晶圆级ALD氧化物半导体单片3D集成</span>
+        <a href="http://arxiv.org/abs/2608.17787" target="_blank" rel="noopener">
+          <span class="en">ETHEREAL brings event-driven graph vision to measured silicon</span>
+          <span class="zh">ETHEREAL将事件驱动图视觉落实到实测芯片</span>
         </a>
       </h3>
-      <p class="authors">C. Niu, L. Long, L. Zheng, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.09508" target="_blank" rel="noopener">arXiv:2608.09508</a> · 2026-08-10</p>
+      <p class="authors">Adrian Kneip, Martin Lefebvre, D. Gehrig, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.17787" target="_blank" rel="noopener">arXiv:2608.17787</a> · 2026-08-18</p>
       <p class="summary">
-        <span class="en">The team fabricated more than 100,000 ALD InOx devices across three monolithically integrated tiers on 200 mm silicon, including ferroelectric and enhancement- and depletion-mode FETs. Threshold-voltage variation reaches 0.04 V standard deviation, electron mobility reaches 91.6 cm²/V·s, and cross-tier circuits operate; a modeled four-tier CIM accelerator delivers 1.4×–2.9× speedup over 2D baselines. The wafer-scale device data are the key result, while the accelerator comparison remains design-level evidence and the preprint does not yet establish production yield or long-term reliability.</span>
-        <span class="zh">研究团队在200 mm硅片上单片集成三层、超过100,000个ALD InOx器件，包括铁电FET以及增强型和耗尽型FET。器件阈值电压标准差低至0.04 V，电子迁移率最高91.6 cm²/V·s，跨层电路可以工作；基于该工艺设计的四层CIM加速器相对2D基线获得1.4×–2.9×加速。晶圆级器件数据是核心成果，但加速器比较仍属于设计层证据，预印本也尚未证明量产良率和长期可靠性。</span>
+        <span class="en">ETHEREAL is a dedicated processor for event-driven graph neural networks, combining a neighbor-parallel spline-convolution engine with a split 2D/3D memory hierarchy. Measured results report 25.6 microseconds per inference and 1.6 microjoules on a VGA event-vision workload. The silicon result is notable, although broader comparisons will require more workloads and complete system power accounting.</span>
+        <span class="zh">ETHEREAL是一款面向事件驱动图神经网络的专用处理器，结合邻居并行样条卷积引擎与二维/三维分层存储结构。实测结果显示，在VGA事件视觉任务上，每次推理延迟为25.6微秒、能耗为1.6微焦耳。该芯片结果具有意义，但更全面的比较仍需要更多工作负载与完整系统功耗核算。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1126/sciadv.aef5518" target="_blank" rel="noopener">
-          <span class="en">Telecom Light Sources from MoS₂/WSe₂ Moiré Superlattices on Silicon Photonics</span>
-          <span class="zh">硅光平台上的MoS₂/WSe₂莫尔超晶格通信波段光源</span>
+        <a href="http://arxiv.org/abs/2608.17336" target="_blank" rel="noopener">
+          <span class="en">TileMix routes attention precision at hardware-sized tiles</span>
+          <span class="zh">TileMix以硬件对齐分块调度注意力精度</span>
         </a>
       </h3>
-      <p class="authors">X. Huang, H. Fang, S. Kadkhodazadeh, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1126/sciadv.aef5518" target="_blank" rel="noopener">Science Advances</a> · 2026-08-07</p>
+      <p class="authors">Hanzhi Zhang, Qiao Zhang, Qinglei Cao, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.17336" target="_blank" rel="noopener">arXiv:2608.17336</a> · 2026-08-18</p>
       <p class="summary">
-        <span class="en">MoS₂/WSe₂ moiré superlattices coupled to a silicon-photonic nanobeam cavity produce a waveguide-integrated light source in the telecom O-band at room temperature. The device reports near-unity interference visibility and a coherence length of about 3.8 mm, substantially extending the coherence demonstrated by earlier 2D-material emitters. Stable ambient operation is encouraging for integration, although the paper does not by itself establish electrical pumping or foundry-scale manufacturing.</span>
-        <span class="zh">MoS₂/WSe₂莫尔超晶格与硅光纳米梁腔耦合，在室温下实现了通信O波段的波导集成光源。器件报告接近1的干涉可见度和约3.8 mm相干长度，明显超过此前二维材料发光器件的相干表现。其环境稳定性有利于集成，但论文尚不能证明电泵浦能力或晶圆代工规模的制造可行性。</span>
+        <span class="en">TileMix assigns FP16 or INT8 execution to hardware-aligned attention score tiles while maintaining one shared online-softmax state. It preserves dense token connectivity and supports grouped-query attention, variable-length batches, and INT8 KV caches without retraining. A100 results are promising, but portability depends on whether other accelerator kernels can expose equally efficient tile-level routing.</span>
+        <span class="zh">TileMix为硬件对齐的注意力分数块分配FP16或INT8执行路径，同时维护共享的在线softmax状态。该方法保留稠密token连接，并支持分组查询注意力、变长批次和INT8 KV缓存，无需重新训练。A100结果具有潜力，但能否迁移到其他加速器，取决于其内核是否能同样高效地提供分块级精度调度。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.15127" target="_blank" rel="noopener">
+          <span class="en">AgentSysBench characterizes the systems cost of agentic AI</span>
+          <span class="zh">AgentSysBench刻画智能体AI的系统成本</span>
+        </a>
+      </h3>
+      <p class="authors">Chaokun Chang, Yukun Zhou, Kaihua Fu, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.15127" target="_blank" rel="noopener">arXiv:2608.15127</a> · 2026-08-15</p>
+      <p class="summary">
+        <span class="en">AgentSysBench measures ten agentic applications and finds that non-LLM components dominate latency in half of them. Sandbox working sets reach 28 GB per session, resource affinities vary sharply, and production state can remain idle for minutes or hours. The study argues that agent serving needs coordinated CPU, GPU, memory, sandbox, and control-plane scheduling rather than model-only optimization.</span>
+        <span class="zh">AgentSysBench测量了10类智能体应用，发现其中一半的延迟主要来自非LLM组件。单会话沙箱工作集最高达到28 GB，不同组件的资源偏好差异明显，生产环境中的状态还可能空闲数分钟至数小时。研究据此指出，智能体服务需要协同调度CPU、GPU、存储、沙箱与控制平面，而不能只优化模型推理。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="circuits">
+  <section class="area" id="memory-systems">
     <h2>
-      <span class="en">Circuits, Architecture &amp; Reliability</span>
-      <span class="zh">电路、架构与可靠性</span>
+      <span class="en">Memory &amp; Interconnect Systems</span>
+      <span class="zh">存储与互联系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.09075" target="_blank" rel="noopener">
-          <span class="en">SLAC Exposes CPU-to-GPU Cache Side Channels on Apple Silicon</span>
-          <span class="zh">SLAC揭示Apple Silicon上的CPU到GPU缓存侧信道</span>
+        <a href="https://doi.org/10.1145/3789240.3828750" target="_blank" rel="noopener">
+          <span class="en">ARK coordinates paths for disaggregated KV-cache transfers</span>
+          <span class="zh">ARK为解耦式KV缓存传输协调路径</span>
         </a>
       </h3>
-      <p class="authors">T. Xu, S. K. Roy, R. Ding, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.09075" target="_blank" rel="noopener">arXiv:2608.09075</a> · 2026-08-10</p>
+      <p class="authors">Hung-Chun Lin, Ting-Wei Hsu, Chung-En Ho, Ahmed Saeed</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3828750" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-17</p>
       <p class="summary">
-        <span class="en">SLAC shows that an unprivileged CPU process can observe cache-set footprints left by GPU memory accesses in the shared system-level cache of Apple Silicon. After reverse-engineering the M1 cache indexing, the authors build a Prime+Probe-style CPU-to-GPU channel; GPU-assisted priming increases covert-channel throughput by 6.4×. The result identifies a fine-grained cross-domain attack surface, but it is a preprint demonstrated on M1-class behavior and should not yet be generalized to every Apple generation.</span>
-        <span class="zh">SLAC发现，在Apple Silicon共享的系统级缓存中，非特权CPU进程可以观察GPU访存留下的缓存组足迹。团队逆向分析M1缓存索引后，构建了Prime+Probe式CPU到GPU侧信道；借助GPU进行预填充后，隐蔽信道吞吐率提高6.4×。该结果揭示了细粒度跨域攻击面，但目前仍是基于M1行为的预印本，不宜直接推广到所有Apple芯片世代。</span>
+        <span class="en">ARK treats KV-cache transfers between prefill and decode pools as long-lived elephant flows that can justify lightweight coordination. Senders reserve source-port hashes that spread simultaneous RDMA flows across spine links without switch changes. Simulations report up to 34% lower P95 flow-completion time and 12.9% lower mean time to first token, with hardware-scale validation still needed.</span>
+        <span class="zh">ARK将预填充与解码资源池之间的KV缓存传输视为长时大象流，从而使轻量协调具有经济性。发送端通过预留源端口哈希，将并发RDMA流分散到不同脊交换链路，无需修改交换机。仿真显示，P95流完成时间最高降低34%，平均首token时间最高降低12.9%，但仍需要硬件规模验证。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.07241" target="_blank" rel="noopener">
-          <span class="en">Giant Backward Brillouin Interaction in Foundry-Accessible InP Photonics</span>
-          <span class="zh">可晶圆代工InP光子平台中的巨型后向布里渊相互作用</span>
+        <a href="https://doi.org/10.1145/3789240.3829159" target="_blank" rel="noopener">
+          <span class="en">DualPath uses idle decode-side I/O for agentic KV caches</span>
+          <span class="zh">DualPath利用解码侧闲置I/O搬运智能体KV缓存</span>
         </a>
       </h3>
-      <p class="authors">R. te Morsche, L. Puts, W. Yao, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.07241" target="_blank" rel="noopener">arXiv:2608.07241</a> · 2026-08-07</p>
+      <p class="authors">Yongtong Wu, Shaoyuan Chen, Rilin Huang, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3829159" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
       <p class="summary">
-        <span class="en">The work reports the first measured backward stimulated Brillouin scattering in generic InP waveguides, with gain coefficients reaching 737 ± 54 W⁻¹m⁻¹. Achieving that interaction in a mature, foundry-accessible platform could add narrowband filtering, delay, and microwave-photonic functions without a bespoke material stack. The result is a preprint and the reported gain comes from a specific waveguide and acoustic-mode configuration, so circuit-scale loss and reproducibility remain the practical tests.</span>
-        <span class="zh">该研究首次在通用InP波导中测得后向受激布里渊散射，增益系数最高达到737 ± 54 W⁻¹m⁻¹。在成熟、可晶圆代工的平台上获得这一相互作用，有望无需定制材料堆叠即可加入窄带滤波、延迟和微波光子功能。该结果仍是预印本，且高增益来自特定波导与声学模式配置，电路级损耗和重复性仍需验证。</span>
+        <span class="en">DualPath adds a storage-to-decode route for loading KV caches, then transfers data to prefill engines over RDMA. This uses NIC bandwidth that otherwise sits idle while prefill-side storage links saturate. Production-style experiments report up to 1.87 times higher offline throughput, though benefits depend on topology, scheduler quality, and interference control.</span>
+        <span class="zh">DualPath增加了一条存储到解码引擎的KV缓存加载路径，再通过RDMA将数据传给预填充引擎。这样可利用原本闲置的解码侧NIC带宽，缓解预填充侧存储链路饱和。类生产实验报告离线吞吐最高提升1.87倍，但收益取决于网络拓扑、调度质量与干扰控制。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3789240.3822568" target="_blank" rel="noopener">
+          <span class="en">A CXL memory expander replaces NVMe staging for GPU data</span>
+          <span class="zh">CXL内存扩展器替代GPU数据的NVMe暂存层</span>
+        </a>
+      </h3>
+      <p class="authors">Veerasenareddy Burru, Pradeep Kumar Nalla, Alok Prasad</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3822568" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
+      <p class="summary">
+        <span class="en">This work evaluates a CXL memory expander with an on-device DMA controller as a staging tier between host capacity and GPU HBM. PCIe peer-to-peer DMA works around the lack of native GPU participation in CXL and reaches a reported 51 GB/s read bandwidth, well above a single enterprise NVMe drive. The result is a useful systems prototype, but cost, capacity, and multi-device contention determine deployment value.</span>
+        <span class="zh">该研究评估了一种带片上DMA控制器的CXL内存扩展器，将其作为主机容量与GPU HBM之间的暂存层。PCIe点对点DMA绕过了GPU无法原生参与CXL协议的问题，报告读取带宽达到51 GB/s，明显高于单块企业级NVMe硬盘。该原型具有系统价值，但实际部署仍取决于成本、容量与多设备争用。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="accelerators">
+  <section class="area" id="devices-memory">
     <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
+      <span class="en">Devices &amp; Emerging Memory</span>
+      <span class="zh">器件与新型存储</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1021/acsphotonics.6c01125" target="_blank" rel="noopener">
-          <span class="en">A Subvolt Dual-Mode Silicon Microring for Analog Optical Computing</span>
-          <span class="zh">面向模拟光计算的亚伏双模式硅微环</span>
+        <a href="https://doi.org/10.1038/s44335-026-00091-3" target="_blank" rel="noopener">
+          <span class="en">IGZO capacitive cells perform differentiable in-memory distance</span>
+          <span class="zh">IGZO电容单元实现可微分存内距离计算</span>
         </a>
       </h3>
-      <p class="authors">S. Biswas, S. M. Bari, A. X. Wang</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1021/acsphotonics.6c01125" target="_blank" rel="noopener">ACS Photonics</a> · 2026-08-10</p>
+      <p class="authors">Changhoon Joe, K. Byun, Minseung Kang, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1038/s44335-026-00091-3" target="_blank" rel="noopener">npj Unconventional Computing</a> · 2026-08-14</p>
       <p class="summary">
-        <span class="en">A MOSCAP silicon microring gated by a high-mobility transparent conductive oxide reaches 175 pm/V tuning efficiency, VπL of 0.09 V·cm, more than 6 dB extinction at 0.5 V, and 13.5 fJ/bit. Accumulation and depletion biasing let the same device encode 5- to 6-bit analog weights or provide a nonlinear optical response, reducing the need for separate photonic elements. These are strong measured device metrics, but scaling one ring into a calibrated multi-ring computing system remains the decisive systems challenge.</span>
-        <span class="zh">一种由高迁移率透明导电氧化物栅控的MOSCAP硅微环实现175 pm/V调谐效率、0.09 V·cm的VπL、0.5 V驱动下超过6 dB消光比，以及13.5 fJ/bit能效。通过积累区和耗尽区偏置，同一器件既可编码5至6 bit模拟权重，也可提供非线性光响应，从而减少独立光子器件数量。器件实测指标很强，但从单个微环扩展到可校准的多微环计算系统仍是决定性的系统挑战。</span>
+        <span class="en">The authors implement analog in-memory distance computing with IGZO thin-film transistor capacitive units, combining embedding extraction and similarity search. Continuous outputs enable hardware-in-the-loop representation learning without a separate digital distance engine. One-shot learning reportedly matches GPU accuracy with up to 576 times better energy efficiency, although array scale and peripheral overhead remain important caveats.</span>
+        <span class="zh">作者利用IGZO薄膜晶体管电容单元实现模拟存内距离计算，将嵌入提取与相似度搜索结合在同一架构中。连续输出支持硬件在环表征学习，无需独立数字距离计算引擎。一次学习任务据称可达到GPU相近精度，并实现最高576倍能效提升，但阵列规模与外围电路开销仍是重要限制。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/adfm.77601" target="_blank" rel="noopener">
-          <span class="en">Polarity-Addressed Reset Stabilizes SiNW-FET Reservoir Computing</span>
-          <span class="zh">极性寻址复位稳定SiNW-FET储备池计算</span>
+        <a href="https://doi.org/10.1002/aelm.202500798" target="_blank" rel="noopener">
+          <span class="en">HfO2 RRAM is tested down to 1.5 kelvin</span>
+          <span class="zh">HfO2 RRAM完成低至1.5开尔文测试</span>
         </a>
       </h3>
-      <p class="authors">L. Yan, Y. Zhang, M. Wei, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1002/adfm.77601" target="_blank" rel="noopener">Advanced Functional Materials</a> · 2026-08-07</p>
+      <p class="authors">Emilio Perez-Bosch Quesada, Alberto Mistroni, Ruolan Jia, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1002/aelm.202500798" target="_blank" rel="noopener">Advanced Electronic Materials</a> · 2026-08-13</p>
       <p class="summary">
-        <span class="en">Trap-engineered Schottky silicon-nanowire FETs use source-drain polarity reversal as a device-native reset that clears accumulated state during continuous event-stream inference. The authors integrate roughly 20 nm nanowires into an addressable 4×4 top-gated array and trigger sparse resets from online drift statistics, addressing a failure mode hidden by segmented benchmarks. The measured array makes the reliability problem concrete, though its small scale and gesture-recognition workload leave larger reservoirs and broader tasks untested.</span>
-        <span class="zh">陷阱工程Schottky硅纳米线FET利用源漏极性反转实现器件原生复位，在连续事件流推理中清除累积状态。研究团队把直径约20 nm的纳米线集成为可寻址4×4顶栅阵列，并根据在线漂移统计稀疏触发复位，解决分段基准测试会掩盖的失效模式。实测阵列把可靠性问题具体化，但规模较小且仅使用手势识别任务，更大储备池和更广泛工作负载仍未验证。</span>
+        <span class="en">This study evaluates 1T1R HfO2-based RRAM from room temperature down to 1.5 K for cryogenic memory use. Lower temperatures improve low-resistance-state separation but raise current and reset-voltage challenges, with the access transistor driving much of the behavior. Gate-bias tuning improves programming, indicating that cryogenic memory design must co-optimize the selector and resistive element.</span>
+        <span class="zh">该研究面向低温存储应用，测试了从室温到1.5 K的1T1R HfO2 RRAM。低温改善了低阻态分离度，却带来更高电流与复位电压问题，其中访问晶体管主导了大部分变化。通过调整栅极偏置可改善编程，说明低温存储必须协同优化选择器与阻变单元。</span>
       </p>
     </article>
-  </section>
-  <section class="area" id="ai-research">
-    <h2>
-      <span class="en">AI Research for Hardware</span>
-      <span class="zh">面向硬件的AI研究</span>
-    </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3789240.3829178" target="_blank" rel="noopener">
-          <span class="en">HyNA Uses Hybrid Switch Silicon to Tame MoE Tail Latency</span>
-          <span class="zh">HyNA以混合交换芯片抑制MoE尾延迟</span>
+        <a href="https://doi.org/10.1116/6.0005641" target="_blank" rel="noopener">
+          <span class="en">A plasma process thins ferroelectric HZO below 10 nm</span>
+          <span class="zh">等离子工艺将铁电HZO减薄至10纳米以下</span>
         </a>
       </h3>
-      <p class="authors">Y. Liu, T. Liu, H. Yao</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1145/3789240.3829178" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
+      <p class="authors">Vincent Michaud, C. Boixaderas, L. Grenouillet, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1116/6.0005641" target="_blank" rel="noopener">Journal of Vacuum Science &amp; Technology A</a> · 2026-08-12</p>
       <p class="summary">
-        <span class="en">HyNA combines wire-speed reconfigurable match tables with embedded RISC-V cores so sparse, bursty MoE aggregation—including collisions and overflow handling—stays inside the switch ASIC. The design removes dedicated parameter-server nodes and is evaluated with a 100 Gbps FPGA prototype plus 7 nm ASIC synthesis, turning host fallback round trips into deterministic on-chip handling. The systems idea directly targets MoE communication tails, but the final performance and power claims still mix prototype measurements with synthesized rather than taped-out silicon.</span>
-        <span class="zh">HyNA把线速可重构匹配表与嵌入式RISC-V核心结合，使稀疏、突发的MoE聚合流量连同冲突和溢出处理都留在交换ASIC内部。该设计取消专用参数服务器节点，并通过100 Gbps FPGA原型和7 nm ASIC综合评估，把主机回退的网络往返变为确定性的片上处理。其系统思路直接针对MoE通信尾延迟，但最终性能与功耗结论仍混合了原型实测和综合结果，而非流片芯片数据。</span>
+        <span class="en">The work crystallizes a 10 nm HZO layer between TiN electrodes at 400 degrees Celsius, then selectively removes the top electrode and plasma-thins the ferroelectric film. This sequence targets sub-10 nm HZO while staying within a back-end-compatible thermal budget. The process addresses a practical integration barrier, though electrical endurance and uniformity after thinning remain the next tests.</span>
+        <span class="zh">该工艺先在TiN电极之间以400摄氏度结晶10纳米HZO层，再选择性去除顶部电极并通过等离子体减薄铁电薄膜。其目标是在后端兼容热预算内获得10纳米以下HZO。该方案解决了一项实际集成障碍，但减薄后的电学耐久性与均匀性仍需进一步验证。</span>
       </p>
     </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum &amp; Nonlinear Photonics</span>
-      <span class="zh">量子与非线性光子学</span>
-    </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.07426" target="_blank" rel="noopener">
-          <span class="en">Tunable Bound States Reshape Four-Wave Mixing in SiN Microresonators</span>
-          <span class="zh">可调连续域束缚态重塑SiN微谐振器四波混频</span>
+        <a href="https://doi.org/10.1063/5.0347885" target="_blank" rel="noopener">
+          <span class="en">Area-ratio control expands the operating window of ferroelectric GaN</span>
+          <span class="zh">面积比控制拓宽铁电GaN器件工作窗口</span>
         </a>
       </h3>
-      <p class="authors">E. C. Lima, M. Clementi, A. Viola, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2608.07426" target="_blank" rel="noopener">arXiv:2608.07426</a> · 2026-08-07</p>
+      <p class="authors">Jongmin Park, H. Joo, Geonwook Yoo</p>
+
+      <p class="venue"><a href="https://doi.org/10.1063/5.0347885" target="_blank" rel="noopener">Applied Physics Letters</a> · 2026-08-10</p>
       <p class="summary">
-        <span class="en">An electrically tunable Friedrich-Wintgen bound state in the continuum reaches Q above 10⁶ in coupled silicon-nitride microresonators and can be populated through spontaneous four-wave mixing despite being dark to linear excitation. Placing the idler at the bound-state condition increases parametric gain by 12 dB and lowers the oscillation threshold by 1.6 dB, while changing photon-pair correlations and coherence. The experiment points to reconfigurable quantum and nonlinear sources, but it remains a preprint and does not yet address packaging, control overhead, or device-to-device variation.</span>
-        <span class="zh">耦合SiN微谐振器中的电可调Friedrich-Wintgen连续域束缚态实现超过10⁶的Q值；尽管线性激励无法直接访问，该模式仍可通过自发四波混频被占据。把闲频模式调到束缚态条件后，参量增益提高12 dB，振荡阈值降低1.6 dB，同时改变光子对的关联与相干性。该实验为可重构量子和非线性光源提供路径，但目前仍是预印本，尚未处理封装、控制开销和器件间差异。</span>
+        <span class="en">An AlScN/GaN ferroelectric HEMT uses an 8:1 area-ratio-controlled MFMIS gate stack to manage voltage partitioning. The device reports a 26.8 mV/dec subthreshold slope, a 5.7 V DC memory window, and endurance to 30 million cycles. The results support reconfigurable GaN devices, but system relevance will depend on variability, retention, and fabrication compatibility.</span>
+        <span class="zh">这款AlScN/GaN铁电HEMT采用8:1面积比控制的MFMIS栅堆栈，以调节电压分配。器件报告26.8 mV/dec亚阈值摆幅、5.7 V直流存储窗口，并承受3000万次循环。结果支持可重构GaN器件方向，但系统价值仍取决于一致性、保持特性与制造兼容性。</span>
       </p>
     </article>
   </section>
@@ -510,8 +528,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-14 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-14 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-20 13:55 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-20 13:55 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
