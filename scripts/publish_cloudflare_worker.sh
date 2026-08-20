@@ -34,6 +34,29 @@ purge_site_cache() {
   fi
 }
 
+wait_for_live_edition() {
+  local expected_date="$1"
+  local attempt response live_date
+
+  for attempt in $(seq 1 12); do
+    if response="$(curl -fsS --max-time 15 \
+        "$WORKER_URL/edition.json?deploy_check=$attempt-$(date +%s)")"; then
+      live_date="$(printf '%s' "$response" | python3 -c \
+        'import json, sys; print(json.load(sys.stdin).get("date", ""))' 2>/dev/null || true)"
+      if [ "$live_date" = "$expected_date" ]; then
+        return 0
+      fi
+      echo "  waiting for asset propagation ($live_date != $expected_date)"
+    else
+      echo "  waiting for edition.json to become available"
+    fi
+    sleep 5
+  done
+
+  echo "ERROR: deployed edition $expected_date did not become live before timeout." >&2
+  return 1
+}
+
 if [ -f .dev.vars ]; then
   set -a
   # shellcheck disable=SC1091
@@ -51,6 +74,9 @@ if [ ! -f output/index.html ]; then
   echo "ERROR: output/index.html not found; run scripts/build_page.py first." >&2
   exit 1
 fi
+
+EXPECTED_EDITION_DATE="$(python3 -c \
+  'import json; print(json.load(open("output/edition.json", encoding="utf-8"))["date"])')"
 
 if [ ! -f package-lock.json ] && [ ! -x node_modules/.bin/wrangler ]; then
   echo "ERROR: wrangler is not installed. Run npm install once in this repo." >&2
@@ -71,6 +97,11 @@ echo
 echo "→ purging custom-domain cache"
 purge_site_cache
 echo "✓ custom-domain cache purged."
+
+echo
+echo "→ waiting for edition $EXPECTED_EDITION_DATE to become live"
+wait_for_live_edition "$EXPECTED_EDITION_DATE"
+echo "✓ edition $EXPECTED_EDITION_DATE is live."
 
 if [ -n "${NEWSLETTER_SEND_SECRET:-}" ]; then
   echo
