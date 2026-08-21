@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-20">
+<meta name="edition-date" content="2026-08-21">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Bottlenecks Move Beyond Compute — Semi Research 2026-08-20</title>
+<title>Specialized Hardware Moves Compute Toward the Sensor — Semi Research 2026-08-21</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,188 +319,83 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, August 20, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月20日 星期四</span>
+      <span class="en">Research digest · Friday, August 21, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月21日 星期五</span>
     </div>
     <h1>
-      <span class="en">Inference Bottlenecks Move Beyond Compute</span>
-      <span class="zh">推理瓶颈走出计算核心</span>
+      <span class="en">Specialized Hardware Moves Compute Toward the Sensor</span>
+      <span class="zh">专用硬件将计算推向传感端</span>
     </h1>
     <p class="dek">
-      <span class="en">New work targets the data movement, mixed precision, memory hierarchy, and device integration that increasingly govern useful AI throughput. Measured silicon in event vision and emerging memory provides a counterweight to simulation-only system proposals.</span>
-      <span class="zh">最新研究开始聚焦数据搬运、混合精度、存储层级与器件集成，这些因素正日益决定AI的有效吞吐。事件视觉与新型存储中的实测芯片结果，也为以仿真为主的系统方案提供了重要参照。</span>
+      <span class="en">This thin research window centers on fixed-point biosignal analytics, memristive in-sensor computing, and probabilistic hardware for 3D reconstruction. The efficiency claims are still bounded by synthesis, review-level evidence, or simulation, leaving measured deployment as the central gap.</span>
+      <span class="zh">本期较薄的研究窗口聚焦于定点生物信号分析、忆阻器传感内计算，以及用于3D重建的概率计算硬件。其效率结论仍受限于综合结果、综述性证据或仿真，实测部署仍是最关键的缺口。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 3 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 3篇</span>
     </div>
   </header>
 
-    <section class="area" id="accelerators">
+    <section class="area" id="circuits">
     <h2>
-      <span class="en">Accelerators &amp; Workloads</span>
-      <span class="zh">加速器与工作负载</span>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.17787" target="_blank" rel="noopener">
-          <span class="en">ETHEREAL brings event-driven graph vision to measured silicon</span>
-          <span class="zh">ETHEREAL将事件驱动图视觉落实到实测芯片</span>
+        <a href="https://doi.org/10.3390/electronics15163663" target="_blank" rel="noopener">
+          <span class="en">Fixed-Point Hardware for Hjorth-Feature Cardiac Fibrillation Diagnosis</span>
+          <span class="zh">用于Hjorth特征心颤诊断的定点硬件</span>
         </a>
       </h3>
-      <p class="authors">Adrian Kneip, Martin Lefebvre, D. Gehrig, et al.</p>
-
-      <p class="venue"><a href="http://arxiv.org/abs/2608.17787" target="_blank" rel="noopener">arXiv:2608.17787</a> · 2026-08-18</p>
+      <p class="authors">I. Kouretas, A. G. Skrivanos, N. Sagias, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/electronics15163663" target="_blank" rel="noopener">Electronics</a> · 2026-08-17</p>
       <p class="summary">
-        <span class="en">ETHEREAL is a dedicated processor for event-driven graph neural networks, combining a neighbor-parallel spline-convolution engine with a split 2D/3D memory hierarchy. Measured results report 25.6 microseconds per inference and 1.6 microjoules on a VGA event-vision workload. The silicon result is notable, although broader comparisons will require more workloads and complete system power accounting.</span>
-        <span class="zh">ETHEREAL是一款面向事件驱动图神经网络的专用处理器，结合邻居并行样条卷积引擎与二维/三维分层存储结构。实测结果显示，在VGA事件视觉任务上，每次推理延迟为25.6微秒、能耗为1.6微焦耳。该芯片结果具有意义，但更全面的比较仍需要更多工作负载与完整系统功耗核算。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.17336" target="_blank" rel="noopener">
-          <span class="en">TileMix routes attention precision at hardware-sized tiles</span>
-          <span class="zh">TileMix以硬件对齐分块调度注意力精度</span>
-        </a>
-      </h3>
-      <p class="authors">Hanzhi Zhang, Qiao Zhang, Qinglei Cao, et al.</p>
-
-      <p class="venue"><a href="http://arxiv.org/abs/2608.17336" target="_blank" rel="noopener">arXiv:2608.17336</a> · 2026-08-18</p>
-      <p class="summary">
-        <span class="en">TileMix assigns FP16 or INT8 execution to hardware-aligned attention score tiles while maintaining one shared online-softmax state. It preserves dense token connectivity and supports grouped-query attention, variable-length batches, and INT8 KV caches without retraining. A100 results are promising, but portability depends on whether other accelerator kernels can expose equally efficient tile-level routing.</span>
-        <span class="zh">TileMix为硬件对齐的注意力分数块分配FP16或INT8执行路径，同时维护共享的在线softmax状态。该方法保留稠密token连接，并支持分组查询注意力、变长批次和INT8 KV缓存，无需重新训练。A100结果具有潜力，但能否迁移到其他加速器，取决于其内核是否能同样高效地提供分块级精度调度。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2608.15127" target="_blank" rel="noopener">
-          <span class="en">AgentSysBench characterizes the systems cost of agentic AI</span>
-          <span class="zh">AgentSysBench刻画智能体AI的系统成本</span>
-        </a>
-      </h3>
-      <p class="authors">Chaokun Chang, Yukun Zhou, Kaihua Fu, et al.</p>
-
-      <p class="venue"><a href="http://arxiv.org/abs/2608.15127" target="_blank" rel="noopener">arXiv:2608.15127</a> · 2026-08-15</p>
-      <p class="summary">
-        <span class="en">AgentSysBench measures ten agentic applications and finds that non-LLM components dominate latency in half of them. Sandbox working sets reach 28 GB per session, resource affinities vary sharply, and production state can remain idle for minutes or hours. The study argues that agent serving needs coordinated CPU, GPU, memory, sandbox, and control-plane scheduling rather than model-only optimization.</span>
-        <span class="zh">AgentSysBench测量了10类智能体应用，发现其中一半的延迟主要来自非LLM组件。单会话沙箱工作集最高达到28 GB，不同组件的资源偏好差异明显，生产环境中的状态还可能空闲数分钟至数小时。研究据此指出，智能体服务需要协同调度CPU、GPU、存储、沙箱与控制平面，而不能只优化模型推理。</span>
+        <span class="en">A fully synthesizable fixed-point pipeline computes Hjorth activity, mobility, and complexity in real time, then feeds those features directly to a quantized neural network. At 10–12 bits, the design reports about 93.7% classification accuracy and an AUC above 0.97 on the SPHD dataset, close to its floating-point baseline. The result is application-specific and synthesis-focused rather than measured silicon, so area, energy, and generalization beyond the selected clinical dataset remain open questions.</span>
+        <span class="zh">该工作实现了一条可完全综合的定点流水线，可实时计算Hjorth活动度、移动度和复杂度，并将特征直接送入量化神经网络。在10–12 bit配置下，设计在SPHD数据集上报告约93.7%的分类准确率和高于0.97的AUC，接近浮点基线。该结果面向特定应用，且主要基于综合而非实测芯片，因此面积、能耗以及对所选临床数据集之外的泛化能力仍待验证。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="memory-systems">
+  <section class="area" id="devices">
     <h2>
-      <span class="en">Memory &amp; Interconnect Systems</span>
-      <span class="zh">存储与互联系统</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3789240.3828750" target="_blank" rel="noopener">
-          <span class="en">ARK coordinates paths for disaggregated KV-cache transfers</span>
-          <span class="zh">ARK为解耦式KV缓存传输协调路径</span>
+        <a href="https://doi.org/10.3390/bios16080444" target="_blank" rel="noopener">
+          <span class="en">From Memristive Biosensors to In-Sensor Computing</span>
+          <span class="zh">从忆阻式生物传感器到传感内计算</span>
         </a>
       </h3>
-      <p class="authors">Hung-Chun Lin, Ting-Wei Hsu, Chung-En Ho, Ahmed Saeed</p>
-
-      <p class="venue"><a href="https://doi.org/10.1145/3789240.3828750" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-17</p>
+      <p class="authors">H. Ryu, W.-C. Lee, J. Lee</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/bios16080444" target="_blank" rel="noopener">Biosensors</a> · 2026-08-16</p>
       <p class="summary">
-        <span class="en">ARK treats KV-cache transfers between prefill and decode pools as long-lived elephant flows that can justify lightweight coordination. Senders reserve source-port hashes that spread simultaneous RDMA flows across spine links without switch changes. Simulations report up to 34% lower P95 flow-completion time and 12.9% lower mean time to first token, with hardware-scale validation still needed.</span>
-        <span class="zh">ARK将预填充与解码资源池之间的KV缓存传输视为长时大象流，从而使轻量协调具有经济性。发送端通过预留源端口哈希，将并发RDMA流分散到不同脊交换链路，无需修改交换机。仿真显示，P95流完成时间最高降低34%，平均首token时间最高降低12.9%，但仍需要硬件规模验证。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1145/3789240.3829159" target="_blank" rel="noopener">
-          <span class="en">DualPath uses idle decode-side I/O for agentic KV caches</span>
-          <span class="zh">DualPath利用解码侧闲置I/O搬运智能体KV缓存</span>
-        </a>
-      </h3>
-      <p class="authors">Yongtong Wu, Shaoyuan Chen, Rilin Huang, et al.</p>
-
-      <p class="venue"><a href="https://doi.org/10.1145/3789240.3829159" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
-      <p class="summary">
-        <span class="en">DualPath adds a storage-to-decode route for loading KV caches, then transfers data to prefill engines over RDMA. This uses NIC bandwidth that otherwise sits idle while prefill-side storage links saturate. Production-style experiments report up to 1.87 times higher offline throughput, though benefits depend on topology, scheduler quality, and interference control.</span>
-        <span class="zh">DualPath增加了一条存储到解码引擎的KV缓存加载路径，再通过RDMA将数据传给预填充引擎。这样可利用原本闲置的解码侧NIC带宽，缓解预填充侧存储链路饱和。类生产实验报告离线吞吐最高提升1.87倍，但收益取决于网络拓扑、调度质量与干扰控制。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1145/3789240.3822568" target="_blank" rel="noopener">
-          <span class="en">A CXL memory expander replaces NVMe staging for GPU data</span>
-          <span class="zh">CXL内存扩展器替代GPU数据的NVMe暂存层</span>
-        </a>
-      </h3>
-      <p class="authors">Veerasenareddy Burru, Pradeep Kumar Nalla, Alok Prasad</p>
-
-      <p class="venue"><a href="https://doi.org/10.1145/3789240.3822568" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
-      <p class="summary">
-        <span class="en">This work evaluates a CXL memory expander with an on-device DMA controller as a staging tier between host capacity and GPU HBM. PCIe peer-to-peer DMA works around the lack of native GPU participation in CXL and reaches a reported 51 GB/s read bandwidth, well above a single enterprise NVMe drive. The result is a useful systems prototype, but cost, capacity, and multi-device contention determine deployment value.</span>
-        <span class="zh">该研究评估了一种带片上DMA控制器的CXL内存扩展器，将其作为主机容量与GPU HBM之间的暂存层。PCIe点对点DMA绕过了GPU无法原生参与CXL协议的问题，报告读取带宽达到51 GB/s，明显高于单块企业级NVMe硬盘。该原型具有系统价值，但实际部署仍取决于成本、容量与多设备争用。</span>
+        <span class="en">This review traces memristive biosensors from direct and indirect transduction through on-chip integration and in-sensor computing, where sensing, storage, and processing share one physical platform. The architecture could reduce data movement in point-of-care systems, but the paper identifies CMOS compatibility, device variability, and reliable multi-threshold operation as unresolved barriers. It is a field map rather than a new measured device result, making it most useful for understanding integration tradeoffs and open engineering problems.</span>
+        <span class="zh">这篇综述梳理了忆阻式生物传感器从直接、间接换能，到片上集成和传感内计算的发展路径；在后一种架构中，感知、存储与处理共处同一物理平台。该架构有望减少即时检测系统的数据搬运，但论文指出CMOS兼容性、器件波动以及可靠的多阈值工作仍是未解决障碍。这是一幅领域路线图，而非新的实测器件结果，主要价值在于理解集成权衡和待解工程问题。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="devices-memory">
+  <section class="area" id="accelerators">
     <h2>
-      <span class="en">Devices &amp; Emerging Memory</span>
-      <span class="zh">器件与新型存储</span>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1038/s44335-026-00091-3" target="_blank" rel="noopener">
-          <span class="en">IGZO capacitive cells perform differentiable in-memory distance</span>
-          <span class="zh">IGZO电容单元实现可微分存内距离计算</span>
+        <a href="http://arxiv.org/abs/2608.13143" target="_blank" rel="noopener">
+          <span class="en">ProbSplat: Probabilistic Hardware for Gaussian Splatting</span>
+          <span class="zh">ProbSplat：面向Gaussian Splatting的概率计算硬件</span>
         </a>
       </h3>
-      <p class="authors">Changhoon Joe, K. Byun, Minseung Kang, et al.</p>
-
-      <p class="venue"><a href="https://doi.org/10.1038/s44335-026-00091-3" target="_blank" rel="noopener">npj Unconventional Computing</a> · 2026-08-14</p>
+      <p class="authors">S. Gottumukkula, M. P. Samartha, V. Pahariya, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.13143" target="_blank" rel="noopener">arXiv:2608.13143</a> · 2026-08-13</p>
       <p class="summary">
-        <span class="en">The authors implement analog in-memory distance computing with IGZO thin-film transistor capacitive units, combining embedding extraction and similarity search. Continuous outputs enable hardware-in-the-loop representation learning without a separate digital distance engine. One-shot learning reportedly matches GPU accuracy with up to 576 times better energy efficiency, although array scale and peripheral overhead remain important caveats.</span>
-        <span class="zh">作者利用IGZO薄膜晶体管电容单元实现模拟存内距离计算，将嵌入提取与相似度搜索结合在同一架构中。连续输出支持硬件在环表征学习，无需独立数字距离计算引擎。一次学习任务据称可达到GPU相近精度，并实现最高576倍能效提升，但阵列规模与外围电路开销仍是重要限制。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1002/aelm.202500798" target="_blank" rel="noopener">
-          <span class="en">HfO2 RRAM is tested down to 1.5 kelvin</span>
-          <span class="zh">HfO2 RRAM完成低至1.5开尔文测试</span>
-        </a>
-      </h3>
-      <p class="authors">Emilio Perez-Bosch Quesada, Alberto Mistroni, Ruolan Jia, et al.</p>
-
-      <p class="venue"><a href="https://doi.org/10.1002/aelm.202500798" target="_blank" rel="noopener">Advanced Electronic Materials</a> · 2026-08-13</p>
-      <p class="summary">
-        <span class="en">This study evaluates 1T1R HfO2-based RRAM from room temperature down to 1.5 K for cryogenic memory use. Lower temperatures improve low-resistance-state separation but raise current and reset-voltage challenges, with the access transistor driving much of the behavior. Gate-bias tuning improves programming, indicating that cryogenic memory design must co-optimize the selector and resistive element.</span>
-        <span class="zh">该研究面向低温存储应用，测试了从室温到1.5 K的1T1R HfO2 RRAM。低温改善了低阻态分离度，却带来更高电流与复位电压问题，其中访问晶体管主导了大部分变化。通过调整栅极偏置可改善编程，说明低温存储必须协同优化选择器与阻变单元。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1116/6.0005641" target="_blank" rel="noopener">
-          <span class="en">A plasma process thins ferroelectric HZO below 10 nm</span>
-          <span class="zh">等离子工艺将铁电HZO减薄至10纳米以下</span>
-        </a>
-      </h3>
-      <p class="authors">Vincent Michaud, C. Boixaderas, L. Grenouillet, et al.</p>
-
-      <p class="venue"><a href="https://doi.org/10.1116/6.0005641" target="_blank" rel="noopener">Journal of Vacuum Science &amp; Technology A</a> · 2026-08-12</p>
-      <p class="summary">
-        <span class="en">The work crystallizes a 10 nm HZO layer between TiN electrodes at 400 degrees Celsius, then selectively removes the top electrode and plasma-thins the ferroelectric film. This sequence targets sub-10 nm HZO while staying within a back-end-compatible thermal budget. The process addresses a practical integration barrier, though electrical endurance and uniformity after thinning remain the next tests.</span>
-        <span class="zh">该工艺先在TiN电极之间以400摄氏度结晶10纳米HZO层，再选择性去除顶部电极并通过等离子体减薄铁电薄膜。其目标是在后端兼容热预算内获得10纳米以下HZO。该方案解决了一项实际集成障碍，但减薄后的电学耐久性与均匀性仍需进一步验证。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1063/5.0347885" target="_blank" rel="noopener">
-          <span class="en">Area-ratio control expands the operating window of ferroelectric GaN</span>
-          <span class="zh">面积比控制拓宽铁电GaN器件工作窗口</span>
-        </a>
-      </h3>
-      <p class="authors">Jongmin Park, H. Joo, Geonwook Yoo</p>
-
-      <p class="venue"><a href="https://doi.org/10.1063/5.0347885" target="_blank" rel="noopener">Applied Physics Letters</a> · 2026-08-10</p>
-      <p class="summary">
-        <span class="en">An AlScN/GaN ferroelectric HEMT uses an 8:1 area-ratio-controlled MFMIS gate stack to manage voltage partitioning. The device reports a 26.8 mV/dec subthreshold slope, a 5.7 V DC memory window, and endurance to 30 million cycles. The results support reconfigurable GaN devices, but system relevance will depend on variability, retention, and fabrication compatibility.</span>
-        <span class="zh">这款AlScN/GaN铁电HEMT采用8:1面积比控制的MFMIS栅堆栈，以调节电压分配。器件报告26.8 mV/dec亚阈值摆幅、5.7 V直流存储窗口，并承受3000万次循环。结果支持可重构GaN器件方向，但系统价值仍取决于一致性、保持特性与制造兼容性。</span>
+        <span class="en">ProbSplat stores independently programmable Gaussian means and variances in floating-gate inverter columns and evaluates log-likelihoods for 3D scene reconstruction. A simulated 180nm, 1.8V design operating at 50MHz reports less than 2.4% mean-variance deviation and 18pJ per 4-bit log-likelihood inference across 500 mixture functions. The approach targets a data-movement-heavy edge workload, but all headline results are simulation-only and need array-level silicon measurements, endurance data, and comparisons against current digital accelerators.</span>
+        <span class="zh">ProbSplat在浮栅反相器列中分别编程并存储Gaussian分布的均值与方差，并为3D场景重建计算对数似然。其180nm、1.8V、50MHz仿真设计在500个混合函数上报告低于2.4%的均值—方差偏差，以及每次4 bit对数似然推理18pJ的能耗。该方案瞄准数据搬运密集的边缘工作负载，但核心结果全部来自仿真，仍需阵列级芯片实测、耐久性数据，并与当前数字加速器比较。</span>
       </p>
     </article>
   </section>
@@ -528,8 +423,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-20 13:55 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-20 13:55 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-21 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-21 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
