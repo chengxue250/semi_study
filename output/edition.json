@@ -1,220 +1,435 @@
 {
-  "date": "2026-08-21",
+  "date": "2026-08-22",
   "theme": {
-    "en": "AI Demand Pushes Capacity Into New Constraints",
-    "zh": "AI需求将产能推向新的约束"
+    "en": "Capital Chases AI's Next Bottlenecks",
+    "zh": "资本追逐AI的下一道瓶颈"
   },
   "dek": {
-    "en": "Leading-edge logic, memory research, and custom accelerators keep advancing, but export rules, power-grid reviews, and materials requirements increasingly determine where that capacity can land. The bottleneck is spreading from the chip itself to the infrastructure and policy around it.",
-    "zh": "先进逻辑制程、存储研发与定制加速器继续推进，但出口管制、电网审查和材料要求正日益决定这些产能能在何处落地。瓶颈正在从芯片本身扩散到其周边的基础设施与政策环境。"
+    "en": "Nvidia pushes into power infrastructure and possible accelerator M&A as memory, optical I/O and manufacturing capacity become strategic constraints. Capital is flowing toward the physical stack, from higher TSMC spending to YMTC's $4.9 billion IPO target.",
+    "zh": "随着存储、光学I/O和制造产能成为战略约束，Nvidia正把触角伸向电力基础设施和潜在的加速器并购。资本继续涌向AI的实体技术栈，从台积电提高资本开支到长江存储母公司寻求规模达49亿美元的IPO。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "Waymo Designs a 5nm Robocar Accelerator Above 1,000 TOPS", "zh": "Waymo设计5nm自动驾驶加速器，算力超过1,000 TOPS"},
+          "featured": true,
+          "title": {
+            "en": "Nvidia's Cloverleaf Deal Targets the Data-Center Power Constraint",
+            "zh": "Nvidia借Cloverleaf交易瞄准数据中心电力约束"
+          },
           "summary": {
-            "en": "Waymo has designed a 5nm machine-learning accelerator for its autonomous-driving stack with more than 1,000 TOPS and an emphasis on very low latency. Bringing the chip in-house gives Waymo tighter control over the timing, power, and sensor-processing requirements that general-purpose accelerators do not optimize for, while adding another large systems company to the custom-silicon trend.",
-            "zh": "Waymo为其自动驾驶系统设计了一款5nm机器学习加速器，算力超过1,000 TOPS，并重点压低延迟。自研芯片让Waymo能更紧密地控制通用加速器难以同时优化的时序、功耗和传感器处理需求，也使采用定制硅方案的大型系统公司再添一员。"
+            "en": "The Register reports that Nvidia's Cloverleaf deal extends the chipmaker's spending into the infrastructure needed to deploy its next generation of accelerators. The move matters because power and data-center construction, rather than GPU supply alone, increasingly determine how quickly new AI capacity can come online.",
+            "zh": "The Register报道称，Nvidia通过Cloverleaf交易把资金投入延伸到部署下一代加速器所需的基础设施。此举的重要性在于，决定新增AI算力上线速度的因素正从GPU供给本身扩展到电力和数据中心建设。"
           },
           "source": "The Register",
-          "url": "https://www.theregister.com/edge-and-iot/2026/08/20/waymo-has-designed-a-robocar-chip-to-stay-ahead-of-tesla/5290592",
-          "published": "2026-08-20T19:41:58+00:00"
+          "url": "https://www.theregister.com/systems/2026/08/22/cloverleaf-deal-is-latest-example-of-nvidia-using-its-war-chest-to-patch-cracks-in-the-ai-bubble/5291369",
+          "published": "2026-08-21T23:00:18+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Nvidia May Reduce Memory on Some AI Chips; AMD Plays Down the Risk",
+            "zh": "Nvidia部分AI芯片或缩减存储配置，AMD淡化影响"
+          },
+          "summary": {
+            "en": "A report says Nvidia may ship AI chips with less memory, while AMD says it is not concerned about the prospect. Any reduction would test how customers trade model capacity and bandwidth against price and availability, and could alter expected HBM content per accelerator.",
+            "zh": "报道称，Nvidia可能推出存储容量更低的AI芯片，而AMD表示并不担忧这一动向。若配置确实下调，客户将在模型容量、带宽、价格与供货之间重新权衡，也可能改变单颗加速器的HBM搭载预期。"
+          },
+          "source": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQOTFHLU1CVWQxN254QzFqRGpKM2M1UWZpRHlNaDVpb3ljWXo2UmJrZTNnMkd0WkpmTTJxWVpSNlAzbmRSM2k3azJsa0xKSzRhdmRsY0NWdWJyRnI2aFZZWTljUEpQSW9tWVRMc2IwQVJKMUFUZWtDR0sxeTQ1YU1UWlRIOGpIZDBzQWZSZnp6VnMxNzdmYXdMMFV2R05VMU82MUwxcQ?oc=5",
+          "published": "2026-08-21T20:40:25+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Alibaba's RISC-V Chip Reportedly Runs a 27B Model Without a GPU",
+            "zh": "阿里巴巴RISC-V芯片据称无需GPU即可运行27B模型"
+          },
+          "summary": {
+            "en": "Alibaba's RISC-V processor reportedly ran a 27-billion-parameter AI model without relying on a GPU. The claim points to a broader search for domestically controllable inference platforms, although the candidate report provides no independent performance, power or cost comparison.",
+            "zh": "报道称，阿里巴巴的RISC-V处理器无需GPU即可运行一个270亿参数的AI模型。这一结果反映了对自主可控推理平台的持续探索，但候选报道没有提供独立的性能、功耗或成本对比。"
+          },
+          "source": "Intelligent Living",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9xMWY2S3p4ZFEzN3lRQjN4WVJ6MEVXMkFTOFVCN2YybTFJVzk1M2hNWGJBd28yY2R0ZklicUc3cWlwSFNrWXZnNzNkWmlEdlV2dTRHWXFCTDJLT2kwZ3dLLTRMem0xRXcyaXNvMUFDR1dVWDFm?oc=5",
+          "published": "2026-08-21T20:28:10+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "featured": true,
-          "title": {"en": "TSMC's 1.6nm Production Could Start in Late 2026", "zh": "台积电1.6nm或于2026年底量产"},
-          "summary": {
-            "en": "TSMC could begin mass production of 1.6nm-class chips as early as the fourth quarter of 2026, according to a new report. If that schedule holds, it would accelerate the foundry's leading-edge ramp and give high-performance-computing customers an earlier path beyond its 2nm generation; the date remains a reported target rather than confirmed output.",
-            "zh": "据最新报道，台积电最早可能在2026年第四季度开始量产1.6nm级芯片。若进度兑现，这将加快其先进制程爬坡，并让高性能计算客户更早获得2nm世代之后的工艺选择；目前这一时间点仍是报道中的目标，并非已确认的产出。"
+          "title": {
+            "en": "China's Share of Mature-Node Chips Rises, CRS Reports",
+            "zh": "美国国会研究处称中国成熟制程芯片份额上升"
           },
-          "source": "Android Authority",
-          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5ibDhnSmthUDZtbkxqNFhJcTk2dzMtVWg4Vk16UWJBcFl1MmtuSlFyamRRQjAzX3JLbjNxZW5qWlFsX1hpYU1MbmVyOG5OSGg3QlJEbWdWMWcwUHdOUGxIT0IzUWhRWDk3djI3S0Fn?oc=5",
-          "published": "2026-08-20T20:21:00+00:00"
+          "summary": {
+            "en": "A report citing the U.S. Congressional Research Service says China's share of mature-node chip production is increasing. The shift matters because legacy-node capacity underpins automotive, industrial and power semiconductors, making it a supply-chain and policy issue even without leading-edge technology.",
+            "zh": "援引美国国会研究处的报道称，中国在成熟制程芯片生产中的份额正在上升。成熟制程支撑汽车、工业和功率半导体，因此即便不涉及先进制程，这一变化仍会影响供应链与政策判断。"
+          },
+          "source": "Legis1",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5VZURuZ0o2SHZqTlhBd1plb0YtN0RDdW5SaXlhckFCS29obEJ2Y0N5RzZvUHN3OElSbHQwa2ZSb3lORUlfY3NMcmltOHBVWExhaFotNHR6VEV0blVFbkJsV1ZzbmtkcTdaSnUtWEZvWVRXeHBERkpN?oc=5",
+          "published": "2026-08-21T16:53:06+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Micron Plans a $10 Billion Research Push as AI Lifts Memory Demand", "zh": "AI推升存储需求，Micron计划投入100亿美元研发"},
-          "summary": {
-            "en": "Micron plans a $10 billion research push as AI systems increase demand for higher-bandwidth and higher-capacity memory. The scale of the commitment shows that the memory race is shifting from a cyclical capacity response toward longer-horizon process and product development, although the candidate report does not specify how quickly the spending will be deployed.",
-            "zh": "随着AI系统提高对高带宽、大容量存储的需求，Micron计划投入100亿美元推进研发。如此规模的承诺表明，存储竞争正从周期性的扩产反应转向更长期的制程与产品开发，不过候选报道并未说明这笔资金将以多快速度投入。"
+          "title": {
+            "en": "Micron's Memory Pipeline Is Reportedly Sold Out Through 2028",
+            "zh": "Micron存储产品据称已售罄至2028年"
           },
-          "source": "Outlook Business",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNLW5JTE1fRkNCV3ZjUDlUUUNBSlVPQWF6WXZoanljZy1wdGtJUDB5QWZCU1Vud1E3ZV9RZVUyLVBNNFgxX2E4bG1jZG9GSm9qM2RDUDU0YVhKM1lPQmRJVUExVDFROE9DWTZkYUlNdEtDTGNKaWgyQTVSU2t4TlQwOXA5b1dCUW96SE0ycjQ5dGRIYzhNZDZEdHEzbjlHVThFRHhPR3RNaWTSAbYBQVVfeXFMUGs4bEM0WmVTeENidDVxQWNxX2pMNXYza0pWRlJubmdLeThaMU4yVGo5eFlDX3BOeG5JNTNhNXVKb0VvdDFxc3BkTVFzSFVlMWJvTjhQVUwzbVZhd3RPWVF5dzFMci1LMjlpN01PRWFtNGx5RV8tRGhGUEpmOUNXZTRaQktfdTdTQkFyM1JZb2ZaakFDOWJjcmxlT1F5azQtMTR5MGdlRWpKYjU5dTlKUk1RbHJaTVE?oc=5",
-          "published": "2026-08-20T16:35:13+00:00"
+          "summary": {
+            "en": "Ad-hoc-news reports that Micron's memory pipeline is sold out through 2028. If that order coverage holds, it signals unusually long customer commitments and gives Micron visibility through several product cycles, though the candidate item does not break out HBM from conventional DRAM or NAND.",
+            "zh": "Ad-hoc-news报道称，Micron的存储产品产能已售罄至2028年。若订单覆盖确实如此，意味着客户承诺周期异常延长，并让Micron获得跨越多个产品周期的可见度；不过候选信息未区分HBM、传统DRAM与NAND。"
+          },
+          "source": "Ad-hoc-news.de",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPOE0wSzJtZjlWZXR4Mm1BTjVtVHRHc0ZTSVpVZEFSMG0wS3IwUUI0Wkt5Zll2WXBqZ1Z6Nmw4cEpMVng1dlEzSkxpUE94QkFCX2NZLWVMZTVFdTI1NHE5S3pGMTJHVk5QX0FRNm1BZ3RUSUVYR0FCN0FsbW9JbTN1OE1DR1VLeVREZW90U1NIYWstYTRPRnVnX21jT284TVRXc085T1JMdTFFQ0c4WC01SEEzWllVWUROQzRxbEg4a0xBdktXODN6cVpSUEVZQ1k5aks4eA?oc=5",
+          "published": "2026-08-21T20:02:44+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "CXMT Supplies 11.3% of 2026 DRAM Growth, but Its Share Is Forecast to Ease", "zh": "CXMT贡献2026年DRAM增量的11.3%，后续占比或回落"},
-          "summary": {
-            "en": "CXMT is estimated to account for 11.3% of global DRAM production growth in 2026, while a Hanwha Securities forecast puts its contribution at 6.9% in 2027. The figures suggest China now has meaningful incremental DRAM capacity, but also that expansion alone may not translate into a rapid challenge to the three incumbent suppliers across products and customers.",
-            "zh": "据估算，CXMT将贡献2026年全球DRAM产量增量的11.3%，而韩华证券预测其2027年的增量贡献占比将降至6.9%。这些数字说明中国已形成不可忽视的DRAM新增产能，但也表明单纯扩产未必能让其迅速在产品与客户层面挑战三大现有供应商。"
+          "title": {
+            "en": "SK hynix Maps Co-Packaged Optics to 100 Tb/s Nodes",
+            "zh": "SK hynix规划面向100 Tb/s节点的共封装光学路线"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/cxmt-grabbed-11-3-of-dram-growth-in-2026-but-analysts-say-chinas-momentum-collapses-to-6-9-by-2027/",
-          "published": "2026-08-20T17:02:41+00:00"
+          "summary": {
+            "en": "SK hynix has outlined a co-packaged-optics roadmap targeting 100 Tb/s nodes, energy below 1 pJ/bit and latency under 10 ns. Those targets address the interconnect wall around memory-rich AI systems, where moving data can consume more energy and time than arithmetic.",
+            "zh": "SK hynix公布共封装光学路线图，目标包括100 Tb/s节点、低于1 pJ/bit的能耗和低于10 ns的延迟。这些指标直指高存储带宽AI系统的互连瓶颈，因为数据搬运消耗的能量与时间可能超过计算本身。"
+          },
+          "source": "StorageReview",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOT0FhME53bVBLNlhBZGxhdWJoV1RTQnpIS0tRRFF1TmVrRG4wMTJtSXBjM1JvZWFES3VyZ3JsMU9DLTM5ZU5RT3hRTDVBaDlBVDJZMC0yYlB6NkRwLWRBcnplRWZ2dGhSOG9USE93R0FJUTA5ZkxiUERLS3VjQU1ubmtDN0dUMGtnTThodE9nV2J0eHlRczN3MHk3WDFJZE9ja2MzaUdZcERvSXprYmZGSmZ5ZU13SHhFLU1RVVJPMG5wWC1KcVZaSFBXeHFWd3FQVnh6NHQxRG93NFHSAdsBQVVfeXFMTk9BYTBOd21QSzZYQWRsYXViaFdUU0J6SEtLUURRdU5la0RuMDEybUlwYzNSb2VhREt1cmdybDFPQy0zOWVOUU94UUw1QWg5QVQyWTAtMmJQejZEcC1kQXJ6ZUVmdnRoUjhvVEhPd0dBSVEwOWZMYlBES0t1Y0FNbm5rQzdHVDBrZ004aHRPZ1didHh5UXMzdzB5N1gxSWRPY2tjM2lHWXBEb0l6a2JmRkpmeWVNd0h4RS1NUVVSTzBucFgtSnFWWkhQV3hxVndxUFZ4ejR0MURvdzRR?oc=5",
+          "published": "2026-08-21T17:11:23+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "An $85 Billion TSMC Spending Forecast Lifts ASML", "zh": "台积电850亿美元支出预测提振ASML"},
-          "summary": {
-            "en": "ASML shares rose after a forecast put TSMC spending at $85 billion, reinforcing expectations for sustained leading-edge tool demand. The figure is a market forecast rather than reported TSMC guidance, but it highlights how rapidly an aggressive foundry buildout would flow into EUV and other equipment orders.",
-            "zh": "一项预测将台积电支出估至850亿美元后，ASML股价上涨，市场对先进制程设备需求持续的预期随之增强。该数字属于市场预测，并非台积电已公布的业绩指引，但它凸显了激进的晶圆厂扩建将如何迅速转化为EUV及其他设备订单。"
+          "title": {
+            "en": "ASML's Order Book Is Reportedly Full Through 2028",
+            "zh": "ASML订单据称已排满至2028年"
           },
-          "source": "Yahoo Finance UK",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxObUJINHdQRU9HNEJ5dXZPb3BpNW9JOGdtalh3MUVLZjN2U1pOa3AxZzlpOGUtem9PbFdPOU5lYmZDd2VROGpySVJUdUYwQkFFV01Jd3g2UnhibzNLOWFrOXM4VEJvdXltelZXYzRtZl9fOEVXYVl0R2hvZXFORGxkclE3dUEyYk01ZGNR?oc=5",
-          "published": "2026-08-20T19:07:58+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "SandboxAQ Searches for PFAS-Free Semiconductor Materials", "zh": "SandboxAQ寻找无PFAS半导体材料替代方案"},
           "summary": {
-            "en": "SandboxAQ is working to identify PFAS-free alternatives for semiconductor manufacturing, where fluorinated chemicals are embedded in multiple process steps. Viable substitutes matter because tighter PFAS regulation could create qualification and supply risks for fabs; any replacement will still need to meet unusually strict purity, performance, and process-compatibility requirements.",
-            "zh": "SandboxAQ正尝试为半导体制造寻找无PFAS替代材料，而含氟化学品目前嵌入多道工艺环节。可行替代品之所以重要，是因为更严格的PFAS监管可能给晶圆厂带来认证与供应风险；任何替代方案仍须满足极严苛的纯度、性能和工艺兼容性要求。"
+            "en": "Ad-hoc-news reports that ASML's order book is full through 2028 even as large investors remain split on the stock. A multi-year backlog would preserve demand visibility for lithography tools, but it also raises the execution bar for shipment timing, service capacity and customer fab readiness.",
+            "zh": "Ad-hoc-news报道称，尽管大型投资者对ASML股票看法分化，其订单已排满至2028年。多年积压订单提高了光刻设备需求的可见度，同时也对交付节奏、服务能力和客户晶圆厂准备度提出更高要求。"
           },
-          "source": "Manufacturing Dive",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOd2pFY2ZXajRSd1pnZkhjRzNpWloyQXhaNlFYdk5hVEJEYUJpRmhEb1RKZWRlbl84OThlRzdZcDFfb2VPVnFzZ19hNThudGtXVUU3R19DQXROX1hyRnJXaFpMckFLeFJ6aVJSOVBhclVLSjlVMTdPSjdnd3BkSzZwX1gzbHdra0x6WU1vLWQ4RHo3Nlp4WFJlNGREQXlTUVF4WHVSYXBHUWdYZkJnTGc?oc=5",
-          "published": "2026-08-20T17:53:36+00:00"
+          "source": "Ad-hoc-news.de",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNU2lTLXNGbjJFQ0FEbnU4WmZGM19MTkxaWmRaQ0h0eHBxb25ndlZIZVpYRGg0cWY0S015ajVLWlpmeUVMa1lNNTVHYkJHcnE4NlFfR1A3b0JDRFhGaVp1NzJIRHhBZ25vdnNlN3dCVTdRemRsUTlZV0Vod01IVFQtU3U4bTAwUl9rQW1TeG9EdElVM2J1TUVjNC0waWdjaHlOMjFnYkhXN0gxTkRKQmZWY3E2c01UMEtaVmZmVUlPMGUyUXFJNXR3Nk40b0RKUjMtR284WUtoMA?oc=5",
+          "published": "2026-08-21T16:11:59+00:00"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
+      },
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "Nvidia Denies a China-Specific AI Chip Launch by Year-End", "zh": "Nvidia否认将在年底前推出中国特供AI芯片"},
-          "summary": {
-            "en": "Nvidia denied a report that it plans to roll out a China-specific AI chip by the end of 2026. The denial leaves its China roadmap unresolved as the company tries to serve a large inference market without crossing U.S. export-control thresholds or running into Beijing's push for domestic alternatives.",
-            "zh": "Nvidia否认了有关其计划在2026年底前推出中国特供AI芯片的报道。该回应意味着其中国市场路线图仍未明朗，公司既要争取庞大的推理市场，又不能越过美国出口管制门槛，还要面对北京推动国产替代的压力。"
+          "featured": false,
+          "title": {
+            "en": "U.S. Lawmakers Question the UAE Export-Control Decision",
+            "zh": "美国议员质询对阿联酋的出口管制决定"
           },
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMldWMkxfMnFZbHg4YnI0RTdoZGtfMXJIT1hTdHg4aGUyMWhvazNtdWVoLW4wMDR0cXkybXhEMHdqanBCZ0Nmb21xVVVua2lYOTQ4elZsUFlMbTBVYkpwRDBaVWs5Y0xRTUc1U3BSVng1WlpteXhqS0NhdWZ4cmthTlpFYTJJX2hrdGc0Y1VZUTJ5aXNzQWlvb19nei05RHJIYlhEZXRSYko?oc=5",
-          "published": "2026-08-20T20:16:35+00:00"
-        },
-        {
-          "featured": true,
-          "title": {"en": "Texas Pauses 1,800 Data-Center Projects for a Grid Audit", "zh": "得州暂停1,800个数据中心项目以进行电网审查"},
           "summary": {
-            "en": "Texas has reportedly paused roughly 1,800 data-center projects while ERCOT conducts a comprehensive audit of the development pipeline. The action turns electricity access into an immediate gating factor for AI infrastructure, with consequences for the timing of server, accelerator, memory, and networking demand even when chips themselves are available.",
-            "zh": "据报道，得州已暂停约1,800个数据中心项目，等待ERCOT对项目储备进行全面审查。此举使电力接入成为AI基础设施的直接约束因素；即便芯片供应充足，服务器、加速器、存储和网络设备的需求兑现时间也可能受到影响。"
+            "en": "Representatives Gregory Meeks and Sydney Kamlager-Dove are seeking answers about a U.S. export-control decision involving the UAE. Their intervention keeps scrutiny on how Washington balances AI-chip access for partners against diversion and national-security risks.",
+            "zh": "美国众议员Gregory Meeks和Sydney Kamlager-Dove正要求政府说明一项涉及阿联酋的出口管制决定。此举使华盛顿如何在伙伴获得AI芯片与防范转运和国家安全风险之间取舍，再次受到审视。"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/texas-freezes-1800-data-center-projects-for-audit-as-a-secretive-gop-memo-warns-that-the-republicans-will-lose-ohio-on-data-center-buildout/",
-          "published": "2026-08-20T21:40:53+00:00"
-        },
+          "source": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRERTdE01b0xMMEJZVGpYVDZXMjZESGlRaHhNanZCb3BSbk13V085enRGUTYzZEIxRjM3MGl5clRHdmpTX2x0SlhvT1dueFRKUzVVeEM4X2tvRDQ4bHMwNmVRTVdCNWNNU05TVUwxT0oxOWlFY21RQ3RyWkRtT2JfX2hzcVVwQWtmVWlzRkwwRVlvbTRBZjczak5MeEpSdHhVaUUyXzNKZGVSeXdZaFBIQjdubzIzalFw?oc=5",
+          "published": "2026-08-21T20:20:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "earnings",
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "财报与市场"
+      },
+      "stories": [
         {
           "featured": false,
-          "title": {"en": "Court Hears That Former Samsung Engineers Took 18nm DRAM Process Recipes to CXMT", "zh": "法院审理前Samsung工程师向CXMT泄露18nm DRAM工艺配方一案"},
-          "summary": {
-            "en": "A Korean court heard allegations that former Samsung engineers stole recipes for the company's 18nm-class DRAM process and intended them for CXMT; one former engineer is now imprisoned. The case puts process know-how, rather than only equipment access, at the center of China's memory expansion and could intensify scrutiny of hiring and technology transfer across the regional supply chain.",
-            "zh": "韩国法院审理的指控称，前Samsung工程师窃取了该公司18nm级DRAM制程配方并拟提供给CXMT，其中一名前工程师现已入狱。此案表明，制程诀窍与设备获取同样是中国存储扩张的核心，并可能加剧区域供应链对人才流动和技术转移的审查。"
+          "title": {
+            "en": "TSMC Raises 2026 Capital Spending While Increasing Dividends",
+            "zh": "台积电提高2026年资本开支并上调股息"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/dram/cxmt-planned-to-use-stolen-samsung-ip-to-develop-its-dram-court-hears-former-samsung-engineer-who-jumped-to-chinese-memory-maker-now-behind-bars",
-          "published": "2026-08-20T15:37:14+00:00"
+          "summary": {
+            "en": "TSMC is committing to higher 2026 capital spending while also raising dividend payouts, according to Yahoo Finance. Funding both expansion and shareholder returns signals confidence in cash generation, while suppliers will watch how quickly the larger budget converts into tool orders and installed capacity.",
+            "zh": "据Yahoo Finance报道，台积电承诺提高2026年资本开支，同时增加股息派发。扩产与股东回报并举显示其对现金创造能力的信心，供应商则会关注新增预算多快转化为设备订单和实际产能。"
+          },
+          "source": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQRXN6bHhMZEczOWFTRjhGcE1MbDRVbmE1QUdfOXl5cy0zNjR5SVAxRWVzRVpzUlZSNVh3Y2luLU91cDRURTJZLVQ3TWNULUkzdWx3ZjdINTl1c0NmWEtVWDhrNVFnT25aRUROSl9NQm1LUm9jRGYtQlREaTNlZVl4amlDcWo0QUxyeDdyWlBjczNyTlNLTVhCZVRLaw?oc=5",
+          "published": "2026-08-21T15:41:00+00:00"
+        },
+        {
+          "featured": true,
+          "title": {
+            "en": "YMTC's Parent Targets a $4.9 Billion Shanghai IPO",
+            "zh": "长江存储母公司拟在上海IPO募资49亿美元"
+          },
+          "summary": {
+            "en": "The parent of Chinese NAND producer YMTC is targeting a $4.9 billion Shanghai initial public offering, Reuters reports. The financing would give China's flash-memory champion a large domestic capital pool for expansion while international technology restrictions continue to shape its equipment options.",
+            "zh": "据Reuters报道，中国NAND厂商长江存储的母公司计划在上海IPO，目标募资49亿美元。这笔融资将为中国闪存龙头提供大规模境内扩张资金，而国际技术限制仍在影响其设备选择。"
+          },
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPQjFpb3VXaE5yMHZaRXhzVWFIRzlQMnNEM2dkdnAtUXphLU9EOGdraXdmQU1ycUYyYmZiSUg5VGNaWmRTZUFOLWNFaEp5elFOQTVoR01xVkVlazBGOE5XVXpNWnRHbjBsaldGMTJXYWNoaHRNclRwdHBLaFpTZkFUT096WkZ5OUtncjI0dm1RbVdTcnFYWmZQcDBsNEFud3ZRR3RCdmFRZmF3aUEwZE56eVZfdGdQaGd0Z1RrZUNmWFJHMTAt?oc=5",
+          "published": "2026-08-21T14:53:06+00:00"
         }
       ]
     },
     {
       "id": "challengers",
-      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "KT Unveils an On-Premise NPU Server for Sovereign AI", "zh": "KT发布面向主权AI的本地部署NPU服务器"},
-          "summary": {
-            "en": "KT unveiled NPU LLM Station, a fully on-premise server aimed at sovereign-AI deployments. The product gives organizations an alternative to cloud-hosted GPU inference when data residency and operational control matter, although the candidate report provides no throughput, power, or customer-deployment figures for comparing the NPU platform with incumbent systems.",
-            "zh": "KT发布了NPU LLM Station，这是一款面向主权AI部署的全本地服务器。当数据驻留和运营控制至关重要时，该产品为机构提供了云端GPU推理之外的选择；不过候选报道没有给出吞吐量、功耗或客户部署数据，尚难与主流系统直接比较。"
+          "title": {
+            "en": "Nvidia Enters Early Talks With $2.3 Billion Korean AI-Chip Startup Rebellions",
+            "zh": "Nvidia与估值23亿美元的韩国AI芯片初创公司Rebellions展开初步洽谈"
           },
-          "source": "RCR Wireless News",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1PRFUxZS1hOVVNc01haUpVWmtFcUZTQVBZemM0SDhHNFdtN0pnUk84VU02b05lZGhqcUZVd1laREZOUTZKRjRGWUhuXy16VUl4T3E4MlVDejJxcC1rMExKa0sxUW8?oc=5",
-          "published": "2026-08-20T16:30:01+00:00"
+          "summary": {
+            "en": "Nvidia is reportedly in early talks with Korean AI-accelerator startup Rebellions, which the report values at $2.3 billion. A partnership or transaction would give Nvidia a route into a local challenger while testing whether the incumbent will increasingly buy or align with alternative inference architectures.",
+            "zh": "报道称，Nvidia正与韩国AI加速器初创公司Rebellions进行初步洽谈，后者估值为23亿美元。若形成合作或交易，Nvidia将借此切入本土新势力，也将检验行业龙头是否会更多收购或结盟于不同的推理架构。"
+          },
+          "source": "BigGo News",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5tLTRRTmlWcEE3TXBKRklVZm0tVG52SGUxTzZGZnNhQ3ViUmxYeE1ra3R3RkNCaHZkSVZWcWtfX0U3SldGczNZUXRYMHlpc1VZZTR2NFRhbXdRREtYNlc2TVg0S0ZYNXVDVlhIUmZQbVVRZ29RV2c?oc=5",
+          "published": "2026-08-21T18:25:00+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Specialized Hardware Moves Compute Toward the Sensor", "zh": "专用硬件将计算推向传感端"},
+    "theme": {
+      "en": "Architectures Co-Design Around Data Movement",
+      "zh": "架构围绕数据移动协同设计"
+    },
     "dek": {
-      "en": "This thin research window centers on fixed-point biosignal analytics, memristive in-sensor computing, and probabilistic hardware for 3D reconstruction. The efficiency claims are still bounded by synthesis, review-level evidence, or simulation, leaving measured deployment as the central gap.",
-      "zh": "本期较薄的研究窗口聚焦于定点生物信号分析、忆阻器传感内计算，以及用于3D重建的概率计算硬件。其效率结论仍受限于综合结果、综述性证据或仿真，实测部署仍是最关键的缺口。"
+      "en": "From shared GPU registers and chiplet placement to H100 load concurrency, this week's work treats data orchestration as the central efficiency problem. Measured ASICs anchor a reading queue otherwise dominated by preprint architectures and verification tools.",
+      "zh": "从GPU共享寄存器和chiplet布局，到H100负载并发，本周研究把数据组织视为效率的核心问题。多项实测ASIC结果为阅读清单提供硬件锚点，其余工作则主要是预印本架构与验证工具。"
     },
     "areas": [
       {
         "id": "circuits",
-        "title": {"en": "Circuits, Architecture & Reliability", "zh": "电路、架构与可靠性"},
+        "title": {
+          "en": "Circuits & Architecture",
+          "zh": "电路与架构"
+        },
         "papers": [
           {
-            "title": {"en": "Fixed-Point Hardware for Hjorth-Feature Cardiac Fibrillation Diagnosis", "zh": "用于Hjorth特征心颤诊断的定点硬件"},
-            "authors": "I. Kouretas, A. G. Skrivanos, N. Sagias, et al.",
-            "affiliation": "",
-            "venue": "Electronics",
-            "venue_url": "https://doi.org/10.3390/electronics15163663",
-            "summary": {
-              "en": "A fully synthesizable fixed-point pipeline computes Hjorth activity, mobility, and complexity in real time, then feeds those features directly to a quantized neural network. At 10–12 bits, the design reports about 93.7% classification accuracy and an AUC above 0.97 on the SPHD dataset, close to its floating-point baseline. The result is application-specific and synthesis-focused rather than measured silicon, so area, energy, and generalization beyond the selected clinical dataset remain open questions.",
-              "zh": "该工作实现了一条可完全综合的定点流水线，可实时计算Hjorth活动度、移动度和复杂度，并将特征直接送入量化神经网络。在10–12 bit配置下，设计在SPHD数据集上报告约93.7%的分类准确率和高于0.97的AUC，接近浮点基线。该结果面向特定应用，且主要基于综合而非实测芯片，因此面积、能耗以及对所选临床数据集之外的泛化能力仍待验证。"
+            "title": {
+              "en": "A Resource-Efficient CNN ASIC for EEG Auditory Attention Decoding",
+              "zh": "面向EEG听觉注意力解码的资源高效CNN ASIC"
             },
-            "published": "2026-08-17"
-          }
-        ]
-      },
-      {
-        "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
-        "papers": [
+            "authors": "Qier Ma, Richard George, Stefan Scholze, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.20198",
+            "venue_url": "https://arxiv.org/abs/2608.20198",
+            "summary": {
+              "en": "A fabricated GF22FDX ASIC combines a quantized CNN engine with Pearson-correlation classification for real-time EEG auditory-attention decoding. The 2.09 mm² chip operates at 0.55 V, consumes 0.4941 mW and completes inference in 7.34 ms; the inference and classification engines occupy just 0.076 mm². The silicon results are relevant to always-on hearing assistance, although the preprint does not establish clinical performance at scale.",
+              "zh": "这款采用GF22FDX流片的ASIC把量化CNN引擎与Pearson相关分类器结合，用于实时EEG听觉注意力解码。芯片面积2.09 mm²，在0.55 V下功耗0.4941 mW、推理延迟7.34 ms，其中推理与分类引擎仅占0.076 mm²。实测硅结果适合始终在线的助听场景，但预印本尚未证明大规模临床效果。"
+            },
+            "published": "2026-08-20"
+          },
           {
-            "title": {"en": "From Memristive Biosensors to In-Sensor Computing", "zh": "从忆阻式生物传感器到传感内计算"},
-            "authors": "H. Ryu, W.-C. Lee, J. Lee",
-            "affiliation": "",
-            "venue": "Biosensors",
-            "venue_url": "https://doi.org/10.3390/bios16080444",
-            "summary": {
-              "en": "This review traces memristive biosensors from direct and indirect transduction through on-chip integration and in-sensor computing, where sensing, storage, and processing share one physical platform. The architecture could reduce data movement in point-of-care systems, but the paper identifies CMOS compatibility, device variability, and reliable multi-threshold operation as unresolved barriers. It is a field map rather than a new measured device result, making it most useful for understanding integration tradeoffs and open engineering problems.",
-              "zh": "这篇综述梳理了忆阻式生物传感器从直接、间接换能，到片上集成和传感内计算的发展路径；在后一种架构中，感知、存储与处理共处同一物理平台。该架构有望减少即时检测系统的数据搬运，但论文指出CMOS兼容性、器件波动以及可靠的多阈值工作仍是未解决障碍。这是一幅领域路线图，而非新的实测器件结果，主要价值在于理解集成权衡和待解工程问题。"
+            "title": {
+              "en": "Experimental Verification of Fast Voltage-Droop Correction Circuits",
+              "zh": "快速电压跌落校正电路的实验验证"
             },
-            "published": "2026-08-16"
+            "authors": "Shreyas Srinivas, Ian W. Jones, Carsten Schulze, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.19954",
+            "venue_url": "https://arxiv.org/abs/2608.19954",
+            "summary": {
+              "en": "An all-digital circuit fabricated in IHP's 130 nm process detects voltage droops and adapts clock frequency while managing metastability in the detection path. The authors validate its operation on a test chip, moving the accompanying design beyond simulation. Quantitative response time and energy overhead are not included in the candidate abstract, so the practical guard-band savings remain to be assessed.",
+              "zh": "一款采用IHP 130 nm工艺流片的全数字电路可检测电压跌落并自适应调整时钟频率，同时处理检测路径中的亚稳态问题。作者在测试芯片上验证了功能，使配套设计从仿真走向实测。候选摘要未给出响应时间和能耗开销，因此实际可节省多少保护裕量仍需评估。"
+            },
+            "published": "2026-08-20"
+          },
+          {
+            "title": {
+              "en": "A 39 pJ/b, 7.3 Gb/s Massive MU-MIMO Detector in 22FDX",
+              "zh": "22FDX工艺下39 pJ/b、7.3 Gb/s的大规模MU-MIMO检测器"
+            },
+            "authors": "Abhishek Kumar, Seyed Hadi Mirfarshbafan, Oscar Castañeda, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.19865",
+            "venue_url": "https://arxiv.org/abs/2608.19865",
+            "summary": {
+              "en": "A fabricated 22FDX ASIC processes 16 OFDM subcarriers in parallel for an eight-user, 64-antenna massive-MIMO receiver. Exploiting beamspace sparsity and frequency-domain correlation cuts area and power by up to 3×; the 1.3 mm² core reaches 7.3 Gb/s at 286 mW and 0.8 V, or 39 pJ/b. The result is measured silicon, though comparison breadth beyond the claimed open-literature baseline is not shown in the candidate record.",
+              "zh": "这款22FDX流片ASIC面向8用户、64天线的大规模MIMO接收机，可并行处理16个OFDM子载波。利用波束空间稀疏性和频域相关性，面积与功耗最高降低3倍；1.3 mm²核心在0.8 V下以286 mW实现7.3 Gb/s，即39 pJ/b。结果来自实测硅片，但候选记录没有展示其与更广泛基线的比较范围。"
+            },
+            "published": "2026-08-20"
           }
         ]
       },
       {
         "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
         "papers": [
           {
-            "title": {"en": "ProbSplat: Probabilistic Hardware for Gaussian Splatting", "zh": "ProbSplat：面向Gaussian Splatting的概率计算硬件"},
-            "authors": "S. Gottumukkula, M. P. Samartha, V. Pahariya, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2608.13143",
-            "venue_url": "http://arxiv.org/abs/2608.13143",
-            "summary": {
-              "en": "ProbSplat stores independently programmable Gaussian means and variances in floating-gate inverter columns and evaluates log-likelihoods for 3D scene reconstruction. A simulated 180nm, 1.8V design operating at 50MHz reports less than 2.4% mean-variance deviation and 18pJ per 4-bit log-likelihood inference across 500 mixture functions. The approach targets a data-movement-heavy edge workload, but all headline results are simulation-only and need array-level silicon measurements, endurance data, and comparisons against current digital accelerators.",
-              "zh": "ProbSplat在浮栅反相器列中分别编程并存储Gaussian分布的均值与方差，并为3D场景重建计算对数似然。其180nm、1.8V、50MHz仿真设计在500个混合函数上报告低于2.4%的均值—方差偏差，以及每次4 bit对数似然推理18pJ的能耗。该方案瞄准数据搬运密集的边缘工作负载，但核心结果全部来自仿真，仍需阵列级芯片实测、耐久性数据，并与当前数字加速器比较。"
+            "title": {
+              "en": "FIBER Decouples GPU Threads From Private Register Ownership",
+              "zh": "FIBER将GPU线程与私有寄存器所有权解耦"
             },
-            "published": "2026-08-13"
+            "authors": "Zihan Liu, Jingwen Leng, Yangjie Zhou, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.19628",
+            "venue_url": "https://arxiv.org/abs/2608.19628",
+            "summary": {
+              "en": "FIBER replaces fixed thread-private register ownership with lightweight execution instances that access an SM-wide shared register view. The ISA, microarchitecture and compiler co-design enables dynamic parallelism and fine-grained dataflow scheduling for workloads that mix GEMM and non-GEMM kernels. The proposal directly targets operand-supply inefficiency in modern tensor pipelines, but the candidate record is architecture work rather than a fabricated implementation.",
+              "zh": "FIBER以可访问SM级共享寄存器视图的轻量执行实例，取代固定的线程私有寄存器所有权。其ISA、微架构与编译器协同设计可为混合GEMM和非GEMM内核的负载提供动态并行度和细粒度数据流调度。该方案直指现代张量流水线的操作数供给效率，但候选记录属于架构研究，并非流片实现。"
+            },
+            "published": "2026-08-20"
+          },
+          {
+            "title": {
+              "en": "HYDRA Co-Designs Chiplet Layout and Runtime Policy for Hybrid LLMs",
+              "zh": "HYDRA协同设计混合LLM的chiplet布局与运行时策略"
+            },
+            "authors": "Jiahao Lin, Alish Kanani, Sangwan Lee, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.19395",
+            "venue_url": "https://arxiv.org/abs/2608.19395",
+            "summary": {
+              "en": "HYDRA jointly explores chiplet composition, physical placement, inter-chiplet bandwidth, batching and scheduling for Transformer-Mamba serving. Across the reported workloads it improves average throughput by 1.55× and cuts time to first token by 43.7%, with peak throughput gains of 2.3× over the selected baselines. The gains come from a Markov-based estimator and simulated design-space exploration, so hardware validation is still needed.",
+              "zh": "HYDRA面向Transformer-Mamba混合模型服务，联合探索chiplet组成、物理布局、片间带宽、批处理与调度。对报告中的负载，其平均吞吐量提高1.55倍，首token时间降低43.7%，相对所选基线的最高吞吐增益达2.3倍。结果依赖基于Markov模型的估算器和设计空间仿真，仍需真实硬件验证。"
+            },
+            "published": "2026-08-19"
+          },
+          {
+            "title": {
+              "en": "MAGMA Adds Online Adaptation to a Fixed-Point FPGA GMM Engine",
+              "zh": "MAGMA为定点FPGA高斯混合模型引擎加入在线自适应"
+            },
+            "authors": "Peter Forcha, Harshitha Kajekusumadhar, Mbua Peter, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.18366",
+            "venue_url": "https://arxiv.org/abs/2608.18366",
+            "summary": {
+              "en": "MAGMA implements concurrent Gaussian-mixture inference and online expectation-maximization updates as a synthesizable fixed-point FPGA pipeline. On an AMD Spartan-7 it runs at 74.49 MHz using 7,779 LUTs and 91 DSPs with no block RAM, drawing 274 mW while reporting 11.8× inference and 81× M-step speedups over software. Adaptation accuracy is evaluated on a synthetic non-stationary scene, which limits conclusions about deployment robustness.",
+              "zh": "MAGMA把高斯混合模型推理和在线期望最大化更新实现为可综合的定点FPGA流水线。在AMD Spartan-7上，它以74.49 MHz运行，使用7,779个LUT和91个DSP、不占用块RAM，功耗274 mW；相对软件的推理和M步加速分别为11.8倍和81倍。其自适应准确率在合成非平稳场景上评估，因此对真实部署鲁棒性的结论仍有限。"
+            },
+            "published": "2026-08-18"
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {
+          "en": "Hardware-Relevant AI Research",
+          "zh": "硬件相关AI研究"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Plain Global-Load Concurrency Peaks Early on NVIDIA H100",
+              "zh": "NVIDIA H100普通全局加载的并发收益提前见顶"
+            },
+            "authors": "Somashekar Manjunath, Rahul Ramachandra M",
+            "affiliation": "",
+            "venue": "arXiv:2608.15764",
+            "venue_url": "https://arxiv.org/abs/2608.15764",
+            "summary": {
+              "en": "Microbenchmarks on three H100 SXM5 dies find plain ld.global bandwidth peaking near two offered loads per thread, then falling about 35% by eight loads. Fixed-work controls, reversed sweeps and a 512 MB-to-20 GB allocation range reproduce the decline while DRAM bytes stay nearly constant and L2-sector traffic rises. The clean-room result is actionable for memory-bound CUDA kernels, but it characterizes a narrow load path rather than the full Hopper memory system.",
+              "zh": "对3颗H100 SXM5芯片的微基准测试显示，普通ld.global带宽在线程每次约2个加载请求时达到峰值，到8个请求时下降约35%。固定工作量、反向扫描以及512 MB至20 GB分配范围的控制实验均复现该现象，同时DRAM字节量近乎不变而L2扇区流量上升。该净室测试对内存受限CUDA内核有直接参考价值，但只刻画了特定加载路径，并非完整的Hopper存储系统。"
+            },
+            "published": "2026-08-16"
+          },
+          {
+            "title": {
+              "en": "NPU Offload Cuts Energy for Frozen Visual-Encoder Training",
+              "zh": "NPU卸载降低冻结视觉编码器训练能耗"
+            },
+            "authors": "Hyojun Yun, Seungjae Won, Hyungpil Moon",
+            "affiliation": "",
+            "venue": "arXiv:2608.15002",
+            "venue_url": "https://arxiv.org/abs/2608.15002",
+            "summary": {
+              "en": "An asynchronous training pipeline moves a frozen A8W8 INT8 visual encoder onto a Mobilint Aries2 NPU while an RTX 5060 Ti trains the FP32 action expert. Offloading the ResNet stage reduces energy per sample by 17.1% in the first configuration despite transfer and runtime overheads. The study uses 30,000-step robot-policy runs with three seeds, but the candidate abstract does not report whether deeper offload levels preserve the same benefit.",
+              "zh": "一个异步训练流水线把冻结的A8W8 INT8视觉编码器迁移到Mobilint Aries2 NPU，同时由RTX 5060 Ti训练FP32动作专家。第一种配置卸载ResNet阶段后，尽管存在传输和运行时开销，单样本能耗仍降低17.1%。研究使用3个随机种子完成30,000步机器人策略训练，但候选摘要未说明更深层卸载是否维持相同收益。"
+            },
+            "published": "2026-08-15"
+          }
+        ]
+      },
+      {
+        "id": "quantum",
+        "title": {
+          "en": "Quantum Computing",
+          "zh": "量子计算"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "ONEX Compiles High-Rate Quantum Product Codes for Neutral-Atom Arrays",
+              "zh": "ONEX为中性原子阵列编译高码率量子乘积码"
+            },
+            "authors": "Adrian Liu, Wan-Hsuan Lin, Daniel Bochen Tan, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.20164",
+            "venue_url": "https://arxiv.org/abs/2608.20164",
+            "summary": {
+              "en": "ONEX decomposes two-dimensional execution planning for a family of high-rate qLDPC product codes into independent one-dimensional problems on neutral-atom arrays. An SMT formulation finds depth-optimal 1D plans, while movement compaction and iterative feedback assemble practical schedules. The approach attacks a real quantum-error-correction compilation bottleneck, but the candidate abstract is truncated before full scale and hardware assumptions are reported.",
+              "zh": "ONEX把中性原子阵列上一类高码率qLDPC乘积码的二维执行规划，分解为相互独立的一维问题。其SMT形式化可求得深度最优的一维方案，再通过原子移动压缩与迭代反馈组合成可执行调度。该方法针对量子纠错中的实际编译瓶颈，但候选摘要在完整规模与硬件假设公布前被截断。"
+            },
+            "published": "2026-08-20"
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {
+          "en": "EDA & Verification",
+          "zh": "EDA与验证"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "NeuroAssertion Uses Formal Coverage to Refine RTL Assertions",
+              "zh": "NeuroAssertion利用形式覆盖率迭代优化RTL断言"
+            },
+            "authors": "Zhiyuan Yan, Ziyue Zheng, Hongce Zhang",
+            "affiliation": "",
+            "venue": "arXiv:2608.18482",
+            "venue_url": "https://arxiv.org/abs/2608.18482",
+            "summary": {
+              "en": "NeuroAssertion converts hard-to-reach RTL control conditions into formal reachability goals, generates diverse traces with model checking, and mines assertions through syntax-guided synthesis. A two-stage LLM refinement loop then proposes assertions for uncovered regions and revises candidates that fail formal checks. Verification feedback constrains the generative component, but the candidate record is truncated before benchmark coverage and runtime gains are available.",
+              "zh": "NeuroAssertion把难以触达的RTL控制条件转化为形式可达性目标，利用模型检查生成多样化轨迹，再通过语法引导综合挖掘断言。两阶段LLM优化循环针对未覆盖区域提出断言，并修正未通过形式检查的候选。验证反馈为生成模块提供约束，但候选记录在给出基准覆盖率和运行时间收益前被截断。"
+            },
+            "published": "2026-08-19"
           }
         ]
       }

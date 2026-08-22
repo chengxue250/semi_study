@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-21">
+<meta name="edition-date" content="2026-08-22">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Specialized Hardware Moves Compute Toward the Sensor — Semi Research 2026-08-21</title>
+<title>Architectures Co-Design Around Data Movement — Semi Research 2026-08-22</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,62 +319,71 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, August 21, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月21日 星期五</span>
+      <span class="en">Research digest · Saturday, August 22, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月22日 星期六</span>
     </div>
     <h1>
-      <span class="en">Specialized Hardware Moves Compute Toward the Sensor</span>
-      <span class="zh">专用硬件将计算推向传感端</span>
+      <span class="en">Architectures Co-Design Around Data Movement</span>
+      <span class="zh">架构围绕数据移动协同设计</span>
     </h1>
     <p class="dek">
-      <span class="en">This thin research window centers on fixed-point biosignal analytics, memristive in-sensor computing, and probabilistic hardware for 3D reconstruction. The efficiency claims are still bounded by synthesis, review-level evidence, or simulation, leaving measured deployment as the central gap.</span>
-      <span class="zh">本期较薄的研究窗口聚焦于定点生物信号分析、忆阻器传感内计算，以及用于3D重建的概率计算硬件。其效率结论仍受限于综合结果、综述性证据或仿真，实测部署仍是最关键的缺口。</span>
+      <span class="en">From shared GPU registers and chiplet placement to H100 load concurrency, this week&#x27;s work treats data orchestration as the central efficiency problem. Measured ASICs anchor a reading queue otherwise dominated by preprint architectures and verification tools.</span>
+      <span class="zh">从GPU共享寄存器和chiplet布局，到H100负载并发，本周研究把数据组织视为效率的核心问题。多项实测ASIC结果为阅读清单提供硬件锚点，其余工作则主要是预印本架构与验证工具。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 3 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 3篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
     <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits, Architecture &amp; Reliability</span>
-      <span class="zh">电路、架构与可靠性</span>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.3390/electronics15163663" target="_blank" rel="noopener">
-          <span class="en">Fixed-Point Hardware for Hjorth-Feature Cardiac Fibrillation Diagnosis</span>
-          <span class="zh">用于Hjorth特征心颤诊断的定点硬件</span>
+        <a href="https://arxiv.org/abs/2608.20198" target="_blank" rel="noopener">
+          <span class="en">A Resource-Efficient CNN ASIC for EEG Auditory Attention Decoding</span>
+          <span class="zh">面向EEG听觉注意力解码的资源高效CNN ASIC</span>
         </a>
       </h3>
-      <p class="authors">I. Kouretas, A. G. Skrivanos, N. Sagias, et al.</p>
+      <p class="authors">Qier Ma, Richard George, Stefan Scholze, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.3390/electronics15163663" target="_blank" rel="noopener">Electronics</a> · 2026-08-17</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.20198" target="_blank" rel="noopener">arXiv:2608.20198</a> · 2026-08-20</p>
       <p class="summary">
-        <span class="en">A fully synthesizable fixed-point pipeline computes Hjorth activity, mobility, and complexity in real time, then feeds those features directly to a quantized neural network. At 10–12 bits, the design reports about 93.7% classification accuracy and an AUC above 0.97 on the SPHD dataset, close to its floating-point baseline. The result is application-specific and synthesis-focused rather than measured silicon, so area, energy, and generalization beyond the selected clinical dataset remain open questions.</span>
-        <span class="zh">该工作实现了一条可完全综合的定点流水线，可实时计算Hjorth活动度、移动度和复杂度，并将特征直接送入量化神经网络。在10–12 bit配置下，设计在SPHD数据集上报告约93.7%的分类准确率和高于0.97的AUC，接近浮点基线。该结果面向特定应用，且主要基于综合而非实测芯片，因此面积、能耗以及对所选临床数据集之外的泛化能力仍待验证。</span>
+        <span class="en">A fabricated GF22FDX ASIC combines a quantized CNN engine with Pearson-correlation classification for real-time EEG auditory-attention decoding. The 2.09 mm² chip operates at 0.55 V, consumes 0.4941 mW and completes inference in 7.34 ms; the inference and classification engines occupy just 0.076 mm². The silicon results are relevant to always-on hearing assistance, although the preprint does not establish clinical performance at scale.</span>
+        <span class="zh">这款采用GF22FDX流片的ASIC把量化CNN引擎与Pearson相关分类器结合，用于实时EEG听觉注意力解码。芯片面积2.09 mm²，在0.55 V下功耗0.4941 mW、推理延迟7.34 ms，其中推理与分类引擎仅占0.076 mm²。实测硅结果适合始终在线的助听场景，但预印本尚未证明大规模临床效果。</span>
       </p>
     </article>
-  </section>
-  <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
-    </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.3390/bios16080444" target="_blank" rel="noopener">
-          <span class="en">From Memristive Biosensors to In-Sensor Computing</span>
-          <span class="zh">从忆阻式生物传感器到传感内计算</span>
+        <a href="https://arxiv.org/abs/2608.19954" target="_blank" rel="noopener">
+          <span class="en">Experimental Verification of Fast Voltage-Droop Correction Circuits</span>
+          <span class="zh">快速电压跌落校正电路的实验验证</span>
         </a>
       </h3>
-      <p class="authors">H. Ryu, W.-C. Lee, J. Lee</p>
+      <p class="authors">Shreyas Srinivas, Ian W. Jones, Carsten Schulze, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.3390/bios16080444" target="_blank" rel="noopener">Biosensors</a> · 2026-08-16</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.19954" target="_blank" rel="noopener">arXiv:2608.19954</a> · 2026-08-20</p>
       <p class="summary">
-        <span class="en">This review traces memristive biosensors from direct and indirect transduction through on-chip integration and in-sensor computing, where sensing, storage, and processing share one physical platform. The architecture could reduce data movement in point-of-care systems, but the paper identifies CMOS compatibility, device variability, and reliable multi-threshold operation as unresolved barriers. It is a field map rather than a new measured device result, making it most useful for understanding integration tradeoffs and open engineering problems.</span>
-        <span class="zh">这篇综述梳理了忆阻式生物传感器从直接、间接换能，到片上集成和传感内计算的发展路径；在后一种架构中，感知、存储与处理共处同一物理平台。该架构有望减少即时检测系统的数据搬运，但论文指出CMOS兼容性、器件波动以及可靠的多阈值工作仍是未解决障碍。这是一幅领域路线图，而非新的实测器件结果，主要价值在于理解集成权衡和待解工程问题。</span>
+        <span class="en">An all-digital circuit fabricated in IHP&#x27;s 130 nm process detects voltage droops and adapts clock frequency while managing metastability in the detection path. The authors validate its operation on a test chip, moving the accompanying design beyond simulation. Quantitative response time and energy overhead are not included in the candidate abstract, so the practical guard-band savings remain to be assessed.</span>
+        <span class="zh">一款采用IHP 130 nm工艺流片的全数字电路可检测电压跌落并自适应调整时钟频率，同时处理检测路径中的亚稳态问题。作者在测试芯片上验证了功能，使配套设计从仿真走向实测。候选摘要未给出响应时间和能耗开销，因此实际可节省多少保护裕量仍需评估。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.19865" target="_blank" rel="noopener">
+          <span class="en">A 39 pJ/b, 7.3 Gb/s Massive MU-MIMO Detector in 22FDX</span>
+          <span class="zh">22FDX工艺下39 pJ/b、7.3 Gb/s的大规模MU-MIMO检测器</span>
+        </a>
+      </h3>
+      <p class="authors">Abhishek Kumar, Seyed Hadi Mirfarshbafan, Oscar Castañeda, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.19865" target="_blank" rel="noopener">arXiv:2608.19865</a> · 2026-08-20</p>
+      <p class="summary">
+        <span class="en">A fabricated 22FDX ASIC processes 16 OFDM subcarriers in parallel for an eight-user, 64-antenna massive-MIMO receiver. Exploiting beamspace sparsity and frequency-domain correlation cuts area and power by up to 3×; the 1.3 mm² core reaches 7.3 Gb/s at 286 mW and 0.8 V, or 39 pJ/b. The result is measured silicon, though comparison breadth beyond the claimed open-literature baseline is not shown in the candidate record.</span>
+        <span class="zh">这款22FDX流片ASIC面向8用户、64天线的大规模MIMO接收机，可并行处理16个OFDM子载波。利用波束空间稀疏性和频域相关性，面积与功耗最高降低3倍；1.3 mm²核心在0.8 V下以286 mW实现7.3 Gb/s，即39 pJ/b。结果来自实测硅片，但候选记录没有展示其与更广泛基线的比较范围。</span>
       </p>
     </article>
   </section>
@@ -385,17 +394,125 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.13143" target="_blank" rel="noopener">
-          <span class="en">ProbSplat: Probabilistic Hardware for Gaussian Splatting</span>
-          <span class="zh">ProbSplat：面向Gaussian Splatting的概率计算硬件</span>
+        <a href="https://arxiv.org/abs/2608.19628" target="_blank" rel="noopener">
+          <span class="en">FIBER Decouples GPU Threads From Private Register Ownership</span>
+          <span class="zh">FIBER将GPU线程与私有寄存器所有权解耦</span>
         </a>
       </h3>
-      <p class="authors">S. Gottumukkula, M. P. Samartha, V. Pahariya, et al.</p>
+      <p class="authors">Zihan Liu, Jingwen Leng, Yangjie Zhou, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.13143" target="_blank" rel="noopener">arXiv:2608.13143</a> · 2026-08-13</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.19628" target="_blank" rel="noopener">arXiv:2608.19628</a> · 2026-08-20</p>
       <p class="summary">
-        <span class="en">ProbSplat stores independently programmable Gaussian means and variances in floating-gate inverter columns and evaluates log-likelihoods for 3D scene reconstruction. A simulated 180nm, 1.8V design operating at 50MHz reports less than 2.4% mean-variance deviation and 18pJ per 4-bit log-likelihood inference across 500 mixture functions. The approach targets a data-movement-heavy edge workload, but all headline results are simulation-only and need array-level silicon measurements, endurance data, and comparisons against current digital accelerators.</span>
-        <span class="zh">ProbSplat在浮栅反相器列中分别编程并存储Gaussian分布的均值与方差，并为3D场景重建计算对数似然。其180nm、1.8V、50MHz仿真设计在500个混合函数上报告低于2.4%的均值—方差偏差，以及每次4 bit对数似然推理18pJ的能耗。该方案瞄准数据搬运密集的边缘工作负载，但核心结果全部来自仿真，仍需阵列级芯片实测、耐久性数据，并与当前数字加速器比较。</span>
+        <span class="en">FIBER replaces fixed thread-private register ownership with lightweight execution instances that access an SM-wide shared register view. The ISA, microarchitecture and compiler co-design enables dynamic parallelism and fine-grained dataflow scheduling for workloads that mix GEMM and non-GEMM kernels. The proposal directly targets operand-supply inefficiency in modern tensor pipelines, but the candidate record is architecture work rather than a fabricated implementation.</span>
+        <span class="zh">FIBER以可访问SM级共享寄存器视图的轻量执行实例，取代固定的线程私有寄存器所有权。其ISA、微架构与编译器协同设计可为混合GEMM和非GEMM内核的负载提供动态并行度和细粒度数据流调度。该方案直指现代张量流水线的操作数供给效率，但候选记录属于架构研究，并非流片实现。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.19395" target="_blank" rel="noopener">
+          <span class="en">HYDRA Co-Designs Chiplet Layout and Runtime Policy for Hybrid LLMs</span>
+          <span class="zh">HYDRA协同设计混合LLM的chiplet布局与运行时策略</span>
+        </a>
+      </h3>
+      <p class="authors">Jiahao Lin, Alish Kanani, Sangwan Lee, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.19395" target="_blank" rel="noopener">arXiv:2608.19395</a> · 2026-08-19</p>
+      <p class="summary">
+        <span class="en">HYDRA jointly explores chiplet composition, physical placement, inter-chiplet bandwidth, batching and scheduling for Transformer-Mamba serving. Across the reported workloads it improves average throughput by 1.55× and cuts time to first token by 43.7%, with peak throughput gains of 2.3× over the selected baselines. The gains come from a Markov-based estimator and simulated design-space exploration, so hardware validation is still needed.</span>
+        <span class="zh">HYDRA面向Transformer-Mamba混合模型服务，联合探索chiplet组成、物理布局、片间带宽、批处理与调度。对报告中的负载，其平均吞吐量提高1.55倍，首token时间降低43.7%，相对所选基线的最高吞吐增益达2.3倍。结果依赖基于Markov模型的估算器和设计空间仿真，仍需真实硬件验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.18366" target="_blank" rel="noopener">
+          <span class="en">MAGMA Adds Online Adaptation to a Fixed-Point FPGA GMM Engine</span>
+          <span class="zh">MAGMA为定点FPGA高斯混合模型引擎加入在线自适应</span>
+        </a>
+      </h3>
+      <p class="authors">Peter Forcha, Harshitha Kajekusumadhar, Mbua Peter, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.18366" target="_blank" rel="noopener">arXiv:2608.18366</a> · 2026-08-18</p>
+      <p class="summary">
+        <span class="en">MAGMA implements concurrent Gaussian-mixture inference and online expectation-maximization updates as a synthesizable fixed-point FPGA pipeline. On an AMD Spartan-7 it runs at 74.49 MHz using 7,779 LUTs and 91 DSPs with no block RAM, drawing 274 mW while reporting 11.8× inference and 81× M-step speedups over software. Adaptation accuracy is evaluated on a synthetic non-stationary scene, which limits conclusions about deployment robustness.</span>
+        <span class="zh">MAGMA把高斯混合模型推理和在线期望最大化更新实现为可综合的定点FPGA流水线。在AMD Spartan-7上，它以74.49 MHz运行，使用7,779个LUT和91个DSP、不占用块RAM，功耗274 mW；相对软件的推理和M步加速分别为11.8倍和81倍。其自适应准确率在合成非平稳场景上评估，因此对真实部署鲁棒性的结论仍有限。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Relevant AI Research</span>
+      <span class="zh">硬件相关AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.15764" target="_blank" rel="noopener">
+          <span class="en">Plain Global-Load Concurrency Peaks Early on NVIDIA H100</span>
+          <span class="zh">NVIDIA H100普通全局加载的并发收益提前见顶</span>
+        </a>
+      </h3>
+      <p class="authors">Somashekar Manjunath, Rahul Ramachandra M</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.15764" target="_blank" rel="noopener">arXiv:2608.15764</a> · 2026-08-16</p>
+      <p class="summary">
+        <span class="en">Microbenchmarks on three H100 SXM5 dies find plain ld.global bandwidth peaking near two offered loads per thread, then falling about 35% by eight loads. Fixed-work controls, reversed sweeps and a 512 MB-to-20 GB allocation range reproduce the decline while DRAM bytes stay nearly constant and L2-sector traffic rises. The clean-room result is actionable for memory-bound CUDA kernels, but it characterizes a narrow load path rather than the full Hopper memory system.</span>
+        <span class="zh">对3颗H100 SXM5芯片的微基准测试显示，普通ld.global带宽在线程每次约2个加载请求时达到峰值，到8个请求时下降约35%。固定工作量、反向扫描以及512 MB至20 GB分配范围的控制实验均复现该现象，同时DRAM字节量近乎不变而L2扇区流量上升。该净室测试对内存受限CUDA内核有直接参考价值，但只刻画了特定加载路径，并非完整的Hopper存储系统。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.15002" target="_blank" rel="noopener">
+          <span class="en">NPU Offload Cuts Energy for Frozen Visual-Encoder Training</span>
+          <span class="zh">NPU卸载降低冻结视觉编码器训练能耗</span>
+        </a>
+      </h3>
+      <p class="authors">Hyojun Yun, Seungjae Won, Hyungpil Moon</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.15002" target="_blank" rel="noopener">arXiv:2608.15002</a> · 2026-08-15</p>
+      <p class="summary">
+        <span class="en">An asynchronous training pipeline moves a frozen A8W8 INT8 visual encoder onto a Mobilint Aries2 NPU while an RTX 5060 Ti trains the FP32 action expert. Offloading the ResNet stage reduces energy per sample by 17.1% in the first configuration despite transfer and runtime overheads. The study uses 30,000-step robot-policy runs with three seeds, but the candidate abstract does not report whether deeper offload levels preserve the same benefit.</span>
+        <span class="zh">一个异步训练流水线把冻结的A8W8 INT8视觉编码器迁移到Mobilint Aries2 NPU，同时由RTX 5060 Ti训练FP32动作专家。第一种配置卸载ResNet阶段后，尽管存在传输和运行时开销，单样本能耗仍降低17.1%。研究使用3个随机种子完成30,000步机器人策略训练，但候选摘要未说明更深层卸载是否维持相同收益。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.20164" target="_blank" rel="noopener">
+          <span class="en">ONEX Compiles High-Rate Quantum Product Codes for Neutral-Atom Arrays</span>
+          <span class="zh">ONEX为中性原子阵列编译高码率量子乘积码</span>
+        </a>
+      </h3>
+      <p class="authors">Adrian Liu, Wan-Hsuan Lin, Daniel Bochen Tan, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.20164" target="_blank" rel="noopener">arXiv:2608.20164</a> · 2026-08-20</p>
+      <p class="summary">
+        <span class="en">ONEX decomposes two-dimensional execution planning for a family of high-rate qLDPC product codes into independent one-dimensional problems on neutral-atom arrays. An SMT formulation finds depth-optimal 1D plans, while movement compaction and iterative feedback assemble practical schedules. The approach attacks a real quantum-error-correction compilation bottleneck, but the candidate abstract is truncated before full scale and hardware assumptions are reported.</span>
+        <span class="zh">ONEX把中性原子阵列上一类高码率qLDPC乘积码的二维执行规划，分解为相互独立的一维问题。其SMT形式化可求得深度最优的一维方案，再通过原子移动压缩与迭代反馈组合成可执行调度。该方法针对量子纠错中的实际编译瓶颈，但候选摘要在完整规模与硬件假设公布前被截断。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Verification</span>
+      <span class="zh">EDA与验证</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.18482" target="_blank" rel="noopener">
+          <span class="en">NeuroAssertion Uses Formal Coverage to Refine RTL Assertions</span>
+          <span class="zh">NeuroAssertion利用形式覆盖率迭代优化RTL断言</span>
+        </a>
+      </h3>
+      <p class="authors">Zhiyuan Yan, Ziyue Zheng, Hongce Zhang</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.18482" target="_blank" rel="noopener">arXiv:2608.18482</a> · 2026-08-19</p>
+      <p class="summary">
+        <span class="en">NeuroAssertion converts hard-to-reach RTL control conditions into formal reachability goals, generates diverse traces with model checking, and mines assertions through syntax-guided synthesis. A two-stage LLM refinement loop then proposes assertions for uncovered regions and revises candidates that fail formal checks. Verification feedback constrains the generative component, but the candidate record is truncated before benchmark coverage and runtime gains are available.</span>
+        <span class="zh">NeuroAssertion把难以触达的RTL控制条件转化为形式可达性目标，利用模型检查生成多样化轨迹，再通过语法引导综合挖掘断言。两阶段LLM优化循环针对未覆盖区域提出断言，并修正未通过形式检查的候选。验证反馈为生成模块提供约束，但候选记录在给出基准覆盖率和运行时间收益前被截断。</span>
       </p>
     </article>
   </section>
@@ -423,8 +540,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-21 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-21 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-22 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-22 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
