@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-22">
+<meta name="edition-date" content="2026-08-23">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Architectures Co-Design Around Data Movement — Semi Research 2026-08-22</title>
+<title>Verification and Scheduling Move Up the Stack — Semi Research 2026-08-23</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,71 +319,92 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Saturday, August 22, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月22日 星期六</span>
+      <span class="en">Research digest · Sunday, August 23, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月23日 星期日</span>
     </div>
     <h1>
-      <span class="en">Architectures Co-Design Around Data Movement</span>
-      <span class="zh">架构围绕数据移动协同设计</span>
+      <span class="en">Verification and Scheduling Move Up the Stack</span>
+      <span class="zh">验证与调度持续向栈上层延伸</span>
     </h1>
     <p class="dek">
-      <span class="en">From shared GPU registers and chiplet placement to H100 load concurrency, this week&#x27;s work treats data orchestration as the central efficiency problem. Measured ASICs anchor a reading queue otherwise dominated by preprint architectures and verification tools.</span>
-      <span class="zh">从GPU共享寄存器和chiplet布局，到H100负载并发，本周研究把数据组织视为效率的核心问题。多项实测ASIC结果为阅读清单提供硬件锚点，其余工作则主要是预印本架构与验证工具。</span>
+      <span class="en">This week&#x27;s systems papers push verification, placement, tracing, and service-level scheduling into more integrated tool flows. Device work on ScAlN and GaN provides a measured counterpoint at the physical layer.</span>
+      <span class="zh">本周系统论文将验证、布局、追踪和服务等级调度纳入更集成的工具流程。ScAlN与GaN器件研究则以实测结果补足物理层视角。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
-    <section class="area" id="circuits">
+    <section class="area" id="devices">
     <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.20198" target="_blank" rel="noopener">
-          <span class="en">A Resource-Efficient CNN ASIC for EEG Auditory Attention Decoding</span>
-          <span class="zh">面向EEG听觉注意力解码的资源高效CNN ASIC</span>
+        <a href="https://doi.org/10.35848/1347-4065/ae96ec" target="_blank" rel="noopener">
+          <span class="en">Sc-Composition Sequencing Controls the Structural Stability of Sputter-Epitaxial ScAlN/GaN Multilayers</span>
+          <span class="zh">Sc组分排序控制溅射外延ScAlN/GaN多层结构稳定性</span>
         </a>
       </h3>
-      <p class="authors">Qier Ma, Richard George, Stefan Scholze, et al.</p>
+      <p class="authors">N. Mimasaka, K. Ikeda, M. Naito, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.20198" target="_blank" rel="noopener">arXiv:2608.20198</a> · 2026-08-20</p>
+      <p class="venue"><a href="https://doi.org/10.35848/1347-4065/ae96ec" target="_blank" rel="noopener">Japanese Journal of Applied Physics</a> · 2026-08-20</p>
       <p class="summary">
-        <span class="en">A fabricated GF22FDX ASIC combines a quantized CNN engine with Pearson-correlation classification for real-time EEG auditory-attention decoding. The 2.09 mm² chip operates at 0.55 V, consumes 0.4941 mW and completes inference in 7.34 ms; the inference and classification engines occupy just 0.076 mm². The silicon results are relevant to always-on hearing assistance, although the preprint does not establish clinical performance at scale.</span>
-        <span class="zh">这款采用GF22FDX流片的ASIC把量化CNN引擎与Pearson相关分类器结合，用于实时EEG听觉注意力解码。芯片面积2.09 mm²，在0.55 V下功耗0.4941 mW、推理延迟7.34 ms，其中推理与分类引擎仅占0.076 mm²。实测硅结果适合始终在线的助听场景，但预印本尚未证明大规模临床效果。</span>
+        <span class="en">ScAlN multilayers grown on GaN/6H-SiC remained coherently strained in-plane whether Sc content stepped down toward about 6% or up toward about 22%. The increasing-Sc sequence produced more roughness, needle-like features, and c-axis deviation, while decreasing Sc was structurally more stable. The result is measured by high-resolution X-ray diffraction and reciprocal-space mapping, but it covers short four-step growth sequences under one sputtering condition rather than a manufacturing window.</span>
+        <span class="zh">在GaN/6H-SiC上生长的ScAlN多层结构，无论Sc含量逐步降至约6%还是升至约22%，均保持面内相干应变。Sc递增序列出现更明显的粗糙度、针状表面特征和c轴偏离，而Sc递减序列结构更稳定。结果来自高分辨率X射线衍射和倒易空间映射实测，但仅覆盖单一溅射条件下的四段短时生长，尚不能代表完整制造窗口。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.19954" target="_blank" rel="noopener">
-          <span class="en">Experimental Verification of Fast Voltage-Droop Correction Circuits</span>
-          <span class="zh">快速电压跌落校正电路的实验验证</span>
+        <a href="https://doi.org/10.3390/electronics15163688" target="_blank" rel="noopener">
+          <span class="en">GaN HEMTs Remove Reverse-Recovery Spikes in a 130 kHz WPT Inverter</span>
+          <span class="zh">GaN HEMT消除130 kHz无线供电逆变器的反向恢复尖峰</span>
         </a>
       </h3>
-      <p class="authors">Shreyas Srinivas, Ian W. Jones, Carsten Schulze, et al.</p>
+      <p class="authors">M. Bogdanović, Ž. Despotović, D. Marčetić, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.19954" target="_blank" rel="noopener">arXiv:2608.19954</a> · 2026-08-20</p>
+      <p class="venue"><a href="https://doi.org/10.3390/electronics15163688" target="_blank" rel="noopener">Electronics</a> · 2026-08-18</p>
       <p class="summary">
-        <span class="en">An all-digital circuit fabricated in IHP&#x27;s 130 nm process detects voltage droops and adapts clock frequency while managing metastability in the detection path. The authors validate its operation on a test chip, moving the accompanying design beyond simulation. Quantitative response time and energy overhead are not included in the candidate abstract, so the practical guard-band savings remain to be assessed.</span>
-        <span class="zh">一款采用IHP 130 nm工艺流片的全数字电路可检测电压跌落并自适应调整时钟频率，同时处理检测路径中的亚稳态问题。作者在测试芯片上验证了功能，使配套设计从仿真走向实测。候选摘要未给出响应时间和能耗开销，因此实际可节省多少保护裕量仍需评估。</span>
+        <span class="en">A measured 130 kHz L-S-tuned GaN full-bridge inverter commutates through third-quadrant conduction during dead time and eliminates the reverse-recovery current spikes seen with Si IGBTs. The comparison isolates GaN&#x27;s zero-reverse-recovery behavior from system-level variables, making dead-time tuning the central trade-off between shoot-through risk and conduction loss. The evidence is hardware-based, but it comes from one inverter topology and operating regime.</span>
+        <span class="zh">一套实测的130 kHz L-S调谐GaN全桥逆变器在死区期间通过第三象限导通完成换流，消除了Si IGBT方案中的反向恢复电流尖峰。该比较将GaN零反向恢复特性与系统级变量分离，使死区调节成为直通风险与导通损耗之间的核心权衡。证据来自真实硬件，但目前仅覆盖一种逆变器拓扑和工作区间。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.19300" target="_blank" rel="noopener">
+          <span class="en">Performance Verification Across Four Generations of AmpereOne</span>
+          <span class="zh">跨四代AmpereOne核心的性能验证方法</span>
+        </a>
+      </h3>
+      <p class="authors">D. Al-Otoom, N. Kelly, A. Lindsay, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.19300" target="_blank" rel="noopener">arXiv:2608.19300</a> · 2026-08-19T16:50:02Z</p>
+      <p class="summary">
+        <span class="en">Ampere describes a pre-silicon verification flow used across four generations of AmpereOne, correlating cycle-accurate RTL against a trace-driven performance model. Daily regressions, curated workloads, and a unified event stream let teams isolate units such as branch prediction and L2 prefetch before full-core correlation. The paper is valuable as an industrial methodology report, though the supplied abstract gives no quantitative defect-escape or schedule comparison against alternative flows.</span>
+        <span class="zh">Ampere介绍了一套用于四代AmpereOne的流片前性能验证流程，通过周期精确的RTL与轨迹驱动性能模型进行关联。每日回归、精选工作负载和统一事件流，使团队可先隔离分支预测与L2预取等单元，再进行整核关联。该文的价值主要在工业方法论，但现有摘要未给出相对其他流程的缺陷漏检率或进度改善数据。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.19865" target="_blank" rel="noopener">
-          <span class="en">A 39 pJ/b, 7.3 Gb/s Massive MU-MIMO Detector in 22FDX</span>
-          <span class="zh">22FDX工艺下39 pJ/b、7.3 Gb/s的大规模MU-MIMO检测器</span>
+        <a href="https://arxiv.org/abs/2608.18170" target="_blank" rel="noopener">
+          <span class="en">An Open RISC-V Trace Encoder With N-Trace and E-Trace Back Ends</span>
+          <span class="zh">支持N-Trace与E-Trace后端的开放RISC-V追踪编码器</span>
         </a>
       </h3>
-      <p class="authors">Abhishek Kumar, Seyed Hadi Mirfarshbafan, Oscar Castañeda, et al.</p>
+      <p class="authors">A. Weiss, A. Schulz</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.19865" target="_blank" rel="noopener">arXiv:2608.19865</a> · 2026-08-20</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.18170" target="_blank" rel="noopener">arXiv:2608.18170</a> · 2026-08-17T16:13:02Z</p>
       <p class="summary">
-        <span class="en">A fabricated 22FDX ASIC processes 16 OFDM subcarriers in parallel for an eight-user, 64-antenna massive-MIMO receiver. Exploiting beamspace sparsity and frequency-domain correlation cuts area and power by up to 3×; the 1.3 mm² core reaches 7.3 Gb/s at 286 mW and 0.8 V, or 39 pJ/b. The result is measured silicon, though comparison breadth beyond the claimed open-literature baseline is not shown in the candidate record.</span>
-        <span class="zh">这款22FDX流片ASIC面向8用户、64天线的大规模MIMO接收机，可并行处理16个OFDM子载波。利用波束空间稀疏性和频域相关性，面积与功耗最高降低3倍；1.3 mm²核心在0.8 V下以286 mW实现7.3 Gb/s，即39 pJ/b。结果来自实测硅片，但候选记录没有展示其与更广泛基线的比较范围。</span>
+        <span class="en">CTTE provides a synthesizable SystemVerilog trace encoder with one protocol-agnostic front end and selectable RISC-V N-Trace/Nexus or E-Trace back ends. It has been integrated with six cores from five suppliers and tested on 64-bit Linux systems, including two-hart SMP; source-side process filtering doubled observation depth in a fixed buffer. The open implementation fills a practical tooling gap, although the result remains a preprint rather than a standardized reference implementation.</span>
+        <span class="zh">CTTE提供一套可综合的SystemVerilog追踪编码器，以统一的协议无关前端连接可选的RISC-V N-Trace/Nexus或E-Trace后端。该实现已集成到5家供应商的6款核心，并在包括双hart SMP在内的64位Linux系统上测试；源端进程过滤使固定缓冲区中的观察深度翻倍。它填补了开放工具链中的实际空白，但目前仍是预印本，并非标准参考实现。</span>
       </p>
     </article>
   </section>
@@ -394,104 +415,53 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.19628" target="_blank" rel="noopener">
-          <span class="en">FIBER Decouples GPU Threads From Private Register Ownership</span>
-          <span class="zh">FIBER将GPU线程与私有寄存器所有权解耦</span>
+        <a href="https://arxiv.org/abs/2608.20110" target="_blank" rel="noopener">
+          <span class="en">ODEONN: A Digital ODE Solver for Oscillatory Neural Networks</span>
+          <span class="zh">ODEONN：面向振荡神经网络的数字ODE求解架构</span>
         </a>
       </h3>
-      <p class="authors">Zihan Liu, Jingwen Leng, Yangjie Zhou, et al.</p>
+      <p class="authors">B. F. Haverkort, A. Todri-Sanial</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.19628" target="_blank" rel="noopener">arXiv:2608.19628</a> · 2026-08-20</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.20110" target="_blank" rel="noopener">arXiv:2608.20110</a> · 2026-08-20T14:39:55Z</p>
       <p class="summary">
-        <span class="en">FIBER replaces fixed thread-private register ownership with lightweight execution instances that access an SM-wide shared register view. The ISA, microarchitecture and compiler co-design enables dynamic parallelism and fine-grained dataflow scheduling for workloads that mix GEMM and non-GEMM kernels. The proposal directly targets operand-supply inefficiency in modern tensor pipelines, but the candidate record is architecture work rather than a fabricated implementation.</span>
-        <span class="zh">FIBER以可访问SM级共享寄存器视图的轻量执行实例，取代固定的线程私有寄存器所有权。其ISA、微架构与编译器协同设计可为混合GEMM和非GEMM内核的负载提供动态并行度和细粒度数据流调度。该方案直指现代张量流水线的操作数供给效率，但候选记录属于架构研究，并非流片实现。</span>
+        <span class="en">ODEONN is a modular fully digital architecture for oscillatory neural networks that supports complex-valued coupling rather than a single fixed application. Its sine approximation uses half the hardware resources of standard methods, with less than 2% degradation versus full-precision software, and the reported energy-delay product is 45× lower than conventional software execution. The comparison is against software rather than taped-out silicon, so implementation efficiency still needs physical validation.</span>
+        <span class="zh">ODEONN是一种模块化的全数字振荡神经网络架构，支持复数耦合，而非仅面向单一固定应用。其正弦近似相较标准方法节省一半硬件资源，相对全精度软件的性能下降低于2%，报告的能量延迟积则比传统软件执行低45倍。当前对比对象是软件而非流片芯片，因此实现效率仍需物理验证。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.19395" target="_blank" rel="noopener">
-          <span class="en">HYDRA Co-Designs Chiplet Layout and Runtime Policy for Hybrid LLMs</span>
-          <span class="zh">HYDRA协同设计混合LLM的chiplet布局与运行时策略</span>
+        <a href="https://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">
+          <span class="en">APEX Exploits Dual Sparsity for Precise SNN Inference</span>
+          <span class="zh">APEX利用双重稀疏性实现精确SNN推理</span>
         </a>
       </h3>
-      <p class="authors">Jiahao Lin, Alish Kanani, Sangwan Lee, et al.</p>
+      <p class="authors">D. B. Venkatesh, S. Radhakrishnan, R. Rakshit, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.19395" target="_blank" rel="noopener">arXiv:2608.19395</a> · 2026-08-19</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">arXiv:2608.19046</a> · 2026-08-19T15:38:16Z</p>
       <p class="summary">
-        <span class="en">HYDRA jointly explores chiplet composition, physical placement, inter-chiplet bandwidth, batching and scheduling for Transformer-Mamba serving. Across the reported workloads it improves average throughput by 1.55× and cuts time to first token by 43.7%, with peak throughput gains of 2.3× over the selected baselines. The gains come from a Markov-based estimator and simulated design-space exploration, so hardware validation is still needed.</span>
-        <span class="zh">HYDRA面向Transformer-Mamba混合模型服务，联合探索chiplet组成、物理布局、片间带宽、批处理与调度。对报告中的负载，其平均吞吐量提高1.55倍，首token时间降低43.7%，相对所选基线的最高吞吐增益达2.3倍。结果依赖基于Markov模型的估算器和设计空间仿真，仍需真实硬件验证。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.18366" target="_blank" rel="noopener">
-          <span class="en">MAGMA Adds Online Adaptation to a Fixed-Point FPGA GMM Engine</span>
-          <span class="zh">MAGMA为定点FPGA高斯混合模型引擎加入在线自适应</span>
-        </a>
-      </h3>
-      <p class="authors">Peter Forcha, Harshitha Kajekusumadhar, Mbua Peter, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.18366" target="_blank" rel="noopener">arXiv:2608.18366</a> · 2026-08-18</p>
-      <p class="summary">
-        <span class="en">MAGMA implements concurrent Gaussian-mixture inference and online expectation-maximization updates as a synthesizable fixed-point FPGA pipeline. On an AMD Spartan-7 it runs at 74.49 MHz using 7,779 LUTs and 91 DSPs with no block RAM, drawing 274 mW while reporting 11.8× inference and 81× M-step speedups over software. Adaptation accuracy is evaluated on a synthetic non-stationary scene, which limits conclusions about deployment robustness.</span>
-        <span class="zh">MAGMA把高斯混合模型推理和在线期望最大化更新实现为可综合的定点FPGA流水线。在AMD Spartan-7上，它以74.49 MHz运行，使用7,779个LUT和91个DSP、不占用块RAM，功耗274 mW；相对软件的推理和M步加速分别为11.8倍和81倍。其自适应准确率在合成非平稳场景上评估，因此对真实部署鲁棒性的结论仍有限。</span>
+        <span class="en">APEX maps the PASC-IF neuron into the LoAS accelerator framework to preserve ANN-equivalent accuracy at fewer spiking-inference timesteps. A three-stage PASC-IF datapath is implemented as combinational logic without added latency, while the architecture exploits sparsity in two dimensions. The supplied abstract is truncated before quantitative efficiency results, and the preprint does not establish measured-silicon performance.</span>
+        <span class="zh">APEX将PASC-IF神经元映射到LoAS加速器框架中，以更少的脉冲推理时间步保持与ANN等效的精度。三级PASC-IF数据通路采用组合逻辑实现，不增加额外延迟，同时架构利用两个维度的稀疏性。候选摘要在定量能效结果前被截断，且预印本尚未证明实测芯片性能。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Hardware-Relevant AI Research</span>
-      <span class="zh">硬件相关AI研究</span>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.15764" target="_blank" rel="noopener">
-          <span class="en">Plain Global-Load Concurrency Peaks Early on NVIDIA H100</span>
-          <span class="zh">NVIDIA H100普通全局加载的并发收益提前见顶</span>
+        <a href="https://arxiv.org/abs/2608.16336" target="_blank" rel="noopener">
+          <span class="en">Multi-Tier SLA Scheduling for LLM Serving</span>
+          <span class="zh">面向LLM服务的多层SLA调度</span>
         </a>
       </h3>
-      <p class="authors">Somashekar Manjunath, Rahul Ramachandra M</p>
+      <p class="authors">A. Vestrum, A. Raeesi, H. Roed</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.15764" target="_blank" rel="noopener">arXiv:2608.15764</a> · 2026-08-16</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.16336" target="_blank" rel="noopener">arXiv:2608.16336</a> · 2026-08-17T09:43:51Z</p>
       <p class="summary">
-        <span class="en">Microbenchmarks on three H100 SXM5 dies find plain ld.global bandwidth peaking near two offered loads per thread, then falling about 35% by eight loads. Fixed-work controls, reversed sweeps and a 512 MB-to-20 GB allocation range reproduce the decline while DRAM bytes stay nearly constant and L2-sector traffic rises. The clean-room result is actionable for memory-bound CUDA kernels, but it characterizes a narrow load path rather than the full Hopper memory system.</span>
-        <span class="zh">对3颗H100 SXM5芯片的微基准测试显示，普通ld.global带宽在线程每次约2个加载请求时达到峰值，到8个请求时下降约35%。固定工作量、反向扫描以及512 MB至20 GB分配范围的控制实验均复现该现象，同时DRAM字节量近乎不变而L2扇区流量上升。该净室测试对内存受限CUDA内核有直接参考价值，但只刻画了特定加载路径，并非完整的Hopper存储系统。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.15002" target="_blank" rel="noopener">
-          <span class="en">NPU Offload Cuts Energy for Frozen Visual-Encoder Training</span>
-          <span class="zh">NPU卸载降低冻结视觉编码器训练能耗</span>
-        </a>
-      </h3>
-      <p class="authors">Hyojun Yun, Seungjae Won, Hyungpil Moon</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.15002" target="_blank" rel="noopener">arXiv:2608.15002</a> · 2026-08-15</p>
-      <p class="summary">
-        <span class="en">An asynchronous training pipeline moves a frozen A8W8 INT8 visual encoder onto a Mobilint Aries2 NPU while an RTX 5060 Ti trains the FP32 action expert. Offloading the ResNet stage reduces energy per sample by 17.1% in the first configuration despite transfer and runtime overheads. The study uses 30,000-step robot-policy runs with three seeds, but the candidate abstract does not report whether deeper offload levels preserve the same benefit.</span>
-        <span class="zh">一个异步训练流水线把冻结的A8W8 INT8视觉编码器迁移到Mobilint Aries2 NPU，同时由RTX 5060 Ti训练FP32动作专家。第一种配置卸载ResNet阶段后，尽管存在传输和运行时开销，单样本能耗仍降低17.1%。研究使用3个随机种子完成30,000步机器人策略训练，但候选摘要未说明更深层卸载是否维持相同收益。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.20164" target="_blank" rel="noopener">
-          <span class="en">ONEX Compiles High-Rate Quantum Product Codes for Neutral-Atom Arrays</span>
-          <span class="zh">ONEX为中性原子阵列编译高码率量子乘积码</span>
-        </a>
-      </h3>
-      <p class="authors">Adrian Liu, Wan-Hsuan Lin, Daniel Bochen Tan, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.20164" target="_blank" rel="noopener">arXiv:2608.20164</a> · 2026-08-20</p>
-      <p class="summary">
-        <span class="en">ONEX decomposes two-dimensional execution planning for a family of high-rate qLDPC product codes into independent one-dimensional problems on neutral-atom arrays. An SMT formulation finds depth-optimal 1D plans, while movement compaction and iterative feedback assemble practical schedules. The approach attacks a real quantum-error-correction compilation bottleneck, but the candidate abstract is truncated before full scale and hardware assumptions are reported.</span>
-        <span class="zh">ONEX把中性原子阵列上一类高码率qLDPC乘积码的二维执行规划，分解为相互独立的一维问题。其SMT形式化可求得深度最优的一维方案，再通过原子移动压缩与迭代反馈组合成可执行调度。该方法针对量子纠错中的实际编译瓶颈，但候选摘要在完整规模与硬件假设公布前被截断。</span>
+        <span class="en">This work extends Llumnix from two priority levels to an arbitrary number of service tiers using per-tier headroom, tier-aware dispatch, and migration. Evaluation covers uniform, Gaussian, and enterprise-style priority mixes in the Vidur simulator against INFaaS, vLLM, Orca, and Sarathi-Serve baselines. The design better matches production SLA hierarchies, but all evidence in the supplied record is simulation-based rather than from a live inference cluster.</span>
+        <span class="zh">该研究将Llumnix从两个优先级扩展为任意数量的服务层级，引入分层余量、层级感知调度与迁移机制。评估在Vidur模拟器中覆盖均匀、高斯和企业型优先级分布，并与INFaaS、vLLM、Orca及Sarathi-Serve比较。该设计更贴近生产环境的SLA层级，但候选记录中的证据全部来自模拟，而非真实推理集群。</span>
       </p>
     </article>
   </section>
@@ -502,17 +472,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.18482" target="_blank" rel="noopener">
-          <span class="en">NeuroAssertion Uses Formal Coverage to Refine RTL Assertions</span>
-          <span class="zh">NeuroAssertion利用形式覆盖率迭代优化RTL断言</span>
+        <a href="https://arxiv.org/abs/2608.17266" target="_blank" rel="noopener">
+          <span class="en">Congestion-Aware NoC Placement and Routing for FPGAs</span>
+          <span class="zh">面向FPGA的拥塞感知NoC布局与路由</span>
         </a>
       </h3>
-      <p class="authors">Zhiyuan Yan, Ziyue Zheng, Hongce Zhang</p>
+      <p class="authors">S. G. Shahrouz, V. Betz</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.18482" target="_blank" rel="noopener">arXiv:2608.18482</a> · 2026-08-19</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.17266" target="_blank" rel="noopener">arXiv:2608.17266</a> · 2026-08-18T01:51:14Z</p>
       <p class="summary">
-        <span class="en">NeuroAssertion converts hard-to-reach RTL control conditions into formal reachability goals, generates diverse traces with model checking, and mines assertions through syntax-guided synthesis. A two-stage LLM refinement loop then proposes assertions for uncovered regions and revises candidates that fail formal checks. Verification feedback constrains the generative component, but the candidate record is truncated before benchmark coverage and runtime gains are available.</span>
-        <span class="zh">NeuroAssertion把难以触达的RTL控制条件转化为形式可达性目标，利用模型检查生成多样化轨迹，再通过语法引导综合挖掘断言。两阶段LLM优化循环针对未覆盖区域提出断言，并修正未通过形式检查的候选。验证反馈为生成模块提供约束，但候选记录在给出基准覆盖率和运行时间收益前被截断。</span>
+        <span class="en">The authors add NoC link-congestion cost and turn-model packet routing directly to VPR&#x27;s placement flow for NoC-equipped FPGAs. Jointly considering programmable routing and packet-path diversity lets the placer reject oversubscribed network choices earlier, with evaluation across 29 benchmarks. The candidate abstract is truncated before the full numerical result, and the work remains an open-flow preprint rather than a production-tool study.</span>
+        <span class="zh">作者将NoC链路拥塞成本和转向模型分组路由直接加入面向NoC FPGA的VPR布局流程。通过联合考虑可编程布线与数据包路径多样性，布局器可更早排除链路过度订阅的选择，并在29个基准上进行评估。候选摘要在完整数值结果前被截断，且该工作仍是开放流程预印本，并非生产级工具研究。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.16733" target="_blank" rel="noopener">
+          <span class="en">GoalEvolve Optimizes Physical-Design Algorithms Against Final QoR</span>
+          <span class="zh">GoalEvolve以最终QoR驱动物理设计算法优化</span>
+        </a>
+      </h3>
+      <p class="authors">H. Liu, L. Zhou, Y. Ren, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.16733" target="_blank" rel="noopener">arXiv:2608.16733</a> · 2026-08-17T15:45:33Z</p>
+      <p class="summary">
+        <span class="en">GoalEvolve evolves physical-design algorithms against end-to-end quality-of-results targets instead of optimizing each stage in isolation. It identifies the dominant target gap, traces it to a flow stage, and uses full-flow evaluation to retain only changes that survive downstream effects; across eight ASAP7 designs, post-route total negative slack improved by 30.67% on average. The gains come from benchmark designs in a research flow, so transfer to commercial nodes and production constraints remains unproven.</span>
+        <span class="zh">GoalEvolve以端到端QoR目标演化物理设计算法，而不是孤立优化各个阶段。它识别最主要的目标缺口，将其定位到具体流程阶段，并通过全流程评估只保留下游仍有效的改动；在8个ASAP7设计上，布线后总负裕量平均改善30.67%。这些增益来自研究流程中的基准设计，能否迁移到商用制程和生产约束仍待验证。</span>
       </p>
     </article>
   </section>
@@ -540,8 +525,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-22 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-22 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-23 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-23 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
