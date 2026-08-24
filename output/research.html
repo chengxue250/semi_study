@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-23">
+<meta name="edition-date" content="2026-08-24">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Verification and Scheduling Move Up the Stack — Semi Research 2026-08-23</title>
+<title>Memory Boundaries Become Design Variables — Semi Research 2026-08-24</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,20 +319,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, August 23, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月23日 星期日</span>
+      <span class="en">Research digest · Monday, August 24, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月24日 星期一</span>
     </div>
     <h1>
-      <span class="en">Verification and Scheduling Move Up the Stack</span>
-      <span class="zh">验证与调度持续向栈上层延伸</span>
+      <span class="en">Memory Boundaries Become Design Variables</span>
+      <span class="zh">存储边界成为设计变量</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s systems papers push verification, placement, tracing, and service-level scheduling into more integrated tool flows. Device work on ScAlN and GaN provides a measured counterpoint at the physical layer.</span>
-      <span class="zh">本周系统论文将验证、布局、追踪和服务等级调度纳入更集成的工具流程。ScAlN与GaN器件研究则以实测结果补足物理层视角。</span>
+      <span class="en">This week&#x27;s work moves state across devices, packages, accelerators, GPUs, and edge nodes instead of treating memory as a fixed hierarchy. The strongest results pair that movement with measured hardware or explicit kernel and thermal constraints.</span>
+      <span class="zh">本周研究不再把存储视为固定层级，而是在器件、封装、加速器、GPU与边缘节点之间重新安排状态。更有分量的工作同时给出了实测硬件，或明确纳入内核与热约束。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
@@ -343,68 +343,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.35848/1347-4065/ae96ec" target="_blank" rel="noopener">
-          <span class="en">Sc-Composition Sequencing Controls the Structural Stability of Sputter-Epitaxial ScAlN/GaN Multilayers</span>
-          <span class="zh">Sc组分排序控制溅射外延ScAlN/GaN多层结构稳定性</span>
+        <a href="https://doi.org/10.1021/acsami.6c09875" target="_blank" rel="noopener">
+          <span class="en">Gate-Stack Engineering Improves 40 nm IGZO Vertical Charge-Trap Memory</span>
+          <span class="zh">栅堆叠工程改善40 nm IGZO垂直电荷俘获存储器</span>
         </a>
       </h3>
-      <p class="authors">N. Mimasaka, K. Ikeda, M. Naito, et al.</p>
+      <p class="authors">Y. Jung, C.-S. Hwang, S.-M. Yoon</p>
       
-      <p class="venue"><a href="https://doi.org/10.35848/1347-4065/ae96ec" target="_blank" rel="noopener">Japanese Journal of Applied Physics</a> · 2026-08-20</p>
+      <p class="venue"><a href="https://doi.org/10.1021/acsami.6c09875" target="_blank" rel="noopener">ACS Applied Materials &amp; Interfaces</a> · 2026-08-21</p>
       <p class="summary">
-        <span class="en">ScAlN multilayers grown on GaN/6H-SiC remained coherently strained in-plane whether Sc content stepped down toward about 6% or up toward about 22%. The increasing-Sc sequence produced more roughness, needle-like features, and c-axis deviation, while decreasing Sc was structurally more stable. The result is measured by high-resolution X-ray diffraction and reciprocal-space mapping, but it covers short four-step growth sequences under one sputtering condition rather than a manufacturing window.</span>
-        <span class="zh">在GaN/6H-SiC上生长的ScAlN多层结构，无论Sc含量逐步降至约6%还是升至约22%，均保持面内相干应变。Sc递增序列出现更明显的粗糙度、针状表面特征和c轴偏离，而Sc递减序列结构更稳定。结果来自高分辨率X射线衍射和倒易空间映射实测，但仅覆盖单一溅射条件下的四段短时生长，尚不能代表完整制造窗口。</span>
+        <span class="en">An a-IGZO vertical charge-trap memory transistor uses an H2O-based Al2O3 tunneling layer and nanocrystalline ZnO traps to improve charge injection and erase behavior. Devices optimized at 60 nm and validated at a 40 nm channel length produce an approximately 10 V memory window. The result is relevant to tighter 3D NAND vertical scaling, although array-level endurance, uniformity, and manufacturability are not established in the candidate record.</span>
+        <span class="zh">该a-IGZO垂直电荷俘获存储晶体管采用H2O基Al2O3隧穿层与纳米晶ZnO俘获层，以改善电荷注入和擦除行为。器件在60 nm条件下优化，并在40 nm沟道长度下验证，获得约10 V存储窗口。结果与3D NAND更紧凑的垂直缩放相关，但候选资料尚未给出阵列级耐久性、一致性与可制造性。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.3390/electronics15163688" target="_blank" rel="noopener">
-          <span class="en">GaN HEMTs Remove Reverse-Recovery Spikes in a 130 kHz WPT Inverter</span>
-          <span class="zh">GaN HEMT消除130 kHz无线供电逆变器的反向恢复尖峰</span>
+        <a href="https://doi.org/10.1038/s41467-026-76907-4" target="_blank" rel="noopener">
+          <span class="en">A Dual-Ferroelectric Stack Adds Reconfigurable Optoelectronic Memory</span>
+          <span class="zh">双铁电堆叠实现可重构光电存储</span>
         </a>
       </h3>
-      <p class="authors">M. Bogdanović, Ž. Despotović, D. Marčetić, et al.</p>
+      <p class="authors">P. Wang, B. Jiang, W. Xue, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.3390/electronics15163688" target="_blank" rel="noopener">Electronics</a> · 2026-08-18</p>
+      <p class="venue"><a href="https://doi.org/10.1038/s41467-026-76907-4" target="_blank" rel="noopener">Nature Communications</a> · 2026-08-19</p>
       <p class="summary">
-        <span class="en">A measured 130 kHz L-S-tuned GaN full-bridge inverter commutates through third-quadrant conduction during dead time and eliminates the reverse-recovery current spikes seen with Si IGBTs. The comparison isolates GaN&#x27;s zero-reverse-recovery behavior from system-level variables, making dead-time tuning the central trade-off between shoot-through risk and conduction loss. The evidence is hardware-based, but it comes from one inverter topology and operating regime.</span>
-        <span class="zh">一套实测的130 kHz L-S调谐GaN全桥逆变器在死区期间通过第三象限导通完成换流，消除了Si IGBT方案中的反向恢复电流尖峰。该比较将GaN零反向恢复特性与系统级变量分离，使死区调节成为直通风险与导通损耗之间的核心权衡。证据来自真实硬件，但目前仅覆盖一种逆变器拓扑和工作区间。</span>
+        <span class="en">A stacked dual-ferroelectric transistor switches polarization through electrical and optical inputs, combining electronic storage, multilevel optical memory, and visual-response emulation in one device. It reports more than 8-bit conductance states, low dark current, and a wide analog dynamic range. The artificial-vision demonstration is simulated, so array scalability and system energy remain open questions despite the device-level functionality.</span>
+        <span class="zh">该双铁电堆叠晶体管通过电输入与光输入翻转极化，在单个器件中结合电子存储、多级光存储和视觉响应模拟。器件报告了超过8 bit的电导状态、低暗电流和较宽的模拟动态范围。人工视觉演示基于仿真，因此尽管器件功能丰富，阵列扩展性与系统能耗仍待验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1088/1361-6501/ae9c5e" target="_blank" rel="noopener">
+          <span class="en">Scanless Confocal Metrology Speeds 3D Package Profiling 308x</span>
+          <span class="zh">无扫描共焦测量将3D封装轮廓检测提速308倍</span>
+        </a>
+      </h3>
+      <p class="authors">C. Huang, D. Kong, J. Liang, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1088/1361-6501/ae9c5e" target="_blank" rel="noopener">Measurement Science and Technology</a> · 2026-08-20</p>
+      <p class="summary">
+        <span class="en">A chromatic differential arrayed-confocal microscope reconstructs package-substrate topography without lateral or axial mechanical scanning. It cuts full-resolution acquisition from 20 seconds to 65 milliseconds, a 308x throughput gain, while step-height and surface-roughness deviations stay below 3% and 1% versus a commercial laser confocal tool. The comparison is on selected substrates, so robustness across reflective materials and production defect modes still needs broader validation.</span>
+        <span class="zh">该色差阵列共焦显微系统无需横向或轴向机械扫描即可重建封装基板三维形貌。其全分辨率采集时间从20秒降至65毫秒，吞吐量提升308倍；相较商用激光共焦设备，台阶高度与表面粗糙度偏差分别低于3%和1%。目前比较基于选定基板，面对不同反射材料与量产缺陷模式的稳健性仍需更广泛验证。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits, Architecture &amp; Reliability</span>
-      <span class="zh">电路、架构与可靠性</span>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.19300" target="_blank" rel="noopener">
-          <span class="en">Performance Verification Across Four Generations of AmpereOne</span>
-          <span class="zh">跨四代AmpereOne核心的性能验证方法</span>
+        <a href="http://arxiv.org/abs/2608.20198" target="_blank" rel="noopener">
+          <span class="en">A Sub-Milliwatt ASIC Decodes EEG Auditory Attention</span>
+          <span class="zh">亚毫瓦ASIC解码EEG听觉注意力</span>
         </a>
       </h3>
-      <p class="authors">D. Al-Otoom, N. Kelly, A. Lindsay, et al.</p>
+      <p class="authors">Q. Ma, R. George, S. Scholze, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.19300" target="_blank" rel="noopener">arXiv:2608.19300</a> · 2026-08-19T16:50:02Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.20198" target="_blank" rel="noopener">arXiv:2608.20198</a> · 2026-08-20</p>
       <p class="summary">
-        <span class="en">Ampere describes a pre-silicon verification flow used across four generations of AmpereOne, correlating cycle-accurate RTL against a trace-driven performance model. Daily regressions, curated workloads, and a unified event stream let teams isolate units such as branch prediction and L2 prefetch before full-core correlation. The paper is valuable as an industrial methodology report, though the supplied abstract gives no quantitative defect-escape or schedule comparison against alternative flows.</span>
-        <span class="zh">Ampere介绍了一套用于四代AmpereOne的流片前性能验证流程，通过周期精确的RTL与轨迹驱动性能模型进行关联。每日回归、精选工作负载和统一事件流，使团队可先隔离分支预测与L2预取等单元，再进行整核关联。该文的价值主要在工业方法论，但现有摘要未给出相对其他流程的缺陷漏检率或进度改善数据。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.18170" target="_blank" rel="noopener">
-          <span class="en">An Open RISC-V Trace Encoder With N-Trace and E-Trace Back Ends</span>
-          <span class="zh">支持N-Trace与E-Trace后端的开放RISC-V追踪编码器</span>
-        </a>
-      </h3>
-      <p class="authors">A. Weiss, A. Schulz</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.18170" target="_blank" rel="noopener">arXiv:2608.18170</a> · 2026-08-17T16:13:02Z</p>
-      <p class="summary">
-        <span class="en">CTTE provides a synthesizable SystemVerilog trace encoder with one protocol-agnostic front end and selectable RISC-V N-Trace/Nexus or E-Trace back ends. It has been integrated with six cores from five suppliers and tested on 64-bit Linux systems, including two-hart SMP; source-side process filtering doubled observation depth in a fixed buffer. The open implementation fills a practical tooling gap, although the result remains a preprint rather than a standardized reference implementation.</span>
-        <span class="zh">CTTE提供一套可综合的SystemVerilog追踪编码器，以统一的协议无关前端连接可选的RISC-V N-Trace/Nexus或E-Trace后端。该实现已集成到5家供应商的6款核心，并在包括双hart SMP在内的64位Linux系统上测试；源端进程过滤使固定缓冲区中的观察深度翻倍。它填补了开放工具链中的实际空白，但目前仍是预印本，并非标准参考实现。</span>
+        <span class="en">A GF22FDX 22 nm ASIC combines a quantized CNN engine with a Pearson-correlation classifier for real-time EEG auditory-attention decoding. The implementation reports 0.4941 mW at 0.55 V, 7.34 ms inference latency, and 2.09 mm² total area; the inference and classifier engines occupy 0.076 mm². The preprint describes a full implementation, but the candidate record does not establish measured post-silicon accuracy or power.</span>
+        <span class="zh">这款GF22FDX 22 nm ASIC将量化CNN引擎与Pearson相关分类器结合，用于实时EEG听觉注意力解码。实现结果为0.55 V下功耗0.4941 mW、推理延迟7.34 ms、总面积2.09 mm²，其中推理与分类引擎占0.076 mm²。预印本给出了完整实现，但候选资料未能确认流片后的实测精度与功耗。</span>
       </p>
     </article>
   </section>
@@ -415,89 +415,104 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.20110" target="_blank" rel="noopener">
-          <span class="en">ODEONN: A Digital ODE Solver for Oscillatory Neural Networks</span>
-          <span class="zh">ODEONN：面向振荡神经网络的数字ODE求解架构</span>
-        </a>
-      </h3>
-      <p class="authors">B. F. Haverkort, A. Todri-Sanial</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.20110" target="_blank" rel="noopener">arXiv:2608.20110</a> · 2026-08-20T14:39:55Z</p>
-      <p class="summary">
-        <span class="en">ODEONN is a modular fully digital architecture for oscillatory neural networks that supports complex-valued coupling rather than a single fixed application. Its sine approximation uses half the hardware resources of standard methods, with less than 2% degradation versus full-precision software, and the reported energy-delay product is 45× lower than conventional software execution. The comparison is against software rather than taped-out silicon, so implementation efficiency still needs physical validation.</span>
-        <span class="zh">ODEONN是一种模块化的全数字振荡神经网络架构，支持复数耦合，而非仅面向单一固定应用。其正弦近似相较标准方法节省一半硬件资源，相对全精度软件的性能下降低于2%，报告的能量延迟积则比传统软件执行低45倍。当前对比对象是软件而非流片芯片，因此实现效率仍需物理验证。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">
+        <a href="http://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">
           <span class="en">APEX Exploits Dual Sparsity for Precise SNN Inference</span>
-          <span class="zh">APEX利用双重稀疏性实现精确SNN推理</span>
+          <span class="zh">APEX利用双重稀疏性实现高精度SNN推理</span>
         </a>
       </h3>
       <p class="authors">D. B. Venkatesh, S. Radhakrishnan, R. Rakshit, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">arXiv:2608.19046</a> · 2026-08-19T15:38:16Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">arXiv:2608.19046</a> · 2026-08-19</p>
       <p class="summary">
-        <span class="en">APEX maps the PASC-IF neuron into the LoAS accelerator framework to preserve ANN-equivalent accuracy at fewer spiking-inference timesteps. A three-stage PASC-IF datapath is implemented as combinational logic without added latency, while the architecture exploits sparsity in two dimensions. The supplied abstract is truncated before quantitative efficiency results, and the preprint does not establish measured-silicon performance.</span>
-        <span class="zh">APEX将PASC-IF神经元映射到LoAS加速器框架中，以更少的脉冲推理时间步保持与ANN等效的精度。三级PASC-IF数据通路采用组合逻辑实现，不增加额外延迟，同时架构利用两个维度的稀疏性。候选摘要在定量能效结果前被截断，且预印本尚未证明实测芯片性能。</span>
+        <span class="en">APEX integrates the PASC-IF neuron into the LoAS accelerator framework so converted SNNs can preserve source-ANN accuracy at fewer timesteps. Its three-stage neuron datapath is fully combinational, adding no pipeline latency, while the architecture exploits sparsity in both activations and weights. This is an accelerator-design preprint rather than a measured-silicon report, so area and energy claims should be read as implementation results.</span>
+        <span class="zh">APEX把PASC-IF神经元集成到LoAS加速器框架中，使转换后的SNN能以更少时间步保持源ANN精度。其三级神经元数据通路采用全组合逻辑，不增加流水线延迟，同时利用激活与权重的双重稀疏性。该工作是加速器设计预印本而非实测芯片报告，因此面积与能效结论应视为实现结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.16807" target="_blank" rel="noopener">
+          <span class="en">A Micro-LED Array Programs IGZO RRAM in Parallel</span>
+          <span class="zh">微型LED阵列并行编程IGZO RRAM</span>
+        </a>
+      </h3>
+      <p class="authors">A. Adair, J. Robertson, A. Tsiamis, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.16807" target="_blank" rel="noopener">arXiv:2608.16807</a> · 2026-08-17</p>
+      <p class="summary">
+        <span class="en">A compact micro-LED array optically programs multiple form-free IGZO RRAM devices in parallel, using 450 nm light for SET and electrical pulses for RESET. Persistent photocurrent provides fading-memory behavior, and the prototype writes spatial patterns across several devices. The laboratory demonstration connects optical fan-out with neuromorphic state storage, but larger-array uniformity, endurance, and programming energy are not yet shown.</span>
+        <span class="zh">紧凑型微型LED阵列可并行光编程多个无需forming的IGZO RRAM器件，以450 nm蓝光执行SET、电脉冲执行RESET。持续光电流提供了衰减记忆行为，原型还在多个器件上写入空间图案。该实验把光学扇出与神经形态状态存储连接起来，但尚未展示更大阵列的一致性、耐久性与编程能耗。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research for Hardware</span>
+      <span class="en">Hardware-Relevant AI Research</span>
       <span class="zh">面向硬件的AI研究</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.16336" target="_blank" rel="noopener">
-          <span class="en">Multi-Tier SLA Scheduling for LLM Serving</span>
-          <span class="zh">面向LLM服务的多层SLA调度</span>
+        <a href="http://arxiv.org/abs/2608.16477" target="_blank" rel="noopener">
+          <span class="en">Pallas Migrates KV Cache Before Cellular Handover</span>
+          <span class="zh">Pallas在蜂窝切换前迁移KV cache</span>
         </a>
       </h3>
-      <p class="authors">A. Vestrum, A. Raeesi, H. Roed</p>
+      <p class="authors">T. Ding, J. Liu, H. Xu</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.16336" target="_blank" rel="noopener">arXiv:2608.16336</a> · 2026-08-17T09:43:51Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.16477" target="_blank" rel="noopener">arXiv:2608.16477</a> · 2026-08-17</p>
       <p class="summary">
-        <span class="en">This work extends Llumnix from two priority levels to an arbitrary number of service tiers using per-tier headroom, tier-aware dispatch, and migration. Evaluation covers uniform, Gaussian, and enterprise-style priority mixes in the Vidur simulator against INFaaS, vLLM, Orca, and Sarathi-Serve baselines. The design better matches production SLA hierarchies, but all evidence in the supplied record is simulation-based rather than from a live inference cluster.</span>
-        <span class="zh">该研究将Llumnix从两个优先级扩展为任意数量的服务层级，引入分层余量、层级感知调度与迁移机制。评估在Vidur模拟器中覆盖均匀、高斯和企业型优先级分布，并与INFaaS、vLLM、Orca及Sarathi-Serve比较。该设计更贴近生产环境的SLA层级，但候选记录中的证据全部来自模拟，而非真实推理集群。</span>
+        <span class="en">Pallas prepares LLM inference state at a predicted target base station before cellular handover, avoiding a cold transfer after the user moves. It reconstructs the stable prefix locally while streaming newly generated suffix KV blocks from the source, then assembles a current cache at handoff. The approach trades interruption time for prediction and duplicate-compute overhead, so its benefit depends on handover accuracy and available edge capacity.</span>
+        <span class="zh">Pallas在蜂窝切换发生前，把LLM推理状态预先准备到预测的目标基站，避免用户移动后再进行冷迁移。系统在目标端本地重建稳定前缀，同时从源端流式传输新生成后缀的KV块，并在切换时组装为最新cache。该方案以预测开销和重复计算换取更短中断时间，因此收益取决于切换预测准确率与边缘算力余量。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3789240.3829347" target="_blank" rel="noopener">
+          <span class="en">DynamoServe Pools Stranded GPU Memory for Multi-Tenant LLMs</span>
+          <span class="zh">DynamoServe汇聚闲置GPU显存服务多租户LLM</span>
+        </a>
+      </h3>
+      <p class="authors">D. Z. Tootaghaj, K. Diab, B. Lantz, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3829347" target="_blank" rel="noopener">ACM Digital Library</a> · 2026-08-17</p>
+      <p class="summary">
+        <span class="en">DynamoServe pools stranded GPU memory to hold model weights and KV caches for multi-tenant LLM serving. Coordinated placement and demand-driven weight migration reduce fragmentation while trying to preserve locality and latency. The reported evaluation improves memory efficiency without a latency penalty, though the candidate record provides no workload-level figures for judging gains across cluster topologies.</span>
+        <span class="zh">DynamoServe汇聚分散在GPU上的闲置显存，用于存放多租户LLM服务的模型权重与KV cache。协同放置与按需权重迁移减少资源碎片，同时尽量保持局部性和延迟。论文报告显存效率提升且没有延迟惩罚，但候选资料未提供按工作负载拆分的数据，难以判断不同集群拓扑下的收益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.15602" target="_blank" rel="noopener">
+          <span class="en">FluxBin Co-Designs Binary Quantization With a CUDA LUT Kernel</span>
+          <span class="zh">FluxBin协同设计二值量化与CUDA查找表内核</span>
+        </a>
+      </h3>
+      <p class="authors">Q. Yang, R. Yang, H. Xiao, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.15602" target="_blank" rel="noopener">arXiv:2608.15602</a> · 2026-08-16</p>
+      <p class="summary">
+        <span class="en">FluxBin pairs post-training binary decomposition with a CUDA lookup-table kernel to avoid floating-point arithmetic and runtime dequantization in ultra-low-bit LLM inference. Hessian-guided salient bases preserve critical weights, while virtual column mapping turns irregular work into denser execution; the paper reports up to 5.92x speedup. Results are tied to the tested CUDA kernels and models, so portability and accuracy at broader model scales remain the main caveats.</span>
+        <span class="zh">FluxBin把训练后二值分解与CUDA查找表内核结合，在超低比特LLM推理中避开浮点运算和运行时反量化。Hessian引导的显著性基底保留关键权重，虚拟列映射则把不规则计算转化为更稠密的执行；论文报告最高5.92倍加速。结果与测试所用CUDA内核和模型绑定，跨平台可移植性及更大模型上的精度仍是主要限制。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Verification</span>
-      <span class="zh">EDA与验证</span>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.17266" target="_blank" rel="noopener">
-          <span class="en">Congestion-Aware NoC Placement and Routing for FPGAs</span>
-          <span class="zh">面向FPGA的拥塞感知NoC布局与路由</span>
+        <a href="https://doi.org/10.1145/3770743.3804229" target="_blank" rel="noopener">
+          <span class="en">COOL Accelerates Thermal Prediction for 3D and 3.5D Packages</span>
+          <span class="zh">COOL加速3D与3.5D封装热预测</span>
         </a>
       </h3>
-      <p class="authors">S. G. Shahrouz, V. Betz</p>
+      <p class="authors">Y. Lu, Z. Guo, Q. Zhang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.17266" target="_blank" rel="noopener">arXiv:2608.17266</a> · 2026-08-18T01:51:14Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3770743.3804229" target="_blank" rel="noopener">ACM Digital Library</a> · 2026-08-16</p>
       <p class="summary">
-        <span class="en">The authors add NoC link-congestion cost and turn-model packet routing directly to VPR&#x27;s placement flow for NoC-equipped FPGAs. Jointly considering programmable routing and packet-path diversity lets the placer reject oversubscribed network choices earlier, with evaluation across 29 benchmarks. The candidate abstract is truncated before the full numerical result, and the work remains an open-flow preprint rather than a production-tool study.</span>
-        <span class="zh">作者将NoC链路拥塞成本和转向模型分组路由直接加入面向NoC FPGA的VPR布局流程。通过联合考虑可编程布线与数据包路径多样性，布局器可更早排除链路过度订阅的选择，并在29个基准上进行评估。候选摘要在完整数值结果前被截断，且该工作仍是开放流程预印本，并非生产级工具研究。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.16733" target="_blank" rel="noopener">
-          <span class="en">GoalEvolve Optimizes Physical-Design Algorithms Against Final QoR</span>
-          <span class="zh">GoalEvolve以最终QoR驱动物理设计算法优化</span>
-        </a>
-      </h3>
-      <p class="authors">H. Liu, L. Zhou, Y. Ren, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.16733" target="_blank" rel="noopener">arXiv:2608.16733</a> · 2026-08-17T15:45:33Z</p>
-      <p class="summary">
-        <span class="en">GoalEvolve evolves physical-design algorithms against end-to-end quality-of-results targets instead of optimizing each stage in isolation. It identifies the dominant target gap, traces it to a flow stage, and uses full-flow evaluation to retain only changes that survive downstream effects; across eight ASAP7 designs, post-route total negative slack improved by 30.67% on average. The gains come from benchmark designs in a research flow, so transfer to commercial nodes and production constraints remains unproven.</span>
-        <span class="zh">GoalEvolve以端到端QoR目标演化物理设计算法，而不是孤立优化各个阶段。它识别最主要的目标缺口，将其定位到具体流程阶段，并通过全流程评估只保留下游仍有效的改动；在8个ASAP7设计上，布线后总负裕量平均改善30.67%。这些增益来自研究流程中的基准设计，能否迁移到商用制程和生产约束仍待验证。</span>
+        <span class="en">COOL represents dies, interposers, thermal-interface materials, heat spreaders, and cooling structures as annotated 3D point clouds for package thermal prediction. A physics-informed boundary loss enforces material-interface and cooling constraints; on the authors&#x27; benchmark it reaches 2.4% normalized mean absolute error and runs more than 15.7x faster than a commercial FEM solver. Because the benchmark is constructed by the authors, generalization to unseen package geometries and boundary conditions needs independent testing.</span>
+        <span class="zh">COOL把裸片、中介层、热界面材料、散热盖与冷却结构表示为带属性的3D点云，用于封装热预测。物理信息边界损失约束材料界面与冷却边界；在作者构建的基准上，其归一化平均绝对误差为2.4%，速度比商用FEM求解器快15.7倍以上。由于基准由作者自行构建，面对未见过的封装几何与边界条件时的泛化能力仍需独立测试。</span>
       </p>
     </article>
   </section>
@@ -525,8 +540,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-23 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-23 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-24 01:12 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-24 01:12 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
