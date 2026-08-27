@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-27">
+<meta name="edition-date" content="2026-08-26">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Thermal limits meet alternative compute architectures — Semi Research 2026-08-27</title>
+<title>Bandwidth and heat move into the package — Semi Research 2026-08-26</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-26.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,134 +319,164 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, August 27, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月27日 星期四</span>
+      <span class="en">Research digest · Wednesday, August 26, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月26日 星期三</span>
     </div>
     <h1>
-      <span class="en">Thermal limits meet alternative compute architectures</span>
-      <span class="zh">热管理限制遇上新型计算架构</span>
+      <span class="en">Bandwidth and heat move into the package</span>
+      <span class="zh">带宽与散热走向封装内部</span>
     </h1>
     <p class="dek">
-      <span class="en">Recent work tackles heat flow from 2.5D/3D packages down to material interfaces, while photonic and time-domain designs pursue different efficiency paths. The common challenge is translating promising physical mechanisms into reproducible systems.</span>
-      <span class="zh">近期研究从2.5D/3D封装到材料界面处理热流问题，同时光子和时域设计探索不同的能效路径。共同挑战在于将有前景的物理机制转化为可复现的系统。</span>
+      <span class="en">This selection follows the physical constraints behind AI systems: cooling dense packages, moving data across chiplets and fabrics, and making photonic I/O practical. Several papers also test how far memory-aware algorithms and execution systems can stretch limited hardware.</span>
+      <span class="zh">本期论文聚焦AI系统背后的物理约束：高密度封装散热、Chiplet与互连网络间的数据传输，以及光子I/O的工程化。多篇工作也检验了内存感知算法和执行系统能够将有限硬件推向何种程度。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 6篇</span>
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
     </div>
   </header>
 
-    <section class="area" id="eda">
+    <section class="area" id="devices">
     <h2>
-      <span class="en">Electronic Design Automation</span>
-      <span class="zh">电子设计自动化</span>
+      <span class="en">Devices &amp; Advanced Packaging</span>
+      <span class="zh">器件与先进封装</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.23977" target="_blank" rel="noopener">
-          <span class="en">IC-ThermBench: a progressive benchmark for 2.5D/3D-IC thermal learning</span>
-          <span class="zh">IC-ThermBench：面向2.5D/3D-IC热学习的渐进式基准</span>
+        <a href="http://arxiv.org/abs/2608.22787" target="_blank" rel="noopener">
+          <span class="en">Generative design of liquid-cooling channels for 2.5D and 3D packages</span>
+          <span class="zh">面向2.5D与3D封装液冷通道的生成式设计</span>
         </a>
       </h3>
-      <p class="authors">David Huang, Wenkai Yang, Kuiye Ding, Haiyang Xin</p>
+      <p class="authors">M. Acquah, Zheng Liu</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.23977" target="_blank" rel="noopener">arXiv:2608.23977</a> · 2026-08-25</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.22787" target="_blank" rel="noopener">arXiv:2608.22787</a> · 2026-08-24</p>
       <p class="summary">
-        <span class="en">IC-ThermBench introduces an open benchmark for learning-based thermal modeling across 3D ICs, industrial packages, and a 50,000-sample 2.5D chiplet extension. Its baselines show a sharp generalization drop on unseen package systems: the best reported RMSE rises from 1.216 K to 15.99 K under cross-package transfer. The result shows that thermal ML still needs stronger out-of-distribution validation before broad use in package design.</span>
-        <span class="zh">IC-ThermBench提出面向3D IC、工业封装及包含5万样本的2.5D chiplet扩展集的开放热建模基准。其基线在未见封装系统上的泛化明显下降：最佳RMSE在跨封装迁移时从1.216 K升至15.99 K。该结果表明，热学机器学习在被广泛用于封装设计之前，仍需更严格的分布外验证。</span>
+        <span class="en">This work uses a conditional diffusion model to generate liquid-cooling channel layouts for a 2.7 kW package with two GPUs and one CPU. Of 5,000 designs, 229 passed the final topology screens; the best feasible layout is predicted to lower maximum GPU temperature by 33.6%, temperature spread by 52.5%, and pressure drop by 72.8% versus a reference. The results show how generative methods can explore coupled thermal-hydraulic constraints, though they remain model-based rather than a packaged hardware demonstration.</span>
+        <span class="zh">该工作使用条件扩散模型，为包含两颗GPU和一颗CPU、功耗2.7 kW的封装生成液冷通道布局。在5,000个设计中，229个通过最终拓扑筛选；最佳可行布局相对参考方案预计可将最高GPU温度降低33.6%、温差降低52.5%、压降降低72.8%。结果显示生成式方法能够探索耦合的热—流体约束，但目前仍基于模型而非封装硬件实证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsphotonics.6c00574" target="_blank" rel="noopener">
+          <span class="en">Graphene-plasmonic photodetectors for high-speed silicon photonics</span>
+          <span class="zh">用于高速硅光的石墨烯等离激元光探测器</span>
+        </a>
+      </h3>
+      <p class="authors">D. Rieben, S. Koepfli, D. Bisang, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1021/acsphotonics.6c00574" target="_blank" rel="noopener">ACS Photonics</a> · 2026-08-19</p>
+      <p class="summary">
+        <span class="en">The authors demonstrate waveguide-integrated graphene-plasmonic photodetectors with a 155 GHz 3 dB bandwidth and responsivity above 200 mA/W in the L-band. A single lane reaches 192 Gbit/s, while an eight-detector WDM receiver achieves an aggregate 816 Gbit/s. The result addresses a critical receiver-side constraint for dense optical I/O, although manufacturing yield and integration with electronic drivers remain important next questions.</span>
+        <span class="zh">作者展示了波导集成的石墨烯等离激元光探测器，在L波段实现155 GHz的3 dB带宽和超过200 mA/W的响应度。单通道线速率达到192 Gbit/s，八探测器WDM接收机的聚合速率达到816 Gbit/s。该结果针对高密度光I/O的关键接收端约束，但制造良率以及与电子驱动器的集成仍是后续重要问题。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="devices">
+  <section class="area" id="circuits">
     <h2>
-      <span class="en">Devices, Materials &amp; Packaging</span>
-      <span class="zh">器件、材料与封装</span>
+      <span class="en">Photonic Circuits &amp; Interconnects</span>
+      <span class="zh">光子电路与互连</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/bkcs.70210" target="_blank" rel="noopener">
-          <span class="en">DAF-less 3D stacking combines back-grinding and silane chemistry</span>
-          <span class="zh">无DAF三维堆叠结合背磨与硅烷化学</span>
+        <a href="https://doi.org/10.1002/admt.71266" target="_blank" rel="noopener">
+          <span class="en">Silicon photonics for co-packaged optics</span>
+          <span class="zh">面向共封装光学的硅光子技术</span>
         </a>
       </h3>
-      <p class="authors">Gyu-Sik Park, Suk Jekal, Woohyeon Kim, et al.</p>
+      <p class="authors">Ying Zhang, Xiangsheng Wang, Z. Kong, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/bkcs.70210" target="_blank" rel="noopener">Bulletin of the Korean Chemical Society</a> · 2026-08-18</p>
+      <p class="venue"><a href="https://doi.org/10.1002/admt.71266" target="_blank" rel="noopener">Advanced Materials &amp; Technologies</a> · 2026-08-20</p>
       <p class="summary">
-        <span class="en">The authors demonstrate die-attach-film-less multi-die stacking using back-grinding roughness control and silane coupling chemistry. Their APG12-treated fine-ground interface achieved a roughly 0.31 μm gap and 4.2 MPa shear strength, close to a polished reference, while thermal imaging indicated better heat transfer than DAF stacking. It is a process-oriented route to reduce polymer interlayers, but long-term reliability remains unproven.</span>
-        <span class="zh">作者利用背磨粗糙度控制和硅烷偶联化学，演示了无die attach film的多芯片堆叠。经APG12处理的精磨界面实现约0.31 μm间隙和4.2 MPa剪切强度，接近抛光参考值；热成像显示其传热优于DAF堆叠。这为减少聚合物中间层提供了面向工艺的路径，但长期可靠性仍待证明。</span>
+        <span class="en">This review connects the component stack of silicon-photonic PICs—lasers, modulators, couplers, Ge-on-Si photodetectors and wavelength multiplexers—to co-packaged optics systems. It frames CPO as a response to bandwidth, power and scalability limits in AI and data-center interconnects. Laser integration, thermal control, reliability, bandwidth density and energy efficiency remain the gaps between device demonstrations and widespread deployment.</span>
+        <span class="zh">该综述将硅光PIC的核心器件栈——激光器、调制器、耦合器、Ge-on-Si光探测器和波分复用器——与共封装光学系统联系起来。文章将CPO定位为应对AI和数据中心互连带宽、功耗与可扩展性限制的路径。激光器集成、热管理、可靠性、带宽密度和能效仍是从器件演示走向广泛部署的关键缺口。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/pola.70283" target="_blank" rel="noopener">
-          <span class="en">Modeling cure evolution and thermal endurance in filled epoxy underfill</span>
-          <span class="zh">高填充环氧底部填充胶的固化演化与热耐久建模</span>
+        <a href="https://doi.org/10.1021/acsphotonics.6c01216" target="_blank" rel="noopener">
+          <span class="en">A 2 μm silicon thermo-optic switch using artificial-gauge superlattices</span>
+          <span class="zh">采用人工规范场超晶格的2微米硅热光开关</span>
         </a>
       </h3>
-      <p class="authors">Ryan Giang, Ran Tao, Elena Moukhina, et al.</p>
+      <p class="authors">Xuelin Zhang, Jiangbing Du, Ke Xu, Zuyuan He</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/pola.70283" target="_blank" rel="noopener">Journal of Polymer Science</a> · 2026-08-16</p>
+      <p class="venue"><a href="https://doi.org/10.1021/acsphotonics.6c01216" target="_blank" rel="noopener">ACS Photonics</a> · 2026-08-19</p>
       <p class="summary">
-        <span class="en">This work combines DSC, TGA, and diffusion-aware kinetic modeling to predict curing and degradation in highly filled epoxy underfill. A two-step modified Kamal-Sourour model better captured conversion after vitrification and informed an oven cure that reached nearly complete conversion. The approach could improve packaging process windows, although it still needs correlation with interconnect reliability over service life.</span>
-        <span class="zh">该研究结合DSC、TGA和考虑扩散的动力学建模，预测高填充环氧底部填充胶的固化与降解。两步修正Kamal-Sourour模型能更好地描述玻璃化后的转化率，并用于设计实现近乎完全固化的烘箱曲线。该方法有望改善封装工艺窗口，但仍需与互连在服役期内的可靠性建立对应关系。</span>
+        <span class="en">The paper experimentally demonstrates a silicon thermo-optic Mach–Zehnder switch at 2 μm using a waveguide superlattice with an artificial gauge field. It reports 2.17 mW switching power, 1.5 dB insertion loss, crosstalk below −22 dB and a 110 nm operating bandwidth. Those figures make the design relevant to scalable photonic switching, while its system value still depends on integration with sources, detectors and control electronics.</span>
+        <span class="zh">论文实验展示了一种工作在2微米波段的硅热光Mach–Zehnder开关，采用带人工规范场的波导超晶格。其报告的开关功耗为2.17 mW、插入损耗1.5 dB、串扰低于−22 dB，工作带宽达110 nm。这些指标使该设计与可扩展光交换相关，但其系统价值仍取决于与光源、探测器和控制电子学的集成。</span>
       </p>
     </article>
   </section>
   <section class="area" id="accelerators">
     <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
+      <span class="en">AI Accelerators &amp; System Architecture</span>
+      <span class="zh">AI加速器与系统架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1126/sciadv.aee9649" target="_blank" rel="noopener">
-          <span class="en">Programmable photonic neural engine with 40,000 connections</span>
-          <span class="zh">具备4万连接的可编程光子神经引擎</span>
+        <a href="https://doi.org/10.4218/etrij.2026-0062" target="_blank" rel="noopener">
+          <span class="en">An HBM FPGA processor for real-time multilayer holograms</span>
+          <span class="zh">基于HBM FPGA的实时多层全息处理器</span>
         </a>
       </h3>
-      <p class="authors">Hao Sun, Xinyi Zhu, J. Azaña</p>
+      <p class="authors">Wonok Kwon, Sang-kyu Cheon, Keehoon Hong</p>
       
-      <p class="venue"><a href="https://doi.org/10.1126/sciadv.aee9649" target="_blank" rel="noopener">Science Advances</a> · 2026-08-19</p>
+      <p class="venue"><a href="https://doi.org/10.4218/etrij.2026-0062" target="_blank" rel="noopener">ETRI Journal</a> · 2026-08-19</p>
       <p class="summary">
-        <span class="en">The paper reports a photonic neuromorphic engine that integrates all-optical nonlinearity into a loop-based, time-multiplexed architecture. It demonstrates four network topologies and up to 40,000 optical connections, with reported latency more than two orders of magnitude below state-of-the-art electronic processors. System precision, control, and packaging overhead remain central deployment questions.</span>
-        <span class="zh">论文报道了一种光子神经形态引擎，将全光非线性集成到基于环路的时分复用架构中。该系统演示了四种网络拓扑，最多支持4万条光连接，并报告其延迟比先进电子处理器低两个数量级以上。系统级精度、控制和封装开销仍是部署的核心问题。</span>
+        <span class="en">This FPGA-based holographic processor combines HBM with an optimized Fresnel-diffraction formulation to produce eight-layer, 4K holograms at 30 frames per second. It reports 28 ms end-to-end latency and an 86% power reduction against GPU-based implementations. The system is a useful example of HBM enabling a specialized real-time pipeline where memory traffic, not only arithmetic throughput, sets the design limit.</span>
+        <span class="zh">该FPGA全息处理器将HBM与优化的菲涅耳衍射公式结合，可在30帧/秒下生成八层4K全息图。论文报告端到端时延为28 ms，相比GPU实现功耗降低86%。该系统说明，在专用实时流水线中，HBM可缓解由内存流量而不仅是算术吞吐量决定的设计上限。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.3390/app16168189" target="_blank" rel="noopener">
-          <span class="en">Time-domain CIM accelerator for AdderNet with hardware-error-aware training</span>
-          <span class="zh">面向AdderNet并具硬件误差感知训练的时域CIM加速器</span>
+        <a href="http://arxiv.org/abs/2608.19395" target="_blank" rel="noopener">
+          <span class="en">HYDRA explores heterogeneous chiplets for hybrid LLM serving</span>
+          <span class="zh">HYDRA探索用于混合LLM服务的异构Chiplet</span>
         </a>
       </h3>
-      <p class="authors">Aoming Zhan, Ye Zhao, Yumei Zhou, Shushan Qiao</p>
+      <p class="authors">Jiahao Lin, Alish Kanani, Sang-Won Lee, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.3390/app16168189" target="_blank" rel="noopener">Applied Sciences</a> · 2026-08-17</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.19395" target="_blank" rel="noopener">arXiv:2608.19395</a> · 2026-08-19</p>
       <p class="summary">
-        <span class="en">This time-domain compute-in-memory accelerator maps AdderNet’s L1 operations to minimum selection and time-domain accumulation, using dual-mode DTC encoding and shared-clock TDC readout. Post-layout simulations in 55 nm cover PVT variation, jitter, offsets, and quantization rather than assuming ideal conversion. That error-aware treatment is useful, but the evidence remains simulation rather than measured silicon.</span>
-        <span class="zh">该时域存算一体加速器将AdderNet的L1运算映射为最小值选择和时域累加，并采用双模式DTC编码及共享时钟TDC读出。其55 nm后仿真覆盖PVT变化、抖动、偏移和量化，而非假设理想转换。这样的误差感知处理有参考价值，但当前证据仍是仿真而非实测芯片。</span>
+        <span class="en">HYDRA is a design-space exploration framework for serving Transformer-Mamba hybrid LLMs on heterogeneous chiplet systems. It jointly evaluates chiplet mix, placement, inter-chiplet bandwidth, dynamic batching and scheduling, reporting 1.55x average throughput and 43.7% lower time-to-first-token than the cited baselines. The work argues that runtime policy and physical partitioning must be co-designed, though its gains are based on modeled exploration rather than silicon measurements.</span>
+        <span class="zh">HYDRA是一个面向异构Chiplet系统上Transformer-Mamba混合LLM服务的设计空间探索框架。它联合评估Chiplet组合、布局、片间带宽、动态批处理和调度，相比所引用的基线报告平均吞吐量提高1.55倍、首token时间降低43.7%。该工作指出运行时策略与物理划分必须协同设计，但其收益来自建模探索而非实测芯片。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Systems &amp; Hardware Co-Design</span>
-      <span class="zh">AI系统与软硬件协同设计</span>
+      <span class="en">AI Systems &amp; Efficient Inference</span>
+      <span class="zh">AI系统与高效推理</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2608.21657" target="_blank" rel="noopener">
-          <span class="en">FPGA model compression and hardware-aware acceleration: a co-design taxonomy</span>
-          <span class="zh">FPGA模型压缩与硬件感知加速：协同设计分类法</span>
+        <a href="http://arxiv.org/abs/2608.18261" target="_blank" rel="noopener">
+          <span class="en">MoE router locality meets a memory-bandwidth trade-off</span>
+          <span class="zh">MoE路由器局部性遭遇内存带宽权衡</span>
         </a>
       </h3>
-      <p class="authors">Peter Forcha, H. Kajekusumadhar, Mbua Peter, et al.</p>
+      <p class="authors">Shriniwas Ramesh Suram</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2608.21657" target="_blank" rel="noopener">arXiv:2608.21657</a> · 2026-08-21</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.18261" target="_blank" rel="noopener">arXiv:2608.18261</a> · 2026-08-18</p>
       <p class="summary">
-        <span class="en">This survey organizes 25 FPGA deep-learning co-design studies from 2015–2026 into five categories, from DSP elimination to memory hierarchy and deployment tooling. It finds that only one study reports compression and accuracy against a common baseline, and only two normalize energy efficiency against a common GPU baseline. The taxonomy warns that cross-paper FPGA comparisons remain poorly standardized.</span>
-        <span class="zh">这篇综述将2015至2026年的25项FPGA深度学习协同设计研究分为五类，涵盖DSP消除、存储层级和部署工具等。它发现只有一项研究在统一基准下同时报告压缩率和准确率，只有两项研究相对统一GPU基准归一化能效。该分类法提醒我们，跨论文FPGA比较仍缺乏标准化。</span>
+        <span class="en">This pre-registered study measures a 235B-parameter MoE model on a single 8 GB GPU and finds decode limited by memory bandwidth, at 0.44 tokens per second when active experts must be streamed. Router traces show reuse that could make a small expert cache useful, and locality losses reduce cache misses by as much as 60%. Yet every trained configuration failed the study&#x27;s predefined perplexity gate, a valuable negative result on the tension between routing locality and model quality.</span>
+        <span class="zh">这项预注册研究在单张8 GB GPU上测量235B参数MoE模型，发现当活跃专家必须流式加载时，解码受内存带宽限制，仅为0.44 token/秒。路由轨迹显示存在可让小型专家缓存受益的复用，局部性损失可将缓存未命中最多降低60%。但所有训练配置均未通过预设的困惑度门槛，这一负结果揭示了路由局部性与模型质量之间的张力。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.16157" target="_blank" rel="noopener">
+          <span class="en">FreeToken adapts MoE serving to edge hardware</span>
+          <span class="zh">FreeToken让MoE服务适配边缘硬件</span>
+        </a>
+      </h3>
+      <p class="authors">Shuo Yang, Xiao-yun Fan, Melissa Z. Pan, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.16157" target="_blank" rel="noopener">arXiv:2608.16157</a> · 2026-08-17</p>
+      <p class="summary">
+        <span class="en">FreeToken is an edge-native MoE serving system that adapts model placement, expert residency, CPU-GPU execution and memory management to the resources available on a local machine. The authors say it supports more than 20 MoE models, from a 35B model on a laptop to a 284B model on a gaming desktop and GLM-5.2 753B on one workstation GPU. The claim is ambitious and system-dependent, but it focuses attention on bandwidth-adaptive execution as a route to practical local inference.</span>
+        <span class="zh">FreeToken是一套面向边缘设备的MoE服务系统，可根据本地机器的资源动态调整模型布局、专家驻留、CPU-GPU执行和内存管理。作者称该系统支持超过20个MoE模型，可在笔记本上运行35B模型、在游戏台式机上运行284B模型，并在单张工作站GPU上运行GLM-5.2 753B。该主张较为激进且依赖具体系统，但它凸显了带宽自适应执行作为实现本地推理的路径。</span>
       </p>
     </article>
   </section>
@@ -474,8 +504,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-27 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-27 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-26 01:15 UTC · <a href="../2026-08-26.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-26 01:15 UTC · <a href="../2026-08-26.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
