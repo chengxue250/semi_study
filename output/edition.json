@@ -1,7 +1,13 @@
 {
-  "date": "2026-08-27",
-  "theme": {"en": "AI infrastructure shifts toward memory and scale", "zh": "AI基础设施转向存储与规模化"},
-  "dek": {"en": "Nvidia is bringing more of the memory stack into its own design as cloud GPU commitments reach the millions. The resulting demand is also pulling in tool investment, alternative inference systems, and attention to packaging limits.", "zh": "Nvidia正将更多存储栈设计纳入自身体系，云端GPU部署承诺已达数百万颗。这一需求也在带动设备投资、替代推理系统，并将封装限制推到更显著的位置。"},
+  "date": "2026-08-28",
+  "theme": {
+    "en": "AI Supply Chain Moves Through Memory and Policy",
+    "zh": "AI供应链穿行于存储与政策之间"
+  },
+  "dek": {
+    "en": "New accelerator designs are arriving alongside a US HBM build-out, while software choice and antitrust scrutiny increasingly shape who can deploy them. The day’s signals point to data movement and market access, not arithmetic alone, as the next constraints.",
+    "zh": "新型加速器陆续亮相，美国 HBM 产能建设同步推进；软件选择与反垄断审查也愈发影响这些产品由谁部署。当天的信号表明，下一阶段的约束不只来自算力，也来自数据搬运与市场准入。"
+  },
   "sections": [
     {
       "id": "ai-accelerators",
@@ -9,19 +15,35 @@
       "stories": [
         {
           "featured": true,
-          "title": {"en": "AWS expands its Nvidia GPU commitment to three million units", "zh": "AWS将Nvidia GPU部署承诺扩大至300万颗"},
-          "summary": {"en": "Amazon and Nvidia expanded their AWS collaboration to a commitment of up to three million Nvidia GPUs globally, triple the initial one-million-unit arrangement. The systems are intended for agentic AI, automation, and physical-AI workloads, making hyperscaler demand a direct driver of accelerator supply planning.", "zh": "Amazon与Nvidia扩大AWS合作，承诺在全球部署最多300万颗Nvidia GPU，规模是最初100万颗安排的三倍。这些系统面向智能体AI、自动化和具身AI工作负载，使超大规模云厂商需求成为加速器供应规划的直接驱动力。"},
-          "source": "Wccftech",
-          "url": "https://wccftech.com/amazon-commits-to-3-million-nvidia-gpus-in-aws-tripling-a-deal-that-started-at-just-one-million/",
-          "published": "2026-08-26T22:47:13+00:00"
+          "title": {"en": "OpenAI shows first Jalapeño accelerator benchmarks", "zh": "OpenAI 首次披露 Jalapeño 加速器基准测试"},
+          "summary": {"en": "OpenAI presented first benchmarks for Jalapeño at Hot Chips 2026, describing it as a clean-sheet general-purpose ASIC built specifically for AI workloads. The disclosure makes Jalapeño a more concrete entrant in the custom-silicon push, where performance must be judged alongside software maturity and memory-system design.", "zh": "OpenAI 在 Hot Chips 2026 首次展示 Jalapeño 的基准测试，并将其定义为面向 AI 工作负载从零设计的通用 ASIC。这使 Jalapeño 成为定制芯片浪潮中更具体的参与者；其竞争力仍须结合软件成熟度和存储系统设计来判断。"},
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/first-benchmarks-revealed-for-jalapeno-openais-clean-sheet-general-purpose-ai-accelerator-asic/",
+          "published": "2026-08-27T22:14:16+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "Meta’s MTIA 400 targets model training and ad serving", "zh": "Meta的MTIA 400同时瞄准模型训练与广告服务"},
-          "summary": {"en": "Meta’s MTIA 400 is presented as an in-house accelerator spanning AI training and advertising inference rather than a single specialized task. The Register says it is faster than Blackwell in some context, while noting it is not yet a wholesale substitute for Nvidia or AMD systems.", "zh": "Meta将MTIA 400定位为同时覆盖AI训练和广告推理的自研加速器，而非仅服务单一专用任务。《The Register》称其在某些语境下快于Blackwell，但也指出它尚不能全面替代Nvidia或AMD系统。"},
-          "source": "The Register (Systems)",
-          "url": "https://www.theregister.com/systems/2026/08/26/metas-new-mtia-400-chip-has-a-split-personality-training-ai-and-serving-ads/5292727",
-          "published": "2026-08-26T21:18:04+00:00"
+          "title": {"en": "Intel positions Crescent Island for agentic inference", "zh": "Intel 将 Crescent Island 定位于智能体推理"},
+          "summary": {"en": "Intel’s Crescent Island is a discrete data-center GPU aimed at agentic AI inference, where repeated model calls, tool use, weights and long-context KV caches all contribute to latency. The framing shifts attention from peak matrix throughput toward memory capacity and end-to-end response time for multi-step workloads.", "zh": "Intel 的 Crescent Island 是面向智能体 AI 推理的离散数据中心 GPU；在这类负载中，反复模型调用、工具使用、模型权重和长上下文 KV cache 都会叠加延迟。这一定位将焦点从峰值矩阵吞吐转向内存容量与多步骤工作负载的端到端响应时间。"},
+          "source": "SemiWiki",
+          "url": "https://semiwiki.com/semiconductor-manufacturers/intel/372665-crescent-island-turning-memory-capacity-into-agentic-ai-throughput/",
+          "published": "2026-08-27T21:00:29+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Nvidia pauses cloud-credit support amid antitrust concern", "zh": "Nvidia 因反垄断担忧暂停云服务信用支持"},
+          "summary": {"en": "Nvidia has reportedly paused revenue-sharing and credit-support arrangements for cloud providers after internal concern about antitrust exposure. The report follows Nvidia’s disclosure of $108 billion in commitments to OpenAI and other infrastructure partners, putting the commercial structure around AI capacity under closer scrutiny.", "zh": "据报道，Nvidia 因内部对反垄断风险的担忧，暂停了与云服务商的收入分成和信用支持安排。此事发生在公司披露已向 OpenAI 等基础设施合作伙伴作出 1,080 亿美元承诺之后，使 AI 产能背后的商业安排受到更严格审视。"},
+          "source": "Wccftech",
+          "url": "https://wccftech.com/nvidia-quietly-freezes-its-cloud-credit-support-deals-after-internal-talks-warn-of-antitrust-exposure/",
+          "published": "2026-08-27T23:55:49+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Qualcomm backs open AI software to reduce hardware lock-in", "zh": "Qualcomm 支持开放 AI 软件以降低硬件锁定"},
+          "summary": {"en": "Qualcomm is backing Modular’s effort to separate AI software from the underlying silicon platform. A more portable stack would give Qualcomm and other suppliers a clearer route into workloads now concentrated around Nvidia’s ecosystem, although compatibility alone does not settle performance or deployment risk.", "zh": "Qualcomm 正支持 Modular 将 AI 软件与底层硅平台解耦的努力。更具可移植性的技术栈将为 Qualcomm 及其他供应商进入当前集中于 Nvidia 生态的工作负载提供路径，但兼容性本身并不能解决性能或部署风险。"},
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/qualcomm-bets-open-source-ai-software-can-break-nvidias-lock-in/",
+          "published": "2026-08-27T18:09:20+00:00"
         }
       ]
     },
@@ -31,11 +53,19 @@
       "stories": [
         {
           "featured": true,
-          "title": {"en": "Nvidia introduces NVHBM with a custom base die and PHY", "zh": "Nvidia推出采用定制Base Die和PHY的NVHBM"},
-          "summary": {"en": "Nvidia introduced NVHBM, a custom high-bandwidth-memory implementation for NVLink Fusion partners, claiming 30% more bandwidth and 15% lower power than commodity HBM4E. Designing the base die and PHY itself extends Nvidia’s control from GPU and interconnect into a layer that increasingly constrains AI-system performance.", "zh": "Nvidia推出面向NVLink Fusion合作伙伴的定制高带宽存储NVHBM，声称相较通用HBM4E可实现30%更高带宽和15%更低功耗。通过自行设计Base Die和PHY，Nvidia将控制范围从GPU和互连延伸至日益制约AI系统性能的存储层。"},
+          "title": {"en": "SK hynix breaks ground on $4 billion Indiana HBM plant", "zh": "SK hynix 为印第安纳州 40 亿美元 HBM 工厂破土动工"},
+          "summary": {"en": "SK hynix has broken ground on a $4 billion Indiana HBM facility, extending advanced-memory production and packaging investment into the United States. The project adds a geographically distinct supply-chain node for AI memory, a component that increasingly limits accelerator-system deliveries.", "zh": "SK hynix 已为其位于印第安纳州、投资 40 亿美元的 HBM 工厂破土动工，将先进存储生产与封装投资延伸至美国。该项目为 AI 存储增加了一个地域上独立的供应链节点，而这一环节正日益限制加速器系统的交付。"},
+          "source": "GNews — HBM",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE52YVZMR2tYUXlaYkQ4NkVCWVdFUmZTLThza0FUeDl2YmNkLVFCM1FzdjNhaWQzbVY3OVJEejZtT0s2a1dSckZTXzZUQUNVam5nMTliQmZXTU5mcEpvWm9MWlY3MHhwN2xpODBZclI0SUxJM3pSN2dicEJvMDlJdw?oc=5",
+          "published": "2026-08-27T18:03:58+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "YMTC targets global NAND leadership by end-2027", "zh": "长江存储瞄准在 2027 年底前成为全球最大 NAND 厂商"},
+          "summary": {"en": "A report says China’s YMTC aims to become the world’s largest NAND producer by the end of 2027, overtaking Samsung and SK hynix. The target would require it to nearly double market share in 16 months, making execution, equipment access and demand absorption decisive tests.", "zh": "报道称，中国长江存储的目标是在 2027 年底前超过 Samsung 和 SK hynix，成为全球最大的 NAND 厂商。该目标要求其在 16 个月内将市场份额接近翻倍，执行能力、设备获取和需求承接将成为关键考验。"},
           "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/dram/nvidia-custom-nvhbm-promises-30-percent-higher-bandwidth-15-percent-lower-power-than-commodity-hbm4e-custom-base-die-and-phy-will-be-available-to-nvlink-fusion-partners",
-          "published": "2026-08-26T22:45:22+00:00"
+          "url": "https://www.tomshardware.com/pc-components/dram/chinas-ymtc-aims-to-become-the-worlds-largest-nand-maker-by-the-end-of-2027",
+          "published": "2026-08-27T16:54:24+00:00"
         }
       ]
     },
@@ -45,11 +75,11 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "South Korea’s president meets Samsung amid chip-investment pressure", "zh": "韩国总统在芯片投资压力下会见Samsung掌门人"},
-          "summary": {"en": "South Korean President Lee met Samsung’s chief as pressure builds around semiconductor investment. The meeting puts the country’s industrial-policy attention on the capital intensity of chip manufacturing and on Samsung’s role in maintaining domestic technology capacity.", "zh": "在半导体投资压力上升之际，韩国总统李在明会见Samsung掌门人。这次会面凸显韩国工业政策正聚焦芯片制造的高资本密集度，以及Samsung在维持本土技术产能中的角色。"},
-          "source": "Reuters Technology (Google News)",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONDM5Y2RFRW5JLVhiOGZXbjR0bFQtdEFKTzBCa2VOZnFkdHJUUFdkSFA3aDVFMTI1Nnp4aXhqWC1FRHNibmRySTFZMnpZVWhud2lzaWJyZENWSEwtWlZmbzdqd1EweWs5eHFFMXZwelEzXzlnRjh4Q2M5SXJHa1hNei1lVTYzZUl0eVlyNFJ5bEFUdjJHWUHSAZsBQVVfeXFMUF9USHhyUmhyU2IzZU1Cajh2S1BUR1ZPUG9OUzFON2RkcW1rUnFvVFp6VDJ3LUhYOG9RVTNpN0ZUek1QdHY3ZDZrNWVzaEstNzgzWjVya24wa05ncWozcG5VeUZfem44NGhXaktKS2ZraXJXYVZDS0szUzN4emt4UVdVbnBBZmZRZFpDM1ZkbVFQN2lpbGg2WmFWWEU?oc=5",
-          "published": "2026-08-26T23:59:42+00:00"
+          "title": {"en": "TSMC Arizona profit reportedly doubles in first half", "zh": "报道称台积电亚利桑那厂上半年利润翻倍"},
+          "summary": {"en": "TSMC Arizona reportedly doubled first-half 2026 profit to NT$36.1 billion while continuing its expansion. If sustained, that profitability would matter because it suggests the US manufacturing footprint is moving beyond a policy-backed build-out toward an operating business with visible financial contribution.", "zh": "报道称，台积电亚利桑那厂在持续扩张之际，2026 年上半年利润翻倍至 361 亿新台币。若这一趋势能够延续，意味着美国制造布局正从政策支持下的建设项目，走向能带来可见财务贡献的运营业务。"},
+          "source": "GNews — TSMC",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOT0tMZlIxZkRESExFcmtIUFFKcUFPSnd1Xy10RTN0NThCVHZTelRYYzNiMmZZclF4SGgteGNIcHBWVGhSbjE4M3RxeThlazktM2xpR0RRVEQ2akVrTlphY0U0UE5RUXhFcGFxUFFPNDljWlZUY3RXNTljU0JjYnA1Z1pmWjgzSVVmSGhQTzJsR1hZYnVVVzM0V25VWF9KUm5ncUtV?oc=5",
+          "published": "2026-08-27T16:59:46+00:00"
         }
       ]
     },
@@ -58,20 +88,12 @@
       "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "Lam Research commits $1.5 billion to a Tualatin expansion", "zh": "Lam Research承诺向Tualatin扩建项目投入15亿美元"},
-          "summary": {"en": "A chip-manufacturing-equipment company committed $1.5 billion in Tualatin and broke ground on a new laboratory; the report identifies the investment as Lam Research’s expansion. Tool R&D capacity is strategically important as logic, memory, and advanced packaging require tighter process control for AI-era production.", "zh": "一家芯片制造设备公司在Tualatin承诺投资15亿美元并为新实验室破土动工，报道所指为Lam Research的扩建。随着逻辑、存储和先进封装都需要更严密的工艺控制来支撑AI时代生产，设备研发能力的重要性正在上升。"},
-          "source": "Reuters Technology (Google News)",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZmt1Y0JkTlpqZFZHYTFxaEpwV3p4SlFHb3p5dHRPaGZ2cFltcF9BLTRwdE92VnhVS0VIRTkwQjk5RXV2NzZiNks4N0NETy1mTEl5Q3NBT3ItYkR4U0FXdXZ4NEIxZzhNOE5NV3ZKVGwtMlQyQXhZdGNTdFFSWjkwQzRfYmozQ3VGY0RaR1hKMVVQdEwtcUZ4Vmc0dWx2S2V4Y3NqNEE0elBlSlRoS21GOA?oc=5",
-          "published": "2026-08-26T21:14:07+00:00"
-        },
-        {
           "featured": false,
-          "title": {"en": "Atomic layer etching gains attention for nanoscale fabrication", "zh": "原子层蚀刻在纳米级制造中受到关注"},
-          "summary": {"en": "AIP reports on atomic layer etching as a semiconductor nanofabrication method. Its ability to remove material with near-atomic precision becomes more valuable as critical dimensions shrink and pattern-transfer error budgets tighten.", "zh": "AIP报道了原子层蚀刻这一半导体纳米制造方法。它能以接近原子级的精度去除材料；随着关键尺寸继续缩小、图形转移的误差预算收紧，这种能力愈加重要。"},
+          "title": {"en": "Diodes completes ElevATE Semiconductor acquisition", "zh": "Diodes 完成对 ElevATE Semiconductor 的收购"},
+          "summary": {"en": "Diodes has completed its acquisition of ElevATE Semiconductor, expanding its presence in automatic test equipment. The transaction adds test capability to a supplier whose end markets span power and industrial electronics, where qualification and production-test capacity can be a meaningful constraint.", "zh": "Diodes 已完成对 ElevATE Semiconductor 的收购，扩大其在自动测试设备领域的布局。这笔交易为其增加了测试能力；其终端市场覆盖功率与工业电子，而认证和量产测试能力可能构成重要约束。"},
           "source": "Reuters Technology (Google News)",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbzBQZVdtRGp4S3F2TEU1VFE3MFFTMGVKd0xVRjEwWFhCVnBkYk9PaHpPTlRkQnlBb0hqZ2JTT0k3Ry1HOVBieGRYWDR1dVJnaWhMS0xGYXIyZUY3Y3BkT3NCQ3AzelQ2VGw3SmJjcWQ5NWVnYktkeVAzUjRpRjRGMFpPOGlqREx4bFdSd1BNYUFlc3BTMDhBVFFVWUlSVGF0Z19XOWhXNTB4bzdCTFdB?oc=5",
-          "published": "2026-08-26T18:30:41+00:00"
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOR2h5a0hSUTgtWjdLLVc4cmt0ZEkwLTVYVUZZbWxXZWRUcWFmMzNjZWxpVS01a05TS3ZFQXM4MzJJV0lKVVBhLXlqanBINDFnb3BqaHRwYkdpY2pRUUxZbXREb2FZeXZHYWFJcEZDdkJNTlBQMGZSRFgxaUszcjMtbzJYaFAyMHVaMlRkbHpCX1pCQU0yTmxpdXpWd0lZRV81V1dQMFNGUk1OaGswWjFlNw?oc=5",
+          "published": "2026-08-27T20:05:00+00:00"
         }
       ]
     },
@@ -81,11 +103,25 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "India’s first Vera Rubin cluster is reported to use 9,000 GPUs", "zh": "报道称印度首个Vera Rubin集群将使用9000颗GPU"},
-          "summary": {"en": "Tech Times reports that India is landing its first Vera Rubin cluster, built around 9,000 GPUs and a green-power plan, while flagging U.S. export risk. The report illustrates how national compute projects are now coupled to export-control exposure and power procurement.", "zh": "Tech Times报道称，印度正部署首个Vera Rubin集群，配置9000颗GPU并采用绿色电力方案，同时面临美国出口风险。该报道说明，国家级算力项目现已同时受制于出口管制风险和电力采购。"},
+          "title": {"en": "Nvidia forms PAC for chip and AI policy", "zh": "Nvidia 组建 PAC 以影响芯片与 AI 政策"},
+          "summary": {"en": "Nvidia has formed a political action committee to increase its presence in Washington on semiconductor and AI policy. The move formalizes the company’s policy engagement as export rules, competition scrutiny and AI infrastructure incentives increasingly bear on its addressable market.", "zh": "Nvidia 已成立政治行动委员会，以加强其在华盛顿围绕半导体和 AI 政策的影响力。随着出口规则、竞争审查和 AI 基础设施激励日益影响其可服务市场，这一举措将公司的政策参与制度化。"},
           "source": "GNews — Chip export controls",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxORHBvUmNQS19ydUxXV1lpMzdwWkNmWGxiN3FKNU5ZZmNtem9kdlY3T2FRSGNXY2RHb2dqcXdMdXUwdloyaUNZWUxXWkNGbld4a0ZXRXNLemE2T1MzaktzNDBqeWt4NXdwR29JNjdqZkZOTU9YUzdyQS1nalU2R1hQNE53Rm5MNGtBLXZwZ1RtTTNlR3pxOFlVbnJyTkFiTTlRX2RvRFIybnZoek9JLURfLXZramdXZlNQaTRURWtBek1sTDRmN1llN1pVYTc?oc=5",
-          "published": "2026-08-26T16:29:45+00:00"
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOWnRheUY1eURtZGVsY3BLY2UxbkNRU09OWW53U2x4b1o1MWZjRVhENTBxbVRHM2ZteGZyanlmbTJmUnJNSzVKaHVNRTRCeXIzdkpzd0x3YTNjeFJZOFZRUUZBaWNzQV9JcTRhVzBSRWc5NlBOcTdoajh4dXh0NFB6bkd2WjNXc2h4UXRUU2pB?oc=5",
+          "published": "2026-08-27T18:26:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "earnings",
+      "title": {"en": "Earnings & Markets", "zh": "财报与市场"},
+      "stories": [
+        {
+          "featured": true,
+          "title": {"en": "Marvell reports record $2.74 billion Q2 revenue", "zh": "Marvell 报告第二季度营收创纪录，达 27.4 亿美元"},
+          "summary": {"en": "Marvell reported record second-quarter revenue of $2.74 billion, with AI demand credited for 37% growth. The result is another data point that AI infrastructure demand is flowing beyond GPUs into networking, connectivity and custom-silicon suppliers.", "zh": "Marvell 报告第二季度营收创纪录，达到 27.4 亿美元，并将 37% 的增长归因于 AI 需求。这一业绩再次表明，AI 基础设施需求正从 GPU 外溢至网络、互连和定制硅供应商。"},
+          "source": "GNews — Lightmatter / Ayar Labs / Celestial AI",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBudEJ1T1o3Q3JmeGNhR0pUZnExNGxwWmgxNHFfdU9CUGN0cVZsX0JobVdQaDRUUU4xbGM3XzVKN3J2NThha2MtUGp4Rm1TaldES1U1Qng0VTZZVjhxbGZCazhOVDAxVnd5LTc3VUZhdTRqRW9lTkE?oc=5",
+          "published": "2026-08-27T20:20:57+00:00"
         }
       ]
     },
@@ -95,64 +131,47 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Rebellions pitches lower-cost, open-source AI inference to telcos", "zh": "Rebellions向电信运营商推介低成本、开源AI推理"},
-          "summary": {"en": "Chip startup Rebellions is courting telecom operators with a lower-cost AI-inference proposition and an open-source pitch. Telcos need distributed inference close to networks, but must fit deployments into strict power, footprint, and procurement constraints.", "zh": "芯片初创公司Rebellions正以更低成本的AI推理方案和开源主张争取电信运营商。电信运营商需要在网络边缘附近部署分布式推理，却必须满足严格的功耗、空间和采购约束。"},
-          "source": "GNews — Rebellions / Furiosa",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNM3lBVXJNZjZ1NUxkRmpQYUgyTDB5STl2eTBUZ2JKcUoxZ2U0eFNRNTM1UHM3TllPek9hdG9IXzFmMlNxMVc1VjJoZkZoX19nZHZfWi04OE5LdHdyS1JZd0p0QTFhbC1kR1pvbHBpZ2F5Qkpmdy1VaG50TmVGU0IzZXE0djdkSlBNeVFjS2Fpc3RJUFhhUmdNTUhESFRxRnVwZTlIeWpNSQ?oc=5",
-          "published": "2026-08-26T18:29:00+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "Cerebras describes a CS-4 with three WSE-3 Turbo wafers", "zh": "Cerebras披露由三枚WSE-3 Turbo晶圆构成的CS-4"},
-          "summary": {"en": "Cerebras describes its CS-4 as combining three WSE-3 Turbo wafers for 750 PFLOPS, alongside a claimed 30-fold advantage over GPU racks. The figures are company claims, but the configuration shows wafer-scale specialists continuing to compete on inference-system throughput and simplicity.", "zh": "Cerebras称CS-4由三枚WSE-3 Turbo晶圆组成，提供750 PFLOPS，并宣称相较GPU机架快30倍。这些数值属于公司主张，但该配置表明晶圆级计算厂商仍在以推理系统吞吐和简化性展开竞争。"},
-          "source": "GNews — Cerebras",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcFRTVWROallfTzZUNEIyNzJqb3ViX3NtNDJDVWlNY19RU0RWSEZQV29qZ0lEZ1ZleThtTkVQb2dJR2ltbzkwZndjTVZ5d0k1Rm1nUkNva2tsTFJKd0w5Vk5zQzhMZmJwSERTUENJdUhYMHhTa1c2a0F0dk5UTEFNRk1FS0NTVzAtODNIbFNDYS1OaUhxMG1uWjk3NkRqdjZDaVM4U28zMFpEckUtNUh2YnBDVWQ3RU5lYnRFc0pR0gG-AUFVX3lxTFBwVFNVZE5qWV9PNlQ0QjI3MmpvdWJfc200MkNVaU1jX1FTRFZIRlBXb2pnSURnVmV5OG1ORVBvZ0lHaW1vOTBmd2NNVnl3STVGbWdSQ29ra2xMUkp3TDlWTnNDOExmYnBIRFNQQ0l1SFgweFNrVzZrQXR2TlRMQU1GTUVLQ1NXMC04M0hsU0NhLU5pSHEwbW5aOTc2RGp2NkNpUzhTbzMwWkRyRS01SHZicENVZDdFTmVidEVzSlE?oc=5",
-          "published": "2026-08-26T17:24:29+00:00"
+          "title": {"en": "Architect Labs says AI designed its Redwood accelerator in under two weeks", "zh": "Architect Labs 称其 AI 在两周内设计出 Redwood 加速器"},
+          "summary": {"en": "Architect Labs says its Redwood accelerator was designed and verified almost entirely by AI in less than two weeks. The claim remains contingent on independent validation and translation from a programmable prototype to manufactured silicon, but it spotlights design automation as a possible lever for custom-chip iteration time.", "zh": "Architect Labs 称，其 Redwood 加速器几乎完全由 AI 在不到两周内完成设计和验证。该主张仍有赖于独立验证，以及从可编程原型转化为量产硅；但它凸显了设计自动化可能缩短定制芯片迭代周期。"},
+          "source": "SemiWiki",
+          "url": "https://semiwiki.com/semiconductor-manufacturers/372758-ai-designed-chip-points-toward-a-faster-future-for-custom-silicon/",
+          "published": "2026-08-27T17:00:34+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Thermal limits meet alternative compute architectures", "zh": "热管理限制遇上新型计算架构"},
-    "dek": {"en": "Recent work tackles heat flow from 2.5D/3D packages down to material interfaces, while photonic and time-domain designs pursue different efficiency paths. The common challenge is translating promising physical mechanisms into reproducible systems.", "zh": "近期研究从2.5D/3D封装到材料界面处理热流问题，同时光子和时域设计探索不同的能效路径。共同挑战在于将有前景的物理机制转化为可复现的系统。"},
+    "theme": {"en": "Memory Movement Defines the Accelerator Research Stack", "zh": "数据搬运定义加速器研究栈"},
+    "dek": {"en": "This week’s papers treat memory capacity, dataflow, interconnect tuning and physical implementation as first-class AI-system constraints. The work ranges from near-memory LLM engines to 3D SRAM and reproducible 3D-IC design benchmarks.", "zh": "本周论文将内存容量、数据流、互连调谐和物理实现视为 AI 系统的一等约束，覆盖近存 LLM 引擎、3D SRAM 以及可复现的 3D-IC 设计基准。"},
     "areas": [
-      {
-        "id": "eda",
-        "title": {"en": "Electronic Design Automation", "zh": "电子设计自动化"},
-        "papers": [
-          {
-            "title": {"en": "IC-ThermBench: a progressive benchmark for 2.5D/3D-IC thermal learning", "zh": "IC-ThermBench：面向2.5D/3D-IC热学习的渐进式基准"},
-            "authors": "David Huang, Wenkai Yang, Kuiye Ding, Haiyang Xin",
-            "affiliation": "",
-            "venue": "arXiv:2608.23977",
-            "venue_url": "http://arxiv.org/abs/2608.23977",
-            "summary": {"en": "IC-ThermBench introduces an open benchmark for learning-based thermal modeling across 3D ICs, industrial packages, and a 50,000-sample 2.5D chiplet extension. Its baselines show a sharp generalization drop on unseen package systems: the best reported RMSE rises from 1.216 K to 15.99 K under cross-package transfer. The result shows that thermal ML still needs stronger out-of-distribution validation before broad use in package design.", "zh": "IC-ThermBench提出面向3D IC、工业封装及包含5万样本的2.5D chiplet扩展集的开放热建模基准。其基线在未见封装系统上的泛化明显下降：最佳RMSE在跨封装迁移时从1.216 K升至15.99 K。该结果表明，热学机器学习在被广泛用于封装设计之前，仍需更严格的分布外验证。"},
-            "published": "2026-08-25"
-          }
-        ]
-      },
       {
         "id": "devices",
         "title": {"en": "Devices, Materials & Packaging", "zh": "器件、材料与封装"},
         "papers": [
           {
-            "title": {"en": "DAF-less 3D stacking combines back-grinding and silane chemistry", "zh": "无DAF三维堆叠结合背磨与硅烷化学"},
-            "authors": "Gyu-Sik Park, Suk Jekal, Woohyeon Kim, et al.",
+            "title": {"en": "Process-Aware Hybrid Si/IGO Monolithic-3D 6T SRAM for 2 nm", "zh": "面向 2 nm 的工艺感知型 Si/IGO 单片三维 6T SRAM"},
+            "authors": "P.-C. Wang, D. Jang, E. Sarkar, et al.",
             "affiliation": "",
-            "venue": "Bulletin of the Korean Chemical Society",
-            "venue_url": "https://doi.org/10.1002/bkcs.70210",
-            "summary": {"en": "The authors demonstrate die-attach-film-less multi-die stacking using back-grinding roughness control and silane coupling chemistry. Their APG12-treated fine-ground interface achieved a roughly 0.31 μm gap and 4.2 MPa shear strength, close to a polished reference, while thermal imaging indicated better heat transfer than DAF stacking. It is a process-oriented route to reduce polymer interlayers, but long-term reliability remains unproven.", "zh": "作者利用背磨粗糙度控制和硅烷偶联化学，演示了无die attach film的多芯片堆叠。经APG12处理的精磨界面实现约0.31 μm间隙和4.2 MPa剪切强度，接近抛光参考值；热成像显示其传热优于DAF堆叠。这为减少聚合物中间层提供了面向工艺的路径，但长期可靠性仍待证明。"},
-            "published": "2026-08-18"
-          },
+            "venue": "arXiv:2608.22741",
+            "venue_url": "https://arxiv.org/abs/2608.22741",
+            "summary": {"en": "This work proposes a monolithic-3D 6T SRAM that combines BEOL IGO pass gates with a silicon nanosheet latch, buried power rails and ruthenium interconnects. Its process-aware layout reports a 25% footprint reduction; at the 128×256 subarray level it reports 42.2% lower write delay versus a high-density silicon baseline, based on TCAD and extracted-parasitic analysis rather than fabricated silicon.", "zh": "该工作提出一种单片三维 6T SRAM，将 BEOL IGO 传输门与硅纳米片锁存器、埋置电源轨和 Ru 互连结合。其工艺感知版图报告面积缩小 25%；在 128×256 子阵列层面，相比高密度硅基线写入延迟降低 42.2%，但结果基于 TCAD 与寄生参数提取分析，尚非实测芯片。"},
+            "published": "2026-08-24T02:59:37Z"
+          }
+        ]
+      },
+      {
+        "id": "circuits",
+        "title": {"en": "Circuits, Architecture & Reliability", "zh": "电路、架构与可靠性"},
+        "papers": [
           {
-            "title": {"en": "Modeling cure evolution and thermal endurance in filled epoxy underfill", "zh": "高填充环氧底部填充胶的固化演化与热耐久建模"},
-            "authors": "Ryan Giang, Ran Tao, Elena Moukhina, et al.",
+            "title": {"en": "Architecting Asynchronous, Distributed GPUs for AI", "zh": "面向 AI 的异步分布式 GPU 架构"},
+            "authors": "J. Pan, W. An, C. Avalos Baddouh, et al.",
             "affiliation": "",
-            "venue": "Journal of Polymer Science",
-            "venue_url": "https://doi.org/10.1002/pola.70283",
-            "summary": {"en": "This work combines DSC, TGA, and diffusion-aware kinetic modeling to predict curing and degradation in highly filled epoxy underfill. A two-step modified Kamal-Sourour model better captured conversion after vitrification and informed an oven cure that reached nearly complete conversion. The approach could improve packaging process windows, although it still needs correlation with interconnect reliability over service life.", "zh": "该研究结合DSC、TGA和考虑扩散的动力学建模，预测高填充环氧底部填充胶的固化与降解。两步修正Kamal-Sourour模型能更好地描述玻璃化后的转化率，并用于设计实现近乎完全固化的烘箱曲线。该方法有望改善封装工艺窗口，但仍需与互连在服役期内的可靠性建立对应关系。"},
-            "published": "2026-08-16"
+            "venue": "arXiv:2608.22602",
+            "venue_url": "https://arxiv.org/abs/2608.22602",
+            "summary": {"en": "The authors present a cycle-level framework for modern asynchronous, multi-chip GPUs and validate it against H100 silicon with 99% Pearson correlation and 13.4% mean absolute cycle error. They use it to study chiplet topology, larger SRAM capacity and bandwidth, and inter-GPU prefetching, offering a simulator rather than a new GPU implementation.", "zh": "作者提出面向现代异步多芯粒 GPU 的周期级仿真框架，并以 H100 实硅验证，得到 99% 的 Pearson 相关系数和 13.4% 的平均绝对周期误差。该框架用于研究芯粒拓扑、更大的 SRAM 容量与带宽以及 GPU 间预取；其贡献是仿真基础设施，而非新的 GPU 实现。"},
+            "published": "2026-08-23T21:19:17Z"
           }
         ]
       },
@@ -161,22 +180,31 @@
         "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
         "papers": [
           {
-            "title": {"en": "Programmable photonic neural engine with 40,000 connections", "zh": "具备4万连接的可编程光子神经引擎"},
-            "authors": "Hao Sun, Xinyi Zhu, J. Azaña",
+            "title": {"en": "Maia 200: Software-Defined Dataflow for Large-Scale AI", "zh": "Maia 200：面向大规模 AI 的软件定义数据流"},
+            "authors": "S. Xu, M. Heddes, J. Peng, et al.",
             "affiliation": "",
-            "venue": "Science Advances",
-            "venue_url": "https://doi.org/10.1126/sciadv.aee9649",
-            "summary": {"en": "The paper reports a photonic neuromorphic engine that integrates all-optical nonlinearity into a loop-based, time-multiplexed architecture. It demonstrates four network topologies and up to 40,000 optical connections, with reported latency more than two orders of magnitude below state-of-the-art electronic processors. System precision, control, and packaging overhead remain central deployment questions.", "zh": "论文报道了一种光子神经形态引擎，将全光非线性集成到基于环路的时分复用架构中。该系统演示了四种网络拓扑，最多支持4万条光连接，并报告其延迟比先进电子处理器低两个数量级以上。系统级精度、控制和封装开销仍是部署的核心问题。"},
-            "published": "2026-08-19"
+            "venue": "arXiv:2608.24664",
+            "venue_url": "https://arxiv.org/abs/2608.24664",
+            "summary": {"en": "Maia 200 describes a software-defined locally accessed dataflow architecture that explicitly programs data-movement engines and specialized memories. The paper reports 5,072 TFLOP/s FP8, 7 TB/s HBM bandwidth and a 750 W TDP, illustrating a design point where orchestration of data movement is treated as the central architectural resource.", "zh": "Maia 200 描述了一种软件定义的局部访问数据流架构，显式编程数据搬运引擎和专用存储器。论文报告其 FP8 性能为 5,072 TFLOP/s、HBM 带宽 7 TB/s、TDP 为 750 W，展示了将数据搬运编排视为核心架构资源的设计点。"},
+            "published": "2026-08-25T15:05:40Z"
           },
           {
-            "title": {"en": "Time-domain CIM accelerator for AdderNet with hardware-error-aware training", "zh": "面向AdderNet并具硬件误差感知训练的时域CIM加速器"},
-            "authors": "Aoming Zhan, Ye Zhao, Yumei Zhou, Shushan Qiao",
+            "title": {"en": "NOVA Near-Memory Processing for Hybrid LLM Inference", "zh": "用于混合 LLM 推理的 NOVA 近存计算"},
+            "authors": "I.-J. Jung, J. Min, J.-Y. Kim",
             "affiliation": "",
-            "venue": "Applied Sciences",
-            "venue_url": "https://doi.org/10.3390/app16168189",
-            "summary": {"en": "This time-domain compute-in-memory accelerator maps AdderNet’s L1 operations to minimum selection and time-domain accumulation, using dual-mode DTC encoding and shared-clock TDC readout. Post-layout simulations in 55 nm cover PVT variation, jitter, offsets, and quantization rather than assuming ideal conversion. That error-aware treatment is useful, but the evidence remains simulation rather than measured silicon.", "zh": "该时域存算一体加速器将AdderNet的L1运算映射为最小值选择和时域累加，并采用双模式DTC编码及共享时钟TDC读出。其55 nm后仿真覆盖PVT变化、抖动、偏移和量化，而非假设理想转换。这样的误差感知处理有参考价值，但当前证据仍是仿真而非实测芯片。"},
-            "published": "2026-08-17"
+            "venue": "arXiv:2608.22613",
+            "venue_url": "https://arxiv.org/abs/2608.22613",
+            "summary": {"en": "NOVA co-designs a near-memory processor for hybrid LLMs that combine grouped-query attention, state-space and MoE layers. It proposes a 4F² vertical-channel DRAM cell with peri-over-cell circuitry for roughly 2× iso-area density over a conventional 6F² cell, then adapts the architecture to layers with very different operational intensity; both the device and system claims need physical validation.", "zh": "NOVA 为结合 grouped-query attention、状态空间模型和 MoE 层的混合 LLM 协同设计近存处理器。它提出带有 peri-over-cell 电路的 4F² 垂直沟道 DRAM 单元，相比传统 6F² 单元在等面积下约提升 2 倍密度，并让架构适应运算强度差异很大的层；器件和系统层面的结论均有待实物验证。"},
+            "published": "2026-08-23T21:38:46Z"
+          },
+          {
+            "title": {"en": "FLINT: High-Bandwidth Flash for Capacity-Scalable LLM Inference", "zh": "FLINT：利用高带宽闪存实现可扩展容量的 LLM 推理"},
+            "authors": "G. F. Oliveira, A. Tavakkol, X. Zhu, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.25062",
+            "venue_url": "https://arxiv.org/abs/2608.25062",
+            "summary": {"en": "FLINT proposes a workload-driven substrate that uses emerging 3D-stacked high-bandwidth flash as a near-accelerator capacity tier alongside HBM. It targets microsecond flash-read latency, static prefetch limitations and flash-management operations exposed to the inference critical path, making capacity rather than only bandwidth a design variable for smaller LLM-serving nodes.", "zh": "FLINT 提出一种工作负载驱动的底层架构，将新兴的 3D 堆叠高带宽闪存作为 HBM 旁的近加速器容量层。它针对微秒级闪存读取延迟、静态预取的局限以及暴露在推理关键路径上的闪存管理操作，使容量而非仅带宽成为较小 LLM 服务节点的设计变量。"},
+            "published": "2026-08-25T18:58:14Z"
           }
         ]
       },
@@ -185,13 +213,61 @@
         "title": {"en": "AI Systems & Hardware Co-Design", "zh": "AI系统与软硬件协同设计"},
         "papers": [
           {
-            "title": {"en": "FPGA model compression and hardware-aware acceleration: a co-design taxonomy", "zh": "FPGA模型压缩与硬件感知加速：协同设计分类法"},
-            "authors": "Peter Forcha, H. Kajekusumadhar, Mbua Peter, et al.",
+            "title": {"en": "APT: Attention-Guided Pruning and Quantization for Diffusion Transformers", "zh": "APT：面向 Diffusion Transformer 的注意力引导剪枝与量化"},
+            "authors": "S. Yoo, S. Kim, J. Park, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.21657",
-            "venue_url": "http://arxiv.org/abs/2608.21657",
-            "summary": {"en": "This survey organizes 25 FPGA deep-learning co-design studies from 2015–2026 into five categories, from DSP elimination to memory hierarchy and deployment tooling. It finds that only one study reports compression and accuracy against a common baseline, and only two normalize energy efficiency against a common GPU baseline. The taxonomy warns that cross-paper FPGA comparisons remain poorly standardized.", "zh": "这篇综述将2015至2026年的25项FPGA深度学习协同设计研究分为五类，涵盖DSP消除、存储层级和部署工具等。它发现只有一项研究在统一基准下同时报告压缩率和准确率，只有两项研究相对统一GPU基准归一化能效。该分类法提醒我们，跨论文FPGA比较仍缺乏标准化。"},
-            "published": "2026-08-21"
+            "venue": "arXiv:2608.25380",
+            "venue_url": "https://arxiv.org/abs/2608.25380",
+            "summary": {"en": "APT is a software-hardware co-design for high-resolution Diffusion Transformers that uses attention probabilities for both fine-grained pruning and adaptive precision assignment. It is designed to remain compatible with FlashAttention, addressing the steep attention cost as output resolution rises; the paper frames this as an accelerator design rather than a drop-in model-only compression method.", "zh": "APT 是面向高分辨率 Diffusion Transformer 的软硬件协同设计，利用注意力概率同时进行细粒度剪枝和自适应精度分配。它被设计为兼容 FlashAttention，以应对输出分辨率提高时急剧增长的注意力成本；论文将其定位为加速器设计，而非可直接替换的纯模型压缩方法。"},
+            "published": "2026-08-26T05:08:40Z"
+          },
+          {
+            "title": {"en": "Thermal Tuning in Wafer-Scale Optical Interconnects for MoE Training", "zh": "MoE 训练中晶圆级光互连的热调谐开销"},
+            "authors": "S. Yoon, P.-J. Chen, S. Yu",
+            "affiliation": "",
+            "venue": "arXiv:2608.24637",
+            "venue_url": "https://arxiv.org/abs/2608.24637",
+            "summary": {"en": "This cross-layer study models wafer-scale DWDM optical links for MoE training, combining workload profiles, packet simulation and transient thermal analysis of a 3D GPU/EIC/PIC stack. It finds that thermal excursions can outpace conventional microring-resonator control loops and create repeated tuning stalls, then evaluates ferroelectric-based mitigation; the result highlights a system-level risk rather than a demonstrated production interconnect.", "zh": "该跨层研究针对 MoE 训练建模晶圆级 DWDM 光链路，结合工作负载画像、分组仿真以及 3D GPU/EIC/PIC 堆栈的瞬态热分析。研究发现，温度波动可能超过传统微环谐振器控制环路的跟踪能力并造成反复调谐停顿，随后评估铁电缓解方案；其揭示的是系统级风险，而非已量产互连。"},
+            "published": "2026-08-25T14:48:53Z"
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {"en": "Electronic Design Automation", "zh": "电子设计自动化"},
+        "papers": [
+          {
+            "title": {"en": "An Open-Source Benchmark Suite for 3D-IC Design", "zh": "面向 3D-IC 设计的开源基准测试套件"},
+            "authors": "R. Soni, J. Jeong, A. Graening, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.25155",
+            "venue_url": "https://arxiv.org/abs/2608.25155",
+            "summary": {"en": "This paper releases an open-source suite of 3D-IC test cases derived from chiplet studies in the CATCH cost-estimation framework. The models span compute, memory, I/O, analog and substrate components and expose physical-design effects of TSVs, hybrid bonding and heterogeneous dies, providing reproducible inputs rather than a new placement algorithm.", "zh": "论文发布了一套开源 3D-IC 测试用例，源自 CATCH 成本估算框架中的芯粒研究。模型覆盖计算、存储、I/O、模拟和衬底组件，并呈现 TSV、混合键合和异构裸片带来的物理设计效应，为研究提供可复现的输入，而非新的布局算法。"},
+            "published": "2026-08-25T21:04:44Z"
+          },
+          {
+            "title": {"en": "Syn2Logic: End-to-End Neuromorphic Design Automation", "zh": "Syn2Logic：端到端神经形态设计自动化"},
+            "authors": "A. Podobas",
+            "affiliation": "",
+            "venue": "arXiv:2608.25536",
+            "venue_url": "https://arxiv.org/abs/2608.25536",
+            "summary": {"en": "Syn2Logic presents an electronic neuromorphic design-automation flow that compiles a domain-specific neural-behavior description into synthesizable RTL. The prototype reports a 5.6 million FPS/W accelerator on a small FPGA for MNIST and several application demonstrations, but the broad performance claims depend on the selected workloads and comparisons.", "zh": "Syn2Logic 提出一种电子神经形态设计自动化流程，可将领域专用的神经行为描述编译为可综合 RTL。原型在小型 FPGA 上针对 MNIST 报告 560 万 FPS/W，并展示多项应用；不过其广泛的性能主张取决于所选工作负载和比较基线。"},
+            "published": "2026-08-26T08:49:02Z"
+          }
+        ]
+      },
+      {
+        "id": "quantum",
+        "title": {"en": "Quantum & Unconventional Computing", "zh": "量子与非常规计算"},
+        "papers": [
+          {
+            "title": {"en": "Langevin-Dynamics Hardware Annealing for Ising Machines", "zh": "用于 Ising 机器的 Langevin 动力学硬件退火"},
+            "authors": "Y. Liu, L. Sun, M. Huang, H. Wu",
+            "affiliation": "",
+            "venue": "arXiv:2608.26100",
+            "venue_url": "https://arxiv.org/abs/2608.26100",
+            "summary": {"en": "The paper develops a Langevin-dynamics hardware-annealing algorithm to help Ising machines escape local minima in combinatorial optimization. In 65 nm chip-level simulation it reaches the ground state with 86.5% probability and reports a 97.5% improvement in solution quality, so the evidence is promising but remains simulation-based.", "zh": "论文开发基于 Langevin 动力学的硬件退火算法，帮助 Ising 机器在组合优化中摆脱局部最小值。在 65 nm 芯片级仿真中，它以 86.5% 的概率到达基态，并报告解质量提升 97.5%；结果具有启发性，但仍停留在仿真阶段。"},
+            "published": "2026-08-26T17:59:06Z"
           }
         ]
       }
