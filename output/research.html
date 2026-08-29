@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-28">
+<meta name="edition-date" content="2026-08-29">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory Movement Defines the Accelerator Research Stack — Semi Research 2026-08-28</title>
+<title>Inference Efficiency Meets Design-Flow Constraints — Semi Research 2026-08-29</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,113 +319,41 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, August 28, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月28日 星期五</span>
+      <span class="en">Research digest · Saturday, August 29, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月29日 星期六</span>
     </div>
     <h1>
-      <span class="en">Memory Movement Defines the Accelerator Research Stack</span>
-      <span class="zh">数据搬运定义加速器研究栈</span>
+      <span class="en">Inference Efficiency Meets Design-Flow Constraints</span>
+      <span class="zh">推理效率遇上设计流程约束</span>
     </h1>
     <p class="dek">
-      <span class="en">This week’s papers treat memory capacity, dataflow, interconnect tuning and physical implementation as first-class AI-system constraints. The work ranges from near-memory LLM engines to 3D SRAM and reproducible 3D-IC design benchmarks.</span>
-      <span class="zh">本周论文将内存容量、数据流、互连调谐和物理实现视为 AI 系统的一等约束，覆盖近存 LLM 引擎、3D SRAM 以及可复现的 3D-IC 设计基准。</span>
+      <span class="en">This week’s work ranges from low-cost model training and speculative decoding to VLM acceleration and EDA orchestration. Together, the papers frame hardware efficiency as a systems problem spanning algorithms, deployment, and design tools.</span>
+      <span class="zh">本周研究覆盖低成本模型训练、推测式解码、VLM加速和EDA编排。这些工作共同表明，硬件效率是横跨算法、部署和设计工具的系统性问题。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 10篇</span>
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices, Materials &amp; Packaging</span>
-      <span class="zh">器件、材料与封装</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.22741" target="_blank" rel="noopener">
-          <span class="en">Process-Aware Hybrid Si/IGO Monolithic-3D 6T SRAM for 2 nm</span>
-          <span class="zh">面向 2 nm 的工艺感知型 Si/IGO 单片三维 6T SRAM</span>
-        </a>
-      </h3>
-      <p class="authors">P.-C. Wang, D. Jang, E. Sarkar, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.22741" target="_blank" rel="noopener">arXiv:2608.22741</a> · 2026-08-24T02:59:37Z</p>
-      <p class="summary">
-        <span class="en">This work proposes a monolithic-3D 6T SRAM that combines BEOL IGO pass gates with a silicon nanosheet latch, buried power rails and ruthenium interconnects. Its process-aware layout reports a 25% footprint reduction; at the 128×256 subarray level it reports 42.2% lower write delay versus a high-density silicon baseline, based on TCAD and extracted-parasitic analysis rather than fabricated silicon.</span>
-        <span class="zh">该工作提出一种单片三维 6T SRAM，将 BEOL IGO 传输门与硅纳米片锁存器、埋置电源轨和 Ru 互连结合。其工艺感知版图报告面积缩小 25%；在 128×256 子阵列层面，相比高密度硅基线写入延迟降低 42.2%，但结果基于 TCAD 与寄生参数提取分析，尚非实测芯片。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits, Architecture &amp; Reliability</span>
-      <span class="zh">电路、架构与可靠性</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.22602" target="_blank" rel="noopener">
-          <span class="en">Architecting Asynchronous, Distributed GPUs for AI</span>
-          <span class="zh">面向 AI 的异步分布式 GPU 架构</span>
-        </a>
-      </h3>
-      <p class="authors">J. Pan, W. An, C. Avalos Baddouh, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.22602" target="_blank" rel="noopener">arXiv:2608.22602</a> · 2026-08-23T21:19:17Z</p>
-      <p class="summary">
-        <span class="en">The authors present a cycle-level framework for modern asynchronous, multi-chip GPUs and validate it against H100 silicon with 99% Pearson correlation and 13.4% mean absolute cycle error. They use it to study chiplet topology, larger SRAM capacity and bandwidth, and inter-GPU prefetching, offering a simulator rather than a new GPU implementation.</span>
-        <span class="zh">作者提出面向现代异步多芯粒 GPU 的周期级仿真框架，并以 H100 实硅验证，得到 99% 的 Pearson 相关系数和 13.4% 的平均绝对周期误差。该框架用于研究芯粒拓扑、更大的 SRAM 容量与带宽以及 GPU 间预取；其贡献是仿真基础设施，而非新的 GPU 实现。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
+    <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.24664" target="_blank" rel="noopener">
-          <span class="en">Maia 200: Software-Defined Dataflow for Large-Scale AI</span>
-          <span class="zh">Maia 200：面向大规模 AI 的软件定义数据流</span>
+        <a href="https://arxiv.org/abs/2608.27199" target="_blank" rel="noopener">
+          <span class="en">Vision-Centric Generative AI Models: A Software-Hardware Perspective</span>
+          <span class="zh">以视觉为中心的生成式AI模型：软硬件视角</span>
         </a>
       </h3>
-      <p class="authors">S. Xu, M. Heddes, J. Peng, et al.</p>
+      <p class="authors">E. Tselepi, C. Sestito, S. Agwa, T. Prodromakis</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.24664" target="_blank" rel="noopener">arXiv:2608.24664</a> · 2026-08-25T15:05:40Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27199" target="_blank" rel="noopener">arXiv:2608.27199</a> · 2026-08-27T14:41:50Z</p>
       <p class="summary">
-        <span class="en">Maia 200 describes a software-defined locally accessed dataflow architecture that explicitly programs data-movement engines and specialized memories. The paper reports 5,072 TFLOP/s FP8, 7 TB/s HBM bandwidth and a 750 W TDP, illustrating a design point where orchestration of data movement is treated as the central architectural resource.</span>
-        <span class="zh">Maia 200 描述了一种软件定义的局部访问数据流架构，显式编程数据搬运引擎和专用存储器。论文报告其 FP8 性能为 5,072 TFLOP/s、HBM 带宽 7 TB/s、TDP 为 750 W，展示了将数据搬运编排视为核心架构资源的设计点。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.22613" target="_blank" rel="noopener">
-          <span class="en">NOVA Near-Memory Processing for Hybrid LLM Inference</span>
-          <span class="zh">用于混合 LLM 推理的 NOVA 近存计算</span>
-        </a>
-      </h3>
-      <p class="authors">I.-J. Jung, J. Min, J.-Y. Kim</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.22613" target="_blank" rel="noopener">arXiv:2608.22613</a> · 2026-08-23T21:38:46Z</p>
-      <p class="summary">
-        <span class="en">NOVA co-designs a near-memory processor for hybrid LLMs that combine grouped-query attention, state-space and MoE layers. It proposes a 4F² vertical-channel DRAM cell with peri-over-cell circuitry for roughly 2× iso-area density over a conventional 6F² cell, then adapts the architecture to layers with very different operational intensity; both the device and system claims need physical validation.</span>
-        <span class="zh">NOVA 为结合 grouped-query attention、状态空间模型和 MoE 层的混合 LLM 协同设计近存处理器。它提出带有 peri-over-cell 电路的 4F² 垂直沟道 DRAM 单元，相比传统 6F² 单元在等面积下约提升 2 倍密度，并让架构适应运算强度差异很大的层；器件和系统层面的结论均有待实物验证。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.25062" target="_blank" rel="noopener">
-          <span class="en">FLINT: High-Bandwidth Flash for Capacity-Scalable LLM Inference</span>
-          <span class="zh">FLINT：利用高带宽闪存实现可扩展容量的 LLM 推理</span>
-        </a>
-      </h3>
-      <p class="authors">G. F. Oliveira, A. Tavakkol, X. Zhu, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25062" target="_blank" rel="noopener">arXiv:2608.25062</a> · 2026-08-25T18:58:14Z</p>
-      <p class="summary">
-        <span class="en">FLINT proposes a workload-driven substrate that uses emerging 3D-stacked high-bandwidth flash as a near-accelerator capacity tier alongside HBM. It targets microsecond flash-read latency, static prefetch limitations and flash-management operations exposed to the inference critical path, making capacity rather than only bandwidth a design variable for smaller LLM-serving nodes.</span>
-        <span class="zh">FLINT 提出一种工作负载驱动的底层架构，将新兴的 3D 堆叠高带宽闪存作为 HBM 旁的近加速器容量层。它针对微秒级闪存读取延迟、静态预取的局限以及暴露在推理关键路径上的闪存管理操作，使容量而非仅带宽成为较小 LLM 服务节点的设计变量。</span>
+        <span class="en">This perspective maps vision-generative model families to deployment domains and compares their parameter cost and energy efficiency across accelerator platforms. It argues that edge uses such as vehicles, sensors, and mobile devices require software-hardware co-design from the outset, rather than adapting hardware after models have already grown.</span>
+        <span class="zh">该观点论文将视觉生成模型家族映射到不同部署领域，并比较其在多类加速器平台上的参数成本和能效。论文认为，车辆、传感器和移动设备等边缘应用需要从一开始就进行软硬件协同设计，而不是在模型规模增长后再被动调整硬件。</span>
       </p>
     </article>
   </section>
@@ -436,32 +364,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.25380" target="_blank" rel="noopener">
-          <span class="en">APT: Attention-Guided Pruning and Quantization for Diffusion Transformers</span>
-          <span class="zh">APT：面向 Diffusion Transformer 的注意力引导剪枝与量化</span>
+        <a href="https://arxiv.org/abs/2608.27370" target="_blank" rel="noopener">
+          <span class="en">Puro-2B: A Low-Cost Qwen2-1.5B Training Recipe on RTX 5090</span>
+          <span class="zh">Puro-2B：在RTX 5090上低成本训练Qwen2-1.5B的方案</span>
         </a>
       </h3>
-      <p class="authors">S. Yoo, S. Kim, J. Park, et al.</p>
+      <p class="authors">K. Luo, J. Cui, Y. Yin, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25380" target="_blank" rel="noopener">arXiv:2608.25380</a> · 2026-08-26T05:08:40Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27370" target="_blank" rel="noopener">arXiv:2608.27370</a> · 2026-08-27T17:07:12Z</p>
       <p class="summary">
-        <span class="en">APT is a software-hardware co-design for high-resolution Diffusion Transformers that uses attention probabilities for both fine-grained pruning and adaptive precision assignment. It is designed to remain compatible with FlashAttention, addressing the steep attention cost as output resolution rises; the paper frames this as an accelerator design rather than a drop-in model-only compression method.</span>
-        <span class="zh">APT 是面向高分辨率 Diffusion Transformer 的软硬件协同设计，利用注意力概率同时进行细粒度剪枝和自适应精度分配。它被设计为兼容 FlashAttention，以应对输出分辨率提高时急剧增长的注意力成本；论文将其定位为加速器设计，而非可直接替换的纯模型压缩方法。</span>
+        <span class="en">Puro-2B presents an open pretraining recipe that trains a 2B-parameter model on consumer RTX 5090 GPUs using FP8 and up to 1.4 trillion tokens. The authors report a best-model compute cost below $6.9K while approaching Qwen2.5-1.5B under their evaluation protocol, making the result a useful cost data point rather than a direct substitute for frontier-scale training.</span>
+        <span class="zh">Puro-2B提出一套开放预训练方案，采用FP8并在消费级RTX 5090 GPU上处理最多1.4万亿token来训练20亿参数模型。作者报告最佳模型的计算成本低于6900美元，并在其评测协议下接近Qwen2.5-1.5B；这一结果提供了有价值的成本数据点，但并不能直接替代前沿规模训练。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.24637" target="_blank" rel="noopener">
-          <span class="en">Thermal Tuning in Wafer-Scale Optical Interconnects for MoE Training</span>
-          <span class="zh">MoE 训练中晶圆级光互连的热调谐开销</span>
+        <a href="https://arxiv.org/abs/2608.27339" target="_blank" rel="noopener">
+          <span class="en">Beyond Parallel Blindness: Information Floors and Model Gaps in Block Drafting</span>
+          <span class="zh">超越并行盲区：块级草稿生成中的信息下界与模型差距</span>
         </a>
       </h3>
-      <p class="authors">S. Yoon, P.-J. Chen, S. Yu</p>
+      <p class="authors">X. Qiang, X. Fang, C. Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.24637" target="_blank" rel="noopener">arXiv:2608.24637</a> · 2026-08-25T14:48:53Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27339" target="_blank" rel="noopener">arXiv:2608.27339</a> · 2026-08-27T16:40:45Z</p>
       <p class="summary">
-        <span class="en">This cross-layer study models wafer-scale DWDM optical links for MoE training, combining workload profiles, packet simulation and transient thermal analysis of a 3D GPU/EIC/PIC stack. It finds that thermal excursions can outpace conventional microring-resonator control loops and create repeated tuning stalls, then evaluates ferroelectric-based mitigation; the result highlights a system-level risk rather than a demonstrated production interconnect.</span>
-        <span class="zh">该跨层研究针对 MoE 训练建模晶圆级 DWDM 光链路，结合工作负载画像、分组仿真以及 3D GPU/EIC/PIC 堆栈的瞬态热分析。研究发现，温度波动可能超过传统微环谐振器控制环路的跟踪能力并造成反复调谐停顿，随后评估铁电缓解方案；其揭示的是系统级风险，而非已量产互连。</span>
+        <span class="en">The paper separates speculative block-drafting rejections into an unavoidable information floor and a model-quality gap. Across four domains and several target models, one realized token removes 86–100% of the final-slot information floor, while current drafters remain substantially above that floor.</span>
+        <span class="zh">论文将推测式块级草稿生成的拒绝划分为不可避免的信息下界和模型质量差距。在四个领域及多个目标模型上，一个已实现token可消除最终位置86%至100%的信息下界，但现有草稿器仍明显高于这一界限。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.27206" target="_blank" rel="noopener">
+          <span class="en">PACE: Pixel-Adaptive Condense and Extract for Fast VLM Inference</span>
+          <span class="zh">PACE：用于快速VLM推理的像素自适应压缩与提取</span>
+        </a>
+      </h3>
+      <p class="authors">J. Liu, S. Ye, X. Chen</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27206" target="_blank" rel="noopener">arXiv:2608.27206</a> · 2026-08-27T14:52:09Z</p>
+      <p class="summary">
+        <span class="en">PACE is a training-free VLM inference method that reduces work before the vision encoder and then selectively retains visual tokens for the language model. By treating input pixels and post-encoder tokens as one pipeline, it targets latency that conventional token-pruning methods leave in visual encoding.</span>
+        <span class="zh">PACE是一种免训练的VLM推理方法：先在视觉编码器之前减少计算量，再为语言模型选择性保留视觉token。它将输入像素和编码器后的token视为同一条流水线，从而瞄准传统token剪枝方法遗留在视觉编码阶段的延迟。</span>
       </p>
     </article>
   </section>
@@ -472,53 +415,38 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.25155" target="_blank" rel="noopener">
-          <span class="en">An Open-Source Benchmark Suite for 3D-IC Design</span>
-          <span class="zh">面向 3D-IC 设计的开源基准测试套件</span>
+        <a href="https://arxiv.org/abs/2608.27184" target="_blank" rel="noopener">
+          <span class="en">LLMs in Digital EDA: From Generation to Orchestration</span>
+          <span class="zh">数字EDA中的LLM：从生成走向编排</span>
         </a>
       </h3>
-      <p class="authors">R. Soni, J. Jeong, A. Graening, et al.</p>
+      <p class="authors">M. Youngman, C. Sestito, T. Prodromakis</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25155" target="_blank" rel="noopener">arXiv:2608.25155</a> · 2026-08-25T21:04:44Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27184" target="_blank" rel="noopener">arXiv:2608.27184</a> · 2026-08-27T14:29:35Z</p>
       <p class="summary">
-        <span class="en">This paper releases an open-source suite of 3D-IC test cases derived from chiplet studies in the CATCH cost-estimation framework. The models span compute, memory, I/O, analog and substrate components and expose physical-design effects of TSVs, hybrid bonding and heterogeneous dies, providing reproducible inputs rather than a new placement algorithm.</span>
-        <span class="zh">论文发布了一套开源 3D-IC 测试用例，源自 CATCH 成本估算框架中的芯粒研究。模型覆盖计算、存储、I/O、模拟和衬底组件，并呈现 TSV、混合键合和异构裸片带来的物理设计效应，为研究提供可复现的输入，而非新的布局算法。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.25536" target="_blank" rel="noopener">
-          <span class="en">Syn2Logic: End-to-End Neuromorphic Design Automation</span>
-          <span class="zh">Syn2Logic：端到端神经形态设计自动化</span>
-        </a>
-      </h3>
-      <p class="authors">A. Podobas</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25536" target="_blank" rel="noopener">arXiv:2608.25536</a> · 2026-08-26T08:49:02Z</p>
-      <p class="summary">
-        <span class="en">Syn2Logic presents an electronic neuromorphic design-automation flow that compiles a domain-specific neural-behavior description into synthesizable RTL. The prototype reports a 5.6 million FPS/W accelerator on a small FPGA for MNIST and several application demonstrations, but the broad performance claims depend on the selected workloads and comparisons.</span>
-        <span class="zh">Syn2Logic 提出一种电子神经形态设计自动化流程，可将领域专用的神经行为描述编译为可综合 RTL。原型在小型 FPGA 上针对 MNIST 报告 560 万 FPS/W，并展示多项应用；不过其广泛的性能主张取决于所选工作负载和比较基线。</span>
+        <span class="en">This perspective classifies LLM roles in digital EDA as generators, agents, and orchestrators coordinating decisions across design stages. It warns that code which appears syntactically plausible can still be physically incorrect, while fragmented tools and lost context obstruct industrial-scale use.</span>
+        <span class="zh">该观点论文将LLM在数字EDA中的角色分为生成器、代理和跨设计阶段协调决策的编排器。论文警告，看似语法正确的代码仍可能在物理实现上错误，而工具碎片化和上下文丢失仍阻碍工业规模应用。</span>
       </p>
     </article>
   </section>
   <section class="area" id="quantum">
     <h2>
-      <span class="en">Quantum &amp; Unconventional Computing</span>
-      <span class="zh">量子与非常规计算</span>
+      <span class="en">Quantum Technologies</span>
+      <span class="zh">量子技术</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.26100" target="_blank" rel="noopener">
-          <span class="en">Langevin-Dynamics Hardware Annealing for Ising Machines</span>
-          <span class="zh">用于 Ising 机器的 Langevin 动力学硬件退火</span>
+        <a href="https://arxiv.org/abs/2608.27160" target="_blank" rel="noopener">
+          <span class="en">Diamond Quantum-Sensing Platform with Integrated Microwave Antenna and Thermometer</span>
+          <span class="zh">集成微波天线与温度计的金刚石量子传感平台</span>
         </a>
       </h3>
-      <p class="authors">Y. Liu, L. Sun, M. Huang, H. Wu</p>
+      <p class="authors">M. Ohkuma, R. Matsumoto, S. Adachi, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26100" target="_blank" rel="noopener">arXiv:2608.26100</a> · 2026-08-26T17:59:06Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27160" target="_blank" rel="noopener">arXiv:2608.27160</a> · 2026-08-27T14:11:17Z</p>
       <p class="summary">
-        <span class="en">The paper develops a Langevin-dynamics hardware-annealing algorithm to help Ising machines escape local minima in combinatorial optimization. In 65 nm chip-level simulation it reaches the ground state with 86.5% probability and reports a 97.5% improvement in solution quality, so the evidence is promising but remains simulation-based.</span>
-        <span class="zh">论文开发基于 Langevin 动力学的硬件退火算法，帮助 Ising 机器在组合优化中摆脱局部最小值。在 65 nm 芯片级仿真中，它以 86.5% 的概率到达基态，并报告解质量提升 97.5%；结果具有启发性，但仍停留在仿真阶段。</span>
+        <span class="en">The authors integrate an NV-center quantum-sensing layer, a boron-doped diamond microwave antenna, and a local thermometer on one diamond substrate. The platform detected laser-induced heating not clearly resolved by a stage thermometer while imaging superconductors at cryogenic temperature.</span>
+        <span class="zh">作者在同一金刚石衬底上集成NV中心量子传感层、硼掺杂金刚石微波天线和局部温度计。该平台在低温下对超导体进行成像时，检测到了台式温度计未能清晰分辨的激光局部升温。</span>
       </p>
     </article>
   </section>
@@ -546,8 +474,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-28 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-28 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-29 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-29 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
