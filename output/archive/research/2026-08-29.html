@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-30">
+<meta name="edition-date" content="2026-08-29">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory, Interconnect, and Trust Meet AI Scale — Semi Research 2026-08-30</title>
+<title>Inference Efficiency Meets Design-Flow Constraints — Semi Research 2026-08-29</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -303,9 +303,9 @@
     <div class="brand">semi<span class="dot">·</span>news</div>
     <div>
       <span class="nav-modes">
-        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <a href="../2026-08-29.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
         <span class="sep">/</span>
-        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
       </span>
       <span class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="both" aria-pressed="true">中英</button>
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, August 30, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月30日 星期日</span>
+      <span class="en">Research digest · Saturday, August 29, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月29日 星期六</span>
     </div>
     <h1>
-      <span class="en">Memory, Interconnect, and Trust Meet AI Scale</span>
-      <span class="zh">存储、互连与可信计算应对AI规模化</span>
+      <span class="en">Inference Efficiency Meets Design-Flow Constraints</span>
+      <span class="zh">推理效率遇上设计流程约束</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s selected papers focus on the physical and system limits of AI hardware: reliable analog memory, long-context pipelines, trusted GPUs, and secure design automation. Several results are simulation or prototype based, so their reported gains should not be read as production-level benchmarks.</span>
-      <span class="zh">本周入选论文聚焦AI硬件的器件与系统瓶颈：可靠的模拟存储、长上下文流水线、可信GPU以及安全的设计自动化。其中若干结果基于仿真或原型，报告的增益不应直接视为量产级基准。</span>
+      <span class="en">This week’s work ranges from low-cost model training and speculative decoding to VLM acceleration and EDA orchestration. Together, the papers frame hardware efficiency as a systems problem spanning algorithms, deployment, and design tools.</span>
+      <span class="zh">本周研究覆盖低成本模型训练、推测式解码、VLM加速和EDA编排。这些工作共同表明，硬件效率是横跨算法、部署和设计工具的系统性问题。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -336,123 +336,117 @@
     </div>
   </header>
 
-    <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.25980" target="_blank" rel="noopener">
-          <span class="en">Watching a GaN transistor switch in real time</span>
-          <span class="zh">实时观察GaN晶体管开关过程</span>
-        </a>
-      </h3>
-      <p class="authors">C. Corley-Wiciak, N. T. Sammler, B. Butej, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25980" target="_blank" rel="noopener">arXiv:2608.25980</a> · 2026-08-26T16:33:56Z</p>
-      <p class="summary">
-        <span class="en">The authors use stroboscopic dark-field X-ray microscopy to image strain and heat through the switching cycle of an industrial GaN HEMT. They correlate nanoscale fields with time-dependent electrical behavior and benchmark simulations against measurements. The work offers a direct diagnostic route for transient hot spots and stress, although it is a measurement methodology rather than a new device process.</span>
-        <span class="zh">作者利用频闪暗场X射线显微术，成像观测工业级GaN HEMT整个开关周期内的应变和热量变化。他们将纳米尺度场分布与时变电学行为相关联，并用测量结果校准仿真。该工作为瞬态热点和应力提供了直接诊断路径，但其核心是测量方法，而非新的器件工艺。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
+    <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.25781" target="_blank" rel="noopener">
-          <span class="en">ReRAM crossbars resist update disturbance for in-memory training</span>
-          <span class="zh">抗更新扰动的ReRAM交叉阵列面向存内训练</span>
+        <a href="https://arxiv.org/abs/2608.27199" target="_blank" rel="noopener">
+          <span class="en">Vision-Centric Generative AI Models: A Software-Hardware Perspective</span>
+          <span class="zh">以视觉为中心的生成式AI模型：软硬件视角</span>
         </a>
       </h3>
-      <p class="authors">Wooseok Choi, Tommaso Stecconi, Donato Francesco Falcone, et al.</p>
+      <p class="authors">E. Tselepi, C. Sestito, S. Agwa, T. Prodromakis</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25781" target="_blank" rel="noopener">arXiv:2608.25781</a> · 2026-08-26T13:27:34Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27199" target="_blank" rel="noopener">arXiv:2608.27199</a> · 2026-08-27T14:41:50Z</p>
       <p class="summary">
-        <span class="en">The work presents a 350 nm CMO/HfOx ReRAM device for analog crossbar training and targets disturbance during parallel weight updates. It reports 60 ns analog switching and endurance beyond 100,000 pulses, with simulations used to analyze disturbance tolerance. The result addresses a practical weakness in analog training arrays, but it does not yet establish a scaled accelerator system.</span>
-        <span class="zh">该研究展示了用于模拟交叉阵列训练的350 nm CMO/HfOx ReRAM器件，重点解决并行权重更新时的扰动问题。作者报告60 ns模拟开关和超过10万次脉冲的耐久度，并通过仿真分析抗扰能力。该结果针对模拟训练阵列的实际短板，但尚未证明可扩展的加速器系统。</span>
+        <span class="en">This perspective maps vision-generative model families to deployment domains and compares their parameter cost and energy efficiency across accelerator platforms. It argues that edge uses such as vehicles, sensors, and mobile devices require software-hardware co-design from the outset, rather than adapting hardware after models have already grown.</span>
+        <span class="zh">该观点论文将视觉生成模型家族映射到不同部署领域，并比较其在多类加速器平台上的参数成本和能效。论文认为，车辆、传感器和移动设备等边缘应用需要从一开始就进行软硬件协同设计，而不是在模型规模增长后再被动调整硬件。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Systems &amp; Inference</span>
-      <span class="zh">AI系统与推理</span>
+      <span class="en">AI Systems &amp; Hardware Co-Design</span>
+      <span class="zh">AI系统与软硬件协同设计</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.26523" target="_blank" rel="noopener">
-          <span class="en">Virtual pipeline parallelism for long-context LLM prefill</span>
-          <span class="zh">用于长上下文LLM预填充的虚拟流水并行</span>
+        <a href="https://arxiv.org/abs/2608.27370" target="_blank" rel="noopener">
+          <span class="en">Puro-2B: A Low-Cost Qwen2-1.5B Training Recipe on RTX 5090</span>
+          <span class="zh">Puro-2B：在RTX 5090上低成本训练Qwen2-1.5B的方案</span>
         </a>
       </h3>
-      <p class="authors">Yan Shi, Xiaochao Wang, Jingchun Gao, et al.</p>
+      <p class="authors">K. Luo, J. Cui, Y. Yin, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26523" target="_blank" rel="noopener">arXiv:2608.26523</a> · 2026-08-27T01:59:45Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27370" target="_blank" rel="noopener">arXiv:2608.27370</a> · 2026-08-27T17:07:12Z</p>
       <p class="summary">
-        <span class="en">VPP keeps prefill chunks fixed but uses virtual pipeline stages to overlap expensive middle stages with lighter work from neighboring chunks. On 16 Ascend 910C NPUs and sequences up to 1M tokens, the authors report up to 13.1% higher throughput than dynamic chunked pipeline parallelism. The result is relevant to long-context serving but is demonstrated on a specific vLLM-Ascend and MoE setup.</span>
-        <span class="zh">VPP保持预填充分块大小固定，但借助虚拟流水阶段，将较重的中间阶段与相邻分块的较轻工作重叠。在16颗Ascend 910C NPU及最长100万token序列上，作者报告相较动态分块流水并行，吞吐量最高提升13.1%。该结果适用于长上下文服务，但其验证基于特定的vLLM-Ascend和MoE配置。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits, Memory &amp; Reliability</span>
-      <span class="zh">电路、存储与可靠性</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.26575" target="_blank" rel="noopener">
-          <span class="en">Blackwell confidential computing benchmarked for LLM workloads</span>
-          <span class="zh">Blackwell机密计算在LLM工作负载上的基准测试</span>
-        </a>
-      </h3>
-      <p class="authors">Daniyal Khan, Amean Asad, Ansgar Grunseid</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26575" target="_blank" rel="noopener">arXiv:2608.26575</a> · 2026-08-27T03:37:35Z</p>
-      <p class="summary">
-        <span class="en">This benchmark compares confidential and non-confidential LLM inference and training on NVIDIA B200 GPUs in Intel TDX virtual machines. It reports 1–3% throughput overhead for correctly configured confidential inference, while stock stacks can incur 30–40% penalties. The study separates fixed host costs from encrypted-NVLink costs, making configuration and communication mix central to the result.</span>
-        <span class="zh">该基准在Intel TDX虚拟机中，对比了NVIDIA B200 GPU上机密与非机密LLM推理和训练。作者报告，正确配置的机密推理吞吐开销为1%至3%，而默认软件栈可能带来30%至40%的损失。研究区分了固定主机开销与加密NVLink开销，因此配置方式和通信占比是结果的核心。</span>
+        <span class="en">Puro-2B presents an open pretraining recipe that trains a 2B-parameter model on consumer RTX 5090 GPUs using FP8 and up to 1.4 trillion tokens. The authors report a best-model compute cost below $6.9K while approaching Qwen2.5-1.5B under their evaluation protocol, making the result a useful cost data point rather than a direct substitute for frontier-scale training.</span>
+        <span class="zh">Puro-2B提出一套开放预训练方案，采用FP8并在消费级RTX 5090 GPU上处理最多1.4万亿token来训练20亿参数模型。作者报告最佳模型的计算成本低于6900美元，并在其评测协议下接近Qwen2.5-1.5B；这一结果提供了有价值的成本数据点，但并不能直接替代前沿规模训练。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.26072" target="_blank" rel="noopener">
-          <span class="en">Revisiting Rowhammer mitigation security in deployed systems</span>
-          <span class="zh">重新审视已部署系统中的Rowhammer缓解安全性</span>
+        <a href="https://arxiv.org/abs/2608.27339" target="_blank" rel="noopener">
+          <span class="en">Beyond Parallel Blindness: Information Floors and Model Gaps in Block Drafting</span>
+          <span class="zh">超越并行盲区：块级草稿生成中的信息下界与模型差距</span>
         </a>
       </h3>
-      <p class="authors">Hritvik Taneja, Moinuddin Qureshi</p>
+      <p class="authors">X. Qiang, X. Fang, C. Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26072" target="_blank" rel="noopener">arXiv:2608.26072</a> · 2026-08-26T17:38:45Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27339" target="_blank" rel="noopener">arXiv:2608.27339</a> · 2026-08-27T16:40:45Z</p>
       <p class="summary">
-        <span class="en">The paper analyzes Sigries, a Rowhammer mitigation deployed in Microsoft&#x27;s Azure Cobalt 200 SoC, and argues its tracker-to-sampling transition is vulnerable to a round-robin attack. The authors estimate a mean time to failure of about one second under that attack and propose a filtered mitigation scheme. Its practical impact depends on implementation details and deployment assumptions.</span>
-        <span class="zh">论文分析了部署在微软Azure Cobalt 200 SoC中的Sigries Rowhammer缓解机制，并认为其从跟踪模式切换到采样模式时易受轮转攻击。作者估计该攻击下的平均失效时间约为1秒，并提出过滤式缓解方案。其实际影响取决于实现细节与部署假设。</span>
+        <span class="en">The paper separates speculative block-drafting rejections into an unavoidable information floor and a model-quality gap. Across four domains and several target models, one realized token removes 86–100% of the final-slot information floor, while current drafters remain substantially above that floor.</span>
+        <span class="zh">论文将推测式块级草稿生成的拒绝划分为不可避免的信息下界和模型质量差距。在四个领域及多个目标模型上，一个已实现token可消除最终位置86%至100%的信息下界，但现有草稿器仍明显高于这一界限。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.27206" target="_blank" rel="noopener">
+          <span class="en">PACE: Pixel-Adaptive Condense and Extract for Fast VLM Inference</span>
+          <span class="zh">PACE：用于快速VLM推理的像素自适应压缩与提取</span>
+        </a>
+      </h3>
+      <p class="authors">J. Liu, S. Ye, X. Chen</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27206" target="_blank" rel="noopener">arXiv:2608.27206</a> · 2026-08-27T14:52:09Z</p>
+      <p class="summary">
+        <span class="en">PACE is a training-free VLM inference method that reduces work before the vision encoder and then selectively retains visual tokens for the language model. By treating input pixels and post-encoder tokens as one pipeline, it targets latency that conventional token-pruning methods leave in visual encoding.</span>
+        <span class="zh">PACE是一种免训练的VLM推理方法：先在视觉编码器之前减少计算量，再为语言模型选择性保留视觉token。它将输入像素和编码器后的token视为同一条流水线，从而瞄准传统token剪枝方法遗留在视觉编码阶段的延迟。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Hardware Security</span>
-      <span class="zh">EDA与硬件安全</span>
+      <span class="en">Electronic Design Automation</span>
+      <span class="zh">电子设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.26049" target="_blank" rel="noopener">
-          <span class="en">RTLGuard defends RTL code-generation models against poisoning</span>
-          <span class="zh">RTLGuard防御RTL代码生成模型投毒</span>
+        <a href="https://arxiv.org/abs/2608.27184" target="_blank" rel="noopener">
+          <span class="en">LLMs in Digital EDA: From Generation to Orchestration</span>
+          <span class="zh">数字EDA中的LLM：从生成走向编排</span>
         </a>
       </h3>
-      <p class="authors">Mahshid Rezakhani, Kimia Azar, Hadi Kamali</p>
+      <p class="authors">M. Youngman, C. Sestito, T. Prodromakis</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26049" target="_blank" rel="noopener">arXiv:2608.26049</a> · 2026-08-26T17:23:48Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27184" target="_blank" rel="noopener">arXiv:2608.27184</a> · 2026-08-27T14:29:35Z</p>
       <p class="summary">
-        <span class="en">RTLGuard uses a small clean teacher model, feature alignment and distillation to reduce backdoor behavior in poisoned RTL code-generation models. It addresses a supply-chain concern created when chip teams rely on third-party fine-tuned models to produce synthesizable RTL. The approach avoids full retraining, but its practical value depends on trusted RTL-data coverage and the threat model.</span>
-        <span class="zh">RTLGuard通过小型干净教师模型、特征对齐和知识蒸馏，降低被投毒RTL代码生成模型中的后门行为。该工作针对芯片团队依赖第三方微调模型生成可综合RTL时产生的供应链风险。该方法避免了全参数重训，但实际价值取决于可信RTL数据的覆盖范围和威胁模型。</span>
+        <span class="en">This perspective classifies LLM roles in digital EDA as generators, agents, and orchestrators coordinating decisions across design stages. It warns that code which appears syntactically plausible can still be physically incorrect, while fragmented tools and lost context obstruct industrial-scale use.</span>
+        <span class="zh">该观点论文将LLM在数字EDA中的角色分为生成器、代理和跨设计阶段协调决策的编排器。论文警告，看似语法正确的代码仍可能在物理实现上错误，而工具碎片化和上下文丢失仍阻碍工业规模应用。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Technologies</span>
+      <span class="zh">量子技术</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.27160" target="_blank" rel="noopener">
+          <span class="en">Diamond Quantum-Sensing Platform with Integrated Microwave Antenna and Thermometer</span>
+          <span class="zh">集成微波天线与温度计的金刚石量子传感平台</span>
+        </a>
+      </h3>
+      <p class="authors">M. Ohkuma, R. Matsumoto, S. Adachi, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.27160" target="_blank" rel="noopener">arXiv:2608.27160</a> · 2026-08-27T14:11:17Z</p>
+      <p class="summary">
+        <span class="en">The authors integrate an NV-center quantum-sensing layer, a boron-doped diamond microwave antenna, and a local thermometer on one diamond substrate. The platform detected laser-induced heating not clearly resolved by a stage thermometer while imaging superconductors at cryogenic temperature.</span>
+        <span class="zh">作者在同一金刚石衬底上集成NV中心量子传感层、硼掺杂金刚石微波天线和局部温度计。该平台在低温下对超导体进行成像时，检测到了台式温度计未能清晰分辨的激光局部升温。</span>
       </p>
     </article>
   </section>
@@ -480,8 +474,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-30 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-30 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-08-29 01:14 UTC · <a href="../2026-08-29.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-29 01:14 UTC · <a href="../2026-08-29.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

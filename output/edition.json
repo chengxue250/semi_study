@@ -1,7 +1,7 @@
 {
-  "date": "2026-08-29",
-  "theme": {"en": "AI Compute Expands Beyond the GPU", "zh": "AI算力扩展到GPU之外"},
-  "dek": {"en": "Custom silicon, high-bandwidth memory, cooling, and software are becoming co-equal constraints on AI deployment. Policy proposals are increasingly following the compute wherever it is accessed.", "zh": "定制芯片、高带宽存储、散热和软件正成为AI部署中同等重要的约束。政策方案也开始追随算力的实际访问路径而延伸。"},
+  "date": "2026-08-30",
+  "theme": {"en": "AI Demand Tightens Memory and Access", "zh": "AI需求收紧存储供给与算力准入"},
+  "dek": {"en": "Memory pricing and supply expectations are moving higher as AI infrastructure absorbs capacity, while Washington focuses on routes that could extend Chinese access to advanced compute. Equipment localization and rack-scale deployments show the pressure is spreading across the stack.", "zh": "AI基础设施正在吸收更多产能，推高存储价格与紧缺预期；与此同时，美国正把监管焦点转向可能扩大中国获得先进算力的路径。设备国产化和整柜级部署表明，这一压力正蔓延至整条产业链。"},
   "sections": [
     {
       "id": "ai-accelerators",
@@ -9,49 +9,11 @@
       "stories": [
         {
           "featured": true,
-          "title": {"en": "Google’s Marvell deal broadens custom silicon beyond TPU", "zh": "Google与Marvell的合作将定制芯片扩展至TPU之外"},
-          "summary": {"en": "Google’s expanded relationship with Marvell points to custom silicon work beyond the TPU itself, including memory, networking, storage, and data movement. Those surrounding subsystems can determine how much useful work an AI cluster extracts from its accelerators.", "zh": "Google扩大与Marvell的合作，显示定制硅的范围正从TPU本身延伸到存储、网络、存储设备和数据搬运。这些外围子系统会决定AI集群能从加速器中释放多少实际有效算力。"},
-          "source": "EE Times",
-          "url": "https://www.eetimes.com/googles-marvell-deal-shows-custom-silicon-spreading-beyond-the-tpu/",
-          "published": "2026-08-28T21:59:13+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "B200 cooling study compares two-phase and single-phase direct-to-chip designs", "zh": "B200散热研究比较两相与单相直触芯片方案"},
-          "summary": {"en": "A benchmarking study examines two-phase versus single-phase direct-to-chip cooling on an NVIDIA B200 server, including warm-water operation. As accelerator densities rise, the cooling choice affects both sustained performance and the electricity and water economics of the data center.", "zh": "一项基准研究在NVIDIA B200服务器上比较两相和单相直触芯片冷却，并考察温水运行条件。随着加速器功率密度提升，散热方案同时影响持续性能以及数据中心的电力和用水经济性。"},
-          "source": "The Next Platform",
-          "url": "https://intelligence.theregister.com/paper/view/20797",
-          "published": "2026-08-29T00:00:00+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "AMD releases ROCm 10 with claimed inference uplift", "zh": "AMD发布ROCm 10并宣称推理性能提升"},
-          "summary": {"en": "AMD has released ROCm 10, its latest open compute and AI software stack, and says it delivers up to 3.3× inference uplift over ROCm 7 in its cited comparisons. The release puts software maturity alongside hardware availability as a competitive variable for AMD’s AI accelerator users.", "zh": "AMD发布了最新的开放计算与AI软件栈ROCm 10，并在其引用的对比中宣称相对ROCm 7最高可实现3.3倍推理提升。该版本表明，对AMD AI加速器用户而言，软件成熟度与硬件供给同样是竞争变量。"},
-          "source": "Wccftech",
-          "url": "https://wccftech.com/amd-rocm-10-big-ai-updates-performance-gains/",
-          "published": "2026-08-28T15:15:55+00:00"
-        }
-      ]
-    },
-    {
-      "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
-      "stories": [
-        {
-          "featured": true,
-          "title": {"en": "SK hynix breaks ground on $4 billion Indiana HBM plant", "zh": "SK hynix为40亿美元印第安纳HBM工厂破土动工"},
-          "summary": {"en": "SK hynix has broken ground on a $4 billion HBM plant in Indiana, extending advanced-memory production and packaging investment into the United States. The new site adds a geographically distinct supply-chain node for AI memory, a component that increasingly gates accelerator-system deliveries.", "zh": "SK hynix已为其位于印第安纳州、投资40亿美元的HBM工厂破土动工，将先进存储生产与封装投资延伸至美国。该项目为AI存储增加了一个地域上独立的供应链节点，而这一环节正日益限制加速器系统交付。"},
-          "source": "GNews — HBM",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOajVwUHpPQk85WlpQQ3R4b21EeFpnV21UWEYycHl2eU51RGVyUGJnU2YxMXdlU3FNRE5wZ2wxRlFma2xFajZwNHZ1cEVaTFEySHhvbzRZUzlMZlc5eko5QktJYnJZQllWOThRMEdROWhuQ0x3dGdEdFR6bVZROEVXcm0tMUZncFl0VXdjdzlicndlYzhZb1otU0p0MkEtQnFRdER4SklhdG5oOVVLQ2pyWNIBtgFBVV95cUxOR1l4N0xGWkItT05pcUhzMl9rU3JpRTdSMzlWSHFQbzdDYms3RkJEbGRwNFh3ci1KZjk3SjBmamVIbWMxV01raTNZQ1QxeUVkX0dfZUwydlhOZUQ3cXlUSl9Da2pOMWVIMjZxeXZ2T1ctTG5NbE4yT1ZKRVlneFFFZWhKUXNDY0ZCcjNjRjdsb2I0LXZtTGhBYm5KRThHNXNOY3o3MjEyUERsRldsMHZUY011a2JqZw?oc=5",
-          "published": "2026-08-28T19:17:55+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "Qualcomm’s HBC initiative draws Samsung and SK hynix into a post-HBM race", "zh": "Qualcomm的HBC布局将Samsung和SK hynix带入HBM之后的新竞争"},
-          "summary": {"en": "Qualcomm’s reported HBC initiative is drawing Samsung and SK hynix into a new memory race beyond conventional HBM. The development underscores how AI-memory differentiation is moving toward system-level bandwidth, packaging, and interface choices rather than capacity alone.", "zh": "报道称，Qualcomm的HBC布局正将Samsung和SK hynix带入传统HBM之外的新一轮存储竞争。这表明AI存储的差异化正从单纯容量转向系统级带宽、封装和接口选择。"},
-          "source": "GNews — HBM",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxORXpuNzYxR0VQb0t3U0I2NVJDOENjQTRfc3BsQ3UzUjdxblRDeUdsNGNvbHd5NTFQR0tiWjZiUVIyaXB5MFk4b3liczJHRGxpZXQ4SHB6RzFzUVJjT3Q3cXJBVFNmR3lhWmM5S3UzREZsRXc4bFo0aTYxTml5UXN2bDROek1yZmVMUm5lbmpzSUFZeTc4TVNIVzNweks?oc=5",
-          "published": "2026-08-28T22:39:59+00:00"
+          "title": {"en": "Cisco and NVIDIA expand secure AI factory to Supermicro racks", "zh": "Cisco与NVIDIA将安全AI工厂扩展至Supermicro整柜系统"},
+          "summary": {"en": "Cisco's Secure AI Factory with NVIDIA is adding integrated Supermicro rack-scale systems for larger AI clusters. The move packages networking, compute and security into a more standardized deployment path, reflecting demand for faster cluster integration rather than component-by-component assembly.", "zh": "Cisco的Secure AI Factory with NVIDIA新增了Supermicro整柜级系统，以支持更大规模的AI集群。该方案把网络、计算和安全能力打包成更标准化的部署路径，反映出市场希望加快集群集成，而非逐一组装组件。"},
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/cisco-secure-ai-factory-with-nvidia-expands-to-supermicro-rack-scale-systems/",
+          "published": "2026-08-29T20:40:18+00:00"
         }
       ]
     },
@@ -61,11 +23,33 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "TSMC bonuses rise 50.6% as the cost of AI talent climbs", "zh": "台积电奖金增长50.6%，AI人才成本上升"},
-          "summary": {"en": "TSMC paid NT$36 billion in second-quarter bonuses, a 50.6% year-on-year increase, while revenue rose 36% to NT$1.2 trillion, according to its SEC filings cited in the report. The divergence highlights workforce retention as a rising cost in the advanced-node expansion serving AI demand.", "zh": "据报道援引的SEC文件，台积电第二季度发放360亿新台币奖金，同比增长50.6%，同期营收增长36%至1.2万亿新台币。这一增速差异凸显出，在服务AI需求的先进制程扩张中，留住人才正成为不断上升的成本。"},
+          "title": {"en": "TSMC and U.S. researchers report SOT-MRAM work for AI", "zh": "台积电与美国研究人员报道面向AI的SOT-MRAM研究"},
+          "summary": {"en": "A report says TSMC and U.S. scientists have developed spin-orbit-torque MRAM work aimed at AI applications. SOT-MRAM is relevant because non-volatile memory with fast switching could eventually support lower-energy data movement, although the report does not establish a commercial manufacturing timetable.", "zh": "报道指出，台积电与美国科学家开展了面向AI应用的自旋轨道力矩MRAM研究。SOT-MRAM之所以受到关注，是因为具备快速切换能力的非易失存储器有望降低数据搬运能耗；不过该报道并未给出商业化制造时间表。"},
+          "source": "GNews — TSMC",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOd29DNVNHS1E4UUZVQW1QVXdSZkMyX0NIdW5YZWtIWURFWmFJSFgzUXJXRTRVdlpWMV9Pa1h6Y1RWamZjY1hLMXVmMWhwLVpGd01OSzl5elNmV19WMkVEN21nbGhhOHhidGxZcUlZR2tOdGRpNTFnRV9vbGIxZzFmSTIyX3hlQXBqcS1sZGNnXzYzWFFDRksyWTFkVQ?oc=5",
+          "published": "2026-08-29T23:27:12+00:00"
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "title": {"en": "Memory", "zh": "存储"},
+      "stories": [
+        {
+          "featured": true,
+          "title": {"en": "SK hynix CEO expects memory shortage to extend to 2030", "zh": "SK hynix CEO预计存储芯片短缺将延续至2030年"},
+          "summary": {"en": "SK hynix's CEO said the memory-chip shortage could last until 2030. That is a notably long view of AI-led tightness: it implies capacity additions may remain behind demand from high-bandwidth-memory and data-center customers for several years.", "zh": "SK hynix首席执行官表示，存储芯片短缺可能持续到2030年。这是对AI驱动供需紧张的长期判断，意味着未来数年新增产能仍可能落后于HBM和数据中心客户带来的需求。"},
+          "source": "GNews — HBM",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQa3FCazN0TVhoeWlqN254cnlsTEo3VEFWR0tTTTVmLUxUcFFybXBpZU04T2dtNlBmR0NxVzcxc0dGWkNDVWI1cEp2RDVRQWtCMDQ0U2FseEpFTlo4Mkt6WGJGdHdVek9PSnV2Wk5oYUlEQTg2c1VrYnQwZzBsNEdad2NrZm1UbkNSSEVOUTZDRnM3dHk4d0c0b3NMQdIBoAFBVV95cUxNdlFpVVdabV91ckxhTG9TZDNTVTN3WVltMlhOZWFza3ExVTkycW1yeW92TlVYTkNSZWVobF9WUmxZZzAtQTk0MjhxRXVoZno1d1Fkb1FTUnludG1yNDZyM0RDTUtGY1ZNQ0QydlpVQ3puTUpvT3ZNNklJQWZkS0o4MnNPN3o3bFRZV2hUTlgzclYwZE9rQ1hsM3RhM1ltdHNf?oc=5",
+          "published": "2026-08-29T17:29:16+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Mobile DRAM and NAND bundle reportedly rises 340% year on year", "zh": "手机DRAM与NAND组合价格据报同比上涨340%"},
+          "summary": {"en": "A new estimate puts a 12GB DRAM plus 256GB NAND package at roughly $310, after a reported 340% increase from a year earlier; the bundle is said to exceed the cost of a premium smartphone SoC. If sustained, that inversion would push handset makers to revisit bill-of-materials assumptions and pricing rather than treat memory as a secondary cost line.", "zh": "一项最新估算称，12GB DRAM加256GB NAND的组合价格约为310美元，较去年上涨340%，并据称已超过高端智能手机SoC的成本。若这一变化延续，手机厂商将不得不重新审视物料清单与定价假设，而不能再把存储视为次要成本项。"},
           "source": "Wccftech",
-          "url": "https://wccftech.com/tsmc-bonuses-surge-50-and-outpace-revenue-growth-as-sec-filings-expose-the-ai-talent-wars-real-cost/",
-          "published": "2026-08-28T22:55:35+00:00"
+          "url": "https://wccftech.com/dram-nand-flash-costs-exceed-soc-bom/",
+          "published": "2026-08-29T17:26:56+00:00"
         }
       ]
     },
@@ -75,11 +59,19 @@
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Lam Research breaks ground on Oregon AI semiconductor lab", "zh": "Lam Research为俄勒冈AI半导体实验室破土动工"},
-          "summary": {"en": "Lam Research has broken ground on an AI semiconductor laboratory in Oregon. For process-equipment suppliers, closer work on AI-oriented device and process problems can help translate new architectures and materials requirements into manufacturable process flows.", "zh": "Lam Research已为其位于俄勒冈州的AI半导体实验室破土动工。对于制程设备供应商而言，围绕AI导向器件和工艺问题开展更紧密的研究，有助于将新架构与材料需求转化为可制造的工艺流程。"},
+          "title": {"en": "Axcelis–Veeco deal recasts the equipment portfolio", "zh": "Axcelis与Veeco交易重塑半导体设备组合"},
+          "summary": {"en": "Analysis of the Axcelis Technologies and Veeco combination frames the merger as a reshaping of their semiconductor-equipment exposure. Combining ion-implantation and process-equipment franchises could broaden the merged supplier's customer and technology footprint, while integration execution becomes the key variable.", "zh": "对Axcelis Technologies与Veeco合并的分析认为，这笔交易正在重塑双方在半导体设备领域的布局。离子注入与工艺设备业务的结合可扩大合并后供应商的客户和技术覆盖面，但整合执行将成为关键变量。"},
           "source": "Reuters Technology (Google News)",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOTDBldFZQRVdScFFBX3IxQ2lETnRHdWRuWGpHRGRWQVNyZF9rY2tlQzRxcWJpUjVrREpucWJVRGI1VXpKTXZZeG1CQXQ2eFljSER4Q2tYVVA4SWg1ZnM3S0o0QlRmRDNKYlU1NmNVR0FGXzBnZFZicW0xWDRGUE1odDM4NURfVXhLdlVIVy1TSVVkQWR2Rlh1MnpnV3BIbkNSQnc?oc=5",
-          "published": "2026-08-28T15:01:50+00:00"
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPSzlkUHhuaVQ2QUtiYlBST1dKakRjblprZjR2aTVaMFhVSFd5S05Cd0tkUnFEMVo1MVJobHZYMUhpZVZURENjd1hWVEotUmJYUHRyWXNyUkRZVWdVSlBtQ01ORVN2VnNYTmszS2tNRzdIeEVsWkRDalZXcmxOaktCNUh1bWxyb1djeEVFdHZCeDhNWkdJVjNVdWZrcjR0V2ZmZ1h6akpsOFRabEhRbkdxX1lsUUg4WW54NmltUmdZWENOaXVzQ2RhTFVmT3BkQnEwUktxNXdpVEttdmM?oc=5",
+          "published": "2026-08-29T18:50:10+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "China equipment localization reaches 35%, with gaps in subsystems", "zh": "中国半导体设备国产化率达35%，关键子系统仍有缺口"},
+          "summary": {"en": "A report puts China's semiconductor-equipment localization rate at 35%, while saying vacuum valves and RF power equipment remain about 80% foreign supplied. The figures underline that progress at the tool level does not remove dependence on specialized upstream subsystems that can constrain domestic manufacturing.", "zh": "一份报道称，中国半导体设备国产化率已达35%，但真空阀和射频电源等设备仍约80%依赖海外供应。该数据表明，整机层面的进展并不等于摆脱对专业上游子系统的依赖，而这些环节仍可能约束国内制造能力。"},
+          "source": "Reuters Technology (Google News)",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRTNIOG9VSnpfdE05d0JjX1ZhRlY2ck51V0RjX0tGQ0lGYVc4aFhnWDctR05TVkhGT2dnVUxlWEdyS1NJYk5tU3lzUU5adFRLWFRjY3g2c3ZGX2tuN2hIWUNpWU1DOS05SXZBaDBVVzN0bDlpeC1abjdSQ1p6ZUIzWm5PTDNzTVBmZm15QjFsUkYwbUlYcHNYTnNFRU0xeWR2Q2N5UjN1SDRlX0pCRTY0R1R4TVNkNk5pQ1ZBaXZXel9CZw?oc=5",
+          "published": "2026-08-29T17:56:22+00:00"
         }
       ]
     },
@@ -89,111 +81,115 @@
       "stories": [
         {
           "featured": true,
-          "title": {"en": "US export-control proposal targets Chinese remote access to AI servers", "zh": "美国出口管制提案瞄准中国对远程AI服务器的访问"},
-          "summary": {"en": "The Trump administration is reportedly drafting an export-control rule aimed at Chinese remote access to advanced AI computing, with an industry consultation possible as early as September. Extending controls from physical chip shipments to remote use would broaden the compliance perimeter for cloud providers and AI infrastructure operators.", "zh": "报道称，特朗普政府正在起草一项出口管制规则，旨在限制中国远程访问先进AI算力，并可能最早于9月向行业征询意见。若管制从实体芯片出货延伸至远程使用，云服务商和AI基础设施运营商的合规边界将随之扩大。"},
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/policy/new-us-export-controls-reportedly-target-chinese-access-to-remote-ai-servers-trump-admins-cut-down-ai-diffusion-rule-could-be-shared-with-industry-as-soon-as-september",
-          "published": "2026-08-28T15:47:46+00:00"
-        },
+          "title": {"en": "U.S. targets third-country cloud route for Chinese AI access", "zh": "美国瞄准经第三国云服务获取中国AI算力的路径"},
+          "summary": {"en": "A report says the U.S. is moving to block a third-country cloud workaround that could give Chinese users access to advanced AI compute through data centers in Thailand and Singapore. The proposal would shift enforcement beyond physical-chip shipments toward the location and control of remote compute services.", "zh": "报道称，美国正推动封堵一条第三国云服务绕行路径，该路径可能让中国用户通过泰国和新加坡的数据中心获得先进AI算力。此举将把执法重点从实体芯片出货延伸到远程计算服务的所在地与控制权。"},
+          "source": "GNews — Chip export controls",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA3eGhyU2ZVOGdsR3hpc1dRczN0RVRXZG95dkctdVR1S2xnM1hTcGhnSkhPdk5femNXSk52eUc4ZnlVV19RU0V6Z2hUQWx1MUpueGRvZFMxRlhhQkxwajVpWmtSVGVEcGVKZnRPMy1xZjRxc2NET0E?oc=5",
+          "published": "2026-08-29T18:17:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "challengers",
+      "title": {"en": "Challengers & Design Tools", "zh": "新兴厂商与设计工具"},
+      "stories": [
         {
           "featured": false,
-          "title": {"en": "Nvidia forms employee PAC for Washington engagement", "zh": "Nvidia成立员工PAC以加强华盛顿政策参与"},
-          "summary": {"en": "Nvidia has formed a federal political action committee for employees, according to the report. The move formalizes the company’s policy engagement as export rules, competition scrutiny, and infrastructure incentives increasingly affect the market for AI systems.", "zh": "据报道，Nvidia已成立面向员工的联邦政治行动委员会。随着出口规则、竞争审查和基础设施激励日益影响AI系统市场，这一举措将公司的政策参与进一步制度化。"},
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/big-tech/nvidia-gears-up-its-influence-in-washington-forming-pac-tells-employees-that-decisions-congress-makes-over-the-coming-years-could-have-substantial-consequences-for-the-ai-industry-according-to-report",
-          "published": "2026-08-28T15:19:27+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "US considers additional semiconductor tariffs that could include data-center servers", "zh": "美国考虑新增半导体关税，数据中心服务器或被纳入"},
-          "summary": {"en": "The administration is considering additional semiconductor tariffs that could extend to data-center servers, according to the report. Including finished systems would make trade policy relevant not only to component sourcing but also to the location and cost structure of AI infrastructure deployment.", "zh": "据报道，政府正在考虑新增半导体关税，范围可能延伸至数据中心服务器。若将整机纳入，贸易政策将不仅影响零部件采购，也会影响AI基础设施部署的地点选择和成本结构。"},
+          "title": {"en": "Agentrys raises $24.5 million for agentic chip-design platform", "zh": "Agentrys为智能体芯片设计平台融资2,450万美元"},
+          "summary": {"en": "Agentrys has raised $24.5 million for its agentic chip-design platform and says it exceeded 90% on an NVIDIA benchmark. The financing highlights continued interest in using AI agents for design flows, but the reported benchmark result should be distinguished from production design-win and tape-out evidence.", "zh": "Agentrys为其智能体芯片设计平台融资2,450万美元，并称在一项NVIDIA基准测试中超过90%。这笔融资显示市场仍在关注AI智能体进入设计流程，但该基准成绩应与量产设计导入和流片验证证据区分开来。"},
           "source": "Reuters Technology (Google News)",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOOGptTGRocFE0Z1p2aTlaVjU1d1lMWjk0S0loa3FtUGRWRms1bk9FMmNHY0VqZjlNN1ZGSkRxWVFCS0xlNU1aMWc2NDFnbFVuZlExMHp1bVpxUHhQUU5qamU1MjJrLXltX0l4a1g5MHB2WERabERJWW1KSVExTWpaVkQtdm00U1FFa2hUOFZYOGdad0tRbkRYVzN5a2ptZmlUNl8yejdSZXVqSG9hTkJjeFgzNlpYNHdDektFdXVqU2lreVU?oc=5",
-          "published": "2026-08-28T16:28:07+00:00"
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbE1LWlo0MFd2NXM2OWtUTzA2MVI0cjdvUUpycmNZWUp1WVp6UGhUamNHT3c1NkhVQVhQdS1RX1drYlgtMkNSV2ZpYUFYUWoyb0Utc3JSYVNCYXRncFFXRzFtS1FlbFNCRGVISnJwcnNwMzJicmlBcXIxNk4zY2pOUEpfNnVab0hGWmpFaG92ZVBfcS1KWTB0RXR6NWhKUjVqTnZ1RXROZEFJV1d60gGyAUFVX3lxTFBCMjdaT2tVb2djeDVGbWhxYjZTS2I3LTJ6d2lXT1hnOEJhNFRQT1N4eWh4am9FSTNDUHVPVmx1SG5uWXFxVGJPTHlNY3JhUzBJM01zZ1FvRFRrOE1zR0EtdVFiZ3ZkT3Nja2JQUUs5U1hETlFxdmxwenZlVTdNb3F4ZHNGRVd2Mjgzb28xek5OLWo3VGRqYVVuWEpMcEpxcFU3ZG0zZkpoTHRrZUs4VGlRSnc?oc=5",
+          "published": "2026-08-29T21:56:27+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Inference Efficiency Meets Design-Flow Constraints", "zh": "推理效率遇上设计流程约束"},
-    "dek": {"en": "This week’s work ranges from low-cost model training and speculative decoding to VLM acceleration and EDA orchestration. Together, the papers frame hardware efficiency as a systems problem spanning algorithms, deployment, and design tools.", "zh": "本周研究覆盖低成本模型训练、推测式解码、VLM加速和EDA编排。这些工作共同表明，硬件效率是横跨算法、部署和设计工具的系统性问题。"},
+    "theme": {"en": "Memory, Interconnect, and Trust Meet AI Scale", "zh": "存储、互连与可信计算应对AI规模化"},
+    "dek": {"en": "This week's selected papers focus on the physical and system limits of AI hardware: reliable analog memory, long-context pipelines, trusted GPUs, and secure design automation. Several results are simulation or prototype based, so their reported gains should not be read as production-level benchmarks.", "zh": "本周入选论文聚焦AI硬件的器件与系统瓶颈：可靠的模拟存储、长上下文流水线、可信GPU以及安全的设计自动化。其中若干结果基于仿真或原型，报告的增益不应直接视为量产级基准。"},
     "areas": [
+      {
+        "id": "devices",
+        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "papers": [
+          {
+            "title": {"en": "Watching a GaN transistor switch in real time", "zh": "实时观察GaN晶体管开关过程"},
+            "authors": "C. Corley-Wiciak, N. T. Sammler, B. Butej, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2608.25980",
+            "venue_url": "https://arxiv.org/abs/2608.25980",
+            "summary": {"en": "The authors use stroboscopic dark-field X-ray microscopy to image strain and heat through the switching cycle of an industrial GaN HEMT. They correlate nanoscale fields with time-dependent electrical behavior and benchmark simulations against measurements. The work offers a direct diagnostic route for transient hot spots and stress, although it is a measurement methodology rather than a new device process.", "zh": "作者利用频闪暗场X射线显微术，成像观测工业级GaN HEMT整个开关周期内的应变和热量变化。他们将纳米尺度场分布与时变电学行为相关联，并用测量结果校准仿真。该工作为瞬态热点和应力提供了直接诊断路径，但其核心是测量方法，而非新的器件工艺。"},
+            "published": "2026-08-26T16:33:56Z"
+          }
+        ]
+      },
       {
         "id": "accelerators",
         "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
         "papers": [
           {
-            "title": {"en": "Vision-Centric Generative AI Models: A Software-Hardware Perspective", "zh": "以视觉为中心的生成式AI模型：软硬件视角"},
-            "authors": "E. Tselepi, C. Sestito, S. Agwa, T. Prodromakis",
+            "title": {"en": "ReRAM crossbars resist update disturbance for in-memory training", "zh": "抗更新扰动的ReRAM交叉阵列面向存内训练"},
+            "authors": "Wooseok Choi, Tommaso Stecconi, Donato Francesco Falcone, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.27199",
-            "venue_url": "https://arxiv.org/abs/2608.27199",
-            "summary": {"en": "This perspective maps vision-generative model families to deployment domains and compares their parameter cost and energy efficiency across accelerator platforms. It argues that edge uses such as vehicles, sensors, and mobile devices require software-hardware co-design from the outset, rather than adapting hardware after models have already grown.", "zh": "该观点论文将视觉生成模型家族映射到不同部署领域，并比较其在多类加速器平台上的参数成本和能效。论文认为，车辆、传感器和移动设备等边缘应用需要从一开始就进行软硬件协同设计，而不是在模型规模增长后再被动调整硬件。"},
-            "published": "2026-08-27T14:41:50Z"
+            "venue": "arXiv:2608.25781",
+            "venue_url": "https://arxiv.org/abs/2608.25781",
+            "summary": {"en": "The work presents a 350 nm CMO/HfOx ReRAM device for analog crossbar training and targets disturbance during parallel weight updates. It reports 60 ns analog switching and endurance beyond 100,000 pulses, with simulations used to analyze disturbance tolerance. The result addresses a practical weakness in analog training arrays, but it does not yet establish a scaled accelerator system.", "zh": "该研究展示了用于模拟交叉阵列训练的350 nm CMO/HfOx ReRAM器件，重点解决并行权重更新时的扰动问题。作者报告60 ns模拟开关和超过10万次脉冲的耐久度，并通过仿真分析抗扰能力。该结果针对模拟训练阵列的实际短板，但尚未证明可扩展的加速器系统。"},
+            "published": "2026-08-26T13:27:34Z"
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Systems & Hardware Co-Design", "zh": "AI系统与软硬件协同设计"},
+        "title": {"en": "AI Systems & Inference", "zh": "AI系统与推理"},
         "papers": [
           {
-            "title": {"en": "Puro-2B: A Low-Cost Qwen2-1.5B Training Recipe on RTX 5090", "zh": "Puro-2B：在RTX 5090上低成本训练Qwen2-1.5B的方案"},
-            "authors": "K. Luo, J. Cui, Y. Yin, et al.",
+            "title": {"en": "Virtual pipeline parallelism for long-context LLM prefill", "zh": "用于长上下文LLM预填充的虚拟流水并行"},
+            "authors": "Yan Shi, Xiaochao Wang, Jingchun Gao, et al.",
             "affiliation": "",
-            "venue": "arXiv:2608.27370",
-            "venue_url": "https://arxiv.org/abs/2608.27370",
-            "summary": {"en": "Puro-2B presents an open pretraining recipe that trains a 2B-parameter model on consumer RTX 5090 GPUs using FP8 and up to 1.4 trillion tokens. The authors report a best-model compute cost below $6.9K while approaching Qwen2.5-1.5B under their evaluation protocol, making the result a useful cost data point rather than a direct substitute for frontier-scale training.", "zh": "Puro-2B提出一套开放预训练方案，采用FP8并在消费级RTX 5090 GPU上处理最多1.4万亿token来训练20亿参数模型。作者报告最佳模型的计算成本低于6900美元，并在其评测协议下接近Qwen2.5-1.5B；这一结果提供了有价值的成本数据点，但并不能直接替代前沿规模训练。"},
-            "published": "2026-08-27T17:07:12Z"
+            "venue": "arXiv:2608.26523",
+            "venue_url": "https://arxiv.org/abs/2608.26523",
+            "summary": {"en": "VPP keeps prefill chunks fixed but uses virtual pipeline stages to overlap expensive middle stages with lighter work from neighboring chunks. On 16 Ascend 910C NPUs and sequences up to 1M tokens, the authors report up to 13.1% higher throughput than dynamic chunked pipeline parallelism. The result is relevant to long-context serving but is demonstrated on a specific vLLM-Ascend and MoE setup.", "zh": "VPP保持预填充分块大小固定，但借助虚拟流水阶段，将较重的中间阶段与相邻分块的较轻工作重叠。在16颗Ascend 910C NPU及最长100万token序列上，作者报告相较动态分块流水并行，吞吐量最高提升13.1%。该结果适用于长上下文服务，但其验证基于特定的vLLM-Ascend和MoE配置。"},
+            "published": "2026-08-27T01:59:45Z"
+          }
+        ]
+      },
+      {
+        "id": "circuits",
+        "title": {"en": "Circuits, Memory & Reliability", "zh": "电路、存储与可靠性"},
+        "papers": [
+          {
+            "title": {"en": "Blackwell confidential computing benchmarked for LLM workloads", "zh": "Blackwell机密计算在LLM工作负载上的基准测试"},
+            "authors": "Daniyal Khan, Amean Asad, Ansgar Grunseid",
+            "affiliation": "",
+            "venue": "arXiv:2608.26575",
+            "venue_url": "https://arxiv.org/abs/2608.26575",
+            "summary": {"en": "This benchmark compares confidential and non-confidential LLM inference and training on NVIDIA B200 GPUs in Intel TDX virtual machines. It reports 1–3% throughput overhead for correctly configured confidential inference, while stock stacks can incur 30–40% penalties. The study separates fixed host costs from encrypted-NVLink costs, making configuration and communication mix central to the result.", "zh": "该基准在Intel TDX虚拟机中，对比了NVIDIA B200 GPU上机密与非机密LLM推理和训练。作者报告，正确配置的机密推理吞吐开销为1%至3%，而默认软件栈可能带来30%至40%的损失。研究区分了固定主机开销与加密NVLink开销，因此配置方式和通信占比是结果的核心。"},
+            "published": "2026-08-27T03:37:35Z"
           },
           {
-            "title": {"en": "Beyond Parallel Blindness: Information Floors and Model Gaps in Block Drafting", "zh": "超越并行盲区：块级草稿生成中的信息下界与模型差距"},
-            "authors": "X. Qiang, X. Fang, C. Chen, et al.",
+            "title": {"en": "Revisiting Rowhammer mitigation security in deployed systems", "zh": "重新审视已部署系统中的Rowhammer缓解安全性"},
+            "authors": "Hritvik Taneja, Moinuddin Qureshi",
             "affiliation": "",
-            "venue": "arXiv:2608.27339",
-            "venue_url": "https://arxiv.org/abs/2608.27339",
-            "summary": {"en": "The paper separates speculative block-drafting rejections into an unavoidable information floor and a model-quality gap. Across four domains and several target models, one realized token removes 86–100% of the final-slot information floor, while current drafters remain substantially above that floor.", "zh": "论文将推测式块级草稿生成的拒绝划分为不可避免的信息下界和模型质量差距。在四个领域及多个目标模型上，一个已实现token可消除最终位置86%至100%的信息下界，但现有草稿器仍明显高于这一界限。"},
-            "published": "2026-08-27T16:40:45Z"
-          },
-          {
-            "title": {"en": "PACE: Pixel-Adaptive Condense and Extract for Fast VLM Inference", "zh": "PACE：用于快速VLM推理的像素自适应压缩与提取"},
-            "authors": "J. Liu, S. Ye, X. Chen",
-            "affiliation": "",
-            "venue": "arXiv:2608.27206",
-            "venue_url": "https://arxiv.org/abs/2608.27206",
-            "summary": {"en": "PACE is a training-free VLM inference method that reduces work before the vision encoder and then selectively retains visual tokens for the language model. By treating input pixels and post-encoder tokens as one pipeline, it targets latency that conventional token-pruning methods leave in visual encoding.", "zh": "PACE是一种免训练的VLM推理方法：先在视觉编码器之前减少计算量，再为语言模型选择性保留视觉token。它将输入像素和编码器后的token视为同一条流水线，从而瞄准传统token剪枝方法遗留在视觉编码阶段的延迟。"},
-            "published": "2026-08-27T14:52:09Z"
+            "venue": "arXiv:2608.26072",
+            "venue_url": "https://arxiv.org/abs/2608.26072",
+            "summary": {"en": "The paper analyzes Sigries, a Rowhammer mitigation deployed in Microsoft's Azure Cobalt 200 SoC, and argues its tracker-to-sampling transition is vulnerable to a round-robin attack. The authors estimate a mean time to failure of about one second under that attack and propose a filtered mitigation scheme. Its practical impact depends on implementation details and deployment assumptions.", "zh": "论文分析了部署在微软Azure Cobalt 200 SoC中的Sigries Rowhammer缓解机制，并认为其从跟踪模式切换到采样模式时易受轮转攻击。作者估计该攻击下的平均失效时间约为1秒，并提出过滤式缓解方案。其实际影响取决于实现细节与部署假设。"},
+            "published": "2026-08-26T17:38:45Z"
           }
         ]
       },
       {
         "id": "eda",
-        "title": {"en": "Electronic Design Automation", "zh": "电子设计自动化"},
+        "title": {"en": "EDA & Hardware Security", "zh": "EDA与硬件安全"},
         "papers": [
           {
-            "title": {"en": "LLMs in Digital EDA: From Generation to Orchestration", "zh": "数字EDA中的LLM：从生成走向编排"},
-            "authors": "M. Youngman, C. Sestito, T. Prodromakis",
+            "title": {"en": "RTLGuard defends RTL code-generation models against poisoning", "zh": "RTLGuard防御RTL代码生成模型投毒"},
+            "authors": "Mahshid Rezakhani, Kimia Azar, Hadi Kamali",
             "affiliation": "",
-            "venue": "arXiv:2608.27184",
-            "venue_url": "https://arxiv.org/abs/2608.27184",
-            "summary": {"en": "This perspective classifies LLM roles in digital EDA as generators, agents, and orchestrators coordinating decisions across design stages. It warns that code which appears syntactically plausible can still be physically incorrect, while fragmented tools and lost context obstruct industrial-scale use.", "zh": "该观点论文将LLM在数字EDA中的角色分为生成器、代理和跨设计阶段协调决策的编排器。论文警告，看似语法正确的代码仍可能在物理实现上错误，而工具碎片化和上下文丢失仍阻碍工业规模应用。"},
-            "published": "2026-08-27T14:29:35Z"
-          }
-        ]
-      },
-      {
-        "id": "quantum",
-        "title": {"en": "Quantum Technologies", "zh": "量子技术"},
-        "papers": [
-          {
-            "title": {"en": "Diamond Quantum-Sensing Platform with Integrated Microwave Antenna and Thermometer", "zh": "集成微波天线与温度计的金刚石量子传感平台"},
-            "authors": "M. Ohkuma, R. Matsumoto, S. Adachi, et al.",
-            "affiliation": "",
-            "venue": "arXiv:2608.27160",
-            "venue_url": "https://arxiv.org/abs/2608.27160",
-            "summary": {"en": "The authors integrate an NV-center quantum-sensing layer, a boron-doped diamond microwave antenna, and a local thermometer on one diamond substrate. The platform detected laser-induced heating not clearly resolved by a stage thermometer while imaging superconductors at cryogenic temperature.", "zh": "作者在同一金刚石衬底上集成NV中心量子传感层、硼掺杂金刚石微波天线和局部温度计。该平台在低温下对超导体进行成像时，检测到了台式温度计未能清晰分辨的激光局部升温。"},
-            "published": "2026-08-27T14:11:17Z"
+            "venue": "arXiv:2608.26049",
+            "venue_url": "https://arxiv.org/abs/2608.26049",
+            "summary": {"en": "RTLGuard uses a small clean teacher model, feature alignment and distillation to reduce backdoor behavior in poisoned RTL code-generation models. It addresses a supply-chain concern created when chip teams rely on third-party fine-tuned models to produce synthesizable RTL. The approach avoids full retraining, but its practical value depends on trusted RTL-data coverage and the threat model.", "zh": "RTLGuard通过小型干净教师模型、特征对齐和知识蒸馏，降低被投毒RTL代码生成模型中的后门行为。该工作针对芯片团队依赖第三方微调模型生成可综合RTL时产生的供应链风险。该方法避免了全参数重训，但实际价值取决于可信RTL数据的覆盖范围和威胁模型。"},
+            "published": "2026-08-26T17:23:48Z"
           }
         ]
       }
