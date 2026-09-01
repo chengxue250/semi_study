@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-08-30">
+<meta name="edition-date" content="2026-09-01">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory, Interconnect, and Trust Meet AI Scale — Semi Research 2026-08-30</title>
+<title>Memory-Centric Compute Gets More Programmable — Semi Research 2026-09-01</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,62 +319,128 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Sunday, August 30, 2026</span>
-      <span class="zh">研究摘要 · 2026年8月30日 星期日</span>
+      <span class="en">Research digest · Tuesday, September 1, 2026</span>
+      <span class="zh">研究摘要 · 2026年9月1日 星期二</span>
     </div>
     <h1>
-      <span class="en">Memory, Interconnect, and Trust Meet AI Scale</span>
-      <span class="zh">存储、互连与可信计算应对AI规模化</span>
+      <span class="en">Memory-Centric Compute Gets More Programmable</span>
+      <span class="zh">以存储为中心的计算更加可编程</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s selected papers focus on the physical and system limits of AI hardware: reliable analog memory, long-context pipelines, trusted GPUs, and secure design automation. Several results are simulation or prototype based, so their reported gains should not be read as production-level benchmarks.</span>
-      <span class="zh">本周入选论文聚焦AI硬件的器件与系统瓶颈：可靠的模拟存储、长上下文流水线、可信GPU以及安全的设计自动化。其中若干结果基于仿真或原型，报告的增益不应直接视为量产级基准。</span>
+      <span class="en">New measured CIM macros pursue programmable arithmetic and higher-precision data paths, while device and system papers seek denser memory and lower data movement. The research queue also follows the design and deployment tooling needed to make those hardware gains useful.</span>
+      <span class="zh">新的实测CIM宏单元追求可编程算术与更高精度的数据路径，器件和系统论文则探索更高密度的存储与更少的数据搬运。研究队列同时关注让这些硬件收益真正落地所需的设计与部署工具。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 6篇</span>
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
-    <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.25980" target="_blank" rel="noopener">
-          <span class="en">Watching a GaN transistor switch in real time</span>
-          <span class="zh">实时观察GaN晶体管开关过程</span>
-        </a>
-      </h3>
-      <p class="authors">C. Corley-Wiciak, N. T. Sammler, B. Butej, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25980" target="_blank" rel="noopener">arXiv:2608.25980</a> · 2026-08-26T16:33:56Z</p>
-      <p class="summary">
-        <span class="en">The authors use stroboscopic dark-field X-ray microscopy to image strain and heat through the switching cycle of an industrial GaN HEMT. They correlate nanoscale fields with time-dependent electrical behavior and benchmark simulations against measurements. The work offers a direct diagnostic route for transient hot spots and stress, although it is a measurement methodology rather than a new device process.</span>
-        <span class="zh">作者利用频闪暗场X射线显微术，成像观测工业级GaN HEMT整个开关周期内的应变和热量变化。他们将纳米尺度场分布与时变电学行为相关联，并用测量结果校准仿真。该工作为瞬态热点和应力提供了直接诊断路径，但其核心是测量方法，而非新的器件工艺。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
+    <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.25781" target="_blank" rel="noopener">
-          <span class="en">ReRAM crossbars resist update disturbance for in-memory training</span>
-          <span class="zh">抗更新扰动的ReRAM交叉阵列面向存内训练</span>
+        <a href="https://doi.org/10.1109/JSSC.2026.3694285" target="_blank" rel="noopener">
+          <span class="en">PROTEUS: programmable RRAM/SRAM compute-in-memory for edge AI</span>
+          <span class="zh">PROTEUS：面向边缘AI的可编程RRAM/SRAM存算一体加速器</span>
         </a>
       </h3>
-      <p class="authors">Wooseok Choi, Tommaso Stecconi, Donato Francesco Falcone, et al.</p>
+      <p class="authors">L. Zheng, A. M. Bavani, M. Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.25781" target="_blank" rel="noopener">arXiv:2608.25781</a> · 2026-08-26T13:27:34Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3694285" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-09-01</p>
       <p class="summary">
-        <span class="en">The work presents a 350 nm CMO/HfOx ReRAM device for analog crossbar training and targets disturbance during parallel weight updates. It reports 60 ns analog switching and endurance beyond 100,000 pulses, with simulations used to analyze disturbance tolerance. The result addresses a practical weakness in analog training arrays, but it does not yet establish a scaled accelerator system.</span>
-        <span class="zh">该研究展示了用于模拟交叉阵列训练的350 nm CMO/HfOx ReRAM器件，重点解决并行权重更新时的扰动问题。作者报告60 ns模拟开关和超过10万次脉冲的耐久度，并通过仿真分析抗扰能力。该结果针对模拟训练阵列的实际短板，但尚未证明可扩展的加速器系统。</span>
+        <span class="en">PROTEUS is a 40 nm programmable digital CIM accelerator combining 4 Mb RRAM, 2.6 Mb tensor SRAM, and a 32-bit hierarchical ISA. It supports INT8, INT16, FP8, and FP16 execution and reports 702 GOPS, 6.4 TOPS/W, and 0.039 TOPS/mm². By storing micro-programs in RRAM, it can switch among preloaded kernels without off-chip instruction traffic or RRAM rewrites; the reported results cover CNNs, Transformers, GNNs, and state-space models.</span>
+        <span class="zh">PROTEUS是一款40 nm可编程数字CIM加速器，集成4 Mb RRAM、2.6 Mb tensor SRAM和32位分层ISA。它支持INT8、INT16、FP8和FP16运算，报告的性能为702 GOPS、6.4 TOPS/W和0.039 TOPS/mm²。通过把微程序存入RRAM，该设计可在预载内核之间切换而无需片外指令流或重写RRAM；实验覆盖CNN、Transformer、GNN和state-space model。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3694927" target="_blank" rel="noopener">
+          <span class="en">STAR-SRAM: BF16 SRAM digital CIM macro in 28 nm</span>
+          <span class="zh">STAR-SRAM：28 nm BF16 SRAM数字存算一体宏单元</span>
+        </a>
+      </h3>
+      <p class="authors">C.-T. Lin, J. Oh, M. Seok</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3694927" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-09-01</p>
+      <p class="summary">
+        <span class="en">STAR-SRAM implements a 16-bit BF16 SRAM-based digital CIM macro in 28 nm CMOS. Its designers combine model-based parameter selection with approximate multipliers and sparsity-aware wordline, clock, and input gating. The paper reports up to 43.06 TFLOPS/W, 1.89 TFLOPS/mm², and 400 Kb/mm², directly targeting the precision and density gap between low-bit CIM and modern neural workloads.</span>
+        <span class="zh">STAR-SRAM在28 nm CMOS中实现了基于SRAM的16位BF16数字CIM宏单元。设计团队结合基于模型的参数选择、近似乘法器，以及稀疏性感知的wordline、时钟和输入门控。论文报告最高43.06 TFLOPS/W、1.89 TFLOPS/mm²和400 Kb/mm²，直接瞄准低比特CIM与现代神经网络工作负载之间的精度和密度缺口。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.22613" target="_blank" rel="noopener">
+          <span class="en">NOVA: near-memory processing for attention–SSM–MoE LLMs</span>
+          <span class="zh">NOVA：面向Attention–SSM–MoE大模型的近存计算</span>
+        </a>
+      </h3>
+      <p class="authors">I. Jung, J. Min, J.-Y. Kim</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.22613" target="_blank" rel="noopener">arXiv:2608.22613</a> · 2026-08-23</p>
+      <p class="summary">
+        <span class="en">NOVA proposes a technology–architecture co-design for hybrid LLMs that combine grouped-query attention, state-space models, and MoE layers. It pairs a proposed 4F² vertical-channel DRAM cell and peri-over-cell structure, claimed to provide roughly 2× density at iso-area, with a near-memory architecture that adapts to disparate arithmetic intensities. The work is a preprint, so its density and system claims should be read as a proposed design rather than production silicon results.</span>
+        <span class="zh">NOVA提出了针对混合LLM的技术—架构协同设计，此类模型结合grouped-query attention、state-space model和MoE层。它将所提出的4F² vertical-channel DRAM单元及peri-over-cell结构——声称在等面积下约有2倍密度——与能适配不同算术强度的近存计算架构结合。该工作是预印本，因此其密度和系统主张应视为设计方案，而非量产硅片结果。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/advs.77423" target="_blank" rel="noopener">
+          <span class="en">Electroforming-free selector-only memory for logic-in-memory</span>
+          <span class="zh">用于逻辑存内计算的免电形成selector-only memory</span>
+        </a>
+      </h3>
+      <p class="authors">J.-K. Kim, D.-S. Woo, M.-J. Han, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1002/advs.77423" target="_blank" rel="noopener">Advancement of science</a> · 2026-08-25</p>
+      <p class="summary">
+        <span class="en">This paper reports an electroforming-free, self-rectifying selector-only memory based on diffusive Cu-ion dynamics. The device combines diode-like unidirectional current with reported endurance near 10⁸ cycles and sub-20 ns self-rupturing conductive filaments. Eliminating high-voltage forming and reducing drift could address practical array concerns for 3D cross-point memory and logic-in-memory, although array-level integration remains the key test.</span>
+        <span class="zh">该论文报告了一种基于扩散Cu离子动力学的免电形成、自整流selector-only memory。该器件兼具类似二极管的单向电流，报告的耐久度接近10⁸次，并具有小于20 ns的导电细丝自断裂特性。免除高压forming并降低漂移，有望缓解3D cross-point memory和logic-in-memory的阵列实现难题，但阵列级集成仍是关键验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/advs.77437" target="_blank" rel="noopener">
+          <span class="en">Wafer-scale 3D ternary neuromorphic logic using Te/IGZO devices</span>
+          <span class="zh">基于Te/IGZO器件的晶圆级3D三值神经形态逻辑</span>
+        </a>
+      </h3>
+      <p class="authors">C.-H. Kim, M. S. Kim, J. B. Rhim, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1002/advs.77437" target="_blank" rel="noopener">Advancement of science</a> · 2026-08-25</p>
+      <p class="summary">
+        <span class="en">The authors demonstrate wafer-scale monolithic 3D multi-valued logic using vertically stacked Te/IGZO heterojunction FETs and crystallinity-enhanced Te FETs. Interface and channel engineering stabilize an intrinsic ternary state using low-temperature CMOS-compatible processing. The result points to a route for higher logic density, but the architectural benefit depends on system-level support for ternary logic rather than device behavior alone.</span>
+        <span class="zh">作者利用垂直堆叠的Te/IGZO异质结FET和结晶性增强Te FET，展示了晶圆级单片3D多值逻辑。界面和沟道工程在低温CMOS兼容工艺下稳定了内禀三值状态。该结果指向更高逻辑密度的路径，但其架构收益还取决于系统级对三值逻辑的支持，而不仅是器件特性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Systems</span>
+      <span class="zh">电路与系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3691770" target="_blank" rel="noopener">
+          <span class="en">Dual-mode BEV Transformer accelerator for image/point-cloud fusion</span>
+          <span class="zh">用于图像/点云融合的双模式BEV Transformer加速器</span>
+        </a>
+      </h3>
+      <p class="authors">J. Qian, Y. Lu, Z. Qian, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3691770" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-09-01</p>
+      <p class="summary">
+        <span class="en">A 28 nm chip accelerates Transformer bird&#x27;s-eye-view perception by combining saliency-driven image/point-cloud fusion, adaptive precision, and a dataflow designed to reuse on-chip data. It supports a high-performance driving mode and a low-power sentry mode, with 26.6 mW active power and 1.68 mW long-term average power reported for sparse-activity scenarios. The dual-mode design addresses a practical autonomous-system problem: retaining perception capability when full compute throughput is unnecessary.</span>
+        <span class="zh">这款28 nm芯片通过显著性驱动的图像/点云融合、自适应精度和面向片上数据复用的数据流，加速Transformer鸟瞰图感知。它支持高性能驾驶模式和低功耗哨兵模式；在稀疏活动场景中，报告的active power为26.6 mW、长期平均功耗为1.68 mW。该双模式设计解决了自动驾驶系统中的实际问题：在不需要完整计算吞吐时仍保留感知能力。</span>
       </p>
     </article>
   </section>
@@ -385,74 +451,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.26523" target="_blank" rel="noopener">
-          <span class="en">Virtual pipeline parallelism for long-context LLM prefill</span>
-          <span class="zh">用于长上下文LLM预填充的虚拟流水并行</span>
+        <a href="https://arxiv.org/abs/2608.25053" target="_blank" rel="noopener">
+          <span class="en">Hydra: phase-aware characterization of edge LLM inference</span>
+          <span class="zh">Hydra：面向边缘LLM推理的阶段感知性能刻画</span>
         </a>
       </h3>
-      <p class="authors">Yan Shi, Xiaochao Wang, Jingchun Gao, et al.</p>
+      <p class="authors">A. Taherin, S. Taghipour Anvari, C. Amante, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26523" target="_blank" rel="noopener">arXiv:2608.26523</a> · 2026-08-27T01:59:45Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.25053" target="_blank" rel="noopener">arXiv:2608.25053</a> · 2026-08-25T18:43:43Z</p>
       <p class="summary">
-        <span class="en">VPP keeps prefill chunks fixed but uses virtual pipeline stages to overlap expensive middle stages with lighter work from neighboring chunks. On 16 Ascend 910C NPUs and sequences up to 1M tokens, the authors report up to 13.1% higher throughput than dynamic chunked pipeline parallelism. The result is relevant to long-context serving but is demonstrated on a specific vLLM-Ascend and MoE setup.</span>
-        <span class="zh">VPP保持预填充分块大小固定，但借助虚拟流水阶段，将较重的中间阶段与相邻分块的较轻工作重叠。在16颗Ascend 910C NPU及最长100万token序列上，作者报告相较动态分块流水并行，吞吐量最高提升13.1%。该结果适用于长上下文服务，但其验证基于特定的vLLM-Ascend和MoE配置。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits, Memory &amp; Reliability</span>
-      <span class="zh">电路、存储与可靠性</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2608.26575" target="_blank" rel="noopener">
-          <span class="en">Blackwell confidential computing benchmarked for LLM workloads</span>
-          <span class="zh">Blackwell机密计算在LLM工作负载上的基准测试</span>
-        </a>
-      </h3>
-      <p class="authors">Daniyal Khan, Amean Asad, Ansgar Grunseid</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26575" target="_blank" rel="noopener">arXiv:2608.26575</a> · 2026-08-27T03:37:35Z</p>
-      <p class="summary">
-        <span class="en">This benchmark compares confidential and non-confidential LLM inference and training on NVIDIA B200 GPUs in Intel TDX virtual machines. It reports 1–3% throughput overhead for correctly configured confidential inference, while stock stacks can incur 30–40% penalties. The study separates fixed host costs from encrypted-NVLink costs, making configuration and communication mix central to the result.</span>
-        <span class="zh">该基准在Intel TDX虚拟机中，对比了NVIDIA B200 GPU上机密与非机密LLM推理和训练。作者报告，正确配置的机密推理吞吐开销为1%至3%，而默认软件栈可能带来30%至40%的损失。研究区分了固定主机开销与加密NVLink开销，因此配置方式和通信占比是结果的核心。</span>
+        <span class="en">Hydra provides a common-schema measurement framework for prefill and decode phases across three edge-SoC generations, 13 instruction-tuned LLMs, five execution formats, and two inference backends. Its released dataset contains roughly 107,000 per-prompt records combined with hardware telemetry. The analysis argues that latency averages conceal important effects from backend choice, quantization, memory traffic, and phase-specific utilization.</span>
+        <span class="zh">Hydra提供统一schema的测量框架，用于比较三代edge SoC、13个指令微调LLM、5种执行格式和两种推理后端上的prefill与decode阶段。其公开数据集包含约10.7万条逐prompt记录，并结合硬件遥测数据。分析指出，平均延迟掩盖了后端选择、量化、内存流量和阶段特定利用率带来的重要影响。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.26072" target="_blank" rel="noopener">
-          <span class="en">Revisiting Rowhammer mitigation security in deployed systems</span>
-          <span class="zh">重新审视已部署系统中的Rowhammer缓解安全性</span>
+        <a href="http://arxiv.org/abs/2608.21223" target="_blank" rel="noopener">
+          <span class="en">Event-triggered implicit perturbation for fine-tuning spiking Transformers</span>
+          <span class="zh">用于微调脉冲Transformer的事件触发隐式扰动方法</span>
         </a>
       </h3>
-      <p class="authors">Hritvik Taneja, Moinuddin Qureshi</p>
+      <p class="authors">T. Lei, P. Katti, R. Dutt, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26072" target="_blank" rel="noopener">arXiv:2608.26072</a> · 2026-08-26T17:38:45Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2608.21223" target="_blank" rel="noopener">arXiv:2608.21223</a> · 2026-08-21</p>
       <p class="summary">
-        <span class="en">The paper analyzes Sigries, a Rowhammer mitigation deployed in Microsoft&#x27;s Azure Cobalt 200 SoC, and argues its tracker-to-sampling transition is vulnerable to a round-robin attack. The authors estimate a mean time to failure of about one second under that attack and propose a filtered mitigation scheme. Its practical impact depends on implementation details and deployment assumptions.</span>
-        <span class="zh">论文分析了部署在微软Azure Cobalt 200 SoC中的Sigries Rowhammer缓解机制，并认为其从跟踪模式切换到采样模式时易受轮转攻击。作者估计该攻击下的平均失效时间约为1秒，并提出过滤式缓解方案。其实际影响取决于实现细节与部署假设。</span>
+        <span class="en">This preprint proposes implicit perturbation for zeroth-order fine-tuning of spiking Transformers on in-memory-computing hardware. It combines perturbation terms with IMC weighted sums to avoid perturbation-induced read-modify-write operations, and exploits spike sparsity to reduce random-number-generator requirements. The idea addresses a hardware-specific obstacle in forward-only optimization, though its claimed benefits require validation on a complete accelerator implementation.</span>
+        <span class="zh">该预印本提出用于IMC硬件上脉冲Transformer zeroth-order微调的隐式扰动方法。它将扰动项与IMC加权和结合，以避免由扰动引起的read-modify-write操作，并利用脉冲稀疏性降低对随机数发生器的需求。该思路针对仅前向优化中的硬件特定障碍，但其所宣称的收益仍需在完整加速器实现上验证。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">EDA &amp; Hardware Security</span>
-      <span class="zh">EDA与硬件安全</span>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2608.26049" target="_blank" rel="noopener">
-          <span class="en">RTLGuard defends RTL code-generation models against poisoning</span>
-          <span class="zh">RTLGuard防御RTL代码生成模型投毒</span>
+        <a href="https://arxiv.org/abs/2608.28188" target="_blank" rel="noopener">
+          <span class="en">DeepSeq3: hierarchical graph learning for sequential-circuit analysis</span>
+          <span class="zh">DeepSeq3：用于时序电路分析的分层图学习</span>
         </a>
       </h3>
-      <p class="authors">Mahshid Rezakhani, Kimia Azar, Hadi Kamali</p>
+      <p class="authors">J. Zhou, Z. Shi, J. Zhu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2608.26049" target="_blank" rel="noopener">arXiv:2608.26049</a> · 2026-08-26T17:23:48Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2608.28188" target="_blank" rel="noopener">arXiv:2608.28188</a> · 2026-08-28T10:56:04Z</p>
       <p class="summary">
-        <span class="en">RTLGuard uses a small clean teacher model, feature alignment and distillation to reduce backdoor behavior in poisoned RTL code-generation models. It addresses a supply-chain concern created when chip teams rely on third-party fine-tuned models to produce synthesizable RTL. The approach avoids full retraining, but its practical value depends on trusted RTL-data coverage and the threat model.</span>
-        <span class="zh">RTLGuard通过小型干净教师模型、特征对齐和知识蒸馏，降低被投毒RTL代码生成模型中的后门行为。该工作针对芯片团队依赖第三方微调模型生成可综合RTL时产生的供应链风险。该方法避免了全参数重训，但实际价值取决于可信RTL数据的覆盖范围和威胁模型。</span>
+        <span class="en">DeepSeq3 represents a sequential circuit at two levels: combinational subgraphs divided by flip-flops and a super-node graph for register-transfer structure. A dual GNN is pre-trained to predict flip-flop-state reachability, capturing both local logic and temporal behavior. On the reported benchmarks, the framework reduces bounded-model-checking solve time by 18% while preserving correctness, though results remain limited to the evaluated designs.</span>
+        <span class="zh">DeepSeq3以两个层级表示时序电路：由flip-flop划分的组合子图，以及表达寄存器传输结构的super-node图。双GNN通过预测flip-flop状态可达性进行预训练，同时捕捉局部逻辑和时序行为。在报告的基准上，该框架在保持正确性的前提下将bounded model checking求解时间降低18%，但结果仍限于所评估的设计。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.26758" target="_blank" rel="noopener">
+          <span class="en">HOLMES: in-context failure localization for SRAM yield estimation</span>
+          <span class="zh">HOLMES：用于SRAM良率估计的in-context失效中心定位</span>
+        </a>
+      </h3>
+      <p class="authors">W. W. Xing, X. Zhou, K. Huang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.26758" target="_blank" rel="noopener">arXiv:2608.26758</a> · 2026-08-27T07:53:18Z</p>
+      <p class="summary">
+        <span class="en">HOLMES recasts failure-center localization for high-sigma yield estimation as few-shot binary classification using a tabular foundation model. It adds an SVD-based anisotropic sampling proposal and adaptive mixing to stabilize importance weights in high-dimensional SRAM problems. Across the authors&#x27; 6T SRAM cases from 108 to 1,152 dimensions, HOLMES reports relative error within 5.9%, compared with up to 25.8% for the strongest baseline.</span>
+        <span class="zh">HOLMES将high-sigma良率估计中的失效中心定位重构为few-shot二分类，并采用tabular foundation model进行in-context推理。它增加了基于SVD的各向异性采样proposal和自适应混合，以稳定高维SRAM问题中的importance weights。在作者的6T SRAM案例中，维度从108到1,152，HOLMES报告的相对误差不超过5.9%，而最强baseline最高达到25.8%。</span>
       </p>
     </article>
   </section>
@@ -480,8 +540,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-08-30 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-08-30 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-09-01 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-09-01 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
