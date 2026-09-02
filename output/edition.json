@@ -1,56 +1,302 @@
 {
-  "date": "2026-09-01",
-  "theme": {"en": "HBM Integration Reshapes AI Hardware Supply", "zh": "HBM整合重塑AI硬件供应链"},
-  "dek": {"en": "Nvidia's push to take a more direct role in high-bandwidth memory lands as CXMT, memory makers, equipment suppliers, and foundries reposition around AI systems. The common constraint is shifting from a standalone memory stack to the links, base dies, packaging, and capacity that make scale-up compute possible.", "zh": "Nvidia更直接介入高带宽存储器之际，CXMT、存储厂商、设备供应商和晶圆厂都在围绕AI系统重新布局。共同的约束正在从单一HBM堆叠，转向支撑大规模计算的互连、base die、封装与产能。"},
+  "date": "2026-09-02",
+  "theme": {"en": "AI Demand Rewires the Full Chip Stack", "zh": "AI需求重塑整个芯片堆栈"},
+  "dek": {
+    "en": "Nvidia's MediaTek investment widens the custom-silicon ecosystem while new memory, foundry, packaging, metrology, and EDA work attacks the bottlenecks around compute. The center of gravity is shifting from peak FLOPS to moving, manufacturing, and testing data-intensive systems.",
+    "zh": "Nvidia入股MediaTek，进一步扩大定制芯片生态；与此同时，存储、晶圆代工、封装、量测和EDA环节都在着手解决算力周边的瓶颈。产业重心正从峰值FLOPS转向如何搬运、制造和测试数据密集型系统。"
+  },
   "sections": [
-    {"id": "ai-accelerators", "title": {"en": "AI & Accelerators", "zh": "AI与加速器"}, "stories": [
-      {"featured": true, "title": {"en": "Nvidia targets HBM with NVHBM and expands NVLink Fusion", "zh": "Nvidia瞄准HBM环节，推进NVHBM并扩展NVLink Fusion"}, "summary": {"en": "DigiTimes reports that Nvidia is pursuing custom NVHBM while expanding NVLink Fusion. The move would extend Nvidia's influence beyond GPU design into the memory and scale-up fabric surrounding AI accelerators. It also raises the stakes for HBM suppliers and partners as system-level bandwidth becomes a product differentiator.", "zh": "DigiTimes报道称，Nvidia正推进定制NVHBM，并扩展NVLink Fusion。此举将把Nvidia的影响力从GPU设计延伸至AI加速器周边的存储与scale-up互连。随着系统级带宽成为产品差异化因素，HBM供应商及合作伙伴面临的竞争也将加剧。"}, "source": "DigiTimes", "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPcFFzbFBtMWdQWGhtLXVLSnp1cW1RenVuRVVYSS1VakN2eVlzZmtYaUx5U2I4S3FudjFMUW1remo4RkFLM1hpaXo5LUdmNTBRbWgzcHBFSFIwX1FlYTlnRDZaVlV5bFFma0RXaHJ1VzEzNzY2cS1lTk9uY0k3cUFvdW90WDJJdUJU?oc=5", "published": "2026-08-31T23:40:51+00:00"},
-      {"featured": false, "title": {"en": "Nvidia NVSwitch becomes a long-run scale-up networking bet", "zh": "Nvidia将NVSwitch押注为长期scale-up网络"}, "summary": {"en": "The Next Platform argues that NVSwitch is becoming Nvidia's durable scale-up networking layer, analogous to the role InfiniBand played in scale-out systems. That framing matters because accelerator performance increasingly depends on how efficiently multiple GPUs and their memory pools operate as one machine. It makes the interconnect stack a central part of AI hardware economics rather than an accessory.", "zh": "The Next Platform认为，NVSwitch正成为Nvidia长期的scale-up网络层，类似InfiniBand在scale-out系统中的角色。其重要性在于，加速器性能日益取决于多颗GPU及其内存池能否高效地作为一台机器协同工作。这使互连堆栈成为AI硬件经济性中的核心，而不再只是附属组件。"}, "source": "The Next Platform", "url": "https://www.nextplatform.com/connect/2026/08/31/in-the-long-run-nvidia-nvswitch-is-the-infiniband-of-scale-up-ai-networks/5293474", "published": "2026-08-31T17:12:47+00:00"},
-      {"featured": false, "title": {"en": "Microchip reduces PolarFire sensor-bridge footprint for edge AI", "zh": "Microchip缩小面向边缘AI的PolarFire传感器桥接方案尺寸"}, "summary": {"en": "Microchip's second-generation PolarFire Ethernet sensor bridge reduces board footprint while adding camera support and Ethernet connectivity for edge-AI designs. The product targets the integration work between sensors, networking, and local inference rather than datacenter training. Smaller bridge hardware can matter where industrial and vision systems are constrained by board area and I/O complexity.", "zh": "Microchip第二代PolarFire Ethernet传感器桥接方案在缩小板级面积的同时，增加了相机支持和Ethernet连接能力，面向边缘AI设计。该产品聚焦传感器、网络和本地推理之间的集成，而非数据中心训练。在工业和视觉系统中，板卡面积与I/O复杂度受限，因此更小的桥接硬件具有实际意义。"}, "source": "EE Times Asia", "url": "https://www.eetasia.com/microchip-shrinks-polarfire-ethernet-sensor-bridge-for-edge-ai-systems/", "published": "2026-08-31T23:52:03+00:00"}
-    ]},
-    {"id": "foundry", "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"}, "stories": [
-      {"featured": true, "title": {"en": "Intel 14A shows faster-than-expected defect progress", "zh": "Intel 14A的缺陷改善快于预期"}, "summary": {"en": "SemiWiki reports that Intel's 14A process is reducing defect density faster than the company expected. Early defect learning is important because it affects both a node's manufacturability and Intel Foundry's credibility with external customers. The report is an early process signal, not a declaration of volume-production readiness.", "zh": "SemiWiki报道称，Intel 14A工艺的缺陷密度下降速度快于公司预期。早期缺陷学习曲线关系到节点的可制造性，也影响Intel Foundry在外部客户中的可信度。这仍是早期工艺信号，并不等同于已具备量产就绪状态。"}, "source": "SemiWiki", "url": "https://semiwiki.com/semiconductor-manufacturers/intel/372866-intels-14a-is-winning-the-race-against-defects/", "published": "2026-08-31T21:00:22+00:00"},
-      {"featured": false, "title": {"en": "TSMC executive sees silicon photonics driving AI growth", "zh": "TSMC高管称硅光子将驱动AI增长"}, "summary": {"en": "A TSMC vice president said silicon photonics is expected to play a leading role in AI growth, according to the Taipei Times. Optical links address the bandwidth and power costs of moving data between increasingly large compute and memory domains. The comment connects foundry roadmaps to the same interconnect bottleneck highlighted by NVLink and HBM developments.", "zh": "据Taipei Times报道，一名TSMC副总裁表示，硅光子有望在AI增长中发挥主导作用。光互连可应对在日益庞大的计算与存储域之间搬运数据时的带宽和功耗成本。这一表态把晶圆厂路线图与NVLink和HBM所凸显的同一互连瓶颈联系起来。"}, "source": "Taipei Times", "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBoLXZObUlYVmFDTEtDaXdyalFCM2FBT0hteTRKbHozUTVoaDNTaGhEdTVDdkk2Y3FRRVNxQTFrTWhYM1pPX2kwZ0x2c2p1bVFFVUpNN21pSVNaVzNraHdtdHFvelVPV0dNdTFwNXJ5Y19TZkNZR3c?oc=5", "published": "2026-08-31T16:00:00+00:00"}
-    ]},
-    {"id": "memory", "title": {"en": "Memory", "zh": "存储"}, "stories": [
-      {"featured": true, "title": {"en": "CXMT is reportedly producing HBM3E in small batches", "zh": "报道称CXMT正小批量生产HBM3E"}, "summary": {"en": "XenoSpectrum reports that China's CXMT has begun small-batch HBM3E production and that AI-chip makers are testing the parts. If confirmed in qualified products, the development would give China's memory industry a foothold in a segment dominated by established HBM suppliers. Small-batch output and customer testing remain materially different from sustained, high-yield volume supply.", "zh": "XenoSpectrum报道称，中国CXMT已开始小批量生产HBM3E，AI芯片厂商正在测试相关产品。若能在通过认证的产品中得到确认，这将使中国存储产业进入长期由既有HBM供应商主导的细分市场。但小批量产出和客户测试，与持续、高良率的大规模供应仍有实质差别。"}, "source": "XenoSpectrum", "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAtTFVpdXdDT25iMURYUS1NMVA0YlJySXB3UTB0RnZ0bU5fUkVCU05TalEyZkxRdXB0ZGNTS2pJWmhsUGhvY0MyNzVQQkJiX1dTRzVtVUNHUVFhaEU?oc=5", "published": "2026-09-01T00:22:41+00:00"},
-      {"featured": false, "title": {"en": "Kioxia and SanDisk plan more than $31 billion for Japanese NAND", "zh": "Kioxia与SanDisk计划在日本投入逾310亿美元扩充NAND"}, "summary": {"en": "Kioxia and SanDisk plan more than $31 billion of Japanese investment through 2032 to expand advanced NAND capacity, EE Times Asia reports. The long investment horizon signals a supply-side commitment beyond the immediate AI-memory cycle. It also places NAND manufacturing and supply resilience alongside the industry's higher-profile HBM buildout.", "zh": "EE Times Asia报道称，Kioxia和SanDisk计划到2032年在日本投资逾310亿美元，以扩大先进NAND产能。长期投资周期显示，这是一项超越眼前AI存储周期的供给侧承诺。它也使NAND制造与供应韧性在备受关注的HBM扩产之外获得更多位置。"}, "source": "EE Times Asia", "url": "https://www.eetasia.com/kioxia-and-sandisk-plan-31b-japan-investment-to-expand-nand-capacity/", "published": "2026-08-31T23:34:41+00:00"}
-    ]},
-    {"id": "equipment", "title": {"en": "Equipment & Materials", "zh": "设备与材料"}, "stories": [
-      {"featured": false, "title": {"en": "Applied Materials develops 3D-scaling materials for HBM and CPO", "zh": "Applied Materials为HBM和CPO开发3D缩放材料"}, "summary": {"en": "TheElec reports that Applied Materials is developing materials and 3D-scaling technologies aimed at HBM and co-packaged optics (CPO). Both applications increase the importance of deposition, patterning, bonding, and thermal-control steps around heterogeneous integration. The equipment opportunity therefore follows not just wafer starts, but a growing number of complex assembly and interconnect layers per AI system.", "zh": "TheElec报道称，Applied Materials正在开发面向HBM和co-packaged optics（CPO）的材料及3D缩放技术。两类应用都提升了异构集成中沉积、图形化、键合和热管理步骤的重要性。因此，设备机会不只取决于晶圆投片量，也取决于每套AI系统中不断增加的复杂封装和互连层数。"}, "source": "TheElec", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE54dUNaNnNyN1VOeHdZN2cxdkNWOE8xZFpKUjRPUHNyRHBlenJleHNHY2N3VFdzNndJRVBzeDNyNjA4Y2VPaXZSeTIyTUtNSkpjRzJZQ0h0OUhlN0NBSEU3Q1VIUV8zblE?oc=5", "published": "2026-08-31T22:27:48+00:00"}
-    ]},
-    {"id": "policy", "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"}, "stories": [
-      {"featured": false, "title": {"en": "Chinese court freezes $300 million of Nexperia assets", "zh": "中国法院在Wingtech案中冻结Nexperia 3亿美元资产"}, "summary": {"en": "Reuters reports that a Chinese court froze $300 million of Nexperia assets in a case involving Wingtech. The dispute adds a legal and ownership risk to a supplier with a broad footprint in discrete and automotive semiconductors. It illustrates how cross-border chip operations can be disrupted by proceedings outside the fabrication line itself.", "zh": "Reuters报道称，中国一家法院在涉及Wingtech的案件中冻结了Nexperia价值3亿美元的资产。这场纠纷为一家在分立器件和汽车半导体领域布局广泛的供应商增加了法律与所有权风险。它说明跨境芯片业务也可能因产线之外的司法程序而受到干扰。"}, "source": "Reuters", "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMy1Xal9hQU5QWHU2R2NGN1FBMFZoNEM0dzVlbVd5Z2poTnlLZi1vcU05aGJzZnoyQWZQbUxQQUtmSGdZQ0ZYMWEtZHJhN1lTdy1SeUFBQXpfYXJlMXBfQ29JbUxsc0dJcWRjaDFmWUJmNTRmWWVJdjJLOWhkYmk4cjFGc3NFbjdmcUJRdzZ0UHI0ajF0OE5EMUNXYUZlRmExeUJtQlpfQmhlZ1VOYmdKNVR5WnYtUkszZ1FfV1dFQURkNGs0bzRmZg?oc=5", "published": "2026-08-31T18:22:22+00:00"}
-    ]},
-    {"id": "challengers", "title": {"en": "Challengers", "zh": "挑战者"}, "stories": [
-      {"featured": false, "title": {"en": "SambaNova emphasizes dataflow for AI inference", "zh": "SambaNova强调面向AI推理的数据流架构"}, "summary": {"en": "Jon Peddie Research highlights SambaNova's dataflow approach to AI inference. The focus underscores that challengers are competing on how models, weights, and activations move through a system, not simply on peak arithmetic throughput. That positioning is especially relevant as inference deployments face memory-bandwidth and latency limits.", "zh": "Jon Peddie Research关注SambaNova面向AI推理的数据流方法。这一重点表明，挑战者竞争的不仅是峰值算力，更是模型、权重和激活值如何在系统中流动。随着推理部署面临存储带宽和延迟限制，这种定位尤其相关。"}, "source": "Jon Peddie Research", "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPMEdlaVY3ZV96Sy1pSEM3dDdjaFVOZ3VRXzBUOGZiSldsQUx2TUJsLVdEQVZmenI4Z05RdnZ5TG1nLVRHTFpHU2c0NXNTYmNVSnpqazNTSjlvZDJaWUdSMVd4Q3R4WWFTZzdTVzdoaFlOQjVhdGZ5V3JHVzU0ZTFEUzItRnowZw?oc=5", "published": "2026-08-31T16:54:57+00:00"}
-    ]}
+    {
+      "id": "ai-accelerators",
+      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "stories": [
+        {
+          "featured": true,
+          "title": {"en": "Nvidia invests $3.5 billion in MediaTek to expand NVLink Fusion", "zh": "Nvidia向MediaTek投资35亿美元，扩大NVLink Fusion生态"},
+          "summary": {
+            "en": "Nvidia is investing $3.5 billion in MediaTek, and MediaTek will offer NVLink Fusion to customers building custom XPUs. The deal gives Nvidia another route into hyperscaler and system-company silicon while strengthening MediaTek's position beyond its traditional mobile-chip base. It also turns NVLink adoption into a financial as well as a technical partnership.",
+            "zh": "Nvidia将向MediaTek投资35亿美元，MediaTek则会向定制XPU客户提供NVLink Fusion。该交易为Nvidia进入云厂商和系统公司的定制芯片项目增加了一条路径，也强化了MediaTek在传统移动芯片业务之外的地位。NVLink的推广由此同时具备技术合作和资本绑定两层含义。"
+          },
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/nvidia-and-mediatek-ink-3-5b-investment-deal-accelerate-nvlink-fusion-adoption/",
+          "published": "2026-09-01T17:00:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Nvidia brings RISC-V into its GPU and NVLink Fusion roadmap", "zh": "Nvidia将RISC-V纳入GPU与NVLink Fusion路线图"},
+          "summary": {
+            "en": "Nvidia discussed CUDA for RISC-V and the role of RISC-V processors in NVLink Fusion systems at Hot Chips 2026. Supporting an open CPU ISA alongside Nvidia GPUs broadens the range of custom hosts and controllers that can participate in its scale-up ecosystem. The presentation signals platform direction rather than a quantified product launch.",
+            "zh": "Nvidia在Hot Chips 2026讨论了面向RISC-V的CUDA，以及RISC-V处理器在NVLink Fusion系统中的作用。在Nvidia GPU旁支持开放CPU指令集，可扩大能够接入其scale-up生态的定制主机和控制器范围。这场演讲反映的是平台方向，并非带有量化指标的新品发布。"
+          },
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/nvidia-risc-v-for-nvidia-gpus-at-hot-chips-2026/",
+          "published": "2026-09-01T19:00:56+00:00"
+        }
+      ]
+    },
+    {
+      "id": "foundry",
+      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "stories": [
+        {
+          "featured": true,
+          "title": {"en": "Intel says 14A is improving faster than any node since 2012", "zh": "Intel称14A改善速度为2012年以来最快"},
+          "summary": {
+            "en": "Intel CFO David Zinsner says defect-density improvement on the 14A process is the company's fastest since its 22 nm node launched in 2012. A steep early defect-learning curve would improve Intel Foundry's chances of attracting external customers and supporting its own 14A products. The claim is an executive update, however, and does not establish production yield or volume readiness.",
+            "zh": "Intel首席财务官David Zinsner表示，14A制程的缺陷密度改善速度是公司自2012年推出22 nm节点以来最快的一次。更陡峭的早期缺陷学习曲线有助于Intel Foundry争取外部客户，也有利于自有14A产品。但这一说法仍属于管理层进展更新，不能等同于量产良率或产能已经就绪。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/intels-david-zinsner-says-14a-improving-fastest-since-2012-node-betting-foundrys-future-on-tsmc-fight/",
+          "published": "2026-09-01T17:39:04+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Sony and TSMC deepen their image-sensor manufacturing partnership", "zh": "Sony与TSMC深化图像传感器制造合作"},
+          "summary": {
+            "en": "A Sony-TSMC venture is combining Sony's image-sensor expertise with TSMC manufacturing capacity for markets including AI and robotics. The arrangement links a major sensor supplier more tightly to foundry capacity as machine-vision demand spreads beyond smartphones. Its importance will depend on the venture's eventual process mix, capacity, and customer programs, which the candidate report does not quantify.",
+            "zh": "Sony与TSMC的新合资安排把Sony的图像传感器能力与TSMC的制造产能结合起来，目标市场包括AI和机器人。随着机器视觉需求从智能手机扩展到更多领域，这项合作让主要传感器供应商与晶圆代工产能绑定得更紧。候选报道未给出制程组合、产能和客户项目等量化信息，这些因素将决定其最终影响。"
+          },
+          "source": "EE Times Asia",
+          "url": "https://www.eetasia.com/sony-tsmc-venture-strengthens-image-sensor-supply-chain-amid-rising-ai-robotics-demand/",
+          "published": "2026-09-01T23:15:53+00:00"
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "title": {"en": "Memory", "zh": "存储"},
+      "stories": [
+        {
+          "featured": false,
+          "title": {"en": "Samsung targets 2x performance for HBM5 while zHBM baselines diverge", "zh": "Samsung为HBM5设定2倍性能目标，zHBM对比基线仍存分歧"},
+          "summary": {
+            "en": "Samsung's memory roadmap targets twice the performance for HBM5 and promotes an eightfold figure for zHBM. XenoSpectrum cautions that the zHBM comparison uses conflicting baselines, so the two multipliers should not be read as directly comparable product gains. The roadmap still shows Samsung pushing both conventional bandwidth scaling and more structural changes to memory integration.",
+            "zh": "Samsung的存储路线图把HBM5性能目标设为2倍，并为zHBM提出8倍指标。XenoSpectrum提醒，zHBM的比较采用了相互冲突的基线，因此不能把这两个倍数直接理解为可横向比较的产品增益。即便如此，这份路线图仍表明Samsung正同时推进传统带宽扩展和更具结构性的存储集成变革。"
+          },
+          "source": "XenoSpectrum",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBOTDk0YkRPdTFZYXBSOXB3aFJDVEt2UEFCbHdiNzFFZzh5QmNla1hTYmRHV2hCYmhXT1o0cXJUVlZ2d0hPZ0FEZnZPUEJWSTFHWVBva25MVVV1S3dVcXhHUDdFXzZaSTAw?oc=5",
+          "published": "2026-09-02T00:06:01+00:00"
+        },
+        {
+          "featured": true,
+          "title": {"en": "AMD says hybrid-bonded 3D DRAM can cut memory energy 17-fold", "zh": "AMD称混合键合3D DRAM可将存储能耗降低17倍"},
+          "summary": {
+            "en": "AMD says a hybrid-bonded 3D DRAM design is 17 times more energy-efficient than an HBM stack connected with microbumps. Removing bump-scale interconnect overhead could materially reduce the energy cost of feeding AI compute, but AMD also identifies thermal constraints as a barrier to commercialization. The result is therefore a roadmap signal, not evidence of a production-ready HBM replacement.",
+            "zh": "AMD表示，采用混合键合的3D DRAM设计，其能效可达到微凸点互连HBM堆栈的17倍。消除微凸点尺度的互连开销，有望显著降低为AI计算供数的能耗，但AMD同时指出散热约束仍阻碍商业化。因此，这更像是路线图信号，而不是已经可量产的HBM替代方案。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/amd-says-a-hybrid-bonded-3d-dram-is-17x-more-energy-efficient-than-an-hbm-stack-that-relies-on-microbumps-but-thermal-hurdles-block-commercialization/",
+          "published": "2026-09-01T15:40:46+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "ICY Tech positions MRAM for rack-scale AI inference", "zh": "ICY Tech将MRAM瞄准机架级AI推理"},
+          "summary": {
+            "en": "Chinese MRAM developer ICY Tech is proposing a memory approach for rack-scale AI inference rather than competing with HBM on the same terms. Nonvolatile MRAM could change how weights are retained and moved in inference systems, where capacity and data movement often dominate. The candidate report provides no deployment, capacity, or performance figures, so the concept still needs system-level validation.",
+            "zh": "中国MRAM厂商ICY Tech提出面向机架级AI推理的存储方案，而不是在相同路径上直接与HBM竞争。非易失MRAM可能改变推理系统中权重的保存和搬运方式；在这类系统里，容量与数据移动通常是主要约束。候选报道没有给出部署、容量或性能数据，因此这一概念仍需系统级验证。"
+          },
+          "source": "DigiTimes",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQR0FVcXJrS3ZNN2g4ZXpyeHVnTzA4eWhHdUs4bUtnanJCQmQ2MEhXdm9odFZWTWxrNE00bU5WNTh6YTBVQnNGdUo1c1A0X0hURFlfcUg1YkR5cV9YXy1RRHVZamduZFAyX1RsUFd3bXNaQmgyN09jVnhpc0gteGpUd1JwZWM4b0Q3RUlsdHh6WUNtUQ?oc=5",
+          "published": "2026-09-01T23:49:51+00:00"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
+      "stories": [
+        {
+          "featured": false,
+          "title": {"en": "Rigaku and Tohoku University form a soft X-ray metrology institute", "zh": "Rigaku与东北大学成立软X射线量测研究机构"},
+          "summary": {
+            "en": "Rigaku and Tohoku University are creating a research institute that combines soft X-ray tools, information science, and semiconductor process expertise. More complex three-dimensional structures make nondestructive, high-resolution metrology increasingly important for process control. The initiative is an R&D commitment; the report does not yet specify a production tool, customer, or deployment schedule.",
+            "zh": "Rigaku与东北大学将成立研究机构，把软X射线工具、信息科学和半导体工艺能力结合起来。随着三维结构日益复杂，无损、高分辨率量测对制程控制的重要性持续上升。这是一项研发投入，报道尚未给出量产设备、客户或部署时间表。"
+          },
+          "source": "EE Times Asia",
+          "url": "https://www.eetasia.com/rigaku-tohoku-university-target-next-generation-x-ray-metrology-for-semiconductors/",
+          "published": "2026-09-01T23:18:32+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Keysight ADS supports first-pass silicon across 100 GHz to 3 THz", "zh": "Keysight ADS支持100 GHz至3 THz设计的一次流片成功"},
+          "summary": {
+            "en": "AttoTude says its Keysight ADS workflow supports IC design from 100 GHz to 3 THz and has cut development cycles by more than 50%. First-pass silicon at these frequencies would reduce costly respins in a design space where models, packaging, and measurement are tightly coupled. The performance and cycle-time figures are company-reported and should be read as a workflow case study rather than a broad benchmark.",
+            "zh": "AttoTude表示，其Keysight ADS工作流覆盖100 GHz至3 THz的IC设计，并将开发周期缩短了50%以上。在这些频率上实现一次流片成功，可减少高成本的重复流片，因为模型、封装和测量在这一设计空间中高度耦合。相关性能和周期数据来自公司披露，更适合作为工作流案例，而非普适基准。"
+          },
+          "source": "SemiWiki",
+          "url": "https://semiwiki.com/eda/keysight-eda/372755-keysight-ads-enables-first-pass-silicon-at-3-thz-for-attotude/",
+          "published": "2026-09-01T17:00:02+00:00"
+        },
+        {
+          "featured": false,
+          "title": {"en": "Diodes acquires ElevATE to expand its semiconductor-test portfolio", "zh": "Diodes收购ElevATE，扩充半导体测试产品组合"},
+          "summary": {
+            "en": "Diodes is acquiring ElevATE Semiconductor to add low-power analog and mixed-signal products used in automated test equipment. Rising device complexity increases demand for more channels, precision, and power control in production test, giving the deal relevance beyond portfolio expansion. The report does not disclose transaction value or integration targets.",
+            "zh": "Diodes将收购ElevATE Semiconductor，补充用于自动测试设备的低功耗模拟和混合信号产品。器件复杂度上升，推动量产测试对更多通道、更高精度和更精细电源控制的需求，因此该交易不仅是简单的产品线扩充。报道未披露交易金额或整合目标。"
+          },
+          "source": "EE Times Asia",
+          "url": "https://www.eetasia.com/diodes-expands-ate-portfolio-with-elevate-semiconductor-acquisition/",
+          "published": "2026-09-01T23:21:30+00:00"
+        }
+      ]
+    },
+    {
+      "id": "policy",
+      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
+      "stories": [
+        {
+          "featured": false,
+          "title": {"en": "Taiwan's digital ministry promotes expansion of local compute capacity", "zh": "台湾数位发展部门推动本地算力扩张"},
+          "summary": {
+            "en": "Taiwan's Ministry of Digital Affairs is promoting an expansion of domestic computing capacity. Local capacity policy matters because access to AI infrastructure increasingly shapes cloud services, model development, and demand for accelerators and data-center components. The candidate item does not quantify funding, megawatts, or procurement volumes, so the immediate semiconductor impact remains uncertain.",
+            "zh": "台湾数位发展主管部门正在推动本地算力扩张。算力基础设施的可获得性日益影响云服务、模型开发，以及对加速器和数据中心部件的需求，因此本地算力政策具有产业意义。候选报道未量化资金、兆瓦规模或采购量，短期半导体影响仍不确定。"
+          },
+          "source": "Taipei Times",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBQLVBNX0JseTBMa0VxNkFYVHRsa0V3VHVQOFRCQXcwUHk3Y2IzZzMzLURIR3ZaT1VSbXVSTXdjVWJtWXRPd0ZxWUlRVGpkQTZTSXhaWHJxZmwyUmtmM09BUDVRMU53OWpRcU45blctLWZOYnlSd1E?oc=5",
+          "published": "2026-09-01T16:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "earnings",
+      "title": {"en": "Earnings & Markets", "zh": "业绩与市场"},
+      "stories": [
+        {
+          "featured": false,
+          "title": {"en": "South Korea's August semiconductor exports reach a record $46.7 billion", "zh": "韩国8月半导体出口创纪录，达到467亿美元"},
+          "summary": {
+            "en": "South Korea's semiconductor exports reached a record $46.7 billion in August, with AI demand cited as the main driver. The figure captures the strength of the country's memory-heavy supply base and the spillover from accelerator deployments into HBM and related components. One monthly record does not by itself separate price increases from shipment growth, so the mix behind the total still matters.",
+            "zh": "韩国8月半导体出口额创下467亿美元纪录，报道将AI需求列为主要驱动力。该数据反映出韩国以存储为主的供应基础持续强劲，也体现了加速器部署向HBM及相关部件的外溢效应。单月纪录本身无法区分价格上涨与出货增长，各部分对总额的贡献仍然重要。"
+          },
+          "source": "The Eastern Herald",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbkNRZ0pCUlpJbFFaajhQTTNEbXhmNFFGbVBSRTVZS092YzdfendMQmVpRHdITFYzVWJGa1pnSVA2bVVmVVFxT2dxZkwteHpzVEtVeFlOVHhlaXMtc3JYTmxJalV2SkdWb1J3bVRqdXJ4UkQ1elI5ZDYzd1ljblVUU3Fuc2hwYWF2anlxWG04ZVZPUWVxc1hQNA?oc=5",
+          "published": "2026-09-01T21:56:15+00:00"
+        }
+      ]
+    }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "Memory-Centric Compute Gets More Programmable", "zh": "以存储为中心的计算更加可编程"},
-    "dek": {"en": "New measured CIM macros pursue programmable arithmetic and higher-precision data paths, while device and system papers seek denser memory and lower data movement. The research queue also follows the design and deployment tooling needed to make those hardware gains useful.", "zh": "新的实测CIM宏单元追求可编程算术与更高精度的数据路径，器件和系统论文则探索更高密度的存储与更少的数据搬运。研究队列同时关注让这些硬件收益真正落地所需的设计与部署工具。"},
+    "theme": {"en": "Inference Co-Design Targets Movement, Routing, and Scheduling", "zh": "推理协同设计转向数据移动、路由与调度"},
+    "dek": {
+      "en": "This week's papers treat memory traffic and execution structure as first-class design variables, from IMC fabrics and block-diffusion accelerators to MoE routing and speculative-serving schedulers. Most results are still preprints or modeled systems, making implementation evidence the central caveat.",
+      "zh": "本周论文把存储流量与执行结构提升为核心设计变量，覆盖IMC互连、block-diffusion加速器、MoE路由和推测式服务调度。多数结果仍是预印本或建模系统，能否获得真实实现证据是主要限制。"
+    },
     "areas": [
-      {"id": "accelerators", "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"}, "papers": [
-        {"title": {"en": "PROTEUS: programmable RRAM/SRAM compute-in-memory for edge AI", "zh": "PROTEUS：面向边缘AI的可编程RRAM/SRAM存算一体加速器"}, "authors": "L. Zheng, A. M. Bavani, M. Chen, et al.", "affiliation": "", "venue": "IEEE Journal of Solid-State Circuits", "venue_url": "https://doi.org/10.1109/JSSC.2026.3694285", "summary": {"en": "PROTEUS is a 40 nm programmable digital CIM accelerator combining 4 Mb RRAM, 2.6 Mb tensor SRAM, and a 32-bit hierarchical ISA. It supports INT8, INT16, FP8, and FP16 execution and reports 702 GOPS, 6.4 TOPS/W, and 0.039 TOPS/mm². By storing micro-programs in RRAM, it can switch among preloaded kernels without off-chip instruction traffic or RRAM rewrites; the reported results cover CNNs, Transformers, GNNs, and state-space models.", "zh": "PROTEUS是一款40 nm可编程数字CIM加速器，集成4 Mb RRAM、2.6 Mb tensor SRAM和32位分层ISA。它支持INT8、INT16、FP8和FP16运算，报告的性能为702 GOPS、6.4 TOPS/W和0.039 TOPS/mm²。通过把微程序存入RRAM，该设计可在预载内核之间切换而无需片外指令流或重写RRAM；实验覆盖CNN、Transformer、GNN和state-space model。"}, "published": "2026-09-01"},
-        {"title": {"en": "STAR-SRAM: BF16 SRAM digital CIM macro in 28 nm", "zh": "STAR-SRAM：28 nm BF16 SRAM数字存算一体宏单元"}, "authors": "C.-T. Lin, J. Oh, M. Seok", "affiliation": "", "venue": "IEEE Journal of Solid-State Circuits", "venue_url": "https://doi.org/10.1109/JSSC.2026.3694927", "summary": {"en": "STAR-SRAM implements a 16-bit BF16 SRAM-based digital CIM macro in 28 nm CMOS. Its designers combine model-based parameter selection with approximate multipliers and sparsity-aware wordline, clock, and input gating. The paper reports up to 43.06 TFLOPS/W, 1.89 TFLOPS/mm², and 400 Kb/mm², directly targeting the precision and density gap between low-bit CIM and modern neural workloads.", "zh": "STAR-SRAM在28 nm CMOS中实现了基于SRAM的16位BF16数字CIM宏单元。设计团队结合基于模型的参数选择、近似乘法器，以及稀疏性感知的wordline、时钟和输入门控。论文报告最高43.06 TFLOPS/W、1.89 TFLOPS/mm²和400 Kb/mm²，直接瞄准低比特CIM与现代神经网络工作负载之间的精度和密度缺口。"}, "published": "2026-09-01"},
-        {"title": {"en": "NOVA: near-memory processing for attention–SSM–MoE LLMs", "zh": "NOVA：面向Attention–SSM–MoE大模型的近存计算"}, "authors": "I. Jung, J. Min, J.-Y. Kim", "affiliation": "", "venue": "arXiv:2608.22613", "venue_url": "http://arxiv.org/abs/2608.22613", "summary": {"en": "NOVA proposes a technology–architecture co-design for hybrid LLMs that combine grouped-query attention, state-space models, and MoE layers. It pairs a proposed 4F² vertical-channel DRAM cell and peri-over-cell structure, claimed to provide roughly 2× density at iso-area, with a near-memory architecture that adapts to disparate arithmetic intensities. The work is a preprint, so its density and system claims should be read as a proposed design rather than production silicon results.", "zh": "NOVA提出了针对混合LLM的技术—架构协同设计，此类模型结合grouped-query attention、state-space model和MoE层。它将所提出的4F² vertical-channel DRAM单元及peri-over-cell结构——声称在等面积下约有2倍密度——与能适配不同算术强度的近存计算架构结合。该工作是预印本，因此其密度和系统主张应视为设计方案，而非量产硅片结果。"}, "published": "2026-08-23"}
-      ]},
-      {"id": "devices", "title": {"en": "Devices & Process", "zh": "器件与工艺"}, "papers": [
-        {"title": {"en": "Electroforming-free selector-only memory for logic-in-memory", "zh": "用于逻辑存内计算的免电形成selector-only memory"}, "authors": "J.-K. Kim, D.-S. Woo, M.-J. Han, et al.", "affiliation": "", "venue": "Advancement of science", "venue_url": "https://doi.org/10.1002/advs.77423", "summary": {"en": "This paper reports an electroforming-free, self-rectifying selector-only memory based on diffusive Cu-ion dynamics. The device combines diode-like unidirectional current with reported endurance near 10⁸ cycles and sub-20 ns self-rupturing conductive filaments. Eliminating high-voltage forming and reducing drift could address practical array concerns for 3D cross-point memory and logic-in-memory, although array-level integration remains the key test.", "zh": "该论文报告了一种基于扩散Cu离子动力学的免电形成、自整流selector-only memory。该器件兼具类似二极管的单向电流，报告的耐久度接近10⁸次，并具有小于20 ns的导电细丝自断裂特性。免除高压forming并降低漂移，有望缓解3D cross-point memory和logic-in-memory的阵列实现难题，但阵列级集成仍是关键验证。"}, "published": "2026-08-25"},
-        {"title": {"en": "Wafer-scale 3D ternary neuromorphic logic using Te/IGZO devices", "zh": "基于Te/IGZO器件的晶圆级3D三值神经形态逻辑"}, "authors": "C.-H. Kim, M. S. Kim, J. B. Rhim, et al.", "affiliation": "", "venue": "Advancement of science", "venue_url": "https://doi.org/10.1002/advs.77437", "summary": {"en": "The authors demonstrate wafer-scale monolithic 3D multi-valued logic using vertically stacked Te/IGZO heterojunction FETs and crystallinity-enhanced Te FETs. Interface and channel engineering stabilize an intrinsic ternary state using low-temperature CMOS-compatible processing. The result points to a route for higher logic density, but the architectural benefit depends on system-level support for ternary logic rather than device behavior alone.", "zh": "作者利用垂直堆叠的Te/IGZO异质结FET和结晶性增强Te FET，展示了晶圆级单片3D多值逻辑。界面和沟道工程在低温CMOS兼容工艺下稳定了内禀三值状态。该结果指向更高逻辑密度的路径，但其架构收益还取决于系统级对三值逻辑的支持，而不仅是器件特性。"}, "published": "2026-08-25"}
-      ]},
-      {"id": "circuits", "title": {"en": "Circuits & Systems", "zh": "电路与系统"}, "papers": [
-        {"title": {"en": "Dual-mode BEV Transformer accelerator for image/point-cloud fusion", "zh": "用于图像/点云融合的双模式BEV Transformer加速器"}, "authors": "J. Qian, Y. Lu, Z. Qian, et al.", "affiliation": "", "venue": "IEEE Journal of Solid-State Circuits", "venue_url": "https://doi.org/10.1109/JSSC.2026.3691770", "summary": {"en": "A 28 nm chip accelerates Transformer bird's-eye-view perception by combining saliency-driven image/point-cloud fusion, adaptive precision, and a dataflow designed to reuse on-chip data. It supports a high-performance driving mode and a low-power sentry mode, with 26.6 mW active power and 1.68 mW long-term average power reported for sparse-activity scenarios. The dual-mode design addresses a practical autonomous-system problem: retaining perception capability when full compute throughput is unnecessary.", "zh": "这款28 nm芯片通过显著性驱动的图像/点云融合、自适应精度和面向片上数据复用的数据流，加速Transformer鸟瞰图感知。它支持高性能驾驶模式和低功耗哨兵模式；在稀疏活动场景中，报告的active power为26.6 mW、长期平均功耗为1.68 mW。该双模式设计解决了自动驾驶系统中的实际问题：在不需要完整计算吞吐时仍保留感知能力。"}, "published": "2026-09-01"}
-      ]},
-      {"id": "ai-research", "title": {"en": "AI Systems & Inference", "zh": "AI系统与推理"}, "papers": [
-        {"title": {"en": "Hydra: phase-aware characterization of edge LLM inference", "zh": "Hydra：面向边缘LLM推理的阶段感知性能刻画"}, "authors": "A. Taherin, S. Taghipour Anvari, C. Amante, et al.", "affiliation": "", "venue": "arXiv:2608.25053", "venue_url": "https://arxiv.org/abs/2608.25053", "summary": {"en": "Hydra provides a common-schema measurement framework for prefill and decode phases across three edge-SoC generations, 13 instruction-tuned LLMs, five execution formats, and two inference backends. Its released dataset contains roughly 107,000 per-prompt records combined with hardware telemetry. The analysis argues that latency averages conceal important effects from backend choice, quantization, memory traffic, and phase-specific utilization.", "zh": "Hydra提供统一schema的测量框架，用于比较三代edge SoC、13个指令微调LLM、5种执行格式和两种推理后端上的prefill与decode阶段。其公开数据集包含约10.7万条逐prompt记录，并结合硬件遥测数据。分析指出，平均延迟掩盖了后端选择、量化、内存流量和阶段特定利用率带来的重要影响。"}, "published": "2026-08-25T18:43:43Z"},
-        {"title": {"en": "Event-triggered implicit perturbation for fine-tuning spiking Transformers", "zh": "用于微调脉冲Transformer的事件触发隐式扰动方法"}, "authors": "T. Lei, P. Katti, R. Dutt, et al.", "affiliation": "", "venue": "arXiv:2608.21223", "venue_url": "http://arxiv.org/abs/2608.21223", "summary": {"en": "This preprint proposes implicit perturbation for zeroth-order fine-tuning of spiking Transformers on in-memory-computing hardware. It combines perturbation terms with IMC weighted sums to avoid perturbation-induced read-modify-write operations, and exploits spike sparsity to reduce random-number-generator requirements. The idea addresses a hardware-specific obstacle in forward-only optimization, though its claimed benefits require validation on a complete accelerator implementation.", "zh": "该预印本提出用于IMC硬件上脉冲Transformer zeroth-order微调的隐式扰动方法。它将扰动项与IMC加权和结合，以避免由扰动引起的read-modify-write操作，并利用脉冲稀疏性降低对随机数发生器的需求。该思路针对仅前向优化中的硬件特定障碍，但其所宣称的收益仍需在完整加速器实现上验证。"}, "published": "2026-08-21"}
-      ]},
-      {"id": "eda", "title": {"en": "EDA & Design Automation", "zh": "EDA与设计自动化"}, "papers": [
-        {"title": {"en": "DeepSeq3: hierarchical graph learning for sequential-circuit analysis", "zh": "DeepSeq3：用于时序电路分析的分层图学习"}, "authors": "J. Zhou, Z. Shi, J. Zhu, et al.", "affiliation": "", "venue": "arXiv:2608.28188", "venue_url": "https://arxiv.org/abs/2608.28188", "summary": {"en": "DeepSeq3 represents a sequential circuit at two levels: combinational subgraphs divided by flip-flops and a super-node graph for register-transfer structure. A dual GNN is pre-trained to predict flip-flop-state reachability, capturing both local logic and temporal behavior. On the reported benchmarks, the framework reduces bounded-model-checking solve time by 18% while preserving correctness, though results remain limited to the evaluated designs.", "zh": "DeepSeq3以两个层级表示时序电路：由flip-flop划分的组合子图，以及表达寄存器传输结构的super-node图。双GNN通过预测flip-flop状态可达性进行预训练，同时捕捉局部逻辑和时序行为。在报告的基准上，该框架在保持正确性的前提下将bounded model checking求解时间降低18%，但结果仍限于所评估的设计。"}, "published": "2026-08-28T10:56:04Z"},
-        {"title": {"en": "HOLMES: in-context failure localization for SRAM yield estimation", "zh": "HOLMES：用于SRAM良率估计的in-context失效中心定位"}, "authors": "W. W. Xing, X. Zhou, K. Huang, et al.", "affiliation": "", "venue": "arXiv:2608.26758", "venue_url": "https://arxiv.org/abs/2608.26758", "summary": {"en": "HOLMES recasts failure-center localization for high-sigma yield estimation as few-shot binary classification using a tabular foundation model. It adds an SVD-based anisotropic sampling proposal and adaptive mixing to stabilize importance weights in high-dimensional SRAM problems. Across the authors' 6T SRAM cases from 108 to 1,152 dimensions, HOLMES reports relative error within 5.9%, compared with up to 25.8% for the strongest baseline.", "zh": "HOLMES将high-sigma良率估计中的失效中心定位重构为few-shot二分类，并采用tabular foundation model进行in-context推理。它增加了基于SVD的各向异性采样proposal和自适应混合，以稳定高维SRAM问题中的importance weights。在作者的6T SRAM案例中，维度从108到1,152，HOLMES报告的相对误差不超过5.9%，而最强baseline最高达到25.8%。"}, "published": "2026-08-27T07:53:18Z"}
-      ]}
+      {
+        "id": "circuits",
+        "title": {"en": "Circuits, Architecture & Reliability", "zh": "电路、架构与可靠性"},
+        "papers": [
+          {
+            "title": {"en": "JENGA: RowHammer defenses can undermine real-time predictability", "zh": "JENGA：RowHammer防护可能破坏实时可预测性"},
+            "authors": "V. Abgrall, M. Traiola, R. Salvador, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01077",
+            "venue_url": "https://arxiv.org/abs/2609.01077",
+            "summary": {
+              "en": "JENGA shows that counter-based RowHammer defenses can introduce large timing variations into safety-critical real-time systems. The attack manipulates the internal state of a Per-Row-Activation-Counter mechanism standardized for recent DDR5 devices, turning a security defense into a source of worst-case execution-time uncertainty. The paper is a preprint, and the practical risk depends on how closely evaluated controllers match deployed PRAC implementations.",
+              "zh": "JENGA表明，基于计数器的RowHammer防护可能给安全关键实时系统引入较大的时序波动。该攻击操纵近期DDR5所标准化的Per-Row-Activation-Counter机制内部状态，把安全防御转化为最坏执行时间的不确定来源。论文仍是预印本，实际风险取决于评估控制器与已部署PRAC实现的接近程度。"
+            },
+            "published": "2026-09-01T11:08:10Z"
+          }
+        ]
+      },
+      {
+        "id": "accelerators",
+        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "papers": [
+          {
+            "title": {"en": "A block-diffusion LLM accelerator for edge devices", "zh": "面向边缘设备的Block-Diffusion LLM加速器"},
+            "authors": "W.-H. Huang, K. Lee, M.-Y. Lee, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01084",
+            "venue_url": "https://arxiv.org/abs/2609.01084",
+            "summary": {
+              "en": "This work co-designs wide-I/O LPDDR, precision-tagged KV reads, feed-forward reuse, and a mixed-precision systolic array for block-diffusion LLMs at batch one. On modeled Jetson-class platforms with 1.5B and 7B models, the authors report mean energy reductions of 3.79x and 3.96x and latency speedups of 2.88x and 4.44x, with benchmark losses below one percentage point. The gains are simulation-based rather than measured silicon, and several techniques depend on the execution properties of native block diffusion.",
+              "zh": "该工作针对batch-one的block-diffusion LLM，协同设计宽I/O LPDDR、带精度标签的KV读取、前馈网络复用和混合精度脉动阵列。在建模的Jetson级平台上，1.5B与7B模型分别实现平均3.79倍和3.96倍能耗降低，以及2.88倍和4.44倍延迟加速，基准分数下降小于1个百分点。结果来自仿真而非实测硅片，且多项技术依赖原生block diffusion的执行特性。"
+            },
+            "published": "2026-09-01T11:18:55Z"
+          },
+          {
+            "title": {"en": "LEAP balances LLM inference across IMC, near-memory, and on-network compute", "zh": "LEAP在存内、近存与网内计算之间平衡LLM推理"},
+            "authors": "Y. Wang, Y. J. Chong, X. Fong",
+            "affiliation": "",
+            "venue": "arXiv:2609.00857",
+            "venue_url": "https://arxiv.org/abs/2609.00857",
+            "summary": {
+              "en": "LEAP maps static weights to in-memory-compute processing elements, dynamic intermediates to near-memory compute, and partial-result reduction to in-network compute. A companion partitioning and scheduling layer changes the mapping for the distinct arithmetic intensity of prefill and decode. The framework attacks data movement across a scale-up fabric, but the preprint describes a co-design proposal rather than a measured chip.",
+              "zh": "LEAP把静态权重映射到存内计算处理单元，把动态中间数据交给近存计算，并用网内计算完成部分结果归约。配套的分区与调度层针对prefill和decode不同的算术强度调整映射。该框架瞄准scale-up互连中的数据移动，但预印本描述的是协同设计方案，并非实测芯片。"
+            },
+            "published": "2026-09-01T07:55:45Z"
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {"en": "Hardware-Relevant AI Research", "zh": "硬件相关AI研究"},
+        "papers": [
+          {
+            "title": {"en": "OUTLETS predicts output length from speculative-decoding states", "zh": "OUTLETS利用推测解码状态预测输出长度"},
+            "authors": "W. Wen, Y. Liu, Y. Liu, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01068",
+            "venue_url": "https://arxiv.org/abs/2609.01068",
+            "summary": {
+              "en": "OUTLETS reuses hidden representations already produced by a speculative-decoding draft model to predict generation length with only a lightweight regression head. The authors report lower mean absolute error than evaluated proxy and internal-state methods, then use the predictions to improve scheduling under saturated disaggregated serving. The systems benefit depends on already running a compatible speculative backbone and on workload length distributions matching the evaluation.",
+              "zh": "OUTLETS复用推测解码draft model已经生成的隐藏表示，仅增加轻量回归头来预测生成长度。作者报告其平均绝对误差低于所评估的代理模型和内部状态方法，并利用预测结果改善饱和状态下的解耦式服务调度。系统收益取决于是否已运行兼容的推测解码骨干，也取决于实际工作负载的长度分布是否与评估相符。"
+            },
+            "published": "2026-09-01T11:00:39Z"
+          },
+          {
+            "title": {"en": "PCoMoE replaces whole-expert selection with fine-grained path composition", "zh": "PCoMoE以细粒度路径组合取代整专家选择"},
+            "authors": "Z. Gan, F. Liu, C. Guan, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01024",
+            "venue_url": "https://arxiv.org/abs/2609.01024",
+            "summary": {
+              "en": "PCoMoE decomposes MoE experts into reusable sub-expert paths, then prunes compatible path combinations and executes them with a hardware-oriented runtime. The paper reports up to 1.31x end-to-end inference speedup while also reporting a 10% accuracy improvement over its comparison point. Because both gains come from a preprint evaluation, the accuracy baseline and runtime overhead deserve close inspection before generalizing the result.",
+              "zh": "PCoMoE把MoE专家拆分为可复用的子专家路径，再剪除低价值的兼容路径组合，并用面向硬件的运行时执行。论文报告端到端推理最高加速1.31倍，同时相对其比较基线提高10%的准确率。由于两项增益都来自预印本评估，在推广结论前需要仔细核对准确率基线和运行时开销。"
+            },
+            "published": "2026-09-01T10:21:10Z"
+          },
+          {
+            "title": {"en": "Contrastive routing sharpens specialization in modular MoE models", "zh": "对比式路由增强模块化MoE模型的专家分工"},
+            "authors": "N. Xiros, D. Damianos, M.-E. Zoumpoulidi, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01100",
+            "venue_url": "https://arxiv.org/abs/2609.01100",
+            "summary": {
+              "en": "CoRM routes each token by contrasting it with an exponential-moving-average reference state, aiming to remove features shared across tokens and expose a more separable routing subspace. Across nine zero-shot reasoning benchmarks, the authors report gains of 0.67 to 1.69 points for Top-1 routing and 1.38 to 1.77 points for Top-2, at costs of 2.9% more parameters and 2.6% more FLOPs per token. The results improve specialization, but the added compute and benchmark-only evidence leave serving efficiency unproven.",
+              "zh": "CoRM把每个token与指数移动平均参考状态进行对比式路由，以滤除token之间共享的特征，暴露出更易分离的路由子空间。在9项zero-shot推理基准上，作者报告Top-1路由提高0.67至1.69分、Top-2提高1.38至1.77分，代价是参数量增加2.9%、每token FLOPs增加2.6%。结果显示专家分工有所改善，但额外计算成本和仅基于基准测试的证据尚不足以证明实际服务效率。"
+            },
+            "published": "2026-09-01T11:43:41Z"
+          },
+          {
+            "title": {"en": "SinkPruner removes high-norm visual-token sinks without retraining", "zh": "SinkPruner无需再训练即可移除高范数视觉token沉降点"},
+            "authors": "S. Li, Z.-Y. Hu, S. Huang, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01004",
+            "venue_url": "https://arxiv.org/abs/2609.01004",
+            "summary": {
+              "en": "SinkPruner identifies high-norm visual tokens as redundant attention sinks, removes them with a visual sanitizer, and then retains query-relevant tokens with a text-guided stage. The training-free method is evaluated across 12 image-language and four video-language benchmarks, making it directly relevant to multimodal inference cost. The abstract does not expose the full accuracy-throughput trade-off, so deployment value depends on how aggressively tokens can be pruned without task-specific regressions.",
+              "zh": "SinkPruner把高范数视觉token识别为冗余的attention sink，先通过视觉清洗器移除，再用文本引导阶段保留与查询相关的token。该方法无需训练，并在12项图文和4项视频语言基准上评估，直接对应多模态推理成本。摘要没有给出完整的准确率—吞吐权衡，因此部署价值取决于在不引发任务特定退化的情况下能剪除多少token。"
+            },
+            "published": "2026-09-01T09:52:10Z"
+          },
+          {
+            "title": {"en": "Instella-MoE opens a 16-billion-parameter model trained on AMD Instinct", "zh": "Instella-MoE开放一款在AMD Instinct上训练的160亿参数模型"},
+            "authors": "J. Liu, S. Ranjan, P. Mishra, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.00791",
+            "venue_url": "https://arxiv.org/abs/2609.00791",
+            "summary": {
+              "en": "Instella-MoE is a fully open model with 16 billion total parameters and 2.8 billion active parameters per token, trained from scratch on AMD MI300X and MI325X GPUs. Its design combines Gated Multi-head Latent Attention with FarSkip-Collective connectivity, and the report claims a 76.7 average across its pre-training benchmark suite. The technical report is useful as a rare open AMD training-system case study, but aggregate benchmark averages do not reveal cluster efficiency or production-serving behavior.",
+              "zh": "Instella-MoE是一款完全开放的MoE模型，总参数160亿、每token激活28亿参数，并从零开始在AMD MI300X和MI325X GPU上训练。其设计结合Gated Multi-head Latent Attention与FarSkip-Collective连接，报告在预训练基准套件上的平均分为76.7。该技术报告是少见的开放AMD训练系统案例，但综合基准均分无法说明集群效率或生产服务表现。"
+            },
+            "published": "2026-09-01T06:38:17Z"
+          }
+        ]
+      }
     ]
   }
 }
