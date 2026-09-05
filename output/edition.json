@@ -1,193 +1,447 @@
 {
-  "date": "2026-09-03",
-  "theme": {"en": "Memory Pressure Rewrites AI's Hardware Roadmap", "zh": "存储压力改写AI硬件路线图"},
+  "date": "2026-09-05",
+  "theme": {
+    "en": "AI Demand Reshapes the Capacity Map",
+    "zh": "AI需求重塑产能版图"
+  },
   "dek": {
-    "en": "HBM packaging plans are slowing even as Samsung points to 4 TB/s stacks, while Google is reportedly salvaging DDR4 for new AI servers. Across the stack, memory availability and movement now shape product roadmaps as much as raw compute.",
-    "zh": "HBM封装计划正在放缓，Samsung却已把单堆栈带宽目标指向4 TB/s；与此同时，据报道Google正从退役服务器中回收DDR4用于新AI服务器。纵观整个硬件栈，存储的供给与数据搬运正与算力本身一样左右产品路线图。"
+    "en": "HBM, custom silicon, advanced packaging, and equipment capacity all move higher as AI infrastructure expands. Export controls are simultaneously redirecting accelerator purchases and even corporate ownership choices.",
+    "zh": "随着AI基础设施扩张，HBM、定制芯片、先进封装和设备产能同步上行。与此同时，出口管制正在改写加速器采购流向，甚至影响企业股权安排。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "Optics Still Drives Marvell's AI Business More Than Custom Chips", "zh": "光互连对Marvell AI业务的推动仍超过定制芯片"},
-          "summary": {
-            "en": "Optical connectivity remains a larger driver of Marvell's AI business than its custom-chip programs. The mix shows that moving data between accelerators is already a more immediate revenue engine than the longer-cycle effort to win and ramp bespoke silicon.",
-            "zh": "光互连对Marvell AI业务的推动仍大于定制芯片项目。这个业务结构表明，在定制芯片经历较长的赢单与量产周期之际，加速器之间的数据搬运已经成为更直接的收入引擎。"
+          "featured": true,
+          "title": {
+            "en": "Broadcom Expects AI Chip Revenue to Double in 2027",
+            "zh": "Broadcom预计2027年AI芯片收入翻倍"
           },
-          "source": "The Next Platform",
-          "url": "https://www.nextplatform.com/connect/2026/09/02/optics-still-driving-marvells-ai-business-more-than-custom-chips/5294018",
-          "published": "2026-09-02T17:59:47+00:00"
+          "summary": {
+            "en": "Broadcom says its AI chip revenue should double in 2027, extending the growth runway for custom accelerators and networking silicon. The forecast suggests hyperscaler demand is broadening beyond merchant GPUs into application-specific compute and the connectivity required to scale it.",
+            "zh": "Broadcom预计其AI芯片收入将在2027年翻倍，定制加速器与网络芯片的增长周期因此继续延长。这一预测表明，超大规模云厂商的需求正从通用GPU扩展到专用计算，以及支撑大规模集群的互连芯片。"
+          },
+          "source": "Fierce Wireless",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOZmRDM24ya0xaalF1VE91aGlsN0RJc3VqazAwR2RrR0N1X2lHSjVONVc1bEltWmRPYm5iNExFUzV5RGtyRWVlUHRBdlRWWWN4WFUtTmFHdmdOSnVxM3QwLWRqUXd6VWNMQVZ3d3hBM1ZDcUlTQ1N4UmgwaG0tTlR6SXpQS1VrVDRpQ3pKT3Bhaw?oc=5",
+          "published": "2026-09-04T17:40:50+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "GoPro Enters AI Data-Center Optics Through $285 Million Merger", "zh": "GoPro通过2.85亿美元合并进入AI数据中心光通信市场"},
-          "summary": {
-            "en": "GoPro is merging with optical-photonics company Starman Optical in a transaction valued at at least $285 million. The deal is expected to eliminate $92 million of GoPro debt, return camera manufacturing to the United States, and add optical transceivers for AI data centers to its portfolio.",
-            "zh": "GoPro将与光子光学公司Starman Optical合并，交易价值至少2.85亿美元。该交易预计将消除GoPro的9200万美元债务，把相机制造迁回美国，并将面向AI数据中心的光收发器纳入产品组合。"
+          "title": {
+            "en": "AMD Puts 576 GB of HBM3e in a Desktop AI Workstation",
+            "zh": "AMD将576 GB HBM3e带入桌面AI工作站"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/data-centers/gopro-to-expand-into-ai-data-centers-after-usd285-million-merger-with-optical-photonics-company-move-to-solve-camera-makers-financial-woes-move-manufacturing-back-into-the-us",
-          "published": "2026-09-02T14:43:10+00:00"
+          "summary": {
+            "en": "AMD's Threadripper Halo workstation offers up to 576 GB of HBM3e and 16 TB/s of memory bandwidth for local AI development. That memory footprint targets researchers who need to run large models without sending data to a cloud cluster, although the system is positioned at the high end of the workstation market.",
+            "zh": "AMD的Threadripper Halo工作站为本地AI开发提供最高576 GB HBM3e和16 TB/s内存带宽。这一内存配置面向希望在不把数据送往云端集群的情况下运行大模型的研究人员，但产品定位仍属于高端工作站市场。"
+          },
+          "source": "The Register",
+          "url": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616",
+          "published": "2026-09-04T20:12:11+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Intel 18A-P Extends RibbonFET and Backside Power", "zh": "Intel 18A-P推进RibbonFET与背面供电"},
-          "summary": {
-            "en": "Intel is positioning 18A-P as a performance-enhanced derivative of 18A rather than a conventional new process node. The roadmap extends the first generation of RibbonFET and backside power delivery, making execution and customer portability more important than the marketing name.",
-            "zh": "Intel把18A-P定位为18A的性能增强衍生版本，而不是传统意义上的新制程。该路线图延续第一代RibbonFET与背面供电，因此实际执行与客户设计迁移能力比制程命名更值得关注。"
+          "title": {
+            "en": "TSMC Maps a 3D-Packaging Path for AI Chips",
+            "zh": "TSMC勾勒AI芯片3D封装路线图"
           },
-          "source": "SemiWiki",
-          "url": "https://semiwiki.com/semiconductor-manufacturers/intel/372712-intel-18a-p-pushes-ribbonfet-and-backside-power-beyond-the-first-generation/",
-          "published": "2026-09-02T17:00:42+00:00"
-        },
-        {
-          "featured": false,
-          "title": {"en": "TSMC Opens Kaohsiung Supplier Campus for Packaging Validation", "zh": "台积电在高雄启用供应商园区以补齐封装验证环节"},
           "summary": {
-            "en": "TSMC has opened a supplier campus in Kaohsiung aimed at closing gaps in packaging validation. Bringing suppliers and validation work closer together should shorten feedback loops as advanced packaging becomes a larger constraint on AI-chip output.",
-            "zh": "台积电在高雄启用供应商园区，目标是补齐封装验证环节的缺口。随着先进封装日益成为AI芯片产出的约束，把供应商与验证工作拉近有望缩短反馈周期。"
+            "en": "TSMC has outlined a 3D-packaging roadmap aimed at integrating AI compute more tightly across stacked silicon. The direction matters because system performance is increasingly constrained by die-to-die bandwidth, power delivery, and packaging throughput rather than transistor density alone.",
+            "zh": "TSMC公布了面向AI计算的3D封装路线图，重点是通过硅片堆叠实现更紧密的系统集成。这一路线值得关注，因为系统性能越来越受芯片间带宽、供电和封装产能制约，而不再只取决于晶体管密度。"
           },
-          "source": "Tech Times",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQQW1oejRtd2NDX2FRamcxMUlVenB2RkswSlQwdE5nZ21YTHdzaTVNTHFWa2lsLU1zbkh0bmh1NEFaWWx6ck9XZHJMbUFFY2ZYYVE4eUN1dXoxbjM3WFNGc0Rqb3ZUdnNVOURGWmNTdnlmS2tUYUtWQnJIS3dvZTZkSlp1R0U1dXRYeXJMeGw1RTN1ZnFGelZEMzltWk5saFBCSWtVVVc3MDR5S3loa3A0czA5NmFuMV9VSFdRSGYzNA?oc=5",
-          "published": "2026-09-02T14:42:18+00:00"
+          "source": "DigiTimes",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNckg5ajNURGt4ZFg1TzNTS0FpUlVaUGgtbVJmRWJFSEd2NS1jNUI1eVBybmQ4WEtUMkhZS1Y1TEhDdmY1Y3Y2ZW9STGNDblJUTVhvMDhPeDZnbzE4dW9XODRKNlp6Uk5QWWJDamJsQTRIcU5MeWxYTmlZQXNiRlNaWVRscUpWdnd6enJFSVVlVTc?oc=5",
+          "published": "2026-09-04T23:56:30+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
       "stories": [
         {
           "featured": true,
-          "title": {"en": "Hybrid Bonding Advances in Logic but Slips for HBM", "zh": "混合键合在逻辑芯片量产，却在HBM上延后"},
-          "summary": {
-            "en": "Hybrid bonding is in high-volume production for logic, but its adoption in HBM has been postponed as microbumps remain the practical choice. TSMC's current hybrid-bonding pitch sits at 6 microns, underscoring that memory stacks face a different cost and manufacturing tradeoff from logic-on-logic integration.",
-            "zh": "混合键合已在逻辑芯片上进入大规模量产，但其在HBM中的采用被推迟，微凸点仍是更现实的选择。台积电当前的混合键合间距为6微米，说明存储堆栈与逻辑芯片对逻辑芯片的集成在成本和制造上面临不同权衡。"
+          "title": {
+            "en": "Micron Plans to Double Monthly HBM Capacity",
+            "zh": "Micron计划将月度HBM产能翻倍"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/semiconductors/hybrid-bonding-roadmap-examined",
-          "published": "2026-09-02T15:05:41+00:00"
+          "summary": {
+            "en": "Micron reportedly plans to double monthly HBM capacity to 100,000 wafers as it tries to close the scale gap with Samsung and SK hynix. The expansion would add supply into AI's tightest memory segment, though wafer capacity does not translate directly into packaged HBM output because yield and advanced-packaging availability remain gating factors.",
+            "zh": "据报道，Micron计划将HBM月度产能翻倍至100,000片晶圆，以缩小与Samsung和SK hynix的规模差距。这将为AI供应链最紧张的存储环节增加供给，但晶圆产能并不等同于最终HBM出货量，良率与先进封装能力仍是关键约束。"
+          },
+          "source": "TradingKey",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPVTBMVS1nbGpGUGJPQm5td0RPMkRGQkdNTzBVN3VreW14Q1ZkdUo5M2hQNG9uSFlYYVZIZkdKcUQ2RHZiMWhnU052WkRxaVBPNERqT1I5azFsMl9mX1AzVUlnMmFkN3lyRDhQeVJJOWxWcC1SMDlOcnotX095RWN1YVVOUEhaX29zZS1YZUN2YW9HSUVkOWt1Sjl1cFpRQ2RFX2VEOXlJVnlBS3FLN0VoaXNxZVk4c0Mtb2lLNy1TWU05Y0lmWXpPdldvcUJoZjFKOW8yWjh6MFNESy1SVXoxUjh3?oc=5",
+          "published": "2026-09-04T15:47:54+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "Samsung Targets 4 TB/s per Stack With HBM5", "zh": "Samsung将HBM5单堆栈带宽目标定为4 TB/s"},
-          "summary": {
-            "en": "Samsung expects HBM5 to deliver 4 TB/s per stack by the late 2020s, roughly twice the performance projected for HBM4E. The company says that level could support AI accelerators with aggregate memory bandwidth near 100 TB/s, although the hinted 4,096-bit interface remains a roadmap inference rather than a disclosed specification.",
-            "zh": "Samsung预计HBM5将在2020年代末实现单堆栈4 TB/s带宽，约为HBM4E目标性能的两倍。公司称这可支持总存储带宽接近100 TB/s的AI加速器，但外界推测的4096位接口仍只是路线图推断，并非已公布规格。"
+          "title": {
+            "en": "Nvidia Introduces Custom High-Bandwidth Memory",
+            "zh": "Nvidia推出定制高带宽内存"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/dram/samsung-teases-new-hbm5-with-twice-the-performance-of-hbm4e-ambitious-data-transfer-rates-could-hint-at-4-096-bit-interface",
-          "published": "2026-09-02T14:38:20+00:00"
-        },
-        {
-          "featured": true,
-          "title": {"en": "Google Reportedly Reuses Retired DDR4 in New AI Servers", "zh": "据报道Google从退役服务器回收DDR4用于新AI服务器"},
           "summary": {
-            "en": "Google is reportedly removing DDR4 modules from retired servers and redeploying them in new AI systems. The unusual reuse program is a tangible sign that hyperscaler bottlenecks have shifted from compute alone toward memory availability and supply-chain access.",
-            "zh": "据报道，Google正从退役服务器中拆出DDR4模块，并将其重新部署到新的AI系统。这个非常规再利用计划具体反映出，超大规模数据中心的瓶颈已从单纯算力转向存储供给和供应链获取能力。"
+            "en": "Nvidia has introduced a custom high-bandwidth-memory design intended to raise bandwidth while reducing power use. The move gives the accelerator vendor more influence over a component that increasingly determines system performance, but availability beyond Nvidia's own platforms remains unclear.",
+            "zh": "Nvidia推出定制高带宽内存设计，目标是在提高带宽的同时降低功耗。此举让加速器厂商对决定系统性能的关键部件拥有更强控制力，但该设计是否会向Nvidia自有平台之外开放仍不明确。"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/google-is-now-pulling-ddr4-modules-out-of-retired-servers-and-reusing-them-in-new-ai-servers/",
-          "published": "2026-09-02T14:25:36+00:00"
+          "source": "TechRadar",
+          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQQW84R3hqMjFmT1lTaFNMZkQyWTQ5X0NvbTBMaVhWcUs3a0VFa0ZiTmJfbnBXdkctbXJMclZfSklFQ1NxNUpwMFVuUFBtRlViVXh0alBnb0JaMlA0Q3lMbVJrcXpMRVJ5RmI5aHBrbWlTZmhZTjRybGJSZ1p2aWIycGlHeXIydXREMXB1VWRoSGxNQUpZaDEzZzFfWTk3MlFPaGJyN2pvYVZrNzN0LVVmSlZmbzJrMGpubDJqc2NmR1dwUml3YkJEMXQ5anlPTC12d0g5TW9NODliWkpBUzdnd3FyMTl3RnBjWU1pNg?oc=5",
+          "published": "2026-09-04T20:15:00+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
       "stories": [
         {
-          "featured": false,
-          "title": {"en": "KAIST Targets a Fab Gas 6,000 Times More Potent Than CO2", "zh": "KAIST处理温室效应为CO2约6000倍的晶圆厂气体"},
-          "summary": {
-            "en": "A KAIST team reports a disorder-based method for taming a semiconductor-process greenhouse gas described as 6,000 times more potent than CO2. If the approach transfers from the laboratory to fab-scale abatement, it could reduce one of chip manufacturing's hard-to-remove climate impacts.",
-            "zh": "KAIST团队报告了一种利用无序结构处理半导体制程温室气体的方法；该气体的温室效应据称约为CO2的6000倍。如果这种方法能从实验室扩展到晶圆厂规模的尾气处理，它可能降低芯片制造中最难消除的一类气候影响。"
+          "featured": true,
+          "title": {
+            "en": "Semiconductor Equipment Billings Rise 23% in Q2",
+            "zh": "第二季度半导体设备销售额同比增长23%"
           },
-          "source": "EurekAlert!",
-          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE53TGJxdDl6Nm5nem45VUY3MUg3ajBkZmxTcjFKcU83MWRXQk16cnRjczUwUldkcXhUUmRiUzAxa0VhNFdoT3YwSHd3dGdaSG11X1ZvY3VGd2xNZ211?oc=5",
-          "published": "2026-09-02T23:22:56+00:00"
+          "summary": {
+            "en": "Global semiconductor equipment billings increased 23% year over year in the second quarter of 2026, according to SEMI. The rise shows that manufacturers are still converting AI and advanced-node demand into tool spending, a leading indicator for future wafer and packaging capacity.",
+            "zh": "SEMI数据显示，2026年第二季度全球半导体设备销售额同比增长23%。这一增幅表明，制造商仍在把AI和先进制程需求转化为设备投入，而设备支出通常是未来晶圆与封装产能的先行指标。"
+          },
+          "source": "HPCwire",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVzB6b3MyVkVlU2RfUHJUbDBPVml5VGpYY3RXV3d4R3B4RmNOSG93TUxrMW1lRXExUElKSHc4cFZseXprTW50d3YzNzd2YmgtOVJuMHpQUmZvX2ZCUFJLMzNzdk13bU0wZHZvRHc2eEs5NHJ3dnI1WFJ6SGZBd1c1UVFvSkR3RFJtRVlKOWVac3NNMlItQi1zSXhIQzNkbUM2RVJFZ20tMXFEdXNwdklN?oc=5",
+          "published": "2026-09-04T17:58:39+00:00"
         },
         {
           "featured": false,
-          "title": {"en": "Korea Zinc Expands Semiconductor Sulfuric Acid Capacity to 320,000 Tons", "zh": "Korea Zinc将半导体硫酸产能扩至32万吨"},
-          "summary": {
-            "en": "Korea Zinc is expanding its semiconductor-grade sulfuric acid capacity to 320,000 tons. The increase adds domestic supply of a high-purity process chemical whose reliability matters directly to fab utilization and contamination control.",
-            "zh": "Korea Zinc正把半导体级硫酸产能扩大到32万吨。此次扩产增加了高纯度制程化学品的本土供给，而其供应可靠性会直接影响晶圆厂产能利用率与污染控制。"
+          "title": {
+            "en": "Naura Reports a Two-Step Etch for 64-Layer 3D DRAM",
+            "zh": "Naura报告面向64层3D DRAM的两步刻蚀工艺"
           },
-          "source": "The Elec",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5VTVItWGQ2VWtJaHFPd1FNYjA2TFFZNG5uMnFLQW1wRHhsWjd2YTEzTWluamttUDVtVzdBcjhmNkZqOU0ycWZCVU96R2VHcGNVeGMyV2NJemVhcjBzQ3VRSGxlM3hONVE?oc=5",
-          "published": "2026-09-02T22:23:25+00:00"
+          "summary": {
+            "en": "Naura says it has developed a two-step process that etches uniformly through 64 layers for a proposed 3D DRAM structure. The IEEE-published work could give CXMT a route toward vertical DRAM scaling without relying on EUV, but it remains a process result rather than evidence of high-volume manufacturing.",
+            "zh": "Naura称其开发出一种两步刻蚀工艺，可在拟议的3D DRAM结构中实现64层均匀刻蚀。这项发表于IEEE期刊的工作可能为CXMT提供一条不依赖EUV的垂直DRAM扩展路径，但目前仍属于工艺研究结果，尚不能证明具备量产能力。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/chinese-chip-making-equipment-firm-naura-claims-big-breakthrough-that-could-enable-cxmt-to-overcome-euv-sanctions-make-3d-dram-chips/",
+          "published": "2026-09-04T17:21:27+00:00"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
+      },
       "stories": [
         {
-          "featured": true,
-          "title": {"en": "U.S. Semiconductor Tariffs Are Coming With Carveouts, Lutnick Says", "zh": "Lutnick称美国半导体关税将落地并设豁免条款"},
-          "summary": {
-            "en": "Commerce Secretary Howard Lutnick says semiconductor tariffs are coming, but the policy will include carveouts. The unresolved scope of those exemptions is now the key variable for chipmakers and electronics supply chains deciding whether U.S. manufacturing commitments will shield imports from new duties.",
-            "zh": "美国商务部长Howard Lutnick表示，半导体关税将会落地，但政策会包含豁免条款。豁免范围尚未确定，这已成为芯片厂商与电子供应链判断在美制造承诺能否使进口产品免受新关税影响的关键变量。"
+          "featured": false,
+          "title": {
+            "en": "DeepSeek Reportedly Orders 160,000 Huawei Accelerators",
+            "zh": "据报DeepSeek订购160,000颗Huawei加速器"
           },
-          "source": "Law360",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOMERtVEtwUEg2WjRJRndObmU2ZjR3V1hCb1VBR01aSnVMaWlQc3VESGRSRk5kWkZNLUF0RGJTUXZyQnFSaDl2N0RMaFJaSjJjMTJrRHFCVWtIOXFRczQ2T2tPWmFtbzFyM0hPS1JqSjUxdTZSMjRGVUVXZV8wS0JLaWVvU3JPLUhhVTJzdEdkcWNyVk53M3BQX3FwbG5rOUl3THctbUI2RXBDY3RYVUww0gFoQVVfeXFMT21wTEtmZDRTbV9pQkp1V1ZkME1JM0lueGYzSHd0dTQ0MFZzSm10RXNVcU1JTFg4clZTSS1iTHBKYWRuZU5KSEhSUVhla0UtWElqakRrWF9QOVBLNmdXb0JYT2dxUDd6Y3k?oc=5",
-          "published": "2026-09-02T19:00:00+00:00"
+          "summary": {
+            "en": "DeepSeek reportedly placed a roughly $2.56 billion order for 160,000 Huawei Ascend 950DT accelerators for a planned 1 GW data center in Mongolia, choosing them over Nvidia's China-specific products. If confirmed, the order would show export controls accelerating the shift of a major Chinese AI workload onto a domestic compute stack.",
+            "zh": "据报道，DeepSeek为其拟建的蒙古1 GW数据中心订购了160,000颗Huawei Ascend 950DT加速器，订单金额约$2.56 billion，并放弃Nvidia面向中国市场的产品。若消息得到证实，这笔订单将表明出口管制正在加速中国大型AI负载转向本土计算栈。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/nvidia-is-reportedly-giving-up-on-china-as-a-lost-cause-amid-an-unassailable-lead-from-huawei-as-deepseek-snubs-h20-gpus-for-160000-units-of-huaweis-ascend-950dt-chips/",
+          "published": "2026-09-04T16:02:19+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "G42 Weighs U.S. Ownership to Preserve Nvidia Access",
+            "zh": "G42考虑引入美国所有权以保留Nvidia采购资格"
+          },
+          "summary": {
+            "en": "G42 is reportedly considering U.S. ownership as a way to keep buying Nvidia accelerators. The deliberation shows export-control compliance reaching beyond product specifications into corporate structure, although no ownership change has yet been reported as final.",
+            "zh": "据报道，G42正考虑引入美国所有权，以继续采购Nvidia加速器。这一讨论显示，出口管制合规的影响已从产品规格延伸到公司股权结构，但目前尚无最终交易落地的报道。"
+          },
+          "source": "The Next Web",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOck5QQ2hTYVVDVkl2X0JDTGlFVGxBU1ozVW1NUl9sQXlRUEVscDNfcVgwYm1INVFFcm5DbG9vY3UtRU1lWEctUmp0aDdqY1Y4eEhaQ0otZDlZcnZsejFGSkpwSThZdm00c1dQczk1NUlJdktMMTREUmJQWGNFSEYzU1M0UlV3dw?oc=5",
+          "published": "2026-09-04T15:12:29+00:00"
         }
       ]
     },
     {
       "id": "earnings",
-      "title": {"en": "Earnings & Markets", "zh": "业绩与市场"},
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "业绩与市场"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Broadcom Q3 Revenue Jumps 86% to $29.6 Billion", "zh": "Broadcom第三季度营收增长86%至296亿美元"},
-          "summary": {
-            "en": "Broadcom's third-quarter revenue rose 86% to $29.6 billion, with AI-chip demand identified as the main driver. The result reinforces that hyperscaler spending is flowing beyond GPUs into custom accelerators, networking, and the surrounding connectivity stack.",
-            "zh": "Broadcom第三季度营收增长86%，达到296亿美元，AI芯片需求被视为主要驱动力。这一结果再次说明，超大规模客户的支出正从GPU扩展到定制加速器、网络以及周边互连硬件栈。"
+          "title": {
+            "en": "Global Chip Sales Jump 6.4% in July",
+            "zh": "7月全球芯片销售额环比增长6.4%"
           },
-          "source": "Securities.io",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPMDJoY3dFMS1ORFNTS0lVQ2pQTm5YRUNtS1RQOHowWmhrLUM3eFR4eFpfOXNmakxFXzItWVBUTTlIWW1EMHk4d0JmbUFPVXdxODlObDNIWkRJNHp5bGxvd1ZrV1FDSngzT0t0WktqNkNlUGJnbmtGWUk4U0tfZ1ZjR0pLcmpBQnRoejBTUU9BcHVOWDA?oc=5",
-          "published": "2026-09-02T20:43:56+00:00"
+          "summary": {
+            "en": "Global semiconductor sales rose 6.4% month over month in July, according to the Semiconductor Industry Association. The sequential acceleration points to broadening demand, but one month of sales data does not establish how evenly the recovery is distributed across logic, memory, and mature-node products.",
+            "zh": "美国半导体行业协会数据显示，7月全球半导体销售额环比增长6.4%。这一环比加速显示需求正在扩散，但单月数据仍不足以判断复苏在逻辑、存储和成熟制程产品之间是否均衡。"
+          },
+          "source": "Semiconductor Industry Association",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNTDZLdTI5eUt6aWJ4S1BNSk90d2R5TXdSakc5dEJCdTZtTlE4WjB1R1FBM1ZjVGplV0xQM2VpNzBVakNUcUlNWWkxLTZvbzN3WEZfNXlZb1IwaGd0bHBqb1BUM2RRVHVNWl90aDBVYjgwcHh4ZEpLcWMtQ2hzcXR1LXFZTlg3Z0NOQnpxeUNpejNzdE91ZjhFaUNn?oc=5",
+          "published": "2026-09-04T21:03:26+00:00"
         }
       ]
     },
     {
       "id": "challengers",
-      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
       "stories": [
         {
           "featured": false,
-          "title": {"en": "Mercedes Spinout Athos Shuts Down After Funding Falls Short", "zh": "Mercedes拆分公司Athos融资未果后停止运营"},
-          "summary": {
-            "en": "Mercedes spinout Athos has closed after failing to secure the financing needed to continue commercializing its chiplet-based technology. The shutdown is a reminder that architectural differentiation alone does not bridge the capital-intensive path from prototype silicon to a production business.",
-            "zh": "Mercedes拆分公司Athos因未能获得继续商业化chiplet技术所需的融资而关闭。这次停运提醒市场，单靠架构差异化不足以跨越从原型芯片到量产业务之间的高资本门槛。"
+          "title": {
+            "en": "Gimlet Labs Raises $300 Million for a Multi-Silicon Inference Cloud",
+            "zh": "Gimlet Labs为多芯片推理云融资$300 million"
           },
-          "source": "EE Times",
-          "url": "https://www.eetimes.com/mercedes-spinout-athos-closes-its-doors/",
-          "published": "2026-09-02T17:07:04+00:00"
+          "summary": {
+            "en": "Gimlet Labs raised a $300 million Series B to build an inference cloud that can run across multiple silicon backends. The financing supports a challenger model based on abstracting heterogeneous accelerators rather than betting on a single chip architecture; execution will depend on whether the platform can deliver consistent cost and latency across those backends.",
+            "zh": "Gimlet Labs完成$300 million B轮融资，用于建设可跨多种芯片后端运行的推理云。其挑战者路径不是押注单一芯片架构，而是抽象异构加速器；能否在不同后端上持续提供稳定的成本与时延，将决定该模式的成败。"
+          },
+          "source": "Wowtale",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9VRnFybXZVRzVYb2RGNXNFREZ0RGctaTE0cU11WEM0MWFfbFZhamFNQkZNV2M0WURWNVJwX1RHRU9BUnBBanlkR1BDMURKRnpoYU9v?oc=5",
+          "published": "2026-09-04T22:14:40+00:00"
         }
       ]
     }
   ],
   "research": {
     "window_days": 7,
-    "theme": {"en": "No New Papers Clear the Queue", "zh": "暂无新论文进入阅读队列"},
-    "dek": {
-      "en": "Today's merged research feed returned no new candidates, so the reading queue remains empty rather than repeating previously covered work.",
-      "zh": "今日合并研究源未返回新的候选论文，因此本期阅读队列保持为空，不重复此前已覆盖的研究。"
+    "theme": {
+      "en": "Systems Work Moves Into the Data Path",
+      "zh": "系统研究深入数据路径"
     },
-    "areas": []
+    "dek": {
+      "en": "This week's work attacks data movement, verification, and scheduling across analog links, memory-side compute, photonic fabrics, and design tools. Several papers report concrete hardware evidence, while simulation-only results remain useful but conditional.",
+      "zh": "本周研究从模拟链路、存内计算、光子互连到设计工具，集中解决数据搬运、验证与调度问题。多项工作给出具体硬件证据，纯仿真结果则仍需带着条件解读。"
+    },
+    "areas": [
+      {
+        "id": "devices",
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Mesh-Native Physics-Informed Surrogates for TCAD Design Exploration",
+              "zh": "面向TCAD设计探索的网格原生物理约束代理模型"
+            },
+            "authors": "L. Popryho, A. Sadeghi, I. Partin-Vaisband",
+            "affiliation": "",
+            "venue": "arXiv:2609.02988",
+            "venue_url": "https://arxiv.org/abs/2609.02988",
+            "summary": {
+              "en": "A physics-informed graph-attention surrogate works directly on tetrahedral TCAD meshes and predicts electrostatic potential plus electron and hole quasi-Fermi levels at every node. By enforcing finite-volume current continuity, the model is designed to transfer from few-fin geometries to larger arrays without changing its representation. The paper is a preprint and reports a learned surrogate rather than fabricated-device validation, so its value hinges on error and runtime behavior outside the training geometry range.",
+              "zh": "该工作提出一种直接运行在四面体TCAD网格上的物理约束图注意力代理模型，可在每个网格节点预测静电势以及电子、空穴准费米能级。模型通过有限体积电流连续性约束，力求从少鳍结构迁移到更大阵列而无需更换表示方式。论文仍是预印本，验证对象是学习型代理模型而非实际器件，因此其价值取决于超出训练几何范围后的误差与运行时间表现。"
+            },
+            "published": "2026-09-02T15:15:29Z"
+          },
+          {
+            "title": {
+              "en": "FeFET-Aware On-Chip Training With Stable Conductance Regions",
+              "zh": "利用稳定电导区间的FeFET感知片上训练"
+            },
+            "authors": "P. Dang, Y. Huang, Y. He, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01948",
+            "venue_url": "https://arxiv.org/abs/2609.01948",
+            "summary": {
+              "en": "The NOVA architecture calibrates an on-chip-training model to a fabricated two-dimensional FeFET and steers bipolar weights toward conductance regions that are less sensitive to device asymmetry. This couples measured device behavior to a non-ideality-aware training algorithm instead of treating programming error as uniform noise. The FeFET is fabricated, but the abstract does not establish a complete accelerator tape-out, so system-level efficiency claims should be read as model-backed rather than full-chip measurements.",
+              "zh": "NOVA架构基于已制备的二维FeFET校准片上训练模型，并引导双极性权重收敛到对器件不对称性更不敏感的稳定电导区间。该方法把实测器件行为直接纳入非理想特性感知训练，而不是把编程误差简化为均匀噪声。虽然FeFET器件已经制备，但摘要并未证明完整加速器已流片，因此系统级能效结论应视为器件模型支撑的结果，而非整芯片实测。"
+            },
+            "published": "2026-09-01T23:42:09Z"
+          }
+        ]
+      },
+      {
+        "id": "circuits",
+        "title": {
+          "en": "Circuits & Architecture",
+          "zh": "电路与架构"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "A Deployed-Silicon Post-Quantum Accelerator Exposes a Verification Blind Spot",
+              "zh": "已部署后量子加速器暴露验证盲区"
+            },
+            "authors": "J. Park, E. Kim, W. Kim, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.04058",
+            "venue_url": "https://arxiv.org/abs/2609.04058",
+            "summary": {
+              "en": "A unified ML-KEM-768 and ML-DSA-65 accelerator designed through 232 logged agentic-LLM experiments passed standard known-answer tests despite a block-RAM latency bug that skipped final coefficient checks. A byte-exact reference oracle plus adversarial randomized testing then completed 301,343 data-dependent signatures with zero escapes. The deployed-silicon case study matters less as proof of AI-designed hardware than as evidence that fixed-vector acceptance tests miss variable-depth cryptographic paths.",
+              "zh": "一个统一支持ML-KEM-768与ML-DSA-65的加速器由agentic LLM完成232次有记录的设计实验，尽管存在因block RAM时延导致最终系数未检查的缺陷，却仍通过了标准已知答案测试。研究随后采用逐字节精确的参考oracle与对抗性随机测试，完成301,343次数据相关签名且未再出现漏检。这个已部署硅案例的核心意义并非证明AI能够设计硬件，而是说明固定测试向量会漏掉执行深度随数据变化的密码路径。"
+            },
+            "published": "2026-09-03T16:34:50Z"
+          },
+          {
+            "title": {
+              "en": "Confidence Gating Matters More Than the Learned Prefetcher",
+              "zh": "置信度门控比学习型预取器更重要"
+            },
+            "authors": "Y. Majdane, S. J. Casartelli, E. Lopedoto",
+            "affiliation": "",
+            "venue": "arXiv:2609.04040",
+            "venue_url": "https://arxiv.org/abs/2609.04040",
+            "summary": {
+              "en": "Matched ChampSim tests show that a 257-parameter online MLP loses its apparent advantage when the same confidence gate is applied to a classical stride prefetcher. The gate cuts prefetch requests by 35% and raises accuracy from 11% to 15%, yet changes DRAM reads by only 0.07%, exposing the gap between proxy metrics and endpoint behavior. These are simulation results on 20 SPEC CPU2017 workloads, not measured silicon.",
+              "zh": "在匹配的ChampSim测试中，当同一置信度门控同时用于传统步长预取器后，拥有257个参数的在线MLP不再显示出明显优势。门控减少35%的预取请求，并把准确率从11%提高到15%，但DRAM读取量仅变化0.07%，揭示了代理指标与最终系统行为之间的差距。这些结果来自20个SPEC CPU2017负载的仿真，并非芯片实测。"
+            },
+            "published": "2026-09-03T16:15:20Z"
+          }
+        ]
+      },
+      {
+        "id": "accelerators",
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Risk-Aware Selective Inference for Analog In-Memory Accelerators",
+              "zh": "面向模拟存内计算加速器的风险感知选择性推理"
+            },
+            "authors": "O. Yousuf, M. Lueker-Boden",
+            "affiliation": "",
+            "venue": "arXiv:2609.03149",
+            "venue_url": "https://arxiv.org/abs/2609.03149",
+            "summary": {
+              "en": "RACE-AIMC selects one accelerator from a heterogeneous physical pool for a given energy budget and attaches a statistically exact upper bound to the error rate when that device answers. A lightweight online check accepts confident outputs and defers uncertain cases, avoiding the energy cost of running a full ensemble on every input. The framework addresses chip-to-chip variation directly, but the abstract does not provide enough array, precision, or energy detail to compare it with measured AIMC macro results.",
+              "zh": "RACE-AIMC针对给定能耗预算，从异构物理加速器池中选择一个器件，并为该器件作答时的错误率给出统计意义上的精确上界。轻量级在线检查会接受高置信度输出并推迟不确定样本，从而避免对每个输入都运行完整集成所带来的能耗。该框架直接处理芯片间差异，但摘要未给出足够的阵列规模、精度和能耗细节，尚难与实测AIMC宏结果直接比较。"
+            },
+            "published": "2026-09-02T20:30:32Z"
+          },
+          {
+            "title": {
+              "en": "A Time-Encoded Photonic Interposer Carries Analog Chiplet Signals",
+              "zh": "时间编码光子中介层传输模拟chiplet信号"
+            },
+            "authors": "S. Chakraborty, Z. Yin, X. Chen, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.03125",
+            "venue_url": "https://arxiv.org/abs/2609.03125",
+            "summary": {
+              "en": "A photonic interposer converts analog amplitudes into timing intervals, transmits them over wavelength-division multiplexing, and reconstructs them with implicit 6-bit quantization rather than a conventional high-precision ADC/DAC chain. In an analog-vision evaluation it improves energy-delay product by 2.04 times over an 8-bit digital electrical baseline while keeping task accuracy within roughly two percentage points across additional datasets. The abstract describes system evaluation but not fabricated interposer measurements, so link fidelity and packaging overhead still need hardware validation.",
+              "zh": "该光子中介层把模拟幅度转换为时间间隔，经波分复用链路传输后重建信号，以隐式6-bit量化替代传统高精度ADC/DAC链路。在模拟视觉评估中，其能量时延积相比8-bit数字电互连基线改善2.04倍，并在额外数据集上把任务精度差距控制在约2个百分点内。摘要描述的是系统评估而非已制备中介层的实测，因此链路保真度与封装开销仍需硬件验证。"
+            },
+            "published": "2026-09-02T20:01:11Z"
+          },
+          {
+            "title": {
+              "en": "High-Radix Photonics Scales MoE Inference Prefill",
+              "zh": "高基数光子互连扩展MoE推理Prefill"
+            },
+            "authors": "A. Madhavan, P. Carson, T. Groves, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01821",
+            "venue_url": "https://arxiv.org/abs/2609.01821",
+            "summary": {
+              "en": "Simulations of short-, medium-, and million-token MoE workloads find that 3D-integrated photonic interconnects improve stressed high-batch prefill latency by 2.1 to 3.2 times and communication-limited cases by 2.8 to 5.8 times. The modeled fabric enables a 1,152-GPU scale-up domain that electrical systems cannot hold within one pod. The result is explicitly simulation-based, so optical power, packaging yield, and network-control overhead remain outside the demonstrated speedups.",
+              "zh": "针对短上下文、中等上下文和百万token MoE负载的仿真显示，3D集成光子互连可将高批量压力场景下的prefill时延改善2.1至3.2倍，在通信受限场景下改善2.8至5.8倍。模型中的互连可支持1,152颗GPU的scale-up域，突破电互连单pod规模上限。该结果明确基于仿真，光学功耗、封装良率与网络控制开销尚未纳入已展示的加速比。"
+            },
+            "published": "2026-09-01T19:54:04Z"
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {
+          "en": "Hardware-Relevant AI Research",
+          "zh": "硬件相关AI研究"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "FlowTT Reuses Irregular Tensor-Train Embedding Computation",
+              "zh": "FlowTT复用不规则Tensor-Train嵌入计算"
+            },
+            "authors": "J. Seok, C. E. Rhee",
+            "affiliation": "",
+            "venue": "arXiv:2609.03459",
+            "venue_url": "https://arxiv.org/abs/2609.03459",
+            "summary": {
+              "en": "FlowTT groups tensor-train embedding lookups by shared prefixes, fuses core contractions to retain intermediates on chip, and uses persistent threads with work stealing to control skew. At batch size 32,768, it cuts latency by as much as 42.2% for inference and 49.2% for training relative to EcoRec. The benchmarks are Meta synthetic recommendation workloads, so gains on production index distributions and smaller batches remain to be established.",
+              "zh": "FlowTT按照共享前缀对Tensor-Train嵌入查找进行分组，融合核心收缩以把中间结果保留在片上，并通过持久线程与任务窃取处理负载偏斜。在batch size为32,768时，它相对EcoRec最多降低42.2%的推理时延和49.2%的训练时延。测试采用Meta合成推荐负载，因此在真实生产索引分布和更小batch下的收益仍有待验证。"
+            },
+            "published": "2026-09-03T07:17:33Z"
+          }
+        ]
+      },
+      {
+        "id": "quantum",
+        "title": {
+          "en": "Quantum Computing",
+          "zh": "量子计算"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "A Neutral-Atom MWIS Kernel Reaches an Industrial Scheduling Loop",
+              "zh": "中性原子MWIS内核进入工业调度闭环"
+            },
+            "authors": "J. Chen, M. Lin, J. Wen, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.01248",
+            "venue_url": "https://arxiv.org/abs/2609.01248",
+            "summary": {
+              "en": "A backend-agnostic interface maps the discrete layer of stochastic unit commitment to maximum-weight independent set instances, then leaves continuous dispatch and feasibility recovery to classical computation. During a 15-day campaign on QuEra Aquila, refined hardware solutions on 50-node instances matched or exceeded dispatch margins obtained from exact MWIS each day. At 144 nodes, full-array atom survival becomes the limiting factor, showing that hardware availability rather than graph encoding is the immediate scaling bottleneck.",
+              "zh": "该后端无关接口把随机机组组合的离散决策层映射为最大权独立集问题，同时由经典计算负责连续调度与可行性恢复。在QuEra Aquila上持续15天的测试中，50节点实例的量子硬件解经经典修正后，每天都达到或超过精确MWIS所得的调度裕量。当规模扩大到144节点时，全阵列原子存活率成为限制因素，说明眼前的扩展瓶颈是硬件可用性而非图编码。"
+            },
+            "published": "2026-09-01T13:46:26Z"
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {
+          "en": "EDA & Design Automation",
+          "zh": "EDA与设计自动化"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Batched Proxy Execution Speeds Timing-Aware Logic Rewriting",
+              "zh": "批量代理执行加速时序感知逻辑重写"
+            },
+            "authors": "P. Su",
+            "affiliation": "Fudan University",
+            "venue": "arXiv:2609.02470",
+            "venue_url": "https://arxiv.org/abs/2609.02470",
+            "summary": {
+              "en": "BBYT compiles all candidates for one logic-rewrite decision into a single zero-delay proxy image, accepting a clear proxy winner or falling back to the original timed flow. Across 12 counterbalanced sequences it reduces candidate-selection time by 18.05%, removes 32.52% of timed evaluations, and matches exhaustive timed selection on all 250 tested decisions. The evidence covers only a five-workload corpus and two reported design-level reductions, so broader netlists are needed to establish generality.",
+              "zh": "BBYT把一次逻辑重写决策的全部候选方案编译进单个零延迟代理镜像；若代理结果明显领先则直接采用，否则回退到原有时序流程。在12组平衡序列中，它将候选选择时间降低18.05%，移除32.52%的时序评估，并在全部250次测试决策中与穷举时序选择保持一致。现有证据仅覆盖5个负载和两个设计级降幅，仍需更广泛网表验证其通用性。"
+            },
+            "published": "2026-09-02T11:39:48Z"
+          }
+        ]
+      }
+    ]
   }
 }
