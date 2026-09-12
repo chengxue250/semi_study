@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-20">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Reprices the Semiconductor Stack — Semi News 2026-06-20</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, June 20, 2026</span>
+      <span class="zh">2026年6月20日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Reprices the Semiconductor Stack</span>
+      <span class="zh">AI需求重估整条半导体链</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI infrastructure demand is reaching beyond accelerators into CPU racks, memory pricing, foundry competition, and local supply-chain investment. At the same time, the dispute over whether an ASML EUV system reached China shows how export controls increasingly shape the equipment market.</span>
+      <span class="zh">AI基础设施需求正从加速器外溢至CPU机架、存储定价、晶圆代工竞争和本地供应链投资。与此同时，围绕ASML EUV设备是否进入中国的争议表明，出口管制正日益重塑设备市场。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/uncategorized/370504-deloitte-2026-semiconductor-industry-outlook-ai-reshapes-the-semiconductor-landscape/" target="_blank" rel="noopener">
+          <span class="en">Deloitte Sees AI Infrastructure Recasting the Chip Cycle</span>
+          <span class="zh">Deloitte称AI基础设施正在重塑芯片周期</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 2h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Deloitte&#x27;s 2026 semiconductor outlook says AI infrastructure investment is becoming a primary industry demand driver, reducing the sector&#x27;s historical dependence on consumer-electronics cycles. The shift matters because capacity, product roadmaps, and capital allocation increasingly follow datacenter workloads rather than unit growth in PCs and phones.</span>
+        <span class="zh">Deloitte的2026年半导体行业展望认为，AI基础设施投资正成为主要需求驱动力，降低行业对消费电子周期的传统依赖。其影响在于，产能、产品路线图和资本配置正越来越多地围绕数据中心工作负载，而非PC和手机的销量增长展开。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/building-a-dense-agentic-ai-cpu-rack-amd-dell-today/" target="_blank" rel="noopener">
+          <span class="en">Agentic AI Pulls Dense CPU Racks into the Buildout</span>
+          <span class="zh">智能体AI将高密度CPU机架纳入扩建潮</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 2h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ServeTheHome outlines a dense agentic-AI CPU rack that can be assembled today with shipping AMD and Dell hardware. The design highlights demand on both sides of agent deployment: CPUs run orchestration and agent services while also absorbing the legacy workloads those agents call.</span>
+        <span class="zh">ServeTheHome介绍了一套可用现有AMD和Dell硬件搭建的高密度智能体AI CPU机架。该方案凸显智能体部署对两端算力的需求：CPU既运行编排与智能体服务，也承载这些智能体调用的传统工作负载。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE84dkNzMF9qNjY3bk9sbWxWSG9CRG9MalcyZ0U0SURRYXNWa2Q2Ry1QRVFQVkJHV1NDV3FheUdlLUt1OGRPS0s0V0xtQkNVVW8teXEzRnZSVzc2c3JEYkZpYnA0cGo5QnM5X3NwUzVjZ2RhTTJsSVBv?oc=5" target="_blank" rel="noopener">
+          <span class="en">Reported Apple-Intel Alliance Raises Foundry Stakes</span>
+          <span class="zh">据报Apple与Intel结盟推高晶圆代工竞争</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">KED Global</span> · 10h ago</span>
+        <span class="zh"><span class="source">KED Global</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">KED Global reports that an Apple-Intel alliance is set to intensify the foundry contest with Samsung and TSMC. Even without disclosed process or volume details, a closer tie to Apple would give Intel a consequential reference customer as it tries to establish an external foundry business.</span>
+        <span class="zh">KED Global报道称，Apple与Intel的联盟将加剧其与Samsung和TSMC之间的晶圆代工竞争。尽管报道未披露制程或订单规模，更紧密的Apple关系仍可为Intel建立外部代工业务提供一个分量显著的标杆客户。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/amd-reportedly-plots-another-10-15-rx-9000-price-hike-as-the-rampocalypse-swallows-the-gpu-market/" target="_blank" rel="noopener">
+          <span class="en">AMD Reportedly Plans Another 10–15% RX 9000 Price Increase</span>
+          <span class="zh">据报AMD计划将RX 9000再提价10%至15%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD is reportedly preparing another 10–15% increase for Radeon RX 9000 graphics cards as DRAM costs continue to lift component prices. The report remains unconfirmed, but it shows how memory tightness can move through the bill of materials and reach buyers even when GPU silicon itself is unchanged.</span>
+        <span class="zh">据报道，由于DRAM成本持续推高零部件价格，AMD正准备将Radeon RX 9000显卡再提价10%至15%。该消息尚未获得证实，但它显示出存储供给紧张如何沿物料成本传导，即使GPU芯片本身未变，也会最终影响终端买家。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNczU4ZlNuUXBrbVc3OTBhUmhOTHRuZHFVcWxNaWd3UF9STHZkaUFCeUdlUGRISHVOVEZqNXpObkI1eGlrMjMzTFIyb2RjOWViQXV4eDR5WmxHR3hsX1lHc1p0bXRBYTd3SG1wVkZ1bm56UnRiUW5NWV9zNWo4R2ZYa3pxRndyejEtaC1Rd0FOT0ZObkVsNExJSkNTYXN6V245Z3k0dEhSVDJ6REpNbG1WZGRhLWxJRnhscEZNaC1hc0F4cGdLWUtjeg?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Shows CXL 3.2 Modules with Its AI-Server Memory Stack</span>
+          <span class="zh">SK hynix展示CXL 3.2模块及AI服务器存储全栈</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix displayed its broader AI-server memory portfolio at HPE Discover, including CXL 3.2 modules. The emphasis beyond HBM matters because capacity expansion, pooling, and tiering over CXL are becoming part of the same system-level memory bottleneck as accelerator bandwidth.</span>
+        <span class="zh">SK hynix在HPE Discover展示了更完整的AI服务器存储产品组合，其中包括CXL 3.2模块。关注点不再局限于HBM，这一点很重要：通过CXL进行容量扩展、池化和分层，正与加速器带宽一起成为同一个系统级存储瓶颈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxOWUE3LWdaZFhsQUZhLTdPOHVfX1ZHbGcxaWVQY1RIdUxfRzFBOVN2RHBUMUp3ZWFJMmxxRjMwbVVZcmloQkp5MTdUS0xlRVlwNTJMbEQ2X1JPUW53Q3hBTDFONk9abEtYVWZ4NGZ1SEgwUUVkTnhKcDE1bkVzMlNmVlk0WEQ3T0d3eWRfZGVXeTkxY2dyWXo4cVJFUklEbk9GMmNTeGVOTnNyQnJrcDBhQlU3ZEx1T3FsSnhXLVBpVQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Texas Grants $3.9 Million for Xycarb&#x27;s Georgetown Expansion</span>
+          <span class="zh">Texas拨款390万美元支持Xycarb扩建Georgetown工厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Dallas Express</span> · 10h ago</span>
+        <span class="zh"><span class="source">Dallas Express</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Texas awarded Xycarb a $3.9 million semiconductor grant to expand its operation in Georgetown. The award is modest beside fab incentives, but it targets the supplier layer that determines whether new domestic manufacturing capacity has a nearby materials and components base.</span>
+        <span class="zh">Texas向Xycarb提供390万美元半导体补助，用于扩建其Georgetown业务。与晶圆厂补贴相比金额不大，但它指向决定新增本土制造产能能否获得就近材料与零部件支持的供应商层。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/defense-sends-clear-signal-to-canadian-semiconductor-industry/" target="_blank" rel="noopener">
+          <span class="en">Canada Links Defense Policy to Domestic Chip Capacity</span>
+          <span class="zh">Canada将国防政策与本土芯片能力挂钩</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 3h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Canada is using defense and technology policy to signal stronger support for homegrown semiconductor capabilities. Connecting chips to procurement and national security could create steadier demand than stand-alone innovation programs, although the report does not specify new production targets.</span>
+        <span class="zh">Canada正通过国防与科技政策释放加强本土半导体能力的信号。把芯片与政府采购和国家安全挂钩，可能比单独的创新计划形成更稳定的需求，不过报道并未给出新的产量目标。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/asml-denies-us-government-report-that-its-euv-chipmaking-tool-was-shipped-to-china-says-rumors-are-inaccurate-and-damaging-to-our-reputation" target="_blank" rel="noopener">
+          <span class="en">ASML Rejects US Claim That an EUV System Reached China</span>
+          <span class="zh">ASML否认美国关于EUV设备进入中国的说法</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML denied a US government report suggesting that one of its EUV lithography systems had been shipped to China, calling the claim inaccurate. The disagreement is material because EUV tools sit at the center of advanced-node export controls, and any verified transfer would expose a serious enforcement gap.</span>
+        <span class="zh">ASML否认美国政府有关其一套EUV光刻系统已运往中国的说法，并称该消息不准确。这一分歧影响重大，因为EUV设备处于先进制程出口管制的核心；若相关转移得到证实，将暴露出严重的执法缺口。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/06/19/tensordyne-makes-a-big-bet-on-log-math-to-beat-nvidia/5258662" target="_blank" rel="noopener">
+          <span class="en">Tensordyne Bets on Logarithmic Arithmetic against Nvidia</span>
+          <span class="zh">Tensordyne押注对数运算挑战Nvidia</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 9h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tensordyne is pursuing an accelerator architecture that converts multiplication-heavy workloads into additions in the logarithmic domain. The approach attacks the cost of arithmetic itself rather than scaling a conventional tensor-core design, but its commercial value will depend on accuracy, software support, and performance on real models.</span>
+        <span class="zh">Tensordyne正在开发一种加速器架构，把乘法密集型工作负载转换为对数域中的加法。该路线不是继续扩展传统tensor core，而是直接降低算术运算成本；但其商业价值仍取决于精度、软件支持以及真实模型上的性能。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-20 01:19 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-20 01:19 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

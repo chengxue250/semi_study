@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-27">
+<meta name="generator" content="semi-news-daily">
+<title>Memory Crosses the $1 Trillion Line; Taiwan Cracks the Smuggling Pipe — Semi News 2026-05-27</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Lang visibility — pure CSS off the body[data-lang] */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, May 27, 2026</span>
+      <span class="zh">2026年5月27日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Memory Crosses the $1 Trillion Line; Taiwan Cracks the Smuggling Pipe</span>
+      <span class="zh">存储跨入万亿俱乐部，台湾撬开走私管道</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Micron and SK hynix both crossed $1 trillion in market value on AI memory demand, TSMC&#x27;s CEO defused the bonus revolt with a 30%-plus pledge, and Taiwan made its first arrests in a network smuggling Nvidia GPUs to China via Japan.</span>
+      <span class="zh">美光与SK海力士同日跨过万亿美元市值门槛——由AI存储需求驱动；台积电CEO以30%+奖金涨幅承诺化解员工不满；台湾警方对经日本转运英伟达GPU至中国的走私网络展开首次抓捕。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.benzinga.com/markets/tech/26/05/52800917/after-micron-nvidia-supplier-sk-hynix-joins-1-trillion-club-as-ai-chip-frenzy-reaches-new-heights-analyst-says-memory-boom-is-far-from-over" target="_blank" rel="noopener">
+          <span class="en">Micron and SK hynix both cross $1 trillion market cap on AI memory demand</span>
+          <span class="zh">美光与SK海力士同日跨入万亿美元市值俱乐部，AI存储需求驱动</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 10h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Two memory chipmakers — Micron and SK hynix — became the first pure-play DRAM/HBM vendors to cross a $1 trillion market capitalisation, joining Nvidia, TSMC and a handful of others. SK hynix is up ~250% year-to-date, Micron&#x27;s HBM order book is reportedly sold out through 2026, and Micron&#x27;s data-center revenue grew 150% YoY in its most recent quarter. The crossing reframes a long-running argument: in this AI cycle, memory is no longer the cyclical commodity sidecar to logic — it is co-equal infrastructure, and the buyers are pricing it that way. The risk angle: the same digitimes-cited analysts who validate the move are also asking when (not whether) cyclicality returns.</span>
+        <span class="zh">存储芯片厂美光和SK海力士同日跨入万亿美元市值门槛，成为首批进入万亿俱乐部的纯DRAM/HBM厂商，与英伟达、台积电等少数公司并列。SK海力士年初至今涨幅约250%，美光的HBM订单据称已售罄至2026年，最近一季数据中心收入同比增长150%。这一里程碑改写了一个延续多年的争论：在本轮AI周期中，存储不再是逻辑芯片的周期性附属品，而是同等重要的基础设施，市场也在按此定价。风险面：肯定本轮的分析师同时在问——周期性回归是什么时候、而非是否会发生。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.techpowerup.com/349389/rambus-enables-next-generation-ai-pc-memory-with-complete-client-chipset-for-cudimm-and-csodimm-modules" target="_blank" rel="noopener">
+          <span class="en">Rambus launches DDR5-9600 client chipset aimed at next-gen AI PCs</span>
+          <span class="zh">Rambus推出面向下一代AI PC的DDR5-9600客户端芯片组</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Embedded.com</span> · 24m ago</span>
+        <span class="zh"><span class="source">Embedded.com</span> · 24分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Rambus unveiled a DDR5-9600 client chipset — the fastest mainstream-PC memory interface part shipping to date — explicitly positioned for on-device AI workloads where bandwidth-per-watt at the client edge has become a real constraint. The launch matters because client memory has lagged datacenter HBM by ~2 generations on bandwidth; closing that gap is what lets a NPU-equipped consumer PC actually run multi-billion-parameter models locally without thrashing against DRAM. Watch for AMD&#x27;s and Intel&#x27;s 2026 client roadmaps to validate the spec as a default rather than premium tier.</span>
+        <span class="zh">Rambus发布DDR5-9600客户端芯片组——目前出货的主流PC存储接口部件中速率最高——明确瞄准设备端AI负载，其中边缘带宽每瓦已成为真实瓶颈。意义在于：客户端存储在带宽上已落后数据中心HBM约2个代际，弥合这一差距是让搭载NPU的消费PC在本地运行多十亿参数模型而不被DRAM拖死的关键。后续关注AMD与英特尔2026年客户端路线图是否将此规格作为默认配置而非高端选项。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.theregister.com/ai-ml/2026/05/27/broadcom-lands-furiosaai-as-latest-custom-ai-chip-partner/5246536" target="_blank" rel="noopener">
+          <span class="en">Broadcom adds South Korea&#x27;s FuriosaAI to its custom-ASIC empire</span>
+          <span class="zh">博通将韩国FuriosaAI纳入其定制ASIC版图</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 36m ago</span>
+        <span class="zh"><span class="source">The Register</span> · 36分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Broadcom announced a development partnership with Seoul-based FuriosaAI for next-generation AI inference chips — the latest addition to a stable that already includes hyperscaler XPU work for Google, Meta and OpenAI. For Broadcom, FuriosaAI brings a non-US partner with a usable RNGD architecture and a credible LPDDR-anchored inference cost story; for FuriosaAI, it brings access to Broadcom&#x27;s CoWoS allocation and Tomahawk fabric stack. The move continues the broader pattern of 2026: every credible non-Nvidia inference startup needs a foundry-services or networking gatekeeper as a co-pilot.</span>
+        <span class="zh">博通宣布与韩国首尔的FuriosaAI在下一代AI推理芯片上建立开发合作——这是博通定制ASIC业务的最新一站，此前已包括谷歌、Meta、OpenAI的XPU项目。对博通而言，FuriosaAI带来了一家拥有可用RNGD架构、以LPDDR为锚的推理成本叙事可信的非美系合作方；对FuriosaAI而言，则换来了博通CoWoS产能与Tomahawk网络栈的入场券。这延续了2026年的更大模式：每一家可信的非英伟达推理初创，都需要一家代工服务或网络厂商作为「副驾驶」。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.thelec.net/news/articleView.html?idxno=10763" target="_blank" rel="noopener">
+          <span class="en">Nvidia&#x27;s Rubin CPX launch wobbles as memory and substrate orders fail to materialize</span>
+          <span class="zh">英伟达Rubin CPX发布生变：存储与基板订单未如期落地</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TheElec</span> · 2h ago</span>
+        <span class="zh"><span class="source">TheElec</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Korea&#x27;s TheElec reports that the launch of Nvidia&#x27;s Rubin CPX — the compute-heavy variant of the Rubin generation targeted at the prefill stage of LLM inference — has become uncertain because the bill-of-materials orders for its memory and advanced substrate haven&#x27;t arrived at the expected suppliers. The signal cuts against the broader narrative that Nvidia&#x27;s roadmap is on autopilot: at the bleeding edge, BOM placement is now the practical schedule constraint, not silicon design. If true, the slip would also reshuffle the implied 2026-Q4 / 2027-Q1 hyperscaler accelerator mix.</span>
+        <span class="zh">韩国TheElec报道，英伟达Rubin CPX——Rubin代号面向LLM推理预填充阶段、计算密度更高的变体——的发布出现不确定性，原因是其存储与先进基板的BOM订单未按预期到达对应供应商。这一信号与「英伟达路线图自动驾驶」的主流叙事相悖：在尖端节点，BOM下单已实质成为日程瓶颈，而非硅设计本身。若属实，延后还将重新洗牌2026年Q4 / 2027年Q1超大规模客户的加速器组合。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry-manufacturing">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.digitimes.com/news/a20260527PD245/tsmc-ceo-2026-growth-performance.html" target="_blank" rel="noopener">
+          <span class="en">TSMC CEO Wei pledges 30%-plus bonus increase, Samsung workers vote yes on $340k deal</span>
+          <span class="zh">台积电CEO魏哲家承诺奖金涨幅30%+，三星员工以多数票通过约34万美元奖金方案</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Bloomberg</span> · 2h ago</span>
+        <span class="zh"><span class="source">Bloomberg</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Twin labor outcomes resolved this week&#x27;s flashpoints. TSMC CEO C.C. Wei publicly pledged employee bonus growth above 30% in 2026 if performance holds — directly responding to the strike-threat reports from earlier in the week. Separately, Samsung&#x27;s chip-division union voted 74% in favor of an average bonus equivalent to ~10.5% of operating profit (about $340-400k per senior engineer), formally ending months of strike-threat tension. The outcomes matter because the Asian leading-edge fabs&#x27; single biggest 2026 risk — beyond geopolitics — was talent flight; both companies have now bought another year of stability at a known cost.</span>
+        <span class="zh">本周两大劳资紧张同时落地。台积电CEO魏哲家公开承诺：若业绩维持，2026年员工奖金涨幅将超过30%——直接回应本周早些时候的罢工威胁报道。另一边，三星芯片部门工会以74%多数票通过平均约相当于营业利润10.5%的奖金方案（资深工程师人均约34-40万美元），正式结束持续数月的罢工威胁。意义在于：除地缘政治外，2026年亚洲先进制程代工的最大单一风险就是人才流失；两家公司均以已知代价为自己又买到了一年稳定。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://seekingalpha.com/news/4597326-taiwan-semi-will-hike-3-nm-price-by-15-in-second-half-potentially-more-in-2027-report" target="_blank" rel="noopener">
+          <span class="en">TSMC to raise 3nm wafer prices by up to 15% in H2 2026; further 5-10% in 2027</span>
+          <span class="zh">台积电2026年下半年3nm晶圆涨价至多15%，2027年再涨5-10%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TrendForce (via Google News)</span> · 6h ago</span>
+        <span class="zh"><span class="source">TrendForce (via Google News)</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TrendForce reports TSMC will hike 3nm wafer prices by as much as 15% in 2H 2026 and pencil in another 5-10% in 2027, driven by AI and custom-ASIC demand that has now saturated Fab 18 and the early N3-family capacity. The increase will flow straight into Apple, Qualcomm, MediaTek, AMD and Nvidia bill-of-materials — and the news lands on the same day TSMC&#x27;s stock hit a 52-week high. The structural read: TSMC is finally collecting the pricing premium that node leadership theoretically commanded since 2020, now that competitive 3nm alternatives are at least 12-18 months behind.</span>
+        <span class="zh">TrendForce报道，受AI与定制ASIC需求拉动、Fab 18及N3家族早期产能已饱和，台积电将于2026年下半年对3nm晶圆涨价至多15%，并预留2027年再涨5-10%。涨幅将直接转入苹果、高通、联发科、AMD与英伟达的物料成本；新闻发布当日台积电股价同步创下52周新高。结构性解读：在自2020年以来理论上属于工艺领先者的「溢价」，终于由台积电真正收取——前提是竞争性3nm替代方案至少落后12-18个月。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy-geopolitics">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/taiwan-authorities-arrest-three-on-suspicion-of-smuggling-nvidia-chips-to-china-operation-allegedly-used-japan-as-transshipment-point" target="_blank" rel="noopener">
+          <span class="en">Taiwan arrests three over Nvidia chip smuggling network — Japan used as transshipment</span>
+          <span class="zh">台湾首次依英伟达走私案抓捕3人，日本作为转运地</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 2h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwan authorities arrested three individuals in connection with smuggling Nvidia AI GPUs to China via Japan — the first formal criminal crackdown on this trade route. The case builds on the Supermicro-channel allegations from earlier in the month, but adds a new wrinkle: routing through Japan to obscure the final destination. Practically, it means the BIS and Taiwan&#x27;s MOEA now have a documented network rather than just theory, which raises the compliance bar for OEM partners and increases the cost of grey-market diversion across the entire region.</span>
+        <span class="zh">台湾警方依涉嫌将英伟达AI GPU经日本走私至中国的案件抓捕3名嫌疑人——这是该走私路径首次正式刑事追诉。该案在本月早些时候涉Supermicro渠道的指控之上又添新层：通过日本转运以掩盖最终目的地。实质意义：美国商务部BIS与台湾经济部如今手中是有据可查的走私网络而非理论模型，这提高了OEM合作方的合规门槛，并增加了整个亚太区灰色市场转运的成本。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/china-adds-homegrown-ai-chips-to-secure-and-reliable-procurement-list-for-the-first-time" target="_blank" rel="noopener">
+          <span class="en">China adds nine homegrown AI chips to &#x27;secure and reliable&#x27; procurement list for the first time</span>
+          <span class="zh">中国首次将9款国产AI芯片纳入「安全可靠」采购目录</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 1h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nine domestically designed AI accelerators — spanning Huawei Ascend, Cambricon, Hygon and others — have been formally added to China&#x27;s &#x27;secure and reliable&#x27; procurement list, a status that effectively mandates them as the default choice for state-owned enterprises, central banks and government IT buyers. This is the first time AI accelerators have been included in that list, and is a direct policy mirror to the US Commerce Department&#x27;s export-control regime. The practical effect: a large baseline order book gets locked in for Huawei et al. regardless of what happens with US H200 licensing.</span>
+        <span class="zh">9款国产AI加速器——涵盖华为昇腾、寒武纪、海光等——正式进入中国「安全可靠」采购目录；该地位实质上把它们设定为国企、央行与政府IT采购的默认选项。这是AI加速器首次进入该目录，与美国商务部出口管制制度形成镜像。实质效果：无论美国H200许可走向如何，华为等国产芯片厂都将获得一笔较大的基线订单。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment-materials">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://stockhouse.com/news/press-releases/2026/05/26/entegris-and-jsr-corporation-inpria-corporation-announce-non-exclusive-cross" target="_blank" rel="noopener">
+          <span class="en">Entegris and JSR/Inpria sign EUV photoresist cross-licensing deal</span>
+          <span class="zh">Entegris与JSR/Inpria签署EUV光刻胶交叉许可协议</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 11h ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Entegris and JSR&#x27;s Inpria subsidiary signed a cross-licensing agreement covering metal-oxide and chemically-amplified EUV photoresist IP — the two technology families that together cover essentially all leading-edge EUV resist designs in production today. The deal removes a long-running IP overhang on Inpria&#x27;s metal-oxide resist roadmap (which TSMC, Samsung and Intel are increasingly relying on for High-NA EUV at A14/A10) and gives Entegris a clear path to scale its material-supply business into the same node window. ASML&#x27;s High-NA install base is the customer that wins from cleaner IP plumbing.</span>
+        <span class="zh">Entegris与JSR子公司Inpria签署交叉许可协议，覆盖金属氧化物与化学放大型EUV光刻胶IP——这两大技术家族几乎涵盖了目前量产中的所有先进EUV光刻胶设计。协议消除了Inpria金属氧化物光刻胶路线长期存在的IP风险（台积电、三星、英特尔在A14/A10的High-NA EUV节点上对其依赖加深），同时让Entegris获得了将材料供应业务扩展到同代节点的清晰路径。最终受益者是ASML的High-NA装机客户群——更清晰的IP水管。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.asml.com/en/news/press-releases/2026/tata-electronics-and-asml-announce-strategic-partnership" target="_blank" rel="noopener">
+          <span class="en">TATA Electronics signs MoU with ASML for India semiconductor manufacturing</span>
+          <span class="zh">塔塔电子与ASML签署谅解备忘录，推进印度半导体制造</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN (via Google News)</span> · 11h ago</span>
+        <span class="zh"><span class="source">MSN (via Google News)</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TATA Electronics signed a memorandum of understanding with ASML covering future-node lithography tools and service support for the company&#x27;s planned Gujarat fab — India&#x27;s first announced 28nm/22nm-class facility, currently in equipment-installation phase. The MoU itself is non-binding but materially de-risks tool delivery slots, which had been the principal open question for India&#x27;s semi build-out. The strategic read: even at trailing-edge nodes, ASML capacity is now a sovereign procurement matter, and India has secured its place in the queue.</span>
+        <span class="zh">塔塔电子与ASML签署谅解备忘录，覆盖其位于古吉拉特邦规划晶圆厂的未来节点光刻设备与服务支持——这是印度首座正式宣布的28nm/22nm级工厂，目前处于设备进场阶段。MoU本身不具法律约束力，但实质上降低了设备交付排期的风险，而这正是印度半导体建设此前最大的悬而未决问题。战略解读：即便是成熟节点，ASML产能如今也是主权采购议题；印度已在排队序列中锁定位置。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="packaging">
+    <h2>
+      <span class="en">Packaging &amp; Advanced Nodes</span>
+      <span class="zh">封装与先进节点</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.semiconductor-digest.com/ase-launches-automated-310mm-panel-level-packaging-to-accelerate-ai-innovation/" target="_blank" rel="noopener">
+          <span class="en">ASE accelerates AI innovation with automated 310mm panel-level packaging</span>
+          <span class="zh">日月光以自动化310mm面板级封装加速AI创新</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 11h ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Outsourced-assembly leader ASE detailed its automated 310×310 mm panel-level packaging (PLP) line — the same panel format TSMC is targeting for its CoPoS pilot. The differentiator is automation: ASE has built a continuous-flow PLP cell that targets &gt;85% utilisation on AI accelerator packaging volumes that previously bottlenecked at hand-tuned wafer-level steps. The signal worth tracking: panel-level packaging is graduating from RD demonstrators to industrial-scale assembly, and the OSAT incumbents are positioning to absorb the AI accelerator volume that TSMC&#x27;s in-house CoPoS won&#x27;t take.</span>
+        <span class="zh">封测龙头日月光（ASE）详述其自动化310×310 mm面板级封装（PLP）产线——所采用面板规格与台积电CoPoS试产线相同。差异点在于自动化：ASE构建了连续流式PLP工艺单元，目标AI加速器封装产能利用率超过85%，此前同等步骤需手工调校、效率受限。值得关注的信号：面板级封装正从研发演示阶段毕业，进入工业化量产；而封测厂正在卡位——准备接收台积电自有CoPoS消化不下的AI加速器封装需求。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.cnbc.com/2026/05/27/samsung-plans-1point5-billion-chip-testing-plant-in-vietnam-document-shows-reuters.html" target="_blank" rel="noopener">
+          <span class="en">Samsung plans $1.5 billion chip testing plant in Vietnam</span>
+          <span class="zh">三星计划在越南投资15亿美元建芯片测试厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 1h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Reuters obtained a Samsung internal document outlining a $1.5 billion semiconductor testing plant in Vietnam&#x27;s Thai Nguyen province — an extension of the company&#x27;s existing Vietnamese assembly footprint, but a meaningful first step into back-end test that has historically been Korea-anchored. The geographic spread matters: combined with the Vietnam plant, Samsung&#x27;s HBM+DRAM test workflow now has three regional anchors (Korea, China, Vietnam), reducing single-point exposure if any one of them faces export-control or labor disruption.</span>
+        <span class="zh">路透获取的三星内部文件显示，公司将在越南太原省投资15亿美元建设半导体测试工厂——这是公司既有越南封装业务的延伸，但向后端测试环节迈出了实质性一步（此前后端测试主要锚定在韩国本部）。地理分布意义重大：加上新越南厂后，三星的HBM+DRAM测试流程将拥有韩国、中国、越南三个区域锚点，降低任一节点因出口管制或劳资中断带来的单点风险。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-27 13:36 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-05-27 13:36 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

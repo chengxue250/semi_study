@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-02">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Rewires the Full Chip Stack — Semi News 2026-09-02</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, September 2, 2026</span>
+      <span class="zh">2026年9月2日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Rewires the Full Chip Stack</span>
+      <span class="zh">AI需求重塑整个芯片堆栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Nvidia&#x27;s MediaTek investment widens the custom-silicon ecosystem while new memory, foundry, packaging, metrology, and EDA work attacks the bottlenecks around compute. The center of gravity is shifting from peak FLOPS to moving, manufacturing, and testing data-intensive systems.</span>
+      <span class="zh">Nvidia入股MediaTek，进一步扩大定制芯片生态；与此同时，存储、晶圆代工、封装、量测和EDA环节都在着手解决算力周边的瓶颈。产业重心正从峰值FLOPS转向如何搬运、制造和测试数据密集型系统。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.servethehome.com/nvidia-and-mediatek-ink-3-5b-investment-deal-accelerate-nvlink-fusion-adoption/" target="_blank" rel="noopener">
+          <span class="en">Nvidia invests $3.5 billion in MediaTek to expand NVLink Fusion</span>
+          <span class="zh">Nvidia向MediaTek投资35亿美元，扩大NVLink Fusion生态</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 8h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia is investing $3.5 billion in MediaTek, and MediaTek will offer NVLink Fusion to customers building custom XPUs. The deal gives Nvidia another route into hyperscaler and system-company silicon while strengthening MediaTek&#x27;s position beyond its traditional mobile-chip base. It also turns NVLink adoption into a financial as well as a technical partnership.</span>
+        <span class="zh">Nvidia将向MediaTek投资35亿美元，MediaTek则会向定制XPU客户提供NVLink Fusion。该交易为Nvidia进入云厂商和系统公司的定制芯片项目增加了一条路径，也强化了MediaTek在传统移动芯片业务之外的地位。NVLink的推广由此同时具备技术合作和资本绑定两层含义。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/nvidia-risc-v-for-nvidia-gpus-at-hot-chips-2026/" target="_blank" rel="noopener">
+          <span class="en">Nvidia brings RISC-V into its GPU and NVLink Fusion roadmap</span>
+          <span class="zh">Nvidia将RISC-V纳入GPU与NVLink Fusion路线图</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 6h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia discussed CUDA for RISC-V and the role of RISC-V processors in NVLink Fusion systems at Hot Chips 2026. Supporting an open CPU ISA alongside Nvidia GPUs broadens the range of custom hosts and controllers that can participate in its scale-up ecosystem. The presentation signals platform direction rather than a quantified product launch.</span>
+        <span class="zh">Nvidia在Hot Chips 2026讨论了面向RISC-V的CUDA，以及RISC-V处理器在NVLink Fusion系统中的作用。在Nvidia GPU旁支持开放CPU指令集，可扩大能够接入其scale-up生态的定制主机和控制器范围。这场演讲反映的是平台方向，并非带有量化指标的新品发布。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/intels-david-zinsner-says-14a-improving-fastest-since-2012-node-betting-foundrys-future-on-tsmc-fight/" target="_blank" rel="noopener">
+          <span class="en">Intel says 14A is improving faster than any node since 2012</span>
+          <span class="zh">Intel称14A改善速度为2012年以来最快</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel CFO David Zinsner says defect-density improvement on the 14A process is the company&#x27;s fastest since its 22 nm node launched in 2012. A steep early defect-learning curve would improve Intel Foundry&#x27;s chances of attracting external customers and supporting its own 14A products. The claim is an executive update, however, and does not establish production yield or volume readiness.</span>
+        <span class="zh">Intel首席财务官David Zinsner表示，14A制程的缺陷密度改善速度是公司自2012年推出22 nm节点以来最快的一次。更陡峭的早期缺陷学习曲线有助于Intel Foundry争取外部客户，也有利于自有14A产品。但这一说法仍属于管理层进展更新，不能等同于量产良率或产能已经就绪。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetasia.com/sony-tsmc-venture-strengthens-image-sensor-supply-chain-amid-rising-ai-robotics-demand/" target="_blank" rel="noopener">
+          <span class="en">Sony and TSMC deepen their image-sensor manufacturing partnership</span>
+          <span class="zh">Sony与TSMC深化图像传感器制造合作</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 2h ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Sony-TSMC venture is combining Sony&#x27;s image-sensor expertise with TSMC manufacturing capacity for markets including AI and robotics. The arrangement links a major sensor supplier more tightly to foundry capacity as machine-vision demand spreads beyond smartphones. Its importance will depend on the venture&#x27;s eventual process mix, capacity, and customer programs, which the candidate report does not quantify.</span>
+        <span class="zh">Sony与TSMC的新合资安排把Sony的图像传感器能力与TSMC的制造产能结合起来，目标市场包括AI和机器人。随着机器视觉需求从智能手机扩展到更多领域，这项合作让主要传感器供应商与晶圆代工产能绑定得更紧。候选报道未给出制程组合、产能和客户项目等量化信息，这些因素将决定其最终影响。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBOTDk0YkRPdTFZYXBSOXB3aFJDVEt2UEFCbHdiNzFFZzh5QmNla1hTYmRHV2hCYmhXT1o0cXJUVlZ2d0hPZ0FEZnZPUEJWSTFHWVBva25MVVV1S3dVcXhHUDdFXzZaSTAw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung targets 2x performance for HBM5 while zHBM baselines diverge</span>
+          <span class="zh">Samsung为HBM5设定2倍性能目标，zHBM对比基线仍存分歧</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">XenoSpectrum</span> · 1h ago</span>
+        <span class="zh"><span class="source">XenoSpectrum</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung&#x27;s memory roadmap targets twice the performance for HBM5 and promotes an eightfold figure for zHBM. XenoSpectrum cautions that the zHBM comparison uses conflicting baselines, so the two multipliers should not be read as directly comparable product gains. The roadmap still shows Samsung pushing both conventional bandwidth scaling and more structural changes to memory integration.</span>
+        <span class="zh">Samsung的存储路线图把HBM5性能目标设为2倍，并为zHBM提出8倍指标。XenoSpectrum提醒，zHBM的比较采用了相互冲突的基线，因此不能把这两个倍数直接理解为可横向比较的产品增益。即便如此，这份路线图仍表明Samsung正同时推进传统带宽扩展和更具结构性的存储集成变革。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/amd-says-a-hybrid-bonded-3d-dram-is-17x-more-energy-efficient-than-an-hbm-stack-that-relies-on-microbumps-but-thermal-hurdles-block-commercialization/" target="_blank" rel="noopener">
+          <span class="en">AMD says hybrid-bonded 3D DRAM can cut memory energy 17-fold</span>
+          <span class="zh">AMD称混合键合3D DRAM可将存储能耗降低17倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD says a hybrid-bonded 3D DRAM design is 17 times more energy-efficient than an HBM stack connected with microbumps. Removing bump-scale interconnect overhead could materially reduce the energy cost of feeding AI compute, but AMD also identifies thermal constraints as a barrier to commercialization. The result is therefore a roadmap signal, not evidence of a production-ready HBM replacement.</span>
+        <span class="zh">AMD表示，采用混合键合的3D DRAM设计，其能效可达到微凸点互连HBM堆栈的17倍。消除微凸点尺度的互连开销，有望显著降低为AI计算供数的能耗，但AMD同时指出散热约束仍阻碍商业化。因此，这更像是路线图信号，而不是已经可量产的HBM替代方案。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQR0FVcXJrS3ZNN2g4ZXpyeHVnTzA4eWhHdUs4bUtnanJCQmQ2MEhXdm9odFZWTWxrNE00bU5WNTh6YTBVQnNGdUo1c1A0X0hURFlfcUg1YkR5cV9YXy1RRHVZamduZFAyX1RsUFd3bXNaQmgyN09jVnhpc0gteGpUd1JwZWM4b0Q3RUlsdHh6WUNtUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">ICY Tech positions MRAM for rack-scale AI inference</span>
+          <span class="zh">ICY Tech将MRAM瞄准机架级AI推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 1h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chinese MRAM developer ICY Tech is proposing a memory approach for rack-scale AI inference rather than competing with HBM on the same terms. Nonvolatile MRAM could change how weights are retained and moved in inference systems, where capacity and data movement often dominate. The candidate report provides no deployment, capacity, or performance figures, so the concept still needs system-level validation.</span>
+        <span class="zh">中国MRAM厂商ICY Tech提出面向机架级AI推理的存储方案，而不是在相同路径上直接与HBM竞争。非易失MRAM可能改变推理系统中权重的保存和搬运方式；在这类系统里，容量与数据移动通常是主要约束。候选报道没有给出部署、容量或性能数据，因此这一概念仍需系统级验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetasia.com/rigaku-tohoku-university-target-next-generation-x-ray-metrology-for-semiconductors/" target="_blank" rel="noopener">
+          <span class="en">Rigaku and Tohoku University form a soft X-ray metrology institute</span>
+          <span class="zh">Rigaku与东北大学成立软X射线量测研究机构</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 1h ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Rigaku and Tohoku University are creating a research institute that combines soft X-ray tools, information science, and semiconductor process expertise. More complex three-dimensional structures make nondestructive, high-resolution metrology increasingly important for process control. The initiative is an R&amp;D commitment; the report does not yet specify a production tool, customer, or deployment schedule.</span>
+        <span class="zh">Rigaku与东北大学将成立研究机构，把软X射线工具、信息科学和半导体工艺能力结合起来。随着三维结构日益复杂，无损、高分辨率量测对制程控制的重要性持续上升。这是一项研发投入，报道尚未给出量产设备、客户或部署时间表。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/eda/keysight-eda/372755-keysight-ads-enables-first-pass-silicon-at-3-thz-for-attotude/" target="_blank" rel="noopener">
+          <span class="en">Keysight ADS supports first-pass silicon across 100 GHz to 3 THz</span>
+          <span class="zh">Keysight ADS支持100 GHz至3 THz设计的一次流片成功</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AttoTude says its Keysight ADS workflow supports IC design from 100 GHz to 3 THz and has cut development cycles by more than 50%. First-pass silicon at these frequencies would reduce costly respins in a design space where models, packaging, and measurement are tightly coupled. The performance and cycle-time figures are company-reported and should be read as a workflow case study rather than a broad benchmark.</span>
+        <span class="zh">AttoTude表示，其Keysight ADS工作流覆盖100 GHz至3 THz的IC设计，并将开发周期缩短了50%以上。在这些频率上实现一次流片成功，可减少高成本的重复流片，因为模型、封装和测量在这一设计空间中高度耦合。相关性能和周期数据来自公司披露，更适合作为工作流案例，而非普适基准。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetasia.com/diodes-expands-ate-portfolio-with-elevate-semiconductor-acquisition/" target="_blank" rel="noopener">
+          <span class="en">Diodes acquires ElevATE to expand its semiconductor-test portfolio</span>
+          <span class="zh">Diodes收购ElevATE，扩充半导体测试产品组合</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 1h ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Diodes is acquiring ElevATE Semiconductor to add low-power analog and mixed-signal products used in automated test equipment. Rising device complexity increases demand for more channels, precision, and power control in production test, giving the deal relevance beyond portfolio expansion. The report does not disclose transaction value or integration targets.</span>
+        <span class="zh">Diodes将收购ElevATE Semiconductor，补充用于自动测试设备的低功耗模拟和混合信号产品。器件复杂度上升，推动量产测试对更多通道、更高精度和更精细电源控制的需求，因此该交易不仅是简单的产品线扩充。报道未披露交易金额或整合目标。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBQLVBNX0JseTBMa0VxNkFYVHRsa0V3VHVQOFRCQXcwUHk3Y2IzZzMzLURIR3ZaT1VSbXVSTXdjVWJtWXRPd0ZxWUlRVGpkQTZTSXhaWHJxZmwyUmtmM09BUDVRMU53OWpRcU45blctLWZOYnlSd1E?oc=5" target="_blank" rel="noopener">
+          <span class="en">Taiwan&#x27;s digital ministry promotes expansion of local compute capacity</span>
+          <span class="zh">台湾数位发展部门推动本地算力扩张</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Taipei Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">Taipei Times</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwan&#x27;s Ministry of Digital Affairs is promoting an expansion of domestic computing capacity. Local capacity policy matters because access to AI infrastructure increasingly shapes cloud services, model development, and demand for accelerators and data-center components. The candidate item does not quantify funding, megawatts, or procurement volumes, so the immediate semiconductor impact remains uncertain.</span>
+        <span class="zh">台湾数位发展主管部门正在推动本地算力扩张。算力基础设施的可获得性日益影响云服务、模型开发，以及对加速器和数据中心部件的需求，因此本地算力政策具有产业意义。候选报道未量化资金、兆瓦规模或采购量，短期半导体影响仍不确定。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">业绩与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPbkNRZ0pCUlpJbFFaajhQTTNEbXhmNFFGbVBSRTVZS092YzdfendMQmVpRHdITFYzVWJGa1pnSVA2bVVmVVFxT2dxZkwteHpzVEtVeFlOVHhlaXMtc3JYTmxJalV2SkdWb1J3bVRqdXJ4UkQ1elI5ZDYzd1ljblVUU3Fuc2hwYWF2anlxWG04ZVZPUWVxc1hQNA?oc=5" target="_blank" rel="noopener">
+          <span class="en">South Korea&#x27;s August semiconductor exports reach a record $46.7 billion</span>
+          <span class="zh">韩国8月半导体出口创纪录，达到467亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Eastern Herald</span> · 3h ago</span>
+        <span class="zh"><span class="source">The Eastern Herald</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">South Korea&#x27;s semiconductor exports reached a record $46.7 billion in August, with AI demand cited as the main driver. The figure captures the strength of the country&#x27;s memory-heavy supply base and the spillover from accelerator deployments into HBM and related components. One monthly record does not by itself separate price increases from shipment growth, so the mix behind the total still matters.</span>
+        <span class="zh">韩国8月半导体出口额创下467亿美元纪录，报道将AI需求列为主要驱动力。该数据反映出韩国以存储为主的供应基础持续强劲，也体现了加速器部署向HBM及相关部件的外溢效应。单月纪录本身无法区分价格上涨与出货增长，各部分对总额的贡献仍然重要。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-02 01:16 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-09-02 01:16 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

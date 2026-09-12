@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-12">
+<meta name="generator" content="semi-news-daily">
+<title>AI Bottlenecks Pull Capital Across the Stack — Semi News 2026-09-12</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, September 12, 2026</span>
+      <span class="zh">2026年9月12日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">AI Bottlenecks Pull Capital Across the Stack</span>
+      <span class="zh">AI瓶颈牵引全栈资本</span>
+    </h1>
+    <p class="dek">
+      <span class="en">HBM and advanced-packaging constraints are drawing investment into memory capacity, CoWoS expansion, and alternative accelerator architectures. At the same time, High-NA EUV and new substrate experiments show manufacturing technology moving to support the next demand wave.</span>
+      <span class="zh">HBM与先进封装瓶颈正把资本引向存储扩产、CoWoS扩容和替代性加速器架构。与此同时，High-NA EUV协作与新型衬底实验表明，制造技术也在为下一轮需求做准备。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/gpus/china-modified-nvidia-rtx-5090-with-massive-96gb-of-memory-appears-on-alibaba-for-less-than-usd4-000-3x-more-vram-at-65-percent-the-cost-of-the-original" target="_blank" rel="noopener">
+          <span class="en">A China-Modified RTX 5090 Appears With 96GB of VRAM</span>
+          <span class="zh">中国改装版RTX 5090以96GB显存现身</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">An alleged modified Nvidia RTX 5090 with 96GB of memory has appeared on Alibaba for $3,888, tripling the standard card&#x27;s VRAM. The listing is unverified, but it illustrates how Chinese system builders are adapting consumer GPUs for memory-heavy AI workloads when datacenter accelerators are costly or restricted.</span>
+        <span class="zh">一款据称经过改装、配备96GB显存的Nvidia RTX 5090出现在阿里巴巴平台，标价$3,888，显存容量达到标准版的3倍。该商品信息尚未得到独立验证，但它显示出在数据中心加速器昂贵或受限时，中国系统厂商正把消费级GPU改造成面向大显存AI负载的替代方案。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/report-tsmc-to-double-cowos-capacity-by-2028-as-ai-chip-shortage-spills-over-to-rivals/" target="_blank" rel="noopener">
+          <span class="en">TSMC Reportedly Plans to Double CoWoS Capacity by 2028</span>
+          <span class="zh">报道称台积电计划到2028年将CoWoS产能翻倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 6h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC may double CoWoS capacity in 2028 from its 2026 level as AI-accelerator demand keeps advanced packaging tight, according to a Taiwanese media report. The same constraints are reportedly pushing work toward UMC and Amkor, while Intel could reach as much as 45,000 wafers per month of equivalent capacity by 2028. Packaging, not only leading-edge wafers, remains a gating resource for AI-system shipments.</span>
+        <span class="zh">据台湾媒体报道，在AI加速器需求持续挤压先进封装供给之际，台积电可能在2028年把CoWoS产能较2026年水平翻倍。现有瓶颈据称正把部分订单推向联电与Amkor，而Intel到2028年的同类产能可能达到每月45,000片晶圆。制约AI系统出货的关键资源仍不只是先进制程晶圆，也包括封装。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE5tMG1kU05sWl8tdmh4UldLTGR0SmZqWWZ6bzVyRURGbVRMeWxvY0kzUWUyUm54bFB5aXZqaTdMM0kwWjJkeG1MTVBfdlFpMkZTbnhHaDdKcjkwZUEtNlo1aVZhMUk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron Targets 100,000 HBM Wafers a Month</span>
+          <span class="zh">Micron瞄准每月100,000片HBM晶圆</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Asia Economy</span> · 2h ago</span>
+        <span class="zh"><span class="source">Asia Economy</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron is targeting monthly HBM wafer capacity of 100,000 units, according to Asia Economy&#x27;s Chip Talk report. Reaching that scale would strengthen a third supplier against SK hynix and Samsung in a market where AI demand has kept HBM availability tight. The target is a capacity ambition rather than a measure of finished-stack output, which also depends on yield and packaging throughput.</span>
+        <span class="zh">据《亚洲经济》的Chip Talk报道，Micron把HBM月度晶圆产能目标定在100,000片。若达到这一规模，Micron将在AI需求持续造成HBM紧缺的市场中，增强其相对于SK hynix和Samsung的第三供应商地位。该数字是产能目标，并不等同于成品堆栈出货量，后者还取决于良率和封装吞吐。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPc1d0TVpsRl9XSnFVUFI0Zm1aTVBqX3lrbjBJUlZfc0RzcXhqNTA1UUl4eWNkVGRLMk5FZHpndUpRcWRjWHFhNDlvUmxJUjZvS1hHbXNEaXpDdTI2QWEyc1FMclBMRkZjd0h5M2hyWk1td3RTN2dtVjAyRnJPZ0xOYWFsQjNuQ2REV3ZoQ21qSHktOWZG?oc=5" target="_blank" rel="noopener">
+          <span class="en">RPI and IBM Cut HBM ECC Controller Overhead for AI Inference</span>
+          <span class="zh">RPI与IBM降低AI推理中的HBM ECC控制器开销</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Semiconductor Engineering</span> · 3h ago</span>
+        <span class="zh"><span class="source">Semiconductor Engineering</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Researchers at RPI and IBM propose REACH, a controller-managed ECC approach intended to reduce HBM error-correction overhead during AI inference. Moving more reliability management into the controller could reclaim bandwidth and capacity otherwise consumed by protection logic. The work matters because HBM efficiency, not nominal bandwidth alone, increasingly limits accelerator utilization.</span>
+        <span class="zh">RPI与IBM研究人员提出REACH，这是一种由控制器管理的ECC方案，目标是降低AI推理期间HBM纠错开销。把更多可靠性管理放到控制器侧，有望释放原本被保护逻辑占用的带宽与容量。随着HBM效率而非名义带宽日益限制加速器利用率，这项工作具有直接的系统意义。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxNMnhJM1RkckVYS21uaFhieS1ZTVQxdGZIRHR0bTdPWWZ5NDhGTnJMRWVzUU11REpMaUdpcGx3a2lhX1I5bmFWWDdQY2pvQmZRQU0wTWhPS05DUXREd3ZxNVpaYTNIbE5Cd0pZdmtCbFJUeEtxZXh5UUNYeUhKWUlaWEYwM1dxSGxmcUNCZzRzVkh6ckNpY3VB?oc=5" target="_blank" rel="noopener">
+          <span class="en">Molybdenum Quasi Phase-Only Masks Improve EUV Imaging</span>
+          <span class="zh">钼准纯相位掩模改善EUV成像</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Semiconductor Engineering</span> · 3h ago</span>
+        <span class="zh"><span class="source">Semiconductor Engineering</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">NYCU and TSMC report improved EUV imaging with molybdenum quasi phase-only masks. The result points to mask-stack engineering as another lever for pattern fidelity as conventional EUV approaches their process limits. Adoption will depend on whether the imaging gain survives mask fabrication, defect control, and production-scale inspection.</span>
+        <span class="zh">NYCU与台积电报告称，采用钼准纯相位掩模可改善EUV成像。该结果表明，当传统EUV逐步逼近制程极限时，掩模堆栈工程仍可成为提升图形保真度的一项手段。其能否导入量产，将取决于成像收益能否经受掩模制造、缺陷控制和大规模检测的考验。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/fabships-aim-to-exploit-free-space-vacuum-for-compound-semiconductor-substrates/" target="_blank" rel="noopener">
+          <span class="en">Fabships Test Space Vacuum for Compound-Semiconductor Substrates</span>
+          <span class="zh">Fabship测试利用太空真空制造化合物半导体衬底</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 4h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Startup Besxar completed its first SpaceX flight and recovered wafer samples without contamination while testing space vacuum for compound-semiconductor substrate processing. The experiment asks whether orbit can replace some costly terrestrial vacuum infrastructure. A clean sample recovery is an early feasibility signal, not yet evidence of economical or scalable manufacturing.</span>
+        <span class="zh">初创公司Besxar完成首次SpaceX飞行，并在利用太空真空进行化合物半导体衬底处理的实验中无污染地回收了晶圆样品。这项实验试图验证轨道环境能否替代部分昂贵的地面真空基础设施。样品洁净回收只是早期可行性信号，尚不能证明该模式具备经济性或规模化制造能力。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxQSGoxM1M5c3RhLWI4amZzVEFQZ2h0MEVNZ1htd21SSmtsY0ZJTm00Zzd1TENxRUV4QVBjVlE1VUNhZFVPRjZtTHBfZ0FNdkxtREdSUm9QY0UzWExNVVMwRGhYRlBudVBVcnB3TkFOanMzOGhaSWFkdTlIS2FzTk5ZSnAtY3JZaDQ5Q0JRRE9HcTREVUpoWXV4S1ZiUGUxQlRNeTE4VndzY2w0QU1VcnJrNjdvWXFjVkQxb19hcnZhT05lUmp1cHZNUThENndmMm5kMGFv?oc=5" target="_blank" rel="noopener">
+          <span class="en">Intel Foundry and ASML Expand High-NA EUV Readiness Work</span>
+          <span class="zh">Intel Foundry与ASML扩大High-NA EUV就绪合作</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Intel</span> · 10h ago</span>
+        <span class="zh"><span class="source">Intel</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel Foundry and ASML announced a collaboration aimed at accelerating industry readiness for High-NA EUV. Coordinating scanner capability with process development can shorten the path from exposure-tool installation to usable production flows. The announcement does not by itself establish yield or volume readiness, but it reinforces Intel&#x27;s role as an early High-NA integration site.</span>
+        <span class="zh">Intel Foundry与ASML宣布合作，以加快业界为High-NA EUV做好准备。把扫描仪能力与制程开发协同推进，有望缩短设备安装到形成可用量产流程之间的周期。该公告本身并不能证明良率或量产已经就绪，但进一步凸显Intel作为High-NA早期整合场地的角色。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQSzdzTVh6QlFqWk5fb1pPa2wxSEw0bkRyLTd6U3NsU2c4VXl3NXZnMV9LZ2pJQk4temY4VFI0akQwakp1RkJZWEpReEVWM3hXLVhscFpvYlJNUVZYSUVsQUZPQ1BETFNwd1FpaGtCdmJmMlpFOWZEMWNOdGVHelVaQVVhVUM?oc=5" target="_blank" rel="noopener">
+          <span class="en">The Billion-Dollar Chip Narrows Who Can Design at the Leading Edge</span>
+          <span class="zh">十亿美元芯片收窄先进设计参与者范围</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CSIS</span> · 1h ago</span>
+        <span class="zh"><span class="source">CSIS</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CSIS examines how leading-edge chip programs are moving into billion-dollar design-cost territory and asks which companies and countries can still participate. Rising NRE, verification, software, and packaging costs concentrate advanced design among firms with large balance sheets or state backing. That concentration turns design economics into an industrial-policy issue, not merely a technology problem.</span>
+        <span class="zh">CSIS分析指出，先进芯片项目的设计成本正进入十亿美元量级，并追问哪些公司和国家仍有能力参与。不断上升的NRE、验证、软件和封装成本，使先进设计日益集中于拥有雄厚资产负债表或政府支持的参与者。由此，设计经济性已不只是技术问题，也成为产业政策议题。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/supercomputers/sanctioned-chinese-supercomputer-maker-stripped-of-io500-benchmark-crown-intel-powered-aurora-retakes-the-lead-record-breaking-parastor-f9000-storage-system-doesnt-meet-reproducibility-requirements" target="_blank" rel="noopener">
+          <span class="en">Sugon Loses IO500 Production Crown on Reproducibility Rules</span>
+          <span class="zh">曙光因可复现性规则失去IO500 Production榜首</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Sugon&#x27;s ParaStor F9000 entries were removed from the IO500 Production ranking and moved to the Research list after failing the benchmark&#x27;s reproducibility requirements. The rules require broadly available architectural detail and hardware availability, allowing the Intel-powered Aurora system to retake the top position. For a sanctioned Chinese supercomputing supplier, the decision shows how transparency and availability standards can shape international benchmark standing alongside raw performance.</span>
+        <span class="zh">曙光ParaStor F9000因未满足IO500的可复现性要求，被移出Production榜单并转入Research列表。相关规则要求架构细节能够广泛获取、硬件具备可获得性，因此采用Intel处理器的Aurora系统重新登顶。对于一家受到制裁的中国超算供应商，这一决定表明，除原始性能外，透明度和可获得性标准同样会影响国际基准排名。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBnZExoZ2ZaRlotR1E4cVc1RGdoV2VIakdtYkFrUHZCMnd3ZF9VRXNHSXBIbGwyRW5HZE8zSkhlTjh1UTlxbHNJbHhTTl9sb09NN2hGeUtSbUlsQzdnNGt4c3FvTjJhUC1zTWFYVXUxMWxZRFRmTmc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Positron AI Lands $875 Million for a Commodity-Memory Accelerator Push</span>
+          <span class="zh">Positron AI获得8.75亿美元，推进通用存储加速器路线</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo Finance</span> · 6h ago</span>
+        <span class="zh"><span class="source">BigGo Finance</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Positron AI has secured $875 million to challenge Nvidia with an accelerator architecture built around commodity memory rather than HBM. The round gives the startup substantial capital to turn a memory-cost thesis into deployed systems. Its significance will depend on delivered performance, software maturity, and named production customers rather than the financing alone.</span>
+        <span class="zh">Positron AI获得8.75亿美元融资，计划以围绕通用存储而非HBM构建的加速器架构挑战Nvidia。这笔资金为公司把存储成本优势转化为实际部署系统提供了可观资本。其最终重要性仍取决于交付性能、软件成熟度和具名量产客户，而不只是融资规模。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-12 01:13 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-09-12 01:13 UTC · <a href="archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

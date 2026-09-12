@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-10">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Move Less Data, Use Hardware Better — Semi Research 2026-06-10</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-10.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Wednesday, June 10, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月10日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Move Less Data, Use Hardware Better</span>
+      <span class="zh">少搬数据，更高效地使用硬件</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s systems papers attack overhead at the boundaries: CPU-to-accelerator transfers, fixed-width FPGA datapaths, distributed-training communication, and long-context KV caches. Several results turn architectural constraints into scheduling, packing, or compiler problems rather than demanding new silicon.</span>
+      <span class="zh">本周系统研究集中削减边界开销，包括CPU到加速器的数据传输、FPGA固定宽度数据通路、分布式训练通信以及长上下文KV cache。多项工作把硬件限制转化为调度、打包或编译问题，而不是直接要求新芯片。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11163" target="_blank" rel="noopener">
+          <span class="en">ITD-Aware CPU Thermal Control Finds Cooling Can Go Too Far</span>
+          <span class="zh">考虑ITD的CPU温控表明降温也可能过度</span>
+        </a>
+      </h3>
+      <p class="authors">J. Crop, H. Moore, S. Pasricha</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11163" target="_blank" rel="noopener">arXiv:2606.11163</a> · 2026-06-09T17:44:12Z</p>
+      <p class="summary">
+        <span class="en">Measurements on production Intel Xeon CPUs show that inverse temperature dependence creates a part-specific efficiency optimum above typical operating temperatures. Roughly half of the high-power CPUs observed on Amazon and Equinix platforms ran about 10°C below that point, and an ITD-aware grouping and inlet-control case study reduced total data-center energy by 4-13%. The result challenges blanket low-temperature policies, though savings will depend on processor mix and facility conditions.</span>
+        <span class="zh">对量产Intel Xeon CPU的测量显示，反温度效应会形成因芯片型号而异的能效最优温度，而且往往高于常见运行温度。在Amazon和Equinix平台观察到的高功耗CPU中，约一半运行温度比该最优点低约10°C；采用ITD感知的分组和进风温度控制后，案例研究将数据中心总能耗降低了4%至13%。这一结果挑战了统一追求低温的策略，但实际收益仍取决于处理器组合和机房条件。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11158" target="_blank" rel="noopener">
+          <span class="en">AXI4MLIR Eliminates a Redundant CPU-to-Accelerator Copy</span>
+          <span class="zh">AXI4MLIR消除CPU到加速器的冗余拷贝</span>
+        </a>
+      </h3>
+      <p class="authors">E. Cohavi, N. B. Agostini, J. Haris, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11158" target="_blank" rel="noopener">arXiv:2606.11158</a> · 2026-06-09T17:40:13Z</p>
+      <p class="summary">
+        <span class="en">The authors extend AXI4MLIR so host buffers are allocated directly in DMA-mapped memory, removing the staging copy from heap memory before accelerator transfers. On a configurable matrix-multiplication accelerator, the change cuts main-memory data movement by as much as 2x and raises accelerator utilization. The work shows that compiler and runtime plumbing can recover performance otherwise lost outside the compute kernel.</span>
+        <span class="zh">作者扩展AXI4MLIR，使主机缓冲区直接分配在DMA映射内存中，从而消除加速器传输前从堆内存进行的中转拷贝。在可配置矩阵乘加速器上，该改动最多将主存数据搬运量降低2倍，并提高了加速器利用率。研究说明，编译器和运行时的数据通路优化可以收回原本损失在计算内核之外的性能。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11117" target="_blank" rel="noopener">
+          <span class="en">SECDA-DSE Uses LLMs to Explore FPGA Accelerator Designs</span>
+          <span class="zh">SECDA-DSE利用LLM探索FPGA加速器设计</span>
+        </a>
+      </h3>
+      <p class="authors">V. Sharma, X. Fu, J. Haris, J. Cano</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11117" target="_blank" rel="noopener">arXiv:2606.11117</a> · 2026-06-09T17:14:44Z</p>
+      <p class="summary">
+        <span class="en">SECDA-DSE combines a structured design-space explorer with an LLM stack using retrieval and iterative feedback to generate FPGA accelerator configurations. The evaluation covers element-wise multiplication, 2D convolution, and matrix transpose through end-to-end SystemC and FPGA execution. The approach could reduce manual search effort, but its value depends on whether generated designs remain reproducible and competitive across larger workloads.</span>
+        <span class="zh">SECDA-DSE将结构化设计空间探索器与采用检索和迭代反馈的LLM模块结合，用于生成FPGA加速器配置。评估覆盖逐元素乘法、二维卷积和矩阵转置，并完成SystemC与FPGA端到端执行。该方法有望减少人工搜索成本，但其价值仍取决于生成设计在更大工作负载上的可复现性和竞争力。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11065" target="_blank" rel="noopener">
+          <span class="en">Dynamic Arithmetic Packing Raises FPGA DSP Utilization</span>
+          <span class="zh">动态算术打包提升FPGA DSP利用率</span>
+        </a>
+      </h3>
+      <p class="authors">T. Borntrager, S. Fleming, P. Holzinger, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11065" target="_blank" rel="noopener">arXiv:2606.11065</a> · 2026-06-09T16:24:59Z</p>
+      <p class="summary">
+        <span class="en">This work packs arbitrary-width signed and unsigned low-precision operands into wide FPGA multiplier paths by using the DSP block&#x27;s internal pre-adder. Integrated into AMD FINN, the method reduces LUT use by 21% and improves frames per second per DSP by 36% on UltraNet versus the reference implementation. It directly addresses the mismatch between quantized neural networks and fixed-width FPGA arithmetic resources.</span>
+        <span class="zh">该工作利用DSP模块内部的预加器，将任意位宽的有符号和无符号低精度操作数动态打包到宽乘法数据通路中。该方法集成进AMD FINN后，在UltraNet上相较参考实现将LUT占用降低21%，并把每个DSP对应的FPS提高36%。它直接缓解了量化神经网络与FPGA固定宽度算术资源之间的不匹配。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Efficient AI Training &amp; Inference</span>
+      <span class="zh">高效AI训练与推理</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11169" target="_blank" rel="noopener">
+          <span class="en">Piper Makes Distributed Training Strategies Programmable</span>
+          <span class="zh">Piper让分布式训练策略可编程</span>
+        </a>
+      </h3>
+      <p class="authors">M. Frisella, S. Tiwari, A. Ruan, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11169" target="_blank" rel="noopener">arXiv:2606.11169</a> · 2026-06-09T17:48:41Z</p>
+      <p class="summary">
+        <span class="en">Piper separates high-level distributed-training strategy from runtime implementation through annotations, scheduling directives, and a global training-DAG intermediate representation. It compiles that representation into per-device execution plans, allowing combinations of data, pipeline, expert, and ZeRO-style parallelism without hard-coding each strategy. The abstraction could shorten experimentation cycles, although the supplied candidate abstract does not expose full comparative performance results.</span>
+        <span class="zh">Piper通过模型注解、调度指令和全局训练DAG中间表示，将高层分布式训练策略与运行时实现分离。系统把该表示编译为逐设备执行计划，从而组合数据并行、流水线并行、专家并行和ZeRO类优化，而无需为每种策略硬编码实现。这一抽象可能缩短实验周期，但候选摘要未给出完整的对比性能结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11164" target="_blank" rel="noopener">
+          <span class="en">ReasonAlloc Assigns KV-Cache Budgets by Layer and Head</span>
+          <span class="zh">ReasonAlloc按层和注意力头分配KV Cache预算</span>
+        </a>
+      </h3>
+      <p class="authors">W. Liu, H. Shi, Y. Li, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11164" target="_blank" rel="noopener">arXiv:2606.11164</a> · 2026-06-09T17:44:23Z</p>
+      <p class="summary">
+        <span class="en">ReasonAlloc is a training-free method that allocates decoding-time KV-cache capacity hierarchically instead of applying a uniform token-eviction budget. It combines offline layer allocation based on a reported reasoning-demand pattern with online reallocation toward information-rich attention heads. Tests on MATH-500 and AIME 2024 span three reasoning models, but the candidate abstract truncates before the full numerical gains.</span>
+        <span class="zh">ReasonAlloc是一种免训练方法，在解码阶段分层分配KV cache容量，而不是对所有位置采用统一的Token淘汰预算。它结合基于推理需求模式的离线逐层预分配，以及面向高信息量注意力头的在线重分配。测试覆盖MATH-500、AIME 2024和三种推理模型，但候选摘要未完整提供数值提升。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11052" target="_blank" rel="noopener">
+          <span class="en">CoT Fine-Tuning Can Break Long-Range Recall in Hybrid LLMs</span>
+          <span class="zh">CoT微调可能破坏混合LLM的长程召回</span>
+        </a>
+      </h3>
+      <p class="authors">X. Zhou, B. Zhu, Y. Xu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11052" target="_blank" rel="noopener">arXiv:2606.11052</a> · 2026-06-09T16:17:19Z</p>
+      <p class="summary">
+        <span class="en">The paper finds that chain-of-thought supervised fine-tuning can sharply degrade long-context retrieval in hybrid linear-attention models; HypeNet-9B falls from 67.2% to 9.4% on NIAH-S2 at 256K. The authors trace the failure to short-range-biased updates in query and key projections, then propose QK-Restore, which restores those weights from the pre-fine-tuning checkpoint without retraining. The reported recovery preserves reasoning performance, suggesting post-training evaluations must test memory and reasoning together.</span>
+        <span class="zh">论文发现，思维链监督微调会显著削弱混合线性注意力模型的长上下文检索能力；HypeNet-9B在256K长度的NIAH-S2上从67.2%降至9.4%。作者将问题归因于查询和键投影受到偏向短程模式的更新，并提出QK-Restore，从微调前检查点恢复这些权重而无需重新训练。结果显示该方法可在保留推理能力的同时恢复长程召回，说明后训练评估必须同时检查记忆与推理。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.10944" target="_blank" rel="noopener">
+          <span class="en">Express Converts Non-Causal Attention Approximations for Efficient Decoding</span>
+          <span class="zh">Express将非因果注意力近似转换为高效解码方案</span>
+        </a>
+      </h3>
+      <p class="authors">A. Gong, A. M. Carrell, R. Dwivedi, L. Mackey</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.10944" target="_blank" rel="noopener">arXiv:2606.10944</a> · 2026-06-09T14:48:56Z</p>
+      <p class="summary">
+        <span class="en">Express converts a non-causal attention approximation into a causal one while retaining matching approximation guarantees. Combined with Thinformer, it uses O(s) memory with O(s^2 log^2(n)) compression overhead and an I/O-aware Triton implementation that reportedly outperforms FlashAttention 2. The authors apply it to long-context prefill, KV-cache compression, and memory- or compute-constrained decoding.</span>
+        <span class="zh">Express把非因果注意力近似转换为因果形式，同时保持相匹配的近似保证。与Thinformer结合后，它只需O(s)内存和O(s^2 log^2(n))压缩开销，并通过I/O感知的Triton实现取得了相对FlashAttention 2的加速。作者将其用于长上下文Prefill、KV cache压缩以及内存或算力受限的解码。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11076" target="_blank" rel="noopener">
+          <span class="en">Coset Ensemble Decoder Co-Designs QEC Algorithms and Hardware</span>
+          <span class="zh">陪集集成解码器协同设计量子纠错算法与硬件</span>
+        </a>
+      </h3>
+      <p class="authors">S. Liang, J. Xu, G. Bassanino, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11076" target="_blank" rel="noopener">arXiv:2606.11076</a> · 2026-06-09T16:37:13Z</p>
+      <p class="summary">
+        <span class="en">The proposed quantum-error-correction decoder explores multiple coset-consistent Union-Find candidates and aggregates them toward coset-level maximum-likelihood decoding. Reverse-order elimination and lossless graph compression reduce compute and memory, while a domain-specific architecture reuses resources over time instead of scaling hardware spatially with code distance. The design targets the difficult combination of low logical error and real-time decoding latency required by fault-tolerant systems.</span>
+        <span class="zh">该量子纠错解码器探索多个满足陪集一致性的Union-Find候选，并进行聚合以逼近陪集级最大似然解码。逆序消元和无损图压缩降低了计算与内存开销，专用硬件架构则通过时间复用资源，避免硬件规模随码距进行空间扩张。该设计瞄准容错量子系统同时要求低逻辑错误率和实时解码延迟的难题。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-10 13:45 UTC · <a href="../2026-06-10.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-10 13:45 UTC · <a href="../2026-06-10.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

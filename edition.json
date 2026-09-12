@@ -1,0 +1,400 @@
+{
+  "date": "2026-09-12",
+  "theme": {
+    "en": "AI Bottlenecks Pull Capital Across the Stack",
+    "zh": "AI瓶颈牵引全栈资本"
+  },
+  "dek": {
+    "en": "HBM and advanced-packaging constraints are drawing investment into memory capacity, CoWoS expansion, and alternative accelerator architectures. At the same time, High-NA EUV and new substrate experiments show manufacturing technology moving to support the next demand wave.",
+    "zh": "HBM与先进封装瓶颈正把资本引向存储扩产、CoWoS扩容和替代性加速器架构。与此同时，High-NA EUV协作与新型衬底实验表明，制造技术也在为下一轮需求做准备。"
+  },
+  "sections": [
+    {
+      "id": "ai-accelerators",
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "A China-Modified RTX 5090 Appears With 96GB of VRAM",
+            "zh": "中国改装版RTX 5090以96GB显存现身"
+          },
+          "summary": {
+            "en": "An alleged modified Nvidia RTX 5090 with 96GB of memory has appeared on Alibaba for $3,888, tripling the standard card's VRAM. The listing is unverified, but it illustrates how Chinese system builders are adapting consumer GPUs for memory-heavy AI workloads when datacenter accelerators are costly or restricted.",
+            "zh": "一款据称经过改装、配备96GB显存的Nvidia RTX 5090出现在阿里巴巴平台，标价$3,888，显存容量达到标准版的3倍。该商品信息尚未得到独立验证，但它显示出在数据中心加速器昂贵或受限时，中国系统厂商正把消费级GPU改造成面向大显存AI负载的替代方案。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/gpus/china-modified-nvidia-rtx-5090-with-massive-96gb-of-memory-appears-on-alibaba-for-less-than-usd4-000-3x-more-vram-at-65-percent-the-cost-of-the-original",
+          "published": "2026-09-11T16:32:36+00:00"
+        }
+      ]
+    },
+    {
+      "id": "foundry",
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "TSMC Reportedly Plans to Double CoWoS Capacity by 2028",
+            "zh": "报道称台积电计划到2028年将CoWoS产能翻倍"
+          },
+          "summary": {
+            "en": "TSMC may double CoWoS capacity in 2028 from its 2026 level as AI-accelerator demand keeps advanced packaging tight, according to a Taiwanese media report. The same constraints are reportedly pushing work toward UMC and Amkor, while Intel could reach as much as 45,000 wafers per month of equivalent capacity by 2028. Packaging, not only leading-edge wafers, remains a gating resource for AI-system shipments.",
+            "zh": "据台湾媒体报道，在AI加速器需求持续挤压先进封装供给之际，台积电可能在2028年把CoWoS产能较2026年水平翻倍。现有瓶颈据称正把部分订单推向联电与Amkor，而Intel到2028年的同类产能可能达到每月45,000片晶圆。制约AI系统出货的关键资源仍不只是先进制程晶圆，也包括封装。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/report-tsmc-to-double-cowos-capacity-by-2028-as-ai-chip-shortage-spills-over-to-rivals/",
+          "published": "2026-09-11T18:39:17+00:00"
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "Micron Targets 100,000 HBM Wafers a Month",
+            "zh": "Micron瞄准每月100,000片HBM晶圆"
+          },
+          "summary": {
+            "en": "Micron is targeting monthly HBM wafer capacity of 100,000 units, according to Asia Economy's Chip Talk report. Reaching that scale would strengthen a third supplier against SK hynix and Samsung in a market where AI demand has kept HBM availability tight. The target is a capacity ambition rather than a measure of finished-stack output, which also depends on yield and packaging throughput.",
+            "zh": "据《亚洲经济》的Chip Talk报道，Micron把HBM月度晶圆产能目标定在100,000片。若达到这一规模，Micron将在AI需求持续造成HBM紧缺的市场中，增强其相对于SK hynix和Samsung的第三供应商地位。该数字是产能目标，并不等同于成品堆栈出货量，后者还取决于良率和封装吞吐。"
+          },
+          "source": "Asia Economy",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5tMG1kU05sWl8tdmh4UldLTGR0SmZqWWZ6bzVyRURGbVRMeWxvY0kzUWUyUm54bFB5aXZqaTdMM0kwWjJkeG1MTVBfdlFpMkZTbnhHaDdKcjkwZUEtNlo1aVZhMUk?oc=5",
+          "published": "2026-09-11T23:00:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "RPI and IBM Cut HBM ECC Controller Overhead for AI Inference",
+            "zh": "RPI与IBM降低AI推理中的HBM ECC控制器开销"
+          },
+          "summary": {
+            "en": "Researchers at RPI and IBM propose REACH, a controller-managed ECC approach intended to reduce HBM error-correction overhead during AI inference. Moving more reliability management into the controller could reclaim bandwidth and capacity otherwise consumed by protection logic. The work matters because HBM efficiency, not nominal bandwidth alone, increasingly limits accelerator utilization.",
+            "zh": "RPI与IBM研究人员提出REACH，这是一种由控制器管理的ECC方案，目标是降低AI推理期间HBM纠错开销。把更多可靠性管理放到控制器侧，有望释放原本被保护逻辑占用的带宽与容量。随着HBM效率而非名义带宽日益限制加速器利用率，这项工作具有直接的系统意义。"
+          },
+          "source": "Semiconductor Engineering",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPc1d0TVpsRl9XSnFVUFI0Zm1aTVBqX3lrbjBJUlZfc0RzcXhqNTA1UUl4eWNkVGRLMk5FZHpndUpRcWRjWHFhNDlvUmxJUjZvS1hHbXNEaXpDdTI2QWEyc1FMclBMRkZjd0h5M2hyWk1td3RTN2dtVjAyRnJPZ0xOYWFsQjNuQ2REV3ZoQ21qSHktOWZG?oc=5",
+          "published": "2026-09-11T22:02:19+00:00"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "Molybdenum Quasi Phase-Only Masks Improve EUV Imaging",
+            "zh": "钼准纯相位掩模改善EUV成像"
+          },
+          "summary": {
+            "en": "NYCU and TSMC report improved EUV imaging with molybdenum quasi phase-only masks. The result points to mask-stack engineering as another lever for pattern fidelity as conventional EUV approaches their process limits. Adoption will depend on whether the imaging gain survives mask fabrication, defect control, and production-scale inspection.",
+            "zh": "NYCU与台积电报告称，采用钼准纯相位掩模可改善EUV成像。该结果表明，当传统EUV逐步逼近制程极限时，掩模堆栈工程仍可成为提升图形保真度的一项手段。其能否导入量产，将取决于成像收益能否经受掩模制造、缺陷控制和大规模检测的考验。"
+          },
+          "source": "Semiconductor Engineering",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMnhJM1RkckVYS21uaFhieS1ZTVQxdGZIRHR0bTdPWWZ5NDhGTnJMRWVzUU11REpMaUdpcGx3a2lhX1I5bmFWWDdQY2pvQmZRQU0wTWhPS05DUXREd3ZxNVpaYTNIbE5Cd0pZdmtCbFJUeEtxZXh5UUNYeUhKWUlaWEYwM1dxSGxmcUNCZzRzVkh6ckNpY3VB?oc=5",
+          "published": "2026-09-11T21:32:46+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Fabships Test Space Vacuum for Compound-Semiconductor Substrates",
+            "zh": "Fabship测试利用太空真空制造化合物半导体衬底"
+          },
+          "summary": {
+            "en": "Startup Besxar completed its first SpaceX flight and recovered wafer samples without contamination while testing space vacuum for compound-semiconductor substrate processing. The experiment asks whether orbit can replace some costly terrestrial vacuum infrastructure. A clean sample recovery is an early feasibility signal, not yet evidence of economical or scalable manufacturing.",
+            "zh": "初创公司Besxar完成首次SpaceX飞行，并在利用太空真空进行化合物半导体衬底处理的实验中无污染地回收了晶圆样品。这项实验试图验证轨道环境能否替代部分昂贵的地面真空基础设施。样品洁净回收只是早期可行性信号，尚不能证明该模式具备经济性或规模化制造能力。"
+          },
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/fabships-aim-to-exploit-free-space-vacuum-for-compound-semiconductor-substrates/",
+          "published": "2026-09-11T21:00:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Intel Foundry and ASML Expand High-NA EUV Readiness Work",
+            "zh": "Intel Foundry与ASML扩大High-NA EUV就绪合作"
+          },
+          "summary": {
+            "en": "Intel Foundry and ASML announced a collaboration aimed at accelerating industry readiness for High-NA EUV. Coordinating scanner capability with process development can shorten the path from exposure-tool installation to usable production flows. The announcement does not by itself establish yield or volume readiness, but it reinforces Intel's role as an early High-NA integration site.",
+            "zh": "Intel Foundry与ASML宣布合作，以加快业界为High-NA EUV做好准备。把扫描仪能力与制程开发协同推进，有望缩短设备安装到形成可用量产流程之间的周期。该公告本身并不能证明良率或量产已经就绪，但进一步凸显Intel作为High-NA早期整合场地的角色。"
+          },
+          "source": "Intel",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQSGoxM1M5c3RhLWI4amZzVEFQZ2h0MEVNZ1htd21SSmtsY0ZJTm00Zzd1TENxRUV4QVBjVlE1VUNhZFVPRjZtTHBfZ0FNdkxtREdSUm9QY0UzWExNVVMwRGhYRlBudVBVcnB3TkFOanMzOGhaSWFkdTlIS2FzTk5ZSnAtY3JZaDQ5Q0JRRE9HcTREVUpoWXV4S1ZiUGUxQlRNeTE4VndzY2w0QU1VcnJrNjdvWXFjVkQxb19hcnZhT05lUmp1cHZNUThENndmMm5kMGFv?oc=5",
+          "published": "2026-09-11T15:06:31+00:00"
+        }
+      ]
+    },
+    {
+      "id": "policy",
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
+      },
+      "stories": [
+        {
+          "featured": false,
+          "title": {
+            "en": "The Billion-Dollar Chip Narrows Who Can Design at the Leading Edge",
+            "zh": "十亿美元芯片收窄先进设计参与者范围"
+          },
+          "summary": {
+            "en": "CSIS examines how leading-edge chip programs are moving into billion-dollar design-cost territory and asks which companies and countries can still participate. Rising NRE, verification, software, and packaging costs concentrate advanced design among firms with large balance sheets or state backing. That concentration turns design economics into an industrial-policy issue, not merely a technology problem.",
+            "zh": "CSIS分析指出，先进芯片项目的设计成本正进入十亿美元量级，并追问哪些公司和国家仍有能力参与。不断上升的NRE、验证、软件和封装成本，使先进设计日益集中于拥有雄厚资产负债表或政府支持的参与者。由此，设计经济性已不只是技术问题，也成为产业政策议题。"
+          },
+          "source": "CSIS",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQSzdzTVh6QlFqWk5fb1pPa2wxSEw0bkRyLTd6U3NsU2c4VXl3NXZnMV9LZ2pJQk4temY4VFI0akQwakp1RkJZWEpReEVWM3hXLVhscFpvYlJNUVZYSUVsQUZPQ1BETFNwd1FpaGtCdmJmMlpFOWZEMWNOdGVHelVaQVVhVUM?oc=5",
+          "published": "2026-09-11T23:35:30+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Sugon Loses IO500 Production Crown on Reproducibility Rules",
+            "zh": "曙光因可复现性规则失去IO500 Production榜首"
+          },
+          "summary": {
+            "en": "Sugon's ParaStor F9000 entries were removed from the IO500 Production ranking and moved to the Research list after failing the benchmark's reproducibility requirements. The rules require broadly available architectural detail and hardware availability, allowing the Intel-powered Aurora system to retake the top position. For a sanctioned Chinese supercomputing supplier, the decision shows how transparency and availability standards can shape international benchmark standing alongside raw performance.",
+            "zh": "曙光ParaStor F9000因未满足IO500的可复现性要求，被移出Production榜单并转入Research列表。相关规则要求架构细节能够广泛获取、硬件具备可获得性，因此采用Intel处理器的Aurora系统重新登顶。对于一家受到制裁的中国超算供应商，这一决定表明，除原始性能外，透明度和可获得性标准同样会影响国际基准排名。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/supercomputers/sanctioned-chinese-supercomputer-maker-stripped-of-io500-benchmark-crown-intel-powered-aurora-retakes-the-lead-record-breaking-parastor-f9000-storage-system-doesnt-meet-reproducibility-requirements",
+          "published": "2026-09-11T16:26:12+00:00"
+        }
+      ]
+    },
+    {
+      "id": "challengers",
+      "title": {
+        "en": "Challengers & New Silicon",
+        "zh": "新势力与新硅"
+      },
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "Positron AI Lands $875 Million for a Commodity-Memory Accelerator Push",
+            "zh": "Positron AI获得8.75亿美元，推进通用存储加速器路线"
+          },
+          "summary": {
+            "en": "Positron AI has secured $875 million to challenge Nvidia with an accelerator architecture built around commodity memory rather than HBM. The round gives the startup substantial capital to turn a memory-cost thesis into deployed systems. Its significance will depend on delivered performance, software maturity, and named production customers rather than the financing alone.",
+            "zh": "Positron AI获得8.75亿美元融资，计划以围绕通用存储而非HBM构建的加速器架构挑战Nvidia。这笔资金为公司把存储成本优势转化为实际部署系统提供了可观资本。其最终重要性仍取决于交付性能、软件成熟度和具名量产客户，而不只是融资规模。"
+          },
+          "source": "BigGo Finance",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBnZExoZ2ZaRlotR1E4cVc1RGdoV2VIakdtYkFrUHZCMnd3ZF9VRXNHSXBIbGwyRW5HZE8zSkhlTjh1UTlxbHNJbHhTTl9sb09NN2hGeUtSbUlsQzdnNGt4c3FvTjJhUC1zTWFYVXUxMWxZRFRmTmc?oc=5",
+          "published": "2026-09-11T18:22:00+00:00"
+        }
+      ]
+    }
+  ],
+  "research": {
+    "window_days": 7,
+    "theme": {
+      "en": "Chiplets Push Optimization Across Physical Boundaries",
+      "zh": "Chiplet推动跨物理边界优化"
+    },
+    "dek": {
+      "en": "This week's papers move co-design below the model graph and into chiplet pools, power grids, thermal maps, bonding interfaces, and nonvolatile devices. The common goal is to recover efficiency without ignoring manufacturability, reliability, or security.",
+      "zh": "本周论文把协同设计从模型图进一步推进到chiplet资源池、供电网络、热图、键合界面与非易失器件。共同目标是在不忽视可制造性、可靠性与安全性的前提下重新获取效率。"
+    },
+    "areas": [
+      {
+        "id": "devices",
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Self-Activated, Plasma-Free Direct Bonding With ALD Al2O3",
+              "zh": "采用ALD Al2O3的自激活无等离子体直接键合"
+            },
+            "authors": "",
+            "affiliation": "",
+            "venue": "ACS Applied Materials and Interfaces",
+            "venue_url": "https://doi.org/10.1021/acsami.6c08143",
+            "summary": {
+              "en": "Atomic-layer-deposited Al2O3 on 300-mm wafers forms strong, void-free direct bonds without plasma activation or CMP pretreatment. Multiple interface probes attribute the effect to dense polar Al-OH networks stabilized by the amorphous ALD film. Eliminating activation steps could simplify 3D CMOS and heterogeneous-integration flows, although production reliability and process-window data remain to be established.",
+              "zh": "在300mm晶圆上沉积的ALD Al2O3无需等离子体激活或CMP预处理，即可形成高强度、无空洞的直接键合。多种界面表征把这一效应归因于由非晶ALD薄膜稳定的高密度极性Al-OH网络。省去激活步骤有望简化3D CMOS与异构集成流程，但量产可靠性和制程窗口数据仍需验证。"
+            },
+            "published": "2026-09-03"
+          },
+          {
+            "title": {
+              "en": "A Hardware-Bound Binary Neural Network Using Concealable MTJs",
+              "zh": "采用可隐藏MTJ的硬件绑定二值神经网络"
+            },
+            "authors": "Sung-Ho Park, K. Lee, Ryun-Han Koo, et al.",
+            "affiliation": "",
+            "venue": "IEEE Electron Device Letters",
+            "venue_url": "https://doi.org/10.1109/LED.2026.3712675",
+            "summary": {
+              "en": "A fabricated 28-nm FDSOI embedded-MRAM macro uses stochastic magnetic-tunnel-junction breakdown cells to bind a binary neural network's weights to one physical chip. The network retains high accuracy in reveal mode, while concealment or moving the protected layer to another chip collapses accuracy to near-random levels. The measured result offers model protection without separate cryptographic circuitry, though it is demonstrated on a binary network rather than a large production model.",
+              "zh": "研究人员在28nm FDSOI嵌入式MRAM宏单元中利用随机磁隧道结击穿单元，把二值神经网络权重绑定到一颗物理芯片。网络在显现模式下保持较高精度，而隐藏受保护层或把它迁移到另一颗芯片会使精度降至接近随机水平。这一实测结果无需额外密码电路即可提供模型保护，但目前验证对象仍是二值网络，而非大型量产模型。"
+            },
+            "published": "2026-09-01"
+          },
+          {
+            "title": {
+              "en": "SOT-MTJ Hardware for Noise-Tolerant Probabilistic Binary Networks",
+              "zh": "面向抗噪概率二值网络的SOT-MTJ硬件"
+            },
+            "authors": "",
+            "affiliation": "",
+            "venue": "Applied Physics Reviews",
+            "venue_url": "https://doi.org/10.1063/5.0326491",
+            "summary": {
+              "en": "In-plane SOT-MTJ cells demonstrate 400-ps electrical switching, 10^11 endurance, and voltage-controlled probabilistic states with 3.8% variation. An on-chip probabilistic binary neural network reaches 88.2% CIFAR-10 accuracy and, under 25% read/write noise, achieves seven times the accuracy of the cited 32-bit CNN while cutting parameter size and inference energy by one to two orders of magnitude. The device-to-system result is compelling, but the evidence is still tied to a modest image-classification workload.",
+              "zh": "面内SOT-MTJ单元实现400ps全电切换、10^11次耐久性，以及变异率为3.8%的电压可控概率态。片上概率二值神经网络在CIFAR-10上达到88.2%精度；在25%读写噪声下，其精度达到所比较32位CNN的7倍，同时把参数规模与推理能耗降低1至2个数量级。该工作打通了器件到系统的验证，但证据仍局限于规模较小的图像分类负载。"
+            },
+            "published": "2026-09-01"
+          }
+        ]
+      },
+      {
+        "id": "circuits",
+        "title": {
+          "en": "Circuits, Packaging & Reliability",
+          "zh": "电路、封装与可靠性"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Thermal Management and Reliability of Advanced HBM Packages",
+              "zh": "先进HBM封装的热管理与可靠性"
+            },
+            "authors": "",
+            "affiliation": "",
+            "venue": "Micromachines",
+            "venue_url": "https://doi.org/10.3390/mi17091065",
+            "summary": {
+              "en": "This review connects vertical heat buildup in denser HBM stacks with warpage, delamination, copper protrusion, voids, electromigration, and joint degradation. It surveys thermal-interface materials, underfill, molding compounds, heat spreaders, and high-conductivity composites as a coupled design space rather than isolated fixes. The paper is a useful failure-mode map for HBM packaging, but it synthesizes prior work instead of reporting new silicon.",
+              "zh": "这篇综述把更高层数HBM中的垂直积热，与翘曲、分层、铜凸起、空洞、电迁移和焊点退化联系起来。论文系统梳理热界面材料、底部填充、塑封料、均热结构和高导热复合材料，强调它们构成相互耦合的设计空间，而非彼此孤立的补救手段。它为HBM封装提供了有用的失效模式地图，但属于既有工作的综合，并未报告新硅片结果。"
+            },
+            "published": "2026-09-08"
+          },
+          {
+            "title": {
+              "en": "Deep Learning Accelerates Thermal-Aware Signal-Integrity Analysis for 2.5D Chiplets",
+              "zh": "深度学习加速2.5D chiplet热感知信号完整性分析"
+            },
+            "authors": "M. Wei, Anton Sattler, H. Amrouch",
+            "affiliation": "",
+            "venue": "IEEE Transactions on Circuits and Systems Part 1: Regular Papers",
+            "venue_url": "https://doi.org/10.1109/TCSI.2026.3702739",
+            "summary": {
+              "en": "A physics-guided neural model predicts thermal maps for 2.5D chiplet systems and feeds them into signal-integrity analysis, avoiding repeated full multiphysics simulation. Its cross feature captures heat-flux exchange between chiplets, while a new equivalent model supports pillar-style microbumps when generating training data. The approach targets faster design-space exploration, but its transferability beyond the evaluated package configurations remains the key practical question.",
+              "zh": "该工作用物理引导神经网络预测2.5D chiplet系统热图，并把结果用于信号完整性分析，以避免反复运行完整多物理场仿真。其交叉特征用于捕捉chiplet之间的热流交换，新等效模型则在生成训练数据时支持柱状微凸点。该方法面向更快的设计空间探索，但能否迁移到论文评估范围之外的封装配置，仍是主要工程问题。"
+            },
+            "published": "2026-09-01"
+          }
+        ]
+      },
+      {
+        "id": "accelerators",
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Fengshui Co-Designs Chiplet Ecosystems and Bespoke AI Accelerators",
+              "zh": "Fengshui协同设计chiplet生态与定制AI加速器"
+            },
+            "authors": "",
+            "affiliation": "",
+            "venue": "arXiv:2609.10970",
+            "venue_url": "http://arxiv.org/abs/2609.10970",
+            "summary": {
+              "en": "Fengshui jointly chooses a reusable chiplet pool and composes application-specific accelerators from it, addressing the circular dependency between ecosystem value and accelerator quality. The framework co-explores operator microarchitecture, memory hierarchy, tensor fusion, and pipeline, tensor, and expert parallelism, with place-and-route checks for physical feasibility; its reported pool uses eight selected chiplets. This is a design-space framework rather than measured silicon, so its value depends on how well the cost and physical models predict real implementations.",
+              "zh": "Fengshui联合选择可复用chiplet资源池，并用其组合面向具体应用的加速器，从而处理生态价值与加速器质量之间的循环依赖。该框架协同探索算子微架构、存储层级、张量融合，以及流水线、张量和专家并行，并通过布局布线检查物理可实现性；论文报告的资源池由8种精选chiplet构成。这仍是设计空间框架而非实测硅片，其价值取决于成本与物理模型对真实实现的预测能力。"
+            },
+            "published": "2026-09-10"
+          },
+          {
+            "title": {
+              "en": "A Reconfigurable Neuromorphic Core for Biomedical Edge Inference",
+              "zh": "面向生物医学边缘推理的可重构神经形态核心"
+            },
+            "authors": "Sarah Johari, Suman Kumar, Abhishek Mishra, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2609.03174",
+            "venue_url": "http://arxiv.org/abs/2609.03174",
+            "summary": {
+              "en": "A programmable FPGA core combines spiking convolutional and fully connected layers, with a PyTorch deployment flow and quantized 16-bit execution. It reaches up to 98% on MNIST, 86% on Fashion-MNIST, and 88.26% average accuracy across five folds for hypoxia classification while consuming 1.455 W of dynamic power. The design demonstrates a complete hardware-software path, although the small benchmarks and FPGA implementation leave ASIC efficiency and broader generalization open.",
+              "zh": "该可编程FPGA核心结合脉冲卷积层与全连接层，并提供PyTorch部署流程和16位量化执行。它在MNIST上最高达到98%、在Fashion-MNIST上达到86%，用于缺氧分类时5折平均精度为88.26%，动态功耗为1.455W。该设计展示了完整软硬件路径，但小型基准和FPGA实现仍无法回答ASIC效率及更广泛泛化能力的问题。"
+            },
+            "published": "2026-09-02"
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {
+          "en": "AI Research & Inference Systems",
+          "zh": "AI研究与推理系统"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "I/O Lower Bounds and Reinforcement Learning Guide Inference Optimization",
+              "zh": "以I/O下界与强化学习指导推理优化"
+            },
+            "authors": "",
+            "affiliation": "",
+            "venue": "ACM Transactions on Architecture and Code Optimization (TACO)",
+            "venue_url": "https://doi.org/10.1145/3841638",
+            "summary": {
+              "en": "A two-level optimizer uses I/O lower-bound theory to choose intra-operator tiling and memory mappings, then reinforcement learning to select fusion boundaries across the graph. For TileAttn, the refined partition theorem raises DRAM-traffic estimation accuracy from 77.5%-82.0% to 86.3%-94.8%, while the overall method cuts shared-memory traffic by 10.79% on average. The combination is attractive for portable tuning, although the reported cross-platform win rate and search cost need to be read against the exact hardware suite.",
+              "zh": "该两级优化器先用I/O下界理论选择算子内分块与存储映射，再用强化学习确定计算图中的融合边界。在TileAttn上，改进后的划分定理把DRAM流量估计准确率从77.5%-82.0%提高到86.3%-94.8%，整体方法平均降低10.79%的共享内存流量。这种组合有利于跨平台自动调优，但其胜率与搜索成本仍需结合具体硬件测试集解读。"
+            },
+            "published": "2026-09-09"
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {
+          "en": "EDA & Design Automation",
+          "zh": "EDA与设计自动化"
+        },
+        "papers": [
+          {
+            "title": {
+              "en": "Reinforcement Learning Optimizes Multichiplet Power Networks",
+              "zh": "强化学习优化多chiplet供电网络"
+            },
+            "authors": "Wei-Yang Miao, Shaopeng Wang, Wang-Ling Goh, et al.",
+            "affiliation": "",
+            "venue": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+            "venue_url": "https://doi.org/10.1109/TCAD.2025.3649470",
+            "summary": {
+              "en": "An RL framework automates redistribution-layer power-network layout for multichiplet packages, using a four-chiplet, 28-power-domain system and a 13x13 design grid. Analytical rewards encode shape and distance-to-bump rules so training does not require full EDA simulation at every step; PPO converges faster, while DDDQN produces higher-quality layouts for the discrete task. The reported designs beat human layouts on impedance, though validation on a wider range of package topologies is needed before treating the policy as general.",
+              "zh": "该强化学习框架自动生成多chiplet封装的重布线层供电网络布局，测试对象为包含4个chiplet、28个电源域的系统，设计网格为13x13。分析式奖励函数编码形状与到电源凸点距离规则，因此训练无需每一步都运行完整EDA仿真；PPO收敛更快，而DDDQN在离散任务中生成质量更高的布局。论文报告的设计在阻抗上优于人工布局，但在把策略视为通用方法之前，仍需覆盖更多封装拓扑。"
+            },
+            "published": "2026-09-01"
+          }
+        ]
+      }
+    ]
+  }
+}

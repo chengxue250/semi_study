@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-22">
+<meta name="generator" content="semi-news-daily">
+<title>Capital Chases AI&#x27;s Next Bottlenecks — Semi News 2026-08-22</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, August 22, 2026</span>
+      <span class="zh">2026年8月22日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">Capital Chases AI&#x27;s Next Bottlenecks</span>
+      <span class="zh">资本追逐AI的下一道瓶颈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Nvidia pushes into power infrastructure and possible accelerator M&amp;A as memory, optical I/O and manufacturing capacity become strategic constraints. Capital is flowing toward the physical stack, from higher TSMC spending to YMTC&#x27;s $4.9 billion IPO target.</span>
+      <span class="zh">随着存储、光学I/O和制造产能成为战略约束，Nvidia正把触角伸向电力基础设施和潜在的加速器并购。资本继续涌向AI的实体技术栈，从台积电提高资本开支到长江存储母公司寻求规模达49亿美元的IPO。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/08/22/cloverleaf-deal-is-latest-example-of-nvidia-using-its-war-chest-to-patch-cracks-in-the-ai-bubble/5291369" target="_blank" rel="noopener">
+          <span class="en">Nvidia&#x27;s Cloverleaf Deal Targets the Data-Center Power Constraint</span>
+          <span class="zh">Nvidia借Cloverleaf交易瞄准数据中心电力约束</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Register reports that Nvidia&#x27;s Cloverleaf deal extends the chipmaker&#x27;s spending into the infrastructure needed to deploy its next generation of accelerators. The move matters because power and data-center construction, rather than GPU supply alone, increasingly determine how quickly new AI capacity can come online.</span>
+        <span class="zh">The Register报道称，Nvidia通过Cloverleaf交易把资金投入延伸到部署下一代加速器所需的基础设施。此举的重要性在于，决定新增AI算力上线速度的因素正从GPU供给本身扩展到电力和数据中心建设。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxQOTFHLU1CVWQxN254QzFqRGpKM2M1UWZpRHlNaDVpb3ljWXo2UmJrZTNnMkd0WkpmTTJxWVpSNlAzbmRSM2k3azJsa0xKSzRhdmRsY0NWdWJyRnI2aFZZWTljUEpQSW9tWVRMc2IwQVJKMUFUZWtDR0sxeTQ1YU1UWlRIOGpIZDBzQWZSZnp6VnMxNzdmYXdMMFV2R05VMU82MUwxcQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia May Reduce Memory on Some AI Chips; AMD Plays Down the Risk</span>
+          <span class="zh">Nvidia部分AI芯片或缩减存储配置，AMD淡化影响</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 4h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says Nvidia may ship AI chips with less memory, while AMD says it is not concerned about the prospect. Any reduction would test how customers trade model capacity and bandwidth against price and availability, and could alter expected HBM content per accelerator.</span>
+        <span class="zh">报道称，Nvidia可能推出存储容量更低的AI芯片，而AMD表示并不担忧这一动向。若配置确实下调，客户将在模型容量、带宽、价格与供货之间重新权衡，也可能改变单颗加速器的HBM搭载预期。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE9xMWY2S3p4ZFEzN3lRQjN4WVJ6MEVXMkFTOFVCN2YybTFJVzk1M2hNWGJBd28yY2R0ZklicUc3cWlwSFNrWXZnNzNkWmlEdlV2dTRHWXFCTDJLT2kwZ3dLLTRMem0xRXcyaXNvMUFDR1dVWDFm?oc=5" target="_blank" rel="noopener">
+          <span class="en">Alibaba&#x27;s RISC-V Chip Reportedly Runs a 27B Model Without a GPU</span>
+          <span class="zh">阿里巴巴RISC-V芯片据称无需GPU即可运行27B模型</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Intelligent Living</span> · 4h ago</span>
+        <span class="zh"><span class="source">Intelligent Living</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Alibaba&#x27;s RISC-V processor reportedly ran a 27-billion-parameter AI model without relying on a GPU. The claim points to a broader search for domestically controllable inference platforms, although the candidate report provides no independent performance, power or cost comparison.</span>
+        <span class="zh">报道称，阿里巴巴的RISC-V处理器无需GPU即可运行一个270亿参数的AI模型。这一结果反映了对自主可控推理平台的持续探索，但候选报道没有提供独立的性能、功耗或成本对比。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE5VZURuZ0o2SHZqTlhBd1plb0YtN0RDdW5SaXlhckFCS29obEJ2Y0N5RzZvUHN3OElSbHQwa2ZSb3lORUlfY3NMcmltOHBVWExhaFotNHR6VEV0blVFbkJsV1ZzbmtkcTdaSnUtWEZvWVRXeHBERkpN?oc=5" target="_blank" rel="noopener">
+          <span class="en">China&#x27;s Share of Mature-Node Chips Rises, CRS Reports</span>
+          <span class="zh">美国国会研究处称中国成熟制程芯片份额上升</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Legis1</span> · 8h ago</span>
+        <span class="zh"><span class="source">Legis1</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report citing the U.S. Congressional Research Service says China&#x27;s share of mature-node chip production is increasing. The shift matters because legacy-node capacity underpins automotive, industrial and power semiconductors, making it a supply-chain and policy issue even without leading-edge technology.</span>
+        <span class="zh">援引美国国会研究处的报道称，中国在成熟制程芯片生产中的份额正在上升。成熟制程支撑汽车、工业和功率半导体，因此即便不涉及先进制程，这一变化仍会影响供应链与政策判断。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxPOE0wSzJtZjlWZXR4Mm1BTjVtVHRHc0ZTSVpVZEFSMG0wS3IwUUI0Wkt5Zll2WXBqZ1Z6Nmw4cEpMVng1dlEzSkxpUE94QkFCX2NZLWVMZTVFdTI1NHE5S3pGMTJHVk5QX0FRNm1BZ3RUSUVYR0FCN0FsbW9JbTN1OE1DR1VLeVREZW90U1NIYWstYTRPRnVnX21jT284TVRXc085T1JMdTFFQ0c4WC01SEEzWllVWUROQzRxbEg4a0xBdktXODN6cVpSUEVZQ1k5aks4eA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron&#x27;s Memory Pipeline Is Reportedly Sold Out Through 2028</span>
+          <span class="zh">Micron存储产品据称已售罄至2028年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Ad-hoc-news.de</span> · 5h ago</span>
+        <span class="zh"><span class="source">Ad-hoc-news.de</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Ad-hoc-news reports that Micron&#x27;s memory pipeline is sold out through 2028. If that order coverage holds, it signals unusually long customer commitments and gives Micron visibility through several product cycles, though the candidate item does not break out HBM from conventional DRAM or NAND.</span>
+        <span class="zh">Ad-hoc-news报道称，Micron的存储产品产能已售罄至2028年。若订单覆盖确实如此，意味着客户承诺周期异常延长，并让Micron获得跨越多个产品周期的可见度；不过候选信息未区分HBM、传统DRAM与NAND。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxOT0FhME53bVBLNlhBZGxhdWJoV1RTQnpIS0tRRFF1TmVrRG4wMTJtSXBjM1JvZWFES3VyZ3JsMU9DLTM5ZU5RT3hRTDVBaDlBVDJZMC0yYlB6NkRwLWRBcnplRWZ2dGhSOG9USE93R0FJUTA5ZkxiUERLS3VjQU1ubmtDN0dUMGtnTThodE9nV2J0eHlRczN3MHk3WDFJZE9ja2MzaUdZcERvSXprYmZGSmZ5ZU13SHhFLU1RVVJPMG5wWC1KcVZaSFBXeHFWd3FQVnh6NHQxRG93NFHSAdsBQVVfeXFMTk9BYTBOd21QSzZYQWRsYXViaFdUU0J6SEtLUURRdU5la0RuMDEybUlwYzNSb2VhREt1cmdybDFPQy0zOWVOUU94UUw1QWg5QVQyWTAtMmJQejZEcC1kQXJ6ZUVmdnRoUjhvVEhPd0dBSVEwOWZMYlBES0t1Y0FNbm5rQzdHVDBrZ004aHRPZ1didHh5UXMzdzB5N1gxSWRPY2tjM2lHWXBEb0l6a2JmRkpmeWVNd0h4RS1NUVVSTzBucFgtSnFWWkhQV3hxVndxUFZ4ejR0MURvdzRR?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Maps Co-Packaged Optics to 100 Tb/s Nodes</span>
+          <span class="zh">SK hynix规划面向100 Tb/s节点的共封装光学路线</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">StorageReview</span> · 8h ago</span>
+        <span class="zh"><span class="source">StorageReview</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix has outlined a co-packaged-optics roadmap targeting 100 Tb/s nodes, energy below 1 pJ/bit and latency under 10 ns. Those targets address the interconnect wall around memory-rich AI systems, where moving data can consume more energy and time than arithmetic.</span>
+        <span class="zh">SK hynix公布共封装光学路线图，目标包括100 Tb/s节点、低于1 pJ/bit的能耗和低于10 ns的延迟。这些指标直指高存储带宽AI系统的互连瓶颈，因为数据搬运消耗的能量与时间可能超过计算本身。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxNU2lTLXNGbjJFQ0FEbnU4WmZGM19MTkxaWmRaQ0h0eHBxb25ndlZIZVpYRGg0cWY0S015ajVLWlpmeUVMa1lNNTVHYkJHcnE4NlFfR1A3b0JDRFhGaVp1NzJIRHhBZ25vdnNlN3dCVTdRemRsUTlZV0Vod01IVFQtU3U4bTAwUl9rQW1TeG9EdElVM2J1TUVjNC0waWdjaHlOMjFnYkhXN0gxTkRKQmZWY3E2c01UMEtaVmZmVUlPMGUyUXFJNXR3Nk40b0RKUjMtR284WUtoMA?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML&#x27;s Order Book Is Reportedly Full Through 2028</span>
+          <span class="zh">ASML订单据称已排满至2028年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Ad-hoc-news.de</span> · 9h ago</span>
+        <span class="zh"><span class="source">Ad-hoc-news.de</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Ad-hoc-news reports that ASML&#x27;s order book is full through 2028 even as large investors remain split on the stock. A multi-year backlog would preserve demand visibility for lithography tools, but it also raises the execution bar for shipment timing, service capacity and customer fab readiness.</span>
+        <span class="zh">Ad-hoc-news报道称，尽管大型投资者对ASML股票看法分化，其订单已排满至2028年。多年积压订单提高了光刻设备需求的可见度，同时也对交付节奏、服务能力和客户晶圆厂准备度提出更高要求。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRERTdE01b0xMMEJZVGpYVDZXMjZESGlRaHhNanZCb3BSbk13V085enRGUTYzZEIxRjM3MGl5clRHdmpTX2x0SlhvT1dueFRKUzVVeEM4X2tvRDQ4bHMwNmVRTVdCNWNNU05TVUwxT0oxOWlFY21RQ3RyWkRtT2JfX2hzcVVwQWtmVWlzRkwwRVlvbTRBZjczak5MeEpSdHhVaUUyXzNKZGVSeXdZaFBIQjdubzIzalFw?oc=5" target="_blank" rel="noopener">
+          <span class="en">U.S. Lawmakers Question the UAE Export-Control Decision</span>
+          <span class="zh">美国议员质询对阿联酋的出口管制决定</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Quiver Quantitative</span> · 4h ago</span>
+        <span class="zh"><span class="source">Quiver Quantitative</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Representatives Gregory Meeks and Sydney Kamlager-Dove are seeking answers about a U.S. export-control decision involving the UAE. Their intervention keeps scrutiny on how Washington balances AI-chip access for partners against diversion and national-security risks.</span>
+        <span class="zh">美国众议员Gregory Meeks和Sydney Kamlager-Dove正要求政府说明一项涉及阿联酋的出口管制决定。此举使华盛顿如何在伙伴获得AI芯片与防范转运和国家安全风险之间取舍，再次受到审视。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxQRXN6bHhMZEczOWFTRjhGcE1MbDRVbmE1QUdfOXl5cy0zNjR5SVAxRWVzRVpzUlZSNVh3Y2luLU91cDRURTJZLVQ3TWNULUkzdWx3ZjdINTl1c0NmWEtVWDhrNVFnT25aRUROSl9NQm1LUm9jRGYtQlREaTNlZVl4amlDcWo0QUxyeDdyWlBjczNyTlNLTVhCZVRLaw?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Raises 2026 Capital Spending While Increasing Dividends</span>
+          <span class="zh">台积电提高2026年资本开支并上调股息</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 9h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is committing to higher 2026 capital spending while also raising dividend payouts, according to Yahoo Finance. Funding both expansion and shareholder returns signals confidence in cash generation, while suppliers will watch how quickly the larger budget converts into tool orders and installed capacity.</span>
+        <span class="zh">据Yahoo Finance报道，台积电承诺提高2026年资本开支，同时增加股息派发。扩产与股东回报并举显示其对现金创造能力的信心，供应商则会关注新增预算多快转化为设备订单和实际产能。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPQjFpb3VXaE5yMHZaRXhzVWFIRzlQMnNEM2dkdnAtUXphLU9EOGdraXdmQU1ycUYyYmZiSUg5VGNaWmRTZUFOLWNFaEp5elFOQTVoR01xVkVlazBGOE5XVXpNWnRHbjBsaldGMTJXYWNoaHRNclRwdHBLaFpTZkFUT096WkZ5OUtncjI0dm1RbVdTcnFYWmZQcDBsNEFud3ZRR3RCdmFRZmF3aUEwZE56eVZfdGdQaGd0Z1RrZUNmWFJHMTAt?oc=5" target="_blank" rel="noopener">
+          <span class="en">YMTC&#x27;s Parent Targets a $4.9 Billion Shanghai IPO</span>
+          <span class="zh">长江存储母公司拟在上海IPO募资49亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 10h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The parent of Chinese NAND producer YMTC is targeting a $4.9 billion Shanghai initial public offering, Reuters reports. The financing would give China&#x27;s flash-memory champion a large domestic capital pool for expansion while international technology restrictions continue to shape its equipment options.</span>
+        <span class="zh">据Reuters报道，中国NAND厂商长江存储的母公司计划在上海IPO，目标募资49亿美元。这笔融资将为中国闪存龙头提供大规模境内扩张资金，而国际技术限制仍在影响其设备选择。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE5tLTRRTmlWcEE3TXBKRklVZm0tVG52SGUxTzZGZnNhQ3ViUmxYeE1ra3R3RkNCaHZkSVZWcWtfX0U3SldGczNZUXRYMHlpc1VZZTR2NFRhbXdRREtYNlc2TVg0S0ZYNXVDVlhIUmZQbVVRZ29RV2c?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia Enters Early Talks With $2.3 Billion Korean AI-Chip Startup Rebellions</span>
+          <span class="zh">Nvidia与估值23亿美元的韩国AI芯片初创公司Rebellions展开初步洽谈</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo News</span> · 6h ago</span>
+        <span class="zh"><span class="source">BigGo News</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia is reportedly in early talks with Korean AI-accelerator startup Rebellions, which the report values at $2.3 billion. A partnership or transaction would give Nvidia a route into a local challenger while testing whether the incumbent will increasingly buy or align with alternative inference architectures.</span>
+        <span class="zh">报道称，Nvidia正与韩国AI加速器初创公司Rebellions进行初步洽谈，后者估值为23亿美元。若形成合作或交易，Nvidia将借此切入本土新势力，也将检验行业龙头是否会更多收购或结盟于不同的推理架构。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-22 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-22 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

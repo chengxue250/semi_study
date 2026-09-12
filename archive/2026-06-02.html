@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-02">
+<meta name="generator" content="semi-news-daily">
+<title>AI Capacity Moves Into Packaging and Memory — Semi News 2026-06-02</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Lang visibility — pure CSS off the body[data-lang] */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Tuesday, June 2, 2026</span>
+      <span class="zh">2026年6月2日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">AI Capacity Moves Into Packaging and Memory</span>
+      <span class="zh">AI产能瓶颈转向封装与存储</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Computex turns the AI hardware story from raw GPU supply toward CoWoS, CPO, HBM5 and factory automation. Export-control enforcement and China-linked accelerator efforts add a second constraint layer around the same capacity race.</span>
+      <span class="zh">Computex把AI硬件叙事从GPU本身转向CoWoS、CPO、HBM5和晶圆厂自动化。出口管制执行与中国相关加速器项目，则给同一场产能竞赛叠加了第二层约束。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="packaging-advanced-nodes">
+    <h2>
+      <span class="en">Packaging &amp; Advanced Nodes</span>
+      <span class="zh">先进封装与先进制程</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQeUhsaG5CUG5RMUk4MTBhSXdaNlFmN2hGVmNjdmgxMTltQnNNb0hnZlRNYm0weW43b2hLYlVwSjNrVWg5MGM3S2tJcFk2a1lIc3d6VUdqZXpkdF9WbnBadlFrTjY1ZURmMHJJbEFJMFYtMkNMRVNyblVHRkM1NkxNamRra0tXQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC races to expand AI chip capacity as CPO and CoWoS move to center stage</span>
+          <span class="zh">TSMC加速扩张AI芯片产能，CPO与CoWoS站到中心</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 1h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is pushing AI-chip capacity expansion while co-packaged optics and CoWoS become the bottleneck language around Computex. The important shift is not another node announcement; it is the packaging and optical-I/O stack becoming the gating item for rack-scale accelerator output. That keeps TSMC&#x27;s advanced backend capacity as strategically important as its front-end wafer starts.</span>
+        <span class="zh">TSMC正加速AI芯片产能扩张，而CPO和CoWoS在Computex期间成为瓶颈叙事的核心。关键变化不是又一个制程节点发布，而是封装与光I/O堆栈正在成为机架级加速器出货的门槛。由此，TSMC先进后段产能的战略重要性已接近前段晶圆投片。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxNdzd5cUExVEdVYjJDZzdZSFY2ZTlUSlBMbXp5Q2xaaUtqQ1FYbW9DS1RjMEJQamRKendWeENDNnZ4UnJhUlNlU0ZuTHg1dmN0UzhmbGFpeGdMNkRPVmlMeDN3ZTNjdDMzdXBGWl9CR1dLanhKSjBRanRLSmIydGNRMkhyTQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Advanced packaging shifts from TSMC dominance toward broader industry collaboration</span>
+          <span class="zh">先进封装从TSMC主导走向更广泛产业协作</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 8h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes frames advanced packaging as moving from a TSMC-dominated constraint toward a more collaborative supply chain. That is the natural response to CoWoS scarcity: OSATs, substrate vendors, optics suppliers and foundries are all being pulled into one capacity plan. The practical question for customers is whether alternative flows can qualify fast enough to matter before Rubin-era demand arrives.</span>
+        <span class="zh">DigiTimes将先进封装描述为从TSMC主导的瓶颈转向更协作化的供应链。这是CoWoS短缺的自然结果：OSAT、载板厂、光互连供应商和晶圆代工厂都被拉进同一张产能计划表。对客户而言，实际问题是替代流程能否在Rubin时代需求到来前完成认证并形成有效产能。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxPRmNLMTFCMnJlNkZUQzVwWXBaY0FwYlZLcUZyZXBUbTNNMVFVLUNhSWhGcnI0WFctbm56Mjlic3cwRmh3WnhsX2Z2bElUc1VoVnk2QzU3MnoyamtTYlQtc1hOYmNzNjF4bmpzbXZmVF8yU0pqVERNRGxnUEtiWlpMSjJKOW9ZUTJLeDlIbW5kVnpFZEpRVXNQQXlMWGhTMWJMMEt3dWZMenVTdTNNWGxSaFY3MThOSktUTFM1VERkNkJycWlRNVpyQXhCbGVNMWFRTEd3?oc=5" target="_blank" rel="noopener">
+          <span class="en">Ayar Labs and Wiwynn push co-packaged optics into rack-scale AI systems</span>
+          <span class="zh">Ayar Labs与Wiwynn把CPO推向机架级AI系统</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TipRanks via Google News</span> · 1h ago</span>
+        <span class="zh"><span class="source">TipRanks via Google News</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Ayar Labs highlighted a co-packaged-optics partnership with Wiwynn for rack-scale AI systems. The story matters because optical I/O is moving from a research roadmap item into the server-OEM integration layer, where thermals, serviceability and switch topology decide whether it ships. CPO will not displace electrical links everywhere, but AI rack bandwidth is making the first real production wedges visible.</span>
+        <span class="zh">Ayar Labs披露与Wiwynn围绕机架级AI系统的共封装光学合作。其意义在于，光I/O正从研究路线图进入服务器OEM集成层，而热设计、可维护性和交换拓扑会决定它是否真正出货。CPO不会在所有场景取代电互连，但AI机架带宽需求正在让第一批生产切入口变得清晰。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE9VVWZJc1dTOENRMVlQOHFUTVl4SVdqUEp4TEFYZkFldUNvekgtWVNWQUNiaFYwWXJYbXZuOXhtdTZ1VHFaYk9aWjZULXktQ2Q4c3dzeF9tNmRZSkFJdVhrM3Q1UEk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung shows its first HBM5 physical mock-up with a 2nm base die</span>
+          <span class="zh">三星首次展示采用2nm基底裸片的HBM5实体模型</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Asia Economy via Google News</span> · 1h ago</span>
+        <span class="zh"><span class="source">Asia Economy via Google News</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung used Computex to show a first physical HBM5 mock-up, emphasizing thermal-management changes and a 2nm base die. The signal is competitive positioning as much as product disclosure: Samsung wants customers to see its HBM roadmap beyond the current HBM3E qualification fight. If HBM5 moves onto a 2nm logic base, base-die process access and thermal stack design become part of the memory-vendor differentiation story.</span>
+        <span class="zh">三星在Computex首次展示HBM5实体模型，重点提到热管理技术和2nm基底裸片。这个信号既是产品披露，也是竞争定位：三星希望客户看到其HBM路线图不止于当前HBM3E认证战。若HBM5转向2nm逻辑基底，基底裸片制程能力和热堆栈设计将成为存储厂商差异化的一部分。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBuRDl6N1RQeTh5enF0T3kzVWFqWDhnR25laFZpOXhHc3I0SlV0ajRoU2dKcUFZc004Y1IzbDVQYXNIbWxfMmotTVhobGt1ckx5QVpaS2gwS0Ridw?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK and Nvidia chiefs meet again as the AI memory race tightens</span>
+          <span class="zh">SK与Nvidia高层再次会面，AI存储竞赛继续收紧</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Investor via Google News</span> · 20m ago</span>
+        <span class="zh"><span class="source">The Investor via Google News</span> · 20分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK Group and Nvidia leadership met again in Taipei as HBM supply remains central to AI accelerator ramps. The meeting is not a purchase order, but it reinforces SK hynix&#x27;s leverage as Nvidia&#x27;s key HBM supplier while Samsung and Micron try to close the gap. For hyperscalers, the practical takeaway is that GPU availability still depends on memory allocation and packaging slots, not only wafer starts at TSMC.</span>
+        <span class="zh">SK集团与Nvidia管理层在台北再次会面，HBM供应仍是AI加速器爬坡的核心。会面本身不是采购订单，但强化了SK hynix作为Nvidia关键HBM供应商的议价地位，同时三星和美光仍在追赶。对超大规模客户而言，实际结论是GPU可得性仍取决于存储分配和封装槽位，而不只是TSMC晶圆投片量。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPQlBOdFJNN3o5eVdNNktPVE5ET0hiaG1MeVZ5SDZhMEN0aElzYjRtdXpfdEhxSklwRWZ1QmNwT0lkS2xnX2p1RmNSellsclZyQ2RMcFItMUpPNWU0bTBoR25RQkRXLU9YdXplc3YwelNmakJwUVU4cG5KdFk0VEFLM2tLTUw3V3V6Ymh1QXFRWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron lays out its AI memory and storage roadmap at Computex</span>
+          <span class="zh">美光在Computex展示AI存储与内存路线图</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 3h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron&#x27;s Computex roadmap pushes beyond HBM into high-capacity RDIMMs, SOCAMM2, GDDR7, LPDDR5X, client SSDs and automotive UFS. The broader point is that AI memory demand is fragmenting across server, workstation, PC and edge tiers rather than sitting in one HBM bucket. Micron&#x27;s ability to pair HBM with commodity-memory recovery is why its equity story is increasingly treated as an AI infrastructure story, not just a DRAM cycle.</span>
+        <span class="zh">美光的Computex路线图不只覆盖HBM，还包括高容量RDIMM、SOCAMM2、GDDR7、LPDDR5X、客户端SSD和车规UFS。更大的变化是，AI存储需求正在服务器、工作站、PC和边缘端之间分化，而不是全部落在HBM一个篮子里。美光能够把HBM与通用存储复苏绑定起来，这也是其资本市场叙事越来越像AI基础设施公司、而不仅是DRAM周期股的原因。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFByUFFhdmhzNU5CTHB0T2V1RnhBYUstM1YwNVJGNnZITmZ6N21ybkpyREZCaWxJWGVIMlJ4MDZaQVU2YTJ4bmpQdENMdDVPNXlUMmNiaUM1ZERCTGo5aWVYcjNYT2VON0k?oc=5" target="_blank" rel="noopener">
+          <span class="en">YC wins a 93B won HBM inspection-equipment deal with Samsung</span>
+          <span class="zh">YC拿下三星930亿韩元HBM检测设备订单</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TheElec via Google News</span> · 20h ago</span>
+        <span class="zh"><span class="source">TheElec via Google News</span> · 20小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Korean reports say YC will supply HBM inspection equipment to Samsung Electronics in a 93 billion won deal. Inspection capacity is a quiet but material limiter for HBM ramps because stacked memory yields depend on known-good die discipline across many layers. The order points to Samsung expanding the manufacturing control stack around HBM, not merely adding assembly capacity.</span>
+        <span class="zh">韩国媒体报道称，YC将向三星电子供应HBM检测设备，交易金额为930亿韩元。检测能力是HBM爬坡中低调但实质的限制项，因为堆叠存储良率依赖多层裸片的已知良品管理。该订单说明三星扩张的不只是组装能力，也在补齐HBM制造控制堆栈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQWC1ncmN1b1ZxbGQ3Q0phUTdyR1dmZmxUTVctTlUxSk5wUUs0aVF3dWxrTV8wdDJBbXBsUXEtMTZEUXBiSVVpbUowOW9LTWdBRG5lUVNvaUJ3X0JveXlDZUgwUFhOdXFuem5VbndBLTVYTjFXcFhlVHNKSjkyQkkyUEZpWHVYSERlbEJob21mb3hwUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Intel frames Computex around chip-to-rack AI systems</span>
+          <span class="zh">英特尔在Computex把AI叙事推进到芯片到机架</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance Singapore via Google News</span> · 45m ago</span>
+        <span class="zh"><span class="source">Yahoo Finance Singapore via Google News</span> · 45分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel announced new AI initiatives at Computex under a chip-to-rackscale framing, leaning on partners rather than a single heroic silicon launch. That is the correct strategic lane for Intel: AI infrastructure buyers increasingly care about CPU, accelerator, networking, memory and deployment software as one system. The challenge is execution cadence, because Nvidia already sells that system narrative with a stronger software default.</span>
+        <span class="zh">英特尔在Computex以芯片到机架级方案为框架发布新的AI举措，依靠合作伙伴而非单一明星硅片。这是英特尔较合理的战略位置：AI基础设施买家越来越把CPU、加速器、网络、内存和部署软件视为一个系统来采购。挑战仍是执行节奏，因为Nvidia已经用更强的软件默认选项销售同一套系统叙事。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxOY1JiV0lOMWlBLTNkUmc5alVhTDM3a0xkd0tfY3NpcmhGU3lPWmZvMmFOVkcyc3VnaFFMaUltaG1JY1hXMHJyUUV5M2VYcThLbU5ZRXF4VWkxbURLVUVvUFh5OTJISEhOQUFwcU9xOEdKbFlUTm95Slg4X0FQbE82OXhLVUtTcHlxR3ZjU1ZuMlZpeGVJS3NIcnJTY25YdFN5bzZXQWJ4anI?oc=5" target="_blank" rel="noopener">
+          <span class="en">ByteDance is reportedly developing a Groq-style inference chip with InnoStar</span>
+          <span class="zh">报道称字节跳动正与InnoStar开发Groq风格推理芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 1d ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 1天前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes reports ByteDance is working with InnoStar on a Groq-style inference chip. If accurate, the project fits the broader Chinese pattern of optimizing for inference availability under export-control uncertainty rather than trying to clone Nvidia&#x27;s full training stack. The important test will be whether ByteDance can pair custom silicon with model and serving-stack changes, because Groq-style deterministic dataflow only pays off when software is designed around it.</span>
+        <span class="zh">DigiTimes报道称，字节跳动正与InnoStar开发一款Groq风格推理芯片。若消息属实，该项目符合中国厂商在出口管制不确定性下优先优化推理可得性、而非完整复制Nvidia训练堆栈的路线。关键检验在于字节能否把自研硅片与模型和服务栈改造绑定，因为Groq式确定性数据流只有在软件围绕它设计时才真正释放价值。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5gJBVV95cUxPMWF4UGNGeUdmdEl2SjkxVjB5TDMtQzhxaE1keEZuQWNMSHlNNlJfZXAtMU5vczNmSE5OeDBDSGxUNnVNOGtaeHVBZk01aVVDSVpzaFd6UGR0eHF1MGtiX0JZeTloeGRfZHNYXzFNYjJZcVg2MDlzV2h2aHd1VGl3eEhSYTBEd3ptRWNvSVFDc3FhWlFXb2JKcENYZS1FYXBhNklyc0ZaY1FRYkZJSGw0bzVlUElOanlnR1JsUVpMLWVCSlBLbWxiMl9DNldacURrcm10Y0lkRG1TTkRpV1QxM0JYOFp1NTd5UmVzQ05BcmdMSXR2RVpKUzNHa240Tk1DLTI1clVJTlBwTnJkLXpDb3hsdEtLNmVhX1g4QVNUOEVtcnRjSGo3cnY1OXBTeTRkZTVKQkwwRnplSG1XbFB2ckpEVFJsSEFiQkRMYTE1MDYycmZoMzF2d0RPX3h1Yzg1RW1MUGNB?oc=5" target="_blank" rel="noopener">
+          <span class="en">Groq reportedly seeks $650M to scale its inference cloud</span>
+          <span class="zh">报道称Groq寻求6.5亿美元融资扩张推理云</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN via Google News</span> · 6h ago</span>
+        <span class="zh"><span class="source">MSN via Google News</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Groq is reportedly pursuing a $650 million fundraise to scale its inference cloud after a wave of licensing and deployment activity in the accelerator market. The signal is that inference-specialist economics are still being funded even as Nvidia absorbs most training-cluster spend. Groq&#x27;s constraint remains conversion from benchmark appeal to durable customer workloads with enough volume to justify dedicated silicon capacity.</span>
+        <span class="zh">报道称Groq正寻求6.5亿美元融资，以在加速器市场一轮授权和部署活动后扩张其推理云。这个信号说明，即便Nvidia吸收了大部分训练集群开支，专注推理的经济模型仍在获得融资支持。Groq的约束仍是从基准测试吸引力转化为可持续客户负载，并形成足够规模来支撑专用硅片产能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment-materials">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/nikon-leveraging-arf-scanner-price-to-challenge-asml/" target="_blank" rel="noopener">
+          <span class="en">Nikon leans on ArF scanner pricing to challenge ASML</span>
+          <span class="zh">尼康用ArF光刻机价格挑战ASML</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 19h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 19小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">EE Times reports Nikon is using ArF scanner pricing as a wedge against ASML. This is not a direct EUV threat, but it matters because mature and specialty nodes still consume a large tool budget, especially in power, image-sensor and automotive lines. If customers can pressure ASML in non-EUV layers, more capex can be reserved for the EUV and advanced packaging bottlenecks that cannot be substituted as easily.</span>
+        <span class="zh">EE Times报道称，尼康正以ArF光刻机价格作为切入口挑战ASML。这并不是对EUV的直接威胁，但成熟与特色制程仍消耗大量设备预算，尤其在功率器件、图像传感器和汽车产线上。若客户能在非EUV层面对ASML施压，就能把更多资本开支留给更难替代的EUV和先进封装瓶颈。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPZ3JfRWQzcnJEUGctbXpCMUhwWEVST2RLR0RyOUlMT2tjQjFZZWozVUxQZzFGTjBFYVhibjl4OVo0cFFJN3EtSEROTGIwY284bGdYZ0RCWHd0Qll5SEdqUHZ5b2ZjS3FjUjg3NS11dkhlZlBlZHo3Tk5LekZRcE5BSnl0bS1xT3pEbjgteEtrSzlZS1UxVHl0TDAyVHZmN004VXc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Invisix raises EUR20M for soft X-ray semiconductor metrology</span>
+          <span class="zh">Invisix融资2,000万欧元推进软X射线半导体计量</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Metrology and Quality News via Google News</span> · 2h ago</span>
+        <span class="zh"><span class="source">Metrology and Quality News via Google News</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Invisix raised EUR20 million to advance soft X-ray metrology for semiconductor manufacturing. The funding is small by tool-industry standards, but the target is real: High-NA EUV and 3D structures are straining optical and e-beam inspection trade-offs. Soft X-ray techniques remain early, yet the financing shows investors are looking for metrology options that can see buried and high-aspect-ratio features without collapsing throughput.</span>
+        <span class="zh">Invisix融资2,000万欧元，用于推进面向半导体制造的软X射线计量技术。按设备行业标准这笔钱不大，但目标是真实存在的：High-NA EUV和3D结构正在拉紧光学与电子束检测之间的取舍。软X射线技术仍偏早期，但这轮融资显示投资者正在寻找能观察埋入式和高深宽比特征、同时不牺牲吞吐量的计量方案。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy-geopolitics">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi-AFBVV95cUxONHZUbHZRTWVzYVAtY3F1Rjk5WWtJU2J0ZTJONjZXVUNhMHNGQmpWc1JqRTNaQ2Nzdmh6ZnNiWVZwRHU5UXAzVWtiUUhFU1hQS2RvUFpaeEtxTWRSMTBvQko4RmdCbWNndGtJXy1UYjh0bWFvdzNDVmJEbnRCZDlBcGNwWUFzQzFDQ01ZbWE0M1BLdWpxcGEzdWJLWWVqVTM3OHVsSDZDNGhyUlBDTkZFYXN1c0xHZWYyc3lyU3NZSlljX1FKWk10YnlkbFZFVHV1RkhEM1lERWo0bHc4UV9pRzhhY0ZNYmhlLWRTN2EtWmdabjZvT2xFetIB-AFBVV95cUxONHZUbHZRTWVzYVAtY3F1Rjk5WWtJU2J0ZTJONjZXVUNhMHNGQmpWc1JqRTNaQ2Nzdmh6ZnNiWVZwRHU5UXAzVWtiUUhFU1hQS2RvUFpaeEtxTWRSMTBvQko4RmdCbWNndGtJXy1UYjh0bWFvdzNDVmJEbnRCZDlBcGNwWUFzQzFDQ01ZbWE0M1BLdWpxcGEzdWJLWWVqVTM3OHVsSDZDNGhyUlBDTkZFYXN1c0xHZWYyc3lyU3NZSlljX1FKWk10YnlkbFZFVHV1RkhEM1lERWo0bHc4UV9pRzhhY0ZNYmhlLWRTN2EtWmdabjZvT2xFeg?oc=5" target="_blank" rel="noopener">
+          <span class="en">US senators press Nvidia over China export-control claims</span>
+          <span class="zh">美国参议员就中国出口管制说法施压Nvidia</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Social News XYZ via Google News</span> · 1h ago</span>
+        <span class="zh"><span class="source">Social News XYZ via Google News</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">US senators are questioning Nvidia&#x27;s claims and compliance posture around China-linked AI chip access after Washington tightened treatment of overseas Chinese subsidiaries. The enforcement focus has moved from formal shipment destination toward beneficial ownership and end-use. For Nvidia, AMD, OEMs and resellers, the operational burden is now channel diligence as much as product-bin compliance.</span>
+        <span class="zh">在华盛顿收紧对中资境外子公司的处理后，美国参议员正质疑Nvidia围绕中国相关AI芯片获取的说法与合规姿态。执法焦点已从名义出货目的地转向实际受益所有人与最终用途。对Nvidia、AMD、OEM和分销商而言，运营负担现在不只是产品档位合规，也包括渠道尽调。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-02 07:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-02 07:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

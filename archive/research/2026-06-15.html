@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-15">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Hardware Models Meet Real-System Constraints — Semi Research 2026-06-15</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-15.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Monday, June 15, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月15日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Hardware Models Meet Real-System Constraints</span>
+      <span class="zh">硬件模型直面真实系统约束</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s strongest papers test abstractions against calibration data, remote-HBM traffic, ADC limits, cache leakage, and long RTL. The common thread is that useful hardware research increasingly depends on modeling the constraints that simplified benchmarks omit.</span>
+      <span class="zh">本周较有价值的论文把抽象模型放到校准数据、远端HBM流量、ADC限制、缓存泄漏和长篇RTL等真实约束下检验。共同趋势是，硬件研究要产生实际价值，越来越需要建模简化基准所忽略的系统条件。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.14566" target="_blank" rel="noopener">
+          <span class="en">Re-Evaluating Ramulator 2.0&#x27;s Real-System Accuracy</span>
+          <span class="zh">重新评估Ramulator 2.0的真实系统建模精度</span>
+        </a>
+      </h3>
+      <p class="authors">F. N. Bostanci, H. Luo, A. Olgun, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.14566" target="_blank" rel="noopener">arXiv:2606.14566</a> · 2026-06-12</p>
+      <p class="summary">
+        <span class="en">The authors argue that earlier negative results for Ramulator 2.0 came from configuration and simulator-usage errors rather than intrinsic model inaccuracy. They identify four practices for evaluating cycle-level DRAM simulators against real systems. Because this is an extended abstract responding to another study, the claims need independent reproduction, but the dispute is directly relevant to memory-system papers built on simulator comparisons.</span>
+        <span class="zh">作者认为，此前针对Ramulator 2.0的负面结果源于配置和模拟器使用错误，而非模型本身不准确。论文总结了评估周期级DRAM模拟器与真实系统一致性的4项实践。由于这是一篇回应既有研究的扩展摘要，其结论仍需独立复现，但这场争议直接影响大量依赖模拟器比较的存储系统论文。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.12259" target="_blank" rel="noopener">
+          <span class="en">Partitioned Tags Preserve Cache Isolation and Shared-Write Coherence</span>
+          <span class="zh">分区标签兼顾缓存隔离与共享写一致性</span>
+        </a>
+      </h3>
+      <p class="authors">K. Ramkrishnan, S. McCamant, A. Zhai, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12259" target="_blank" rel="noopener">arXiv:2606.12259</a> · 2026-06-10</p>
+      <p class="summary">
+        <span class="en">SCP partitions LLC tags while retaining a shared data pool, aiming to combine strict eviction isolation with write-shared coherence. In gem5, the design reduces Prime+Probe, Flush+Reload, and shared-writable-line attacks to random-guessing outcomes with a reported 2.8% LLC SRAM cost. The evidence is simulation-based, so implementation timing and verification on a real cache remain open.</span>
+        <span class="zh">SCP对LLC标签进行分区，同时保留共享数据池，以兼顾严格的驱逐隔离和共享写一致性。在gem5中，该设计使Prime+Probe、Flush+Reload及共享可写缓存行攻击的结果降至接近随机猜测，报告的LLC SRAM开销为2.8%。目前证据来自模拟，真实缓存实现中的时序代价和验证仍待完成。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.13379" target="_blank" rel="noopener">
+          <span class="en">Positional Encoding Exposes an ADC Bottleneck in Memristor ASR</span>
+          <span class="zh">位置编码暴露忆阻器语音识别中的ADC瓶颈</span>
+        </a>
+      </h3>
+      <p class="authors">B. Hilmes, N. Rossenbach, R. Schlüter</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.13379" target="_blank" rel="noopener">arXiv:2606.13379</a> · 2026-06-11</p>
+      <p class="summary">
+        <span class="en">Large transformed positional-encoding values are identified as a major source of ADC degradation in memristor-based analog speech-recognition inference. Rebalancing weight and ADC precision bits cuts degradation by about 50% at stable estimated energy, while removing encoding-related linear transforms yields about a 30% reduction when the ADC cannot change. The gains are based on modeled analog execution rather than a reported fabricated array.</span>
+        <span class="zh">论文指出，变换后位置编码产生的大幅值是忆阻器模拟语音识别推理中ADC精度下降的主要来源。重新分配权重位宽与ADC精度位可在估算能耗基本不变时把性能劣化降低约50%；若无法修改ADC，去除与编码相关的线性变换也可降低约30%。这些结果基于模拟执行模型，并未报告已流片阵列。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11716" target="_blank" rel="noopener">
+          <span class="en">GEMM Locality Search Finds 90x Swings in Remote-HBM Traffic</span>
+          <span class="zh">GEMM局部性搜索发现远端HBM流量可相差90倍</span>
+        </a>
+      </h3>
+      <p class="authors">E. Chung, H. Kim</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11716" target="_blank" rel="noopener">arXiv:2606.11716</a> · 2026-06-10</p>
+      <p class="summary">
+        <span class="en">A tile-level simulator shows that identical LLM GEMM dimensions can generate up to 90x differences in remote-HBM traffic on multi-chiplet GPUs depending on layout, traversal, and placement choices. An agent-guided search finds a 2D block-swizzle traversal that cuts remote traffic by as much as 5.1x versus the best 1D traversal under round-robin placement. The result elevates CTA traversal to a first-order inter-chiplet design variable, though the study remains simulator-based.</span>
+        <span class="zh">一款tile级模拟器显示，在多chiplet GPU上，相同尺寸的LLM GEMM仅因布局、遍历顺序和数据放置不同，远端HBM流量就可能相差90倍。基于智能体的搜索找到一种2D block-swizzle遍历方式，在轮询放置下相较最佳1D遍历最多降低5.1倍远端流量。结果表明CTA遍历顺序是chiplet间通信的一阶设计变量，但研究仍以模拟为主。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.10303" target="_blank" rel="noopener">
+          <span class="en">Isolation-Aware Scheduling Targets 100 ms Autonomous-Driving Pipelines</span>
+          <span class="zh">隔离感知调度面向100 ms自动驾驶流水线</span>
+        </a>
+      </h3>
+      <p class="authors">C. Zhang, Y. Zhang, C. Xue, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.10303" target="_blank" rel="noopener">arXiv:2606.10303</a> · 2026-06-09</p>
+      <p class="summary">
+        <span class="en">The paper schedules many co-located driving DNNs on tile-based accelerators while accounting for both hardware isolation and the cost of stop-migrate-restart reallocations. It targets end-to-end latency below 100 ms despite reported execution-time variation of up to 3.3x and task rates from 10 to 240 Hz. The approach addresses a practical shared-accelerator problem, but the candidate record does not report measured automotive silicon.</span>
+        <span class="zh">该论文面向tile式加速器上密集共置的多种自动驾驶DNN进行调度，同时考虑硬件隔离以及停止、迁移、重启所带来的重分配成本。目标是在执行时间最多波动3.3倍、任务频率为10至240 Hz的条件下，把端到端延迟控制在100 ms以内。它针对真实的共享加速器问题，但候选记录未显示在汽车芯片实物上完成测量。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Relevant AI Research</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.12638" target="_blank" rel="noopener">
+          <span class="en">Eidola Models Transient Multi-GPU Communication in gem5</span>
+          <span class="zh">Eidola在gem5中建模瞬态多GPU通信</span>
+        </a>
+      </h3>
+      <p class="authors">R. R. Selagamsetty, M. Poremba, B. M. Beckmann, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12638" target="_blank" rel="noopener">arXiv:2606.12638</a> · 2026-06-10</p>
+      <p class="summary">
+        <span class="en">Eidola extends gem5 with lightweight GPU traffic models driven by annotated timing profiles from real distributed-AI applications. It reproduces fine-grained peer-to-peer writes and synchronization behavior without simulating every GPU detail, enabling larger interconnect studies. Accuracy therefore depends on how representative the captured profiles are when workloads, kernels, or overlap strategies change.</span>
+        <span class="zh">Eidola利用真实分布式AI应用的标注时序轨迹，为gem5加入轻量级GPU流量模型。它无需模拟GPU的全部细节，即可复现细粒度点对点写入与同步行为，从而支持更大规模的互连研究。其准确性因此取决于采集轨迹在工作负载、内核或通信计算重叠策略变化后是否仍具代表性。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.09686" target="_blank" rel="noopener">
+          <span class="en">A Bit-Exact Catalog Standardizes 84 AI Numeric Formats</span>
+          <span class="zh">位精确目录统一描述84种AI数值格式</span>
+        </a>
+      </h3>
+      <p class="authors">D. Vasilev</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.09686" target="_blank" rel="noopener">arXiv:2606.09686</a> · 2026-06-08</p>
+      <p class="summary">
+        <span class="en">The work catalogs 84 numeric formats across 13 families and supplies bit-exact conformance vectors for BF16, FP8, MXFP4, and related microscaling formats. Cross-checks against ml_dtypes 0.5.4 expose interpretation gaps that can otherwise create silent differences when models move between accelerators. It is reference infrastructure rather than a new arithmetic result, but it could make low-precision validation more reproducible.</span>
+        <span class="zh">该工作整理了13个系列共84种数值格式，并为BF16、FP8、MXFP4及相关微缩放格式提供位精确一致性向量。与ml_dtypes 0.5.4的交叉检查揭示了可能导致模型跨加速器迁移时出现静默差异的解释分歧。它不是新的算术方案，而是一套参考基础设施，有助于提升低精度验证的可复现性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.12968" target="_blank" rel="noopener">
+          <span class="en">Apollo Integrates 10,000 Room-Temperature p-Qubits in 16 nm CMOS</span>
+          <span class="zh">Apollo以16 nm CMOS集成1万个室温p-qubit</span>
+        </a>
+      </h3>
+      <p class="authors">A. Ivanov, S. Rahmeh, E. G. S. Nascimento, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12968" target="_blank" rel="noopener">arXiv:2606.12968</a> · 2026-06-11</p>
+      <p class="summary">
+        <span class="en">Apollo is reported as a 10,000-node p-qubit neuromorphic processor fabricated in 16 nm mixed-signal CMOS, operating at room temperature with about 0.5 W of analog-core power. Integrated quantum entropy drives stochastic state transitions, while a high-degree interconnect targets dense Ising and QUBO embeddings without cryogenic control. The scale and power claims are notable, but the preprint&#x27;s quantum-advantage framing requires careful independent benchmarking.</span>
+        <span class="zh">Apollo被报告为一款采用16 nm混合信号CMOS制造的1万节点p-qubit神经形态处理器，可在室温下运行，模拟核心功耗约0.5 W。集成量子熵源驱动随机状态跃迁，高度互连结构则面向稠密Ising与QUBO映射，无需低温控制。其规模和功耗数据值得关注，但预印本关于量子优势的表述仍需严格的独立基准验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.12816" target="_blank" rel="noopener">
+          <span class="en">Calibration-Aware Routing Raises Simulated IBM Heron Fidelity</span>
+          <span class="zh">校准感知路由提升IBM Heron模拟保真度</span>
+        </a>
+      </h3>
+      <p class="authors">Y. V. Tomar, D. Peddireddy, V. Aggarwal</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.12816" target="_blank" rel="noopener">arXiv:2606.12816</a> · 2026-06-11</p>
+      <p class="summary">
+        <span class="en">A graph reinforcement-learning router uses same-day IBM Heron r2 calibration data to choose SWAP operations, reaching pooled mean simulated fidelity of 0.727 versus 0.440 for SABRE-best20. The improvement comes with more two-qubit gates and is concentrated in 5- and 8-qubit circuits; all tested 10-qubit families favor SABRE-best20 under the fixed action graph. The results are exact simulations rather than executions on the quantum processor.</span>
+        <span class="zh">一种图强化学习路由器利用IBM Heron r2当日校准数据选择SWAP操作，汇总平均模拟保真度达到0.727，而SABRE-best20为0.440。提升伴随更多双量子比特门，且主要集中在5和8量子比特电路；在固定动作图下，所有测试的10量子比特电路族仍由SABRE-best20占优。结果来自精确模拟，并非量子处理器实机执行。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.08944" target="_blank" rel="noopener">
+          <span class="en">LongRTL Uses Graph Similarity to Optimize Large RTL Designs</span>
+          <span class="zh">LongRTL利用图相似度优化大型RTL设计</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Ye, C.-K. Shen, X. Hu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08944" target="_blank" rel="noopener">arXiv:2606.08944</a> · 2026-06-08</p>
+      <p class="summary">
+        <span class="en">LongRTL divides large RTL designs into AST subtrees, optimizes them with retrieval-guided agents, and reconstructs the design while checking global functional equivalence. Graph similarity supplies reusable structural guidance intended to move LLM-based RTL optimization beyond short toy modules. The abstract does not provide tape-out results or detailed PPA gains, so the main contribution is the workflow architecture rather than demonstrated silicon impact.</span>
+        <span class="zh">LongRTL把大型RTL设计拆分为AST子树，利用检索引导的智能体进行优化，再在检查全局功能等价性的同时完成重构。图相似度为结构复用提供指导，目标是让基于LLM的RTL优化走出短小示例模块。摘要未给出流片结果或详细PPA收益，因此当前主要贡献是工作流架构，而非已验证的硅片效果。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-15 01:20 UTC · <a href="../2026-06-15.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-15 01:20 UTC · <a href="../2026-06-15.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

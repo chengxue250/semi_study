@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-29">
+<meta name="generator" content="semi-news-daily">
+<title>China’s Tool Push Meets an AI Reset — Semi News 2026-07-29</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, July 29, 2026</span>
+      <span class="zh">2026年7月29日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">China’s Tool Push Meets an AI Reset</span>
+      <span class="zh">中国设备突进遇上AI供应链重估</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Domestic immersion-DUV production and new industrial capital sharpen China’s semiconductor ambitions. At the same time, HBM earnings, export-access talks, and edge-AI deals show that AI’s supply chain is being repriced rather than simply expanding.</span>
+      <span class="zh">国产浸没式DUV设备量产与新增产业资本，正在强化中国的半导体雄心。与此同时，HBM业绩、对华出口准入磋商和边缘AI交易表明，AI供应链正被重新定价，而非单纯扩张。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.embedded.com/tdk-lg-innotek-collaborate-on-physical-ai-solutions/" target="_blank" rel="noopener">
+          <span class="en">TDK and LG Innotek Partner on Physical-AI Sensors</span>
+          <span class="zh">TDK与LG Innotek合作开发Physical AI传感器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Embedded.com</span> · 13h ago</span>
+        <span class="zh"><span class="source">Embedded.com</span> · 13小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TDK and LG Innotek have formed a strategic partnership on sensing technologies for physical-AI applications, initially targeting vision and tactile modules for humanoid robots. The pairing combines TDK’s sensor portfolio with LG Innotek’s optics and precision-module manufacturing, shifting attention from robot compute chips to the sensor stack that feeds them.</span>
+        <span class="zh">TDK与LG Innotek建立战略合作，将面向Physical AI开发传感技术，首批目标是人形机器人的视觉和触觉模组。双方把TDK的传感器产品线与LG Innotek的光学及精密模组制造结合，焦点从机器人计算芯片延伸至为其提供输入的传感器栈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1GWUpZSzNhRTVraE54aXJjM2daUkxwTV90bFAyRkVoTjZsRW5tOGI1ZnFuOHVwQ29pM3lFT1pZNzFtY3JsRjVTUTVMRDdIWHZZcHZJUEc1RUpzWDItOVRPVGlOeTlQVzA?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC’s JASM Fab Resumes After Kyushu Earthquake Checks</span>
+          <span class="zh">九州地震后，台积电JASM工厂完成检查并复工</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 8h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC’s JASM fab in Kumamoto resumed operations after safety inspections following an earthquake in Kyushu. The quick restart limits the immediate risk of a supply interruption at TSMC’s Japanese manufacturing base, though seismic events remain an operational risk for geographically concentrated advanced-chip production.</span>
+        <span class="zh">九州发生地震后，台积电位于熊本的JASM工厂完成安全检查并恢复运营。快速复工降低了日本制造基地短期供应中断的风险，但地震仍凸显先进芯片产能地域集中的运营风险。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxNR3NvNXBjOWJpTHFGNjVRM3hWZ1h4LWZkUUIxTlJFYldWOVpPMXJxM0w1QjdDQjRteXppVGE3VkN3UHN0Q1UwNkp1LXd3Tm12ZDlLRDJrd2tqZXJLMG9LaWI5WUFLRXBrajRKVzhmTlI4ZnhIZVJ2OEZ3eVN1VW43aXVDOHF2VWJOSTRoWtIBjAFBVV95cUxNR3NvNXBjOWJpTHFGNjVRM3hWZ1h4LWZkUUIxTlJFYldWOVpPMXJxM0w1QjdDQjRteXppVGE3VkN3UHN0Q1UwNkp1LXd3Tm12ZDlLRDJrd2tqZXJLMG9LaWI5WUFLRXBrajRKVzhmTlI4ZnhIZVJ2OEZ3eVN1VW43aXVDOHF2VWJOSTRoWg?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Profit Jumps 557%, but Misses Estimates</span>
+          <span class="zh">SK hynix利润增长557%，但仍低于市场预期</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span> · 10h ago</span>
+        <span class="zh"><span class="source">GNews — HBM</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix reported a record second-quarter profit, up 557% year on year, but its result missed market estimates. The contrast is important for the AI-memory trade: HBM demand and pricing can deliver exceptional earnings while investors remain focused on whether supply, mix, and expectations have already moved ahead of reported results.</span>
+        <span class="zh">SK hynix公布创纪录的第二季度利润，同比增幅达557%，但业绩仍低于市场预期。这一反差对AI存储逻辑很关键：HBM需求和价格能够带来异常强劲的盈利，但投资者仍会审视供给、产品组合与市场预期是否已跑在实际业绩之前。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxOR1Zubmoxd1FlV0N3dFpST2F0QUFhNS04Mlg5cmNUcndrWXlwYVFfSFZZODc5UzQxTWZiNzktWEZ6dlJfVm4xVXZWYUlSdndZUXFyNjNhLUZlWm9Zc3pSN001WmZFQWZRSjd3dFo0dmptM1VIbGg2aUhVYU9aNllfV3VkRFZGREJsczdOZThmQ2tidTJMc2dweFp3V1FWQ0hLOEIzaU9mMFRWWGhrUXoySUxST3VqekE4Rnp5Qg?oc=5" target="_blank" rel="noopener">
+          <span class="en">China Starts Production of Home-Grown Immersion DUV Tools</span>
+          <span class="zh">中国开始量产国产浸没式DUV芯片制造设备</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — ASML</span> · 13h ago</span>
+        <span class="zh"><span class="source">GNews — ASML</span> · 13小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">China has started production of domestically developed immersion-DUV chipmaking tools, Reuters reported, citing a source. Immersion DUV is not a substitute for EUV at leading-edge nodes, but a working domestic supply chain could matter materially for mature-node capacity and for reducing exposure to foreign tool restrictions.</span>
+        <span class="zh">路透社援引消息人士称，中国已开始生产自主研发的浸没式DUV芯片制造设备。浸没式DUV并不能替代先进制程所需的EUV，但可用的国产供应链将对成熟制程产能及降低对海外设备限制的暴露产生实质影响。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxPb1dqeDZMNFFQcHdMOEV5WTVjZUZxNUZ1Wl9iWU8tdFpadHJaNVJxVjVYb0o5dDRoXzlIUlhkRENsdS1RZ1l6YmJVd3VHZWwxRmxmY1JhWEQtQkZKdGlKS1lHQURsSVJNd0hHWkp5anJRT2VFbjVaTzZBRzUtbGQ1bFBtMEh6QnhZaFJRWEJGeE9ld1I4SGwyNzFpX3B6cnMtZHRYdFd1aHpJMjlfTXEyNDU2aDJQVGdFaGprbGh3dmJGYi1Ra20tNWRHdU9FU1FsRUs4VtIB1AFBVV95cUxQenRuUW5mUFZhd3gzeGRnNjVSYmtaelpRQkxSWHE3Z3J1amlmWGx6OGtFcTZvdXpnZVhRTWFLZW1nYVhsOGF4V0NxX3lFZ1ZMbmJyakhjcUM2NjJQMDEwd2tXb2NoYVJnSzUtSk9iMUJXRGN3NU1CdEdfbnBqeEg5VFViaVNQVTlpQ21MVlBmMkYyaFpUcGw5Y1pqcGNxYlZ6Q2M4TWpWdzBjLWdrSnY1MUUxZHA1VGpFTTFZR3NTUWRqOXhJa25fVTBUdVoySWl3NEROLQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia’s Huang Meets U.S. Officials on China Chip Access</span>
+          <span class="zh">英伟达黄仁勋就中国芯片准入问题会见美国官员</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span> · 11h ago</span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia Chief Executive Jensen Huang met U.S. officials as questions over Chinese access to AI chips continue to grow. The engagement underscores that commercial demand for Nvidia hardware is now inseparable from export-control interpretation, licensing, and the political acceptability of serving China.</span>
+        <span class="zh">随着中国获取AI芯片的问题持续升温，英伟达首席执行官黄仁勋会见了美国官员。这一互动说明，英伟达硬件的商业需求已与出口管制的解释、许可证以及向中国供货的政治可接受性密不可分。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxOWloxT29JandrejgwdEFtZkJEeTA4eVdPal9nRklvbVRkSjR2c1pqeGJkMWdxV2V4REJ0bWNvZXQ1cVZ6VGJUaXBfTk1HMFVSYnlhWmpuTktPMnUycEl6OFo3R0N0YXRRVGxDLVBxWFp2YzBOcHVzMDVYWmE2RldfRVlWN1AwUGVDZnJfWlhKaGFCMnlpV3UzTzBUYmZaT2FWZGc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Teradyne Profit Rises on Semiconductor-Test Demand</span>
+          <span class="zh">半导体测试需求推动泰瑞达利润增长</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 12h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 12小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Teradyne’s profit rose on semiconductor-testing demand, the Wall Street Journal reported. Test demand is a useful read-through for the industry because more complex AI, memory, and automotive devices increase both test intensity and the value of equipment suppliers after wafer fabrication.</span>
+        <span class="zh">《华尔街日报》报道，半导体测试需求推动泰瑞达利润上升。测试需求是行业的重要观察指标，因为更复杂的AI、存储和汽车芯片会提高测试强度，也会提升晶圆制造之后设备供应商的价值。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">新兴挑战者</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.eetimes.com/microchip-acquires-edge-ai-chip-startup-hailo/" target="_blank" rel="noopener">
+          <span class="en">Microchip Acquires Edge-AI Startup Hailo</span>
+          <span class="zh">Microchip收购边缘AI芯片初创公司Hailo</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 15h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 15小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Microchip has acquired edge-AI chip startup Hailo, according to EE Times. The deal gives the embedded-chip vendor a more direct accelerator position as inference shifts into cameras, industrial systems, and other power-constrained endpoints, while removing an independent challenger from the market.</span>
+        <span class="zh">据EE Times报道，Microchip已收购边缘AI芯片初创公司Hailo。这笔交易让这家嵌入式芯片厂商更直接地进入加速器市场；随着推理向摄像头、工业系统及其他受功耗约束的终端迁移，市场中也少了一家独立挑战者。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/ip/quadric/371357-quadric-extends-series-c-to-46-million-as-edge-ai-demand-accelerates/" target="_blank" rel="noopener">
+          <span class="en">Quadric Extends Series C to $46 Million</span>
+          <span class="zh">Quadric将C轮融资扩大至4600万美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 16h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 16小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Quadric extended its Series C financing to $46 million in a second close led by the International Finance Corporation, taking total capital secured to about $90 million. The funding gives the programmable edge-AI company more runway to commercialize its products as customers look for alternatives to cloud-centric inference.</span>
+        <span class="zh">Quadric在国际金融公司领投的二次交割中，将C轮融资扩大至4600万美元，使其累计获得的资金约达9000万美元。这笔融资为这家可编程边缘AI公司提供了更长的商业化周期，正值客户寻求云端中心化推理替代方案之际。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-29 09:02 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-29 09:02 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

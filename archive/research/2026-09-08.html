@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-08">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Inference Efficiency Moves Down the Stack — Semi Research 2026-09-08</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-09-08.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Tuesday, September 8, 2026</span>
+      <span class="zh">研究摘要 · 2026年9月8日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">Inference Efficiency Moves Down the Stack</span>
+      <span class="zh">推理效率沿技术栈持续下沉</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s papers compress context, KV cache, weights, and even neural firing while reusing highly tuned GPU primitives. Reliability work also exposes silent corruption paths in radiation-exposed accelerators and quantum-software postprocessing.</span>
+      <span class="zh">本周论文从上下文、KV cache、权重乃至神经元放电等层面压缩推理成本，同时复用高度优化的GPU原语。可靠性研究还揭示了受辐射加速器与量子软件后处理中的静默错误路径。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.05249" target="_blank" rel="noopener">
+          <span class="en">Proton Irradiation of an Open-Source ML Accelerator</span>
+          <span class="zh">开源机器学习加速器的质子辐照表征</span>
+        </a>
+      </h3>
+      <p class="authors">S. Memon, R. Graczyk, J. Swakoń, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.05249" target="_blank" rel="noopener">arXiv:2609.05249</a> · 2026-09-04T15:14:59Z</p>
+      <p class="summary">
+        <span class="en">A Tensil neural-network accelerator on a Zynq UltraScale+ MPSoC was exposed to 20–58 MeV protons at a monitored fluence of 4.29 × 10^10 p/cm² while running ResNet-20 inference. The test recorded seven workload interruptions and two silent output-corruption events, including 39 consecutive invalid classifications without a kernel, memory, or power anomaly. It is a system-level baseline for an unmitigated implementation, not yet evidence that a particular mitigation will work in flight.</span>
+        <span class="zh">研究将部署在Zynq UltraScale+ MPSoC上的Tensil神经网络加速器置于20–58 MeV质子辐照下，并在运行ResNet-20推理时累计监测到4.29 × 10^10 p/cm²的注量。测试出现7次工作负载中断和2次静默输出损坏，其中一次连续39个输入产生无效分类，但内核日志、有限内存测试和功耗采样均未报错。这是未加固实现的系统级基线，尚不能证明某项缓解措施能在太空任务中奏效。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.05151" target="_blank" rel="noopener">
+          <span class="en">Large Language Models with At Most One Spike per Neuron</span>
+          <span class="zh">每个神经元至多放电一次的大语言模型</span>
+        </a>
+      </h3>
+      <p class="authors">Z. Zhao, P. Omidi, A. Jafari, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.05151" target="_blank" rel="noopener">arXiv:2609.05151</a> · 2026-09-04T13:53:28Z</p>
+      <p class="summary">
+        <span class="en">A reference-based time-to-first-spike scheme maps embeddings, normalization, attention operations, and dropout into an end-to-end spiking LLM with at most one spike per neuron. The work scales the approach to 1.5 billion parameters and matches conventional neural networks on several language-understanding and common-sense tasks, but language-modeling perplexity still trails. Energy gains are estimated from spike activity rather than measured on dedicated neuromorphic silicon.</span>
+        <span class="zh">研究采用基于参考值的首脉冲时间编码，将嵌入、归一化、注意力运算和dropout映射到端到端脉冲LLM中，使每个神经元至多放电一次。该方法扩展到15亿参数，并在若干语言理解与常识任务上达到传统神经网络相近表现，但语言建模困惑度仍有差距。能耗收益来自脉冲活动估算，而非专用神经形态芯片的实测结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.05138" target="_blank" rel="noopener">
+          <span class="en">Best-Matching-Unit Search Reaches the GPU L2 Bandwidth Roof</span>
+          <span class="zh">最佳匹配单元搜索触及GPU L2带宽上限</span>
+        </a>
+      </h3>
+      <p class="authors">A. J. Amos</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.05138" target="_blank" rel="noopener">arXiv:2609.05138</a> · 2026-09-04T13:38:42Z</p>
+      <p class="summary">
+        <span class="en">A SparseBin best-matching-unit kernel for self-organizing maps improves 5.6–10.1× over its earlier configuration and reaches roughly 385× the older CUDA implementation used in prior MEDLINE atlases. The comparison also tunes the cuSPARSE baseline, which becomes 2–3× faster, while the new kernel reaches 77% of peak L2 bandwidth. The result is specific to this search kernel and workload family, but the symmetric tuning makes the speedup more credible than an untuned-baseline comparison.</span>
+        <span class="zh">面向自组织映射的SparseBin最佳匹配单元内核，相比早期配置提速5.6–10.1倍，并达到此前MEDLINE图谱所用旧CUDA实现约385倍的速度。研究同时优化cuSPARSE基线，使其提速2–3倍；新内核则达到峰值L2带宽的77%。结果仅针对该搜索内核及其工作负载族，但对双方进行对称优化，使性能对比比使用未调优基线更可信。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.05081" target="_blank" rel="noopener">
+          <span class="en">Structured Pruning and Bit-Packed Quantization for Microcontrollers</span>
+          <span class="zh">面向微控制器的结构化剪枝与位打包量化</span>
+        </a>
+      </h3>
+      <p class="authors">O. M. Busoye, T. M. Busoye, E. Eigbe</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.05081" target="_blank" rel="noopener">arXiv:2609.05081</a> · 2026-09-04T12:38:07Z</p>
+      <p class="summary">
+        <span class="en">Deep Microcompression combines structured pruning, quantization-aware training, and fixed-length bit packing to compress LeNet-5 weights by 55.8× while retaining 98.77% accuracy. On an RP2040 it cuts binary size by 3× versus TensorFlow Lite, and it fits a standard CNN onto an ATmega328P with only 2 KB of SRAM. The evidence is limited to a small, mature vision model, so scaling to modern networks remains unproven.</span>
+        <span class="zh">Deep Microcompression结合结构化剪枝、量化感知训练与定长位打包，在保持LeNet-5准确率98.77%的同时实现55.8倍权重压缩。它在RP2040上的二进制体积比TensorFlow Lite缩小3倍，并将标准CNN部署到仅有2 KB SRAM的ATmega328P上。现有证据仅覆盖规模较小且成熟的视觉模型，能否扩展到现代网络尚未得到验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Relevant AI Research</span>
+      <span class="zh">硬件相关AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.05152" target="_blank" rel="noopener">
+          <span class="en">Two-Stage Soft Context Compression for RAG</span>
+          <span class="zh">面向RAG的两阶段软上下文压缩</span>
+        </a>
+      </h3>
+      <p class="authors">S. Guo, S. Zhang, Z. Ren</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.05152" target="_blank" rel="noopener">arXiv:2609.05152</a> · 2026-09-04T13:53:43Z</p>
+      <p class="summary">
+        <span class="en">DEX-Comp first distills correct answers from an uncompressed RAG system, then applies reinforcement learning only to queries that baseline misses. Across five open-domain QA benchmarks and retrieval depths from top-5 to top-30, it compresses context by 16× and reports 4–24× faster inference with performance comparable to or better than the uncompressed baseline. The gains are benchmark results from a preprint and still need validation under production retrieval distributions.</span>
+        <span class="zh">DEX-Comp先从未压缩RAG系统的正确答案中蒸馏，再仅针对基线答错的问题进行强化学习。它在5个开放域问答基准以及top-5至top-30检索深度下，将上下文压缩16倍，并报告4–24倍推理加速，效果与未压缩基线相当或更好。这些收益来自预印本的基准测试，仍需在生产环境的检索分布下验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.04971" target="_blank" rel="noopener">
+          <span class="en">Beacon Queries Preserve Long-Range KV-Cache Context</span>
+          <span class="zh">Beacon查询保留KV cache中的远程上下文</span>
+        </a>
+      </h3>
+      <p class="authors">J. Kim, M. Kim, K. Shim, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.04971" target="_blank" rel="noopener">arXiv:2609.04971</a> · 2026-09-04T10:23:16Z</p>
+      <p class="summary">
+        <span class="en">BeaconKV targets long reasoning traces where later tokens revisit plans and evidence far back in the sequence, breaking eviction policies based mainly on recent queries. It clusters these thought-revisiting queries and keeps compact beacon representatives to select KV entries without retaining the full query history. The method is training-free and evaluated across four open-source reasoning models, though the available preprint abstract does not expose enough detail to judge hardware-level throughput gains.</span>
+        <span class="zh">BeaconKV针对长推理轨迹中后续token重新访问早期计划与证据的现象，这会使主要依赖近期查询的淘汰策略失效。该方法对这类“思路回访”查询进行聚类，并保留紧凑的Beacon代表，以便在不保存完整查询历史的情况下选择KV条目。它无需训练，并在4个开源推理模型上评估，但现有预印本摘要未提供足够细节来判断硬件层面的吞吐提升。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.04910" target="_blank" rel="noopener">
+          <span class="en">Fast Gaussian Sums Reuse Flash Attention Kernels</span>
+          <span class="zh">快速高斯求和复用Flash Attention内核</span>
+        </a>
+      </h3>
+      <p class="authors">N. Rux, S. Neumayer</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.04910" target="_blank" rel="noopener">arXiv:2609.04910</a> · 2026-09-04T09:11:45Z</p>
+      <p class="summary">
+        <span class="en">Two small input augmentations transform normalized softmax reduction into Gaussian kernel sums with arbitrary signed weights, allowing existing Flash Attention code to execute the operation. For feature dimension D &gt; 8 in fp16, the approach beats compiled PyTorch and PyKeOps kernels in speed, memory overhead, and accuracy while retaining linear memory scaling. The result is attractive because it inherits mature GPU optimization, but its advantage depends on dimension, precision, and the available Flash Attention implementation.</span>
+        <span class="zh">研究通过两项小型输入扩展，将归一化softmax归约转化为支持任意有符号权重的高斯核求和，从而可直接使用现有Flash Attention代码执行。对于fp16且特征维度D &gt; 8的任务，该方法在速度、内存开销与精度上超过编译后的PyTorch和PyKeOps内核，同时保持线性内存扩展。其优势在于继承成熟的GPU优化，但收益取决于维度、精度和可用的Flash Attention实现。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.05060" target="_blank" rel="noopener">
+          <span class="en">Postprocessing Data Loss Distorts Quantum Neural Networks</span>
+          <span class="zh">后处理数据丢失扭曲量子神经网络结果</span>
+        </a>
+      </h3>
+      <p class="authors">S. V. Panambalom, E. Altamura, N. Chancellor, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.05060" target="_blank" rel="noopener">arXiv:2609.05060</a> · 2026-09-04T12:22:13Z</p>
+      <p class="summary">
+        <span class="en">A Qiskit SamplerQNN postprocessing assumption discards 85–99.6% of valid measurement shots when hardware bit strings span more than 100 physical qubits. On identical raw measurements, the resulting inference accuracy falls from 0.94 to 0.39, while the training-loss signal shrinks by 22–27× without an API warning. Tests on two IBM backends show that classical plumbing can silently dominate quantum-model quality, although this remains a case study of one software path.</span>
+        <span class="zh">Qiskit SamplerQNN后处理中的一项假设，在硬件位串跨越100多个物理量子比特时会丢弃85%至99.6%的有效测量shots。对同一组原始测量数据，推理准确率因此从0.94降至0.39，训练损失信号则缩小22–27倍，且API没有发出警告。两台IBM后端上的测试表明，经典软件链路可能静默地主导量子模型质量，但这仍只是针对一条软件路径的案例研究。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-08 01:19 UTC · <a href="../2026-09-08.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-09-08 01:19 UTC · <a href="../2026-09-08.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

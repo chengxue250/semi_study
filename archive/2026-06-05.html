@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-05">
+<meta name="generator" content="semi-news-daily">
+<title>The AI Memory Wall Goes Systemwide — Semi News 2026-06-05</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Lang visibility — pure CSS off the body[data-lang] */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, June 5, 2026</span>
+      <span class="zh">2026年6月5日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">The AI Memory Wall Goes Systemwide</span>
+      <span class="zh">AI内存墙蔓延到全系统</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI demand is no longer just lifting accelerator orders. It is pulling DRAM away from other industries, forcing export-control scrutiny, reshaping fab computing, and giving inference challengers a sharper opening.</span>
+      <span class="zh">AI需求不再只是推高加速器订单。它正在挤压其他行业的DRAM供给，引发出口管制审查，重塑晶圆厂计算基础设施，也给推理挑战者留下更明确的切入口。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/industry-coalition-urges-trump-administration-to-take-urgent-action-as-ai-data-centers-extreme-memory-consumption-threatens-other-industries-ai-driven-memory-chip-shortage-could-raise-prices-in-automotive-medical-telecommunications-sectors" target="_blank" rel="noopener">
+          <span class="en">Trade groups warn AI data centers are squeezing memory supply for other industries</span>
+          <span class="zh">行业组织警告AI数据中心正在挤压其他行业存储供应</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 1h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A coalition of nine U.S. trade associations urged the Trump administration to address an AI-driven memory shortage, warning that DRAM supply and pricing could spill into consumer electronics, autos, medical devices, broadband and other sectors through at least 2027. The story matters because the AI memory bottleneck is leaving the data-center lane and becoming a broader industrial-allocation problem. If policymakers respond, memory procurement could start to look more like a strategic supply-chain issue than a normal component cycle.</span>
+        <span class="zh">由九个美国行业协会组成的联盟敦促特朗普政府应对AI驱动的存储短缺，并警告DRAM供应和价格压力至少到2027年都可能波及消费电子、汽车、医疗设备和宽带等行业。这条新闻重要，因为AI存储瓶颈已经离开数据中心单一赛道，变成更广泛的产业分配问题。如果政策层面介入，存储采购会越来越像战略供应链问题，而不是普通零部件周期。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE9QOWlqUWJWWWdnVExmVmlzY2FjWVZfc2dFNlF6TmU5WnN2NjNlWjVrUVZrZWhMd3hOcnlYLWRId3pfU2tJdU9ublR3RkV5Uk5zdWpzZkZiS2FXZXUxTFhmdDRFSXc5Q1BwXzg1MlpCRlFPYnltbzBOc1BXTQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron receives Nvidia memory-chip approval</span>
+          <span class="zh">美光获得Nvidia存储芯片认证</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Barron&#x27;s via Google News</span> · 1h ago</span>
+        <span class="zh"><span class="source">Barron&#x27;s via Google News</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Barron&#x27;s reports that Micron received memory-chip approval from Nvidia, even as the stock reaction was mixed. Qualification is the key signal: Nvidia&#x27;s AI platform demand is large enough that any validated memory supplier can gain strategic relevance quickly. For buyers, more qualified supply helps, but it does not erase the broader DRAM and HBM capacity tension showing up across the market.</span>
+        <span class="zh">Barron&#x27;s报道称，美光获得Nvidia存储芯片认证，尽管股价反应并不单向。真正的信号是认证本身：Nvidia AI平台需求足够大，任何通过验证的存储供应商都可能迅速获得战略地位。对买方而言，更多合格供应有帮助，但并不能消除整个DRAM和HBM市场的产能紧张。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5relZtRE5MRzByOUVPR01Zb2szR2VnN0hvUW5xZmhsY2cza2w3NUxoN3pjYkUweFhOaE9YSkJZT0dacktHVUF1NTdSS2RvaENBMGpoRS1fY0FSaWRfaEdadWxYOWhtNFE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Jensen Huang says all three Korean HBM suppliers passed Nvidia qualification</span>
+          <span class="zh">黄仁勋称三家韩国HBM供应商均通过Nvidia认证</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec via Google News</span> · 5h ago</span>
+        <span class="zh"><span class="source">The Elec via Google News</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec reports that Jensen Huang said all three Korean HBM suppliers have passed Nvidia qualification. That broadens the approved supplier base, but it also shows how much leverage Nvidia has over the memory roadmap: supplier qualification effectively decides who can participate in the next AI buildout. The market still has to watch volume, yield, stack mix and package availability, not just qualification status.</span>
+        <span class="zh">The Elec报道称，黄仁勋表示三家韩国HBM供应商都已通过Nvidia认证。这扩大了合格供应商基础，也显示Nvidia对存储路线图拥有多强的话语权：供应商认证实际上决定谁能参与下一轮AI建设。市场仍需关注出货量、良率、堆叠组合和封装可得性，而不只是认证状态。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxNaHRaWEZlamM5X1lZTmV1TFdCRDVjT1lodWxnVkFsUnVraTRfTWtTcDdXcmZMZVo0MW04T3ZfS2Zhd1hrMjIzRll2Z0o5UzZDSGxieEJXTkNKQnBCTUhLanZIZHIyMmQ5dDdJc0FNVFc0VVNtZlJZcjg5R3hsakZ2bUJBdE9YS1YySG1wQmNPTQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Kioxia argues SSDs are the answer when HBM is too expensive and DRAM cannot scale</span>
+          <span class="zh">Kioxia称在HBM太贵、DRAM难扩时SSD可承接agentic AI</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 10h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes reports that Kioxia used Computex to argue SSDs can help serve agentic AI workloads when HBM is too expensive and DRAM cannot scale. The claim is partly vendor positioning, but the workload point is real: long-context and agentic systems are pushing storage, memory and cache hierarchies into one optimization problem. NAND vendors are trying to move from capacity suppliers to active participants in AI inference architecture.</span>
+        <span class="zh">DigiTimes报道称，Kioxia在Computex表示，当HBM过于昂贵且DRAM难以扩展时，SSD可帮助支撑agentic AI工作负载。这个说法带有供应商立场，但工作负载问题是真实的：长上下文和智能体系统正在把存储、内存和缓存层级推成一个整体优化问题。NAND厂商正在试图从容量供应商变成AI推理架构的主动参与者。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPQXlCdU82VVgySWRtNGM2S0tnR3RGeGpHVm52S0tGWUE5UldpbDlpTjR2VHA4Zmp6MVVkMWVFTkVOYkswV2pvdk5KSHJRekhfTWZaQjBvNWxiZ0o5cEhNREU3Y2FUWGZqb3h3RWxOLUJUOWRyRjJWZ2ZYcHI3N2x0Vll5QjgyM1M5ZWtF?oc=5" target="_blank" rel="noopener">
+          <span class="en">CXMT hiring in South Korea puts Samsung and SK hynix on alert</span>
+          <span class="zh">长鑫在韩国招聘引发Samsung与SK hynix警惕</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 11h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes says CXMT&#x27;s hiring spree in South Korea is putting Samsung and SK hynix&#x27;s memory lead on alert. Talent movement is a quiet but material part of the memory race, especially when China is trying to close technology gaps under export-control pressure. The story is less about one recruiting push and more about how DRAM capability is becoming a national supply-chain contest.</span>
+        <span class="zh">DigiTimes称，长鑫在韩国的招聘动作让Samsung和SK hynix对其存储领先地位保持警惕。人才流动是存储竞争中低调但关键的一环，尤其是在中国试图在出口管制压力下缩小技术差距时。这条新闻不只是一次招聘，而是说明DRAM能力正在成为国家级供应链竞争。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNTkNtRE9mbFptRFZIVV9rYXRuTW5jbFFpMmRZRlpSNEthLVFuRGhfSl9WYUptT3ZDMjQ2RmFqb1RPcjZnd3ZQZlhVRzJvbFpyVWJicE52S3dHd2d3RnR1NDVkU3dybmxab0hXcThndHYwbXQ2b1l3RlAyYmFYbThoNzUza2s1OXJkQklSYllxQmpQYjlucXVLTkY1THE4d9IBowFBVV95cUxPbVFYSnBzS0hzc1Bkck1FbFl4X3F4QURobVMzZHVSSXpuRV9pTmEzb0ZqalJKMmxVdjhMa1ZRZDMySHhiSUZOU0JpWDR3bFhmbDNMTHFEcldkWlF1WS14blFEbjdLSmZrSVFqeE9aVkpEVUxXdjVyR3RwLW1oUHVWdjN4X1c2RzBhSGtseF9tY1hzRGZES1RxM2pEdGJOME1yTEZV?oc=5" target="_blank" rel="noopener">
+          <span class="en">Warren invites Jensen Huang to testify on Nvidia&#x27;s China AI-chip sales</span>
+          <span class="zh">Warren邀请黄仁勋就Nvidia对华AI芯片销售作证</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CNBC via Google News</span> · 16h ago</span>
+        <span class="zh"><span class="source">CNBC via Google News</span> · 16小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CNBC reports that Senator Elizabeth Warren invited Nvidia CEO Jensen Huang to a Senate hearing focused on China AI-chip sales. The political context is clear: lawmakers are moving from abstract export-control rules to direct scrutiny of company sales channels and compliance choices. For Nvidia, China exposure now carries policy risk alongside revenue upside.</span>
+        <span class="zh">CNBC报道称，美国参议员Elizabeth Warren邀请Nvidia CEO黄仁勋出席聚焦中国AI芯片销售的参议院听证会。政治背景很清楚：立法者正在从抽象出口管制规则转向直接审查公司销售渠道和合规选择。对Nvidia而言，中国业务现在既有收入吸引力，也有政策风险。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxNY0E4bzYyOEIxNTVmZEV4Tk5XcUkyblFzTVFYanJ1bXoyT25TcFVDczUxSnd2WmdWUjI4QWllNmZOVU1xTDNQc1BfVUFGdDJQZGp0bG1ZT0V1UzRUamstMWhoTGVOMUo3V2dQcm50MjRSekQ0enRnZ1hrcHB4WUpUWEpwQzQwV1NCSzJBZm5oV3NZZmpLTWlhQ2xYb1Q2WlRsOUk5ck5kNkpwbkRpX2JJZE1KNkNabkRvd3NNWldra2dVNzdUUlU2OGNiMjNIRlh3cWJJYnNhYmdJOFhRSk9J?oc=5" target="_blank" rel="noopener">
+          <span class="en">US closes loophole for Chinese-owned overseas subsidiaries buying AI chips</span>
+          <span class="zh">美国封堵中国企业境外子公司购买AI芯片漏洞</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN via Google News</span> · 16h ago</span>
+        <span class="zh"><span class="source">MSN via Google News</span> · 16小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says the U.S. closed a loophole that allowed Chinese-owned subsidiaries outside China to buy AI chips. The practical effect is to make beneficial ownership and end-use harder to route around with offshore entities. That raises compliance costs for distributors and cloud hardware buyers, and it tightens the same AI supply chain already strained by memory and packaging constraints.</span>
+        <span class="zh">报道称，美国关闭了允许中国企业境外子公司购买AI芯片的漏洞。实际影响是，让受益所有权和最终用途更难通过离岸实体绕开。它会提高分销商和云硬件买家的合规成本，也会进一步收紧本已受存储和封装限制的AI供应链。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPZWRVbER2eUVud3VqeXE0N2lENS1feWs0MXdkMFZPRkFYdkc1MXlad09taXJkNzBrMkl5d1dmQWlkSHJnSVRNUTJUUi1FS1h6VDNQVmZENTA4THctdFlVUWc4enFKNGRvZEVZdmV2cDJNalhpbzRJZ0txUTZEVDJFbHUtS2NHcnFlM3k3YlJhTUZYc2pTZ1FKOG9tb2h4UzRaVFhoVHI4RmtJSjM5SXpKbzdoa0gwbV85bzd4VjRB?oc=5" target="_blank" rel="noopener">
+          <span class="en">Commerce finalizes CHIPS incentives with Powerex for semiconductor manufacturing components</span>
+          <span class="zh">美国商务部与Powerex敲定CHIPS激励，增强半导体制造关键部件产能</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">NIST via Google News</span> · 2h ago</span>
+        <span class="zh"><span class="source">NIST via Google News</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The U.S. Department of Commerce finalized CHIPS incentives with Powerex to enhance domestic production capacity for key semiconductor manufacturing components. This is not a headline-grabbing leading-edge fab award, but it targets the component layer that determines whether manufacturing capacity is resilient. The announcement fits the broader policy shift from funding fabs alone to hardening the supply chain around them.</span>
+        <span class="zh">美国商务部与Powerex敲定CHIPS激励，以增强美国国内关键半导体制造部件产能。这不是最吸睛的先进晶圆厂补贴，但它瞄准的是决定制造能力是否具备韧性的部件层。该公告符合更大政策转向：不只补贴晶圆厂，也要强化其周边供应链。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE55S2lWLV80RF9fajk5MWtHX3hyeDBwTXkwRmZwdXc1bGNfRjlUWGRoMEh1MXU4QlNiQmY4VUtUaGEydnFxVkpLWUpTUWRFYlJCb2liMEVCVUxqTThYSWoxRllZd25WUTdEX2ZVY3p5c2daUGJDSHZz?oc=5" target="_blank" rel="noopener">
+          <span class="en">Microchip receives US export license for advanced FPGA R&amp;D in Armenia</span>
+          <span class="zh">Microchip获得美国出口许可，在亚美尼亚推进先进FPGA研发</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing via Google News</span> · 13h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing via Google News</span> · 13小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Microchip received a U.S. export license tied to advanced FPGA R&amp;D in Armenia. The story shows the other side of export controls: licenses can still enable controlled engineering activity when regulators accept the end-use and jurisdictional structure. For FPGA suppliers, compliance becomes part of product-roadmap execution, not only a legal back-office function.</span>
+        <span class="zh">Microchip获得与亚美尼亚先进FPGA研发相关的美国出口许可。这条新闻展示了出口管制的另一面：当监管方接受最终用途和司法辖区结构时，许可证仍可支持受控工程活动。对FPGA供应商而言，合规已成为产品路线图执行的一部分，而不只是法务后台工作。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMioANBVV95cUxNcTJqMk9qeDZZOVh6aFZNSmpPVWtLV3dCSE1xcGxwX3JSUF9ENUVoanc2RWNNWGQ5Mm44MDlIWnZaVnhqdVgzZE43emJ5eHNPUjFlRFFJNi1TMHhLZ08zNW56T2hlUnc4Tk5sbmJXME5Hd3JrRXR5LWRkUTJqR2d1YXgwazdWN1NBOG1rdmFlQVhPWVp3Sy0xOFVVSk5WTEp5VnVjTGlNVkVXZTBubTJNV1c1MU5IckxRcWlqYlZCTnkzZmF0b29EMmpqTGtxRmpPYkhtY1FfdkpxU0pwQU1qWVk4SkliNjdvb1lhN0hFNEJUTDBndk80R1hhbjB3RTdkb050aGYzSFRETnY0T0YteXlTWlFnRndya1F5QTRtdnBGdTJXQTN3aWkzd2xYcExhQlFSWkQwV3Y3ZDZ0OWVBR1QtTU5PNEdPekhoejRhbWZfa3UzUDFRTWRaQ1RDeVYyMGpRTzlBZXZoZnJITXZGdWk4dXY0U2lzUDF4cTBNVTBpa2dJWlRrQmFiSk40TG5YeVkxcW9oX3EtNUNyZlFVOA?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC taps Nvidia accelerated computing for next-generation semiconductor fabs</span>
+          <span class="zh">TSMC采用Nvidia加速计算推进下一代半导体工厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters via Google News</span> · 4h ago</span>
+        <span class="zh"><span class="source">Reuters via Google News</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Reuters-linked report says TSMC is using Nvidia accelerated computing to drive next-generation semiconductor fabs. The significance is architectural: AI is not only the demand driver for chips, it is becoming part of the manufacturing stack that designs, simulates and operates fabs. As process complexity rises, compute infrastructure inside EDA and fab workflows becomes a competitive lever.</span>
+        <span class="zh">一条Reuters相关报道称，TSMC正采用Nvidia加速计算推进下一代半导体工厂。其意义在架构层面：AI不只是芯片需求来源，也正在进入设计、仿真和运营晶圆厂的制造技术栈。随着制程复杂度上升，EDA和fab流程中的计算基础设施会成为竞争杠杆。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPRXlmV2xaLU85OUNVd3VnaDg1ZmRzd185Zk5DeGF4UWlyVjVYVk1xVE5NNDFSeWx6UnpOTFctaUlPYTNtd2g2VzRrMkhBTm9xZTYyV0x0Qmt0OHdmV3RuRVpGLVZNTzVVcmhzM1ZLZ290NXZORUJiN0l0Ry05M3F0U09mTV80TzM2U0o5NEhJbUxsVmVKUGZ2d0g4Yl9POExTYS1hQ20yaXZDNXhZX1E?oc=5" target="_blank" rel="noopener">
+          <span class="en">Alchip taps AWS for semiconductor design and simulation workloads</span>
+          <span class="zh">Alchip采用AWS承载半导体设计与仿真工作负载</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Data Center Dynamics via Google News</span> · 37m ago</span>
+        <span class="zh"><span class="source">Data Center Dynamics via Google News</span> · 37分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Data Center Dynamics reports that Alchip is tapping AWS for semiconductor design and simulation workloads. Cloud EDA is moving from convenience to capacity planning as AI chips grow larger and verification demand rises. For ASIC design-service firms, access to elastic compute can become a schedule advantage, especially when customers are racing to secure AI silicon windows.</span>
+        <span class="zh">Data Center Dynamics报道称，Alchip正在采用AWS承载半导体设计与仿真工作负载。随着AI芯片规模扩大、验证需求上升，云端EDA正从便利工具变成产能规划的一部分。对ASIC设计服务公司而言，弹性计算能力可能成为进度优势，尤其是在客户争夺AI芯片窗口期时。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTFBoWlJyUlpKOEFMNXQzaXVMLVM0LTRPUEFLUHZUUDFfVjkySHJjcHgxX0QwVGJWWG1NdGZHbGRlXzNBNGNnNV9DMkVUeVZqNVFjNTV6OE9iamFEenJudUF0eW9ZdDdwcS02SE54M3A2cDJsNnB2NDJVUi1NWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Intel teams with Foxconn to build rack-scale AI infrastructure</span>
+          <span class="zh">Intel与Foxconn合作建设机架级AI基础设施</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing via Google News</span> · 14h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing via Google News</span> · 14小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel and Foxconn are teaming on rack-scale AI infrastructure. The partnership points to the same shift seen across Computex: AI hardware is increasingly sold as a rack and systems problem rather than a standalone chip SKU. Intel needs partners that can turn silicon, boards, power, cooling and deployment logistics into a credible alternative to Nvidia-led infrastructure.</span>
+        <span class="zh">Intel与Foxconn正合作建设机架级AI基础设施。这项合作指向Computex上反复出现的同一趋势：AI硬件越来越被作为机架和系统问题销售，而不是单颗芯片SKU。Intel需要能把硅、板卡、供电、散热和部署物流组合成可信替代方案的伙伴。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/netrasemi-brings-up-a2000-ai-chip-begins-customer-evaluation-phase/" target="_blank" rel="noopener">
+          <span class="en">Netrasemi brings up A2000 AI chip and begins customer evaluation</span>
+          <span class="zh">Netrasemi点亮A2000 AI芯片并进入客户评估阶段</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 16h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 16小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">EE Times reports that Indian startup Netrasemi brought up its A2000 AI chip, built on a 12-nm node, and began customer evaluation. This is early-stage silicon rather than a volume platform, but it is meaningful for India&#x27;s ambition to move beyond services and packaging into local AI-chip products. Customer evaluation is the first real test of whether the chip has a software and workload story, not just a tapeout milestone.</span>
+        <span class="zh">EE Times报道称，印度初创公司Netrasemi点亮基于12nm节点的A2000 AI芯片，并开始客户评估。这还是早期硅片，而不是量产平台，但对印度从服务和封装走向本土AI芯片产品的目标有意义。客户评估才是真正检验芯片是否有软件和工作负载故事的第一关，而不只是流片里程碑。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPSFVMSk1FMUw0RXVVVjV2SEtnVzZEcUhMUTEtSHAxQWd3VmFhVlRNYUNUWTFRWEdvNkJKQ2FsMWticHpMdGRUcHRlNUVaM1czbEFxeC1JVkl2akg3RUxidU00SzZXUkNLLUM1OFRCQzAycUstWGVKMm02Q2t3QktCWDRPNWNwajlzWFNuOVJNcHc?oc=5" target="_blank" rel="noopener">
+          <span class="en">SambaNova challenges GPU dominance in AI inference at Computex</span>
+          <span class="zh">SambaNova在Computex挑战GPU推理主导地位</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Google News</span> · 5h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Google News</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes reports that SambaNova used Computex to challenge GPU dominance in AI inference. The opening is real because inference economics are increasingly shaped by memory movement, batching, latency and software specialization, not only peak FLOPS. The hard part for challengers remains conversion: they must prove total-cost and deployment advantages inside real customer stacks.</span>
+        <span class="zh">DigiTimes报道称，SambaNova在Computex上挑战GPU在AI推理中的主导地位。这个切入口是真实的，因为推理经济性越来越受内存搬运、批处理、延迟和软件专用化影响，而不只是峰值FLOPS。挑战者最难的部分仍是转化：它们必须在真实客户技术栈中证明总成本和部署优势。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBvWkdZVENjMEw5NE1MRWpEX0s0NFVDMjdvd1BQM2FZT29aU1hOazVMbDNnc0doZW1mQXA1ZHY4czNtcjhxZU0tWTVmOU5UWF9QcjVjNU5sUzFzTzkyUnZxRGJmRlE2cms?oc=5" target="_blank" rel="noopener">
+          <span class="en">Korea finalizes 800 billion won budget for on-device AI-chip program</span>
+          <span class="zh">韩国敲定8000亿韩元端侧AI芯片项目预算</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec via Google News</span> · 15h ago</span>
+        <span class="zh"><span class="source">The Elec via Google News</span> · 15小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec reports that Korea finalized an 800 billion won budget for an on-device AI-chip program. That places edge AI silicon inside a national industrial plan rather than leaving it only to datacenter-scale GPU competition. The program will matter if it produces deployable chips and software for phones, autos, robotics and public-sector devices, not just research prototypes.</span>
+        <span class="zh">The Elec报道称，韩国敲定8000亿韩元预算用于端侧AI芯片项目。这把边缘AI芯片纳入国家产业计划，而不是只押注数据中心级GPU竞争。该项目的关键在于能否为手机、汽车、机器人和公共部门设备产出可部署芯片与软件，而不只是研究样机。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-05 14:13 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-05 14:13 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

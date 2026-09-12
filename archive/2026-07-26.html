@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-26">
+<meta name="generator" content="semi-news-daily">
+<title>National AI Stacks Pull Supply Chains Inward — Semi News 2026-07-26</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Sunday, July 26, 2026</span>
+      <span class="zh">2026年7月26日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">National AI Stacks Pull Supply Chains Inward</span>
+      <span class="zh">国家级AI体系牵引供应链内聚</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Samsung’s foundry pact, CXMT’s market debut, and new inference and semiconductor initiatives in South Korea and Bangladesh show capital and procurement being organized around more self-contained technology stacks. The contest now extends from accelerators into memory, materials, and manufacturing.</span>
+      <span class="zh">Samsung的晶圆代工协议、CXMT上市，以及韩国和孟加拉国的新推理与半导体计划，都显示资本与采购正围绕更自主的技术体系重新组织。竞争已从加速器延伸至存储、材料和制造环节。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOOGp6bk90Tk5vcUVjQ2pVQ2hTRnJKcU1DZ1NjM2FEMGU1djRlVG9URlNkVEcyR0IzMTBRMExfRHVweTNHWkRmR3NxU215bVNxajJGWW5uMktNMExGaXBmcjRvbk9VZVdMRkZOdlk0Mmo3VHExVzYzb051ZTUwTlJPTkxIQXYwNzdzTzFyWnNySDVxbnRoYWYtMmUycXFmWXc?oc=5" target="_blank" rel="noopener">
+          <span class="en">AI90 Tiers HBM, DDR, and SSD Capacity Across Eight RTX 5090 GPUs</span>
+          <span class="zh">AI90以HBM、DDR和SSD分层扩展八张RTX 5090</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechRadar</span> · 6h ago</span>
+        <span class="zh"><span class="source">TechRadar</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AI90 combines HBM, DDR, and SSD storage to extend the usable memory capacity of a system built around eight RTX 5090 GPUs, according to TechRadar. The tiered design targets a recurring inference constraint: model and KV-cache footprints can exceed local GPU memory even when sufficient compute is available.</span>
+        <span class="zh">据TechRadar报道，AI90把HBM、DDR和SSD组成分层存储，为配备八张RTX 5090 GPU的系统扩展可用内存容量。该设计瞄准推理中的常见约束：即便算力充足，模型与KV-cache的占用仍可能超过GPU本地显存。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxQVVhSemYyWk9XZmJzMXhYLXFvUm1rdElNNW0zYVktUlBGVFdtbHNJa1NBX2gwSGNVbEZpbnlYVi1CcnBvT1BiZEtNSHdDSDllMTNYQXVKMDN2UEdTS2ZOb1FPNzFBMEhpRERtOXVkODJ5ZEEycTVnRXpaTzlsX2Y5ZXdmUndUakpPUlAtaHY3NzIxczd5X3k4ODk0dW9Fenk0TzlCQ2dQaml2aURvTEgtNENFNTVodmcybEVlTGQ5Nmt4Nm9LUTJNOXV2U05jV3ByVzB5cU85OExDRWlKRjlJ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Wins $200 Billion Broadcom AI-Chip Partnership</span>
+          <span class="zh">Samsung赢得Broadcom价值$2000亿的AI芯片合作</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 10h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung Electronics secured a $200 billion AI-chip partnership with Broadcom, giving its foundry business a major new anchor customer, Reuters reports. The scale of the agreement could strengthen Samsung’s challenge to TSMC if it converts into sustained advanced-node and packaging volume rather than remaining a broad spending commitment.</span>
+        <span class="zh">据Reuters报道，Samsung Electronics与Broadcom达成价值$2000亿的AI芯片合作，为其晶圆代工业务带来一个重要的锚定客户。若这项协议最终转化为持续的先进制程与封装订单，而不只是宽泛的支出承诺，其规模可能增强Samsung对TSMC的竞争力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxQNnVhLXpobUpscUJxakpwVWpLQUpMcEdoZXhSYkVrS1lON2ZJeEUyWEY0NnY5c2FFRV81ZmVBclFHQXF6QTdwQmdWZkY3QzlvN2JyTzRrckY5Ui03T0o1TVQwYlE3OTJwUF9Fa1ZUb2RQOWMtc191TW1GSmJHYXBzVkFoWjhZcG1FeDZBbkNPbWRLODBXVTZ5YkNVNnh4Zm9XY01QSnBFY3AtNmdYRGFRbTB1ekJiYkVxMEZfWnFfcDRpMUE3amk4OUJxdU9zOFBsNUJHUW5WNnlYTHc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Major Motherboard Vendors Validate CXMT DDR5</span>
+          <span class="zh">主要主板厂商完成CXMT DDR5验证</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Major motherboard makers have validated CXMT DDR5 modules, although the products remain difficult for most US system builders to purchase, Tech Times reports. Broad platform validation is an important commercialization step for the Chinese DRAM supplier, but restricted channel availability still limits its reach outside its home market.</span>
+        <span class="zh">据Tech Times报道，主要主板厂商已完成对CXMT DDR5模组的验证，但多数美国整机组装商仍难以采购这些产品。广泛的平台验证是这家中国DRAM供应商走向商业化的重要一步，不过受限的渠道覆盖仍压缩了其海外市场空间。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE5kVWN4bnB3c2QzT3pub0pTeUdSSTNQemxJTGVCWlh4SVJfNUFZdkxjcGpCNkpQS3FBT1FBZVBPTkpmM1RMbllvY25lU1otSXllODVvTkhuNzh2V1hwbHJMSy0tN0JnTEhoZkxFanlpTGo2czV5Tmc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Apple Weighs CXMT and YMTC Supply as Memory Costs Rise</span>
+          <span class="zh">存储成本上升之际，Apple考虑引入CXMT与YMTC</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo Finance</span> · 6h ago</span>
+        <span class="zh"><span class="source">BigGo Finance</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Apple is considering a memory-supply agreement with CXMT and YMTC as component costs rise, according to BigGo Finance. Any procurement shift would carry unusual policy risk because both suppliers face US security restrictions, turning a cost decision into a test of how far global electronics buyers can diversify toward Chinese memory.</span>
+        <span class="zh">据BigGo Finance报道，随着元器件成本上升，Apple正考虑与CXMT和YMTC达成存储供应协议。由于两家供应商均面临美国安全限制，任何采购调整都将承担非同寻常的政策风险，也会检验全球电子产品厂商能在多大程度上转向中国存储供应。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxNRzB5SnVjUEJxb0RBRXlneEpFdTIyZHR4RDZ4X25maHBhSXh6X001WDNhWTlIUmR6Snp6ZTNUVUkxNDktbXQyWXRDUkpEWUlMVDFmQnN4QWVGTlZLUVByamkxaTROcG5GTTl1TVZLVndPaG5nYy15YnY3NTgtZm5IWV9qNkQzaWlDM0ZxS0Mtbw?oc=5" target="_blank" rel="noopener">
+          <span class="en">KKR Plans Gradual Exit as LCY Expands Chip Materials</span>
+          <span class="zh">LCY加速扩张半导体材料业务，KKR计划逐步退出</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 1h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">KKR is planning a gradual exit from LCY Group while the company accelerates expansion of its semiconductor-materials business, DigiTimes reports. The sequencing matters because LCY must fund and execute capacity growth while a major financial shareholder reduces its exposure, potentially reshaping its capital structure during an investment cycle.</span>
+        <span class="zh">据DigiTimes报道，LCY Group正在加速扩张半导体材料业务，与此同时KKR计划逐步退出持股。两项动作同步发生值得关注：LCY需要在大股东降低敞口之际为产能扩张筹资并推进建设，其资本结构可能在投资周期中发生变化。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxNbFhkSmFvN0NWWDVzeGNBeUhNeTVteGoxS0xaLWhJT3ZGTWNUY0JrNlVqczlKWk1xWEozN0hPcDVLZk1MVGEycFZBOWxaMkxMbGM4ZnR4V3FhTWlsNTFIaHJLRGpEUGRHRlFNTktsVWIxMHdJVGtKejhmcFdKTUpTdFQ3RE5QV09BaTk4cQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">CXMT Debut Tests China’s State-Funded Chip Strategy</span>
+          <span class="zh">CXMT上市检验中国国家资本支持的芯片战略</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 7h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CXMT’s market debut puts China’s state-funded route to semiconductor scale under public-market scrutiny, according to a Reuters analysis syndicated by AOL. The listing can supply capital for DRAM expansion, but investors will also have to price the equipment constraints and technology-access risks created by US export controls.</span>
+        <span class="zh">据AOL转载的Reuters分析，CXMT登陆资本市场，使中国依靠国家资本推动半导体规模化的路径开始接受公开市场检验。上市可为DRAM扩张补充资本，但投资者也必须为美国出口管制造成的设备约束与技术获取风险定价。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQWnJuaDI2enJGVmxHVHdCSE14S25zUExpMnQyZzQ4NDI3bDExQ1BHSHhWLUwxTi1HRU1YSXJ3Z1NxT3dQUC1kYm1mRGs4UWFwLTdzemgzNWtlc0w1V25kT3d1RHJaMU1OejUwRzZhRVp3ck40d05MRFBDRVhiQ0dXSmlmMTRUbUlnY0o5UlR3N0Fnb2VJbUFOczRXc0h6SVlRNnFCYUQ5OVJGbllMUXF4SVpaa2tJcmpHaTVjcFdB0gHDAUFVX3lxTE1kS3pqVW96SFJSRXNwZGl2bXNQLXNuNGFiYjFjWmFjSlZzekxIN0pLZzFVbkVWXy1VVldENWxWSGZlRGtTQ0lNanlfUnlwRzI3ZlpFdkhaMDc5OGhzY1JPMkd3NTQ1ZVZBb09jWFpjUGxRSjdUbXJDakdTLVpRN2RnYmJpQ2VwOWkzN0VkQnp0Wjh6enJhaGY0OS1qVUdvYXVHYU9nSVFuZDI3d01URWtvQ21IaVFnUnliSjhVODhuc1BvMA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Bangladesh’s $1 Billion Chip Ambition Enters the Execution Phase</span>
+          <span class="zh">孟加拉国$10亿半导体计划进入执行阶段</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Business Standard</span> · 6h ago</span>
+        <span class="zh"><span class="source">The Business Standard</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bangladesh’s $1 billion semiconductor ambition is moving from policy framing into an execution phase, The Business Standard reports. Delivering it will depend on converting the headline target into workforce, infrastructure, and credible private investment, illustrating the higher bar facing new entrants to the global chip supply chain.</span>
+        <span class="zh">据The Business Standard报道，孟加拉国规模达$10亿的半导体计划正从政策构想进入执行阶段。能否落地取决于能否把宏观目标转化为人才、基础设施和可信的私人投资，也凸显新参与者进入全球芯片供应链所面临的更高门槛。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE4zODVPSTZyZ2Vsa0FEM2I3cl9aWHdXZkJ6cjlaSHBVVU5zWXNlb3g3VGlRem16cGc1d3hKWm9TRDQ1ZjM2QjBBQ2VreXc5SEZZWFppdm0yT05oaG9pMmJTV0pROEN3Umxsei1EZmJJdnI1VnRDX0EzdGJR0gGOAUFVX3lxTE9QdHprU0hMTWdXWmFmcTBELVZpU2hLLXhpYXg5c1h4dVFJckwzNVVEZFFQUlNQbThiQ0lUblJWb20yUi1kTHpvQlUyLUZ0OUV1YXVHUzc5TGRrcEtXYW55UUJQTG5HbkhLZ0FaTncwSTVDMDdDYV9MT3pBakhrd3pyOEtiTXM5UDh1LXFQREE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Rebellions Teams With Arm and SKT on Korean AI Inference</span>
+          <span class="zh">Rebellions联手Arm与SKT推进韩国AI推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ChosunBiz</span> · 4h ago</span>
+        <span class="zh"><span class="source">ChosunBiz</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Rebellions is working with Arm and SK Telecom on South Korea’s shift toward domestically anchored AI inference, ChosunBiz reports. The combination gives the accelerator challenger an established CPU ecosystem and a telecom deployment channel, two ingredients that matter more than peak benchmark claims when competing for production workloads.</span>
+        <span class="zh">据ChosunBiz报道，Rebellions正与Arm和SK Telecom合作，推动韩国AI推理向本土主导的体系转移。这一组合为这家加速器新势力带来成熟的CPU生态和电信部署渠道；在争取生产级负载时，这两项条件比单纯的峰值基准成绩更关键。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-26 01:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-26 01:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

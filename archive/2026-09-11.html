@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-11">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Stretches the Chip Stack — Semi News 2026-09-11</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, September 11, 2026</span>
+      <span class="zh">2026年9月11日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Stretches the Chip Stack</span>
+      <span class="zh">AI需求拉紧芯片全栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">HBM scarcity is lifting Chinese AI-chip prices by as much as 50%, while record TSMC sales, an accelerated 14A timetable and fresh CPO funding show demand pulling capital through the wider stack. The same expansion is also drawing closer antitrust scrutiny.</span>
+      <span class="zh">HBM短缺令中国AI芯片价格最高上涨50%；与此同时，台积电创纪录营收、提前的14A时间表以及CPO新融资显示，AI需求正把资本牵引至更广泛的芯片全栈。伴随市场扩张，反垄断审查也在同步收紧。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.nextplatform.com/connect/2026/09/10/broadcom-rides-rocketing-trend-for-custom-ai-accelerators/5295681" target="_blank" rel="noopener">
+          <span class="en">Broadcom Rides the Shift Toward Custom AI Accelerators</span>
+          <span class="zh">Broadcom乘上定制AI加速器浪潮</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Next Platform</span> · 15h ago</span>
+        <span class="zh"><span class="source">The Next Platform</span> · 15小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Broadcom is benefiting as hyperscalers expand their use of custom AI accelerators alongside merchant GPUs. The shift matters because more workload-specific silicon can redirect data-center spending toward ASIC design, networking and packaging, widening the AI hardware market beyond Nvidia&#x27;s general-purpose accelerator franchise.</span>
+        <span class="zh">随着超大规模云厂商在通用GPU之外扩大定制AI加速器部署，Broadcom正从这一趋势中受益。更多面向特定负载的芯片会把数据中心支出引向ASIC设计、网络与封装，使AI硬件市场不再只围绕Nvidia的通用加速器体系展开。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/deepseek-v4-1-flash-beats-openais-gpt-5-6-sol-and-anthropics-opus-5-on-coding-and-cybersecurity-at-an-86x-lower-cost-while-reducing-hbm-requirements-by-3-8x-and-ssd-ones-by-8x/" target="_blank" rel="noopener">
+          <span class="en">DeepSeek V4.1 Flash Targets Lower HBM and SSD Footprints</span>
+          <span class="zh">DeepSeek V4.1 Flash瞄准更低HBM与SSD占用</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 18h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 18小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DeepSeek&#x27;s V4.1 Flash is reported to cut HBM requirements by 3.8 times and SSD requirements by eight times while posting competitive coding and cybersecurity results. If those comparisons hold across production workloads, the model could reduce the memory capacity and storage bandwidth needed per inference deployment; the performance and cost claims still need independent validation.</span>
+        <span class="zh">报道称，DeepSeek V4.1 Flash在编码与网络安全测试中保持竞争力，同时将HBM需求降低3.8倍、SSD需求降低8倍。若这些对比能在生产负载中成立，该模型可显著降低每套推理部署所需的内存容量与存储带宽；其性能和成本结论仍需独立验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/tsmc-reportedly-accelerates-1-4nm-production-to-april-2027-pulling-its-most-advanced-chips-a-full-year-ahead-of-schedule/" target="_blank" rel="noopener">
+          <span class="en">TSMC Reportedly Pulls 14A Trial Production Into April 2027</span>
+          <span class="zh">报道称台积电将14A试产提前至2027年4月</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 14h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 14小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC could begin trial production of its 1.4nm-class 14A process in Taichung in April 2027, with mass production following in the second half, according to a report cited by Wccftech. That would move the leading-edge timetable roughly a year forward and tighten the execution window after the 2nm ramp, though the schedule remains reported rather than company-confirmed.</span>
+        <span class="zh">据Wccftech引述的报道，台积电可能于2027年4月在台中启动1.4nm级14A制程试产，并在下半年进入量产。此举将最先进制程时间表提前约一年，也会压缩2nm爬坡后的执行窗口；不过该进度目前仍属媒体报道，尚未获公司确认。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/cpus/apples-new-a20-pro-smartphone-chip-around-25-percent-faster-than-its-predecessor-in-leaked-benchmark-the-2nm-cpu-in-the-iphone-duo-and-18-pro-hits-nearly-5-ghz-clocks" target="_blank" rel="noopener">
+          <span class="en">Leaked Apple A20 Pro Benchmark Shows a 25% Gain</span>
+          <span class="zh">泄露测试显示Apple A20 Pro性能提升25%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 19h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 19小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">An early Geekbench 6 result reportedly puts Apple&#x27;s 2nm A20 Pro about 25% ahead of its predecessor, with CPU clocks approaching 5 GHz. The result offers an initial signal for the performance available from the first wave of 2nm mobile silicon, but a leaked single benchmark does not establish sustained performance, power efficiency or shipping-bin behavior.</span>
+        <span class="zh">一项早期Geekbench 6结果显示，Apple采用2nm制程的A20 Pro较前代快约25%，CPU频率接近5 GHz。这为首批2nm移动芯片的性能提供了初步信号，但单项泄露测试仍无法说明持续性能、能效或量产分档表现。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFB0dnRsVFg0RTE1X2taNlNpOVd3d0gwY2l5ZUhwVEh3Ni05Y0hzTzRqOEZyejhCanZwTW5fNDFCQm9qMDF1VDYzc015Y0gyQUlhcGtBNlhQWmZad3N2RFFrSUtmZ2xKc1luLVV0SzhPeUVPWDZvblE?oc=5" target="_blank" rel="noopener">
+          <span class="en">HBM Crunch Lifts Huawei and Cambricon AI-Chip Prices by Up to 50%</span>
+          <span class="zh">HBM短缺令华为与寒武纪AI芯片价格最高上涨50%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo News</span> · 17h ago</span>
+        <span class="zh"><span class="source">BigGo News</span> · 17小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Huawei and Cambricon have reportedly raised AI-chip prices by as much as 50% as constrained HBM supply increases system costs. The increase shows that memory availability, not just accelerator die output, is setting the effective price and deployment pace of China&#x27;s domestic AI infrastructure.</span>
+        <span class="zh">报道称，受HBM供应受限推高系统成本影响，华为与寒武纪将AI芯片价格最多上调50%。这表明决定中国国产AI基础设施实际价格与部署节奏的，不只是加速器裸片产量，内存可得性同样关键。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOT19sMklxdVVtLXdhRDlaY1h2Z0VzS2JUeDJLbzRfbThoN3lfTWJXaU1nVW9wbmszaTRfblJ6YzVpMWxuRnAyTFVCblhTenMxbkNTVFBJSnBUbVlHNW5PME9jaVJxVWw2cEJaVE1walBtRTZzOTlJYjFkOHV0T1pHS2ZPbjlNVG0xU19MRk15ZGJvdUNaN19uaGtNd0dsMFM1VW5Ca2NnbjB3T0diTFpGMTFST01HalYyLW1sQ1dDaGN2NXRzQUo0bHpCa1NoS0pyS0YtN0xUdFA5REpKZmfSAd4BQVVfeXFMTk9fbDJJcXVVbS13YUQ5WmNYdmdFc0tiVHgyS280X204aDd5X01iV2lNZ1VvcG5rM2k0X25SemM1aTFsbkZwMkxVQm5YU3pzMW5DU1RQSUpwVG1ZRzVuTzBPY2lScVVsNnBCWlRNcGpQbUU2czk5SWIxZDh1dE9aR0tmT245TVRtMVNfTEZNeWRib3VDWjdfbmhrTXdHbDBTNVVuQmtjZ24wd09HYkxaRjExUk9NR2pWMi1tbENXQ2hjdjV0c0FKNGx6QmtTaEtKcktGLTdMVHRQOURKSmZn?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML Backs 12-Inch Photomasks for High-NA EUV</span>
+          <span class="zh">ASML支持High-NA EUV采用12英寸光掩模</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Simply Wall St</span> · 13h ago</span>
+        <span class="zh"><span class="source">Simply Wall St</span> · 13小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML is backing a move toward 12-inch photomasks for High-NA EUV lithography. A larger mask format could give advanced-node patterning more room for complex layouts and process control, but adoption would require coordinated changes across mask making, inspection, handling and fab infrastructure.</span>
+        <span class="zh">ASML正支持High-NA EUV光刻转向12英寸光掩模。更大的掩模格式可为先进制程的复杂版图与工艺控制提供更多空间，但其落地需要光掩模制造、检测、搬运及晶圆厂基础设施协同升级。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQVGZWdUhxMGFVNm1ZT0JfRzdOOXRLX29SNEVpbl9sdnE5MF9LTTMweHFsd0JodUFOMHczWmVUajVnZGJxYzF1aDM4QXVobEp1bmxWSXZCTUFoWkM5WmUyem05NHNJNUY5Z1VuRm82LXhEdWVPRFN0R1QxQVRSeHZEU3VpYmZ0T1VQRXdmekJiWFdlc05FNGVMM3pwWXZ0VmRKOUE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Reported DOJ Review Puts Nvidia&#x27;s $17 Billion Groq Deal in Focus</span>
+          <span class="zh">据报美国司法部审查聚焦Nvidia与Groq的170亿美元交易</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechStock²</span> · 11h ago</span>
+        <span class="zh"><span class="source">TechStock²</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A reported US Department of Justice probe is putting Nvidia&#x27;s $17 billion Groq licensing deal under antitrust scrutiny, while Nvidia shares fell 2.4%. The review matters because licensing and talent arrangements can transfer strategic accelerator technology without a conventional acquisition, testing how regulators treat consolidation in AI hardware.</span>
+        <span class="zh">据报道，美国司法部正对Nvidia价值170亿美元的Groq许可交易展开反垄断审查，Nvidia股价随之下跌2.4%。许可与人才安排可在不进行传统收购的情况下转移关键加速器技术，因此此次审查将检验监管机构如何界定AI硬件领域的集中度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPWlhfdjkzd3dXZ3dqYVIxSW5HemVEb0EwdGUzWFBIUGJmWHpUN1dVWXBPeUJpQXh1SzJnQzhkbDJLSklhNlFZV1pZZFNPLXNMWVRXN0ZJeEF3eEw3ZnBDa0NHY3R3V1F2bTM0QU54TVFLMHZWdUo1WFNRMHg1NWJYbnFvMzlVODlndUhLcFR3X2c4WXNRdHRRbUowdEczWjl4Z0t0VDROWkl3TmdwdDNmNk1mRzlRWk9fbXc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Altera Prepares an IPO That Could Raise More Than $2 Billion</span>
+          <span class="zh">Altera筹备IPO，募资规模或超20亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 13h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 13小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Silver Lake- and Intel-backed Altera is preparing an IPO that could raise more than $2 billion as early as 2026, Reuters reported. A listing would establish a public valuation for the standalone FPGA business and give investors a fresh read on demand for programmable logic outside the largest AI accelerators.</span>
+        <span class="zh">据Reuters报道，由Silver Lake与Intel支持的Altera正筹备IPO，最快可于2026年募资超过20亿美元。上市将为这项独立FPGA业务建立公开估值，也让投资者重新评估大型AI加速器之外的可编程逻辑需求。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPcDZ1WmdmRnZXTWJBbFFpNXFzX1FJQWJici1KMlJGS0YwaG9QdzlXM0dxa3MwQlNadkszb25tLXpqV2hOTmd4eThiUi1pTnYwV1FBRXNUNzBwZTYtU0FFOGZNWDlHbW9RVjNJUFdONHhOX3IyMzllTXNfYVVCTWpQakc4WE4xV2Jpd3ZhVjhYR3DSAZYBQVVfeXFMUDdLWmVNQnE2bGluQi1OdFpPQlBzYkNzcnJLWWFhRlFnblQ2Vzg2OUxHS3doSXR2TE80OGliLTgtaU1ZdlZhRi1iTkk0YXhrT2VFdDUwR3M3aUx3WUVvMXpDN1VJR0p5NWRUN2hNN1NMVFNkSWJ6QzlBMFlCdTJsU01yNjRGbzYzUm04X1hwd3c0MzdQNURB?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Posts Record $16.26 Billion August Revenue</span>
+          <span class="zh">台积电8月营收创纪录，达162.6亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechPowerUp</span> · 20h ago</span>
+        <span class="zh"><span class="source">TechPowerUp</span> · 20小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC reported record August revenue of $16.26 billion, with sales up 53% in the cited report as AI demand filled advanced-node capacity. The result reinforces the foundry&#x27;s role as the clearest upstream read-through for accelerator demand, although one month of revenue does not by itself resolve the pace of the broader semiconductor cycle.</span>
+        <span class="zh">台积电8月营收创下162.6亿美元纪录，报道所引销售额增长53%，AI需求持续占用先进制程产能。该数据再次表明台积电是观察加速器需求最清晰的上游窗口，但单月营收本身仍不足以判断整个半导体周期的速度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxPMWQzNGVZeWhUaFpRdFowMy1tR1VRalpmYTVOZGdQRDJab2hud3VMRkFZOWUwSzh2UEhUZ3J0WEx5cWJPeWR3Q2swQmdhM0lYeHhKQktaQmVkVGphS2VWaS1LVDMwcVFqVGowQ0duVGhPNWVWY3hsdHk3YWgtZWMtTzNiZk5qM0RpTm9fbkhxNHZ1WkhMZ3dVdzRzTmo2QQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Ayar Labs Takes 2026 Funding to $650 Million for CPO Manufacturing</span>
+          <span class="zh">Ayar Labs 2026年融资增至6.5亿美元，用于CPO制造</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">HPCwire</span> · 17h ago</span>
+        <span class="zh"><span class="source">HPCwire</span> · 17小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Ayar Labs has brought its 2026 funding total to $650 million to scale manufacturing for co-packaged optics. The capital signals that optical I/O is moving from laboratory demonstrations toward the supply-chain work needed for volume systems, where packaging yield and manufacturing capacity will matter as much as link performance.</span>
+        <span class="zh">Ayar Labs将2026年融资总额提高至6.5亿美元，用于扩大共封装光学（CPO）制造。资金流向表明光学I/O正从实验室演示迈向批量系统所需的供应链建设，届时封装良率与制造能力将和链路性能同样重要。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBhd1BWVEs3UGdMUktQWUlYdmM5bFlvN0NOa3JpeHFpNTNTV3BqbEd3c09XM1J3SWpERHN1amtJZDBsVDlwS28wZk80bENUWVlZeDR5RkRTdjdTT0xqNW5MTzJuMFRVR2lkWVQ3Z09HbUYzUTJkOXc?oc=5" target="_blank" rel="noopener">
+          <span class="en">d-Matrix Adopts Nvidia NVLink Fusion for Inference Servers</span>
+          <span class="zh">d-Matrix推理服务器采用Nvidia NVLink Fusion</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo News</span> · 17h ago</span>
+        <span class="zh"><span class="source">BigGo News</span> · 17小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AI-chip startup d-Matrix plans to use Nvidia&#x27;s NVLink Fusion interconnect in data-center inference servers. Access to the link technology can make its accelerators easier to integrate into Nvidia-centered racks, trading some platform independence for a shorter route to deployable multi-chip systems.</span>
+        <span class="zh">AI芯片初创公司d-Matrix计划在数据中心推理服务器中采用Nvidia的NVLink Fusion互连技术。接入这一链路可降低其加速器融入Nvidia主导机架的难度，以部分平台独立性换取更短的多芯片系统落地路径。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-11 11:40 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-09-11 11:40 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

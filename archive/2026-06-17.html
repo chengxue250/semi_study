@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-17">
+<meta name="generator" content="semi-news-daily">
+<title>Packaging and Memory Set AI&#x27;s Pace — Semi News 2026-06-17</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, June 17, 2026</span>
+      <span class="zh">2026年6月17日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Packaging and Memory Set AI&#x27;s Pace</span>
+      <span class="zh">封装与存储决定AI节奏</span>
+    </h1>
+    <p class="dek">
+      <span class="en">The day&#x27;s strongest signals sit below the model layer: advanced packaging capacity, HBM4 supply, process-node risk production, and tools that shorten the path to manufacturable AI hardware. Policy and CHIPS incentives are still shaping where that capacity lands.</span>
+      <span class="zh">今天最强的信号不在模型层，而在先进封装产能、HBM4供给、制程风险生产以及缩短AI硬件落地周期的工具链。政策与CHIPS激励仍在决定这些产能最终落在哪里。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/06/16/amds-mext-buy-shows-how-ai-could-solve-the-ram-shortage-it-created/5257352" target="_blank" rel="noopener">
+          <span class="en">AMD&#x27;s Mext Deal Targets AI&#x27;s Memory-Expansion Problem</span>
+          <span class="zh">AMD收购Mext瞄准AI内存扩展难题</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 3h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD&#x27;s Mext acquisition points at flash-backed memory expansion as a way to ease the DRAM pressure created by larger AI systems. The strategic point is not just capacity, but tiering: if software can hide latency well enough, systems may stretch scarce and expensive RAM across more inference and enterprise workloads. That matters as accelerator platforms increasingly bottleneck on memory footprint rather than raw compute.</span>
+        <span class="zh">AMD收购Mext，把基于flash的内存扩展推到AI系统内存压力的解决方案之一。重点不只是容量，而是分层：如果软件能够足够好地掩盖延迟，系统就可能把稀缺且昂贵的RAM覆盖到更多推理和企业工作负载。这对加速器平台很重要，因为瓶颈越来越多来自内存占用，而不是纯算力。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.nextplatform.com/compute/2026/06/16/tensordyne-converts-ai-matrix-math-to-logs-to-crank-up-inference-oomph/5256558" target="_blank" rel="noopener">
+          <span class="en">Tensordyne Uses Log-Domain Math to Push AI Inference</span>
+          <span class="zh">Tensordyne用对数域计算推进AI推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Next Platform</span> · 6h ago</span>
+        <span class="zh"><span class="source">The Next Platform</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tensordyne is pitching an inference approach that converts AI matrix math into logarithmic operations. The attraction is lower-cost arithmetic for workloads where matrix multiply dominates power and silicon area. It is a challenger-chip story, but also a reminder that inference efficiency is being attacked at the numerical representation layer, not only through bigger GPUs.</span>
+        <span class="zh">Tensordyne提出一种推理路线，把AI矩阵计算转换为对数运算。其吸引力在于，当矩阵乘法主导功耗和芯片面积时，可以用更低成本的算术单元完成计算。这既是挑战者芯片故事，也说明推理效率的竞争不只靠更大的GPU，还在数值表示层展开。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/sima-launches-agentic-development-environment-for-physical-ai/" target="_blank" rel="noopener">
+          <span class="en">SiMa Adds an Agentic Development Environment for Physical AI</span>
+          <span class="zh">SiMa为Physical AI推出智能体开发环境</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 7h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SiMa launched an agentic development environment aimed at moving models onto its edge AI hardware faster. The company says the tool can compress porting work from months to hours, which is material if robotics, industrial vision, and other physical-AI deployments remain software-integration limited. The story is less about a new chip and more about reducing the friction that keeps accelerators underused outside hyperscale data centers.</span>
+        <span class="zh">SiMa推出面向其边缘AI硬件的智能体开发环境，目标是更快把模型迁移到硬件上。公司称该工具可把移植工作从数月压缩到数小时；如果机器人、工业视觉等Physical AI部署仍受软件集成限制，这一点具有实际意义。这条新闻的重点不是新芯片，而是降低加速器在超大规模数据中心之外被采用的摩擦。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1WbFRVTHlYVVBPbmtPNTVmTVk2TkdmcjZScHlmUDVQT0x3aEdyaGZDOG9hcVVCSGtMUUttQ2c2eFlnZTZRRmxuMVRua2U4RTdneGEzQUhhVFZRNHhEMjRZ?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC and Amkor Sign a 10-Year Arizona Packaging Deal</span>
+          <span class="zh">TSMC与Amkor签署十年亚利桑那封装协议</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 28m ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 28分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC and Amkor struck a 10-year agreement to build out an advanced semiconductor packaging and test hub in Arizona. The deal extends the U.S. fab story beyond wafer processing into the backend steps needed for AI accelerators and chiplet products. It also ties TSMC&#x27;s local manufacturing footprint more tightly to a packaging partner that can support U.S.-based customers.</span>
+        <span class="zh">TSMC与Amkor达成十年协议，将在亚利桑那建设先进半导体封装与测试中心。这把美国建厂叙事从晶圆制造延伸到AI加速器和chiplet产品所需的后段环节。它也让TSMC在美国的制造布局与可服务本地客户的封装伙伴绑定得更紧。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/intels-performance-enhanced-18a-p-process-enters-risk-production-enhanced-node-promises-9-percent-performance-improvement-at-iso-power" target="_blank" rel="noopener">
+          <span class="en">Intel 18A-P Enters Risk Production With 9% Iso-Power Gain</span>
+          <span class="zh">Intel 18A-P进入风险生产，等功耗性能提升9%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 4h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel&#x27;s performance-enhanced 18A-P process has entered risk production, with the company positioning it as a drop-in upgrade over 18A. The reported targets are a 9% performance improvement at iso-power and a 40% reduction in thermal resistance. For Intel Foundry, the node is important because customer confidence depends on turning 18A momentum into a broader, higher-performance platform.</span>
+        <span class="zh">Intel性能增强版18A-P制程已进入风险生产，公司将其定位为18A的可替换升级版。报道给出的目标是在等功耗下性能提升9%，热阻降低40%。对Intel Foundry而言，这个节点很关键，因为客户信心取决于能否把18A的进展扩展成更完整、更高性能的平台。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/tsmc-bets-on-glass-for-cowos-as-silicon-mimicking-thermals-beat-organic-substrates-yet-mass-production-stays-distant/" target="_blank" rel="noopener">
+          <span class="en">TSMC Starts Building a Glass-Substrate Supply Chain for CoWoS</span>
+          <span class="zh">TSMC开始为CoWoS建立玻璃基板供应链</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is reportedly expanding its supplier work on glass substrates for advanced CoWoS and chip-on-panel-on-substrate packaging. The material could improve thermal behavior versus organic substrates, but mass production remains distant. The signal is that advanced packaging roadmaps are already pushing beyond today&#x27;s interposer and substrate limits as AI packages grow larger.</span>
+        <span class="zh">报道称TSMC正在扩大面向先进CoWoS和CoPoS封装的玻璃基板供应商合作。与有机基板相比，玻璃基板可能改善热特性，但距离量产仍有时间。其信号是，随着AI封装尺寸扩大，先进封装路线图已经开始越过现有中介层和基板限制。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxNRGo5XzdVQ1NIYUxPbTZqWnV6MWt3YmNuVWwtdG1NSzg1N2pZdFJNNktFQ0h3aGF5eE00XzlRNURBbHd4UDhZakJCME1PRE93XzE4eFUzMXFYaXFnWGlkZHpJX3VnVWxlNHhXODgzYUhtdUVPQzNaYzRZR0NpOHp4MHdvZnVrLVJ1NHZxV3JlYkxmS0tlTG9mNlF3Ymp3Q2RaMFplNlhkeThuUzZENDJsUlVPRnZFX0l2YXc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Leans on Turnkey Manufacturing to Win Back HBM4 Share</span>
+          <span class="zh">Samsung押注一站式制造争夺HBM4份额</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Digital Today</span> · 2h ago</span>
+        <span class="zh"><span class="source">Digital Today</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung Electronics is positioning its turnkey logic, memory, and packaging strategy as a way to regain share in HBM4. The approach matters because HBM4 qualification will depend on tight coordination between memory stacks, base dies, and advanced packaging. If Samsung can make the full stack easier for accelerator customers, it could pressure SK hynix and Micron beyond raw memory performance.</span>
+        <span class="zh">Samsung Electronics正把逻辑、存储与封装的一站式策略作为夺回HBM4份额的路径。这个方向很重要，因为HBM4认证将依赖存储堆叠、base die和先进封装之间的紧密协同。如果Samsung能让加速器客户更容易采用完整方案，就可能在单纯存储性能之外对SK hynix和Micron施压。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPci1icS1rZWVQNU1yV1V5aXprREhLVHBNdEVmLTlnUDMxSUN4emRDRXdvVjVSVHRjei1OcEtERHFXMk9yYkJ1LXVIck1RWXRlYmtKQ3JoNzJzUVo1cEU1UnpObGRKZWJ3U2JSWkVkWmx0ZEFfYW5pbC16RjQtSVBlZVVLcHVwUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron Wins an HBM4 Supplier Role for Nvidia Vera Rubin</span>
+          <span class="zh">Micron获得Nvidia Vera Rubin平台HBM4供应角色</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance Canada</span> · 4h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance Canada</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron has reportedly secured an HBM4 supplier role for Nvidia&#x27;s Vera Rubin AI platform. That would extend Micron&#x27;s AI-memory recovery from HBM3E into the next platform cycle and reduce the risk that Nvidia&#x27;s HBM4 supply is concentrated too narrowly. For the market, the takeaway is that HBM4 is becoming a platform-level qualification race, not just a density roadmap.</span>
+        <span class="zh">据报道，Micron已获得Nvidia Vera Rubin AI平台的HBM4供应角色。这将把Micron在AI内存中的复苏从HBM3E延伸到下一代平台周期，并降低Nvidia HBM4供应过度集中的风险。对市场来说，关键信号是HBM4正在变成平台级认证竞赛，而不只是密度路线图。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/eda/siemens-eda/370278-gpu-native-mask-rule-checking-eliminates-the-curvilinear-mask-rule-check-bottleneck/" target="_blank" rel="noopener">
+          <span class="en">GPU-Native Mask Rule Checking Targets Curvilinear OPC Bottlenecks</span>
+          <span class="zh">GPU原生掩模规则检查瞄准曲线OPC瓶颈</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A SemiWiki write-up highlights GPU-native mask rule checking as a way to remove a bottleneck in curvilinear mask flows. Curvilinear OPC can widen process windows at advanced nodes, but it also makes verification much heavier than Manhattan geometries. Faster checking matters because mask complexity is becoming a direct constraint on cycle time for leading-edge manufacturing.</span>
+        <span class="zh">SemiWiki报道了GPU原生掩模规则检查，用于缓解曲线掩模流程中的瓶颈。曲线OPC可以扩大先进节点的工艺窗口，但也让验证负担远高于传统曼哈顿几何。更快的检查很重要，因为掩模复杂度正在直接限制先进制造的开发周期。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOV3RrNVRWOWNnOXhQUXBiMDdQSzU3dzJuekwwWm9zUUxRVEd2eFVmSnNScVdsUUlSaHluVEpLU2F6VWZSN3VpbUh6SjdmZ2dNV2d5Z041WE9kRndRS0ZTQi1EVlRSYnV6TXIxWnVmNGRjNlV3WlM4UU1GYkdyYkR0eWVxNGxpUU5CMnhBczVROTZvQlg1cWVUenhFZnJRdjRaQ0R5NVBpYWtsdGlHRkpWbTNmOUxmUXpEX3c?oc=5" target="_blank" rel="noopener">
+          <span class="en">Software Export Controls Remain Hard to Enforce</span>
+          <span class="zh">软件出口管制仍难执行</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Politico</span> · 5h ago</span>
+        <span class="zh"><span class="source">Politico</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Politico&#x27;s item focuses on why software exports are harder to control than physical chip shipments. The policy problem is that models, weights, source code, and cloud access do not move through customs in the same way as lithography tools or GPUs. For AI and semiconductor policy, that complicates any attempt to extend hardware-style restrictions into software and frontier-model access.</span>
+        <span class="zh">Politico关注软件出口为何比实体芯片出货更难管控。政策难点在于模型、权重、源代码和云访问不会像光刻设备或GPU那样经过海关。对AI与半导体政策而言，这使得把硬件式限制扩展到软件和前沿模型访问变得更复杂。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNcjVQNDVKTWpVdnUtTi03emc0aFFSWWZNVV8xVWNXX1pzSFVyTmk4bHJ6UzJzR2xPVXQtdFExZG1uc0stazctb01RaUZLdWpnOG0xME8zUFB1U0VzdlBmclR4LXNvYkVoeGlkVnJiTklRNmRGNlBfZUxBVW1lTFpzRzB2eFQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">SIA Backs CHIPS Act Incentives for Coherent</span>
+          <span class="zh">SIA支持向Coherent提供CHIPS Act激励</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Semiconductor Industry Association</span> · 5h ago</span>
+        <span class="zh"><span class="source">Semiconductor Industry Association</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Semiconductor Industry Association welcomed CHIPS Act incentives for Coherent, a supplier tied to compound semiconductors, photonics, and materials used across advanced electronics. The item matters because U.S. industrial policy is not only funding fabs; it is also trying to reinforce upstream materials and component suppliers. Those suppliers can become bottlenecks as AI, optical networking, and advanced packaging scale together.</span>
+        <span class="zh">美国半导体行业协会欢迎向Coherent提供CHIPS Act激励；Coherent与化合物半导体、光子器件以及先进电子材料供应相关。这条新闻重要之处在于，美国工业政策不只资助晶圆厂，也在补强上游材料和组件供应商。随着AI、光网络和先进封装同步扩张，这些供应商可能成为瓶颈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxPc05UbDgycVNHRUk2dFVwbzZVQ2IyUS1sdHd6dVNDV0NfbWF2anFDU1NmWHd2bXRKazVMZU94NkxPQ3ZMejk4Y21YOVRNZEl2czliNEFzckotUnhKUnNjNDI5NlF5bms3NnNxN0R1S21RQ3JXRjFmYlJmMFZnRTRCVjVVcXpwT1JodW5oTTRHVHYyVGlJSGNFZW5Ja01hd0dkRHRGUHFMbF9Qb0NaTFpaeU8zSUJFUzdaYmItMA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Qualcomm-Tenstorrent Deal Talk Puts RISC-V AI Silicon in Focus</span>
+          <span class="zh">Qualcomm与Tenstorrent交易传闻让RISC-V AI芯片受关注</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Benzinga</span> · 7h ago</span>
+        <span class="zh"><span class="source">Benzinga</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Benzinga reports that Qualcomm shares are in focus amid talk of a potential Tenstorrent deal. Even as an unconfirmed deal story, the strategic logic is clear: Qualcomm wants more AI compute leverage, while Tenstorrent brings RISC-V processor IP and accelerator ambitions. The report highlights how challenger AI-chip teams are becoming acquisition targets as incumbents try to broaden their silicon roadmaps.</span>
+        <span class="zh">Benzinga报道称，在潜在Tenstorrent交易传闻下，Qualcomm股票受到关注。即使这仍是未确认交易，战略逻辑也很清楚：Qualcomm需要更强的AI计算杠杆，而Tenstorrent拥有RISC-V处理器IP和加速器布局。该报道说明，随着既有厂商拓宽芯片路线图，AI芯片挑战者正成为潜在收购目标。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-17 01:20 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-17 01:20 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

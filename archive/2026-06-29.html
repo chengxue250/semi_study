@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-29">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Forces Supply Chain Decisions — Semi News 2026-06-29</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Monday, June 29, 2026</span>
+      <span class="zh">2026年6月29日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Forces Supply Chain Decisions</span>
+      <span class="zh">AI需求逼出供应链决策</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Governments, foundries, memory buyers, and chip vendors are responding to AI demand with bigger investment plans, tighter sourcing choices, and consolidation. The day’s through-line is less about new product launches than about who can secure capacity, materials, and policy clearance.</span>
+      <span class="zh">政府、晶圆代工厂、存储买家和芯片厂商都在围绕AI需求扩大投资、调整采购并推动整合。今天的主线不是单一新品发布，而是谁能锁定产能、材料和政策通道。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi7wJBVV95cUxOeUVGSmw3M19pNlVxT0xBcHJQb3dFMllDWGdvelNsOUk4b0I1TU8wVnVmRUtHVWZNSnVRWkt6UFMxaDJRVDh3SFY0b2diaVphdTZ0aGJxS09kUkxYY3ZKV3NFOUdtWGhUb1M4SU91aHlrcG5EQWJVM2RGMGlCdlhPQmtGckxsZmJvTThwSExRVUhMR1BlbVl3cHpMeFF5NzJ2QmVaUmJUVnQ1VmpOY0t2YUpOZWRvRTFBaDdxWmNveFhpaFlISjZnRFM2MElRWm9PZFZxMVluSW9ubHMwNDNvYXRZVFFCeVZXRnpILTBWTzZjTE1wRkxGWW1nWmlDVVhGcWxYZEJDZHJIaGYwWDNHRjhfOTUweGhZOU9McUhPbFFiNlRoMjl1WFhqSmVBZ1dyTkFiTW1VLVJpNXJXVW52RndYaFFSODhkNWoyYXM5UTMzV0NRLWJ2TmQxUGNqZThDZ083dGJKdFdSb0JQaGdj?oc=5" target="_blank" rel="noopener">
+          <span class="en">Marvell Jumps as KeyBanc Lifts Its AI Networking Outlook</span>
+          <span class="zh">KeyBanc上调AI网络前景，Marvell股价跳涨</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 10h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Marvell shares reportedly rose 14% after KeyBanc lifted its AI networking outlook and raised the company’s price target. The move keeps optical, switching, and custom connectivity silicon in focus as AI clusters shift bottlenecks from compute alone to scale-out networking.</span>
+        <span class="zh">报道称，在KeyBanc上调AI网络业务前景并提高Marvell目标价后，Marvell股价上涨14%。这让光互连、交换芯片和定制连接芯片继续成为焦点，因为AI集群的瓶颈正从单纯算力扩展到横向扩展网络。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE51Z1FZYV8zeGFUR1hwemFWYzRodWx0bmttampPOUd3Y3otUW1RWXZLZmRZaGc0UjE4cVM4V2tOdXk3RGtiTlZxVzRHZGo4NW15WFU5RkVKNE9QNXMtMmE2RnhlTy1udWpyQzJfUzV3?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Posts 30% Revenue Surge as AI Chip Demand Holds</span>
+          <span class="zh">AI芯片需求延续，台积电收入增长30%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing</span> · 6h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC reportedly posted a 30% revenue surge, with AI chip demand still driving leading-edge foundry utilization. The result matters because advanced-node capacity remains the base layer for Nvidia, AMD, custom ASICs, and high-end networking chips, so revenue momentum also signals pressure on packaging and upstream equipment.</span>
+        <span class="zh">报道称，在AI芯片需求支撑下，台积电收入增长30%，先进制程产能利用率继续受益。其重要性在于，先进节点产能仍是Nvidia、AMD、定制ASIC和高端网络芯片的基础，收入动能也会继续传导到先进封装和上游设备。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPUUJLU3FBSlNPcHhjRng5NU53eG0xM2xYRndCNTRoTHRMYWY2bDhGa0pYYkptSEplRC1FTFlEejduYzU4dDYyN2NkRjlkNDhhMzZ5aHRaOEYzQWNvQkN1T2poa0RqV3ZFbzEtQTZjNjY0Z080OGF5V2VReWJDQm41UE82Z3VUUUV2SlNVQUotRGF5dTg?oc=5" target="_blank" rel="noopener">
+          <span class="en">Taiwan Joins the Post-HBM Memory Race With Intel and SoftBank</span>
+          <span class="zh">台湾携手Intel与SoftBank加入后HBM存储竞赛</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 1h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes reports that Taiwan is joining a post-HBM memory race involving Intel and SoftBank. The framing points to a broader search for memory architectures beyond today’s HBM supply chain as AI systems become increasingly limited by bandwidth, capacity, and packaging constraints.</span>
+        <span class="zh">DigiTimes报道称，台湾正加入一场涉及Intel和SoftBank的后HBM存储竞赛。这显示业界正在现有HBM供应链之外寻找新的存储架构，因为AI系统越来越受带宽、容量和封装约束限制。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/apple-cxmt-deal-is-for-minimizing-shortage-risk-says-analyst/" target="_blank" rel="noopener">
+          <span class="en">Apple Looks to CXMT DRAM as Shortage Risk Rises</span>
+          <span class="zh">DRAM短缺风险上升，Apple转向评估CXMT</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 6h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Wccftech reports that Apple’s possible iPhone 18 DRAM sourcing from CXMT would not solve pricing or supply tightness outright, according to an analyst, but could reduce shortage risk. The story matters because AI server demand is pulling DRAM supply away from consumer electronics, forcing large device makers to consider politically sensitive suppliers.</span>
+        <span class="zh">Wccftech报道称，分析师认为Apple为iPhone 18评估从CXMT采购DRAM，并不能直接解决价格或供给紧张问题，但可以降低断供风险。这件事重要在于，AI服务器需求正在挤占消费电子的DRAM供给，迫使大型终端厂商考虑政治上更敏感的供应商。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE4wNWFZTk5YMVZ3YjFZc0xlckJXay1wYjdjLVItNTVvRVNtNWhiSTBmb192ZE1EUTE5UXR4bHYxOWpmaEhNRVhNVThTeUVjSjNYWFctSGpKdVBPUUVhWEJGNkVZdUFGMkU?oc=5" target="_blank" rel="noopener">
+          <span class="en">High-Purity CO2 Supply Tightens for Advanced Chip Cleaning</span>
+          <span class="zh">先进半导体清洗用高纯CO2供应趋紧</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 59m ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 59分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec reports that high-purity CO2 supply is tightening for advanced semiconductor cleaning. Specialty gases and cleaning materials rarely dominate headlines, but shortages can disrupt fab qualification schedules and raise operating risk for advanced process flows.</span>
+        <span class="zh">The Elec报道称，用于先进半导体清洗的高纯CO2供应正在趋紧。特种气体和清洗材料通常不占据头条，但短缺可能扰动晶圆厂认证进度，并提高先进工艺流程的运营风险。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQTm1JeGtHUlF2WkFWNkJzMEc4N1ZSRkVRRGtNQnZaSm5JMUhpOEdUYW1XaGYwTU9ZUkYzMHllelUzaXpoUmhha2xETG11cjd6V0pHdHVCMW95X3pRaFJtUldQM2ZmV0ZwUGVpTTVyd2d3VWo3NjdWSmNZODUxenlVbWZVMS02NWhiSDA5N0VwM3FWLUE2dHdCbmNNZVRiYlZOUjJhS2cxcFRSMTAyeFFlc2EzRGF1NFQ3UWFVU3dqaklKSDlKOE9yRm1ycUhSZ3NNSmVyUU9pWdIB3wFBVV95cUxPSV9HS2VEQTgyZGxNekdvdnJiX1hiMFM1WFdrNFczUHVfZjNMWmRsUENkaDFwZ3dEUkdBSFM2REdsei1LZjdoNEZvRXZSOGJyVTE4WE1lV1lOT1Y3OUU0R21pY0RxSFg2X0lseGVmaFNTTWJtVldVUEVKbW9pYVEwRklrWGRlbk5UNExwZmVFLUhCbkpJd0E3aXAySmZOM3BfZzVsODdGU3FWNUd4UGxNN0hmRWlxTktYaGd1MW5hVDZzMW9RWVFuVzRIZGRfbFVaOWVHaW9HYWxBX3pkYjRJ?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML Denies Selling an EUV Tool to China After US Concern</span>
+          <span class="zh">美国关注相关报道后，ASML否认向中国出售EUV设备</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Insider Monkey</span> · 6h ago</span>
+        <span class="zh"><span class="source">Insider Monkey</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Insider Monkey reports that ASML denied selling an EUV chipmaking tool to China after a report of US concern. The denial keeps export-control scrutiny centered on the lithography stack, where even rumors around EUV access can affect expectations for China’s leading-edge manufacturing path.</span>
+        <span class="zh">Insider Monkey报道称，在有关美国担忧的报道出现后，ASML否认向中国出售EUV芯片制造设备。这一否认让出口管制焦点继续集中在光刻环节，因为即便是有关EUV准入的传闻，也会影响外界对中国先进制造路径的判断。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWl9RZU04V2RvaHBLYi0wYzEtQVJfNHN4SHJlRU4xMG1XM2J0R0lhMU1leWxPal9yR2JqNy1XTUxmV2kyMzBfSHFHUWVueTVGZFdkRXdackN4U1FxUFNVQXBNZFFwd1VjUkFXQm9aai00VEt5TFh4UFVSVFRPOUtrdE5vYjUzcmhZdmRRVHowdXFLVVhhbDdlUUZXaXY1ank1UjZsSE91TjFBWXk4alQwTzJVT3VxVzRyeEstcURENUVud9IBxwFBVV95cUxQakFuQjNFTkFUeDhFSzYxemhlbHh3cHBVbUt5c0NhQXdJaU5YbTA5NGlhd080Q1FkQWF2WjFMMDNGTnVYODJrRDRqeW5rVnVBQmxzc08yTnVUYVBFbFdpLWdZUlgxNUxZTHJzY3dBeGx5WnJIaUNaRURtdXY3SEdfVEpqWFRRQi05YnlzamdZVldKR1BSaFZPVGl6eklQM2dkLURMTXBjYm8yRnI2M2tHN3dGT0s3TlhnNUdZbzBCRWFQdTUtYTdV?oc=5" target="_blank" rel="noopener">
+          <span class="en">South Korea Prepares a Reported $649 Billion Chip and AI Plan</span>
+          <span class="zh">韩国拟推出6490亿美元芯片与AI投资计划</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">UPI</span> · 2h ago</span>
+        <span class="zh"><span class="source">UPI</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">UPI reports that South Korea is preparing to unveil a chip and AI investment plan valued at a reported $649 billion. The scale shows Seoul treating semiconductors and AI infrastructure as a linked industrial-policy problem, not as separate fab, memory, and software programs.</span>
+        <span class="zh">UPI报道称，韩国准备公布一项据称规模达6490亿美元的芯片与AI投资计划。这个规模表明，首尔正把半导体和AI基础设施视为一个相互绑定的产业政策问题，而不是彼此分离的晶圆厂、存储和软件项目。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE04ckhsdlgwSFNjUmVaYkdFSy1jYzVPd1o1S2hIYkhvaV9TVFJYSU1zU0FDSlBTRDI0aDY5UHVyNFRmZTNGZ19RRHljS2gzUFRUbHpyaVNQUk1jTVhSX21XRmtjNzVwSEE?oc=5" target="_blank" rel="noopener">
+          <span class="en">onsemi Plans $7 Billion All-Stock Acquisition of Synaptics</span>
+          <span class="zh">onsemi拟以70亿美元全股票交易收购Synaptics</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 59m ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 59分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec reports that onsemi plans to acquire Synaptics in a $7 billion all-stock deal. The transaction would combine onsemi’s power and sensing footprint with Synaptics’ edge, connectivity, and interface silicon, extending consolidation pressure beyond headline AI accelerator vendors.</span>
+        <span class="zh">The Elec报道称，onsemi计划以70亿美元全股票交易收购Synaptics。这笔交易将把onsemi在功率和传感领域的布局，与Synaptics的边缘、连接和接口芯片结合起来，显示整合压力正在从头部AI加速器厂商外溢到更广的芯片市场。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNMDV6U240ZTJyUmJPbVBfbi1TQ2NvMjluQnppWWxrVEU0UjEzLVVvSjQzUWFTcmMxN3hZTGg3Ym4xZ0dQbTZvaVdmRTJoYXpuVk8zT0U1dm9FNkNZd0RhMldoUjdsTGJ5NGpCVXNFUXJJU01qRWd1V1JhWHlMdnFjYTkzc1IxbnZmcWN2ODNPSXBFSXpnOGlJdkhYQUZ6M1gycWRXX3E5QmNzYUVEWmV5Um1PWU1ySTlWMkFaYjNNYjEtWFR2Y2c?oc=5" target="_blank" rel="noopener">
+          <span class="en">BASiC Semiconductor Seeks Up to HK$865.95 Million in Hong Kong IPO</span>
+          <span class="zh">BASiC Semiconductor拟在港IPO募资最多8.6595亿港元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Moomoo</span> · 2h ago</span>
+        <span class="zh"><span class="source">Moomoo</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Moomoo reports that BASiC Semiconductor plans to raise up to HK$865.95 million in a Hong Kong IPO. The listing would add another power-semiconductor name to public markets at a time when electrification, industrial drives, and data-center power delivery are drawing more investor attention.</span>
+        <span class="zh">Moomoo报道称，BASiC Semiconductor计划在香港IPO中募资最多8.6595亿港元。在电动化、工业驱动和数据中心供电吸引更多资本关注之际，这一上市将为公开市场增加一家功率半导体公司。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者公司</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9SY3E0WGNNZDBZV3U5czdnODlQajM0bE4yTEV0VmJqbjNmaUl3blJTMWFhRVBJc0NnRmR5ckw5VmRydmI2OGhZUHpzNFRkVy15UjdCZGcyTEs3RXJ3MC1CbUpReWk1SWRacGRvbUZTNFFWdVMxdHc?oc=5" target="_blank" rel="noopener">
+          <span class="en">SambaNova Reportedly Seeks a $10 Billion Valuation</span>
+          <span class="zh">SambaNova据称寻求100亿美元估值</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">HarianBasis.co</span> · 3h ago</span>
+        <span class="zh"><span class="source">HarianBasis.co</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">HarianBasis.co reports that SambaNova Systems is seeking a $10 billion valuation as it competes with Nvidia. The number shows that private AI-chip and full-stack AI vendors can still command large funding ambitions, even as the market increasingly asks whether challengers can turn specialized architectures into durable deployments.</span>
+        <span class="zh">HarianBasis.co报道称，SambaNova Systems在与Nvidia竞争的过程中寻求100亿美元估值。这个数字说明，私有AI芯片和全栈AI厂商仍有很高融资目标，但市场也越来越关注这些挑战者能否把专用架构转化为持续部署。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5DNEpKc3NZZlhDOG1xN25WNXE1QVRKTWR5YkxYZGEzTkRMaDROZXhXZkZERHdWTU9tX1lYakVzNVNacjE5cC1tVGZwelFkZG5pX2JLRUV6OHlGRTBEVzFIVGVqdmVCUnM?oc=5" target="_blank" rel="noopener">
+          <span class="en">SemiFive Records Its First Overseas Mass-Production Revenue</span>
+          <span class="zh">SemiFive录得首笔海外量产收入</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 58m ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 58分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec reports that SemiFive recorded its first overseas mass-production revenue. For a design-platform and ASIC services player, overseas mass production is a stronger commercial signal than a design win because it suggests customer silicon has moved into revenue-generating volume.</span>
+        <span class="zh">The Elec报道称，SemiFive录得首笔海外量产收入。对设计平台和ASIC服务公司来说，海外量产比单纯设计中标更能说明商业进展，因为这意味着客户芯片已经进入可产生收入的规模化阶段。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-29 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-29 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

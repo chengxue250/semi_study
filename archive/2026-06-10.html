@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-10">
+<meta name="generator" content="semi-news-daily">
+<title>Capacity Expands as Supply Controls Tighten — Semi News 2026-06-10</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, June 10, 2026</span>
+      <span class="zh">2026年6月10日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Capacity Expands as Supply Controls Tighten</span>
+      <span class="zh">产能扩张与供应管控同步收紧</span>
+    </h1>
+    <p class="dek">
+      <span class="en">TSMC is widening its N2 and advanced-packaging footprint while China, Europe, and the UK pursue more sovereign compute capacity. The expansion is colliding with tighter export scrutiny and persistent constraints in memory and substrates.</span>
+      <span class="zh">台积电正扩大N2与先进封装布局，中国、欧洲和英国也在推进更自主的算力产能。与此同时，出口审查趋严，存储与封装基板的供应约束仍未消退。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/artificial-intelligence/369947-disaggregating-ai-compute-to-break-the-tokens-barrier/" target="_blank" rel="noopener">
+          <span class="en">Disaggregated AI Compute Targets the Token-Throughput Barrier</span>
+          <span class="zh">解耦式AI计算瞄准Token吞吐瓶颈</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 44m ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 44分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SemiWiki examines disaggregating AI compute as a way to raise token throughput without simply building ever-larger monolithic data centers. The approach matters because power, water, land, and interconnect limits are becoming first-order constraints on scaling inference infrastructure.</span>
+        <span class="zh">SemiWiki探讨通过解耦AI计算来提升Token吞吐，而不是一味建设更庞大的单体数据中心。其意义在于，电力、用水、土地和互连能力正成为推理基础设施扩张的一阶约束。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/analyzing-tsmcs-fab-expansion-roadmap-multi-fab-n2-ramp-cowos-soic-and-uncorking-bottlenecks" target="_blank" rel="noopener">
+          <span class="en">TSMC Coordinates Multi-Fab N2 Ramp with CoWoS and SoIC Expansion</span>
+          <span class="zh">台积电协同推进多厂N2量产与CoWoS、SoIC扩产</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 2h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is pursuing simultaneous N2 ramps across multiple fabs while expanding CoWoS and SoIC capacity for AI accelerators. Coordinating leading-edge wafers with advanced packaging is critical because packaging, rather than transistor supply alone, has repeatedly limited accelerator shipments.</span>
+        <span class="zh">台积电正同步推进多座晶圆厂的N2量产，并扩大面向AI加速器的CoWoS与SoIC产能。先进制程晶圆必须与先进封装协同扩张，因为限制加速器出货的往往不只是晶体管产能，还包括封装能力。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihwJBVV95cUxNWFFwY2xQMHpSbXdjdUNJTm9OcllrWjlod21pNEJYa0lkTXlOS09YQVVGeFVmQWtJU29WazR5RmVCSjFQQ0lxLUpWai1Zc0Zjb1NKQW1EZmRwUWozai01TzVqM2VBaXltVl9Ya05XS04zNk8yRUNiZ0dhMnBkT2lCekxBMUhhUEFqdHBkMzRraWIxdGZSMzI0b0FaSm5aU1gtTWxUNERLR3J3dTRhWU55RWY1UmlFQTBTNWpmcC1ZWWZHOHJPZ25oNzJLSDRhWFJrWjNyOHNnS3hjSFJyakJZeEl2QUR3MkRRQkdjY1gzT2RNMGpvQ0ZfVF9PbVFtUlY5ZlBSeUNiRQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">GlobalFoundries and Qualinx Demonstrate a European Secure-Chip Manufacturing Flow</span>
+          <span class="zh">GlobalFoundries与Qualinx展示欧洲安全芯片制造流程</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Business Wire</span> · 2h ago</span>
+        <span class="zh"><span class="source">Business Wire</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">GlobalFoundries and Qualinx announced a European manufacturing flow for security-critical semiconductors. The demonstration is a concrete step in Europe&#x27;s effort to keep sensitive chip design and production within a regionally controlled supply chain.</span>
+        <span class="zh">GlobalFoundries与Qualinx宣布完成面向安全关键型半导体的欧洲制造流程展示。这一进展为欧洲将敏感芯片的设计与生产保留在区域可控供应链内提供了更具体的落点。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQN28xMVVPeklmdVFBSTE5dFFtNzE1aW1XY0ZlVlJRQlNoX044aGdoZkRmbFZFOFc0YjZlN0RrR2taX1NOS1N2SXNtdlB5ZllQTi1zSVFTWlhyQngzZ1lFbkhFajZMSmxWVF9lT1hYWmhESXRFYXFHNTJGR0VWZzh3SWZNNHl3THN6WkdQSHFISlJzZk1BbkZhQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Intel Positions Xeon 6+ as Its First Efficient-Core Server Chip on 18A</span>
+          <span class="zh">Intel将Xeon 6+定位为首款采用18A的能效核服务器芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Data Centre Magazine</span> · 3h ago</span>
+        <span class="zh"><span class="source">Data Centre Magazine</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel&#x27;s Xeon 6+ is presented as the first efficient-core Xeon processor manufactured on the company&#x27;s 18A process. A successful server-product ramp would give Intel Foundry an important internal proof point for 18A yield, performance, and manufacturing readiness.</span>
+        <span class="zh">Intel的Xeon 6+被定位为首款采用公司18A工艺制造的能效核Xeon处理器。若服务器产品能够顺利放量，将为Intel Foundry验证18A的良率、性能和制造成熟度提供重要的内部样板。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9XVnpUVDhtSk5NRFo5dmExMnJBM19CVUtaSWE0YURQdV91ekoyNmQ1NGZSYkhZV0VGQXlvNEVnSTlEU1VraExZTW5LWWU4bm54TlJN?oc=5" target="_blank" rel="noopener">
+          <span class="en">Substrate Supply Tightens Alongside HBM and Memory</span>
+          <span class="zh">HBM与存储趋紧之际，封装基板也出现短缺</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Maeil Business Newspaper</span> · 4h ago</span>
+        <span class="zh"><span class="source">Maeil Business Newspaper</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Maeil Business Newspaper report says substrate availability is tightening alongside HBM and other memory, with large technology buyers offering funding in exchange for volume. The pattern shows that AI supply constraints are spreading beyond chips into the packaging materials needed to assemble them.</span>
+        <span class="zh">《每日经济新闻》报道称，在HBM及其他存储供应趋紧的同时，封装基板也开始短缺，大型科技买家甚至提出以资金换取产量。该趋势表明，AI供应瓶颈正从芯片本身扩散至组装芯片所需的封装材料。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/ai-driven-memory-shortage-upends-it-budgets/" target="_blank" rel="noopener">
+          <span class="en">AI-Driven Memory Shortage Forces IT Budget Revisions</span>
+          <span class="zh">AI驱动的存储短缺迫使IT预算重新调整</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 5h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Surging memory prices and shortages are making servers and PCs harder for enterprise IT departments to procure. The impact is moving upstream demand from an infrastructure issue into corporate budgets, where higher component costs can delay refresh cycles and data-center deployments.</span>
+        <span class="zh">存储价格上涨和供应短缺正使企业IT部门更难采购服务器与PC。影响已从基础设施供应问题传导至企业预算，更高的部件成本可能推迟设备更新周期和数据中心部署。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBwWUxKNE1HRXZNdmtvUWExV1lqa2Fmc2hGZDd4bzU0U2lkWmdUTC1RTk9tazgtVkdXWW01YVVUZ0VNbWlCRWMtNi11TklEc2gzMU1QcDlZUV9SNmh0RHVxZGJ3c2pxTk9uMi0xZ19Zb2RDZXJfQS0wR0VnOV9NVkU?oc=5" target="_blank" rel="noopener">
+          <span class="en">Chinese Optical-Chip Process Claims to Avoid UV Lithography</span>
+          <span class="zh">中国光芯片工艺声称绕开紫外光刻</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GIGAZINE</span> · 3h ago</span>
+        <span class="zh"><span class="source">GIGAZINE</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Chinese company reportedly manufactured optical chips without ultraviolet lithography equipment. If the process proves scalable, it could reduce dependence on restricted lithography tools for a specialized class of photonic devices, though it does not imply a substitute for leading-edge logic lithography.</span>
+        <span class="zh">报道称，一家中国公司在不使用紫外光刻设备的情况下制造出光芯片。如果该工艺能够规模化，它可能降低特定光子器件对受限光刻工具的依赖，但这并不意味着其可替代先进逻辑芯片所需的光刻技术。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSk5QdUYyWmI4VEh6MGtwQmpRbmRnUG5mQjdqUzNqUElQVDBjNG1qcXBZQ0dnMlV2UTI3QjhyX2lmdF9ST203dG41X1c0WlpBclJiMkV3ZG1nTEExakRtOGlpWWNKc1Y1NEZYdFdubjJZRTJNTURuNmNfaHZBanYyenhjSll0aVIyNTBzX3BnZERqSVpwUVlTcXBtaDEzemt3Q3FWeXpMNks?oc=5" target="_blank" rel="noopener">
+          <span class="en">UK Commits £1.1 Billion to AI and Semiconductors</span>
+          <span class="zh">英国向AI与半导体投入11亿英镑</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Open Access Government</span> · 2h ago</span>
+        <span class="zh"><span class="source">Open Access Government</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The UK is investing £1.1 billion in its AI and semiconductor sectors. The commitment adds public capital to the competition for domestic compute, chip expertise, and research capacity, although execution will determine how much manufacturing depth it creates.</span>
+        <span class="zh">英国将向AI与半导体产业投入11亿英镑。这笔公共资金将用于争夺本土算力、芯片人才和研发能力，但最终能形成多深的制造基础，仍取决于具体执行。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE5MZ182b21wN1F4QWhCWDNpa2pEN2liY1gxcjBGamt1MDFZRi15TWNsU1hsY2ZXbFRoZ2F3TEVlZlFMcVZjVVVhX1VLcmlxRWFzV1Fxa2JHUUc?oc=5" target="_blank" rel="noopener">
+          <span class="en">US Lawmakers Target TSMC Supply Loopholes Using Chinese Shell Companies</span>
+          <span class="zh">美国议员瞄准中国空壳公司获取台积电供应的漏洞</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Taiwan News</span> · 3h ago</span>
+        <span class="zh"><span class="source">Taiwan News</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">US lawmakers are scrutinizing whether Chinese shell companies can circumvent restrictions to obtain chips made by TSMC. Closing that route would increase customer-screening and traceability obligations across foundries, distributors, and design firms.</span>
+        <span class="zh">美国议员正审查中国空壳公司是否能够绕过限制，获得台积电制造的芯片。若这一渠道被封堵，晶圆代工厂、分销商和芯片设计公司的客户审查与供应链追踪义务都将增加。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/china-drafts-295-billion-plan-to-build-a-national-ai-data-center-grid-running-on-80-percent-domestic-chips" target="_blank" rel="noopener">
+          <span class="en">China Drafts $295 Billion AI Data-Center Grid Built Around Domestic Chips</span>
+          <span class="zh">中国拟建2950亿美元国产芯片AI数据中心网络</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 3h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">China is drafting a roughly 2 trillion yuan, or $295 billion, five-year plan for a national AI data-center grid targeting 80% domestic silicon by 2028. The scale would create a major demand anchor for local accelerators, networking, memory, and power equipment, but domestic chip production may limit the timetable.</span>
+        <span class="zh">中国正拟定一项约2万亿元人民币、折合2950亿美元的五年计划，建设全国AI数据中心网络，并争取到2028年实现80%的国产芯片占比。其规模将为本土加速器、网络、存储和电力设备创造巨大需求，但国内芯片产能可能制约进度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE9vMjFOLVpvZncwc1l0VVVRQWtEbWR5WC12QmEydkNsTElaMTFkNzJPMlhYWFZjWkNINXpaZDU3QjBPb28ySEdtLXc0UUg3NkxFanY2blh3aw?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Posts Record May Revenue Above NT$416.9 Billion</span>
+          <span class="zh">台积电5月营收突破4169亿新台币创纪录</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Focus Taiwan</span> · 5h ago</span>
+        <span class="zh"><span class="source">Focus Taiwan</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC reported record May sales exceeding NT$416.9 billion as AI-related chip demand remained strong. The result supports the case that leading-edge foundry and advanced-packaging demand is still expanding even as investors debate the durability of the AI capital-spending cycle.</span>
+        <span class="zh">在AI相关芯片需求保持强劲之际，台积电公布5月营收超过4169亿新台币，创下纪录。该数据表明，先进制程代工与先进封装需求仍在扩张，尽管市场仍在讨论AI资本开支周期能持续多久。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/06/10/spacemit-shows-off-usably-quick-risc-v-mini-desktop/5252935" target="_blank" rel="noopener">
+          <span class="en">SpacemiT Demonstrates a Practical RVA23 RISC-V Mini Desktop</span>
+          <span class="zh">进迭时空展示可实用的RVA23 RISC-V迷你桌面机</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 4h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SpacemiT demonstrated a mini desktop based on actual RVA23-class RISC-V hardware with performance described as usable. A credible desktop system broadens RISC-V&#x27;s position beyond embedded devices, while price and software compatibility remain decisive for adoption.</span>
+        <span class="zh">进迭时空展示了一款基于RVA23级RISC-V硬件的迷你桌面机，其性能已被描述为具备实用性。可信的桌面系统可推动RISC-V走出嵌入式设备，但价格和软件兼容性仍将决定其采用速度。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-10 13:45 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-10 13:45 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

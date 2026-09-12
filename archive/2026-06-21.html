@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-21">
+<meta name="generator" content="semi-news-daily">
+<title>AI Scale Tests Capacity, Power, and Control — Semi News 2026-06-21</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Sunday, June 21, 2026</span>
+      <span class="zh">2026年6月21日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">AI Scale Tests Capacity, Power, and Control</span>
+      <span class="zh">AI规模化考验产能、电力与管控</span>
+    </h1>
+    <p class="dek">
+      <span class="en">From TSMC&#x27;s booked-out capacity and panel packaging to 48GB HBM4E and a $47 billion-per-gigawatt Vera Rubin build, scaling AI is now constrained by physical infrastructure. Governments are tightening oversight at the same time, from chip-tracking proposals to Chinese antitrust and EUV disputes.</span>
+      <span class="zh">从TSMC排满的产能与面板级封装，到48GB HBM4E和每吉瓦造价$470亿的Vera Rubin数据中心，AI规模化正受到实体基础设施的制约。与此同时，各国也在收紧监管，包括芯片位置追踪提案、中国反垄断执法以及EUV订单争议。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/foxconn-pegs-nvidia-vera-rubin-ai-datacenter-at-47-billion-per-gigawatt/" target="_blank" rel="noopener">
+          <span class="en">Foxconn Prices a Vera Rubin AI Datacenter at $47 Billion per Gigawatt</span>
+          <span class="zh">Foxconn估算Vera Rubin AI数据中心每吉瓦造价$470亿</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Foxconn estimates that a 1-gigawatt NVIDIA Vera Rubin installation could cost about $47 billion and carry roughly $1.3 billion in annual electricity bills. The figures put power delivery and capital intensity alongside GPU supply as first-order constraints on the next AI datacenter buildout.</span>
+        <span class="zh">Foxconn估算，部署1吉瓦NVIDIA Vera Rubin系统可能需要约$470亿，年度电费约为$13亿。这组数字表明，除GPU供给外，供电能力与资本强度也已成为下一轮AI数据中心建设的一级约束。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/data-centers/china-unifies-tech-sector-to-build-grid-free-orbiting-satellite-ai-data-centers-challenging-elon-musks-spacex-beijings-forced-chip-and-satellite-alliance-announced-a-week-before-musks-ai1-reveal" target="_blank" rel="noopener">
+          <span class="en">Beijing Organizes an Alliance for Orbital AI Datacenters</span>
+          <span class="zh">北京组建轨道AI数据中心产业联盟</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Beijing has formed the Space Computing Industry Innovation Center to bring rocket and satellite manufacturers, chipmakers, and AI laboratories into a common program for orbiting datacenters. The project is still an industrial coordination effort rather than an operating system, but it links domestic silicon development with an attempt to move computing beyond terrestrial grid limits.</span>
+        <span class="zh">北京成立空间计算产业创新中心，将火箭与卫星制造商、芯片企业和AI实验室纳入轨道数据中心计划。该项目目前仍是产业协同机制，而非已投入运行的系统，但它把国产芯片发展与突破地面电网约束的计算构想连接起来。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVkhWZmZhYkl2X3kzT3k3XzJaT3FBbU12ek5RN1Ztc0U3cW5sMDdLWGlrVmozLUMzYWY5VzJGamlWekdLMGhaUHhNRkE3SlFWOWlfWmVaN1ItbXhPOUI2MmpXSGt5SEpOQ3RzaWd3TW9yOFdZS2N2NEtocWhHR1h5TlBTMmQ5OWdsa3NJTmxxODVLazdGQ1JqZFBXREtXdXJpZXgxdm8weEhBeFo1TlFWQm9vZTlmLXpERmZHNXZHUTRvc0p1RDhKZA?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Capacity Is Reportedly Fully Booked Through 2028</span>
+          <span class="zh">报道称TSMC产能已排满至2028年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AD HOC NEWS</span> · 10h ago</span>
+        <span class="zh"><span class="source">AD HOC NEWS</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says TSMC&#x27;s capacity is fully subscribed through 2028, prompting some customers to examine Samsung alternatives while TSMC expands CoWoS. If the booking picture holds, leading-edge wafers and advanced packaging remain a combined allocation problem rather than separate supply chains.</span>
+        <span class="zh">报道称TSMC产能已被预订至2028年，部分客户因此评估Samsung替代方案，而TSMC则继续扩充CoWoS。若这一预订情况属实，先进制程晶圆与先进封装仍将是一个联动的产能分配问题，而非彼此独立的供应链。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/tsmc-accelerates-copos-packaging-replace-cowos-as-glass-core-substrates-cut-costs-boost-wafer-utilizatio/" target="_blank" rel="noopener">
+          <span class="en">TSMC Accelerates CoPoS Panel Packaging Around Glass-Core Substrates</span>
+          <span class="zh">TSMC加速采用玻璃芯基板的CoPoS面板级封装</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is reportedly accelerating CoPoS panel-level packaging as a successor path to CoWoS for growing AI systems. The report attributes potential cost reductions of 30% and substrate utilization above 90% to glass-core panels; those are process targets, not yet evidence of a volume-production ramp.</span>
+        <span class="zh">报道称，面对持续增长的AI系统需求，TSMC正加速推进CoPoS面板级封装，作为CoWoS之后的扩展路径。报道认为玻璃芯面板有望降低30%成本并把基板利用率提高到90%以上；这些仍是工艺目标，尚不能视为量产爬坡的证据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE9TbFZ6X0JGU2c4UUFJLTJJM1JSZlI2RGh0MnhjZ19SZEtqMlNaMXlpT0pWWmU2OU9QNjhPczlsVTJjWmpqVlotVmlhbVEzSDZvRl9NWnRPMnU0b0RCOERWWmZ4cGo4MF8xRXdjMXpYUEFqWGVGQ0NILXN3?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Shows a 48GB HBM4E Product</span>
+          <span class="zh">SK hynix展示48GB HBM4E产品</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">HotHardware</span> · 6h ago</span>
+        <span class="zh"><span class="source">HotHardware</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix has shown a next-generation 48GB HBM4E product as memory vendors position for the post-HBM4 accelerator cycle. The higher per-stack capacity can ease model-state and KV-cache pressure, although the candidate report does not provide a sampling date, bandwidth, or volume-production schedule.</span>
+        <span class="zh">SK hynix展示了下一代48GB HBM4E产品，存储厂商开始为HBM4之后的加速器周期布局。更高的单堆栈容量有助于缓解模型状态和KV cache压力，但候选报道没有给出送样时间、带宽或量产进度。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE90NHVPMThCSlF2WW9sS1lRcm15RXVwMm0zWk5SemZaRUE4MTJFMmtzc2gxNEE0eXg2QVRfS3gwbGlrSjdVUlNoUkdzeVFzVTFTREZiT21qMVhVVGR1UE9vMnhuQUg1d2M?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Brings CXL 3.2 Memory to HPE Discover</span>
+          <span class="zh">SK hynix在HPE Discover展示CXL 3.2存储</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 1h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix showcased CXL 3.2 memory products and its broader AI portfolio at HPE Discover Las Vegas 2026. CXL 3.2 support matters because composable memory and pooled capacity are becoming practical complements to scarce HBM, though the feed item supplies no deployment or performance figures.</span>
+        <span class="zh">SK hynix在HPE Discover Las Vegas 2026展示了CXL 3.2存储产品及更广泛的AI产品组合。随着可组合存储和内存池逐步成为稀缺HBM的现实补充，CXL 3.2支持具有实际意义，但该候选条目未提供部署或性能数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPQlFyWTFwYm5qZm5sc0o2YlpEaDFicDZtZGE5Zm1JMkRPUDRjSjZmNThwR1k1MGFLM1FaekNzdDNXS1BWSkJiYVRjSE1sSWg2UmctU0ZBZGlTbkRRWVdLQzE2S0NBNURSTnJRc3VoVzFtSDVOREdLZ1VJVk41aVoyWThPdnU2ay0zamNEVFhUX1hSb0k?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML&#x27;s China EUV Order Dispute Tests U.S. Export Rules</span>
+          <span class="zh">ASML中国EUV订单争议考验美国出口规则</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechStock²</span> · 10h ago</span>
+        <span class="zh"><span class="source">TechStock²</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A reported dispute over ASML&#x27;s China EUV orders is testing how U.S. export rules apply to the lithography supply chain. The candidate item does not identify the tools, customers, or order status, but the conflict matters because licensing interpretation can affect both ASML bookings and China&#x27;s leading-edge capacity plans.</span>
+        <span class="zh">据报道，围绕ASML中国EUV订单的争议正在检验美国出口规则如何适用于光刻设备供应链。候选条目没有说明具体设备、客户或订单状态，但许可规则的解释会同时影响ASML订单与中国先进制程产能规划。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE9ueElyMGl2T0RwZ2NyY3k4SG5GZ1pvWl9kVW85Uk1TT2tla3FIRlZMTEhfT0VBWEduQnJWU3g4UXBRblZBZmdRVVUyTWhJR1c2a0J6Wmx0WTdEbTE4aWFtRDlTYmlvRDktLUhhRGNsdktjaEFrZ3BaNw?oc=5" target="_blank" rel="noopener">
+          <span class="en">AI Chip Location-Tracking Bill Gains Industry Support</span>
+          <span class="zh">AI芯片位置追踪法案获得产业支持</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AOL</span> · 4h ago</span>
+        <span class="zh"><span class="source">AOL</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A bill that would require location tracking for AI chips is gaining support from parts of the industry. Hardware telemetry could make export controls easier to enforce after shipment, but implementation details will determine whether the requirement is reliable, bypass-resistant, and acceptable to operators.</span>
+        <span class="zh">一项要求AI芯片具备位置追踪能力的法案正获得部分产业界支持。硬件遥测可能提高芯片出货后出口管制的可执行性，但具体实施方式将决定这项要求是否可靠、能否抵抗绕过，以及运营商能否接受。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi4AJBVV95cUxNXzFFb195eVQyTHUycUNWM3dtcGdfRlFqQVpJT2lpeGZ4MlN3eUU2WkRVTkdEYm5hRkt4eTlXXzVTQ2F6QXBBa1pkeGlFVFR3V0gwMDJZVWljc0xETG41N1dURVJWOENGSWlMaDFCdlZVbEZydV9jSzdILVZzVGV6ZFdESlZ1T0FDWDU2dkctZUgxWXJRQkp6X3dPd0MwUkNEM0RMWURHZkVuazl1UmtOMUxMLW1fcG1OdVJHaTRTMC1FQjFlejMwZ2ViX2t3Wmk3M3JfZ0lVSGpyNmk2NmNpXy1qaHkzcHR4Q0s2elhpVU9tcUNUSlhibEp4ZXc3Tld2LXpiMHJOcVFqYVlDWmR0TDFyckxTbjBLSGhPeHdCWHZtaG5sQnBiR18ybVZLMGVJd3hja0Y3UXplYXZhOFRIcDdVSEFIWG11TEZYOEhxaV9iUnNFSWlqbFJnWmsyczRE?oc=5" target="_blank" rel="noopener">
+          <span class="en">China&#x27;s Regulator Says Nvidia Violated Antimonopoly Law</span>
+          <span class="zh">中国监管机构称Nvidia违反反垄断法</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 7h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">China&#x27;s regulator says Nvidia violated the country&#x27;s antimonopoly law. The finding adds regulatory risk to Nvidia&#x27;s already constrained China business, but the candidate item does not describe a penalty, remedy, or timetable, so the immediate commercial effect remains unclear.</span>
+        <span class="zh">中国监管机构称Nvidia违反了该国反垄断法。这一认定为Nvidia本已受限的中国业务增加了监管风险，但候选条目未说明罚款、补救措施或时间表，短期商业影响仍不明确。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPWEt2T3dRNmlOQ1Y4bFVFa0VMeElub05vb0dKbkt0U3Z5ODdMbDZjcENyZHBkREVUT21hM0dEYjY1RmctUm1jaEtqeVc1bF8tSWdYVXhwTUhWNjJWWkplaFpUWExWbHFRWHp5ME5MZUdYUm5Db09EaG41VENMOG9Odm4xYlVtd0ExTHM5VzNJTk9seTkwODZVNmpNdDg?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras Approaches Its First Public Earnings Report</span>
+          <span class="zh">Cerebras即将发布上市后首份财报</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechStock²</span> · 4h ago</span>
+        <span class="zh"><span class="source">TechStock²</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras is approaching its first public earnings release after its shares rebounded during a holiday-shortened week. The report will be an early public-market test of demand for wafer-scale AI systems, although the candidate item provides no guidance, revenue estimate, or customer update.</span>
+        <span class="zh">Cerebras将在假期缩短的交易周股价反弹后，迎来上市后的首份财报。这将是公开市场对晶圆级AI系统需求的一次早期检验，但候选条目没有提供业绩指引、营收预期或客户进展。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-21 01:19 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-21 01:19 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
