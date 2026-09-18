@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-19">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Reprices Control of Capacity — Semi News 2026-06-19</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, June 19, 2026</span>
+      <span class="zh">2026年6月19日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Reprices Control of Capacity</span>
+      <span class="zh">AI需求重估产能控制权</span>
+    </h1>
+    <p class="dek">
+      <span class="en">The day&#x27;s strongest signals all point to scarcity management: HBM4E samples, TSMC capacity pressure, Samsung alternatives, and export-control enforcement. Capital, tooling, and policy are being organized around who can secure advanced compute supply first.</span>
+      <span class="zh">今天最强的信号都指向稀缺资源管理：HBM4E样品、TSMC产能压力、Samsung替代选项以及出口管制执行。资本、设备和政策正在围绕谁能率先锁定先进算力供给而重新排列。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQNE5hTVlBUWJLVHVlYkl1ZlBsTWN4eDJUcWhJS1dXSExRNjEwdmJ3M1Aya1UyY3dfcmdqYldYUEtEMlFuQ1NHLTdvVVM4YjJHVkhmM0ZvamV0MXBEakhWSXRrZmxoQy0taW9Tb05WbkVJaUZlUV9PVXI5a2FsTVZnYklRTjl1N0hTOV90X1pHXzNvOXRRWndvUENWNWNMQUJMRGJkS2tWRXNvUmNSbUZVQVFkRXM?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia&#x27;s $25 Billion Bond Sale Draws a China Export-Control Question</span>
+          <span class="zh">Nvidia 250亿美元债券发行面临中国出口管制疑问</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Forbes</span> · 40m ago</span>
+        <span class="zh"><span class="source">Forbes</span> · 40分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia&#x27;s planned $25 billion bond sale is being framed against continuing uncertainty over China export restrictions. The financing itself underscores the scale of capital needed for the AI infrastructure cycle, while the China question remains a risk to revenue durability and investor pricing.</span>
+        <span class="zh">Nvidia拟进行的250亿美元债券发行，被置于中国出口限制仍不确定的背景下审视。这笔融资本身显示AI基础设施周期所需资本规模之大，而中国业务问题仍会影响收入可持续性和投资者定价。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxOLVZ1bFZHd3daMVVqQm93NGdVdG1ueVdtdXBzMXNHMVZaZTB1bEhZWU5HN1M4UzduT0tiMGhnamt3c2RJTEFDcFlCMXQybl9pNkh6MWhDakJEdnB5d1ZTNUJVWkFFUXJXeGhfRTJGbnlvQkJIMERKU0dmcEdheHVKSG5qVy1FbHptTldmcHBpV1BDQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras Brings Multimodal Gemma 4 Inference to Its Platform</span>
+          <span class="zh">Cerebras在其平台上线多模态Gemma 4推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Cerebras</span> · 9h ago</span>
+        <span class="zh"><span class="source">Cerebras</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras says Gemma 4 is now running on its inference platform with multimodal support. The update matters because challenger accelerator vendors are increasingly competing on software availability and model coverage, not only raw silicon throughput.</span>
+        <span class="zh">Cerebras表示Gemma 4已在其推理平台运行，并支持多模态能力。这一更新的重要性在于，挑战者AI加速器厂商的竞争正越来越转向软件可用性和模型覆盖范围，而不只是芯片吞吐率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/report-intel-partners-with-taiwans-umc-on-3nm-chips-taking-direct-aim-at-tsmcs-foundry-dominance/" target="_blank" rel="noopener">
+          <span class="en">Intel Reportedly Partners with UMC on 3nm Manufacturing</span>
+          <span class="zh">报道称Intel与UMC合作推进3nm制造</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 5h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel has reportedly partnered with Taiwan&#x27;s UMC on advanced manufacturing technology aimed at 3nm chips. If the arrangement holds, it would give UMC a lower-capex path into advanced nodes and give Intel Foundry another route to challenge TSMC&#x27;s dominant foundry position.</span>
+        <span class="zh">报道称Intel已与台湾UMC就面向3nm芯片的先进制造技术展开合作。如果该安排落实，UMC可用较低资本开支切入先进节点，Intel Foundry也将获得另一条挑战TSMC代工优势的路径。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/sk-hynix-former-ceo-returns-to-intel-taking-charge-as-evp-of-foundry-business-advanced-packaging-technologies/" target="_blank" rel="noopener">
+          <span class="en">Intel Hires Former SK Hynix CEO to Lead Foundry Packaging and Back-End Work</span>
+          <span class="zh">Intel聘请前SK hynix CEO负责代工封装与后段技术</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 3h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel appointed former SK Hynix president and CEO Seok-Hee Lee as executive vice president for Intel Foundry advanced packaging and back-end technology. The hire puts a memory-industry operator in charge of areas that are central to AI-chip scaling, where packaging, system integration, and back-end execution increasingly determine delivered performance.</span>
+        <span class="zh">Intel任命前SK hynix总裁兼CEO Seok-Hee Lee为Intel Foundry先进封装与后段技术执行副总裁。该任命让一位存储行业管理者负责AI芯片扩展的关键环节，因为封装、系统集成和后段执行正越来越决定最终性能交付。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxNdWV1VTBMREN6T0JocE5KTHJRQ3dzTEU3QmhyVWdhOTVfbVg4UWZhYzVEUzJlV0hGRDR3YnlMSDJMZnFmZEUtNGVEVWh5ejJnM3FVQ0JXWUk2Tm96bXVKTTYtR1hVQ08xbEl5Yjhkc2c4dFY5MEd6aV8tay1mX3hacU9UbmsxQ3hZdHZzNA?oc=5" target="_blank" rel="noopener">
+          <span class="en">AI Customers Consider Samsung as TSMC Capacity Tightens</span>
+          <span class="zh">TSMC产能趋紧，AI客户考虑Samsung作为替代伙伴</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GIGAZINE</span> · 3h ago</span>
+        <span class="zh"><span class="source">GIGAZINE</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Google, Nvidia, AMD, Tesla, and other AI customers are reportedly weighing Samsung as an alternative manufacturing partner as TSMC capacity comes under pressure. The story reflects a practical constraint in the AI buildout: buyers want second-source options even when the process and packaging ecosystem remains concentrated around TSMC.</span>
+        <span class="zh">报道称，在TSMC产能承压之际，Google、Nvidia、AMD、Tesla等AI客户正考虑Samsung作为替代制造伙伴。这反映出AI建设中的现实约束：即便制程和封装生态仍集中在TSMC，买方也需要第二供应来源。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/samsung-lsi-plots-exynos-2700-counterattack-with-just-60-yields-as-qualcomm-floods-galaxy-s27-with-six-snapdragon-8-elite-gen-6-pro-variants/" target="_blank" rel="noopener">
+          <span class="en">Samsung LSI Reportedly Pushes Exynos 2700 with 60% Yields</span>
+          <span class="zh">报道称Samsung LSI以60%良率推进Exynos 2700</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 10h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung LSI is reportedly preparing an Exynos 2700 response while Qualcomm lines up multiple Snapdragon 8 Elite Gen 6 Pro variants for Galaxy S27. The cited 60% yield figure shows the strategic tension: Samsung wants more internal silicon leverage, but foundry maturity still determines how aggressively it can displace Qualcomm supply.</span>
+        <span class="zh">报道称，在Qualcomm为Galaxy S27准备多个Snapdragon 8 Elite Gen 6 Pro版本之际，Samsung LSI正推进Exynos 2700反击方案。文中提到的60%良率凸显战略张力：Samsung希望提高自研芯片话语权，但代工成熟度仍决定其替代Qualcomm供应的力度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxPSE1BVXZNMUxyTVFBY3ZwNWpzdnJKTWhKUm0tbzlqZXZnbk5seXRFcGNBaEhfUVBET3VLQll5RGpGY0w0eUpHcTFjeExNLTNlOFo1ZDJleE1mbEpMelc5TjBsbUJobzdwc25QSXRTSHk3Q1FobVNuY3llUkY5T3BVYjR3YklPckdsR3MwUThXeWFTZW9KV2M0azZuSU4tazEwMWo0dkxnN2R0ODJsUWlKTkZpWXlKWTVtaW5rQUdra0RHcmtFd2IyWdIBxAFBVV95cUxORGZ2Qkk0YVRiZk9kZk14alNmSDJ2dUtER1FBODBEUEdZM0ptQ1B5QmRXRFNQbGlSWmdlT0laSEk1M3QySUs1TkI1QU9uNUJzbU4xeU9FVE9CNFZSVnR4MlV4UXZ4QzZYaEE4cTRlYXZEQzZPc3B4LXEyLUdkNDZTZEVGajl0ZE41c1hYNVA3aUd5eEJuWTMzR21KWUgzVEhMZEhWVXgyVi1TMEFab3pYUW1ma2h2M0VyZzVyX1NBRk5zSmZl?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Samples HBM4E at 16 Gbps per Pin and 48 GB per 12-High Stack</span>
+          <span class="zh">SK hynix送样HBM4E：每针16Gbps、12层堆叠48GB</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GSMArena</span> · 4h ago</span>
+        <span class="zh"><span class="source">GSMArena</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix has shipped HBM4E samples that reportedly reach 16 Gbps per pin and 48 GB capacity in a 12-layer stack. The numbers matter because AI accelerator roadmaps are increasingly gated by memory bandwidth, stack height, and qualification timing rather than compute die availability alone.</span>
+        <span class="zh">SK hynix已送样HBM4E，报道称其每针速率达到16Gbps，12层堆叠容量为48GB。这些数字重要，因为AI加速器路线图越来越受制于内存带宽、堆叠高度和认证节奏，而不只是计算芯片本身。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/asml-ceo-warns-europe-is-quite-behind-in-ai-race-as-us-buys-80-of-advanced-chips/" target="_blank" rel="noopener">
+          <span class="en">ASML CEO Says Europe Is Far Behind as the U.S. Buys 80% of Advanced Chips</span>
+          <span class="zh">ASML CEO称美国购买80%先进芯片，欧洲AI竞赛明显落后</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML CEO Christophe Fouquet warned that Europe is far behind in the AI race while the U.S. buys about 80% of advanced chips. For the equipment ecosystem, the comment links lithography demand to the geography of AI infrastructure, not just to fab-node transitions.</span>
+        <span class="zh">ASML CEO Christophe Fouquet警告称，欧洲在AI竞赛中明显落后，而美国购买约80%的先进芯片。对设备生态而言，这一表态把光刻需求与AI基础设施的地理分布相连，而不只是与晶圆厂节点迁移相连。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxQWjVxMmNpTVQybE5fM19vcmxaWlBIOU52NEY5RjRuSlVoUUpQVlY5dzRCTU9GMHA2VVNpeWpaY2FDWHRhV01sRUV2V2F4WE15dzd4RDROVE1CbEg5YTRseUUySFB3QzR3TU1VVXB1S2hlUXdpMDBIQnZjSWM3b2lXdmNzMmNYeUd5R1RHVmozOHRmQUUwVTQwY29faXRLTmIxcmZpOEZjd2lIUkVZS1FZM0w3TjF3N0dMMWl3ZkR6YUQ1Y0ktYVg0T093LWh3bXNvZGdmWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Brewer Science to Acquire Heraeus Epurio Semiconductor Chemical Business</span>
+          <span class="zh">Brewer Science将收购Heraeus Epurio半导体化学品业务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">PR Newswire</span> · 9h ago</span>
+        <span class="zh"><span class="source">PR Newswire</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Brewer Science plans to acquire a semiconductor chemical business line from Heraeus Epurio. Materials deals like this are smaller than fab announcements, but they matter because photoresists, specialty chemicals, and process materials are bottleneck-sensitive parts of the advanced manufacturing stack.</span>
+        <span class="zh">Brewer Science计划从Heraeus Epurio收购一条半导体化学品业务线。此类材料交易规模小于晶圆厂投资公告，但光刻胶、特种化学品和工艺材料都是先进制造链条中对瓶颈高度敏感的环节。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOUkJoSzZIYk92LXRFTnJqd1BoZkFTczlMWTZmSnZKRGxLTll4YjZjM2FnYndiMkt0M29mOWhkVXM2eDJuNXlJQ3FzU3FsMEx6TnlGa3lPZWtRR1RLdUVFSDhRcGNUSDNLN1pPeHVVY0xVV2tTNG5zbVFhWko2ZTZIR3UteDhXd0t2N2lheXhxUWgzSFU1MWllXzdPeGFtelE?oc=5" target="_blank" rel="noopener">
+          <span class="en">AI Chip Location-Tracking Bill Gains Industry Support</span>
+          <span class="zh">AI芯片定位追踪法案获得行业支持</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">NBC News</span> · 3h ago</span>
+        <span class="zh"><span class="source">NBC News</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A U.S. bill that would mandate location tracking for AI chips has gained industry support, according to NBC News. The proposal shows export control moving from license lists toward post-shipment verification, a shift that could add compliance requirements to accelerator vendors and cloud customers.</span>
+        <span class="zh">据NBC News报道，美国一项要求AI芯片进行定位追踪的法案已获得行业支持。该提案显示出口管制正从许可证清单走向出货后的验证机制，这可能给加速器厂商和云客户增加合规要求。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/us-trade-sanctions-are-having-everyone-else-except-huawei/" target="_blank" rel="noopener">
+          <span class="en">Bosch to Pay $36 Million Fine Tied to Huawei Supply</span>
+          <span class="zh">Bosch因对Huawei供应相关问题支付3600万美元罚款</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bosch will pay a $36 million fine after U.S. authorities found Huawei obtained smartphone parts through the supplier, according to the report. The case shows that sanctions enforcement can land on non-U.S. component suppliers years after restrictions are imposed, keeping compliance risk embedded across the electronics chain.</span>
+        <span class="zh">报道称，美国当局认定Huawei通过供应商获得智能手机部件后，Bosch将支付3600万美元罚款。该事件显示，制裁执行可能在限制措施出台多年后落到非美国零部件供应商身上，使合规风险持续嵌入电子供应链。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNcTJYSC0ySUtpM3dYOVpHRGVRb25vRTF5blY1WnRWVXRLSWlFSmdnUEx4VnVrWjhaNFF6VHhNWE5sY3k3ci00MFZxTmZ3Ql9uaXctVkJjQ1VKU1pRYldOTmZreVFzN1ZhcnhWdUxMUEF2cFhoWV9fbU9nRm1wYnAzOHUySFA5aGNBV1YycF9RRm5yUlFwVFZMeDBCVkZEdHNFMXdIMzBvVnNkcXg2dHc?oc=5" target="_blank" rel="noopener">
+          <span class="en">UK Semiconductor Sector Grows 13.6% as UK and Japan Sign Chip Deal</span>
+          <span class="zh">英国半导体行业增长13.6%，英日签署芯片协议</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">gasworld</span> · 10h ago</span>
+        <span class="zh"><span class="source">gasworld</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The UK semiconductor sector grew 13.6% as the UK and Japan signed a chip cooperation deal, according to the report. The agreement is another example of mid-sized semiconductor economies using bilateral partnerships to secure talent, compound-semiconductor expertise, and supply-chain resilience outside the U.S.-Taiwan-Korea core.</span>
+        <span class="zh">报道称，在英国与日本签署芯片合作协议之际，英国半导体行业增长13.6%。这也是中等规模半导体经济体通过双边合作获取人才、化合物半导体能力和供应链韧性的又一例子，方向上避开对美台韩核心链条的单一依赖。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-19 01:18 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-19 01:18 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

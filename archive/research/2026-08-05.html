@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-05">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Making Compute Systems More Physically Aware — Semi Research 2026-08-05</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-08-05.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Wednesday, August 5, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月5日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Making Compute Systems More Physically Aware</span>
+      <span class="zh">让计算系统更具物理感知能力</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week’s papers connect hardware efficiency to physical constraints: photonic loss, transistor hotspots, three-dimensional atom transport, and layout power. The common goal is to move optimization closer to device and system behavior.</span>
+      <span class="zh">本周论文将硬件效率与物理约束联系起来，包括光子损耗、晶体管热点、三维原子搬运和版图功耗。它们的共同目标是让优化更贴近器件和系统行为。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.03146" target="_blank" rel="noopener">
+          <span class="en">Foundry-compatible silicon-photonics MEMS optical switch</span>
+          <span class="zh">兼容晶圆厂工艺的硅光MEMS光开关</span>
+        </a>
+      </h3>
+      <p class="authors">Arkadev Roy, Daniel Klawson, Jianheng Luo, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03146" target="_blank" rel="noopener">arXiv:2608.03146</a> · 2026-08-04T05:23:12Z</p>
+      <p class="summary">
+        <span class="en">The authors demonstrate a C-band silicon-photonics MEMS switch made in a zero-change foundry-compatible flow with BEOL post-processing. It reports more than 30 dB extinction, under 1.5 dB insertion loss, and roughly 20 nW static power, a strong combination if endurance and array integration hold up.</span>
+        <span class="zh">作者展示了一种采用零改动、兼容晶圆厂流程并结合BEOL后处理的C波段硅光MEMS光开关。该器件报告超过30 dB消光比、低于1.5 dB插入损耗和约20 nW静态功耗；若耐久性和阵列集成表现可靠，这一组合颇具吸引力。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.01257" target="_blank" rel="noopener">
+          <span class="en">Active passivation steers hotspots in GaN transistors</span>
+          <span class="zh">主动钝化调控GaN晶体管热点位置</span>
+        </a>
+      </h3>
+      <p class="authors">Yicheng Wei, Sihang Liu, Zimu Jiang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01257" target="_blank" rel="noopener">arXiv:2608.01257</a> · 2026-08-02T14:06:53Z</p>
+      <p class="summary">
+        <span class="en">This work uses active-passivation length to shift the hotspot in GaN transistors from the gate edge to the drain-side passivation edge. Micro-Raman thermography and multiphysics simulation tie the movement to peak electric field and localized Joule heating, offering a lever for power-device thermal reliability.</span>
+        <span class="zh">该研究通过改变主动钝化层长度，将GaN晶体管热点从栅极边缘转移至漏极侧钝化层边缘。微拉曼测温和多物理场仿真将这一迁移与峰值电场及局部焦耳热相关联，为功率器件热可靠性提供了设计手段。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.03033" target="_blank" rel="noopener">
+          <span class="en">FPGA partial reconfiguration for LLM nonlinear functions</span>
+          <span class="zh">利用FPGA局部重构实现LLM非线性函数计算</span>
+        </a>
+      </h3>
+      <p class="authors">Roger Morales-Monge, Nazareth Jimenez-Chacon, Jose Gabriel Villalobos-Alvarado, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03033" target="_blank" rel="noopener">arXiv:2608.03033</a> · 2026-08-04T02:27:48Z</p>
+      <p class="summary">
+        <span class="en">The paper uses FPGA partial reconfiguration to swap piecewise-linear exponential and sigmoid units for LLM acceleration. Compared with a static design holding both operators, it reports up to 43% fewer LUTs and up to 50% fewer flip-flops, BRAMs, and DSPs, subject to reconfiguration overhead in real workloads.</span>
+        <span class="zh">论文利用FPGA局部重构来切换面向LLM加速的分段线性指数和sigmoid单元。相对于同时固定集成两种算子的静态设计，它报告最多减少43%的LUT，并最多减少50%的触发器、BRAM和DSP，但真实工作负载仍要考虑重构开销。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">
+          <span class="en">Celty co-designs a sparse GPU path for LLM decoding</span>
+          <span class="zh">Celty为LLM解码协同设计稀疏GPU执行路径</span>
+        </a>
+      </h3>
+      <p class="authors">Ruokai Yin, Priyadarshini Panda</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01536" target="_blank" rel="noopener">arXiv:2608.01536</a> · 2026-08-02T23:10:04Z</p>
+      <p class="summary">
+        <span class="en">Celty targets single-user LLM decoding with both pruned weights and runtime activation sparsity, a case conventional GPU kernels handle poorly. Its compressed format, kernel, and proposed SIMT core work together to avoid index reconstruction and memory traffic; the benefit will depend on attainable sparsity and hardware adoption.</span>
+        <span class="zh">Celty面向同时具有剪枝权重和运行时激活稀疏性的单用户LLM解码，这类工作负载通常难以被传统GPU内核高效处理。其压缩格式、内核和拟议SIMT核心协同设计，以避免索引重建和多余内存访问；实际收益取决于可实现稀疏度及硬件采用。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">Electronic Design Automation</span>
+      <span class="zh">电子设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.03285" target="_blank" rel="noopener">
+          <span class="en">Fovea brings physical constraints into wafer-scale design exploration</span>
+          <span class="zh">Fovea将物理约束纳入晶圆级设计空间探索</span>
+        </a>
+      </h3>
+      <p class="authors">Jinxi Li, Huizheng Wang, Jinyi Deng, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.03285" target="_blank" rel="noopener">arXiv:2608.03285</a> · 2026-08-04T08:00:29Z</p>
+      <p class="summary">
+        <span class="en">Fovea formulates wafer-scale architecture exploration around coupled constraints including reticle compliance, wafer tiling, die area, die-to-die capability, and placement. It calibrates disagreement between low-cost and reference evaluators before refinement, reducing the risk that a fixed coarse shortlist misses full-fidelity winners.</span>
+        <span class="zh">Fovea围绕光罩合规、晶圆平铺、芯粒面积、芯粒间互连能力和布局等耦合约束来构建设计空间。它在细化候选方案前校准低成本评估器与参考评估器之间的偏差，从而降低固定粗筛名单漏掉全保真优胜设计的风险。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2608.01316" target="_blank" rel="noopener">
+          <span class="en">Piqasso compiles for three-dimensional neutral-atom computers</span>
+          <span class="zh">Piqasso面向三维中性原子量子计算机进行编译</span>
+        </a>
+      </h3>
+      <p class="authors">Chen Huang, Zhemin Zhang, Zhao Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2608.01316" target="_blank" rel="noopener">arXiv:2608.01316</a> · 2026-08-02T15:34:47Z</p>
+      <p class="summary">
+        <span class="en">Piqasso compiles for three-dimensional neutral-atom arrays by separating storage, entanglement, and readout into layers, then routing atoms with vertical hops and multi-AOD scheduling. Across 34 circuits it reports 2.1× less transport distance, up to 7.3× faster execution, 2.2× higher movement fidelity, and 1.8× fewer serialized transport rounds than a planar baseline.</span>
+        <span class="zh">Piqasso面向三维中性原子阵列进行编译，将存储、纠缠和读出分置于不同层，并通过垂直搬运和多AOD调度完成原子路由。在34个电路上，它相对于平面基线报告2.1倍更短的搬运距离、最高7.3倍更快执行、2.2倍更高移动保真度和1.8倍更少的串行搬运轮次。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-05 01:14 UTC · <a href="../2026-08-05.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-05 01:14 UTC · <a href="../2026-08-05.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

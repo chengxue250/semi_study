@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-01">
+<meta name="generator" content="semi-news-daily">
+<title>Inference Spreads Across Packaging, Memory, and Policy — Semi News 2026-07-01</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, July 1, 2026</span>
+      <span class="zh">2026年7月1日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Inference Spreads Across Packaging, Memory, and Policy</span>
+      <span class="zh">推理需求牵动封装、存储与政策</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Today&#x27;s strongest items point to the same constraint stack: transformer-specific silicon, compute-near-memory accelerators, and TSMC-Amkor packaging moves all chase lower inference cost. HBM pricing, SiC/GaN support, diamond materials, and export-control bills show how quickly the bottleneck broadens beyond GPUs.</span>
+      <span class="zh">今天最有分量的新闻指向同一组约束：面向Transformer的专用硅、贴近存储的加速器架构，以及TSMC-Amkor的封装布局，都在追逐更低的推理成本。HBM价格、SiC/GaN产线支持、金刚石材料和出口管制法案则说明，瓶颈已经迅速扩展到GPU之外。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/06/30/qualcomms-proposed-solution-to-catch-up-in-ai-infra-bury-the-compute-under-the-dram/5264071" target="_blank" rel="noopener">
+          <span class="en">Qualcomm pitches compute-under-DRAM for AI infrastructure</span>
+          <span class="zh">Qualcomm提出把计算埋到DRAM下方的AI基础设施方案</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 4h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Qualcomm is proposing a next-generation AI accelerator approach that places compute close to, or physically under, DRAM. The Register frames it as Qualcomm&#x27;s attempt to attack the memory wall rather than compete only on raw GPU-style compute. If the architecture becomes product silicon, it would put memory bandwidth, packaging density, and thermal design at the center of Qualcomm&#x27;s AI infrastructure bid.</span>
+        <span class="zh">Qualcomm提出一种下一代AI加速器思路，把计算单元放到DRAM附近，甚至放在DRAM下方。The Register将其描述为Qualcomm试图绕开只拼算力的路线，直接针对memory wall。若该架构进入量产硅片，内存带宽、封装密度和热设计将成为Qualcomm AI基础设施方案的核心。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/nvidia-slashes-deepseek-v4-token-costs-by-up-to-5x-one-month-after-launch/" target="_blank" rel="noopener">
+          <span class="en">Nvidia says Blackwell tuning cuts DeepSeek v4 token costs up to 5x</span>
+          <span class="zh">Nvidia称Blackwell调优让DeepSeek v4 token成本最多下降5倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 5h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia says software tuning on Blackwell systems has reduced DeepSeek v4 token costs by up to 5x about one month after launch. The number matters because cost per token is becoming the practical purchasing metric for inference clusters, not just peak FLOPS. The claim also shows how much of Blackwell&#x27;s near-term value depends on compiler, kernel, and serving-stack work after hardware ships.</span>
+        <span class="zh">Nvidia称，通过Blackwell系统的软件调优，DeepSeek v4上线约一个月后token成本最高下降5倍。这个数字重要，是因为推理集群采购越来越看每个token的成本，而不只是峰值FLOPS。它也说明Blackwell的短期价值很大一部分来自硬件交付后的编译器、kernel和服务栈优化。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/hbm-shortages-push-amd-to-roll-out-its-first-memory-on-package-soc-versal-gen-2/" target="_blank" rel="noopener">
+          <span class="en">AMD moves Versal Gen 2 to memory-on-package</span>
+          <span class="zh">AMD将Versal Gen 2推向封装上存储</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 3h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD is rolling out Versal Gen 2 with on-package LPDDR5X memory, positioning it as a response to constrained and expensive HBM supply. The candidate report cites a 60% smaller board footprint, 10x compute uplift versus Versal Gen 1, PCIe 6 support, and a 15-year lifecycle. The move is not a direct replacement for HBM accelerators, but it shows more vendors designing around memory availability as a first-order constraint.</span>
+        <span class="zh">AMD推出带封装上LPDDR5X内存的Versal Gen 2，把它定位为应对HBM供应紧张和价格高企的方案。候选报道提到，相比Versal Gen 1，新方案板级占用面积减少60%，算力提升10倍，支持PCIe 6，并提供15年生命周期。它并不是HBM加速器的直接替代品，但显示更多厂商开始把存储可得性当作一阶设计约束。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi7AFBVV95cUxNeld0bkM3TElxRVhrMThuVVNzZVdWaG5SamQ5clBfNVU0aUxDU2FPcnpDXzk5NFh6UlNGY3lNZWZZOV9wRkg2OUdVUUhaQUtPb05WVFFGSnUzaTJ5aEN3Z2QydWN2ZlZheUNzelVBeFBrNGNWdTV3WEw2OWljUUxBajV0V29meWM5dzdnWklWcng3bm5lTnBHNXF5SnJEWkVvRGZZd2FtYVVYZWZDNXcwTnV1MFNPYkpTQks4ZUs4eFdGNkhDV2VuRkNWaW1UYmtDYXgyZE12UUdJTmRyRVJNUS1CbjFCNDhpZS0wT9IB8gFBVV95cUxNOE12WHA0RURUaUpMaE9LNUk1dkViN2FsXy1LdnhlRmJpSHctWUtaNWd3Z2l1a24yUkxHMmdTaGFBTUpxZnRXVzUzektmdUVaMkN3THNKY0gyaTlodFhNTFlnYWtLMDRtYlFQX2F1LVBzVktjYkNYR2NoNlB1dkVYbUFXMDJJUXFpbndFWDBINzdNRm95WFVGRlRlSWFlVFRLZnN6bVlaZlhGay02Si1zcm5DdVFrdF9CNjZ5aVVMTGxUdVpWRDRoMDA3LTQ5NGtpQmRxMGM5czcyWk55TU5kcXV5QjctalRINzhzSDJjY0NKQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC and Amkor sign 10-year Arizona packaging deal</span>
+          <span class="zh">TSMC与Amkor签署10年亚利桑那封装协议</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">simplywall.st</span> · 5h ago</span>
+        <span class="zh"><span class="source">simplywall.st</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC and Amkor have signed a 10-year Arizona chip-packaging agreement, according to the candidate item. The deal matters because U.S. fab capacity is less useful if advanced packaging remains offshore or capacity-constrained. For AI chips, the packaging layer is where foundry output, HBM, substrates, and final system availability meet.</span>
+        <span class="zh">候选新闻称，TSMC与Amkor签署了一项为期10年的亚利桑那芯片封装协议。这一协议重要，是因为如果先进封装仍留在海外或产能受限，美国晶圆制造产能的完整性会打折扣。对AI芯片来说，封装层正是代工产出、HBM、基板和最终系统供给交汇的地方。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxOMFNJRGRHWVplaWt6UjBGeFhDZzcySktYU1UxX3ZmR0lXcmtEb3F2MEFiazM5S0F0V0U3dWlRVGk1bU5mZTkzWDY3Wm5INjd4ejNScHFLS3FzdnRXSmN5b0JNSVlvalU0eUJsbU5rTVZEX2NIdVAzQ3c5eXIwSmxVaTRDbHluLWJYamtQYVBmU0lVQk5rdXF4OFEwNG5TdHVXZXM4TWlPdlNWSkkzb1hDLXlnVVFheFgwX0xxSEtHOHRWUGxDbnJBQUdjZmI?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC targets 2029 for panel-level CoPoS packaging</span>
+          <span class="zh">TSMC将面板级CoPoS封装目标定在2029年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes via Investing.com</span> · 5h ago</span>
+        <span class="zh"><span class="source">DigiTimes via Investing.com</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes reports that TSMC is targeting 2029 for panel-level CoPoS packaging as AI chips keep pushing package size and interconnect density. Panel-level work is a longer-horizon answer to the CoWoS bottleneck, not immediate relief for 2026 supply. The timing is still material because hyperscaler AI roadmaps increasingly depend on package scaling as much as on process-node scaling.</span>
+        <span class="zh">DigiTimes报道称，TSMC把面板级CoPoS封装的目标时间定在2029年，以应对AI芯片持续推高封装尺寸和互连密度。面板级路线是CoWoS瓶颈的更长期解法，并不能立刻缓解2026年的供给压力。这个时间点仍然重要，因为hyperscaler的AI路线图越来越依赖封装扩展，而不只是制程缩小。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQR2Q1SmJmaGVycjdWVTFLNkhIYkJUcnpLTk9jb2t2YUFMWXdTRGFhSGJWUlltRTN1UFZNTll3WFJBZ0tTUW5qN2hDMTBKRU1sb0tZbXpXc2hyQ2pLb0JianQzM1I0b2lZbXVGbjhRSGphMXFLeXdpVGJzMkxHUENsbzJsVE40NWJLc0gxam9n?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK Hynix hunts for HBM talent as the roadmap stretches</span>
+          <span class="zh">SK Hynix为HBM下一阶段加紧抢人</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 49m ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 49分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DigiTimes reports that SK Hynix is stepping up recruitment for the next frontiers of HBM, with the effort drawing attention from Samsung employees. Talent movement is a real supply-chain signal in HBM because stacking, bonding, yield learning, and customer qualification depend on scarce process and packaging expertise. The story is less about headcount totals than about where the memory makers believe the next constraint sits.</span>
+        <span class="zh">DigiTimes报道称，SK Hynix正在为HBM的下一阶段加大招聘力度，并吸引了Samsung员工的关注。人才流动是HBM供应链的真实信号，因为堆叠、键合、良率爬坡和客户认证都依赖稀缺的工艺与封装经验。这个故事的重点不是招聘人数，而是存储厂商认为下一道瓶颈在哪里。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE1FMW05MDEyQ0ZOdVlwaHk1eEhjaVlIUUFLeTctWU5YU195X1FXQTU1QnFfV21ZNmZ1TVN4czBRVkI3azBndjRIX3VVRkR2VXplUEJRejdXWlZyaGFDQjd3dGQ2NFJQdkpUOTR2Mkh2OTJsNm9EOWc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Goldman sees Samsung HBM prices rising another 44% next year</span>
+          <span class="zh">Goldman预计Samsung HBM价格明年再涨44%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo Finance</span> · 2h ago</span>
+        <span class="zh"><span class="source">BigGo Finance</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Goldman Sachs view cited by BigGo Finance says Samsung&#x27;s HBM prices could rise another 44% next year. That keeps the memory up-cycle tied directly to AI accelerator demand rather than a broad consumer recovery. The read-through is not only for Samsung; Taiwan memory names and server makers are also exposed to the cost and allocation swing.</span>
+        <span class="zh">BigGo Finance引用Goldman Sachs观点称，Samsung的HBM价格明年可能再上涨44%。这意味着存储上行周期仍主要由AI加速器需求驱动，而不是广泛的消费电子复苏。影响也不只限于Samsung，台湾存储厂商和服务器厂商都会受到成本与配额变化的牵动。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9jdUVEV1hkME1sQzZaZi1KaWh1N0g5VTRDREJKbllReVFXSVRZTnllN2kzUGZ0VUVkZnA2RzhDY3JtQU4zVVJ1SUw2UmN1eXVTSUNhQ3lqVlpOX3Mya1Nkd21YWlNWLUU?oc=5" target="_blank" rel="noopener">
+          <span class="en">DB HiTek seeks government-backed equipment support for SiC and GaN</span>
+          <span class="zh">DB HiTek为SiC和GaN产线争取政府设备支持</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec reports that DB HiTek is proposing government-funded equipment support for a SiC and GaN power-semiconductor line. The request points to a familiar bottleneck in compound semiconductors: the fabs need specialized tools before customers can get dependable volume. It also shows Korea trying to extend semiconductor industrial policy beyond memory and logic.</span>
+        <span class="zh">The Elec报道称，DB HiTek提议由政府出资支持SiC和GaN功率半导体产线设备。这个诉求指向化合物半导体的常见瓶颈：在客户获得稳定量产供应之前，晶圆厂必须先拿到专用设备。它也显示韩国正试图把半导体产业政策从存储和逻辑扩展到功率器件。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxPZHQ1TDZyMTJYU2EtWmZqRTVkcVNTREF4cGRwd0l0WFNWV2V3STRnOHpqRThZazRDZ3NPRFY3S2JJQ1c1MXBKR2FjM3ZadlFCRC0yNXlqV0tETnZaS1ctd1lTRF9leTIta3RNcFpnRVNJS0poQkJNaDVCTURqdk5IUFFEMTR4Z3BSNDFRM1hDam1udHRJOHEteGdqZ3VFVUk?oc=5" target="_blank" rel="noopener">
+          <span class="en">China puts $210 million behind a diamond semiconductor supply chain</span>
+          <span class="zh">中国投入2.1亿美元建设金刚石半导体供应链</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Interesting Engineering</span> · 6h ago</span>
+        <span class="zh"><span class="source">Interesting Engineering</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Interesting Engineering reports that China is backing a $210 million effort to build a diamond semiconductor supply chain. Diamond remains an early and difficult material platform, but its thermal conductivity and power-device potential keep it strategically interesting. The funding fits China&#x27;s broader pattern of using industrial policy to reduce exposure in materials that could matter after silicon and SiC.</span>
+        <span class="zh">Interesting Engineering报道称，中国正投入2.1亿美元建设金刚石半导体供应链。金刚石仍是早期且难度很高的材料平台，但其导热能力和功率器件潜力让它具备战略意义。这笔资金符合中国通过产业政策降低关键材料外部依赖的更大趋势，尤其是面向硅和SiC之后的潜在平台。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTWF3XzUzUFRabld2aHNrUXJPLTN2a1VFQnNsd0pySFlaQkp2NHV6VTctZUx2YkpQckJ3eHhVR1VDNlpkbTNtODNjeGNoOUZTUG1fTXBhaFJRalNNNWpLS0FlUXlQQnlndTg2Q0RyMFpCMzdHM01kcEhOeWQ2cVZhRlROQ1JNcjdDR25sN2FGdUdCdzJCOGVWSEZIdTJKR3pDN0w1SHhvSTdxcnM?oc=5" target="_blank" rel="noopener">
+          <span class="en">Bipartisan House bill would protect U.S. AI-chip export controls</span>
+          <span class="zh">美国两党议案拟保护AI芯片出口管制</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Ripon Advance</span> · 6h ago</span>
+        <span class="zh"><span class="source">Ripon Advance</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Ripon Advance reports that Rep. John Moolenaar has introduced a bipartisan bill aimed at protecting U.S. export controls for AI chips. The item matters because the policy fight is shifting from announcing controls to making them durable against loopholes and rollback pressure. For suppliers, that means compliance planning may need to assume tighter, longer-lived controls rather than short tactical restrictions.</span>
+        <span class="zh">Ripon Advance报道称，众议员John Moolenaar提出一项两党议案，目标是保护美国针对AI芯片的出口管制。这个动向重要，是因为政策焦点正从宣布管制转向堵漏洞、抗回撤并延长规则寿命。对供应商而言，合规规划可能要假设管制更严、更持久，而不是短期战术性限制。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi8wFBVV95cUxPU1ZVa1NUWEt6ZnI4SXNyLUVkcWdLN3p2NVdBYk1SNUtUVHRYbFZ5RmFubjU5V2M3N3ZCS0VSTXBuektTYlR4ekJFaVcyRDFxUkthS0QzbnZyTEFydGVKM3RrZ0NEM05icE1nV3JSQUlGamwxazZPeVM4ZXRJRWNvWC11czNLbUlYWXVFbTdVN0JwMEw2XzkzZHYtS0N6SG1RZTZBbDJpaWRsRloxM2xyVUNia2dzTzJoMHFTVUE0MzFzR1FjSnBQbkVGSEZpR2NmdWF4dW9wRkVPdy1mM3FrV0ZiRWZ2M21idHp2WDFTYWhCYU0?oc=5" target="_blank" rel="noopener">
+          <span class="en">Lattice lines up $1.15 billion in credit for its AMI deal</span>
+          <span class="zh">Lattice为AMI交易安排11.5亿美元信贷</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingView</span> · 5h ago</span>
+        <span class="zh"><span class="source">TradingView</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TradingView reports that Lattice Semiconductor has secured $1.15 billion in credit facilities led by Wells Fargo to support its AMI transaction. Financing details matter because they show whether a semiconductor deal can survive a higher-rate capital market after the headline announcement. For Lattice, the facility reduces execution risk around the acquisition but also raises the bar for integration discipline.</span>
+        <span class="zh">TradingView报道称，Lattice Semiconductor获得由Wells Fargo牵头的11.5亿美元信贷额度，用于支持其AMI交易。融资细节重要，是因为它能显示一笔半导体交易在高利率资本市场中能否真正落地。对Lattice而言，该额度降低了收购执行风险，但也提高了后续整合纪律的要求。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYmdaVk15bFBYRjY4cmRUcEFHNEZVMnR2WkVPZDNOT3RHQTZZVmZBREU5NmZpczNydE40V014Y2taU1drRFdFTnpTcWs2b05lUTk0bWg3NEFLNkJNWFB1MnU4ZUw4N2RnNmRRT2ptS1lPS3ExVzVWZlJUa09wRkdrU1B3RG1oeFlrZnJyalQ4enNrbWlwMzREeWc2MDVUd2RHRWVhdUdleVk0YUdic0E3a1U2eEdPN1RzWjNlSFJyN0xxX2M?oc=5" target="_blank" rel="noopener">
+          <span class="en">Etched exits stealth with $800 million raised and $1 billion in contracts</span>
+          <span class="zh">Etched携8亿美元融资和10亿美元合同走出隐身</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 33m ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 33分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Etched has exited stealth with $800 million raised and $1 billion in contracts for its transformer-focused inference chip, according to Tech Times. The numbers clear the bar for the challenger section because they combine serious capital with demand signals, not just architecture claims. The open question is whether a transformer-specialized design can hold its advantage as model architectures and serving kernels keep changing.</span>
+        <span class="zh">Tech Times报道称，面向Transformer推理芯片的Etched已经走出隐身，累计融资8亿美元，并拿到10亿美元合同。这组数字符合新势力版块的收录标准，因为它同时包含大额资本和需求信号，而不只是架构主张。仍需观察的是，当模型架构和服务kernel持续变化时，Transformer专用设计能否守住优势。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-01 01:19 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-01 01:19 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

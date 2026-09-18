@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-02">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Ferroelectrics Push Memory and Compute Integration — Semi Research 2026-08-02</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-08-02.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Sunday, August 2, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月2日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">Ferroelectrics Push Memory and Compute Integration</span>
+      <span class="zh">铁电技术推进存储与计算融合</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s device papers focus on ferroelectric memory windows, disturbance tolerance, and vertical integration. Compute-in-memory work focuses on reducing conversion and accumulation overhead without abandoning configurable precision.</span>
+      <span class="zh">本周器件论文聚焦铁电存储窗、抗扰性和垂直集成。存算一体研究则着力降低转换和累加开销，同时保持可配置精度。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3702162" target="_blank" rel="noopener">
+          <span class="en">Ionic FET Uses an Ozone-Oxidized Barrier to Improve ECRAM Retention</span>
+          <span class="zh">采用臭氧氧化阻挡层提升ECRAM保持特性的离子场效应晶体管</span>
+        </a>
+      </h3>
+      <p class="authors">Jongseon Seo, Geonhui Han, Laeyong Jung, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3702162" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The authors add an ultrathin ozone-oxidized barrier to a WO3−x/HfOx ionic-FET ECRAM stack to suppress ion back-diffusion without blocking useful ion injection. They report a roughly 7.6-V memory window, stable 3-bit operation, and endurance above 10^5 program/erase cycles; retention above 10^6 is a room-temperature projection that still needs system-level validation.</span>
+        <span class="zh">作者在WO3−x/HfOx离子FET ECRAM堆栈中加入超薄臭氧氧化阻挡层，以抑制离子回扩散，同时保留有效的离子注入。器件报告约7.6 V存储窗、稳定的3 bit操作和超过10^5次的写擦耐久度；超过10^6的室温保持时间为推算值，仍需系统级验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3704279" target="_blank" rel="noopener">
+          <span class="en">Five-Layer Selector-Free Ferroelectric Diodes for 3D Cross-Point Memory</span>
+          <span class="zh">用于三维交叉点存储的五层无选通铁电二极管</span>
+        </a>
+      </h3>
+      <p class="authors">Wenjuan Zhou, Ruizhan Yan, Renhao Xue, Mansun Chan, Xiwen Liu</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3704279" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">This work experimentally demonstrates a monolithic five-layer cross-point-memory stack using hafnia-based ferroelectric diodes and an all-ALD process. The approximately 10-nm-per-tier stack reaches an ON/OFF ratio near 10^3, nonlinearity up to about 600, 50-ns programming, and endurance beyond 10^7 cycles, directly addressing selector and layer-uniformity limits in vertical memory.</span>
+        <span class="zh">该研究实验演示了采用HfO2基铁电二极管和全ALD工艺的单片五层交叉点存储堆栈。该堆栈每层约10 nm，实现约10^3的开关比、最高约600的非线性度、50 ns编程和超过10^7次耐久度，直接应对垂直存储中的选通器与层间均匀性难题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3703446" target="_blank" rel="noopener">
+          <span class="en">La-Doped HfO2 Improves FeFET Disturbance Immunity</span>
+          <span class="zh">La掺杂HfO2提升FeFET抗扰性</span>
+        </a>
+      </h3>
+      <p class="authors">Sheung Hun Kim, Youngkeun Park, Batzorig Buyantogtokh, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3703446" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The study replaces conventional HfZrO2 with La-doped HfO2 in a ferroelectric FET and reports 2Pr of 47.8 μC/cm². Relative to HfZrO2 devices, the La-doped FeFETs show a 16.0% wider memory window and smaller threshold shifts during disturb cycling, making the material choice relevant to dense nonvolatile-memory arrays.</span>
+        <span class="zh">研究以La掺杂HfO2替代传统HfZrO2作为铁电FET层，并报告47.8 μC/cm²的2Pr。与HfZrO2器件相比，La掺杂FeFET的存储窗扩大16.0%，且在扰动循环中的阈值漂移更小，因此该材料选择对高密度非易失存储阵列具有意义。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3689104" target="_blank" rel="noopener">
+          <span class="en">Compute-Fusion SAR ADC Reduces Overhead in Reconfigurable CIM</span>
+          <span class="zh">计算融合SAR ADC降低可重构存算一体开销</span>
+        </a>
+      </h3>
+      <p class="authors">S. Q. Yan, J. Wang, S. Liu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3689104" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">This 40-nm CMOS compute-in-memory macro reuses its capacitor array for charge-domain MACs and SAR conversion, then combines quantization storage with in-memory serial accumulation. The authors report a 44% transistor-count reduction, up to 250.73 TOPS/W and 255.5 GOPS, with selectable 1-, 2-, and 4-bit signed or unsigned weights; reported task accuracy remains below full-precision baselines on CIFAR-10.</span>
+        <span class="zh">这款40 nm CMOS存算一体宏复用电容阵列完成电荷域MAC和SAR转换，并把量化结果存储与存内串行累加结合。作者报告晶体管数量减少44%、最高250.73 TOPS/W和255.5 GOPS，并支持1、2、4 bit有符号或无符号权重；其在CIFAR-10上的报告精度仍低于全精度基线。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3691526" target="_blank" rel="noopener">
+          <span class="en">MoS2-Enhanced 2T2R Cell Enables One-Step In-Memory XNOR for BNNs</span>
+          <span class="zh">MoS2增强型2T2R单元实现面向BNN的一步存内XNOR</span>
+        </a>
+      </h3>
+      <p class="authors">Zhoujie Pan, Yuwan Hong, Dingyi Zhang, Yanming Liu, He Tian</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3691526" target="_blank" rel="noopener">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The paper proposes a MoS2-transistor-enhanced antisymmetric 2T2R in-memory XNOR cell that completes write and compute in one step for binary neural-network workloads. It argues that the device choice can reduce static power and support monolithic 3D integration, while the BNN mapping makes quantization error an explicit system-level trade-off.</span>
+        <span class="zh">论文提出一种由MoS2晶体管增强的非对称2T2R存内XNOR单元，可针对二值神经网络在一步内完成写入与计算。作者认为该器件选择能降低静态功耗并支持单片三维集成，同时配套的BNN映射把量化误差作为明确的系统级权衡。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Modeling</span>
+      <span class="zh">电路与建模</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/LED.2026.3697987" target="_blank" rel="noopener">
+          <span class="en">Reduced Landau–Khalatnikov Model Captures HfO2 Ferroelectric Dynamics</span>
+          <span class="zh">简化Landau–Khalatnikov模型刻画HfO2铁电动态</span>
+        </a>
+      </h3>
+      <p class="authors">Bing Chen, Haoran Yu, Wenhao Liu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/LED.2026.3697987" target="_blank" rel="noopener">IEEE Electron Device Letters</a> · 2026-08-01</p>
+      <p class="summary">
+        <span class="en">The authors develop a reduced multi-domain Landau–Khalatnikov model for HfO2-based ferroelectrics and match simulated P–V behavior to fabricated Hf0.5Zr0.5O2 samples across anneal temperatures. They use it to predict FRAM read waveforms and simulate negative capacitance in a 1FE-capacitor/1-resistor cell, offering a lighter-weight bridge from measured device behavior to circuit exploration.</span>
+        <span class="zh">作者开发了用于HfO2基铁电材料的简化多畴Landau–Khalatnikov模型，并使模拟P–V特性与不同退火温度下制备的Hf0.5Zr0.5O2样品相吻合。该模型还用于预测FRAM读出波形和模拟1个铁电电容加1个电阻单元中的负电容效应，为从实测器件到电路探索提供了更轻量的桥梁。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-02 01:15 UTC · <a href="../2026-08-02.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-02 01:15 UTC · <a href="../2026-08-02.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

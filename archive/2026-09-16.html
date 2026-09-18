@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-16">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Rewires Memory and Interconnects — Semi News 2026-09-16</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, September 16, 2026</span>
+      <span class="zh">2026年9月16日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Rewires Memory and Interconnects</span>
+      <span class="zh">AI需求重塑存储与互连</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI infrastructure demand is spreading beyond accelerators into HBM4, dense DDR5, CXL fabrics, high-speed links, and the test equipment needed to power them. Capital is following the same path, from TSMC&#x27;s 2nm ecosystem to a $230 million-plus challenger round.</span>
+      <span class="zh">AI基础设施需求正从加速器外溢至HBM4、高密度DDR5、CXL互连、高速链路以及配套供电测试设备。资本也沿着同一路径配置，从台积电2nm生态延伸至超过2.3亿美元的新势力融资。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/09/15/ai-networking-startups-race-to-replace-nvidias-nvlink/5296672" target="_blank" rel="noopener">
+          <span class="en">AI Networking Startups Target Nvidia&#x27;s NVLink Stronghold</span>
+          <span class="zh">AI网络初创公司瞄准Nvidia NVLink腹地</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 4h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel spin-off Cornelis Networks and newcomer Delos Data are pitching open interconnect alternatives for scaling AI systems beyond a single rack. The contest matters because cluster performance increasingly depends on the network fabric, giving buyers a reason to seek options outside Nvidia&#x27;s vertically integrated NVLink stack.</span>
+        <span class="zh">Intel分拆公司Cornelis Networks与新创企业Delos Data正推出开放式互连方案，用于将AI系统扩展到单机架之外。随着网络互连日益决定集群性能，客户也更有动力寻找Nvidia垂直整合NVLink体系之外的选择。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi6AFBVV95cUxNc1Q3MWxxV3lrblJfQnlKMjlvemc5aFpVa29ud1lTY0h3NTQtaDNZWEZ2TU11YWVxSG1jTGUwZkV0bGJWaVROSkZQODhmN3FXeGpVMW1scjdrRTJydEdwU3pDQTJXblFkT2FBbHRIREtXYi1HY0xlVEdKc2Z3RDhTYWNGNDNmcnNQZHhqR1h1dDFxVVhrYnRSSlYwcnBZM1poa2p5bC1Fb1hPa1VHTXFKRmdmZkhZODNmV1J3cGNsOTNPT3FOa3N5cFdCclNBUHFlLXByVXVidFRWdXJOMEJVVE1yOXFybjEt?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia Details Groq 3 LPX for Deterministic Interactive Inference</span>
+          <span class="zh">Nvidia详解Groq 3 LPX确定性低延迟推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">NVIDIA Developer</span> · 8h ago</span>
+        <span class="zh"><span class="source">NVIDIA Developer</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia is positioning Groq 3 LPX deterministic execution as a power-efficient engine for highly interactive inference alongside its Vera Rubin platform. The design highlights a growing split between throughput-oriented AI compute and latency-sensitive serving, where predictable token delivery can matter more than peak benchmark performance.</span>
+        <span class="zh">Nvidia将Groq 3 LPX的确定性执行定位为Vera Rubin平台旁侧的高能效交互式推理引擎。该设计凸显AI计算正分化为吞吐量导向与延迟敏感型两类负载；在后者中，可预测的token输出往往比峰值基准性能更重要。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/nvidia-geforce-rtx-5090-prices-blow-through-the-roof-over-9000-usd/" target="_blank" rel="noopener">
+          <span class="en">RTX 5090 Prices Pass $6,000 as Chinese AI Demand Absorbs Supply</span>
+          <span class="zh">中国AI需求吸收供给，RTX 5090价格突破6000美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">GeForce RTX 5090 retail prices now start above $6,000 and some listings exceed $9,000, versus Nvidia&#x27;s original $1,999 launch price. Reports that Chinese AI companies are buying the cards in volume show how constrained accelerator access is redirecting demand into consumer GPUs and distorting that market.</span>
+        <span class="zh">GeForce RTX 5090零售价目前从6000美元以上起步，部分报价超过9000美元，而Nvidia首发定价为1999美元。有报道称中国AI公司正在批量采购这款显卡，显示受限的加速器获取渠道正把需求导向消费级GPU，并扭曲其市场价格。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxNNXhGUkVFYXVuTktrY3NhdzhCWkVvVUlobG9qS243aW8wcGdjZE01a1pldzg0aERhTGthVFhaMEktRGpkSG1kdW8yald4SnZqMjBMLUVGdE96bVFvS1N5WjNzeGpxcE8wN25icDZxS2RJVkVWQUM1MzlmTUF3NEpXMlNTSlQ4MTY4VjNpaE5XX3ZoSXpNbk1UaFg5OA?oc=5" target="_blank" rel="noopener">
+          <span class="en">MediaTek Accelerates TSMC&#x27;s 2nm Customer Ramp</span>
+          <span class="zh">MediaTek加速进入台积电2nm客户阵列</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 3h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">MediaTek is moving into TSMC&#x27;s 2nm generation as Nvidia and Alphabet also commit funding to the node&#x27;s ecosystem, according to the report. A broader group of anchor customers lowers utilization risk for TSMC&#x27;s expensive ramp and indicates that 2nm demand is extending beyond a single flagship buyer.</span>
+        <span class="zh">据报道，MediaTek正加速进入台积电2nm制程，Nvidia与Alphabet也已向相关生态投入资金。更多核心客户参与可降低台积电高成本爬坡阶段的产能利用率风险，也表明2nm需求并非只依赖单一旗舰客户。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRExXMEdLUHNDbmlBbjJtV2FXMHJpTndsVmxhcTJ2by1vYV9ackszTkJzVHZjQy0tQk5GWTlKdnRCay1ER2F0OThWbHZySXVlWURWcnhFQlYybTQyNXlQSGpUVjk4cDRZUm8wdVhHQmxWWmdQS3h2aVp2b3pPV2UxeGFNQ3BVcW4y?oc=5" target="_blank" rel="noopener">
+          <span class="en">Kioxia Calls a Halt to Data-Center NAND Price Increases</span>
+          <span class="zh">Kioxia叫停数据中心NAND涨价</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosun</span> · 1h ago</span>
+        <span class="zh"><span class="source">Chosun</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Kioxia&#x27;s chief executive has ordered an end to further NAND price increases for data-center customers. The decision could temper storage-cost inflation just as AI deployments raise capacity demand, while also testing whether other NAND suppliers continue pushing prices higher.</span>
+        <span class="zh">Kioxia首席执行官已下令停止进一步上调数据中心客户的NAND价格。在AI部署推高存储容量需求之际，这一决定可能缓和存储成本通胀，同时也将检验其他NAND供应商是否继续提价。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/micron-crams-512-gb-memory-into-single-ddr5-stick-next-gen-intel-amd-servers/" target="_blank" rel="noopener">
+          <span class="en">Micron Demonstrates a 512 GB DDR5 Module at 9,200 MT/s</span>
+          <span class="zh">Micron展示512 GB、9200 MT/s DDR5内存条</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 5h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron has demonstrated a 512 GB DDR5 module running at up to 9,200 MT/s, with next-generation Intel and AMD servers able to reach 12 TB using the design. Denser, faster DIMMs reduce slot pressure for memory-heavy AI and agentic workloads, although the report does not provide production timing or pricing.</span>
+        <span class="zh">Micron展示了一款容量512 GB、速率最高9200 MT/s的DDR5内存条，采用该设计的下一代Intel与AMD服务器内存容量可达12 TB。更高密度、更高速的DIMM可缓解AI及智能体工作负载的插槽压力，但报道未给出量产时间与价格。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE9qTWdtQWY4WmpkSDdCU2steHZqVERqUDFoemJWN1luMXplOS1ELWR1SWNfNi14WWpwTEEzSnNtQVRZN2Y1endOcFMzYWRwd3JGcTVSTHdKdjV5V285MkVUbjNkWWFDdXdT?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Begins Shipping 16-Layer HBM4 for Nvidia Rubin</span>
+          <span class="zh">SK hynix开始为Nvidia Rubin出货16层HBM4</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingView</span> · 6h ago</span>
+        <span class="zh"><span class="source">TradingView</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix is shipping 16-layer HBM4 for Nvidia&#x27;s Rubin platform, according to the report. Early volume supply strengthens its position in the next accelerator cycle and raises the qualification bar for Micron and Samsung, where stack height, thermals, and yield all compound manufacturing risk.</span>
+        <span class="zh">据报道，SK hynix已开始为Nvidia Rubin平台出货16层HBM4。率先实现批量供货将巩固其在下一轮加速器周期中的地位，也为Micron和Samsung抬高认证门槛，因为堆叠层数、散热与良率会共同放大制造风险。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/astera-labs-releases-leo-2-cxl-memory-controllers-and-leo-x-controller-for-rackscale-fabric-attached-memory/" target="_blank" rel="noopener">
+          <span class="en">Astera Labs Extends CXL Memory from Servers to AI Fabrics</span>
+          <span class="zh">Astera Labs把CXL内存从服务器扩展至AI互连网络</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 8h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Astera Labs has launched Leo 2 memory controllers with CXL 3.2 and PCIe Gen6 support, plus Leo X for attaching memory expanders directly to AI-accelerator fabrics. The move pushes pooled memory toward rack scale, where capacity can be allocated across accelerators instead of remaining stranded behind individual host CPUs.</span>
+        <span class="zh">Astera Labs发布支持CXL 3.2与PCIe Gen6的Leo 2内存控制器，并推出可将内存扩展器直接接入AI加速器互连网络的Leo X。该方案把池化内存推进到机架级，使容量能够在多个加速器间分配，而不再被锁在单个主机CPU之后。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.embedded.com/tektronix-launches-dynamic-test-system-for-800-v-ai-data-centers/" target="_blank" rel="noopener">
+          <span class="en">Tektronix Builds Regenerative Test System for 800-V AI Data Centers</span>
+          <span class="zh">Tektronix推出面向800 V AI数据中心的回馈式测试系统</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Embedded.com</span> · 4h ago</span>
+        <span class="zh"><span class="source">Embedded.com</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tektronix introduced the EA-ELR 21000 Dynamic Test System to validate emerging ±400-V and 800-V DC power architectures in AI data centers. Its auto-ranging electronic load can emulate rapid demand changes and return absorbed energy to the grid, reducing the heat and operating cost of high-power validation.</span>
+        <span class="zh">Tektronix推出EA-ELR 21000动态测试系统，用于验证AI数据中心新兴的±400 V与800 V直流供电架构。其自动量程电子负载可模拟快速变化的功率需求，并把吸收的能量回馈电网，从而降低大功率验证过程中的散热与运行成本。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/lithography/373360-a-study-of-photoresist-bake-influence-on-stochastics-for-duv-immersion-lithography/" target="_blank" rel="noopener">
+          <span class="en">Photoresist Bake Conditions Emerge as a DUV Stochastics Lever</span>
+          <span class="zh">光刻胶烘烤条件成为DUV随机缺陷控制变量</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A new analysis examines how photoresist bake conditions affect stochastic behavior in 193-nm ArF immersion lithography. The work matters because DUV multipatterning remains central to advanced manufacturing, and small process-window changes can translate into defectivity and yield differences across repeated patterning steps.</span>
+        <span class="zh">一项新分析研究了光刻胶烘烤条件如何影响193 nm ArF浸没式光刻中的随机效应。DUV多重图形化仍是先进制造的关键环节，微小的工艺窗口变化会在重复曝光步骤中累积，最终影响缺陷率与良率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/chinas-ymtc-is-just-1-year-behind-the-west-on-nand-while-cxmt-trails-by-just-2-years-on-dram-and-3-years-on-hbm-according-to-korea-semiconductor-industry-association/" target="_blank" rel="noopener">
+          <span class="en">Korean Industry Group Quantifies China&#x27;s Memory Catch-Up</span>
+          <span class="zh">韩国行业协会量化中国存储技术追赶速度</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Korea Semiconductor Industry Association estimates that China&#x27;s YMTC is about one year behind leading NAND technology, while CXMT trails by roughly two years in DRAM and three years in HBM. The assessment, down from an earlier gap of about five years, adds urgency to Korean technology policy and complicates assumptions that controls alone can preserve a durable memory lead.</span>
+        <span class="zh">韩国半导体产业协会估计，中国YMTC在NAND技术上落后领先水平约1年，CXMT在DRAM与HBM上分别落后约2年和3年。相比此前约5年的差距，这一评估将加大韩国技术政策的紧迫感，也削弱了单靠管制即可长期维持存储领先优势的假设。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQSjRZdks4dXBkUGtmWHMyNFVQTG1zZEc5R2ZCSmRIc2dkTzdtajlkXy1LWFE5Q0hiamU3aFdJajBaV1hkYXF3Vk5Obm9QbjdweHBBOC1GMjhaMkJnQnhwS1NUTFE1SVFFNzV2VmUyNE8zLTh3QTdlZ0JUQVRMcm9fUWtSQTJqYXYwS1NnODAwVQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Euclyd Raises More Than $230 Million for Agent-Focused AI Chips</span>
+          <span class="zh">Euclyd融资超过2.3亿美元，开发面向AI智能体的芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SiliconANGLE</span> · 5h ago</span>
+        <span class="zh"><span class="source">SiliconANGLE</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Euclyd has raised more than $230 million to develop chips aimed at AI-agent workloads. The size of the round gives the company enough capital to pursue costly silicon development and suggests investors see an opening for architectures tuned to sustained, interactive inference rather than only large training runs.</span>
+        <span class="zh">Euclyd已融资超过2.3亿美元，用于开发面向AI智能体工作负载的芯片。这一融资规模足以支撑高成本的芯片研发，也表明投资者看到了面向持续交互式推理、而非只服务大型训练任务的架构机会。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-16 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-09-16 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

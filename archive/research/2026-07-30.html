@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-30">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Efficiency Moves Across Devices and Models — Semi Research 2026-07-30</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-07-30.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, July 30, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月30日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Efficiency Moves Across Devices and Models</span>
+      <span class="zh">效率优化贯穿器件与模型</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s papers connect device-level models and circuits with techniques for more efficient AI inference. The common thread is reducing costly computation or calibration without giving up measured reliability.</span>
+      <span class="zh">本周论文把器件级建模与电路研究，同提升AI推理效率的技术联系起来。共同主线是在不牺牲可验证可靠性的前提下，减少昂贵的计算或校准。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.26815" target="_blank" rel="noopener">
+          <span class="en">TiO2 Memristor Model for Neuromorphic Circuit Simulation</span>
+          <span class="zh">用于神经形态电路仿真的TiO2忆阻器模型</span>
+        </a>
+      </h3>
+      <p class="authors">Lukas Endres, Hannes Töpfer, Michaela Blum, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.26815" target="_blank" rel="noopener">arXiv:2607.26815</a> · 2026-07-29</p>
+      <p class="summary">
+        <span class="en">This work derives and validates a SPICE-ready model for a volatile TiO2 memristor using experimental electrical measurements. The model reproduces continuous and pulsed behavior and is demonstrated in a leaky integrate-and-fire neuron simulation. It gives circuit designers a calibrated model for exploring neuromorphic behavior, though other TiO2 stacks need separate validation.</span>
+        <span class="zh">该研究基于实验电学测量，建立并验证了可用于SPICE的易失性TiO2忆阻器模型。模型能再现连续和脉冲激励下的行为，并在漏积分发放神经元仿真中展示。它让电路设计人员可使用经校准的模型探索神经形态行为，但其他TiO2器件堆叠仍需单独验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Systems</span>
+      <span class="zh">电路与系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.26738" target="_blank" rel="noopener">
+          <span class="en">Dual-Mode FM/AM Modulator Using a Time-Varying Inverting Integrator</span>
+          <span class="zh">基于时变反相积分器的双模FM/AM调制器</span>
+        </a>
+      </h3>
+      <p class="authors">Azalía G. Gil, Alfonso T. Muriel-Barrado, Mario Pérez-Escribano, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.26738" target="_blank" rel="noopener">arXiv:2607.26738</a> · 2026-07-29</p>
+      <p class="summary">
+        <span class="en">The paper presents a dual-mode frequency/amplitude modulator using a time-modulated varactor, an inverting integrator and a passband filter. The team fabricated a microstrip PCB prototype and reports measured results that agree with theory and ADS simulations. The experimental grounding is useful, although integration into a semiconductor RF process is not addressed.</span>
+        <span class="zh">论文提出一种双模调频/调幅调制器，采用时变变容二极管、反相积分器和带通滤波器。团队制备了微带PCB原型，测量结果与理论及ADS仿真一致。这一实验验证很有价值，但尚未涉及如何集成到半导体射频工艺。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.26661" target="_blank" rel="noopener">
+          <span class="en">AgenticCANN: Automated Ascend C Operator Generation</span>
+          <span class="zh">AgenticCANN：自动生成Ascend C算子</span>
+        </a>
+      </h3>
+      <p class="authors">Junhao Qiu, Zidong Wang, Yansong Sun, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.26661" target="_blank" rel="noopener">arXiv:2607.26661</a> · 2026-07-29</p>
+      <p class="summary">
+        <span class="en">AgenticCANN uses a knowledge-augmented agentic-evolution workflow to generate and tune Ascend C operators for Huawei NPUs. On an Ascend 910B, the authors evaluate six operators across five pattern categories and report gains over their baselines. Operator tuning is often the step that turns theoretical accelerator capability into inference throughput, but the reported gains depend on the kernels and setup tested.</span>
+        <span class="zh">AgenticCANN采用知识增强的智能体演化流程，为Huawei NPU生成并调优Ascend C算子。作者在Ascend 910B上评估了涵盖五类模式的六个算子，并报告了优于基线的结果。算子调优常是把理论加速器能力转化为推理吞吐的关键步骤，但所报告的提升仍依赖于测试内核和评测设置。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Systems &amp; Research</span>
+      <span class="zh">AI系统与研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.26865" target="_blank" rel="noopener">
+          <span class="en">Calibrated Reasoning and Cloud Deferral for Edge LLM Agents</span>
+          <span class="zh">面向边缘LLM智能体的校准推理与云端延后决策</span>
+        </a>
+      </h3>
+      <p class="authors">Amirmohammad Farzaneh, Osvaldo Simeone</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.26865" target="_blank" rel="noopener">arXiv:2607.26865</a> · 2026-07-29</p>
+      <p class="summary">
+        <span class="en">Think Short, Defer Smart combines a probe that stops on-device reasoning when actions stabilize with a perplexity rule for escalating uncertain actions to the cloud. The method is calibrated on full trajectories and evaluated across four ReAct-style benchmarks. It targets the edge-inference trade-off of saving local compute and cloud calls without assuming short reasoning is reliable.</span>
+        <span class="zh">Think Short, Defer Smart把动作稳定后停止端侧推理的探针，与基于困惑度的规则结合，在动作不确定时升级到云端模型。该方法在完整轨迹上校准，并在四个ReAct式基准上评估。它针对边缘推理中节省本地计算和云端调用的权衡，同时不假设短推理必然可靠。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.26862" target="_blank" rel="noopener">
+          <span class="en">ReCo: Reweighting GRPO to Preserve Diverse Reasoning Paths</span>
+          <span class="zh">ReCo：通过重加权GRPO保留多样化推理路径</span>
+        </a>
+      </h3>
+      <p class="authors">Junoh Park, Junseo Hwang, Wonguk Cho, Taesup Kim</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.26862" target="_blank" rel="noopener">arXiv:2607.26862</a> · 2026-07-29</p>
+      <p class="summary">
+        <span class="en">ReCo modifies GRPO so common high-probability responses do not dominate the gradient and alternative token choices retain learning signal. The authors attribute concentration to repeated responses within a rollout group and to the token-level importance ratio. If it generalizes beyond the tested math benchmarks and model sizes, it could preserve broader reasoning coverage during post-training.</span>
+        <span class="zh">ReCo修改GRPO，使常见的高概率回答不会主导梯度，并让替代token选择保留学习信号。作者将集中化归因于rollout组中的重复回答以及token级重要性比率。若能推广到已测试数学基准和模型规模之外，它可能在后训练中保留更广的推理覆盖。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.26621" target="_blank" rel="noopener">
+          <span class="en">WhisperRec: Latent Reasoning for Efficient Recommendation Models</span>
+          <span class="zh">WhisperRec：面向高效推荐模型的潜在推理</span>
+        </a>
+      </h3>
+      <p class="authors">Hao Jiang, Peiru Du, Pengfei Yao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.26621" target="_blank" rel="noopener">arXiv:2607.26621</a> · 2026-07-29</p>
+      <p class="summary">
+        <span class="en">WhisperRec compresses teacher-generated chain-of-thought into learnable latent reasoning tokens for foundation recommendation models. Reasoning in latent space rather than emitting rationales aims to retain decision-relevant information while lowering inference overhead. The approach suits latency-sensitive serving, although latent reasoning is harder to inspect and needs careful robustness evaluation.</span>
+        <span class="zh">WhisperRec把教师模型生成的思维链压缩为可学习的潜在推理token，用于基础推荐模型。在潜在空间推理而非产生推理文本，目标是在保留决策相关信息的同时降低推理开销。该方法适合对延迟敏感的服务，但潜在推理更难检查，仍需审慎评估鲁棒性。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-30 01:14 UTC · <a href="../2026-07-30.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-30 01:14 UTC · <a href="../2026-07-30.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

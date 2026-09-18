@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-01">
+<meta name="generator" content="semi-news-daily">
+<title>AI Infrastructure Tests Every Supply Constraint — Semi News 2026-08-01</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, August 1, 2026</span>
+      <span class="zh">2026年8月1日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">AI Infrastructure Tests Every Supply Constraint</span>
+      <span class="zh">AI基础设施考验全链条供给约束</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Hyperscaler spending and new GPU clusters keep compute demand high, while memory costs, advanced packaging, fab resilience, and supporting materials become the practical limits. The resulting investments are reaching beyond chips into foundry services, gases, and regional equipment supply chains.</span>
+      <span class="zh">云厂商资本开支与新增GPU集群继续推高算力需求，而存储成本、先进封装、晶圆厂韧性及配套材料正成为实际约束。相关投资已从芯片本身延伸至代工服务、工业气体和区域化设备供应链。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/big-tech/big-tech-spends-more-than-usd1-trillion-on-ai-infrastructure-additional-usd745-billion-expected-to-be-added-to-the-figure-in-2026-alone" target="_blank" rel="noopener">
+          <span class="en">Big Tech&#x27;s AI Infrastructure Bill Passes $1 Trillion</span>
+          <span class="zh">科技巨头AI基础设施投入突破1万亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Amazon, Google, Meta, and Microsoft have collectively spent more than $1 trillion on AI investment since 2023, according to the report. The four are expected to add another $745 billion in 2026, making sustained demand for accelerators, networking, power, and data-center construction the central industry question rather than a one-quarter procurement surge.</span>
+        <span class="zh">报道称，Amazon、Google、Meta和Microsoft自2023年以来在AI相关投入上合计已超过1万亿美元。四家公司预计将在2026年再增加7450亿美元，这意味着加速器、网络、电力和数据中心建设的持续需求，而非单季采购高潮，正成为产业的核心变量。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxOeVViREhmXzZUal83SHNUWjJqSkxJbWt1RXBQc1R6MUVVMm1SWFNwRG5xM0VyR096MVNxN05qNEtRVXdaME5JMXo5TUNwaGJoVUJZTG5WNzBPdTlaQmxxYzlHaWNiMXZsQzdkSHh1ZTA1NVlfdERQZ0t1b0VlcUY0QW45VXVDb0d5SjZleXVINnBDWnNkZTVzd0lEMXZkYUZfVlV3cnRva1p1TXoxcVhOOFRYdnFuRHNUX3FFQ2xzZXpVV2RjeG9SZVdVTXhRR2dxdkdDblR3?oc=5" target="_blank" rel="noopener">
+          <span class="en">Moonshot Reportedly Gains Access to an Alibaba Nvidia Cluster</span>
+          <span class="zh">Moonshot据报通过阿里云获得Nvidia集群</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 8h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bloomberg reported that Moonshot has obtained access to an Nvidia chip cluster through an Alibaba computing deal. The arrangement would put a major Chinese model developer closer to scarce high-end training capacity, while also drawing attention to how cloud access intersects with U.S. export-control enforcement.</span>
+        <span class="zh">Bloomberg报道称，Moonshot通过一项阿里云计算交易获得了Nvidia芯片集群的使用权。这一安排将使这家中国大模型开发商更接近稀缺的高端训练算力，同时也令云端访问与美国出口管制执行之间的关系受到更多关注。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/apple-warns-it-could-run-short-on-ai-computing-power-risking-delays-to-products-and-services/" target="_blank" rel="noopener">
+          <span class="en">Apple Flags AI Compute Capacity as a Product Risk</span>
+          <span class="zh">Apple将AI算力容量列为产品交付风险</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 1h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Apple&#x27;s 10-Q warns that it could face shortages of AI and machine-learning computing capacity, alongside supply-chain constraints that may affect current-quarter revenue growth. The disclosure is notable because it frames compute availability as a potential limiter on products and services, not merely an operating-cost issue.</span>
+        <span class="zh">Apple在10-Q文件中警示，公司可能面临AI和机器学习计算容量短缺，且供应链约束可能影响当季营收增长。这一披露值得关注，因为它将算力可得性界定为可能限制产品和服务交付的因素，而不只是运营成本问题。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQaENXaEN6cFQ1YUJBZVBnMEtuWTc3a3VONWF1RHZjU25zcW5XOF9WS3d5bXh2YTQzMnhTM3lncEgyd3NTNnhTSEZWQnhNUldrd19QanFMTGpzSHlkLV9EVDJfNnFncUdnMzQ1UlBBMTdIQjg4VjJDYVlLMEg1RUFIODNZYmdjUDM0dVlLd0VHT01QZ3FBV1FfUUFtQmJLR1dpejdNblc2ZmRrY1k?oc=5" target="_blank" rel="noopener">
+          <span class="en">Japan Earthquake Disrupts Kyushu Semiconductor Operations</span>
+          <span class="zh">日本地震扰动九州半导体生产</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Cleanroom Technology</span> · 10h ago</span>
+        <span class="zh"><span class="source">Cleanroom Technology</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chip manufacturers suspended operations in Kyushu after an earthquake disrupted local production, according to the report. Even short stoppages matter in a tightly supplied ecosystem because restarting cleanroom processes, qualifying output, and clearing work in progress can extend the operational impact beyond the initial event.</span>
+        <span class="zh">报道称，日本地震扰动当地生产后，多家芯片制造商暂停了九州地区的运营。对于供应紧张的产业生态而言，即使短暂停工也不容忽视：洁净室制程重启、产出认证以及在制品清理，都可能使影响持续超过事件本身。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/apple-nearly-doubled-its-inventory-to-11-09-billion-as-memory-costs-ate-its-gross-margin" target="_blank" rel="noopener">
+          <span class="en">Apple Expects Another Step Up in Memory Costs</span>
+          <span class="zh">Apple预计存储器成本还将进一步上升</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tim Cook said Apple expects to pay more for memory in the September quarter than it did in June after recent price increases. The company has nearly doubled inventory to $11.09 billion, signaling that memory pricing is now large enough to pressure gross margin and procurement planning at major device makers.</span>
+        <span class="zh">Tim Cook表示，在近期涨价之后，Apple在9月季度支付的存储器成本将高于6月季度。公司库存已接近翻倍至110.9亿美元，表明存储器价格已足以影响大型终端厂商的毛利率和采购规划。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxOUzM4LWRZVUZiWlhpeGJUSTVnaFBUZUdrWUJxOG5MVXRteXNJR0tpMzZMRVNSZWdlOXFJQVVJVlVyVXM0ZjVnOUd3Sm40VC16d1NhdkxfY3gtSUFWaVB5R1Z2UVRPcWdmN0ZYQVBmcGQ2bkhVaHZxQkpHUTJIOXlUOHZqcmdhc1dOakF0ekQ5Yi1hYm5ObUZmUFVXbHRHM2VycjBhM0VFeFJOLXE4RTVqcDYzekZLaks4WlNQTEZGMDRJdmU4WVRUU3NR?oc=5" target="_blank" rel="noopener">
+          <span class="en">Linde Wins Arizona Gas-Supply Contract for a Semiconductor Complex</span>
+          <span class="zh">Linde获得亚利桑那半导体园区工业气体供应合同</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chemical Engineering</span> · 3h ago</span>
+        <span class="zh"><span class="source">Chemical Engineering</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Linde has been awarded a contract to supply industrial gases to a semiconductor-manufacturing complex in Arizona. Bulk gases are an essential fab utility rather than a peripheral service, so the award is another sign that U.S. capacity expansion is pulling investment through the materials and facility-infrastructure stack.</span>
+        <span class="zh">Linde获得了一份合同，将向亚利桑那一座半导体制造园区供应工业气体。大宗气体是晶圆厂的关键公用工程而非边缘服务，因此该合同进一步表明，美国扩产正在带动材料和厂务基础设施全链条投资。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/cea-leti-pushes-stacking-roadmap-as-ai-runs-into-memory-and-power-limits/" target="_blank" rel="noopener">
+          <span class="en">CEA-Leti Puts 3D Stacking at the Center of AI Scaling</span>
+          <span class="zh">CEA-Leti将3D堆叠置于AI扩展的核心</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CEA-Leti is advancing a roadmap built around 3D stacking, chiplets, and improved power and cooling as AI systems run into memory-bandwidth and energy limits. The framing matters because it treats advanced packaging as system architecture: performance gains increasingly depend on moving data and power efficiently, not only shrinking transistor dimensions.</span>
+        <span class="zh">随着AI系统遭遇内存带宽和能耗限制，CEA-Leti正推进以3D堆叠、chiplet以及更优供电和散热为核心的路线图。这一思路的重要性在于，它将先进封装视为系统架构：性能提升越来越依赖于高效传输数据和供电，而不只是缩小晶体管尺寸。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPN3JYR0JOYjZIWWxSckVmVGFIdlNfenFrWjQzeGNFZEZtaFdGNzNwWkpqM2w2eS1LRVAxQjcxRVp0RXZhaVVPSW9fLWpXMkg4dTllUGVMTHRtaTc2UlFCRXBiNDB1VXdMYmx2LTRQS1JLeDVDZHNUNTZZZkhmMXNIV29pc2RRZ19GZ1B4WWxHM0ZWZVItNzIwUXBWUFMxTUtX?oc=5" target="_blank" rel="noopener">
+          <span class="en">FTC Clears IonQ&#x27;s Purchase of SkyWater Foundry</span>
+          <span class="zh">FTC批准IonQ收购SkyWater晶圆厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 3h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The U.S. Federal Trade Commission approved IonQ&#x27;s acquisition of SkyWater Technology, clearing a deal that links a quantum-computing company with a specialty semiconductor foundry. The transaction puts fabrication capability closer to IonQ&#x27;s hardware roadmap and illustrates continued interest in vertically aligned, domestic supply for non-CMOS compute platforms.</span>
+        <span class="zh">美国联邦贸易委员会批准IonQ收购SkyWater Technology，这笔交易将量子计算公司与一家特色半导体晶圆厂连接起来。该交易使制造能力更贴近IonQ的硬件路线图，也显示出市场持续关注面向非CMOS计算平台的垂直整合和本土供应。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; Deals</span>
+      <span class="zh">挑战者与交易</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPUEpmYTdqUGtSOG1pQ0pHc3Jnd01QX2hnU1gydEIzQUxlVUJoS3BOQmloRTQ2LW4tVnZOeC1ab2poVUJwX2V5MUpiSExZTmZMOFVPemRTbmFIVW9YdGVIRVhtcjlaTkVmamtEbHd6aHZKdVBBUl90TVo1bVRqeHc4TzlrM08?oc=5" target="_blank" rel="noopener">
+          <span class="en">NXP Is Reportedly in Talks for a $3 Billion-Plus Automotive Camera-Chip Deal</span>
+          <span class="zh">NXP据报洽谈逾30亿美元的汽车摄像头芯片交易</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Financial Times</span> · 8h ago</span>
+        <span class="zh"><span class="source">Financial Times</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">NXP is in talks to acquire a designer of camera chips for self-driving cars for more than $3 billion, the Financial Times reported. If completed, the deal would add image-sensing capability to NXP&#x27;s automotive portfolio at a time when the content of vision and edge-processing silicon per vehicle continues to rise.</span>
+        <span class="zh">《金融时报》报道称，NXP正洽谈以逾30亿美元收购一家自动驾驶摄像头芯片设计商。若交易完成，NXP将在其汽车产品组合中补足图像感知能力；与此同时，单车所需的视觉和边缘处理芯片价值仍在上升。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-01 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-01 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

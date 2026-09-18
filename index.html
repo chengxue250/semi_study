@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-18">
+<meta name="generator" content="semi-news-daily">
+<title>Capital and Capacity Reshape the AI Stack — Semi News 2026-09-18</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, September 18, 2026</span>
+      <span class="zh">2026年9月18日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">Capital and Capacity Reshape the AI Stack</span>
+      <span class="zh">资本与产能重塑AI堆栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">A $1 billion U.S. quantum-wafer award and $1.025 billion across two AI-hardware financings push money toward domestic fabrication, memory-centric inference, and co-packaged optics. Full ASML order books and a reported 10% AMD price increase show how constrained capacity is already flowing through to customers.</span>
+      <span class="zh">美国向量子晶圆制造投入$10亿，两笔AI硬件融资合计$10.25亿，资本正涌向本土制造、存储优先推理和共封装光学。ASML订单排满至2027年，加之AMD据报涨价约10%，显示受限产能的成本已开始向客户传导。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZTE1czFnUERuZDJOeHgxcjRVbVpRVmhGZnYxTTFVdHRTenZJbjNnaFZVQXJWV2xIWEV3OFdGeU01M0Q5NzBYMDFieTVkeWZUeDkxNGxmQjhMMURBTzZKSWVvanFXeUsxTURlVk9UTmtHNTZLRjNEOXVldU91R1lpRmQxLUVMVVl5OG5F?oc=5" target="_blank" rel="noopener">
+          <span class="en">FIT Diversifies AI Optics With Corning EBO and TSMC Talks</span>
+          <span class="zh">FIT借Corning EBO与台积电洽谈分散AI光学布局</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DIGITIMES</span> · 50m ago</span>
+        <span class="zh"><span class="source">DIGITIMES</span> · 50分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">FIT is pursuing Corning EBO technology while discussing co-packaging with TSMC, giving the company two routes into AI optical interconnects. The parallel tracks matter because accelerator clusters increasingly need optical links closer to the package, but neither discussion yet establishes production volume or timing.</span>
+        <span class="zh">FIT一面推进Corning EBO技术，一面与台积电讨论共封装，为切入AI光互连布局两条路线。随着加速器集群需要把光链路进一步靠近封装端，这种双线布局更具意义，但现阶段尚未披露量产规模或时间表。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1JcVJObUlHZTg0dzk5ZkVkS3NibHo0eUdjbEtnY0RCdzBaTU56M3BhNzB4eGtSbGx2dFBlT1FXaG1ZSVFPeDB2cVZnN2VSSzBadDY5NDNCRm9tU3Z4MlBMcA?oc=5" target="_blank" rel="noopener">
+          <span class="en">AMD Reportedly Plans a 10% Q4 Chip Price Increase</span>
+          <span class="zh">AMD据报计划第四季度将芯片价格上调约10%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">XenoSpectrum</span> · 1h ago</span>
+        <span class="zh"><span class="source">XenoSpectrum</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD reportedly plans to raise chip prices by about 10% starting in the fourth quarter as higher TSMC costs pressure GPUs and motherboard components. If implemented broadly, the increase would be a direct pass-through of leading-edge manufacturing costs into the PC and accelerator supply chain.</span>
+        <span class="zh">据报道，受台积电成本上升挤压GPU和主板相关芯片利润影响，AMD计划从第四季度起将芯片价格上调约10%。若大范围执行，这将是先进制程制造成本直接向PC与加速器供应链传导的明确信号。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/china-develops-gaa-transistors-that-enable-3nm-node-like-performance-on-duv-lithography-but-meol-constraints-only-provide-a-path-to-5nm-node-equivalent-performance/" target="_blank" rel="noopener">
+          <span class="en">Chinese GAA Device Targets 3nm-Like Performance With DUV</span>
+          <span class="zh">中国GAA器件以DUV瞄准3nm级性能</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Chinese Academy of Sciences has reported GAA transistors with on-off ratios above 500,000 and device-level performance described as comparable to 3nm-class technology using DUV lithography. Middle-end-of-line constraints still limit the practical path to roughly 5nm-equivalent integration, so the result is a device advance rather than proof of a production-ready 3nm process.</span>
+        <span class="zh">中国科学院据报开发出开关比超过500,000的全环绕栅极（GAA）晶体管，并以DUV光刻实现被描述为接近3nm级的器件性能。中段制程（MEOL）约束仍将实际集成路径限制在约5nm等效水平，因此这更接近器件层面的进展，而非可量产3nm制程的证明。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxQR0pQZVByS1Fyd0FDVUI3MVV3c2R5LTRQb21ZUVg4OUFmVFd3LU1Vbnp4eUtsUGtwSzczUjZLWm43bkhpTVVkNWNuM1VJQnBLa3k3Zks4eTE3a2oxb0hXNDRLaThCOXZ6ak5RQ0tNMFRpdEhNMUhrSldRczJhaEMzMTZOS2hiWTV1am16UVozRk10bVJRdWxIUTZxUW1CVkxjSThJcmtXZ2hNV2F0UE9rQ1pDekh4d1VMejlz?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nexperia Partners With Tata After Chinese-Parent Fallout</span>
+          <span class="zh">与中国母公司关系生变后，Nexperia转与Tata合作</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 9h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nexperia has formed a semiconductor manufacturing and technology partnership with Tata Electronics after its fallout with its Chinese parent. The agreement gives Nexperia another route into India&#x27;s expanding chip-manufacturing base and signals a broader effort to diversify production relationships amid ownership and geopolitical friction.</span>
+        <span class="zh">在与中国母公司关系生变后，Nexperia与Tata Electronics建立半导体制造与技术合作。该协议为Nexperia接入印度扩张中的芯片制造体系提供了新路径，也反映出企业在所有权与地缘政治摩擦下分散生产合作关系的趋势。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxPWmwxNW5oTXktNmdkT3dqME5FTUdqNWo3WTBQMjFyN2tjM2lWWWpTNzEybTgwUnM5SXc3bnNpMWRQSFIwN3BCTmVzSTBPMURHVUZMNEJndjR4VGFNOUlRNGp6d1dXbm54V0xCQTRzX29PQjJQenlTbGJ6U285VkliUVBhMDVXdUl2dzE0NmZIS0JsUXBiSF96a21CVFR5d3lXbTc0dlFuTVRRakY4?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Claims a Tenfold AI Speed Gain From Stacked zHBM</span>
+          <span class="zh">三星称堆叠zHBM可令AI速度提升10倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Seoul Economic Daily</span> · 3h ago</span>
+        <span class="zh"><span class="source">Seoul Economic Daily</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung says its stacked zHBM memory can improve AI accelerator performance by as much as tenfold. The claim points to memory architecture, not compute alone, as a route around the bandwidth wall; production readiness, workload coverage, and system-level power data remain the tests that will determine its practical value.</span>
+        <span class="zh">三星称其堆叠式zHBM存储可将AI加速器性能最高提升10倍。这一说法把突破带宽墙的重点从单纯增加算力转向存储架构，但其实际价值仍取决于量产成熟度、适用工作负载范围和系统级功耗数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxQa1VNcU55ZW1wa1l1SEsxTncxVFdta2ZlOUdaQURsNGlqS0g2MGo4VHZBQ3ctanlaRG5rdkUzc0FBcENzbEoxNHhTUngtb3JqM1Jxa2VrOEFQZkZqdGwzc3hMNEEtWEt3X3hOUVhRZ3Q0Q1pYVnNjSGZHZHp0OTkzN1R5Rk9LYTBoREpSOWxBbjRJdDdfdkthcDVZcWNETDZWQVgxN05nbFZLd1V1UGFfLTlJQ1RaR180QVJEUnVDenJZdTFyMmM1OEZNRGdfdHZiN2xtNWFEUF9iZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML&#x27;s Order Book Is Reportedly Full Through 2027</span>
+          <span class="zh">ASML订单据报已排满至2027年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ad-hoc-news.de</span> · 4h ago</span>
+        <span class="zh"><span class="source">ad-hoc-news.de</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML&#x27;s order book is reportedly filled through 2027 as advanced-node and AI-related fab spending sustains lithography demand. The long backlog improves revenue visibility for ASML but also leaves leading-edge capacity additions exposed to tool-delivery timing.</span>
+        <span class="zh">据报道，先进制程与AI相关晶圆厂投资持续支撑光刻需求，ASML订单已排满至2027年。长订单周期提高了ASML收入的可见度，同时也意味着领先制程扩产将更受设备交付节奏制约。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.eetimes.com/u-s-awards-anderon-1b-for-quantum-wafer-manufacturing/" target="_blank" rel="noopener">
+          <span class="en">U.S. Awards Anderon $1 Billion for Quantum Wafer Manufacturing</span>
+          <span class="zh">美国向Anderon量子晶圆制造项目拨款$10亿</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 3h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The U.S. has awarded $1 billion to IBM&#x27;s Anderon effort to manufacture quantum wafers domestically. The award moves industrial policy beyond conventional logic and memory fabs, putting public money behind the manufacturing infrastructure needed to scale quantum hardware from laboratory systems.</span>
+        <span class="zh">美国向IBM旗下Anderon项目拨款$10亿，用于在本土制造量子晶圆。这笔资金将产业政策从传统逻辑与存储晶圆厂延伸至量子硬件制造基础设施，目标是推动量子系统走出实验室并扩大规模。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxNaTg1TF9KRWlSNU9kenlvNHAxYmI1LXB0RnlITkRBdVlrQ0huSjlrX3R4LXZieE9kUnNuU3FnSkpGdGxRcjQtaDdZbURrWGlJZG5LMnFVNWl0Q3FPUnJfelpoZTQxX0RxeGtDdFgxMDNJVHJPd1h5Y3hUTUZVS200Nm5mOXlUS1A5Qlc3bGFFU0FMXzc2R0k1YUgwcjhqb3QyS2gwS2NGTzNzM2dIRTA4?oc=5" target="_blank" rel="noopener">
+          <span class="en">Lambda and Groq Alumni Raise $875 Million for Memory-First Inference Chips</span>
+          <span class="zh">Lambda与Groq前员工为存储优先推理芯片融资$8.75亿</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SDxCentral</span> · 6h ago</span>
+        <span class="zh"><span class="source">SDxCentral</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Former Lambda and Groq employees have secured $875 million to build memory-first AI inference chips. The unusually large financing reflects investor conviction that inference bottlenecks are shifting toward memory movement, though the team still must translate its architecture into competitive silicon and deployed systems.</span>
+        <span class="zh">Lambda与Groq前员工获得$8.75亿融资，用于开发“存储优先”的AI推理芯片。如此大规模的融资反映出投资者认为推理瓶颈正转向数据搬运，但团队仍需把架构设想转化为有竞争力的芯片和实际部署。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxNWmpyc1JPV3JWbDI3Sl8tZGRKaEFqODNmV2NVV25tYkxJWUZaYU9ZSmZHaFFZWnJaMy1samVhdGxEUVlFbHJMblBCdDh4UkN3Y243WGpvVG9pY3B6ajQ5aWIxWXlpcTBiTkM5ekNJUnAzR18xT1ZMNk1XRVR4ZktFRnVTYndYaEMxSDFpZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Ayar Labs Secures $150 Million for Co-Packaged Optics</span>
+          <span class="zh">Ayar Labs为共封装光学获得$1.5亿融资</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Photonics Spectra</span> · 8h ago</span>
+        <span class="zh"><span class="source">Photonics Spectra</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Ayar Labs has raised $150 million to advance co-packaged optics for high-bandwidth computing systems. The round directs more capital at the electrical-I/O power and reach limits surrounding AI accelerators, while commercial volume and customer deployment remain the key milestones.</span>
+        <span class="zh">Ayar Labs获得$1.5亿融资，用于推进面向高带宽计算系统的共封装光学。此轮融资进一步瞄准AI加速器周边电互连在功耗与传输距离上的限制，下一步关键仍是商业化出货规模和客户部署。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-18 01:12 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-09-18 01:12 UTC · <a href="archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

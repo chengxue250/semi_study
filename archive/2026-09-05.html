@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-05">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Reshapes the Capacity Map — Semi News 2026-09-05</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, September 5, 2026</span>
+      <span class="zh">2026年9月5日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Reshapes the Capacity Map</span>
+      <span class="zh">AI需求重塑产能版图</span>
+    </h1>
+    <p class="dek">
+      <span class="en">HBM, custom silicon, advanced packaging, and equipment capacity all move higher as AI infrastructure expands. Export controls are simultaneously redirecting accelerator purchases and even corporate ownership choices.</span>
+      <span class="zh">随着AI基础设施扩张，HBM、定制芯片、先进封装和设备产能同步上行。与此同时，出口管制正在改写加速器采购流向，甚至影响企业股权安排。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxOZmRDM24ya0xaalF1VE91aGlsN0RJc3VqazAwR2RrR0N1X2lHSjVONVc1bEltWmRPYm5iNExFUzV5RGtyRWVlUHRBdlRWWWN4WFUtTmFHdmdOSnVxM3QwLWRqUXd6VWNMQVZ3d3hBM1ZDcUlTQ1N4UmgwaG0tTlR6SXpQS1VrVDRpQ3pKT3Bhaw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Broadcom Expects AI Chip Revenue to Double in 2027</span>
+          <span class="zh">Broadcom预计2027年AI芯片收入翻倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Fierce Wireless</span> · 7h ago</span>
+        <span class="zh"><span class="source">Fierce Wireless</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Broadcom says its AI chip revenue should double in 2027, extending the growth runway for custom accelerators and networking silicon. The forecast suggests hyperscaler demand is broadening beyond merchant GPUs into application-specific compute and the connectivity required to scale it.</span>
+        <span class="zh">Broadcom预计其AI芯片收入将在2027年翻倍，定制加速器与网络芯片的增长周期因此继续延长。这一预测表明，超大规模云厂商的需求正从通用GPU扩展到专用计算，以及支撑大规模集群的互连芯片。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616" target="_blank" rel="noopener">
+          <span class="en">AMD Puts 576 GB of HBM3e in a Desktop AI Workstation</span>
+          <span class="zh">AMD将576 GB HBM3e带入桌面AI工作站</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 5h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD&#x27;s Threadripper Halo workstation offers up to 576 GB of HBM3e and 16 TB/s of memory bandwidth for local AI development. That memory footprint targets researchers who need to run large models without sending data to a cloud cluster, although the system is positioned at the high end of the workstation market.</span>
+        <span class="zh">AMD的Threadripper Halo工作站为本地AI开发提供最高576 GB HBM3e和16 TB/s内存带宽。这一内存配置面向希望在不把数据送往云端集群的情况下运行大模型的研究人员，但产品定位仍属于高端工作站市场。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNckg5ajNURGt4ZFg1TzNTS0FpUlVaUGgtbVJmRWJFSEd2NS1jNUI1eVBybmQ4WEtUMkhZS1Y1TEhDdmY1Y3Y2ZW9STGNDblJUTVhvMDhPeDZnbzE4dW9XODRKNlp6Uk5QWWJDamJsQTRIcU5MeWxYTmlZQXNiRlNaWVRscUpWdnd6enJFSVVlVTc?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Maps a 3D-Packaging Path for AI Chips</span>
+          <span class="zh">TSMC勾勒AI芯片3D封装路线图</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 1h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC has outlined a 3D-packaging roadmap aimed at integrating AI compute more tightly across stacked silicon. The direction matters because system performance is increasingly constrained by die-to-die bandwidth, power delivery, and packaging throughput rather than transistor density alone.</span>
+        <span class="zh">TSMC公布了面向AI计算的3D封装路线图，重点是通过硅片堆叠实现更紧密的系统集成。这一路线值得关注，因为系统性能越来越受芯片间带宽、供电和封装产能制约，而不再只取决于晶体管密度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxPVTBMVS1nbGpGUGJPQm5td0RPMkRGQkdNTzBVN3VreW14Q1ZkdUo5M2hQNG9uSFlYYVZIZkdKcUQ2RHZiMWhnU052WkRxaVBPNERqT1I5azFsMl9mX1AzVUlnMmFkN3lyRDhQeVJJOWxWcC1SMDlOcnotX095RWN1YVVOUEhaX29zZS1YZUN2YW9HSUVkOWt1Sjl1cFpRQ2RFX2VEOXlJVnlBS3FLN0VoaXNxZVk4c0Mtb2lLNy1TWU05Y0lmWXpPdldvcUJoZjFKOW8yWjh6MFNESy1SVXoxUjh3?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron Plans to Double Monthly HBM Capacity</span>
+          <span class="zh">Micron计划将月度HBM产能翻倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingKey</span> · 9h ago</span>
+        <span class="zh"><span class="source">TradingKey</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron reportedly plans to double monthly HBM capacity to 100,000 wafers as it tries to close the scale gap with Samsung and SK hynix. The expansion would add supply into AI&#x27;s tightest memory segment, though wafer capacity does not translate directly into packaged HBM output because yield and advanced-packaging availability remain gating factors.</span>
+        <span class="zh">据报道，Micron计划将HBM月度产能翻倍至100,000片晶圆，以缩小与Samsung和SK hynix的规模差距。这将为AI供应链最紧张的存储环节增加供给，但晶圆产能并不等同于最终HBM出货量，良率与先进封装能力仍是关键约束。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi7AFBVV95cUxQQW84R3hqMjFmT1lTaFNMZkQyWTQ5X0NvbTBMaVhWcUs3a0VFa0ZiTmJfbnBXdkctbXJMclZfSklFQ1NxNUpwMFVuUFBtRlViVXh0alBnb0JaMlA0Q3lMbVJrcXpMRVJ5RmI5aHBrbWlTZmhZTjRybGJSZ1p2aWIycGlHeXIydXREMXB1VWRoSGxNQUpZaDEzZzFfWTk3MlFPaGJyN2pvYVZrNzN0LVVmSlZmbzJrMGpubDJqc2NmR1dwUml3YkJEMXQ5anlPTC12d0g5TW9NODliWkpBUzdnd3FyMTl3RnBjWU1pNg?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia Introduces Custom High-Bandwidth Memory</span>
+          <span class="zh">Nvidia推出定制高带宽内存</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechRadar</span> · 5h ago</span>
+        <span class="zh"><span class="source">TechRadar</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia has introduced a custom high-bandwidth-memory design intended to raise bandwidth while reducing power use. The move gives the accelerator vendor more influence over a component that increasingly determines system performance, but availability beyond Nvidia&#x27;s own platforms remains unclear.</span>
+        <span class="zh">Nvidia推出定制高带宽内存设计，目标是在提高带宽的同时降低功耗。此举让加速器厂商对决定系统性能的关键部件拥有更强控制力，但该设计是否会向Nvidia自有平台之外开放仍不明确。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOVzB6b3MyVkVlU2RfUHJUbDBPVml5VGpYY3RXV3d4R3B4RmNOSG93TUxrMW1lRXExUElKSHc4cFZseXprTW50d3YzNzd2YmgtOVJuMHpQUmZvX2ZCUFJLMzNzdk13bU0wZHZvRHc2eEs5NHJ3dnI1WFJ6SGZBd1c1UVFvSkR3RFJtRVlKOWVac3NNMlItQi1zSXhIQzNkbUM2RVJFZ20tMXFEdXNwdklN?oc=5" target="_blank" rel="noopener">
+          <span class="en">Semiconductor Equipment Billings Rise 23% in Q2</span>
+          <span class="zh">第二季度半导体设备销售额同比增长23%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">HPCwire</span> · 7h ago</span>
+        <span class="zh"><span class="source">HPCwire</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Global semiconductor equipment billings increased 23% year over year in the second quarter of 2026, according to SEMI. The rise shows that manufacturers are still converting AI and advanced-node demand into tool spending, a leading indicator for future wafer and packaging capacity.</span>
+        <span class="zh">SEMI数据显示，2026年第二季度全球半导体设备销售额同比增长23%。这一增幅表明，制造商仍在把AI和先进制程需求转化为设备投入，而设备支出通常是未来晶圆与封装产能的先行指标。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/chinese-chip-making-equipment-firm-naura-claims-big-breakthrough-that-could-enable-cxmt-to-overcome-euv-sanctions-make-3d-dram-chips/" target="_blank" rel="noopener">
+          <span class="en">Naura Reports a Two-Step Etch for 64-Layer 3D DRAM</span>
+          <span class="zh">Naura报告面向64层3D DRAM的两步刻蚀工艺</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Naura says it has developed a two-step process that etches uniformly through 64 layers for a proposed 3D DRAM structure. The IEEE-published work could give CXMT a route toward vertical DRAM scaling without relying on EUV, but it remains a process result rather than evidence of high-volume manufacturing.</span>
+        <span class="zh">Naura称其开发出一种两步刻蚀工艺，可在拟议的3D DRAM结构中实现64层均匀刻蚀。这项发表于IEEE期刊的工作可能为CXMT提供一条不依赖EUV的垂直DRAM扩展路径，但目前仍属于工艺研究结果，尚不能证明具备量产能力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/nvidia-is-reportedly-giving-up-on-china-as-a-lost-cause-amid-an-unassailable-lead-from-huawei-as-deepseek-snubs-h20-gpus-for-160000-units-of-huaweis-ascend-950dt-chips/" target="_blank" rel="noopener">
+          <span class="en">DeepSeek Reportedly Orders 160,000 Huawei Accelerators</span>
+          <span class="zh">据报DeepSeek订购160,000颗Huawei加速器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">DeepSeek reportedly placed a roughly $2.56 billion order for 160,000 Huawei Ascend 950DT accelerators for a planned 1 GW data center in Mongolia, choosing them over Nvidia&#x27;s China-specific products. If confirmed, the order would show export controls accelerating the shift of a major Chinese AI workload onto a domestic compute stack.</span>
+        <span class="zh">据报道，DeepSeek为其拟建的蒙古1 GW数据中心订购了160,000颗Huawei Ascend 950DT加速器，订单金额约$2.56 billion，并放弃Nvidia面向中国市场的产品。若消息得到证实，这笔订单将表明出口管制正在加速中国大型AI负载转向本土计算栈。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOck5QQ2hTYVVDVkl2X0JDTGlFVGxBU1ozVW1NUl9sQXlRUEVscDNfcVgwYm1INVFFcm5DbG9vY3UtRU1lWEctUmp0aDdqY1Y4eEhaQ0otZDlZcnZsejFGSkpwSThZdm00c1dQczk1NUlJdktMMTREUmJQWGNFSEYzU1M0UlV3dw?oc=5" target="_blank" rel="noopener">
+          <span class="en">G42 Weighs U.S. Ownership to Preserve Nvidia Access</span>
+          <span class="zh">G42考虑引入美国所有权以保留Nvidia采购资格</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Next Web</span> · 10h ago</span>
+        <span class="zh"><span class="source">The Next Web</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">G42 is reportedly considering U.S. ownership as a way to keep buying Nvidia accelerators. The deliberation shows export-control compliance reaching beyond product specifications into corporate structure, although no ownership change has yet been reported as final.</span>
+        <span class="zh">据报道，G42正考虑引入美国所有权，以继续采购Nvidia加速器。这一讨论显示，出口管制合规的影响已从产品规格延伸到公司股权结构，但目前尚无最终交易落地的报道。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">业绩与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNTDZLdTI5eUt6aWJ4S1BNSk90d2R5TXdSakc5dEJCdTZtTlE4WjB1R1FBM1ZjVGplV0xQM2VpNzBVakNUcUlNWWkxLTZvbzN3WEZfNXlZb1IwaGd0bHBqb1BUM2RRVHVNWl90aDBVYjgwcHh4ZEpLcWMtQ2hzcXR1LXFZTlg3Z0NOQnpxeUNpejNzdE91ZjhFaUNn?oc=5" target="_blank" rel="noopener">
+          <span class="en">Global Chip Sales Jump 6.4% in July</span>
+          <span class="zh">7月全球芯片销售额环比增长6.4%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Semiconductor Industry Association</span> · 4h ago</span>
+        <span class="zh"><span class="source">Semiconductor Industry Association</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Global semiconductor sales rose 6.4% month over month in July, according to the Semiconductor Industry Association. The sequential acceleration points to broadening demand, but one month of sales data does not establish how evenly the recovery is distributed across logic, memory, and mature-node products.</span>
+        <span class="zh">美国半导体行业协会数据显示，7月全球半导体销售额环比增长6.4%。这一环比加速显示需求正在扩散，但单月数据仍不足以判断复苏在逻辑、存储和成熟制程产品之间是否均衡。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9VRnFybXZVRzVYb2RGNXNFREZ0RGctaTE0cU11WEM0MWFfbFZhamFNQkZNV2M0WURWNVJwX1RHRU9BUnBBanlkR1BDMURKRnpoYU9v?oc=5" target="_blank" rel="noopener">
+          <span class="en">Gimlet Labs Raises $300 Million for a Multi-Silicon Inference Cloud</span>
+          <span class="zh">Gimlet Labs为多芯片推理云融资$300 million</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wowtale</span> · 3h ago</span>
+        <span class="zh"><span class="source">Wowtale</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Gimlet Labs raised a $300 million Series B to build an inference cloud that can run across multiple silicon backends. The financing supports a challenger model based on abstracting heterogeneous accelerators rather than betting on a single chip architecture; execution will depend on whether the platform can deliver consistent cost and latency across those backends.</span>
+        <span class="zh">Gimlet Labs完成$300 million B轮融资，用于建设可跨多种芯片后端运行的推理云。其挑战者路径不是押注单一芯片架构，而是抽象异构加速器；能否在不同后端上持续提供稳定的成本与时延，将决定该模式的成败。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-05 01:16 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-09-05 01:16 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

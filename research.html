@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-18">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Inference Systems Squeeze Memory and Communication — Semi Research 2026-09-18</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Friday, September 18, 2026</span>
+      <span class="zh">研究摘要 · 2026年9月18日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">Inference Systems Squeeze Memory and Communication</span>
+      <span class="zh">推理系统压缩存储与通信开销</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s strongest systems papers attack data movement at several layers: sharded training traffic, edge coordination, speculative decoding, and KV-cache footprint. Quantum work remains simulation-heavy, offering useful formulations but not yet hardware evidence.</span>
+      <span class="zh">本周较强的系统论文从多个层面削减数据搬运：分片训练通信、边缘协同、推测解码与KV-cache占用。量子方向仍以模拟验证为主，给出了有价值的方法框架，但尚缺乏硬件实证。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">Accelerators &amp; Distributed Compute</span>
+      <span class="zh">加速器与分布式计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.20359" target="_blank" rel="noopener">
+          <span class="en">Federated Aggregation Reduces Traffic in Sharded Training</span>
+          <span class="zh">联邦聚合降低分片训练通信量</span>
+        </a>
+      </h3>
+      <p class="authors">Gianluca Mittone, Marco Aldinucci</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.20359" target="_blank" rel="noopener">arXiv:2609.20359</a> · 2026-09-17T13:21:52Z</p>
+      <p class="summary">
+        <span class="en">FL+FSDP and FL+HSDP divide large sharded-training jobs into loosely coupled federation groups, using FedAvg-style aggregation to reduce inter-group traffic while bounding global batch size. The authors evaluate Llama 3.1 8B pretraining on 512 A100 GPUs under identical hyperparameters and report better scaling than conventional sharded data parallelism. The result directly addresses heterogeneous multi-tier interconnects, but broader convergence behavior and production fault tolerance still need validation.</span>
+        <span class="zh">FL+FSDP与FL+HSDP把大规模分片训练拆成松耦合的联邦组，以类似FedAvg的聚合减少组间流量，同时限制全局批量大小。作者在512张A100 GPU上以相同超参数进行Llama 3.1 8B预训练，并报告了优于传统分片数据并行的扩展表现。该方法直指异构多层互连瓶颈，但更广泛的收敛特性与生产环境容错仍需验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.20009" target="_blank" rel="noopener">
+          <span class="en">Distributed Edge Inference Speeds Multiview Detection</span>
+          <span class="zh">分布式边缘推理加速多视角检测</span>
+        </a>
+      </h3>
+      <p class="authors">Gianluca Mittone, Giulio Malenza, Marco Aldinucci, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.20009" target="_blank" rel="noopener">arXiv:2609.20009</a> · 2026-09-17T10:19:37Z</p>
+      <p class="summary">
+        <span class="en">A FastFL C/C++ implementation distributes multiview detection across edge devices and reports up to 1.92x lower inference time than a centralized solution using the same devices. Experiments span different compute capabilities and network bandwidths, making the work relevant to accelerator placement across the cloud-edge continuum. The maximum gain is topology-dependent, so the full range of results matters more than the headline speedup.</span>
+        <span class="zh">该工作以FastFL C/C++框架把多视角检测分布到边缘设备上，在使用相同设备时报告了相对集中式方案最高1.92倍的推理加速。实验覆盖不同算力与网络带宽，对云边连续体中的加速器部署具有参考意义。最高增益依赖具体拓扑，因此完整结果分布比单一峰值更值得关注。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Relevant AI Research</span>
+      <span class="zh">硬件相关AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.20186" target="_blank" rel="noopener">
+          <span class="en">SwitchSD Detects When Speculative Decoding Should Copy</span>
+          <span class="zh">SwitchSD判断推测解码何时应复制上下文</span>
+        </a>
+      </h3>
+      <p class="authors">Roy Eisenstadt, Ido Cohen, Edo Cohen-Karlik, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.20186" target="_blank" rel="noopener">arXiv:2609.20186</a> · 2026-09-17T12:51:20Z</p>
+      <p class="summary">
+        <span class="en">SwitchSD trains lightweight probes on a target model&#x27;s internal representations to distinguish genuine copy intent from accidental n-gram repetition. The probes exceed 0.99 AUC and let the runtime switch between neural drafting and context copying, producing throughput gains of up to 15% across Llama and Qwen families. The evidence is promising for inference serving, though the preprint&#x27;s gains may vary with prompt mix and serving-stack overhead.</span>
+        <span class="zh">SwitchSD在目标模型内部表征上训练轻量探针，用于区分真实复制意图与偶然的n-gram重复。探针AUC超过0.99，使运行时可在神经草稿与上下文复制之间切换，并在Llama和Qwen系列上实现最高15%的吞吐提升。该结果对推理服务颇具吸引力，但作为预印本，其收益可能随提示词分布和服务栈开销而变化。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.20034" target="_blank" rel="noopener">
+          <span class="en">Astronex-World Streams a 5B World Model on One L20</span>
+          <span class="zh">Astronex-World在单张L20上实时运行5B世界模型</span>
+        </a>
+      </h3>
+      <p class="authors">Xin Zhou, Cong Miao</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.20034" target="_blank" rel="noopener">arXiv:2609.20034</a> · 2026-09-17T10:38:22Z</p>
+      <p class="summary">
+        <span class="en">Astronex-World 1.0 combines block-causal attention, cross-block KV caching, and few-step distillation to generate controllable 832x480 video at 24 fps. Its 5B causal model streams in real time on one NVIDIA L20 48 GB GPU, while all five training stages reportedly fit on two L20s; scores reach 73.5 on WBench Navi and 70.0 on WBench Full. The compact deployment profile is the main systems result, but benchmark quality and interactive stability need independent replication.</span>
+        <span class="zh">Astronex-World 1.0结合分块因果注意力、跨块KV缓存和少步蒸馏，以24 fps生成可控的832x480视频。其5B因果模型可在单张NVIDIA L20 48 GB GPU上实时运行，五个训练阶段据报仅需两张L20；WBench Navi与Full得分分别为73.5和70.0。紧凑部署是其主要系统贡献，但画质基准与交互稳定性仍需独立复现。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.19969" target="_blank" rel="noopener">
+          <span class="en">DeepSeek-V4.1-Flash Cuts Global KV Cache to 890 Bytes per Token</span>
+          <span class="zh">DeepSeek-V4.1-Flash将全局KV缓存压至每token 890字节</span>
+        </a>
+      </h3>
+      <p class="authors">DeepSeek-AI</p>
+      <p class="affil">DeepSeek-AI</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2609.19969" target="_blank" rel="noopener">arXiv:2609.19969</a> · 2026-09-17T09:43:10Z</p>
+      <p class="summary">
+        <span class="en">DeepSeek-V4.1-Flash combines cross-layer KV reuse with FP4 caching to reduce its always-resident global KV cache to 890 bytes per token, about one-quarter of DeepSeek-V4-Flash. The 552B-parameter multimodal MoE supports one-million-token contexts while activating 16B parameters per decode token and 8B during prefill. Those numbers directly target HBM and SSD pressure in long-horizon agents, but they are vendor-reported preprint results that still need independent quality and deployment testing.</span>
+        <span class="zh">DeepSeek-V4.1-Flash结合跨层KV复用与FP4缓存，把常驻HBM的全局KV缓存压缩到每token 890字节，约为DeepSeek-V4-Flash的四分之一。该552B参数多模态MoE支持100万token上下文，解码时每token激活16B参数，预填充阶段激活8B参数。这些指标直接针对长时程智能体的HBM与SSD压力，但目前仍是厂商预印本结果，需要独立的质量与部署验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.20331" target="_blank" rel="noopener">
+          <span class="en">A State-Space Construction for Quantum FIR Filters</span>
+          <span class="zh">量子FIR滤波器的状态空间构造</span>
+        </a>
+      </h3>
+      <p class="authors">Roope Salmi, Davide Rocchesso, Vesa Välimäki</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.20331" target="_blank" rel="noopener">arXiv:2609.20331</a> · 2026-09-17T13:04:29Z</p>
+      <p class="summary">
+        <span class="en">This paper maps finite impulse response filtering into unitary quantum circuits through a state-space formulation and introduces a quantum delay gate analogous to a classical delay line. Projection emulation extends the construction beyond lossless systems to low-pass and other bounded filters, and the blocks can compose inside larger quantum algorithms. All demonstrations use a circuit simulator, so any practical speedup depends on future fault-tolerant hardware and amplitude-estimation costs.</span>
+        <span class="zh">该论文通过状态空间表述把有限脉冲响应（FIR）滤波映射为酉量子电路，并提出与经典延迟线对应的量子延迟门。通过模拟投影算子，方案从无损系统扩展到低通等有界滤波器，并可作为模块嵌入更大的量子算法。所有演示均基于电路模拟器，实际加速仍取决于未来容错量子硬件和幅度估计的成本。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2609.19983" target="_blank" rel="noopener">
+          <span class="en">Quantum Graph Convolutions Trade Parameters for Circuit Structure</span>
+          <span class="zh">量子图卷积以电路结构换取更少参数</span>
+        </a>
+      </h3>
+      <p class="authors">Paul San Sebastian Sein, Theodor Iosif, Tilen G. Limbäck-Stokin, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2609.19983" target="_blank" rel="noopener">arXiv:2609.19983</a> · 2026-09-17T09:56:22Z</p>
+      <p class="summary">
+        <span class="en">The study implements quantum versions of Simplified Graph Convolution and Linear Graph Convolution and compares their accuracy and optimization behavior with classical baselines. In simulation, the quantum models remain competitive with fewer parameters, while gradient-cost and classical-simulability analyses identify where training is feasible. No quantum hardware results are reported, so the work clarifies algorithmic regimes rather than demonstrating an end-to-end advantage.</span>
+        <span class="zh">该研究实现了简化图卷积（SGC）与线性图卷积（LGC）的量子版本，并与经典基线比较精度和优化行为。在模拟中，量子模型以更少参数保持竞争力，梯度成本与经典可模拟性分析则界定了可训练区间。论文未报告量子硬件结果，因此其贡献在于澄清算法适用区间，而非证明端到端优势。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-18 01:12 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-09-18 01:12 UTC · <a href="index.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

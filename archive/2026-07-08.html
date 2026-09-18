@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-08">
+<meta name="generator" content="semi-news-daily">
+<title>AI Build-Out Meets Physical Limits — Semi News 2026-07-08</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, July 8, 2026</span>
+      <span class="zh">2026年7月8日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">AI Build-Out Meets Physical Limits</span>
+      <span class="zh">AI扩张撞上物理约束</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Custom AI chips, memory listings, and new datacenter deployments keep demand pointed upward, but today&#x27;s constraints are physical: power, water, labor, packaging, and policy. The supply chain is still expanding, yet the bottlenecks are moving outside the chip itself.</span>
+      <span class="zh">自研AI芯片、存储上市安排和新数据中心部署仍在推高需求，但今天的约束更偏物理层面：电力、水资源、劳动力、封装和政策。供应链仍在扩张，只是瓶颈正从芯片内部转向芯片之外。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNSGRQQzRJX0VFTThJbC1JZnM2NUpNVHZQeEhxODdQejNBODNSLXpYMGdvSWxJMVhRSFBEOWplZy1NMU5qSnFxc3dpOEczN01EcVRQSk1mSXo3ejlMaUoxcks3LURaeGZ0Q3EyZ2dBQVN0QkRXNWg0YWpyOXJ2TjUtLVF4elZRU1VqdUVCdEhGNnFfYV9uYTdaT3V4MVFEZ2swRmlfRw?oc=5" target="_blank" rel="noopener">
+          <span class="en">DeepSeek Develops Its Own AI Chip, Sources Say</span>
+          <span class="zh">消息称DeepSeek正在开发自研AI芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 3h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Reuters reports that China&#x27;s DeepSeek is developing its own AI chip, according to sources. The move points to a direct effort to reduce reliance on Nvidia accelerators as export controls and supply allocation shape China&#x27;s AI compute stack. The candidate does not include performance, foundry, or schedule details, so this is a strategic signal rather than a product-launch story.</span>
+        <span class="zh">Reuters援引消息人士称，中国DeepSeek正在开发自研AI芯片。这个方向直指降低对Nvidia加速器的依赖，也反映出口管制和供给分配正在重塑中国AI算力栈。候选信息没有披露性能、代工厂或量产时间，因此它更像战略信号，而不是产品发布。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/power-and-water-lag-the-fabs-in-south-koreas-880-billion-chip-and-ai-plan" target="_blank" rel="noopener">
+          <span class="en">South Korea&#x27;s $880 Billion Chip and AI Plan Hits Power and Water Limits</span>
+          <span class="zh">韩国8800亿美元芯片与AI计划遭遇电力和水资源约束</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">South Korea&#x27;s 1,350 trillion won, or roughly $880 billion, chip and AI build-out faces major power and water challenges, Tom&#x27;s Hardware reports. The plan combines a $520 billion semiconductor program with AI datacenter and robotics spending, mostly in corporate capex. A single megacluster could require a quarter of Seoul&#x27;s total power demand, which makes grid and water infrastructure as important as fab shells and tools.</span>
+        <span class="zh">Tom&#x27;s Hardware报道，韩国总额1,350万亿韩元、约8800亿美元的芯片与AI建设计划面临显著电力和水资源挑战。该计划包括5200亿美元半导体项目，以及AI数据中心和机器人相关投资，主体是企业资本开支。单个巨型集群可能消耗相当于首尔总用电量四分之一的电力，说明电网和供水基础设施已经与厂房和设备同样关键。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxPY1NaTDBOTlRSUTN5TGdOY0ItMDk0bUZrU3VpWTZhZ1lyZWJzdUxFQXkwT0drR3dtQXpWdVdUNUFPMmtuN190UXMwQllIeWpGVnZxTTA3MEtvNHBJT0tIcnE1Y2ZKTzNMX2hHNWRSeVFpOGtXTzVuUkE1SC13YWFXVWZ2RURCZTR3N00yVzNVU0hRTHdQd3BCWHYzWlBsSDlyR1JTYWc4ZjdJd2RBYVBKdGxtVnhnYXdBaGVieGllckRraXR5ajYyeGJXZlpKNERvZGlSOTVEMGcwVUNIdG5Cd3l4OWVXZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Spirit Electronics Offers Managed Access to U.S. Advanced Manufacturing</span>
+          <span class="zh">Spirit Electronics为航天国防项目提供美国先进制造对接服务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SpaceNews</span> · 6h ago</span>
+        <span class="zh"><span class="source">SpaceNews</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Spirit Electronics announced managed access to U.S.-based advanced semiconductor manufacturing for aerospace and defense programs, according to SpaceNews. The material point is supply-chain assurance: defense customers want domestic routing, qualification support, and traceable manufacturing paths for advanced components. It is narrower than a new fab announcement, but it fits the reshoring layer where procurement and trusted access matter.</span>
+        <span class="zh">SpaceNews报道，Spirit Electronics宣布为航天和国防项目提供美国本土先进半导体制造的托管对接服务。其核心并不是新增产能，而是供应链可信度：国防客户需要本土路径、认证支持和可追溯的先进器件制造流程。这个消息范围比新建晶圆厂更窄，但对应的是美国半导体回流中的可信采购层。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxQRmZGNzMyN1IzSk1GUzZxV0pqbm5QNnl4MjFrNDczRnhVUnNTWGJjVjZZeEYwb1Qtd0ota250X3ZYbkZFTDdXZ1dEMDBMc2JWcWZQZXZKa0xjekpqRlZ1Nnd0QXlzR0k4MDR4TkN4VFZRc2E4S0d4ZTYxUzFzSEd4UnV2SHE4NC12UG56dEdpQUYzcm04ZWwzQk9wZnlYd1kyM2lWdjlUbm9NYjRvdkVlcm1neExIZnpqN3VJdy12bnFLRUNS?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Launches Reported $28 Billion U.S. ADR Listing</span>
+          <span class="zh">SK hynix据称启动280亿美元美国ADR上市安排</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Foreign Policy Journal</span> · 5h ago</span>
+        <span class="zh"><span class="source">Foreign Policy Journal</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix launched a reported $28 billion U.S. ADR listing to ride the AI memory boom, according to the candidate headline. The listing would broaden U.S. investor access to the HBM and DRAM upcycle without changing wafer supply by itself. The useful signal is market structure: memory exposure is becoming a more direct public-market trade on AI infrastructure demand.</span>
+        <span class="zh">候选标题称，SK hynix启动规模约280亿美元的美国ADR上市安排，以承接AI存储热潮。该安排本身不会改变晶圆供给，但会扩大美国投资者对HBM和DRAM上行周期的直接参与。这里的信号在于市场结构：存储正在成为押注AI基础设施需求的更直接公开市场标的。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE14WDJRTHVac2xqeXRTVEkyaGFDRk9laUxKU0ZFR3BOWElVeTI3YVhfOE0tZmFTekVmRV9OQzduUnNTVF8xank3LXFiVHhMLVpiQWFkQW9QN2pHNkVxbmotVjAzWklYdEZQMVNOVlZBb09rcjk0a2o4Vw?oc=5" target="_blank" rel="noopener">
+          <span class="en">SEMI Warns the White House on Memory Intervention</span>
+          <span class="zh">SEMI就存储干预向白宫发出警告</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">eeNews Europe</span> · 7h ago</span>
+        <span class="zh"><span class="source">eeNews Europe</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SEMI warned the White House about memory intervention, eeNews Europe reports. The sparse candidate does not specify the policy lever, but the timing matters because HBM, DRAM, and advanced packaging supply are already central to AI infrastructure allocation. Any intervention in memory markets risks spilling into equipment demand, customer qualification, and global capacity planning.</span>
+        <span class="zh">eeNews Europe报道称，SEMI就存储领域干预向白宫发出警告。候选信息没有说明具体政策工具，但时点重要，因为HBM、DRAM和先进封装供给已经是AI基础设施分配的核心变量。任何针对存储市场的干预，都可能外溢到设备需求、客户认证和全球产能规划。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5jbWdWcnZrc3U4aHloUGw0cU95dnZyVWx3ZTdaTFAwU1MxNEg3THBMWW9QcHdzRWZ1ekRCb0RMS1AxUHlxeDd0YnFiVHU4aXVhc0VnaTQyYnFTa0FKUDJ0S3RwX2pQdU0?oc=5" target="_blank" rel="noopener">
+          <span class="en">Merck Korea Says Materials Move From Support Role to Lead Role</span>
+          <span class="zh">Merck Korea称半导体材料正从配角走向主角</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 1h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Merck Korea says semiconductor materials are shifting from supporting roles to leading roles, according to The Elec. That framing is credible in advanced nodes and packaging, where dielectric, photoresist, cleaning, and interface materials can decide yield and reliability. The story is not a capacity announcement, but it captures why materials suppliers are gaining strategic weight in the equipment stack.</span>
+        <span class="zh">The Elec报道称，Merck Korea认为半导体材料正在从辅助角色转向主导角色。在先进制程和先进封装中，这一判断有现实基础：介电材料、光刻胶、清洗材料和界面材料都可能决定良率与可靠性。它不是产能公告，但说明材料供应商在设备链条中的战略权重正在上升。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/3dic/370709-the-packaging-pdk-is-the-missing-layer-for-co-packaged-optics/" target="_blank" rel="noopener">
+          <span class="en">Packaging PDKs Emerge as a Co-Packaged Optics Bottleneck</span>
+          <span class="zh">封装PDK成为共封装光学的缺失环节</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SemiWiki argues that the packaging PDK is the missing layer for co-packaged optics. As AI infrastructure pushes bandwidth, power, latency, and reach, optics is moving closer to the compute engine and photonic device performance alone is not enough. The practical bottleneck is design realization: electrical, optical, thermal, and package rules need to be captured in a usable kit before co-packaged optics can scale.</span>
+        <span class="zh">SemiWiki认为，封装PDK是共封装光学中缺失的一层。随着AI基础设施继续推高带宽、功耗、时延和传输距离要求，光学正在靠近计算引擎，仅靠光子器件性能已经不够。真正的工程瓶颈是设计落地：电、光、热和封装规则必须进入可用的设计套件，共封装光学才有可能规模化。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQcnB1M25yaGhQUTFnekZLYk5iUEtUaXoyZFFQUFJFODBLN0hoV3lYbzgxVnNPZ2pfcTloMVYxWDV5TG9OcDBMQnBvMFJucTJNRExLaklsOEN2WW90eERFM0RVWGFleTc2S19TbmRCTEhuNm1DanE1bDBkMmc2d2dPalp4TmRZY1oyT0hKb3hLSGZGc2pwZV9ja0g0b1psM0pRVnozcW5wX2NiamVtRlNGd1g4SVYyZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Worker Shortfall Threatens the U.S. Chip Factory Revival</span>
+          <span class="zh">劳动力短缺威胁美国芯片工厂复兴</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Bloomberg</span> · 6h ago</span>
+        <span class="zh"><span class="source">Bloomberg</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bloomberg reports that a semiconductor worker shortfall is endangering the U.S. chip factory revival. The constraint sits outside lithography and process technology: new fabs still need technicians, construction labor, equipment engineers, and operations staff. For Intel Ohio, Micron New York, and other reshoring projects, workforce availability can become a schedule risk even when subsidies and capex are in place.</span>
+        <span class="zh">Bloomberg报道称，半导体劳动力短缺正在威胁美国芯片工厂复兴。这个约束不在光刻或制程技术内部，而在新厂所需的技术员、建设工人、设备工程师和运营人员。对Intel俄亥俄、Micron纽约以及其他回流项目来说，即使补贴和资本开支到位，劳动力供给也可能成为进度风险。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxPR0NmX3B2VzdBOW5pdTNYUWlwU0pvb0ZJOFRONkh2b3h4UFI5MkprektoNWk0YkVMdnVGeGlKY1d0bkR2Tmw0UDhINU5taEtrVWNKZXdDRnNNTlNIbmQ2VXJPekVwYW5CTzhxRVNDZ3dBUDlzeWlqT1hvYjlWQk1IS1dNdG1ZeXZtajF5ZVd3Q3ctX2Q1UmtYOWxPNHNMRzVCZkZCTDN5Y0ZRZVk?oc=5" target="_blank" rel="noopener">
+          <span class="en">The Netherlands Looks to Move Past the Nexperia Dispute With China</span>
+          <span class="zh">荷兰希望翻过与中国的Nexperia争端</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">WDEZ</span> · 8h ago</span>
+        <span class="zh"><span class="source">WDEZ</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Dutch minister said the Netherlands wants to move past its Nexperia dispute with China, according to WDEZ. Nexperia is not an advanced-node story, but it is important in commodity, automotive, and industrial semiconductors where supply disruptions travel quickly through downstream production. A thaw would lower policy friction in a part of the chip chain that customers often notice only when it breaks.</span>
+        <span class="zh">WDEZ报道称，荷兰一名部长表示，荷兰希望翻过与中国围绕Nexperia的争端。Nexperia不是先进制程故事，但它在通用、汽车和工业半导体中很重要，这类供应中断会很快传导到下游生产。若关系缓和，将降低芯片链条中一个低调但关键环节的政策摩擦。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxNTTNCb01QdVdrR0RYMDZyeTRyTHdxUjE3OFdMTE5SRV9ZeGtMbE5aRDFWSDRPNGhOdUtWSWZic2tPRUdPY2VHa2ZiM2dPUVJsZ0pNRk5BM1VwZzhQa1JoNHVldlp5UkNNbEVxUm1BOXlrM0s1WTFCdUJiNlc4a2ZEM1dVcEVUeW1lbGdUYkFMdzRrQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron and Chip Stocks Fall Despite Samsung Profit Surge</span>
+          <span class="zh">尽管Samsung利润增长，Micron和芯片股仍下跌</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Investor&#x27;s Business Daily</span> · 4h ago</span>
+        <span class="zh"><span class="source">Investor&#x27;s Business Daily</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Investor&#x27;s Business Daily reports that Micron and broader chip stocks fell despite a Samsung profit surge. The reaction matters because it shows how much good memory news is already embedded in AI-infrastructure expectations. For investors, the bar is moving from earnings recovery to proof that HBM supply, margins, and end demand can keep compounding.</span>
+        <span class="zh">Investor&#x27;s Business Daily报道称，尽管Samsung利润增长，Micron和更广泛的芯片股仍然下跌。这个市场反应重要，因为它显示AI基础设施预期已经吸收了大量存储利好。对投资者来说，门槛正在从盈利修复转向证明HBM供给、利润率和终端需求能够继续叠加。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.theregister.com/ai-and-ml/2026/07/07/south-korean-chip-startup-furiosaai-invades-european-datacenters/5267884" target="_blank" rel="noopener">
+          <span class="en">FuriosaAI&#x27;s RNGD Accelerators Land in Equinix Lisbon Datacenters</span>
+          <span class="zh">FuriosaAI的RNGD加速器进入Equinix里斯本数据中心</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 7h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">FuriosaAI&#x27;s RNGD accelerators have landed in Equinix&#x27;s Lisbon datacenters, The Register reports. That clears the challenger bar because it is deployed silicon in a named datacenter footprint, not just a partnership announcement. The European beachhead gives the South Korean startup a proving ground for efficient inference against incumbent GPU deployments.</span>
+        <span class="zh">The Register报道称，FuriosaAI的RNGD加速器已经进入Equinix位于里斯本的数据中心。这个消息达到新势力板块的筛选标准，因为它是进入具名数据中心的实际硅片部署，而不是泛泛的合作声明。这个欧洲落点为这家韩国初创公司提供了一个与主流GPU部署对照的高效推理验证场。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-08 01:17 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-08 01:17 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

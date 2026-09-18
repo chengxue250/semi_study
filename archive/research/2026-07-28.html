@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-28">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Making AI hardware more efficient and verifiable — Semi Research 2026-07-28</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-07-28.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Tuesday, July 28, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月28日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">Making AI hardware more efficient and verifiable</span>
+      <span class="zh">让AI硬件更高效、更可验证</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s papers pair inference and memory-efficiency techniques with tools for building and validating hardware. Their common goal is to turn algorithmic flexibility into predictable behavior on real architectures.</span>
+      <span class="zh">本周论文一方面探索推理与存储效率，另一方面改进硬件构建和验证工具。共同目标是将算法灵活性转化为真实架构上可预测的行为。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.22038" target="_blank" rel="noopener">
+          <span class="en">Task-conditional compute skipping for multi-task inference accelerators</span>
+          <span class="zh">面向多任务推理加速器的任务条件计算跳过</span>
+        </a>
+      </h3>
+      <p class="authors">Afzal Ahmad, Gaoyu Mao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22038" target="_blank" rel="noopener">arXiv:2607.22038</a> · 2026-07-24</p>
+      <p class="summary">
+        <span class="en">Sparse by Command uses the task command available before inference to predict hardware-aligned tile masks, letting a multi-task accelerator skip irrelevant work. It co-designs training, an ISA carrying tile bitmasks, and a scheduler, but real gains will depend on task mix and gate accuracy.</span>
+        <span class="zh">Sparse by Command利用推理前已知的任务指令预测与硬件对齐的Tile掩码，使多任务加速器跳过无关计算。它协同设计训练、携带Tile位掩码的ISA和调度器，但实际收益仍取决于任务组合与门控准确性。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21731" target="_blank" rel="noopener">
+          <span class="en">RED-PIM reduces Transformer attention data movement</span>
+          <span class="zh">RED-PIM降低Transformer注意力的数据搬运</span>
+        </a>
+      </h3>
+      <p class="authors">Zahra Yousefijamarani, Alaa Alameldeen</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21731" target="_blank" rel="noopener">arXiv:2607.21731</a> · 2026-07-23</p>
+      <p class="summary">
+        <span class="en">RED-PIM reorganizes Transformer attention for processing-in-memory so inter-bank movement falls from O(N²) to O(N), while intermediate matrices shrink from N×N to d×d. It targets a scaling weakness in prior PIM attention designs, although bank capacity and mapping overhead will determine practical benefits.</span>
+        <span class="zh">RED-PIM为存内计算重组Transformer注意力计算，使跨Bank数据移动从O(N²)降至O(N)，中间矩阵从N×N缩小到d×d。它针对先前PIM注意力设计的扩展性弱点，但Bank容量和映射开销将决定实际收益。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Inference Systems</span>
+      <span class="zh">AI推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21985" target="_blank" rel="noopener">
+          <span class="en">Unified static and dynamic pruning for GPU LLM inference</span>
+          <span class="zh">用于GPU LLM推理的静态—动态统一剪枝</span>
+        </a>
+      </h3>
+      <p class="authors">Jinhyeok Kim, Yejoon Lee, Jaeyoung Do</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21985" target="_blank" rel="noopener">arXiv:2607.21985</a> · 2026-07-24</p>
+      <p class="summary">
+        <span class="en">SPDP combines permanently pruned weights with input-adaptive activation skipping for LLM inference on GPUs. Its tiled bitmap format and separate CUDA-core and Tensor-Core kernels confront the metadata and irregular-access costs that have limited earlier sparse designs.</span>
+        <span class="zh">SPDP将永久权重剪枝与输入自适应激活跳过结合，用于GPU上的LLM推理。其分块位图格式和独立的CUDA Core、Tensor Core内核，直接应对限制早期稀疏设计的元数据和不规则访问成本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Reliability</span>
+      <span class="zh">电路与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.23402" target="_blank" rel="noopener">
+          <span class="en">Warp divergence from Pascal through Blackwell</span>
+          <span class="zh">从Pascal到Blackwell的Warp分歧特性</span>
+        </a>
+      </h3>
+      <p class="authors">Alpin Dale</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.23402" target="_blank" rel="noopener">arXiv:2607.23402</a> · 2026-07-26</p>
+      <p class="summary">
+        <span class="en">This microbenchmark study finds that divergent GPU paths serialize roughly linearly with path count from Pascal through Blackwell, while warp efficiency falls as 32/k. It separates that stable programmer-visible cost model from changes in compiler reconvergence machinery, though the evidence comes from controlled kernels rather than full applications.</span>
+        <span class="zh">这项微基准研究发现，从Pascal到Blackwell，GPU分歧路径的串行化时间大致随路径数线性增长，Warp效率则按32/k下降。它将稳定的程序员可见成本模型与编译器汇合机制变化区分开来，但证据来自受控内核而非完整应用。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.19310" target="_blank" rel="noopener">
+          <span class="en">Distributed delay-based BIST for flexible mixed-signal circuits</span>
+          <span class="zh">用于柔性混合信号电路的分布式延迟BIST</span>
+        </a>
+      </h3>
+      <p class="authors">Paula Carolina Lozano Duarte, Sule Ozev, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.19310" target="_blank" rel="noopener">arXiv:2607.19310</a> · 2026-07-21</p>
+      <p class="summary">
+        <span class="en">The authors embed lightweight digital BIST into ring-oscillator stages for IGZO-TFT flexible electronics. They report 93% individual-defect coverage, 88% multiple-defect coverage, and 3% power overhead, addressing test constraints where external equipment and pins are scarce.</span>
+        <span class="zh">作者将轻量级数字BIST嵌入IGZO-TFT柔性电子的环形振荡器级中。他们报告单个缺陷覆盖率93%、多个缺陷覆盖率88%、功耗开销3%，面向外部测试设备和引脚稀缺的测试约束。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Verification</span>
+      <span class="zh">EDA与设计验证</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.23523" target="_blank" rel="noopener">
+          <span class="en">CircuitWeave aligns schematics and specifications for executable RTL</span>
+          <span class="zh">CircuitWeave对齐原理图与规格以生成可执行RTL</span>
+        </a>
+      </h3>
+      <p class="authors">Jiahao Feng, Haiyan Qin, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.23523" target="_blank" rel="noopener">arXiv:2607.23523</a> · 2026-07-26</p>
+      <p class="summary">
+        <span class="en">CircuitWeave separates a schematic-derived topology contract from a text-derived behavior contract before generating RTL. Its 5,000-package dataset and explicit fusion aim to surface missing or conflicting evidence, a key failure mode in multimodal RTL generation that merits broader testing on human specifications.</span>
+        <span class="zh">CircuitWeave在生成RTL前，先分离由原理图得到的拓扑契约和由文本得到的行为契约。其包含5000个软件包的数据集及显式融合机制旨在暴露缺失或冲突证据，这一多模态RTL生成的关键失败模式仍需在人工规格上更广泛测试。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.19768" target="_blank" rel="noopener">
+          <span class="en">AlphaRoute uses LLMs to tune multi-objective global routing</span>
+          <span class="zh">AlphaRoute使用LLM调优多目标全局布线</span>
+        </a>
+      </h3>
+      <p class="authors">Kabir Murjani, Mishri Bhavsar, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.19768" target="_blank" rel="noopener">arXiv:2607.19768</a> · 2026-07-22</p>
+      <p class="summary">
+        <span class="en">AlphaRoute combines deterministic routing tools with LLM policy optimization to adapt congestion penalties during rip-up and reroute. On selected ISPD 2025 benchmarks it reports a 98.6% overflow reduction on MEMPOOL, though results need replication across designs and clear accounting of inference cost and determinism.</span>
+        <span class="zh">AlphaRoute将确定性布线工具与LLM策略优化结合，在拆线重布过程中自适应调整拥塞惩罚。在选定的ISPD 2025基准上，它报告MEMPOOL溢出减少98.6%，但仍需在更多设计上复现，并清楚核算推理成本与确定性。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-28 02:33 UTC · <a href="../2026-07-28.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-28 02:33 UTC · <a href="../2026-07-28.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
