@@ -33,17 +33,24 @@ PROMPT_FILE="$REPO_ROOT/PROMPT.md"
 # Example 0: Codex desktop / Homebrew CLI
 # ---------------------------------------------------------------------------
 # CODEX_BIN="${CODEX_BIN:-}"
+# if [ -n "$CODEX_BIN" ] && [ ! -x "$CODEX_BIN" ]; then
+#   CODEX_BIN=""
+# fi
 # if [ -z "$CODEX_BIN" ]; then
 #   for candidate in \
+#     /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex \
 #     /Applications/ChatGPT.app/Contents/Resources/codex \
-#     /opt/homebrew/bin/codex \
-#     /Applications/Codex.app/Contents/Resources/codex
+#     /Applications/Codex.app/Contents/Resources/codex \
+#     /opt/homebrew/bin/codex
 #   do
 #     if [ -x "$candidate" ]; then
 #       CODEX_BIN="$candidate"
 #       break
 #     fi
 #   done
+# fi
+# if [ -z "$CODEX_BIN" ] && command -v codex >/dev/null 2>&1; then
+#   CODEX_BIN="$(command -v codex)"
 # fi
 #
 # if [ -z "$CODEX_BIN" ] || [ ! -x "$CODEX_BIN" ]; then
