@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-09-18">
+<meta name="edition-date" content="2026-11-05">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Systems Squeeze Memory and Communication — Semi Research 2026-09-18</title>
+<title>Memory Placement Shapes Inference Efficiency Across Scales — Semi Research 2026-11-05</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,143 +319,170 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, September 18, 2026</span>
-      <span class="zh">研究摘要 · 2026年9月18日 星期五</span>
+      <span class="en">Research digest · Thursday, November 5, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月5日 星期四</span>
     </div>
     <h1>
-      <span class="en">Inference Systems Squeeze Memory and Communication</span>
-      <span class="zh">推理系统压缩存储与通信开销</span>
+      <span class="en">Memory Placement Shapes Inference Efficiency Across Scales</span>
+      <span class="zh">存储布局影响各尺度的推理效率</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s strongest systems papers attack data movement at several layers: sharded training traffic, edge coordination, speculative decoding, and KV-cache footprint. Quantum work remains simulation-heavy, offering useful formulations but not yet hardware evidence.</span>
-      <span class="zh">本周较强的系统论文从多个层面削减数据搬运：分片训练通信、边缘协同、推测解码与KV-cache占用。量子方向仍以模拟验证为主，给出了有价值的方法框架，但尚缺乏硬件实证。</span>
+      <span class="en">Ferroelectric memory arrays, ternary ROM computing, and optical fabrics tackle data movement at different layers of the hardware stack. Device measurements and commercial-board benchmarks sit alongside architecture emulation and software experiments, with each result retaining its evaluation scope.</span>
+      <span class="zh">铁电存储阵列、三值ROM计算与光互连网络从硬件栈的不同层次处理数据搬运问题。本期涵盖器件实测、商用板卡基准、架构仿真和软件实验，解读各项结果时需结合相应的评估范围。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 7篇</span>
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
     </div>
   </header>
 
-    <section class="area" id="accelerators">
+    <section class="area" id="devices">
     <h2>
-      <span class="en">Accelerators &amp; Distributed Compute</span>
-      <span class="zh">加速器与分布式计算</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2609.20359" target="_blank" rel="noopener">
-          <span class="en">Federated Aggregation Reduces Traffic in Sharded Training</span>
-          <span class="zh">联邦聚合降低分片训练通信量</span>
+        <a href="https://arxiv.org/abs/2610.40000" target="_blank" rel="noopener">
+          <span class="en">NORmal: Bringing 3D Ferroelectric NOR Flash Onto an LPDDR6 Memory Interface</span>
+          <span class="zh">NORmal：将3D铁电NOR闪存接入LPDDR6内存接口</span>
         </a>
       </h3>
-      <p class="authors">Gianluca Mittone, Marco Aldinucci</p>
+      <p class="authors">Zhuoran Li, Zhuohang Bian, Yibo Zhao, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2609.20359" target="_blank" rel="noopener">arXiv:2609.20359</a> · 2026-09-17T13:21:52Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2610.40000" target="_blank" rel="noopener">arXiv:2610.40000</a> · 2026-10-29T13:19:45Z</p>
       <p class="summary">
-        <span class="en">FL+FSDP and FL+HSDP divide large sharded-training jobs into loosely coupled federation groups, using FedAvg-style aggregation to reduce inter-group traffic while bounding global batch size. The authors evaluate Llama 3.1 8B pretraining on 512 A100 GPUs under identical hyperparameters and report better scaling than conventional sharded data parallelism. The result directly addresses heterogeneous multi-tier interconnects, but broader convergence behavior and production fault tolerance still need validation.</span>
-        <span class="zh">FL+FSDP与FL+HSDP把大规模分片训练拆成松耦合的联邦组，以类似FedAvg的聚合减少组间流量，同时限制全局批量大小。作者在512张A100 GPU上以相同超参数进行Llama 3.1 8B预训练，并报告了优于传统分片数据并行的扩展表现。该方法直指异构多层互连瓶颈，但更广泛的收敛特性与生产环境容错仍需验证。</span>
+        <span class="en">NORmal reports fabricated BEOL 3D ferroelectric NOR arrays combining dense 3-bit MLC storage with fast, writable SLC and sub-7.5 ns sensing. It proposes a DRAM-emulation bridge that presents these arrays as a byte-addressable rank on an unmodified LPDDR6 interface. The approach aims to expand local AI memory capacity while accommodating mutable runtime data. The sensing measurement leaves controller, interface, and complete-system timing as separate evaluation questions.</span>
+        <span class="zh">NORmal报告了已制备的后道互连层（BEOL）3D铁电NOR阵列，将高密度3-bit MLC存储与快速、可写的SLC集成，感测时间低于7.5 ns。研究提出通过DRAM仿真桥，将这些阵列作为可按字节寻址的rank接入未经修改的LPDDR6接口。该方案旨在扩大本地AI的内存容量，同时容纳运行时更新的数据。感测时间这一实测指标之外，控制器、接口与完整系统的时序仍需分别评估。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Reliability</span>
+      <span class="zh">电路与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCSI.2026.3721732" target="_blank" rel="noopener">
+          <span class="en">A 65nm CiROM Macro Stores Two Ternary Weights per Cell for 1.58-bit LLM Inference</span>
+          <span class="zh">面向1.58-bit LLM推理的65nm CiROM宏单元：每个单元存储两个三值权重</span>
+        </a>
+      </h3>
+      <p class="authors">Wen-Lun Zhang, Xin-Yu Li, Shimpei Ando, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3721732" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems I: Regular Papers</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">A 65nm compute-in-ROM macro uses configurable source and bit lines to store two ternary weights in each 1T ROM cell for BitNet-style inference. A local accumulator gates zero-weight operations, while a digital adapter co-designed with LoRA provides downstream task adaptation after fabrication. The design links storage density and sparsity to circuit-level switching reductions, with fixed ROM weights constraining how broadly a deployed chip can be retargeted.</span>
+        <span class="zh">这项65nm ROM内计算宏单元设计通过可配置源极线与位线，在每个1T ROM单元中存储两个三值权重，面向BitNet类推理。本地累加器对零权重运算实施门控，与LoRA协同设计的数字适配器则支持流片后的下游任务适配。设计将存储密度和稀疏性利用落实到电路开关活动的削减，但固定的ROM权重也会约束芯片部署后可迁移的任务范围。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.05104" target="_blank" rel="noopener">
+          <span class="en">Workload-Static Optical Circuit Switching for Scalable LLM Decode</span>
+          <span class="zh">以工作负载静态光路交换扩展LLM解码互连</span>
+        </a>
+      </h3>
+      <p class="authors">Maximilian Thürmer, Nicolas Scotto di Perto, Eloise Stein, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.05104" target="_blank" rel="noopener">arXiv:2611.05104</a> · 2026-11-03T16:00:07Z</p>
+      <p class="summary">
+        <span class="en">This optical circuit-switching design configures links once per model deployment and co-designs collective schedules with model parallelism. For a modeled 576-accelerator domain serving 5T-parameter MoE models with contexts up to 5M tokens, it reports up to 65% better interactivity and 119% better energy efficiency than a 4:1 oversubscribed packet-switched fabric. The gains come from GXNET workload emulation and analytical and flit-level network models grounded in hardware measurements, making oversubscription and communication schedules key evaluation assumptions.</span>
+        <span class="zh">这项光路交换设计在每次模型部署时配置一次链路，并将集合通信调度与模型并行方式协同优化。在模拟的576颗加速器域中，运行5万亿参数MoE模型、上下文最长500万token时，相较4:1超额订阅的分组交换网络，交互性能最高提升65%，能效最高提升119%。这些结果来自GXNET工作负载仿真及以硬件测量为依据的分析模型、flit级网络模型，超额订阅比例与通信调度是理解收益的关键评估条件。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2609.20009" target="_blank" rel="noopener">
-          <span class="en">Distributed Edge Inference Speeds Multiview Detection</span>
-          <span class="zh">分布式边缘推理加速多视角检测</span>
+        <a href="https://arxiv.org/abs/2611.03392" target="_blank" rel="noopener">
+          <span class="en">TinyML Benchmarks Ten Sub-Watt Devices and Exposes Memory Constraints</span>
+          <span class="zh">TinyML对比十款亚瓦级器件，检视存储约束</span>
         </a>
       </h3>
-      <p class="authors">Gianluca Mittone, Giulio Malenza, Marco Aldinucci, et al.</p>
+      <p class="authors">Pietro Bonazzi, Luigi Capogrosso, Ahmet Celik, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2609.20009" target="_blank" rel="noopener">arXiv:2609.20009</a> · 2026-09-17T10:19:37Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.03392" target="_blank" rel="noopener">arXiv:2611.03392</a> · 2026-11-02T16:28:53Z</p>
       <p class="summary">
-        <span class="en">A FastFL C/C++ implementation distributes multiview detection across edge devices and reports up to 1.92x lower inference time than a centralized solution using the same devices. Experiments span different compute capabilities and network bandwidths, making the work relevant to accelerator placement across the cloud-edge continuum. The maximum gain is topology-dependent, so the full range of results matters more than the headline speedup.</span>
-        <span class="zh">该工作以FastFL C/C++框架把多视角检测分布到边缘设备上，在使用相同设备时报告了相对集中式方案最高1.92倍的推理加速。实验覆盖不同算力与网络带宽，对云边连续体中的加速器部署具有参考意义。最高增益依赖具体拓扑，因此完整结果分布比单一峰值更值得关注。</span>
+        <span class="en">A benchmark evaluates four CNNs and two small transformers across ten commercial edge devices, including sensor-integrated processing and MCUs with and without NPUs. For the reported energy-above-idle measurements, Sony&#x27;s IMX500 uses 0.13–0.35 mJ versus 0.31–1.05 mJ for STM32N6; different models also favor GAP9 or Alif E7. The workload-dependent rankings show why platform selection needs measured latency and energy alongside operation counts, with the quoted energy figures excluding idle consumption.</span>
+        <span class="zh">这项基准在十款商用边缘器件上评估了四种CNN与两种小型Transformer，覆盖传感器内处理器以及有、无NPU的MCU。按高于空闲基线的增量能耗计算，Sony IMX500为0.13–0.35 mJ，STM32N6为0.31–1.05 mJ；部分模型则以GAP9或Alif E7表现更优。排名随工作负载变化，说明平台选型需要结合实测时延与能耗评估运算量，上述能耗数值未计入空闲消耗。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.03325" target="_blank" rel="noopener">
+          <span class="en">Streaming NTT Across Three FPGA Dies for Homomorphic Encryption</span>
+          <span class="zh">跨三个FPGA芯粒的流式NTT加速同态加密</span>
+        </a>
+      </h3>
+      <p class="authors">Mohamed Allam, Thomas Spendlhofer, Hugo Sanz-González, Antonio J. Peña</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.03325" target="_blank" rel="noopener">arXiv:2611.03325</a> · 2026-11-02T15:49:14Z</p>
+      <p class="summary">
+        <span class="en">An NTT/INTT kernel mapped across the AMD Alveo V80&#x27;s three dies reports processing a 65,536-coefficient polynomial every 5.12 microseconds at 400 MHz. Its fully unrolled delay-commutator streaming structure addresses the routing overhead that can grow with parallelism on multi-die FPGAs. This targets a major cost in homomorphic-encryption inference, with application speedup also depending on transfers and the remaining FHE pipeline.</span>
+        <span class="zh">这项NTT/INTT内核映射到AMD Alveo V80的三个芯粒，在400 MHz下每5.12微秒可处理一个含65,536个系数的多项式。完全展开的延迟交换器流式结构针对多芯粒FPGA中随并行度上升的布线开销。该设计瞄准同态加密推理的一项主要计算成本，应用整体加速比还取决于数据传输及FHE流水线的其他部分。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Hardware-Relevant AI Research</span>
-      <span class="zh">硬件相关AI研究</span>
+      <span class="en">AI Research &amp; Inference Systems</span>
+      <span class="zh">AI研究与推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2609.20186" target="_blank" rel="noopener">
-          <span class="en">SwitchSD Detects When Speculative Decoding Should Copy</span>
-          <span class="zh">SwitchSD判断推测解码何时应复制上下文</span>
+        <a href="https://arxiv.org/abs/2611.04253" target="_blank" rel="noopener">
+          <span class="en">UMLoad Accelerates On-Demand Model Loading on Unified Memory</span>
+          <span class="zh">UMLoad加速统一内存平台的按需模型加载</span>
         </a>
       </h3>
-      <p class="authors">Roy Eisenstadt, Ido Cohen, Edo Cohen-Karlik, et al.</p>
+      <p class="authors">Zimeng Wang, Jinrong Yang, Rong Chen</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2609.20186" target="_blank" rel="noopener">arXiv:2609.20186</a> · 2026-09-17T12:51:20Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.04253" target="_blank" rel="noopener">arXiv:2611.04253</a> · 2026-11-03T03:44:38Z</p>
       <p class="summary">
-        <span class="en">SwitchSD trains lightweight probes on a target model&#x27;s internal representations to distinguish genuine copy intent from accidental n-gram repetition. The probes exceed 0.99 AUC and let the runtime switch between neural drafting and context copying, producing throughput gains of up to 15% across Llama and Qwen families. The evidence is promising for inference serving, though the preprint&#x27;s gains may vary with prompt mix and serving-stack overhead.</span>
-        <span class="zh">SwitchSD在目标模型内部表征上训练轻量探针，用于区分真实复制意图与偶然的n-gram重复。探针AUC超过0.99，使运行时可在神经草稿与上下文复制之间切换，并在Llama和Qwen系列上实现最高15%的吞吐提升。该结果对推理服务颇具吸引力，但作为预印本，其收益可能随提示词分布和服务栈开销而变化。</span>
+        <span class="en">UMLoad reduces average on-demand model loading time by 36.6–71.9% against unmodified loaders and 19.9–62.7% against pipelined loaders in tests across Intel, AMD, and NVIDIA unified-memory platforms. It separates logical allocations from physical page backing, eliminating weight copies through on-demand reconstruction and accelerating allocation with GPU-assisted page zeroing. Mean time to first token in LLM-routing tests falls 51.3–59.3%, making loader design relevant to interactive latency; the evaluation covers six models and the tested software stacks.</span>
+        <span class="zh">在Intel、AMD与NVIDIA统一内存平台的测试中，UMLoad相较原始加载器将平均按需模型加载时间缩短36.6–71.9%，相较流水化加载器缩短19.9–62.7%。它将逻辑分配与物理页后备解耦，通过按需重建消除权重复制，并借助GPU辅助页清零加速内存分配。LLM路由测试的平均首token时延降低51.3–59.3%，显示加载器设计会显著影响交互响应；评估范围为六个模型及所测试的软件栈。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2609.20034" target="_blank" rel="noopener">
-          <span class="en">Astronex-World Streams a 5B World Model on One L20</span>
-          <span class="zh">Astronex-World在单张L20上实时运行5B世界模型</span>
+        <a href="https://arxiv.org/abs/2611.03173" target="_blank" rel="noopener">
+          <span class="en">PagedMoE Reuses Expert Cache Data Across Precision Levels</span>
+          <span class="zh">PagedMoE跨精度复用专家缓存数据</span>
         </a>
       </h3>
-      <p class="authors">Xin Zhou, Cong Miao</p>
+      <p class="authors">Yutong Lin, Yingdi Shan, Shaoyuan Chen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2609.20034" target="_blank" rel="noopener">arXiv:2609.20034</a> · 2026-09-17T10:38:22Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.03173" target="_blank" rel="noopener">arXiv:2611.03173</a> · 2026-11-02T14:09:55Z</p>
       <p class="summary">
-        <span class="en">Astronex-World 1.0 combines block-causal attention, cross-block KV caching, and few-step distillation to generate controllable 832x480 video at 24 fps. Its 5B causal model streams in real time on one NVIDIA L20 48 GB GPU, while all five training stages reportedly fit on two L20s; scores reach 73.5 on WBench Navi and 70.0 on WBench Full. The compact deployment profile is the main systems result, but benchmark quality and interactive stability need independent replication.</span>
-        <span class="zh">Astronex-World 1.0结合分块因果注意力、跨块KV缓存和少步蒸馏，以24 fps生成可控的832x480视频。其5B因果模型可在单张NVIDIA L20 48 GB GPU上实时运行，五个训练阶段据报仅需两张L20；WBench Navi与Full得分分别为73.5和70.0。紧凑部署是其主要系统贡献，但画质基准与交互稳定性仍需独立复现。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2609.19969" target="_blank" rel="noopener">
-          <span class="en">DeepSeek-V4.1-Flash Cuts Global KV Cache to 890 Bytes per Token</span>
-          <span class="zh">DeepSeek-V4.1-Flash将全局KV缓存压至每token 890字节</span>
-        </a>
-      </h3>
-      <p class="authors">DeepSeek-AI</p>
-      <p class="affil">DeepSeek-AI</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2609.19969" target="_blank" rel="noopener">arXiv:2609.19969</a> · 2026-09-17T09:43:10Z</p>
-      <p class="summary">
-        <span class="en">DeepSeek-V4.1-Flash combines cross-layer KV reuse with FP4 caching to reduce its always-resident global KV cache to 890 bytes per token, about one-quarter of DeepSeek-V4-Flash. The 552B-parameter multimodal MoE supports one-million-token contexts while activating 16B parameters per decode token and 8B during prefill. Those numbers directly target HBM and SSD pressure in long-horizon agents, but they are vendor-reported preprint results that still need independent quality and deployment testing.</span>
-        <span class="zh">DeepSeek-V4.1-Flash结合跨层KV复用与FP4缓存，把常驻HBM的全局KV缓存压缩到每token 890字节，约为DeepSeek-V4-Flash的四分之一。该552B参数多模态MoE支持100万token上下文，解码时每token激活16B参数，预填充阶段激活8B参数。这些指标直接针对长时程智能体的HBM与SSD压力，但目前仍是厂商预印本结果，需要独立的质量与部署验证。</span>
+        <span class="en">PagedMoE stores each SSD-resident MoE expert in a prefix-compatible representation, allowing cached low-precision data to be extended by fetching only missing bitplanes. It selects precision before I/O using routing weights and expert-specific error profiles, aiming to avoid repeated transfers when requested bit widths change. The design targets DRAM-limited local inference, with practical throughput and quality depending on cache capacity, SSD behavior, and the precision-selection policy.</span>
+        <span class="zh">PagedMoE将驻留SSD的每个MoE专家存成前缀兼容的表示，使已缓存的低精度数据能够通过补取缺失位平面扩展到更高精度。系统利用路由权重与各专家的误差特征，在I/O发生前选择精度，力求避免所需位宽变化时重复搬运相同数据。该设计面向DRAM容量受限的本地推理，实际吞吐量与模型质量取决于缓存容量、SSD特性及精度选择策略。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="quantum">
+  <section class="area" id="eda">
     <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2609.20331" target="_blank" rel="noopener">
-          <span class="en">A State-Space Construction for Quantum FIR Filters</span>
-          <span class="zh">量子FIR滤波器的状态空间构造</span>
+        <a href="https://arxiv.org/abs/2610.39515" target="_blank" rel="noopener">
+          <span class="en">APPlace Co-Optimizes Analog Device Placement and Pin Access Points</span>
+          <span class="zh">APPlace联合优化模拟器件布局与引脚接入点</span>
         </a>
       </h3>
-      <p class="authors">Roope Salmi, Davide Rocchesso, Vesa Välimäki</p>
+      <p class="authors">Bingyang Liu, Xiaohan Gao, Souradip Poddar, David Z. Pan</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2609.20331" target="_blank" rel="noopener">arXiv:2609.20331</a> · 2026-09-17T13:04:29Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2610.39515" target="_blank" rel="noopener">arXiv:2610.39515</a> · 2026-10-29T07:14:08Z</p>
       <p class="summary">
-        <span class="en">This paper maps finite impulse response filtering into unitary quantum circuits through a state-space formulation and introduces a quantum delay gate analogous to a classical delay line. Projection emulation extends the construction beyond lossless systems to low-pass and other bounded filters, and the blocks can compose inside larger quantum algorithms. All demonstrations use a circuit simulator, so any practical speedup depends on future fault-tolerant hardware and amplitude-estimation costs.</span>
-        <span class="zh">该论文通过状态空间表述把有限脉冲响应（FIR）滤波映射为酉量子电路，并提出与经典延迟线对应的量子延迟门。通过模拟投影算子，方案从无损系统扩展到低通等有界滤波器，并可作为模块嵌入更大的量子算法。所有演示均基于电路模拟器，实际加速仍取决于未来容错量子硬件和幅度估计的成本。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2609.19983" target="_blank" rel="noopener">
-          <span class="en">Quantum Graph Convolutions Trade Parameters for Circuit Structure</span>
-          <span class="zh">量子图卷积以电路结构换取更少参数</span>
-        </a>
-      </h3>
-      <p class="authors">Paul San Sebastian Sein, Theodor Iosif, Tilen G. Limbäck-Stokin, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2609.19983" target="_blank" rel="noopener">arXiv:2609.19983</a> · 2026-09-17T09:56:22Z</p>
-      <p class="summary">
-        <span class="en">The study implements quantum versions of Simplified Graph Convolution and Linear Graph Convolution and compares their accuracy and optimization behavior with classical baselines. In simulation, the quantum models remain competitive with fewer parameters, while gradient-cost and classical-simulability analyses identify where training is feasible. No quantum hardware results are reported, so the work clarifies algorithmic regimes rather than demonstrating an end-to-end advantage.</span>
-        <span class="zh">该研究实现了简化图卷积（SGC）与线性图卷积（LGC）的量子版本，并与经典基线比较精度和优化行为。在模拟中，量子模型以更少参数保持竞争力，梯度成本与经典可模拟性分析则界定了可训练区间。论文未报告量子硬件结果，因此其贡献在于澄清算法适用区间，而非证明端到端优势。</span>
+        <span class="en">APPlace jointly optimizes device coordinates and routing access-point selections during analog global placement, then preserves that structure through legalization. Across four real-world analog benchmarks, it reports better overall post-layout performance than representative baselines at comparable layout area. Modeling the actual connection choices gives placement a more useful view of downstream routing, with the reported evidence scoped to those benchmark circuits.</span>
+        <span class="zh">APPlace在模拟电路全局布局阶段联合优化器件坐标与布线接入点选择，并在合法化阶段保留已建立的结构。在四个实际模拟电路基准上，研究报告其在布局面积相近时，整体版图后性能优于代表性基线方法。将实际连接位置纳入建模，有助于布局阶段更准确地考虑后续布线，现有结果的验证范围为这些基准电路。</span>
       </p>
     </article>
   </section>
@@ -483,8 +510,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-09-18 01:12 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-09-18 01:12 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-05 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-05 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

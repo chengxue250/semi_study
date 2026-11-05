@@ -1,214 +1,193 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "theme": {
-    "en": "AI Infrastructure Pulls Chips Toward Bandwidth and Integration",
-    "zh": "AI基础设施推动带宽升级与技术整合"
+    "en": "AI Demand Redirects Memory, Manufacturing, and Connectivity",
+    "zh": "AI需求重塑存储、制造与互连布局"
   },
   "dek": {
-    "en": "Marvell's Lumentum deal and Qualcomm's reported HBC silicon result put data movement at the center of the day's chip news. SK hynix's expansion faces China-related policy friction, while FPGA and handset earnings point to uneven demand.",
-    "zh": "Marvell收购Lumentum的计划与高通据报取得的HBC芯片验证结果，让数据搬运成为今日芯片新闻的主线。SK hynix扩产遭遇涉华政策阻力，FPGA与手机芯片公司的业绩则显示需求分化。"
+    "en": "Macronix reportedly shifts manufacturing toward AI-related flash, while AMD's revenue guidance and reported Samsung capacity commitments point to a changing competitive balance. Optical switching attracts capital as scrutiny of cross-border compute access adds uncertainty to cloud deals.",
+    "zh": "Macronix据报将制造资源转向AI相关闪存，AMD的营收指引及据报取得的Samsung产能则显示竞争格局正在变化。光交换吸引资金投入，跨境算力访问面临的审查也为云服务交易增添不确定性。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {
-        "en": "AI & Accelerators",
-        "zh": "AI与加速器"
-      },
+      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
       "stories": [
         {
-          "featured": true,
-          "title": {
-            "en": "Marvell Targets AI Connectivity With Lumentum Acquisition",
-            "zh": "Marvell拟收购Lumentum，扩展AI互连业务"
-          },
-          "summary": {
-            "en": "Marvell plans to expand its AI-connectivity portfolio through the acquisition of Lumentum, bringing together electrical and optical interconnect technologies, laser manufacturing, and semiconductor capabilities. The combination would give Marvell a broader role in the links that move data around AI infrastructure. Its significance lies in integrating more of the interconnect supply chain as bandwidth and power constraints shape system design.",
-            "zh": "Marvell计划通过收购Lumentum扩展AI互连产品组合，整合电互连、光互连、激光器制造与半导体技术能力。此举将扩大Marvell在AI基础设施数据传输环节的业务覆盖。随着带宽与功耗约束影响系统设计，这笔交易的意义在于整合更多互连供应链环节。"
-          },
-          "source": "EE Times Asia",
-          "url": "https://www.eetasia.com/marvell-to-expand-ai-connectivity-portfolio-with-lumentum-acquisition/",
-          "published": "2026-11-03T23:10:39+00:00"
-        },
-        {
           "featured": false,
           "title": {
-            "en": "Altera Adds Four Agilex 2X FPGA Families for AI and Embedded Systems",
-            "zh": "Altera新增四个Agilex 2X FPGA系列，覆盖AI与嵌入式系统"
+            "en": "Meta Describes a Six-Month AI SoC Tape-Out Cadence",
+            "zh": "Meta介绍每六个月一次的AI SoC流片节奏"
           },
           "summary": {
-            "en": "Altera has expanded its FPGA lineup with the Agilex 2X portfolio, comprising four device families for AI infrastructure, high-speed networking, robotics, industrial automation, and edge systems. The range gives system designers programmable-logic options across data-center and embedded workloads, making performance, power, and software support central to choosing among the families.",
-            "zh": "Altera推出Agilex 2X产品组合，新增四个FPGA器件系列，面向AI基础设施、高速网络、机器人、工业自动化与边缘系统。这一布局为数据中心和嵌入式工作负载提供更多可编程逻辑选择，各系列的性能、功耗与软件支持将成为系统设计者选型的关键。"
+            "en": "Meta's Infra Silicon team describes a six-month SoC tape-out cadence in an EE Times session on chiplet-based development. The approach aims to keep custom silicon aligned with rapidly changing ranking, recommendation, and generative AI models across services used by billions of people. It puts design reuse and integration speed at the center of the custom-accelerator development cycle.",
+            "zh": "在EE Times一场讨论chiplet开发的专题演讲介绍中，Meta的Infra Silicon团队披露了每六个月一次的SoC流片节奏。这一做法旨在让定制芯片跟上排序、推荐和生成式AI模型的快速变化，支撑面向数十亿用户的服务。设计复用能力与集成速度由此成为定制加速器开发周期的关键。"
           },
-          "source": "EE Times Asia",
-          "url": "https://www.eetasia.com/altera-expands-fpga-lineup-with-agilex-2x-portfolio-for-ai-and-embedded-systems/",
-          "published": "2026-11-03T23:12:14+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Nordic Combines Wi-Fi and Edge AI in nRF71 SoCs",
-            "zh": "Nordic在nRF71 SoC中集成Wi-Fi与边缘AI"
-          },
-          "summary": {
-            "en": "Nordic Semiconductor has introduced nRF71 SoCs combining Wi-Fi, Bluetooth LE, Thread, and edge AI in a single device. The company claims standby power as low as one-twentieth that of its previous-generation nRF70 Wi-Fi products. The integration targets battery-powered connected devices, where radio standby consumption can materially affect battery life; the claimed reduction applies to standby power rather than total system energy.",
-            "zh": "Nordic Semiconductor推出nRF71系列SoC，在单颗器件中集成Wi-Fi、Bluetooth LE、Thread与边缘AI。公司称，其待机功耗最低可降至上一代nRF70系列Wi-Fi产品的二十分之一。该系列面向电池供电的联网设备，无线功能的待机消耗会显著影响续航；这一降幅针对待机功耗，并不等同于整机总能耗的降幅。"
-          },
-          "source": "Embedded.com",
-          "url": "https://www.embedded.com/nordic-launches-nrf71-socs-for-low-power-wi-fi-and-edge-ai/",
-          "published": "2026-11-03T20:02:35+00:00"
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/chiplets-meta-scale-chiplet-velocity-accelerating-ai-soc-development-to-match-the-rapid-evolution-of-ai-model/",
+          "published": "2026-11-04T20:30:12+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {
-        "en": "Foundry & Manufacturing",
-        "zh": "晶圆代工与制造"
-      },
+      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "Tower and Innolight Advance Near-Package Optics for AI",
-            "zh": "Tower与中际旭创推进面向AI的近封装光互连"
+            "en": "AMD Reportedly Reserves Most of Samsung Taylor Fab 2's 2nm Output",
+            "zh": "AMD据报预订Samsung Taylor二厂大部分2nm产出"
           },
           "summary": {
-            "en": "Tower Semiconductor and Innolight are advancing high-performance near-package optics for AI infrastructure, according to an announcement carried by Quantisnow. Moving optical links closer to compute packages could reduce reliance on longer electrical connections and address interconnect power and reach constraints. Production readiness and deployment scale will determine how much the effort changes AI-system connectivity.",
-            "zh": "据Quantisnow刊载的公告，Tower Semiconductor与中际旭创（Innolight）正推进面向AI基础设施的高性能近封装光互连。将光链路移近计算封装，有望减少对较长电连接的依赖，缓解互连功耗与传输距离限制。其对AI系统互连的实际影响，仍取决于量产成熟度与部署规模。"
+            "en": "AMD has reportedly secured most of the planned 2nm output from Samsung's Taylor Fab 2 before construction begins, according to TweakTown. If confirmed, the commitment would give Samsung an anchor customer for the expansion and add another potential manufacturing source for AMD. The report concerns future capacity, with delivery dependent on construction and process ramp-up.",
+            "zh": "据TweakTown报道，Samsung位于Taylor的二厂尚未开工，AMD便已取得其规划中大部分2nm产出。若获确认，这项承诺将为Samsung扩建项目带来核心客户，也为AMD增加潜在制造来源。报道涉及未来产能，实际交付仍取决于厂房建设和制程爬坡。"
           },
-          "source": "Quantisnow",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNWGlJWmxSYVdOVFBRS3pBdWRsdzc0NWRlNTlBa0FMcEdQM3NET1Z6RmxsWml0YWVsMkhmSUQxNmpkSnRtNUt3OEVpVEJFdk1tUllmWVYyVmFILTN0eWpIbFZ4eDNLb185cGw0cVBlTmExNUlwN2JvTEI4R1lxdTI1dWxOYS1rWnJRUi1iMlFLakpDa0NXcFh3U0V6T09LSnlIbTFFYVNyM004X2lFYlJSLTBTT1FZa3JkYzRON2pENXFiNVJaa2lR?oc=5",
-          "published": "2026-11-03T20:12:30+00:00"
+          "source": "TweakTown",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOZ3dvSTZFcTJ0eldnWDJSc0xBVVBwRHh3MFlBU3JWMmJtbU41YjN2dnlIRVBHLV9iTnQtaXRrbHBFWHhJRWhVVjF1R2tPczFHWTR2OE9xbzFaNEI5VnVUR2ltd25wU1NLVjJyQkpoOFJ6a1JQRllpa1hYcmhaY2Q0QzFQXzhzWkhBTVZGZGIwcGo5aWx4bzZpUUg2S3FiVW4zSHJpSWRlTXp2MVFjWTM1WEZSRXZ6S2tkbzlWTFJVeDlwbWtzT05aLUxhQzdPS3JER2ROclFR?oc=5",
+          "published": "2026-11-04T18:38:02+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {
-        "en": "Memory",
-        "zh": "存储"
-      },
+      "title": {"en": "Memory", "zh": "存储"},
       "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "Macronix Reportedly Exits Nintendo ROM Business to Prioritize AI Flash",
+            "zh": "Macronix据报退出任天堂ROM业务，优先发展AI闪存"
+          },
+          "summary": {
+            "en": "Macronix reportedly plans to exit its Nintendo ROM-chip business and redirect manufacturing toward NOR and NAND flash demanded by the AI industry, Tom's Hardware reports. The shift would reduce manufacturing resources dedicated to game storage while prioritizing AI-related demand. For Nintendo's supply chain, the availability and cost of large game-storage chips become the immediate concern.",
+            "zh": "据Tom's Hardware报道，Macronix计划退出面向任天堂的ROM芯片业务，将制造资源转向AI行业需求推动的NOR与NAND闪存。这一调整将减少专用于游戏存储的制造资源，优先满足AI相关需求。对任天堂供应链而言，大容量游戏存储芯片的可获得性与成本将成为直接关注点。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/video-games/nintendo/nintendo-rom-chip-supplier-macronix-quits-to-focus-on-chips-for-ai-data-centers-game-key-cards-may-be-more-available-as-large-game-storage-chips-become-more-expensive",
+          "published": "2026-11-04T17:10:59+00:00"
+        },
         {
           "featured": false,
           "title": {
-            "en": "Qualcomm Validates HBC Silicon With a Reported 18x Bandwidth Gain",
-            "zh": "高通验证首款HBC芯片，带宽据报为LPDDR5X的18倍"
+            "en": "Team Group CEO Warns Memory Availability Could Worsen Next Year",
+            "zh": "Team Group执行长警告明年存储供货可能进一步恶化"
           },
           "summary": {
-            "en": "Qualcomm has validated its first HBC silicon, with a reported 18x memory-bandwidth gain over LPDDR5X, according to The Futurum Group. The result points to a route for feeding more data to compute hardware, an important constraint on memory-bound workloads. The bandwidth multiple alone does not establish application speedups or energy efficiency, which depend on workload behavior and the complete system.",
-            "zh": "据The Futurum Group报道，高通已完成首款HBC芯片验证，其存储带宽据报达到LPDDR5X的18倍。该结果为提高计算硬件的数据供给能力提供了一条路径，针对的是受存储访问限制的工作负载。带宽倍数本身不能直接换算为应用加速比或能效提升，后两者仍取决于工作负载特征和完整系统。"
+            "en": "Team Group CEO Chen Ching-wen warned during an earnings call that memory shortages could worsen next year and said he sees no downward price trend, according to Tom's Hardware. He cautioned that supply could become difficult to secure even for buyers willing to pay. His outlook makes procurement availability, alongside pricing, a concern for PC memory buyers.",
+            "zh": "据Tom's Hardware报道，Team Group执行长陈庆文在业绩电话会议上警告，存储短缺明年可能进一步恶化，并表示目前看不到价格下行趋势。他提醒，即使买方愿意付款，也可能难以取得货源。这一判断意味着，对PC存储采购方而言，供货可获得性将与价格同样值得关注。"
           },
-          "source": "The Futurum Group",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQUzZiWFNhZjlDM2pGaGV1cUR6LTA1QU1wWlE1QWpQc2VJT0d5b0pyOVE2V2lOVnJwS19MMm9HNi0tN0hYYlNYTHRoTzh2QWcwVEdrOFRuZFN1MG5VQ3J3ZFdXdFc4aUpUb2NtSlBYV0R6WnhUTm0zb2dMSllMSWp1UnNuVVB2djQxLV83eGYzM25lMjRUazNZeDZjcmdzR3Vpc1RpczRtbnZQVEc5X3c2TzZNUkZBQTFsRVE?oc=5",
-          "published": "2026-11-03T16:08:46+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/dram/team-group-ceo-warns-memory-crisis-could-reach-point-where-even-money-cant-buy-goods-will-get-worse-next-year-with-no-downward-trend-in-price-whatsoever",
+          "published": "2026-11-04T15:28:30+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {
-        "en": "Equipment & Materials",
-        "zh": "设备与材料"
-      },
+      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "Wolfspeed Introduces Transparent SiC Substrates for AR and Quantum Applications",
-            "zh": "Wolfspeed推出用于AR与量子应用的透明SiC衬底"
+            "en": "TSMC and ASML's 2031 Photomask Target Sets a High-NA Supplier Deadline",
+            "zh": "TSMC与ASML的2031年光罩目标为High-NA供应商设定时间表"
           },
           "summary": {
-            "en": "Wolfspeed has introduced optical-grade transparent SiC substrates targeting AR waveguides and quantum applications, with development progressing toward larger wafers. The move extends SiC into optical uses, where wafer scaling and optical uniformity will shape manufacturing costs and adoption. Progress toward larger substrates is a manufacturing milestone, while commercial output remains a separate question.",
-            "zh": "Wolfspeed推出面向AR光波导与量子应用的光学级透明SiC衬底，并正向更大尺寸晶圆推进开发。这一布局将SiC拓展至光学用途，晶圆尺寸扩展与光学均匀性将影响制造成本和市场采用。向大尺寸衬底推进属于制造环节的进展，商业化产出规模仍需另行观察。"
+            "en": "A 2031 photomask target associated with TSMC and ASML is putting High-NA EUV suppliers under schedule pressure, according to DIGITIMES. Mask readiness is a dependency for future lithography adoption, so the target gives suppliers a concrete development horizon. The milestone concerns the supporting mask ecosystem and leaves production timing dependent on broader process readiness.",
+            "zh": "据DIGITIMES报道，TSMC与ASML的2031年光罩目标正在为High-NA EUV供应商带来时间压力。光罩成熟度是未来光刻技术导入的必要条件之一，这一目标为供应商提供了明确的研发时间窗口。该里程碑涉及配套光罩生态，量产时点仍取决于整体制程的准备情况。"
           },
-          "source": "EE Times Asia",
-          "url": "https://www.eetasia.com/wolfspeed-intros-transparent-sic-substrates-for-ar-quantum-computing/",
-          "published": "2026-11-03T23:53:08+00:00"
+          "source": "DIGITIMES",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOWGRBckZVeEZkNnIyXzNlUnUtZDJrLWdoTU1XbXhqc1pDbUFuNnFRbjA5Sy1fck83enhuOTVmNnc3ckFWdk5GNVhTdE1VNVpRZ19QUW1rMG5Zd2hqZlpnX1dpcmc2djg3b0QxY2h2ei1BU0QzVTktMFpIbWZxcnRsaWRFS1hJUV9ORDlQUg?oc=5",
+          "published": "2026-11-04T23:38:51+00:00"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {
-        "en": "Policy & Geopolitics",
-        "zh": "政策与地缘政治"
-      },
+      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
       "stories": [
         {
           "featured": true,
           "title": {
-            "en": "SK hynix's New York Chip Plans Hit China-Related Restrictions",
-            "zh": "SK hynix纽约芯片计划遭遇美国涉华限制阻力"
+            "en": "Oracle Reportedly Drops $7 Billion Tencent Chip-Leasing Deal",
+            "zh": "Oracle据报放弃与腾讯的70亿美元芯片租赁交易"
           },
           "summary": {
-            "en": "SK hynix's New York chip plans have hit a snag over U.S. restrictions on China, Reuters reports, citing sources. The reported obstacle adds policy uncertainty to the company's expansion plans and shows that the impact of export controls can extend to investment outside China. The report describes a setback to the plans, with no cancellation established by the available account.",
-            "zh": "路透社援引消息人士称，SK hynix在纽约的芯片计划因美国对华限制措施遭遇阻碍。这一障碍为公司的扩产计划增加了政策不确定性，也说明出口管制的影响可能延伸至中国以外的投资。报道描述的是计划受阻，现有信息尚未确认项目取消。"
+            "en": "Oracle has reportedly dropped a $7 billion chip-leasing deal with Tencent following pushback from the Trump administration, according to the New York Post. If confirmed, the cancellation would narrow Tencent's access to leased AI compute and make regulatory scrutiny a more immediate factor in cloud-capacity deals.",
+            "zh": "据《纽约邮报》报道，在特朗普政府施压后，Oracle已放弃与腾讯一项价值70亿美元的芯片租赁交易。若获确认，这次取消将收窄腾讯获取租赁AI算力的渠道，也使监管审查成为云端算力交易中更直接的影响因素。"
           },
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdlpsRXVkdXRtR00xTmR6NndmaHV0RE55OEVwcHQ2YzhwdXIxQlo0Z2dOYnpBeHZhRjhSQXlRcUt2TURXbUZZczlQaVlNc2EtWWhtODU2enpxaVM4ZXk3d0FJT0g3VHRMN1VfRlB0MThZU21UNFBYQXhKMWlXcUwwa0hlajJQb1c2Q1ZHczNRX1Y0dTNveE4zV0Jpb0JhQjhOVzNGU3RwU1gyTU56b29OeEFyT2tuenlBb2RfcnZIVW5Pa00?oc=5",
-          "published": "2026-11-03T22:06:59+00:00"
+          "source": "New York Post",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOLXhnTF9zOVJmQ1BYbWctSjZHUjlueVFjZE5KNFQ3WlNQbjQ1VTZLa1dPRl8yaHFtODRSV3NpRXNYUDJFU2o4d19JU045MGN2XzFvR240NzF0SHRzN1NjNWNhQkVTTmYzTldvX0cwNkwwMlJLdWlKXzd2UFMtcUFOY1pWQWZYNUFuVjY0VUptdVFYU2YtT2JFYmd4UFlONkpLYXVIZGQzNG8xWUN0X3ZpcGEzRGFzcnBPLU5mTkJFSHVDNTBDOVE?oc=5",
+          "published": "2026-11-04T18:34:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Taiwan Weighs Tighter Chip Export Controls for Mainland China",
+            "zh": "台湾考虑收紧对中国大陆的芯片出口管制"
+          },
+          "summary": {
+            "en": "Taiwan is considering tighter controls on chip exports to mainland China, Caixin Global reports. A policy change could affect mainland customers' access to Taiwan-made chips, with the commercial impact depending on the products, end users, and licensing conditions ultimately covered.",
+            "zh": "据财新国际报道，台湾正考虑收紧对中国大陆的芯片出口管制。政策若调整，可能影响大陆客户获取台湾制造芯片的渠道，商业影响将取决于最终覆盖的产品、终端用户及许可条件。"
+          },
+          "source": "Caixin Global",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZG9aaVpPdHJxckc2S21RcmZRYzFlWFVWZHFCTXJIcm1JOGlhX2E1TE9EOUp3REFQdlBqZnRNRGhPYjlXS2w0Y1o2TlVXYkVBT1JZWDkxWGE1YzZ2VDFMZXlMWXhlcDU3YVhTX01HZWp5WnJfV2FkSGxLZXFmRXRtRWsya1dmQ01BMFRXUzZaVzJ1LTF6LVZyVGtuMXBOT3dDY3NhLXREX2oyZGtCV0cxOFJwTVBuellDbnBpQWdB?oc=5",
+          "published": "2026-11-04T16:49:00+00:00"
         }
       ]
     },
     {
       "id": "earnings",
-      "title": {
-        "en": "Earnings & Markets",
-        "zh": "业绩与市场"
-      },
+      "title": {"en": "Earnings & Markets", "zh": "业绩与市场"},
       "stories": [
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "Skyworks Falls as Smartphone Weakness Weighs on Its Forecast",
-            "zh": "智能手机市场疲软拖累业绩预期，Skyworks股价下跌"
+            "en": "AMD Guides Q4 Revenue to $17 Billion, Above Intel's $15.5 Billion Midpoint",
+            "zh": "AMD第四季度营收指引为170亿美元，高于Intel的155亿美元中值"
           },
           "summary": {
-            "en": "Skyworks shares fell as a sluggish smartphone market weighed on the company's forecast, Reuters reports. The weak outlook highlights the sensitivity of handset-related chip suppliers to phone demand, even as AI infrastructure attracts investment elsewhere in the semiconductor industry.",
-            "zh": "据路透社报道，智能手机市场低迷拖累Skyworks的业绩预期，公司股价随之下跌。疲弱的展望显示，手机相关芯片供应商仍高度受终端需求影响，即使半导体行业其他环节正吸引AI基础设施投资。"
+            "en": "AMD forecasts fourth-quarter revenue of $17 billion, plus or minus 3%, compared with Intel's $15.5 billion guidance midpoint, Wccftech reports. If both companies deliver at their midpoints, AMD would surpass Intel in quarterly revenue for the first time. The comparison concerns sales and signals a shift in the scale of the two businesses; profitability still depends on margins and costs.",
+            "zh": "据Wccftech报道，AMD预计第四季度营收为170亿美元、上下浮动3%，高于Intel业绩指引中值155亿美元。如果两家公司均实现各自中值，AMD季度营收将首次超过Intel。这一比较反映的是销售规模，显示两家公司业务体量的相对变化；盈利水平仍取决于利润率与成本。"
           },
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdXJtbzROeW05OHI4SDNHYnpwLVA3Q3oyak84Qk14Sjh4b2R1R29NWnJLLXJwODNfOXh4UkJDY2lsQVJucXU4c2tuMVV1cWhxcjdBYlA2aDlsRXFrcTFPZjRtZThWazUwaEpuc3Q3R2I3OFdEV0hnU1pLMmRIYVNtZ0dUdmJ2Mm5UN0toSTRfRE1TZzNvZ2RmRkViZ0o4c1BRVVBicGNvWQ?oc=5",
-          "published": "2026-11-03T22:10:10+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/amd-is-set-to-out-earn-intel-for-the-first-time-in-its-history-guiding-to-17-billion-in-q4-revenue-against-intels-15-5-billion-midpoint-projection/",
+          "published": "2026-11-04T15:48:44+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "Lattice Gains 11% on Record Revenue and an Upbeat Outlook",
-            "zh": "营收创新高、业绩展望乐观，Lattice股价上涨11%"
+            "en": "MKS Instruments Rises 9% on Semiconductor Strength and Q4 Guidance",
+            "zh": "半导体业务走强及第四季度指引推动MKS Instruments上涨9%"
           },
           "summary": {
-            "en": "Lattice Semiconductor shares gained 11% after record revenue and an upbeat outlook, according to Seeking Alpha. The results provide a positive signal for programmable-logic demand amid the uneven chip-market conditions illustrated by Skyworks' smartphone-related forecast weakness.",
-            "zh": "据Seeking Alpha报道，Lattice Semiconductor营收创下新高，业绩展望乐观，带动股价上涨11%。这一结果为可编程逻辑需求提供了积极信号，与Skyworks受手机市场拖累的业绩预期一起，呈现出芯片市场的需求分化。"
+            "en": "MKS Instruments shares rose 9% on semiconductor-business strength and fourth-quarter guidance, Investing.com reports. Its outlook provides another indicator of demand in the semiconductor equipment supply chain as manufacturers plan spending and production activity for year-end.",
+            "zh": "据Investing.com报道，半导体业务表现强劲及第四季度业绩指引推动MKS Instruments股价上涨9%。在制造商安排年末支出与生产活动之际，这份展望为观察半导体设备供应链需求提供了另一项参考。"
           },
-          "source": "Seeking Alpha",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNUXhlc1JkYzZKajQ3d3hvR045ZkhEY0VPa1YtYXB2SWcyYTMzVWtJVTh0RlhTdzFja3QxRGlwdUNHYTllWi1ieTE3dEdEeEI5NXRLYTJDd3FneVR2enB3VkJ6blRSQnJHNUpxVWFKZ05BTHY4RXkwTm5ZeFhNRWEzZmFIMTUwUjkwSFgyMWZxLWowc19BemRCbGF5ZU5HSkZsWV84?oc=5",
-          "published": "2026-11-03T21:32:06+00:00"
+          "source": "Investing.com",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYUNLNk5Qa2cxUjY0TFJRMUJXX3k5TkhvaEk0TnEtU05WdkMwdW12Z1Y1eVpndm1BaElWMzNheXZZelNUcXlrbVNkYTdPdFRMUjNHSW1wR0lRTC14alFrRTZQNU0yWW1wVk1jMkNXajF4dVBzVFloLWU5dm82aVJMQldKbk44NUNKamI1Q2ZvQS1fUGFCU2Q2RnRjMDdveTRNYVlMVXZVS09vNUJtREZaaXRXcGU?oc=5",
+          "published": "2026-11-04T22:05:36+00:00"
         }
       ]
     },
     {
       "id": "challengers",
-      "title": {
-        "en": "Challengers & New Silicon",
-        "zh": "新势力与新硅"
-      },
+      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "SambaNova and Supermicro Plan Systems With 10,000 SN50 Chips",
-            "zh": "SambaNova与Supermicro计划推出搭载10,000颗SN50芯片的系统"
+            "en": "Salience Labs' $125 Million Funding Backs Optical Circuit Switching",
+            "zh": "Salience Labs以1.25亿美元融资推进光路交换"
           },
           "summary": {
-            "en": "SambaNova and Supermicro plan systems incorporating 10,000 SN50 chips, according to TOKENPOST. Working with a server vendor could broaden the route to market for SambaNova's inference hardware and make system availability a more concrete test of adoption. The 10,000-chip figure describes a plan, rather than confirmed shipments or installed capacity.",
-            "zh": "据TOKENPOST报道，SambaNova与Supermicro计划推出合计搭载10,000颗SN50芯片的系统。与服务器厂商合作，有望拓宽SambaNova推理硬件的销售渠道，而系统实际供货将成为检验市场采用程度的具体指标。10,000颗芯片是计划规模，尚不能等同于已确认出货量或已部署容量。"
+            "en": "EE Times reports $125 million in funding for Salience Labs' optical circuit-switching work as companies pursue silicon photonics to address copper-interconnect power limits. The investment targets data movement between compute resources, making interconnect power and system integration central to the commercial case.",
+            "zh": "EE Times报道了Salience Labs用于光路交换业务的1.25亿美元融资，背景是企业正寻求通过硅光技术缓解铜互连的功耗限制。这笔投资瞄准计算资源之间的数据搬运，互连功耗与系统集成能力将成为其商业价值的关键。"
           },
-          "source": "TOKENPOST",
-          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE4xTFB6NUw1UDRFQ3IySHhsZTZzRnU3ZWxPOVA1azFfeGxEbUc3bi1Yekktd3FzOEV0U19qTUx2aGk3VUFlb3ctd2hCLVdsV0p1bzBJa0t5OEM?oc=5",
-          "published": "2026-11-03T18:42:50+00:00"
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/silicon-photonics-hits-the-big-time/",
+          "published": "2026-11-04T19:51:38+00:00"
         }
       ]
     }
@@ -216,13 +195,164 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Today's Research Candidate Set Is Empty",
-      "zh": "今日研究候选集为空"
+      "en": "Memory Placement Shapes Inference Efficiency Across Scales",
+      "zh": "存储布局影响各尺度的推理效率"
     },
     "dek": {
-      "en": "No research papers are included today because the supplied candidate set is empty.",
-      "zh": "本次提供的研究候选集为空，因此今日未收录论文。"
+      "en": "Ferroelectric memory arrays, ternary ROM computing, and optical fabrics tackle data movement at different layers of the hardware stack. Device measurements and commercial-board benchmarks sit alongside architecture emulation and software experiments, with each result retaining its evaluation scope.",
+      "zh": "铁电存储阵列、三值ROM计算与光互连网络从硬件栈的不同层次处理数据搬运问题。本期涵盖器件实测、商用板卡基准、架构仿真和软件实验，解读各项结果时需结合相应的评估范围。"
     },
-    "areas": []
+    "areas": [
+      {
+        "id": "devices",
+        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "papers": [
+          {
+            "title": {
+              "en": "NORmal: Bringing 3D Ferroelectric NOR Flash Onto an LPDDR6 Memory Interface",
+              "zh": "NORmal：将3D铁电NOR闪存接入LPDDR6内存接口"
+            },
+            "authors": "Zhuoran Li, Zhuohang Bian, Yibo Zhao, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2610.40000",
+            "venue_url": "https://arxiv.org/abs/2610.40000",
+            "summary": {
+              "en": "NORmal reports fabricated BEOL 3D ferroelectric NOR arrays combining dense 3-bit MLC storage with fast, writable SLC and sub-7.5 ns sensing. It proposes a DRAM-emulation bridge that presents these arrays as a byte-addressable rank on an unmodified LPDDR6 interface. The approach aims to expand local AI memory capacity while accommodating mutable runtime data. The sensing measurement leaves controller, interface, and complete-system timing as separate evaluation questions.",
+              "zh": "NORmal报告了已制备的后道互连层（BEOL）3D铁电NOR阵列，将高密度3-bit MLC存储与快速、可写的SLC集成，感测时间低于7.5 ns。研究提出通过DRAM仿真桥，将这些阵列作为可按字节寻址的rank接入未经修改的LPDDR6接口。该方案旨在扩大本地AI的内存容量，同时容纳运行时更新的数据。感测时间这一实测指标之外，控制器、接口与完整系统的时序仍需分别评估。"
+            },
+            "published": "2026-10-29T13:19:45Z"
+          }
+        ]
+      },
+      {
+        "id": "circuits",
+        "title": {"en": "Circuits & Reliability", "zh": "电路与可靠性"},
+        "papers": [
+          {
+            "title": {
+              "en": "A 65nm CiROM Macro Stores Two Ternary Weights per Cell for 1.58-bit LLM Inference",
+              "zh": "面向1.58-bit LLM推理的65nm CiROM宏单元：每个单元存储两个三值权重"
+            },
+            "authors": "Wen-Lun Zhang, Xin-Yu Li, Shimpei Ando, et al.",
+            "affiliation": "",
+            "venue": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+            "venue_url": "https://doi.org/10.1109/TCSI.2026.3721732",
+            "summary": {
+              "en": "A 65nm compute-in-ROM macro uses configurable source and bit lines to store two ternary weights in each 1T ROM cell for BitNet-style inference. A local accumulator gates zero-weight operations, while a digital adapter co-designed with LoRA provides downstream task adaptation after fabrication. The design links storage density and sparsity to circuit-level switching reductions, with fixed ROM weights constraining how broadly a deployed chip can be retargeted.",
+              "zh": "这项65nm ROM内计算宏单元设计通过可配置源极线与位线，在每个1T ROM单元中存储两个三值权重，面向BitNet类推理。本地累加器对零权重运算实施门控，与LoRA协同设计的数字适配器则支持流片后的下游任务适配。设计将存储密度和稀疏性利用落实到电路开关活动的削减，但固定的ROM权重也会约束芯片部署后可迁移的任务范围。"
+            },
+            "published": "2026-11-01"
+          }
+        ]
+      },
+      {
+        "id": "accelerators",
+        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "papers": [
+          {
+            "title": {
+              "en": "Workload-Static Optical Circuit Switching for Scalable LLM Decode",
+              "zh": "以工作负载静态光路交换扩展LLM解码互连"
+            },
+            "authors": "Maximilian Thürmer, Nicolas Scotto di Perto, Eloise Stein, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2611.05104",
+            "venue_url": "https://arxiv.org/abs/2611.05104",
+            "summary": {
+              "en": "This optical circuit-switching design configures links once per model deployment and co-designs collective schedules with model parallelism. For a modeled 576-accelerator domain serving 5T-parameter MoE models with contexts up to 5M tokens, it reports up to 65% better interactivity and 119% better energy efficiency than a 4:1 oversubscribed packet-switched fabric. The gains come from GXNET workload emulation and analytical and flit-level network models grounded in hardware measurements, making oversubscription and communication schedules key evaluation assumptions.",
+              "zh": "这项光路交换设计在每次模型部署时配置一次链路，并将集合通信调度与模型并行方式协同优化。在模拟的576颗加速器域中，运行5万亿参数MoE模型、上下文最长500万token时，相较4:1超额订阅的分组交换网络，交互性能最高提升65%，能效最高提升119%。这些结果来自GXNET工作负载仿真及以硬件测量为依据的分析模型、flit级网络模型，超额订阅比例与通信调度是理解收益的关键评估条件。"
+            },
+            "published": "2026-11-03T16:00:07Z"
+          },
+          {
+            "title": {
+              "en": "TinyML Benchmarks Ten Sub-Watt Devices and Exposes Memory Constraints",
+              "zh": "TinyML对比十款亚瓦级器件，检视存储约束"
+            },
+            "authors": "Pietro Bonazzi, Luigi Capogrosso, Ahmet Celik, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2611.03392",
+            "venue_url": "https://arxiv.org/abs/2611.03392",
+            "summary": {
+              "en": "A benchmark evaluates four CNNs and two small transformers across ten commercial edge devices, including sensor-integrated processing and MCUs with and without NPUs. For the reported energy-above-idle measurements, Sony's IMX500 uses 0.13–0.35 mJ versus 0.31–1.05 mJ for STM32N6; different models also favor GAP9 or Alif E7. The workload-dependent rankings show why platform selection needs measured latency and energy alongside operation counts, with the quoted energy figures excluding idle consumption.",
+              "zh": "这项基准在十款商用边缘器件上评估了四种CNN与两种小型Transformer，覆盖传感器内处理器以及有、无NPU的MCU。按高于空闲基线的增量能耗计算，Sony IMX500为0.13–0.35 mJ，STM32N6为0.31–1.05 mJ；部分模型则以GAP9或Alif E7表现更优。排名随工作负载变化，说明平台选型需要结合实测时延与能耗评估运算量，上述能耗数值未计入空闲消耗。"
+            },
+            "published": "2026-11-02T16:28:53Z"
+          },
+          {
+            "title": {
+              "en": "Streaming NTT Across Three FPGA Dies for Homomorphic Encryption",
+              "zh": "跨三个FPGA芯粒的流式NTT加速同态加密"
+            },
+            "authors": "Mohamed Allam, Thomas Spendlhofer, Hugo Sanz-González, Antonio J. Peña",
+            "affiliation": "",
+            "venue": "arXiv:2611.03325",
+            "venue_url": "https://arxiv.org/abs/2611.03325",
+            "summary": {
+              "en": "An NTT/INTT kernel mapped across the AMD Alveo V80's three dies reports processing a 65,536-coefficient polynomial every 5.12 microseconds at 400 MHz. Its fully unrolled delay-commutator streaming structure addresses the routing overhead that can grow with parallelism on multi-die FPGAs. This targets a major cost in homomorphic-encryption inference, with application speedup also depending on transfers and the remaining FHE pipeline.",
+              "zh": "这项NTT/INTT内核映射到AMD Alveo V80的三个芯粒，在400 MHz下每5.12微秒可处理一个含65,536个系数的多项式。完全展开的延迟交换器流式结构针对多芯粒FPGA中随并行度上升的布线开销。该设计瞄准同态加密推理的一项主要计算成本，应用整体加速比还取决于数据传输及FHE流水线的其他部分。"
+            },
+            "published": "2026-11-02T15:49:14Z"
+          }
+        ]
+      },
+      {
+        "id": "ai-research",
+        "title": {"en": "AI Research & Inference Systems", "zh": "AI研究与推理系统"},
+        "papers": [
+          {
+            "title": {
+              "en": "UMLoad Accelerates On-Demand Model Loading on Unified Memory",
+              "zh": "UMLoad加速统一内存平台的按需模型加载"
+            },
+            "authors": "Zimeng Wang, Jinrong Yang, Rong Chen",
+            "affiliation": "",
+            "venue": "arXiv:2611.04253",
+            "venue_url": "https://arxiv.org/abs/2611.04253",
+            "summary": {
+              "en": "UMLoad reduces average on-demand model loading time by 36.6–71.9% against unmodified loaders and 19.9–62.7% against pipelined loaders in tests across Intel, AMD, and NVIDIA unified-memory platforms. It separates logical allocations from physical page backing, eliminating weight copies through on-demand reconstruction and accelerating allocation with GPU-assisted page zeroing. Mean time to first token in LLM-routing tests falls 51.3–59.3%, making loader design relevant to interactive latency; the evaluation covers six models and the tested software stacks.",
+              "zh": "在Intel、AMD与NVIDIA统一内存平台的测试中，UMLoad相较原始加载器将平均按需模型加载时间缩短36.6–71.9%，相较流水化加载器缩短19.9–62.7%。它将逻辑分配与物理页后备解耦，通过按需重建消除权重复制，并借助GPU辅助页清零加速内存分配。LLM路由测试的平均首token时延降低51.3–59.3%，显示加载器设计会显著影响交互响应；评估范围为六个模型及所测试的软件栈。"
+            },
+            "published": "2026-11-03T03:44:38Z"
+          },
+          {
+            "title": {
+              "en": "PagedMoE Reuses Expert Cache Data Across Precision Levels",
+              "zh": "PagedMoE跨精度复用专家缓存数据"
+            },
+            "authors": "Yutong Lin, Yingdi Shan, Shaoyuan Chen, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2611.03173",
+            "venue_url": "https://arxiv.org/abs/2611.03173",
+            "summary": {
+              "en": "PagedMoE stores each SSD-resident MoE expert in a prefix-compatible representation, allowing cached low-precision data to be extended by fetching only missing bitplanes. It selects precision before I/O using routing weights and expert-specific error profiles, aiming to avoid repeated transfers when requested bit widths change. The design targets DRAM-limited local inference, with practical throughput and quality depending on cache capacity, SSD behavior, and the precision-selection policy.",
+              "zh": "PagedMoE将驻留SSD的每个MoE专家存成前缀兼容的表示，使已缓存的低精度数据能够通过补取缺失位平面扩展到更高精度。系统利用路由权重与各专家的误差特征，在I/O发生前选择精度，力求避免所需位宽变化时重复搬运相同数据。该设计面向DRAM容量受限的本地推理，实际吞吐量与模型质量取决于缓存容量、SSD特性及精度选择策略。"
+            },
+            "published": "2026-11-02T14:09:55Z"
+          }
+        ]
+      },
+      {
+        "id": "eda",
+        "title": {"en": "EDA & Design Automation", "zh": "EDA与设计自动化"},
+        "papers": [
+          {
+            "title": {
+              "en": "APPlace Co-Optimizes Analog Device Placement and Pin Access Points",
+              "zh": "APPlace联合优化模拟器件布局与引脚接入点"
+            },
+            "authors": "Bingyang Liu, Xiaohan Gao, Souradip Poddar, David Z. Pan",
+            "affiliation": "",
+            "venue": "arXiv:2610.39515",
+            "venue_url": "https://arxiv.org/abs/2610.39515",
+            "summary": {
+              "en": "APPlace jointly optimizes device coordinates and routing access-point selections during analog global placement, then preserves that structure through legalization. Across four real-world analog benchmarks, it reports better overall post-layout performance than representative baselines at comparable layout area. Modeling the actual connection choices gives placement a more useful view of downstream routing, with the reported evidence scoped to those benchmark circuits.",
+              "zh": "APPlace在模拟电路全局布局阶段联合优化器件坐标与布线接入点选择，并在合法化阶段保留已建立的结构。在四个实际模拟电路基准上，研究报告其在布局面积相近时，整体版图后性能优于代表性基线方法。将实际连接位置纳入建模，有助于布局阶段更准确地考虑后续布线，现有结果的验证范围为这些基准电路。"
+            },
+            "published": "2026-10-29T07:14:08Z"
+          }
+        ]
+      }
+    ]
   }
 }
