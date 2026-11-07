@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-09-03">
+<meta name="generator" content="semi-news-daily">
+<title>Memory Pressure Rewrites AI&#x27;s Hardware Roadmap — Semi News 2026-09-03</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, September 3, 2026</span>
+      <span class="zh">2026年9月3日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Memory Pressure Rewrites AI&#x27;s Hardware Roadmap</span>
+      <span class="zh">存储压力改写AI硬件路线图</span>
+    </h1>
+    <p class="dek">
+      <span class="en">HBM packaging plans are slowing even as Samsung points to 4 TB/s stacks, while Google is reportedly salvaging DDR4 for new AI servers. Across the stack, memory availability and movement now shape product roadmaps as much as raw compute.</span>
+      <span class="zh">HBM封装计划正在放缓，Samsung却已把单堆栈带宽目标指向4 TB/s；与此同时，据报道Google正从退役服务器中回收DDR4用于新AI服务器。纵观整个硬件栈，存储的供给与数据搬运正与算力本身一样左右产品路线图。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.nextplatform.com/connect/2026/09/02/optics-still-driving-marvells-ai-business-more-than-custom-chips/5294018" target="_blank" rel="noopener">
+          <span class="en">Optics Still Drives Marvell&#x27;s AI Business More Than Custom Chips</span>
+          <span class="zh">光互连对Marvell AI业务的推动仍超过定制芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Next Platform</span> · 7h ago</span>
+        <span class="zh"><span class="source">The Next Platform</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Optical connectivity remains a larger driver of Marvell&#x27;s AI business than its custom-chip programs. The mix shows that moving data between accelerators is already a more immediate revenue engine than the longer-cycle effort to win and ramp bespoke silicon.</span>
+        <span class="zh">光互连对Marvell AI业务的推动仍大于定制芯片项目。这个业务结构表明，在定制芯片经历较长的赢单与量产周期之际，加速器之间的数据搬运已经成为更直接的收入引擎。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/data-centers/gopro-to-expand-into-ai-data-centers-after-usd285-million-merger-with-optical-photonics-company-move-to-solve-camera-makers-financial-woes-move-manufacturing-back-into-the-us" target="_blank" rel="noopener">
+          <span class="en">GoPro Enters AI Data-Center Optics Through $285 Million Merger</span>
+          <span class="zh">GoPro通过2.85亿美元合并进入AI数据中心光通信市场</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">GoPro is merging with optical-photonics company Starman Optical in a transaction valued at at least $285 million. The deal is expected to eliminate $92 million of GoPro debt, return camera manufacturing to the United States, and add optical transceivers for AI data centers to its portfolio.</span>
+        <span class="zh">GoPro将与光子光学公司Starman Optical合并，交易价值至少2.85亿美元。该交易预计将消除GoPro的9200万美元债务，把相机制造迁回美国，并将面向AI数据中心的光收发器纳入产品组合。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/semiconductor-manufacturers/intel/372712-intel-18a-p-pushes-ribbonfet-and-backside-power-beyond-the-first-generation/" target="_blank" rel="noopener">
+          <span class="en">Intel 18A-P Extends RibbonFET and Backside Power</span>
+          <span class="zh">Intel 18A-P推进RibbonFET与背面供电</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel is positioning 18A-P as a performance-enhanced derivative of 18A rather than a conventional new process node. The roadmap extends the first generation of RibbonFET and backside power delivery, making execution and customer portability more important than the marketing name.</span>
+        <span class="zh">Intel把18A-P定位为18A的性能增强衍生版本，而不是传统意义上的新制程。该路线图延续第一代RibbonFET与背面供电，因此实际执行与客户设计迁移能力比制程命名更值得关注。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQQW1oejRtd2NDX2FRamcxMUlVenB2RkswSlQwdE5nZ21YTHdzaTVNTHFWa2lsLU1zbkh0bmh1NEFaWWx6ck9XZHJMbUFFY2ZYYVE4eUN1dXoxbjM3WFNGc0Rqb3ZUdnNVOURGWmNTdnlmS2tUYUtWQnJIS3dvZTZkSlp1R0U1dXRYeXJMeGw1RTN1ZnFGelZEMzltWk5saFBCSWtVVVc3MDR5S3loa3A0czA5NmFuMV9VSFdRSGYzNA?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Opens Kaohsiung Supplier Campus for Packaging Validation</span>
+          <span class="zh">台积电在高雄启用供应商园区以补齐封装验证环节</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC has opened a supplier campus in Kaohsiung aimed at closing gaps in packaging validation. Bringing suppliers and validation work closer together should shorten feedback loops as advanced packaging becomes a larger constraint on AI-chip output.</span>
+        <span class="zh">台积电在高雄启用供应商园区，目标是补齐封装验证环节的缺口。随着先进封装日益成为AI芯片产出的约束，把供应商与验证工作拉近有望缩短反馈周期。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/hybrid-bonding-roadmap-examined" target="_blank" rel="noopener">
+          <span class="en">Hybrid Bonding Advances in Logic but Slips for HBM</span>
+          <span class="zh">混合键合在逻辑芯片量产，却在HBM上延后</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Hybrid bonding is in high-volume production for logic, but its adoption in HBM has been postponed as microbumps remain the practical choice. TSMC&#x27;s current hybrid-bonding pitch sits at 6 microns, underscoring that memory stacks face a different cost and manufacturing tradeoff from logic-on-logic integration.</span>
+        <span class="zh">混合键合已在逻辑芯片上进入大规模量产，但其在HBM中的采用被推迟，微凸点仍是更现实的选择。台积电当前的混合键合间距为6微米，说明存储堆栈与逻辑芯片对逻辑芯片的集成在成本和制造上面临不同权衡。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/dram/samsung-teases-new-hbm5-with-twice-the-performance-of-hbm4e-ambitious-data-transfer-rates-could-hint-at-4-096-bit-interface" target="_blank" rel="noopener">
+          <span class="en">Samsung Targets 4 TB/s per Stack With HBM5</span>
+          <span class="zh">Samsung将HBM5单堆栈带宽目标定为4 TB/s</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung expects HBM5 to deliver 4 TB/s per stack by the late 2020s, roughly twice the performance projected for HBM4E. The company says that level could support AI accelerators with aggregate memory bandwidth near 100 TB/s, although the hinted 4,096-bit interface remains a roadmap inference rather than a disclosed specification.</span>
+        <span class="zh">Samsung预计HBM5将在2020年代末实现单堆栈4 TB/s带宽，约为HBM4E目标性能的两倍。公司称这可支持总存储带宽接近100 TB/s的AI加速器，但外界推测的4096位接口仍只是路线图推断，并非已公布规格。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/google-is-now-pulling-ddr4-modules-out-of-retired-servers-and-reusing-them-in-new-ai-servers/" target="_blank" rel="noopener">
+          <span class="en">Google Reportedly Reuses Retired DDR4 in New AI Servers</span>
+          <span class="zh">据报道Google从退役服务器回收DDR4用于新AI服务器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 10h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Google is reportedly removing DDR4 modules from retired servers and redeploying them in new AI systems. The unusual reuse program is a tangible sign that hyperscaler bottlenecks have shifted from compute alone toward memory availability and supply-chain access.</span>
+        <span class="zh">据报道，Google正从退役服务器中拆出DDR4模块，并将其重新部署到新的AI系统。这个非常规再利用计划具体反映出，超大规模数据中心的瓶颈已从单纯算力转向存储供给和供应链获取能力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE53TGJxdDl6Nm5nem45VUY3MUg3ajBkZmxTcjFKcU83MWRXQk16cnRjczUwUldkcXhUUmRiUzAxa0VhNFdoT3YwSHd3dGdaSG11X1ZvY3VGd2xNZ211?oc=5" target="_blank" rel="noopener">
+          <span class="en">KAIST Targets a Fab Gas 6,000 Times More Potent Than CO2</span>
+          <span class="zh">KAIST处理温室效应为CO2约6000倍的晶圆厂气体</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EurekAlert!</span> · 1h ago</span>
+        <span class="zh"><span class="source">EurekAlert!</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A KAIST team reports a disorder-based method for taming a semiconductor-process greenhouse gas described as 6,000 times more potent than CO2. If the approach transfers from the laboratory to fab-scale abatement, it could reduce one of chip manufacturing&#x27;s hard-to-remove climate impacts.</span>
+        <span class="zh">KAIST团队报告了一种利用无序结构处理半导体制程温室气体的方法；该气体的温室效应据称约为CO2的6000倍。如果这种方法能从实验室扩展到晶圆厂规模的尾气处理，它可能降低芯片制造中最难消除的一类气候影响。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5VTVItWGQ2VWtJaHFPd1FNYjA2TFFZNG5uMnFLQW1wRHhsWjd2YTEzTWluamttUDVtVzdBcjhmNkZqOU0ycWZCVU96R2VHcGNVeGMyV2NJemVhcjBzQ3VRSGxlM3hONVE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Korea Zinc Expands Semiconductor Sulfuric Acid Capacity to 320,000 Tons</span>
+          <span class="zh">Korea Zinc将半导体硫酸产能扩至32万吨</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Korea Zinc is expanding its semiconductor-grade sulfuric acid capacity to 320,000 tons. The increase adds domestic supply of a high-purity process chemical whose reliability matters directly to fab utilization and contamination control.</span>
+        <span class="zh">Korea Zinc正把半导体级硫酸产能扩大到32万吨。此次扩产增加了高纯度制程化学品的本土供给，而其供应可靠性会直接影响晶圆厂产能利用率与污染控制。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOMERtVEtwUEg2WjRJRndObmU2ZjR3V1hCb1VBR01aSnVMaWlQc3VESGRSRk5kWkZNLUF0RGJTUXZyQnFSaDl2N0RMaFJaSjJjMTJrRHFCVWtIOXFRczQ2T2tPWmFtbzFyM0hPS1JqSjUxdTZSMjRGVUVXZV8wS0JLaWVvU3JPLUhhVTJzdEdkcWNyVk53M3BQX3FwbG5rOUl3THctbUI2RXBDY3RYVUww0gFoQVVfeXFMT21wTEtmZDRTbV9pQkp1V1ZkME1JM0lueGYzSHd0dTQ0MFZzSm10RXNVcU1JTFg4clZTSS1iTHBKYWRuZU5KSEhSUVhla0UtWElqakRrWF9QOVBLNmdXb0JYT2dxUDd6Y3k?oc=5" target="_blank" rel="noopener">
+          <span class="en">U.S. Semiconductor Tariffs Are Coming With Carveouts, Lutnick Says</span>
+          <span class="zh">Lutnick称美国半导体关税将落地并设豁免条款</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Law360</span> · 6h ago</span>
+        <span class="zh"><span class="source">Law360</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Commerce Secretary Howard Lutnick says semiconductor tariffs are coming, but the policy will include carveouts. The unresolved scope of those exemptions is now the key variable for chipmakers and electronics supply chains deciding whether U.S. manufacturing commitments will shield imports from new duties.</span>
+        <span class="zh">美国商务部长Howard Lutnick表示，半导体关税将会落地，但政策会包含豁免条款。豁免范围尚未确定，这已成为芯片厂商与电子供应链判断在美制造承诺能否使进口产品免受新关税影响的关键变量。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">业绩与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPMDJoY3dFMS1ORFNTS0lVQ2pQTm5YRUNtS1RQOHowWmhrLUM3eFR4eFpfOXNmakxFXzItWVBUTTlIWW1EMHk4d0JmbUFPVXdxODlObDNIWkRJNHp5bGxvd1ZrV1FDSngzT0t0WktqNkNlUGJnbmtGWUk4U0tfZ1ZjR0pLcmpBQnRoejBTUU9BcHVOWDA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Broadcom Q3 Revenue Jumps 86% to $29.6 Billion</span>
+          <span class="zh">Broadcom第三季度营收增长86%至296亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Securities.io</span> · 4h ago</span>
+        <span class="zh"><span class="source">Securities.io</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Broadcom&#x27;s third-quarter revenue rose 86% to $29.6 billion, with AI-chip demand identified as the main driver. The result reinforces that hyperscaler spending is flowing beyond GPUs into custom accelerators, networking, and the surrounding connectivity stack.</span>
+        <span class="zh">Broadcom第三季度营收增长86%，达到296亿美元，AI芯片需求被视为主要驱动力。这一结果再次说明，超大规模客户的支出正从GPU扩展到定制加速器、网络以及周边互连硬件栈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/mercedes-spinout-athos-closes-its-doors/" target="_blank" rel="noopener">
+          <span class="en">Mercedes Spinout Athos Shuts Down After Funding Falls Short</span>
+          <span class="zh">Mercedes拆分公司Athos融资未果后停止运营</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 8h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Mercedes spinout Athos has closed after failing to secure the financing needed to continue commercializing its chiplet-based technology. The shutdown is a reminder that architectural differentiation alone does not bridge the capital-intensive path from prototype silicon to a production business.</span>
+        <span class="zh">Mercedes拆分公司Athos因未能获得继续商业化chiplet技术所需的融资而关闭。这次停运提醒市场，单靠架构差异化不足以跨越从原型芯片到量产业务之间的高资本门槛。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-09-03 01:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-09-03 01:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

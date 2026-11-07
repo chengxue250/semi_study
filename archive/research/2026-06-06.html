@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-06">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Packaging Becomes a Compute Architecture — Semi Research 2026-06-06</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Lang visibility */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-06.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Saturday, June 6, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月6日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">Packaging Becomes a Compute Architecture</span>
+      <span class="zh">封装正在变成计算架构</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Today&#x27;s research queue follows the physical limits behind AI scaling: package metrology, warpage, low-temperature bonding, backside-power thermals, chiplet routing and co-packaged optics.</span>
+      <span class="zh">今天的研究队列聚焦AI扩展背后的物理限制：封装量测、翘曲、低温键合、背面供电热问题、chiplet路由和共封装光学。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Packaging Materials &amp; Metrology</span>
+      <span class="zh">封装材料与量测</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1088/1361-6501/ae7745" target="_blank" rel="noopener">
+          <span class="en">Dual-Band Scatterometry for Advanced-Packaging Critical-Dimension Metrology</span>
+          <span class="zh">用于先进封装关键尺寸量测的双波段散射测量</span>
+        </a><span class="tag">metrology</span><span class="tag">advanced packaging</span><span class="tag">scatterometry</span>
+      </h3>
+      <p class="authors">Fu-Sheng Yang, Tan-Phuc Le, Surajit Das, Min-Ru Wu, Liang-Chia Chen</p>
+
+      <p class="venue"><a href="https://doi.org/10.1088/1361-6501/ae7745" target="_blank" rel="noopener">Measurement Science and Technology</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">This paper combines deep-ultraviolet and short-wave-infrared scatterometry to separate coupled packaging dimensions during non-destructive measurement. Its sequential optimization reportedly cuts simulation time by more than 90% while matching copper-trench measurements against atomic-force microscopy. Faster inverse metrology matters because heterogeneous integration adds more structures that must be controlled without destructive cross-sectioning.</span>
+        <span class="zh">这篇论文结合深紫外和短波红外散射测量，在无损量测中分离相互耦合的封装尺寸。其顺序优化方法据称将仿真时间降低90%以上，并使铜沟槽结果与原子力显微镜量测吻合。更快的反演量测很重要，因为异构集成增加了更多必须在不破坏截面的情况下控制的结构。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1016/j.mtadv.2026.100781" target="_blank" rel="noopener">
+          <span class="en">Cure-Dependent Thermo-Mechanical Modeling for Package Warpage Prediction</span>
+          <span class="zh">用于封装翘曲预测的固化相关热机械建模</span>
+        </a><span class="tag">warpage</span><span class="tag">molding compound</span><span class="tag">modeling</span>
+      </h3>
+      <p class="authors">J. Baek, Woong-Kyoo Yoo, W. An, Jun-Seop Song, Gyung-Hwan Oh, Ji-Hye Shim, Hak-Sung Kim</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1016/j.mtadv.2026.100781" target="_blank" rel="noopener">Materials Today Advances</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">The work integrates in-situ characterization with multiscale modeling of epoxy molding compounds as they cure. That targets a persistent advanced-packaging problem: material properties evolve during processing, so static parameters can produce poor warpage predictions. Better cure-aware models can shorten process tuning, but production value depends on transfer across package sizes and material lots.</span>
+        <span class="zh">该研究把原位表征与环氧模塑料固化过程的多尺度建模结合起来，针对先进封装中的长期难题：材料属性会在加工过程中变化，静态参数容易导致翘曲预测失准。更准确的固化感知模型可以缩短工艺调试，但量产价值取决于能否跨封装尺寸和材料批次迁移。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1016/j.jallcom.2026.189032" target="_blank" rel="noopener">
+          <span class="en">Glass-Fiber BT Composites for Dimensionally Stable High-Frequency Packaging</span>
+          <span class="zh">面向高频封装的高尺寸稳定性玻纤BT复合材料</span>
+        </a><span class="tag">substrate</span><span class="tag">dielectric</span><span class="tag">materials</span>
+      </h3>
+      <p class="authors">Hao Wang, Kang Luo, Enzhu Li, Bin Tang, Ying Yuan</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1016/j.jallcom.2026.189032" target="_blank" rel="noopener">Journal of Alloys and Compounds</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">This materials paper develops glass-fiber-reinforced bismaleimide-triazine composites aimed at better dimensional stability and high-frequency dielectric performance. Those properties matter for large AI substrates where thermal cycling, fine routing and signal integrity interact. The next question is whether the material can meet cost, processability and reliability requirements at substrate-panel scale.</span>
+        <span class="zh">这篇材料论文开发玻璃纤维增强双马来酰亚胺-三嗪复合材料，以改善尺寸稳定性和高频介电性能。这些属性对大型AI载板很重要，因为热循环、精细布线和信号完整性相互影响。下一步问题是该材料能否在载板面板尺度满足成本、加工性和可靠性要求。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1108/ssmt-01-2026-0006" target="_blank" rel="noopener">
+          <span class="en">Nanocopper Low-Temperature Interconnects for Advanced Packaging</span>
+          <span class="zh">面向先进封装的纳米铜低温互连</span>
+        </a><span class="tag">copper bonding</span><span class="tag">low temperature</span><span class="tag">interconnect</span>
+      </h3>
+      <p class="authors">Ye Tian, Haojie Chen, Lushan Ma, Chao Wang, Ziqiang Li, Lei Ma, Yongfeng Dong, Xing Chen</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1108/ssmt-01-2026-0006" target="_blank" rel="noopener">Soldering &amp; Surface Mount Technology</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">This review compares copper nanoparticles, nanoporous copper and one-dimensional nanocopper arrays for low-temperature interconnection. Copper offers conductivity and cost advantages, but oxidation, densification and joint reliability remain central barriers. Lower-temperature bonding is especially relevant to heterogeneous stacks that cannot tolerate conventional thermal budgets.</span>
+        <span class="zh">这篇综述比较铜纳米颗粒、多孔铜和一维纳米铜阵列在低温互连中的应用。铜具有导电性和成本优势，但氧化、致密化和接头可靠性仍是核心障碍。低温键合对无法承受传统热预算的异构堆叠尤其重要。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">Chiplet Networks &amp; Accelerator Architecture</span>
+      <span class="zh">Chiplet网络与加速器架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCAD.2025.3624677" target="_blank" rel="noopener">
+          <span class="en">BuffeRS: Buffer-Reservation Scheduling for NoCs and Multichiplet Networks</span>
+          <span class="zh">BuffeRS：面向NoC与多chiplet网络的缓冲区预留调度</span>
+        </a><span class="tag">NoC</span><span class="tag">chiplet</span><span class="tag">routing</span>
+      </h3>
+      <p class="authors">Zixuan Liu, Xiaomao Wu, Yaoyao Ye</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2025.3624677" target="_blank" rel="noopener">IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">BuffeRS coordinates destination-buffer availability so packets can bypass routers without complex protocols or unsafe contention. The method extends the same idea across chiplet boundaries, where every extra hop makes communication more expensive. Its importance is architectural: modular accelerators need network efficiency to preserve the yield and reuse benefits of chiplets.</span>
+        <span class="zh">BuffeRS协调目标缓冲区可用性，使数据包无需复杂协议或不安全争用即可绕过路由器。该方法还扩展到chiplet边界，而跨chiplet的每一跳通信代价都更高。其架构意义在于，模块化加速器必须保持网络效率，才能保住chiplet带来的良率和复用优势。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3676552" target="_blank" rel="noopener">
+          <span class="en">HiRe: Hierarchical Reconfigurable Networks for Large Multichiplet DNN Accelerators</span>
+          <span class="zh">HiRe：面向大规模多chiplet DNN加速器的分层可重构网络</span>
+        </a><span class="tag">DNN accelerator</span><span class="tag">active interposer</span><span class="tag">reconfigurable network</span>
+      </h3>
+      <p class="authors">Zhihong Chen, Jinming Zhang, Dongxu Lyu, Hao Chen, Jianfei Jiang, Weiguang Sheng, Chen Zhang, Guanghui He</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3676552" target="_blank" rel="noopener">IEEE Transactions on VLSI Systems</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">HiRe co-designs a hierarchical reconfigurable network and deadlock-free routing for large multichiplet DNN accelerators. It targets rising hop count and poor link utilization as fixed fabrics encounter diverse neural-network dataflows. Active-interposer reconfiguration can improve flexibility, though implementation cost and control complexity remain key tradeoffs.</span>
+        <span class="zh">HiRe为大规模多chiplet DNN加速器协同设计分层可重构网络和无死锁路由，针对固定互连面对多样神经网络数据流时跳数增加和链路利用率下降的问题。主动中介层重构可以提高灵活性，但实现成本和控制复杂度仍是关键取舍。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCAD.2025.3624278" target="_blank" rel="noopener">
+          <span class="en">MARCA-v2: A Reconfigurable Accelerator for Sparse Mamba State-Space Models</span>
+          <span class="zh">MARCA-v2：面向稀疏Mamba状态空间模型的可重构加速器</span>
+        </a><span class="tag">Mamba</span><span class="tag">state-space model</span><span class="tag">accelerator</span>
+      </h3>
+      <p class="authors">Jinhao Li, Shan Huang, Jiaming Xu, Jun Liu, Ningyi Xu, Guohao Dai</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2025.3624278" target="_blank" rel="noopener">IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">MARCA-v2 targets the memory-heavy element-wise operations that dominate Mamba state-space-model execution at longer sequences. The design adds sparse support and reconfigurable processing to reduce the bottleneck left by earlier dense-focused accelerators. It is a useful counterpoint to Transformer-only hardware work, though application value depends on Mamba&#x27;s continued adoption.</span>
+        <span class="zh">MARCA-v2针对长序列Mamba状态空间模型中占主导的内存密集逐元素操作，增加稀疏支持和可重构处理，以缓解早期偏密集计算加速器留下的瓶颈。它为只关注Transformer的硬件研究提供了有用对照，但应用价值取决于Mamba能否继续扩大采用。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Thermals &amp; Optical I/O</span>
+      <span class="zh">热设计与光I/O</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3673227" target="_blank" rel="noopener">
+          <span class="en">Thermal Analysis of 3-D Backside-Power Cloud Server SoCs</span>
+          <span class="zh">三维背面供电云服务器SoC热分析</span>
+        </a><span class="tag">backside power</span><span class="tag">3D integration</span><span class="tag">thermal</span>
+      </h3>
+      <p class="authors">Nitish Kumar, Subrat Mishra, H. Oprins, J. Myers, J. Ryckaert, P. Woltgens, D. Biswas</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3673227" target="_blank" rel="noopener">IEEE Transactions on VLSI Systems</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">This TCAD study models backside power delivery in 3-D memory-on-logic and logic-on-memory server SoCs. It reports a substantial thermal penalty for memory-on-logic, while reversing the stack and improving cooling reduces temperature significantly at 320-core scale. The result makes the integration tradeoff explicit: backside power can improve electrical delivery while making stack orientation and cooling decisive.</span>
+        <span class="zh">这项TCAD研究模拟三维memory-on-logic和logic-on-memory服务器SoC中的背面供电。结果显示memory-on-logic存在显著热惩罚，而反转堆叠并改善冷却可在320核规模明显降低温度。它把集成取舍说得很清楚：背面供电能改善电气供给，但会让堆叠方向和冷却方案变得决定性。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1117/1.apn.5.3.036019" target="_blank" rel="noopener">
+          <span class="en">High-Density Co-Packaged Optics With TSV and TGV Interposers</span>
+          <span class="zh">基于TSV与TGV中介层的高密度共封装光学</span>
+        </a><span class="tag">co-packaged optics</span><span class="tag">TSV</span><span class="tag">TGV</span>
+      </h3>
+      <p class="authors">Chang Ge, Jiangbing Du, Yihan Liu, Yixiao Zhang, Zuyuan He</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1117/1.apn.5.3.036019" target="_blank" rel="noopener">Advanced Photonics Nexus</a> · 2026-05-25</p>
+      <p class="summary">
+        <span class="en">This work studies high-density co-packaged optical interconnection using through-silicon-via and through-glass-via interposers. The packaging choice affects density, electrical parasitics, optical alignment and thermal behavior together. CPO adoption will depend on solving that combined manufacturing problem, not simply placing optics closer to compute.</span>
+        <span class="zh">该研究探索使用硅通孔和玻璃通孔中介层实现高密度共封装光互连。封装选择会同时影响密度、电气寄生、光学对准和热行为。CPO能否普及取决于解决这个综合制造问题，而不只是把光学器件放得更靠近计算芯片。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-06 13:27 UTC · <a href="../2026-06-06.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-06 13:27 UTC · <a href="../2026-06-06.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

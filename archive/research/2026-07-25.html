@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-25">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Memory Traffic Becomes the Optimization Target — Semi Research 2026-07-25</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-07-25.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Saturday, July 25, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月25日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">Memory Traffic Becomes the Optimization Target</span>
+      <span class="zh">内存流量成为优化主目标</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s strongest systems papers attack the hidden cost of moving and retaining state: draft-model KV reads, cache eviction, low-bit activation transforms, and adapter capacity. The recurring lesson is that efficiency claims need attribution and bounded working sets, not just smaller nominal models.</span>
+      <span class="zh">本周最值得关注的系统论文集中处理状态搬运与保留的隐性成本：草稿模型的KV读取、缓存淘汰、低比特激活变换以及适配器容量。反复出现的结论是，效率不仅取决于名义上的模型缩小，还需要可归因的误差和有界工作集。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21535" target="_blank" rel="noopener">
+          <span class="en">Windowed-MTP Removes Full-Context Draft KV Reads</span>
+          <span class="zh">Windowed-MTP消除草稿模型的全上下文KV读取</span>
+        </a>
+      </h3>
+      <p class="authors">Alagappan Valliappan</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21535" target="_blank" rel="noopener">arXiv:2607.21535</a> · 2026-07-23T17:21:44Z</p>
+      <p class="summary">
+        <span class="en">Windowed-MTP applies a sliding attention window and sink only to the multi-token-prediction draft head, preventing draft cost from growing with a million-token KV cache. Full-attention verification remains unchanged, so the method can alter proposed tokens but not the target model&#x27;s accepted output. It is a training-free systems optimization; the preprint still needs independent evaluation across model families and serving stacks.</span>
+        <span class="zh">Windowed-MTP仅在多Token预测草稿头中应用滑动注意力窗口和attention sink，避免草稿成本随百万Token KV缓存线性增长。全注意力验证保持不变，因此该方法可以改变候选Token，却不会改变目标模型最终接受的输出。这是一项免训练的系统优化，但仍需在不同模型家族和推理栈上进行独立评估。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21446" target="_blank" rel="noopener">
+          <span class="en">KroQuant Uses Kronecker Blocks for W4A4 Diffusion Transformers</span>
+          <span class="zh">KroQuant以Kronecker块实现扩散Transformer的W4A4量化</span>
+        </a>
+      </h3>
+      <p class="authors">Yann Bouquet, Alireza Khodamoradi, Kristof Denolf, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21446" target="_blank" rel="noopener">arXiv:2607.21446</a> · 2026-07-23T15:52:20Z</p>
+      <p class="summary">
+        <span class="en">KroQuant introduces learned Kronecker-structured invertible transforms on 32-element activation blocks to make W4A4 post-training quantization practical for diffusion transformers. The block-local construction targets the online transform cost that recurs at every denoising step and stores less than half as many parameters as per-channel scaling. The preprint&#x27;s value will depend on whether image quality and latency gains persist on current accelerator kernels rather than only in calibration experiments.</span>
+        <span class="zh">KroQuant在32元素激活块上引入可学习的Kronecker结构可逆变换，以提升扩散Transformer进行W4A4训练后量化的可行性。其块内结构针对每个去噪步骤都会重复出现的在线变换成本，参数存储量不到逐通道缩放的一半。该预印本的价值取决于图像质量与延迟收益能否在现有加速器kernel上保持，而不只是在校准实验中成立。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21475" target="_blank" rel="noopener">
+          <span class="en">Randomized KV Eviction Produces Serving-Time Error Certificates</span>
+          <span class="zh">随机化KV淘汰可生成推理时误差证书</span>
+        </a>
+      </h3>
+      <p class="authors">Peng Xie</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21475" target="_blank" rel="noopener">arXiv:2607.21475</a> · 2026-07-23T16:16:59Z</p>
+      <p class="summary">
+        <span class="en">The paper proves that deterministic top-k KV-cache eviction cannot consistently estimate the attention error caused by discarded values, then restores identifiability with Poisson sampling and a Hájek correction. Its certificate reached 0.97 empirical coverage and distinguished cache-induced from inherent failures at AUC 0.73-0.75, but it did not improve failure prediction or certificate-gated budget escalation. The result is useful precisely because it narrows the claim: randomization supports attribution, not a universal serving-quality predictor.</span>
+        <span class="zh">论文证明，确定性的top-k KV缓存淘汰无法一致估计丢弃value造成的注意力误差，随后通过Poisson采样和Hájek校正恢复可识别性。误差证书取得0.97的经验覆盖率，并以0.73至0.75的AUC区分缓存诱发故障与固有故障，但未改善故障预测或证书驱动的预算升级。该结果的价值正在于收窄了主张：随机化有助于误差归因，而不是提供通用的推理质量预测器。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21433" target="_blank" rel="noopener">
+          <span class="en">Early Activations Weakly Predict Reasoning Non-Convergence</span>
+          <span class="zh">早期激活可弱预测推理不收敛</span>
+        </a>
+      </h3>
+      <p class="authors">Renuka Oladri, Niveda Jawahar, Abdirisak Mohamed</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21433" target="_blank" rel="noopener">arXiv:2607.21433</a> · 2026-07-23T15:37:04Z</p>
+      <p class="summary">
+        <span class="en">On DeepSeek-R1-Distill-Qwen-7B, converged chains scored 90.3% on AIME 1983-2024 while budget-exhausted chains scored 6.6%, with only 62.0% of generations converging. A linear probe at layer 20 and token 150 achieved AUC 0.608, suggesting a modest early signal that could support stopping policies. The permutation result was p=0.063, so the evidence does not yet clear conventional significance thresholds and should not be treated as a production-ready predictor.</span>
+        <span class="zh">在DeepSeek-R1-Distill-Qwen-7B上，收敛推理链在AIME 1983-2024上的准确率为90.3%，耗尽Token预算的推理链仅为6.6%，总体收敛率为62.0%。位于第20层、第150个Token的线性探针取得0.608 AUC，说明存在可用于提前停止策略的弱信号。置换检验结果为p=0.063，尚未达到常规显著性阈值，因此不能把它视为可直接用于生产的预测器。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21351" target="_blank" rel="noopener">
+          <span class="en">Measuring How Many Bits a LoRA Adapter Can Store</span>
+          <span class="zh">量化LoRA适配器能够存储多少比特</span>
+        </a>
+      </h3>
+      <p class="authors">Kaizhen Tan, Heqing Du, Yang Feng</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21351" target="_blank" rel="noopener">arXiv:2607.21351</a> · 2026-07-23T14:16:43Z</p>
+      <p class="summary">
+        <span class="en">A compression-based analysis finds that LoRA adapters store only a few bits per trainable parameter, and that placement matters more than raw parameter count. Moving the same budget from attention into the MLP nearly doubled capacity, while removing structure from the frozen base largely erased it; measured privacy leakage tracked stored bits more closely than nominal adapter size. The study reframes adapter design and risk around effective information capacity, though its conclusions still depend on the tested Qwen2.5 fine-tuning setups.</span>
+        <span class="zh">一项基于压缩的分析发现，LoRA适配器每个可训练参数只存储少量比特，而且参数位置比名义数量更重要。把相同预算从attention移到MLP后容量接近翻倍，而去除冻结基座的结构后容量几乎消失；测得的隐私泄露也更紧密地跟随实际写入比特，而非适配器名义大小。该研究把适配器设计与风险重新聚焦于有效信息容量，但结论仍取决于所测试的Qwen2.5微调设置。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21409" target="_blank" rel="noopener">
+          <span class="en">Deeper Parameterized Quantum Circuits Show Double Descent</span>
+          <span class="zh">更深参数化量子电路呈现双下降现象</span>
+        </a>
+      </h3>
+      <p class="authors">Marie Kempkes, Elies Gil-Fuster, Carlos Bravo-Prieto, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21409" target="_blank" rel="noopener">arXiv:2607.21409</a> · 2026-07-23T15:11:31Z</p>
+      <p class="summary">
+        <span class="en">The authors show analytically and numerically that gradient-trained parameterized quantum circuits can improve out-of-sample performance as model size grows, exhibiting double descent rather than monotonically worsening generalization. Experiments on re-uploading circuits across several datasets support the predicted scaling behavior. The evidence is numerical rather than a hardware demonstration, so noise, trainability, and device depth remain separate obstacles to practical quantum machine learning.</span>
+        <span class="zh">作者通过解析推导和数值实验表明，采用梯度训练的参数化量子电路可随模型规模扩大而改善样本外表现，呈现双下降现象，而不是泛化能力单调恶化。在多个数据集上的re-uploading电路实验支持这一预测的扩展规律。不过证据来自数值实验而非硬件演示，噪声、可训练性和器件深度仍是实用量子机器学习的独立障碍。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21408" target="_blank" rel="noopener">
+          <span class="en">A Three-Stage Optimizer for Fixed-Outline Chip Floorplanning</span>
+          <span class="zh">面向固定轮廓芯片布局的三阶段优化器</span>
+        </a>
+      </h3>
+      <p class="authors">Yilihamujiang Yimamu, Guillem Pastor-Rué, Jordi Cortadella</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21408" target="_blank" rel="noopener">arXiv:2607.21408</a> · 2026-07-23T15:10:41Z</p>
+      <p class="summary">
+        <span class="en">This floorplanning framework combines quadratic placement, Adam-based non-convex global optimization, and convex legalization based on horizontal and vertical constraint graphs. On MCNC, GSRC, and HB+ benchmarks, it reduced average half-perimeter wirelength by at least 1% and 5% versus the compared state-of-the-art floorplanners. The gains are benchmark results rather than tape-out evidence, so downstream timing, routability, and runtime behavior remain to be demonstrated.</span>
+        <span class="zh">该布局规划框架依次结合二次布局、基于Adam的非凸全局优化，以及依托水平和垂直约束图的凸合法化。在MCNC、GSRC和HB+基准上，其平均半周长线长相较所对比的先进布局器至少降低1%和5%。这些收益来自基准测试而非流片验证，后续时序、可布线性和运行时间表现仍有待证明。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-25 14:48 UTC · <a href="../2026-07-25.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-25 14:48 UTC · <a href="../2026-07-25.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

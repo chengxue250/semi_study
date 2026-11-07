@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-29">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Hardware-Aware AI Reaches the System Stack — Semi Research 2026-07-29</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-07-29.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Wednesday, July 29, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月29日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Hardware-Aware AI Reaches the System Stack</span>
+      <span class="zh">硬件感知AI走向系统全栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week’s work pushes model and system optimization into memory arrays, routing, inference dispatch, and verification. The strongest claims pair algorithmic changes with concrete hardware constraints or measured execution results.</span>
+      <span class="zh">本周研究将模型与系统优化推进到存储阵列、布线、推理调度和验证等环节。较有价值的工作将算法改动与明确的硬件约束或实测执行结果结合起来。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.22869" target="_blank" rel="noopener">
+          <span class="en">Multi-Primitive In-Memory Computing for Monte Carlo Tree Search</span>
+          <span class="zh">用于蒙特卡洛树搜索的多原语存内计算</span>
+        </a>
+      </h3>
+      <p class="authors">T. Molom-Ochir, B. F. Morris, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22869" target="_blank" rel="noopener">arXiv:2607.22869</a> · 2026-07-24T19:17:37Z</p>
+      <p class="summary">
+        <span class="en">The paper maps the phases of Monte Carlo tree search to separate in-memory primitives, including CAM, logic, RRAM crossbars, and SRAM, rather than treating the irregular algorithm as a single crossbar workload. Using 22 nm estimates calibrated with fabricated RRAM-array parameters, it reports about 60 mW for 9×9 Go and 96× CPU energy efficiency. The claim is compelling because it tackles an irregular search algorithm, but the end-to-end system is still an architecture evaluation rather than measured silicon.</span>
+        <span class="zh">论文将蒙特卡洛树搜索的各阶段分别映射到CAM、逻辑、RRAM交叉阵列和SRAM等存内原语，而不是把这类不规则算法视为单一交叉阵列工作负载。基于采用已制备RRAM阵列参数校准的22 nm估算，其对9×9围棋报告约60 mW功耗和相对CPU 96倍的能效。该工作的重要性在于处理了不规则搜索算法，但端到端系统仍属架构评估而非实测芯片。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.23099" target="_blank" rel="noopener">
+          <span class="en">Distribution-Aware MoE Inference with Adaptive Kernel Dispatch</span>
+          <span class="zh">采用自适应核调度的分布感知MoE推理</span>
+        </a>
+      </h3>
+      <p class="authors">E.-M. Huang, A.-C. Chang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.23099" target="_blank" rel="noopener">arXiv:2607.23099</a> · 2026-07-25T08:20:47Z</p>
+      <p class="summary">
+        <span class="en">DA-MoE chooses fused-MoE GPU kernels from the live expert-routing histogram instead of only from token-count buckets. On HumanEval-X serving traces, the authors report geometric-mean latency gains of 1.16× for DeepSeek-V3 and 1.29× for Kimi K2, with peaks of 1.40× and 1.56×. It identifies routing skew as a first-class systems variable, although the benefit depends on representative offline tuning and the serving mix matching those distributions.</span>
+        <span class="zh">DA-MoE根据实时专家路由直方图选择融合MoE GPU内核，而非仅依据token数量分桶。在HumanEval-X服务轨迹上，作者报告DeepSeek-V3的几何平均延迟改善为1.16倍、Kimi K2为1.29倍，峰值分别达1.40倍和1.56倍。该工作将路由偏斜提升为一等系统变量，但收益依赖有代表性的离线调优及实际服务负载与这些分布的匹配度。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.22785" target="_blank" rel="noopener">
+          <span class="en">FusionML: CPU+GPU Co-Execution on Unified-Memory Apple Silicon</span>
+          <span class="zh">FusionML：统一内存Apple Silicon上的CPU+GPU协同执行</span>
+        </a>
+      </h3>
+      <p class="authors">O. Mohite</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22785" target="_blank" rel="noopener">arXiv:2607.22785</a> · 2026-07-24T11:42:17Z</p>
+      <p class="summary">
+        <span class="en">FusionML shows that MLX lazy-graph scheduling can serialize CPU–GPU work unless an eager materialization boundary is inserted, then uses contention-aware row splitting for transformer prefill. Across five Apple chips, it reports 1.15–1.38× faster decoder-block prefill and 1.18–1.25× faster time to first token for Qwen2.5-7B, with unchanged decode throughput. The useful result is that shared memory alone does not guarantee operator-level parallelism.</span>
+        <span class="zh">FusionML指出，若不插入即时物化边界，MLX的惰性图调度会将CPU-GPU工作串行化；随后它为Transformer prefill采用了考虑争用的行切分。在五款Apple芯片上，作者报告解码器块prefill加速1.15至1.38倍，Qwen2.5-7B的首token时间加速1.18至1.25倍，而decode吞吐不变。其关键结论是：统一内存本身并不保证算子级并行。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.23000" target="_blank" rel="noopener">
+          <span class="en">Magnetic Tunnel Junctions for Timekeeping in Intermittent Systems</span>
+          <span class="zh">利用磁隧道结实现间歇计算系统计时</span>
+        </a>
+      </h3>
+      <p class="authors">N. V. Maruszewski, J. Athas, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.23000" target="_blank" rel="noopener">arXiv:2607.23000</a> · 2026-07-25T02:28:23Z</p>
+      <p class="summary">
+        <span class="en">FLINT uses deliberately stochastic retention loss in magnetic tunnel junctions to estimate off-time in batteryless intermittent systems, avoiding capacitor-discharge timing. A model validated against 21 fabricated MTJs reports 15 minutes of off-time within 10% error at 1.03 μJ and under 0.1 mm². The result points to a useful nonvolatile timing primitive, though system performance beyond the device-trace-driven evaluation remains to be demonstrated in hardware.</span>
+        <span class="zh">FLINT利用磁隧道结中可预测的随机保持失效来估计无电池间歇系统的断电时间，从而避免采用电容放电计时。以21个已制备MTJ验证的模型报告，在1.03 μJ和不足0.1 mm²条件下，可在15分钟断电时间内实现10%以内误差。该结果提出了一种有潜力的非易失计时原语，但设备轨迹驱动评估之外的完整硬件系统性能仍待验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Verification</span>
+      <span class="zh">EDA与设计验证</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.22761" target="_blank" rel="noopener">
+          <span class="en">DRC-Aid: Verification-in-the-Loop Design-Rule Repair</span>
+          <span class="zh">DRC-Aid：验证闭环的设计规则修复</span>
+        </a>
+      </h3>
+      <p class="authors">A. Mukherjee, K. He, K. Roy</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22761" target="_blank" rel="noopener">arXiv:2607.22761</a> · 2026-07-23T21:22:36Z</p>
+      <p class="summary">
+        <span class="en">DRC-Aid limits an LLM to choose among rule-engine-generated geometric edits and immediately verifies each choice with physical-design tools. On FreePDK45 layouts, it reports DRC-clean, LVS-equivalent repair in about 92.5% of cases and a 98% reduction in total violations. Its strongest choice is constraining the model with deterministic edits and verification, though the evaluation is on an academic process kit rather than production designs.</span>
+        <span class="zh">DRC-Aid将LLM限制为从规则引擎生成的几何编辑中进行选择，并用物理设计工具立即验证每次选择。在FreePDK45版图上，它报告约92.5%的案例可实现DRC清洁且LVS等价的修复，总违规数减少98%。其最强之处是用确定性编辑和验证约束模型，但评估基于学术工艺库而非量产设计。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.21216" target="_blank" rel="noopener">
+          <span class="en">ARGON: GNN-Guided Compilation for Neutral-Atom Computing</span>
+          <span class="zh">ARGON：面向中性原子计算的GNN引导编译框架</span>
+        </a>
+      </h3>
+      <p class="authors">W. Sun, X. Li, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.21216" target="_blank" rel="noopener">arXiv:2607.21216</a> · 2026-07-23T11:30:05Z</p>
+      <p class="summary">
+        <span class="en">ARGON separates neutral-atom compilation into an offline library of hardware-certified spatial layouts and a GNN-guided temporal-routing stage. The approach is intended to avoid movement and conflict bottlenecks as circuits grow while preserving highly parallel entangling operations. It is a practical compiler direction for dynamic-atom hardware, but its value will depend on how well the precomputed layout library captures changing device constraints and error behavior.</span>
+        <span class="zh">ARGON将中性原子编译拆分为离线构建的硬件认证空间布局库，以及由GNN引导的时间路由阶段。该方法旨在随着电路规模增长时规避原子移动和冲突瓶颈，同时保留高度并行的纠缠操作。这是面向动态原子硬件的务实编译方向，但其价值取决于预计算布局库对不断变化的器件约束和误差行为的覆盖程度。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-29 09:02 UTC · <a href="../2026-07-29.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-29 09:02 UTC · <a href="../2026-07-29.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

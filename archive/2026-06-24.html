@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-24">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Reprices the Entire Chip Stack — Semi News 2026-06-24</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, June 24, 2026</span>
+      <span class="zh">2026年6月24日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Reprices the Entire Chip Stack</span>
+      <span class="zh">AI需求重估整个芯片栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Foundry pricing, HBM packaging, and restricted accelerators all show AI demand pushing costs and capacity decisions through the supply chain. At the same time, Cerebras and Groq face the harder question of turning differentiated silicon into durable economics.</span>
+      <span class="zh">晶圆代工定价、HBM封装和受限加速器都表明，AI需求正把成本与产能决策传导至整条供应链。与此同时，Cerebras和Groq必须回答更难的问题：如何把差异化硅片转化为可持续的商业模式。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/google-mediatek-build-tpuv9-triggerfish-cpu-compute-die-one-package-agentic-ai/" target="_blank" rel="noopener">
+          <span class="en">Google taps MediaTek for a unified TPUv9 design</span>
+          <span class="zh">Google携手MediaTek打造统一型TPUv9</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 6h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Google is reportedly working with MediaTek on TPUv9 “Triggerfish,” combining a CPU and compute die in one package for both training and inference. The design would broaden MediaTek&#x27;s role after the inference-focused TPUv8i and reduce the split between Google&#x27;s training and inference accelerator lines, although no shipment date or performance data were disclosed.</span>
+        <span class="zh">据报道，Google正与MediaTek合作开发TPUv9「Triggerfish」，在同一封装内集成CPU与计算裸片，同时面向训练和推理。继侧重推理的TPUv8i之后，这一设计将扩大MediaTek在Google TPU路线图中的角色，并缩小训练与推理产品线的分野，但报道未披露出货时间或性能数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/report-tsmc-follows-samsung-and-sk-hynix-into-price-surge-catching-its-own-customers-off-guard-with-7nm-hikes/" target="_blank" rel="noopener">
+          <span class="en">Report: TSMC price increases extend back to 7nm</span>
+          <span class="zh">报道称台积电涨价范围延伸至7nm</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 6h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is reportedly raising prices across much of its process portfolio, with increases reaching back to the 7nm node and catching some customers off guard. Broad-based hikes would extend AI-era cost pressure beyond leading-edge accelerators to products built on older nodes, but the report does not specify the increases or their effective dates.</span>
+        <span class="zh">据报道，台积电正在上调多个制程的价格，涨价范围向成熟方向延伸至7nm，令部分客户措手不及。若涨价广泛落地，AI时代的成本压力将从先进加速器扩散到采用较旧制程的产品，但报道未说明涨幅和生效日期。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBCcnJKdENjcVBxWExPYzZoLTBidExJRV8tcTQ4WUh5X2NwMzFKcmNmVldXbUFfQVNObW5yQ05GSGxpczdHdHFfcXROd29nQnN3cjBXampFNXMwQW1vSVcwYkVidnQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Report: TSMC cuts 28nm wafer starts by 25%</span>
+          <span class="zh">报道称台积电削减25%的28nm晶圆投片量</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing</span> · 5h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says TSMC has reduced 28nm wafer starts by 25%, potentially opening room for UMC to gain foundry share. This is a mature-node utilization decision rather than a measure of total chip output, but it could still alter availability and pricing for customers that remain on 28nm.</span>
+        <span class="zh">一则报道指台积电已将28nm晶圆投片量削减25%，可能为联电争取更多代工份额创造空间。这是成熟制程的产能利用决策，并不等同于芯片总产量下降，但仍可能改变28nm客户面对的供给与价格。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNSHNfSldwUDV4SkxROUNzQWVsTEZPUkliR083ZndjUl9xNUg2SGttcC1TdGlzbWRxRDhXenFjQXRTZENkSUZKQnAzNjZ3dlBCSDJfSlF4MXg1OU9kR1MyYVFybzZCYjdxdjR0OW9TRkRFcVVZTEg3T0R3T1VLNERtWnIxS0RCLW5nbExDZ1VNQlA?oc=5" target="_blank" rel="noopener">
+          <span class="en">JEDEC approves SPHBM4 packaging standard</span>
+          <span class="zh">JEDEC批准SPHBM4封装标准</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DIGITIMES</span> · 2h ago</span>
+        <span class="zh"><span class="source">DIGITIMES</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">JEDEC has approved the SPHBM4 standard, creating a broader packaging path for HBM4 and improving the prospects for glass substrates. Standardization matters because it can widen the set of interoperable packaging choices as HBM4 stacks become more complex, though the item provides no adoption timetable.</span>
+        <span class="zh">JEDEC已批准SPHBM4标准，为HBM4提供更广的封装路径，并提升玻璃基板的应用前景。随着HBM4堆叠日益复杂，标准化有望扩大可互操作的封装选择，但报道未给出采用时间表。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNSUtwZFItUTJMbndrcFlNMHVYTXlqS0pXcThycWFCc3dkZHM3MXlWbnAtdVZKZVJSQlJDZTV0eXR2ZDkyS01aMHpnUGZhTzd4d0tEVmkyUzMtSTE0VHdIeFBLbVl1RG5EVlBpaV9LdlFsNHNPNWlRZVhzUEEtR0I5UzJZa01raUFnYkIzRmxNM3pOWUlpSlV5SUJrd2lMNzdheGJlTw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Report: SK hynix slows HBM4 expansion as Rubin outlook weakens</span>
+          <span class="zh">报道称Rubin前景转弱，SK hynix放缓HBM4扩产</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Moomoo</span> · 5h ago</span>
+        <span class="zh"><span class="source">Moomoo</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Korean-media report cited by Moomoo says Nvidia may cut Rubin production and SK hynix is slowing HBM4 capacity expansion, contributing to a selloff in memory shares. If confirmed, the shift would challenge assumptions of uninterrupted HBM expansion; the item includes neither company confirmation nor revised production volumes.</span>
+        <span class="zh">Moomoo援引韩国媒体称，Nvidia可能削减Rubin产量，SK hynix则在放缓HBM4扩产，由此引发存储股下跌。若获证实，这一变化将挑战HBM产能持续快速扩张的预期；但该报道既无公司确认，也未提供调整后的产量数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTFA4Q2UzZmROVGx5cnR0amltQUVGVXo2YTMyb1J6MUV0VHV3bEl5ODlReGtKS2FRNE5vVFV4RUF5U0duSlN6SGhYdGlNMmlKclJKdVlFZHhWZlh5ZUxGX2I1ajBEazRTdUtfSzN4aWxxUXV1aWtuVmx2LWR3?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML joins TNO&#x27;s Eindhoven photonics factory</span>
+          <span class="zh">ASML加入TNO埃因霍温光子工厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">IO+</span> · 4h ago</span>
+        <span class="zh"><span class="source">IO+</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML has joined TNO&#x27;s photonics factory in Eindhoven, extending its participation into a shared development environment for integrated photonics. The move matters because photonic process integration and manufacturing tools are moving closer to industrial qualification, although the item gives no investment or capacity figures.</span>
+        <span class="zh">ASML已加入TNO位于埃因霍温的光子工厂，进入集成光子学的共享开发环境。此举表明光子工艺集成与制造工具正进一步接近产业化验证，但报道未披露投资额或产能数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE9TcXl6NU12WVhRMDlnUUJKYmp1LUpLa2c4VDY0QUNCTUVNdGZBTUhuQWoxSm9lUUJyR3R5dTdsNlpMZHpDMllLZ2N1Ul9xVGRyZ1QtSVgzdUtES0hiV1ZOaVR1RjdMYWhsRGZLOFlIOGU?oc=5" target="_blank" rel="noopener">
+          <span class="en">Restricted Nvidia chips double in price on China&#x27;s black market</span>
+          <span class="zh">受限Nvidia芯片在中国黑市价格翻倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Financial Times</span> · 59m ago</span>
+        <span class="zh"><span class="source">Financial Times</span> · 59分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia AI accelerators covered by U.S. export restrictions are reportedly selling for twice their original price on China&#x27;s black market. The premium shows that controls are constraining lawful supply without eliminating demand, increasing both procurement costs and incentives for diversion.</span>
+        <span class="zh">据报道，受美国出口限制的Nvidia AI加速器在中国黑市的售价已达到原价的两倍。这一溢价表明管制压缩了合规供应，却没有消除需求，同时推高了采购成本与转运套利的激励。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE9xUVhuYW1lZzZ6bUhQQlBDZ3VYVVdvY21aMzlOT2IyYkd6ZzlVYk9Ua2liNjRKYk9zU242TWFjMDFCeEZQMjJJTVpvZGdsWGxhalR5czFGU0ZGd0ZFenJ3M0JSczY?oc=5" target="_blank" rel="noopener">
+          <span class="en">The Netherlands joins the U.S. Pax Silica alliance</span>
+          <span class="zh">荷兰加入美国Pax Silica联盟</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">아시아경제</span> · 4h ago</span>
+        <span class="zh"><span class="source">아시아경제</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Netherlands has joined the U.S.-led AI alliance Pax Silica despite continuing disputes involving ASML. Dutch participation brings the country that anchors advanced lithography into a wider supply-chain coordination framework, giving future equipment-policy discussions greater industrial weight.</span>
+        <span class="zh">尽管围绕ASML的争议仍在持续，荷兰仍加入了美国主导的AI联盟Pax Silica。荷兰掌握先进光刻产业的关键环节，其参与使这一供应链协调框架更具产业分量，也将影响后续设备政策讨论。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdGtzNEUzdEpQTUFKcFlQMjlMTDM2N2F6NjRoRnVWOEs5bkFSRndYWWRoYTMzZWNpRlBxQWxYS3o3S3BqcHFhazM2WHRHbER2QzFpLWN6a29POU15eDR4ZVJFR2ttVjVyUUE5SWVXWTI0OWNvd2F2MlJ0SGZ6Nk83RWx4d1NLY2NLQldSOFQxOEJrM3p4MFl6aHlVV0gyRFgzc0dRREo4eHR1UERrdHR1N19WaGlYTDVteU12RVZnckVfNVZJVjk0d3FmMmxQV3hDbnFCX3RfX2tCRGJfREpYRElnc2tZTkRETHc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Besi raises long-term targets on AI packaging demand</span>
+          <span class="zh">AI封装需求推动Besi上调长期目标</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Wall Street Journal</span> · 4h ago</span>
+        <span class="zh"><span class="source">The Wall Street Journal</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">BE Semiconductor Industries raised its long-term revenue and profitability targets, citing an AI-driven demand boost. The reset signals that management expects advanced-packaging demand to persist beyond the current cycle, although the available item does not state the new target values or timetable.</span>
+        <span class="zh">BE Semiconductor Industries以AI需求上升为由，上调了长期营收与盈利能力目标。这次调整表明管理层预计先进封装需求将延续至本轮周期之后，但现有报道未列出新目标数值或时间表。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNQ3JvVU1YaTBQSVlkLXhwejExcHh1bElZSE5XQkZJSk9MS0RlLS10VFNaczFlRXVWWHhwNVJOUDJaNUF2aE1MUnBwVTFuSUFjVF8wQ1Z2cnVQSGx0QmE5Q1NDTGduLVFNVjRnQzBuUHBmUXd3VmllNUcxZUpyMlF6SmdGNk9mTUxydWpHN1hITnZOdlRSSGJyQXc3RER5Zw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras revenue rises 92% as its quarterly loss reaches $14 million</span>
+          <span class="zh">Cerebras营收增长92%，季度净亏损达1400万美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GamesBeat</span> · 3h ago</span>
+        <span class="zh"><span class="source">GamesBeat</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras reported 92% revenue growth and a $14 million net loss in its first quarterly report after going public. The growth demonstrates demand for its systems, but the continuing loss keeps attention on margins and the cost of scaling a wafer-scale computing business.</span>
+        <span class="zh">Cerebras在上市后的首份季度财报中录得92%的营收增长，同时净亏损1400万美元。增长证明其系统存在需求，但持续亏损使市场继续关注利润率，以及扩张晶圆级计算业务所需的成本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE8zdG5zMklQbmUwdWZULWsyMHF6NGNaTmdkNTI2T1lYbG1ZOW9hVzhOU04zZUZyTW1tZjhzYU1zMHU4MHhXNHE1QUgyTC1URldIc1JZeF8tdDV2Vk04UlJLTmJLd9IBY0FVX3lxTE8zdG5zMklQbmUwdWZULWsyMHF6NGNaTmdkNTI2T1lYbG1ZOW9hVzhOU04zZUZyTW1tZjhzYU1zMHU4MHhXNHE1QUgyTC1URldIc1JZeF8tdDV2Vk04UlJLTmJLdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras reaches a multi-year agreement with OpenAI</span>
+          <span class="zh">Cerebras与OpenAI达成多年协议</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Bitget</span> · 3h ago</span>
+        <span class="zh"><span class="source">Bitget</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">An SEC filing indicates that Cerebras has reached a multi-year agreement with OpenAI. A named, production-scale customer is an important validation for Cerebras&#x27; wafer-scale platform, but the available report gives no contract value, deployment volume, or service scope.</span>
+        <span class="zh">一份SEC申报文件显示，Cerebras已与OpenAI达成多年协议。具名的大规模客户是对Cerebras晶圆级平台的重要验证，但现有报道未披露合同金额、部署规模或服务范围。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTFB1R1BOcld2UmxsV2ZCc2hsVDE4QktyS1JwWnhVckVpMG5DNG1CNXVjZGVmNnhVV3d5N2VqSEFfcDcwczFHazNKcXBSUDd3d3lsWUVN?oc=5" target="_blank" rel="noopener">
+          <span class="en">Groq raises $650 million to emphasize inference cloud services</span>
+          <span class="zh">Groq融资6.5亿美元，重心转向推理云服务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wowtale</span> · 6h ago</span>
+        <span class="zh"><span class="source">Wowtale</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Groq reportedly raised $650 million as it shifts emphasis from selling chips toward operating an AI inference cloud. The funding gives Groq more capacity to deploy its own hardware, but the model also raises capital requirements and makes service utilization—not benchmark speed—the key economic test.</span>
+        <span class="zh">据报道，Groq融资6.5亿美元，并把业务重心从芯片销售转向运营AI推理云。新资金将增强其部署自有硬件的能力，但这一模式也提高了资本需求，使服务利用率而非基准速度成为关键的商业检验。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-24 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-24 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
