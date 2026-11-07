@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-05">
+<meta name="edition-date" content="2026-11-07">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory Placement Shapes Inference Efficiency Across Scales — Semi Research 2026-11-05</title>
+<title>Efficiency Depends on Devices, Mapping and Scheduling — Semi Research 2026-11-07</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,20 +319,20 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, November 5, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月5日 星期四</span>
+      <span class="en">Research digest · Saturday, November 7, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月7日 星期六</span>
     </div>
     <h1>
-      <span class="en">Memory Placement Shapes Inference Efficiency Across Scales</span>
-      <span class="zh">存储布局影响各尺度的推理效率</span>
+      <span class="en">Efficiency Depends on Devices, Mapping and Scheduling</span>
+      <span class="zh">效率取决于器件、映射与调度协同</span>
     </h1>
     <p class="dek">
-      <span class="en">Ferroelectric memory arrays, ternary ROM computing, and optical fabrics tackle data movement at different layers of the hardware stack. Device measurements and commercial-board benchmarks sit alongside architecture emulation and software experiments, with each result retaining its evaluation scope.</span>
-      <span class="zh">铁电存储阵列、三值ROM计算与光互连网络从硬件栈的不同层次处理数据搬运问题。本期涵盖器件实测、商用板卡基准、架构仿真和软件实验，解读各项结果时需结合相应的评估范围。</span>
+      <span class="en">Device experiments and measured CMOS prototypes address leakage, memory access and early vision processing, while architecture studies examine mapping and inference partitioning. Quantum scheduling and HLS repair extend the focus to execution efficiency and design productivity.</span>
+      <span class="zh">器件实验与CMOS原型实测聚焦漏电、存储访问和前端视觉处理，架构研究则考察映射与推理任务拆分。量子调度和HLS修复进一步将效率问题延伸到执行与设计环节。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 8篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
@@ -343,38 +343,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2610.40000" target="_blank" rel="noopener">
-          <span class="en">NORmal: Bringing 3D Ferroelectric NOR Flash Onto an LPDDR6 Memory Interface</span>
-          <span class="zh">NORmal：将3D铁电NOR闪存接入LPDDR6内存接口</span>
+        <a href="https://doi.org/10.1186/s40580-026-00573-x" target="_blank" rel="noopener">
+          <span class="en">Fluorine Surface Engineering Tunes HZO FeFET Thresholds and Expands the Memory Window</span>
+          <span class="zh">氟表面工程调节HZO FeFET阈值并扩大存储窗口</span>
         </a>
       </h3>
-      <p class="authors">Zhuoran Li, Zhuohang Bian, Yibo Zhao, et al.</p>
+      <p class="authors">Kyungsoo Park, Sangmyun Lim, Sangkuk Han, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2610.40000" target="_blank" rel="noopener">arXiv:2610.40000</a> · 2026-10-29T13:19:45Z</p>
+      <p class="venue"><a href="https://doi.org/10.1186/s40580-026-00573-x" target="_blank" rel="noopener">Nano Convergence</a> · 2026-11-04</p>
       <p class="summary">
-        <span class="en">NORmal reports fabricated BEOL 3D ferroelectric NOR arrays combining dense 3-bit MLC storage with fast, writable SLC and sub-7.5 ns sensing. It proposes a DRAM-emulation bridge that presents these arrays as a byte-addressable rank on an unmodified LPDDR6 interface. The approach aims to expand local AI memory capacity while accommodating mutable runtime data. The sensing measurement leaves controller, interface, and complete-system timing as separate evaluation questions.</span>
-        <span class="zh">NORmal报告了已制备的后道互连层（BEOL）3D铁电NOR阵列，将高密度3-bit MLC存储与快速、可写的SLC集成，感测时间低于7.5 ns。研究提出通过DRAM仿真桥，将这些阵列作为可按字节寻址的rank接入未经修改的LPDDR6接口。该方案旨在扩大本地AI的内存容量，同时容纳运行时更新的数据。感测时间这一实测指标之外，控制器、接口与完整系统的时序仍需分别评估。</span>
+        <span class="en">Fluorine surface treatment shifts the threshold voltage of HZO-based silicon FeFETs positively by about 0.5 V, expands the memory window by about 0.5 V and reduces leakage at 0 V by 40x. The interface treatment enables normally-off operation of the low-threshold state while largely preserving HZO ferroelectric switching. CIFAR-10 accuracy improves from about 78% to 83% in simulations using measured device characteristics, linking the device changes to a modeled inference benefit.</span>
+        <span class="zh">氟表面处理使HZO基硅FeFET的阈值电压正向移动约0.5 V，存储窗口扩大约0.5 V，并使0 V下的漏电流降至原来的约1/40。该界面处理在基本保持HZO铁电翻转特性的同时，使低阈值态实现常关断。采用实测器件特性的仿真将CIFAR-10分类准确率从约78%提高至83%，表明器件改进可在模型层面带来推理收益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsami.6c16962" target="_blank" rel="noopener">
+          <span class="en">Composition-Dependent Atomic Layer Etching Preserves IGZO Electrical Performance</span>
+          <span class="zh">组分相关的原子层刻蚀保留IGZO电学性能</span>
+        </a>
+      </h3>
+      <p class="authors">Min Chan Kim, Min-seo Kim, Hyeseong Lee, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1021/acsami.6c16962" target="_blank" rel="noopener">ACS Applied Materials and Interfaces</a> · 2026-11-04</p>
+      <p class="summary">
+        <span class="en">Hydrogen-based atomic layer etching controls IGZO removal through its elemental composition while largely preserving transistor electrical performance. The near-surface reaction limits channel damage and enables post-deposition trimming inside three-dimensional trenches, improving step coverage to nearly 100%. This provides a process route toward more uniform oxide-semiconductor channels for scaled memory devices.</span>
+        <span class="zh">研究通过氢基原子层刻蚀，利用IGZO各元素反应活性的差异调节材料去除速率，同时基本保留晶体管电学性能。反应主要局限于近表面区域，可减少沟道损伤，并在三维沟槽中进行沉积后修整，使台阶覆盖率接近100%。这一工艺为缩尺度存储器件获得更均匀的氧化物半导体沟道提供了路径。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Reliability</span>
-      <span class="zh">电路与可靠性</span>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1109/TCSI.2026.3721732" target="_blank" rel="noopener">
-          <span class="en">A 65nm CiROM Macro Stores Two Ternary Weights per Cell for 1.58-bit LLM Inference</span>
-          <span class="zh">面向1.58-bit LLM推理的65nm CiROM宏单元：每个单元存储两个三值权重</span>
+        <a href="https://doi.org/10.1109/JSSC.2026.3725699" target="_blank" rel="noopener">
+          <span class="en">A CMOS Vision Sensor Computes Temporal Changes Without Frame Memory</span>
+          <span class="zh">无需帧存储的CMOS视觉传感器实现时域变化计算</span>
         </a>
       </h3>
-      <p class="authors">Wen-Lun Zhang, Xin-Yu Li, Shimpei Ando, et al.</p>
+      <p class="authors">Seong-Min Ko, Kishore Kasichainula, Injune Yeo, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3721732" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems I: Regular Papers</a> · 2026-11-01</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3725699" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-11-01</p>
       <p class="summary">
-        <span class="en">A 65nm compute-in-ROM macro uses configurable source and bit lines to store two ternary weights in each 1T ROM cell for BitNet-style inference. A local accumulator gates zero-weight operations, while a digital adapter co-designed with LoRA provides downstream task adaptation after fabrication. The design links storage density and sparsity to circuit-level switching reductions, with fixed ROM weights constraining how broadly a deployed chip can be retargeted.</span>
-        <span class="zh">这项65nm ROM内计算宏单元设计通过可配置源极线与位线，在每个1T ROM单元中存储两个三值权重，面向BitNet类推理。本地累加器对零权重运算实施门控，与LoRA协同设计的数字适配器则支持流片后的下游任务适配。设计将存储密度和稀疏性利用落实到电路开关活动的削减，但固定的ROM权重也会约束芯片部署后可迁移的任务范围。</span>
+        <span class="en">A 324 × 252 vision-sensor prototype fabricated in 0.18-μm CMOS consumes 4.79 μW at 12.5 frames/s in patch-mode temporal-change processing. A checkerboard pixel architecture and column-shared circuits detect changes without frame memory, while in-pixel time memory supports mixed-signal temporal-derivative computation. The measured design shows how moving initial motion processing into the sensor can reduce memory requirements for low-power vision.</span>
+        <span class="zh">采用0.18 μm CMOS制造的324 × 252视觉传感器原型，在图像块模式下以12.5帧/秒处理时域变化，实测功耗为4.79 μW。棋盘式像素架构与列共享电路无需帧存储即可检测变化，像素内时间存储电路则支持混合信号时域导数计算。该设计展示了将初步运动处理前移到传感器内部，以降低低功耗视觉系统存储需求的方法。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.07506" target="_blank" rel="noopener">
+          <span class="en">Memory Fit Learns Page Affinity for Heterogeneous Server Memory</span>
+          <span class="zh">Memory Fit学习内存页亲和性，优化异构服务器存储放置</span>
+        </a>
+      </h3>
+      <p class="authors">Chun Deng, Hui Sub Shim, Evan Laufer, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.07506" target="_blank" rel="noopener">arXiv:2611.07506</a> · 2026-11-05T06:10:55Z</p>
+      <p class="summary">
+        <span class="en">Memory Fit supplies the operating system with page-to-memory affinity information by matching access traces against learned models of suitable behavior. The authors implement the abstraction and its soft trace matching algorithm in a BOOMv3 RISC-V processor running Linux 6.6. On extended GUPS, its placements recover 2.2–3.8 times as much of the performance gap to optimal placement as Linux TPP, showing the value of better hardware guidance for heterogeneous-memory management.</span>
+        <span class="zh">Memory Fit将访问轨迹与学习得到的适配行为模型进行匹配，向操作系统提供内存页与不同存储介质之间的亲和性信息。作者在运行Linux 6.6的BOOMv3 RISC-V处理器中实现了这一抽象及其软轨迹匹配算法。在扩展GUPS测试中，其页面放置方案弥合的最优放置性能差距为Linux TPP的2.2—3.8倍，体现了更精细硬件信息对异构内存管理的价值。</span>
       </p>
     </article>
   </section>
@@ -385,83 +415,74 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.05104" target="_blank" rel="noopener">
-          <span class="en">Workload-Static Optical Circuit Switching for Scalable LLM Decode</span>
-          <span class="zh">以工作负载静态光路交换扩展LLM解码互连</span>
+        <a href="https://doi.org/10.1109/JSSC.2026.3723571" target="_blank" rel="noopener">
+          <span class="en">A Valuewise Hybrid-Domain CIM Macro Trades Precision Against Energy</span>
+          <span class="zh">按数值重要性分配计算域的混合CIM宏权衡精度与能耗</span>
         </a>
       </h3>
-      <p class="authors">Maximilian Thürmer, Nicolas Scotto di Perto, Eloise Stein, et al.</p>
+      <p class="authors">Yuan-Zhe Zhao, Yang Wang, Yu-Heng Wang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.05104" target="_blank" rel="noopener">arXiv:2611.05104</a> · 2026-11-03T16:00:07Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3723571" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-11-01</p>
       <p class="summary">
-        <span class="en">This optical circuit-switching design configures links once per model deployment and co-designs collective schedules with model parallelism. For a modeled 576-accelerator domain serving 5T-parameter MoE models with contexts up to 5M tokens, it reports up to 65% better interactivity and 119% better energy efficiency than a 4:1 oversubscribed packet-switched fabric. The gains come from GXNET workload emulation and analytical and flit-level network models grounded in hardware measurements, making oversubscription and communication schedules key evaluation assumptions.</span>
-        <span class="zh">这项光路交换设计在每次模型部署时配置一次链路，并将集合通信调度与模型并行方式协同优化。在模拟的576颗加速器域中，运行5万亿参数MoE模型、上下文最长500万token时，相较4:1超额订阅的分组交换网络，交互性能最高提升65%，能效最高提升119%。这些结果来自GXNET工作负载仿真及以硬件测量为依据的分析模型、flit级网络模型，超额订阅比例与通信调度是理解收益的关键评估条件。</span>
+        <span class="en">A 28-nm valuewise hybrid CIM prototype computes a small proportion of the most significant values digitally and processes most values in analog memory arrays. A heterogeneous SRAM/DRAM memory fabric and asynchronous sparsity management address latency and unnecessary activity. Measured energy efficiencies are 470.5 TOPS/W at 4-bit precision, 109.8 TOPS/W at 8-bit and 48.5 TOPS/W at 12-bit, making the precision dependence of the energy benefit explicit.</span>
+        <span class="zh">这款28 nm按数值重要性划分计算域的混合CIM原型，将少量最重要的数值交由数字电路精确计算，其余大部分数值在模拟存储阵列中处理。异构SRAM/DRAM存储结构与异步稀疏管理用于降低时延和无效活动。实测能效在4位、8位和12位精度下分别为470.5、109.8和48.5 TOPS/W，清楚呈现了能效收益对计算精度的依赖。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.03392" target="_blank" rel="noopener">
-          <span class="en">TinyML Benchmarks Ten Sub-Watt Devices and Exposes Memory Constraints</span>
-          <span class="zh">TinyML对比十款亚瓦级器件，检视存储约束</span>
+        <a href="https://arxiv.org/abs/2611.08399" target="_blank" rel="noopener">
+          <span class="en">Isobar Models Topology-Aware Mapping for Scaled Analog CIM</span>
+          <span class="zh">Isobar为扩展模拟CIM建立拓扑感知映射模型</span>
         </a>
       </h3>
-      <p class="authors">Pietro Bonazzi, Luigi Capogrosso, Ahmet Celik, et al.</p>
+      <p class="authors">Yuxin Ren, Danella Zhao, Huanrui Yang</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.03392" target="_blank" rel="noopener">arXiv:2611.03392</a> · 2026-11-02T16:28:53Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08399" target="_blank" rel="noopener">arXiv:2611.08399</a> · 2026-11-05T18:11:00Z</p>
       <p class="summary">
-        <span class="en">A benchmark evaluates four CNNs and two small transformers across ten commercial edge devices, including sensor-integrated processing and MCUs with and without NPUs. For the reported energy-above-idle measurements, Sony&#x27;s IMX500 uses 0.13–0.35 mJ versus 0.31–1.05 mJ for STM32N6; different models also favor GAP9 or Alif E7. The workload-dependent rankings show why platform selection needs measured latency and energy alongside operation counts, with the quoted energy figures excluding idle consumption.</span>
-        <span class="zh">这项基准在十款商用边缘器件上评估了四种CNN与两种小型Transformer，覆盖传感器内处理器以及有、无NPU的MCU。按高于空闲基线的增量能耗计算，Sony IMX500为0.13–0.35 mJ，STM32N6为0.31–1.05 mJ；部分模型则以GAP9或Alif E7表现更优。排名随工作负载变化，说明平台选型需要结合实测时延与能耗评估运算量，上述能耗数值未计入空闲消耗。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.03325" target="_blank" rel="noopener">
-          <span class="en">Streaming NTT Across Three FPGA Dies for Homomorphic Encryption</span>
-          <span class="zh">跨三个FPGA芯粒的流式NTT加速同态加密</span>
-        </a>
-      </h3>
-      <p class="authors">Mohamed Allam, Thomas Spendlhofer, Hugo Sanz-González, Antonio J. Peña</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.03325" target="_blank" rel="noopener">arXiv:2611.03325</a> · 2026-11-02T15:49:14Z</p>
-      <p class="summary">
-        <span class="en">An NTT/INTT kernel mapped across the AMD Alveo V80&#x27;s three dies reports processing a 65,536-coefficient polynomial every 5.12 microseconds at 400 MHz. Its fully unrolled delay-commutator streaming structure addresses the routing overhead that can grow with parallelism on multi-die FPGAs. This targets a major cost in homomorphic-encryption inference, with application speedup also depending on transfers and the remaining FHE pipeline.</span>
-        <span class="zh">这项NTT/INTT内核映射到AMD Alveo V80的三个芯粒，在400 MHz下每5.12微秒可处理一个含65,536个系数的多项式。完全展开的延迟交换器流式结构针对多芯粒FPGA中随并行度上升的布线开销。该设计瞄准同态加密推理的一项主要计算成本，应用整体加速比还取决于数据传输及FHE流水线的其他部分。</span>
+        <span class="en">Isobar models how weight-mapping topology, heterogeneous execution and resource contention affect analog CIM systems as capacity scales through chiplets. For Gemma-7B prefill, its mapping search reduces modeled communication time by 23.3% and end-to-end latency by 18.6% relative to the strongest baseline. The simulator is validated against silicon measurements and cycle-accurate simulation, providing evidence for mapping decisions while keeping the reported system gains at the simulation level.</span>
+        <span class="zh">Isobar对模拟CIM通过chiplet扩展容量时，权重映射拓扑、异构执行与资源争用如何影响系统性能进行建模。在Gemma-7B预填充任务中，其映射搜索相对最强基线将仿真通信时间降低23.3%，端到端时延降低18.6%。仿真器经过芯片实测与周期精确仿真校验，可为映射决策提供依据，但所报告的系统收益仍属于仿真结果。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research &amp; Inference Systems</span>
-      <span class="zh">AI研究与推理系统</span>
+      <span class="en">AI Models &amp; Inference Systems</span>
+      <span class="zh">AI模型与推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.04253" target="_blank" rel="noopener">
-          <span class="en">UMLoad Accelerates On-Demand Model Loading on Unified Memory</span>
-          <span class="zh">UMLoad加速统一内存平台的按需模型加载</span>
+        <a href="https://arxiv.org/abs/2611.08299" target="_blank" rel="noopener">
+          <span class="en">Splitting Decode Shows No Robust Efficiency Advantage Across Modeled Future Systems</span>
+          <span class="zh">未来系统建模显示：进一步拆分解码未呈现稳健能效优势</span>
         </a>
       </h3>
-      <p class="authors">Zimeng Wang, Jinrong Yang, Rong Chen</p>
+      <p class="authors">Ramyad Hadidi</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.04253" target="_blank" rel="noopener">arXiv:2611.04253</a> · 2026-11-03T03:44:38Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08299" target="_blank" rel="noopener">arXiv:2611.08299</a> · 2026-11-05T17:02:06Z</p>
       <p class="summary">
-        <span class="en">UMLoad reduces average on-demand model loading time by 36.6–71.9% against unmodified loaders and 19.9–62.7% against pipelined loaders in tests across Intel, AMD, and NVIDIA unified-memory platforms. It separates logical allocations from physical page backing, eliminating weight copies through on-demand reconstruction and accelerating allocation with GPU-assisted page zeroing. Mean time to first token in LLM-routing tests falls 51.3–59.3%, making loader design relevant to interactive latency; the evaluation covers six models and the tested software stacks.</span>
-        <span class="zh">在Intel、AMD与NVIDIA统一内存平台的测试中，UMLoad相较原始加载器将平均按需模型加载时间缩短36.6–71.9%，相较流水化加载器缩短19.9–62.7%。它将逻辑分配与物理页后备解耦，通过按需重建消除权重复制，并借助GPU辅助页清零加速内存分配。LLM路由测试的平均首token时延降低51.3–59.3%，显示加载器设计会显著影响交互响应；评估范围为六个模型及所测试的软件栈。</span>
+        <span class="en">SiliconForge compares prefill/decode separation with an additional split between attention and feed-forward processing across four model directions, four accelerator classes and two interconnect fabrics. Under a common power budget and optimization rules, the study finds no robust deployment-level advantage for the extra split in SLO-compliant goodput per kW. The analysis shows how added communication and provisioning can offset specialization benefits, with conclusions dependent on modeled workloads and hardware assumptions.</span>
+        <span class="zh">SiliconForge在四类模型发展方向、四类加速器和两种互连网络上，对比预填充与解码分离，以及在此基础上进一步拆分注意力和前馈计算的方案。在相同功率预算与优化规则下，研究未发现进一步拆分能在每千瓦满足SLO的有效吞吐量上获得稳健的部署级优势。分析说明，新增通信与资源池配置开销可能抵消专用化收益，结论仍取决于所建模的工作负载与硬件假设。</span>
       </p>
     </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.03173" target="_blank" rel="noopener">
-          <span class="en">PagedMoE Reuses Expert Cache Data Across Precision Levels</span>
-          <span class="zh">PagedMoE跨精度复用专家缓存数据</span>
+        <a href="https://arxiv.org/abs/2611.05233" target="_blank" rel="noopener">
+          <span class="en">DynaMite Selects Measurement Latencies for Fault-Tolerant Quantum Execution</span>
+          <span class="zh">DynaMite动态选择测量时延，优化容错量子执行</span>
         </a>
       </h3>
-      <p class="authors">Yutong Lin, Yingdi Shan, Shaoyuan Chen, et al.</p>
+      <p class="authors">Dongwhee Kim, Suhas Vittal, Poulami Das</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.03173" target="_blank" rel="noopener">arXiv:2611.03173</a> · 2026-11-02T14:09:55Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.05233" target="_blank" rel="noopener">arXiv:2611.05233</a> · 2026-11-03T17:18:12Z</p>
       <p class="summary">
-        <span class="en">PagedMoE stores each SSD-resident MoE expert in a prefix-compatible representation, allowing cached low-precision data to be extended by fetching only missing bitplanes. It selects precision before I/O using routing weights and expert-specific error profiles, aiming to avoid repeated transfers when requested bit widths change. The design targets DRAM-limited local inference, with practical throughput and quality depending on cache capacity, SSD behavior, and the precision-selection policy.</span>
-        <span class="zh">PagedMoE将驻留SSD的每个MoE专家存成前缀兼容的表示，使已缓存的低精度数据能够通过补取缺失位平面扩展到更高精度。系统利用路由权重与各专家的误差特征，在I/O发生前选择精度，力求避免所需位宽变化时重复搬运相同数据。该设计面向DRAM容量受限的本地推理，实际吞吐量与模型质量取决于缓存容量、SSD特性及精度选择策略。</span>
+        <span class="en">DynaMite proposes real-time selection of measurement latency to shorten fault-tolerant quantum programs. The paper identifies qubit measurements as accounting for 43–86% of logical cycle time and argues for scheduling around logical performance rather than relying solely on per-qubit readout calibration. The approach links measurement scheduling to error-correction performance by balancing readout speed, state-discrimination accuracy and decoherence.</span>
+        <span class="zh">DynaMite提出实时选择测量时延的策略，以缩短容错量子程序的执行时间。论文指出，量子比特测量占逻辑周期时间的43%—86%，因此调度应围绕逻辑层性能展开，并将单比特读出校准之外的因素纳入考量。该方法通过权衡读出速度、状态判别准确率与退相干，将测量调度和纠错性能联系起来。</span>
       </p>
     </article>
   </section>
@@ -472,17 +493,17 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2610.39515" target="_blank" rel="noopener">
-          <span class="en">APPlace Co-Optimizes Analog Device Placement and Pin Access Points</span>
-          <span class="zh">APPlace联合优化模拟器件布局与引脚接入点</span>
+        <a href="https://arxiv.org/abs/2611.07324" target="_blank" rel="noopener">
+          <span class="en">MementoHLS Uses Verified Repair History to Improve LLM-Generated HLS</span>
+          <span class="zh">MementoHLS利用经验证的修复历史改进LLM生成HLS</span>
         </a>
       </h3>
-      <p class="authors">Bingyang Liu, Xiaohan Gao, Souradip Poddar, David Z. Pan</p>
+      <p class="authors">Xianjing Zhu, Wenqi Lou, Yuanbo Wen, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2610.39515" target="_blank" rel="noopener">arXiv:2610.39515</a> · 2026-10-29T07:14:08Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.07324" target="_blank" rel="noopener">arXiv:2611.07324</a> · 2026-11-05T02:09:44Z</p>
       <p class="summary">
-        <span class="en">APPlace jointly optimizes device coordinates and routing access-point selections during analog global placement, then preserves that structure through legalization. Across four real-world analog benchmarks, it reports better overall post-layout performance than representative baselines at comparable layout area. Modeling the actual connection choices gives placement a more useful view of downstream routing, with the reported evidence scoped to those benchmark circuits.</span>
-        <span class="zh">APPlace在模拟电路全局布局阶段联合优化器件坐标与布线接入点选择，并在合法化阶段保留已建立的结构。在四个实际模拟电路基准上，研究报告其在布局面积相近时，整体版图后性能优于代表性基线方法。将实际连接位置纳入建模，有助于布局阶段更准确地考虑后续布线，现有结果的验证范围为这些基准电路。</span>
+        <span class="en">MementoHLS combines reusable repair rules with task-specific revision history to improve LLM generation of functionally correct, synthesizable HLS-C. On 94 HLS-Eval tasks, the rate of candidates passing both testbench and synthesis checks rises from 41.7% to 58.9% at pass@1 and from 57.4% to 68.1% at pass@5. Binding all checks to the same candidate strengthens the evidence for generation success, while these metrics establish correctness and synthesizability rather than final chip performance.</span>
+        <span class="zh">MementoHLS将可复用修复规则与任务内修改历史结合，用于提高LLM生成功能正确、可综合HLS-C的成功率。在94项HLS-Eval任务上，同一候选同时通过测试平台与综合检查的pass@1从41.7%提高至58.9%，pass@5从57.4%提高至68.1%。将所有检查结果绑定到同一候选增强了成功判定的可信度，这些指标衡量的是功能正确性与可综合性，最终芯片性能仍需另行评估。</span>
       </p>
     </article>
   </section>
@@ -510,8 +531,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-05 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-05 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-07 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-07 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
