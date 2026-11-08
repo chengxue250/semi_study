@@ -1,193 +1,177 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "theme": {
-    "en": "AI Expansion Redraws Memory and Supply Chains",
-    "zh": "AI扩张重塑存储与供应链"
+    "en": "AI's Memory Push Meets New Supply Constraints",
+    "zh": "AI存储扩张遭遇新的供应约束"
   },
   "dek": {
-    "en": "TSMC reportedly considers advanced memory production as Groq targets an $8 billion valuation. Acquisitions, tighter chip tracking and efforts to improve system reliability show AI expansion reshaping suppliers and deployment choices.",
-    "zh": "据报道，台积电正考虑生产先进存储芯片，Groq则谋求80亿美元估值。供应商并购、更严格的芯片流向追踪与系统可靠性改进，显示AI扩张正在重塑供应体系与部署选择。"
+    "en": "Custom HBM brings advanced logic manufacturing further into the memory supply chain, while competition for EUV tools and reported H200 import delays constrain expansion. TSMC's denial of a 3D DRAM initiative also qualifies expectations of new memory supply.",
+    "zh": "定制HBM推动先进逻辑制造进一步介入存储供应链，但EUV设备争夺和据报出现的H200进口延迟制约扩张。台积电否认开展3D DRAM生产探索，也为新增存储供给的预期划定了边界。"
   },
   "sections": [
     {
       "id": "ai-accelerators",
-      "title": {"en": "AI & Accelerators", "zh": "AI与加速器"},
+      "title": {
+        "en": "AI & Accelerators",
+        "zh": "AI与加速器"
+      },
       "stories": [
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "IBM, AMD and Oak Ridge Launch a Hybrid Platform for Quantum Error Correction",
-            "zh": "IBM、AMD与橡树岭推出量子纠错混合计算平台"
+            "en": "Nvidia's Custom HBM Reportedly Involves Samsung and TSMC in 3nm Base Dies",
+            "zh": "据报道，Nvidia定制HBM引入三星与台积电参与3nm基底芯片开发"
           },
           "summary": {
-            "en": "IBM, AMD and Oak Ridge have launched a hybrid quantum-classical system to support quantum-error-correction research, EE Times reports. The platform brings classical computing into the error-correction research loop, making coordination between quantum hardware and conventional processors a central systems challenge.",
-            "zh": "据EE Times报道，IBM、AMD与橡树岭推出量子与经典计算混合系统，用于支持量子纠错研究。该平台将经典计算纳入纠错研究环节，使量子硬件与常规处理器之间的协同成为系统设计的核心问题。"
+            "en": "Nvidia's custom NVHBM effort involves Samsung and TSMC in 3nm base-die development, Wccftech reports. Using an advanced logic process for the base die would extend HBM competition further into the foundry supply chain. The report also notes TSMC's denial of the separate claim that it plans to manufacture 3D DRAM.",
+            "zh": "据Wccftech报道，Nvidia的定制NVHBM项目涉及三星与台积电参与3nm基底芯片开发。基底芯片采用先进逻辑制程，将推动HBM竞争进一步延伸至晶圆代工供应链。报道同时指出，台积电已否认另一项关于其计划制造3D DRAM的说法。"
           },
-          "source": "EE Times",
-          "url": "https://www.eetimes.com/ibm-amd-mix-quantum-and-ai-at-u-s-national-lab/",
-          "published": "2026-11-06T14:10:57+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/nvidia-custom-hbm-samsung-tsmc-3nm-base-die/",
+          "published": "2026-11-08T00:00:00+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "PyTorch 2.15 Addresses the Single-GPU Failure Problem in Large Training Jobs",
-            "zh": "PyTorch 2.15着手解决大型训练任务中的单GPU故障问题"
+            "en": "ASRock Rack Shows Diamond Rapids Board With 16 DDR5 Channels",
+            "zh": "ASRock Rack展示支持16通道DDR5的Diamond Rapids主板"
           },
           "summary": {
-            "en": "PyTorch 2.15 addresses the problem of one troublesome GPU disrupting large-scale AI training, The Register reports. The focus on resilience highlights how device faults and software recovery can affect the productive use of expensive accelerator clusters.",
-            "zh": "据The Register报道，PyTorch 2.15着手解决单颗异常GPU干扰大规模AI训练的问题。对训练韧性的改进说明，设备故障与软件恢复能力会直接影响昂贵加速器集群的有效利用。"
+            "en": "ASRock Rack's DMRD16-2L+ motherboard for Intel Diamond Rapids exposes 16 DDR5 memory channels and 128 PCIe Gen6 lanes through MCIO connections, ServeTheHome reports. The board provides a concrete view of the platform's memory and I/O design, both relevant to servers moving large data sets and supporting attached accelerators.",
+            "zh": "据ServeTheHome报道，面向Intel Diamond Rapids的ASRock Rack DMRD16-2L+主板提供16通道DDR5内存，并通过MCIO连接引出128条PCIe Gen6通道。这块主板具体展示了该平台的内存与I/O设计，两者都关系到服务器处理大规模数据和连接加速器的能力。"
           },
-          "source": "The Register",
-          "url": "https://www.theregister.com/devops/2026/11/06/pytorch-215-tackles-the-one-bad-gpu-problem/5308227",
-          "published": "2026-11-06T18:36:42+00:00"
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/asrock-rack-dmrd16-2l-plus-diamond-rapids-ocp-summit-2026/",
+          "published": "2026-11-07T16:00:55+00:00"
         }
       ]
     },
     {
       "id": "foundry",
-      "title": {"en": "Foundry & Manufacturing", "zh": "晶圆代工与制造"},
+      "title": {
+        "en": "Foundry & Manufacturing",
+        "zh": "晶圆代工与制造"
+      },
       "stories": [
         {
-          "featured": true,
+          "featured": false,
           "title": {
-            "en": "TSMC Considers Making Advanced Memory Chips, Reuters Reports",
-            "zh": "路透社：台积电考虑生产先进存储芯片"
+            "en": "TSMC Denies Exploring 3D DRAM Production at Nvidia's Request",
+            "zh": "台积电否认应Nvidia要求探索3D DRAM生产"
           },
           "summary": {
-            "en": "TSMC is considering making advanced memory chips, Reuters reports, citing The Information. Such a move could broaden TSMC's manufacturing role in AI systems and change the competitive landscape for established memory suppliers. Any supply-chain impact depends on whether the proposal reaches production.",
-            "zh": "路透社援引The Information报道称，台积电正考虑生产先进存储芯片。此举可能扩大台积电在AI系统中的制造角色，并改变现有存储供应商面临的竞争格局。对供应链的实际影响，仍取决于这一设想能否进入生产阶段。"
+            "en": "TSMC denies reports that it is exploring 3D DRAM production at Nvidia's request, Tom's Hardware reports. The response undercuts expectations that the foundry will provide a new source of DRAM supply on the strength of those reports. Fabricating HBM logic base dies is a separate role from producing the memory cells.",
+            "zh": "据Tom's Hardware报道，台积电否认了其应Nvidia要求探索3D DRAM生产的说法。这一回应削弱了此前报道所引发的、台积电将成为DRAM新增供应来源的预期。制造HBM逻辑基底芯片与生产存储单元属于不同环节。"
           },
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPR3VDQTJfT19xV0p2UGZRSUVERlJKVE8xb0VENzVOMEM2UjhPd0ZUM1JISzRGbjJ5aEs0TmZnLVZVQVZlTUZyTEhfUnRJaFJyNmxwbFRhcXdHTExjQURvckJ3bUtTTUtYMmlzektZbGRQemdVMDFrNDhsMUtMdjMzREpIbm90ZjkwNWYyR3lyY2p6RW51cGNvc2czWEo2ampYSVhBaW5ZQm15TWQ0ZGFyOGFESlBEMzBKd2c?oc=5",
-          "published": "2026-11-06T15:46:09+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/dram/tsmc-denies-exploring-3d-dram-at-nvidias-request-advanced-memory-tech-is-still-years-from-market-viability",
+          "published": "2026-11-07T13:00:00+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "Community Colleges Expand Training as U.S. Chipmakers Face Labor Constraints",
-            "zh": "美国芯片业面临用工约束，社区学院扩大半导体培训"
+            "en": "Researchers Control Nucleation Sites in 2D Single-Crystal Semiconductor Growth",
+            "zh": "研究人员控制二维单晶半导体生长的成核位置"
           },
           "summary": {
-            "en": "Community colleges are expanding semiconductor training ahead of a potential labor shortage in the U.S. chip industry, WRAL reports. The effort highlights staffing as a constraint on converting new manufacturing investment into operating production capacity.",
-            "zh": "据WRAL报道，面对美国芯片业可能出现的劳动力短缺，社区学院正扩大半导体培训。相关举措表明，能否配齐人员，将影响新增制造投资转化为实际生产能力的进度。"
+            "en": "Researchers report control over nucleation sites during growth of two-dimensional single-crystal semiconductors, according to Bioengineer.org. Choosing where crystals start growing could make material placement more predictable for device fabrication, a useful step toward integrating 2D semiconductor channels.",
+            "zh": "据Bioengineer.org报道，研究人员实现了对二维单晶半导体生长过程中成核位置的控制。选择晶体开始生长的位置，有望提高器件制造中材料分布的可预测性，为集成二维半导体沟道提供工艺基础。"
           },
-          "source": "WRAL",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOTjJRdzJwUmRPWWRRcXNZYnl6SVpIdGhtTXJHV19XX1RacklpZGQtdDJoaUZQRVo4SnhqTTVBaURRSVd0NWFtZ2NDalY0NlZQZ0t1aVVNdjFuZ0U2T0lHOGotNGE4OURtUnBoMmh0a3pnbEpFUGpQazlnWGJOOU1MRlp5d2sxUVhQZHdBN0hjTDMwNjlNSTU1LVBXVHdWUklkYzM5eEl5WFNFTXpXaTlodkVsNlVoT05kVlhnbTFYRzNSQ09fcWk3QnBldEk0QQ?oc=5",
-          "published": "2026-11-06T23:15:08+00:00"
+          "source": "Bioengineer.org",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcGl0cFNXSTM2Rkk2STJUS0cyTmJCWHlyRjlxM1lNUmh1aGdBTGdiZ2Q5Z2d4ZEFlOEJTcDBnbnMzLUxEeG0zWmlpQV9RazNMal9QUmQ1a3JzZzBQME9abzA3c1p1QTg4VnZxZl82azYyRG8xdnMxUWRiZE55RjROWkFFc1kyZzRMRUlsMFZNOGJoY05PU1Y1TjlJMHpITHdfZlRSM19obXRoYW9LaVVYRFhKSWZGamJM?oc=5",
+          "published": "2026-11-07T21:24:31+00:00"
         }
       ]
     },
     {
       "id": "memory",
-      "title": {"en": "Memory", "zh": "存储"},
+      "title": {
+        "en": "Memory",
+        "zh": "存储"
+      },
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "TrendForce Examines AI Memory Designs Citing 14x HBM Capacity and 3.2 TB per XPU",
-            "zh": "TrendForce探讨AI存储方案：14倍HBM容量与每XPU 3.2 TB"
+            "en": "Memory Suppliers Eye Record Q4 Revenue as HBM Prices Rise",
+            "zh": "HBM价格上涨，存储供应商有望创下第四季度收入纪录"
           },
           "summary": {
-            "en": "TrendForce highlights approaches to AI's memory wall under headline capacity figures of 14x HBM capacity and 3.2 TB per XPU. These figures put memory capacity at the center of accelerator design, while bandwidth, latency and implementation maturity determine the practical benefit.",
-            "zh": "TrendForce探讨应对AI存储墙的方案，标题列出14倍HBM容量与每颗XPU配备3.2 TB的容量指标。这些数字将存储容量推到加速器设计的核心位置，而实际收益仍取决于带宽、时延与实现成熟度。"
+            "en": "Memory suppliers may reach record fourth-quarter revenue as HBM prices rise, TokenPost reports. The outlook suggests stronger pricing can support supplier revenue while raising procurement costs for AI hardware buyers; it remains a forecast rather than a reported quarterly result.",
+            "zh": "据TokenPost报道，随着HBM价格上涨，存储供应商第四季度收入可能创下纪录。这一展望意味着价格走强有望支撑供应商收入，同时增加AI硬件采购方的成本；相关数字仍属于业绩预期，尚非已公布的季度结果。"
           },
-          "source": "TrendForce",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9xYVl4NVhVR3BoWHJoTmZtNzJYM21BYkFFdzYzWjFiQVVNeTVJRVdGdW5LM2hNOHBiWEU4OFV2c2JZdFZuZnZ5dDJPb0dwcERmeWlPWjJ6OE5tN2J5c2s2UEw1bm9naVRMNUFCSlN0dGw?oc=5",
-          "published": "2026-11-06T14:13:37+00:00"
+          "source": "TokenPost",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1FbENJYWFhYTlldEpZUEw4THJjRVVmVGVnb2ZFWFh4NGRqaTkxbDdGS0VqYm1uLXk1YnJzUEp3d1FfWGRnNDlKR21CSk45NU5yd3pNTFZSYWs?oc=5",
+          "published": "2026-11-08T00:39:00+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment & Design Tools", "zh": "设备与设计工具"},
+      "title": {
+        "en": "Equipment & Materials",
+        "zh": "设备与材料"
+      },
       "stories": [
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "G&H Acquires IntraAction to Expand Semiconductor Acousto-Optics Capabilities",
-            "zh": "G&H收购IntraAction，扩充半导体声光技术能力"
+            "en": "Samsung and SK hynix Race to Secure ASML EUV Tools",
+            "zh": "三星与SK海力士争相锁定ASML EUV设备"
           },
           "summary": {
-            "en": "G&H has acquired IntraAction to expand its acousto-optic capabilities for semiconductor applications, Yahoo Finance reports. The transaction combines supplier capabilities in a specialized component segment, making integration and manufacturing execution important to the deal's industrial value.",
-            "zh": "据Yahoo Finance报道，G&H已收购IntraAction，以扩充面向半导体应用的声光技术能力。这笔交易整合了专业元件领域的供应商能力，其产业价值将取决于后续整合与制造执行。"
+            "en": "Samsung and SK hynix are racing to secure ASML EUV equipment amid constrained availability, Chosunbiz reports. Tool delivery slots could become a limiting factor for the timing of manufacturing expansion, even where financing and customer demand are available.",
+            "zh": "据Chosunbiz报道，在ASML EUV设备供应受限的背景下，三星与SK海力士正争相锁定设备。即使资金和客户需求具备，设备交付排期仍可能制约制造产能扩张的时间表。"
           },
-          "source": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONzNKakhCUmVVUFpud1lEQk10QnU1bE5RVllvU1luRDRHM2Ryb2tqd2pMb3pNMFdzcVhVczF5cTlGVkdwWVExc1ctV3ZfZTFldjRYSF9xcjZoQllfb0RqaDZaa0xNc0hyeHBkS2JFOHJKRmdITF9vODNFdEcwSjJLYjJDUE1ZWTNid2tTMVhtbFZfTlJlLWc?oc=5",
-          "published": "2026-11-06T20:55:00+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "ChipNexus Releases an AI Agent for Existing Analog Design Flows",
-            "zh": "ChipNexus推出面向现有模拟设计流程的AI智能体"
-          },
-          "summary": {
-            "en": "ChipNexus has introduced NEX Analog Agent for engineering workflows using Cadence Virtuoso, Spectre simulation and Siemens Calibre verification. Available now, the software works with customers' installed tools, licenses and process design kits, bringing conversational automation into established analog design environments.",
-            "zh": "ChipNexus推出NEX Analog Agent，面向采用Cadence Virtuoso、Spectre仿真与Siemens Calibre验证的工程流程。该软件现已上市，可使用客户已经安装的工具、许可证与工艺设计套件，将对话式自动化引入现有模拟设计环境。"
-          },
-          "source": "SemiWiki",
-          "url": "https://semiwiki.com/eda/chipnexus/375471-chipnexus-brings-agentic-ai-into-established-analog-design-flows/",
-          "published": "2026-11-06T18:00:17+00:00"
+          "source": "Chosunbiz",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE04VEdjRjYwc3VqY0MyMTFUOXprVk5FUjZDVHNpVk83ZFRHWDRRSXFwamZsUDh0QnUyLXJyYm9oYTNhRjJiajlkMG9WNEpDRm9vTG80Vm5fQ1lmWjg1Tkl6YWpDbEdJOHVaRlM4eFNfV3R6ZmwtaklsZzhR0gGOAUFVX3lxTFBIQzM3SGI3akh5R2ktWFdMSGN4ZXpmV1MycW5MUDlWeE5HaFBOWm56MmRGMEJTZTdBSks5QkRTREt6ZWNOTUdQNm9ZQTlrS3hBRUVFaUhfaUZEZDZTMk95RlVKSjhYc0dDdC1aSG5YOHpWbDhlVkFwQjVQUUNKTENZWHVwdkF5b1kwR0tYZWc?oc=5",
+          "published": "2026-11-07T21:00:00+00:00"
         }
       ]
     },
     {
       "id": "policy",
-      "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘"},
+      "title": {
+        "en": "Policy & Geopolitics",
+        "zh": "政策与地缘政治"
+      },
       "stories": [
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "Nvidia Tightens Chip Tracking in Southeast Asia Amid Smuggling Concerns",
-            "zh": "因担忧芯片走私流向中国，Nvidia加强东南亚芯片追踪"
+            "en": "China Reportedly Delays Nvidia H200 Imports to Support Domestic AI Chips",
+            "zh": "据报中国延缓Nvidia H200进口，以支持国产AI芯片"
           },
           "summary": {
-            "en": "Nvidia is tightening AI-chip tracking in Southeast Asia amid concerns about smuggling to China, TechRepublic reports. The move makes downstream traceability a more prominent part of accelerator distribution and puts greater attention on where chips ultimately operate.",
-            "zh": "据TechRepublic报道，因担忧芯片经走私流向中国，Nvidia正在加强东南亚地区的AI芯片追踪。此举让下游流向追溯在加速器分销中占据更重要的位置，芯片最终在哪里运行也更受关注。"
+            "en": "China is delaying Nvidia H200 imports as it promotes domestic AI chips, according to Chosunbiz. The reported slowdown adds a customs bottleneck to accelerator procurement, making import clearance a separate constraint from product availability. It could affect deployment schedules and the hardware choices available to Chinese AI infrastructure buyers.",
+            "zh": "据Chosunbiz报道，中国正延缓Nvidia H200进口，以推动国产AI芯片发展。报道中的延迟给加速器采购增加了通关瓶颈，进口放行成为产品供货之外的另一项约束。这可能影响中国AI基础设施采购方的部署时间表与硬件选择。"
           },
-          "source": "TechRepublic",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOX0N3YXlhbHE3dlc0VHZ2OTNDYkdtSjA4M21ja3QtbmRmRFJHNkZVQV9GYUlpU21GeFZTX0NKOGF0d3RmTWxqN1FHaGZwMlIyTUxQa1VkRVpVNzJZT01qTDcxV0Uza0RZZ1hJUUc2QUVaUXdwSVZ0ek44QVlQNERkTzZhRlhOc3lHc0JnOFl4di0?oc=5",
-          "published": "2026-11-06T21:27:27+00:00"
+          "source": "Chosunbiz",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWXVUNFliWUE2Q2NZcFBaNDVJWkRpNzhnT1Z6X1dqUm1UQzlaV1Ytc3Q5clZfVzl3Yk83aENKeDM3c3JLMlRyUVR1QVBoQ0FPMFRQZUktVklnV1hIV1FPT2JiRXRkTFUxVV9QVE91cm0xUUdLT2ZNSTUxU2N6OEdmZm9zaXVmcy1J0gGcAUFVX3lxTE1CaE9OdjlhZW5GN000OC04OGZPMzczeTUwZ3FwaWdKeTFZZE56UThjZWFETG8tYWhaa3hZcVFNYjQ3UmxiZHY4M2hQTEVENGNEV3Q0Tl9VLVpDcDZZMXhVcTJCdHZOR0NDeHRTa0hmZ29GX0JJTUVkWnpIaVFKQVFIc0pYajI0eFJkZ2dDeEMxTlFzTWRHZU9iSlk0Zg?oc=5",
+          "published": "2026-11-07T21:00:00+00:00"
         }
       ]
     },
     {
       "id": "earnings",
-      "title": {"en": "Earnings & Markets", "zh": "财报与市场"},
+      "title": {
+        "en": "Earnings & Markets",
+        "zh": "财报与市场"
+      },
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "Analog Devices Completes Its Acquisition of Alif Semiconductor",
-            "zh": "Analog Devices完成收购Alif Semiconductor"
+            "en": "indie's Core Chip Revenue Rises 14% Sequentially as Automaker Selects Its Radar",
+            "zh": "indie核心芯片收入环比增长14%，雷达技术获车企选用"
           },
           "summary": {
-            "en": "Analog Devices has completed its acquisition of Alif Semiconductor, Mexico Business News reports. The closing moves the transaction into the integration phase, where product alignment and execution will determine how much value the combined business creates.",
-            "zh": "据Mexico Business News报道，Analog Devices已完成对Alif Semiconductor的收购。交易交割后，工作重心转向业务整合，产品布局的衔接与执行将决定合并后的业务能创造多大价值。"
+            "en": "indie Semiconductor's core chip revenue rises 14% from the previous quarter, and a top-three North American automaker selects its radar technology, MLQ.ai reports. The combination links a near-term sales recovery with a future automotive design opportunity, although a selection alone does not establish the timing or volume of production shipments.",
+            "zh": "据MLQ.ai报道，indie Semiconductor核心芯片收入环比增长14%，其雷达技术同时获北美前三大车企之一选用。短期销售回升与未来汽车项目机会形成呼应，但获选本身尚不能确定量产出货的时间和规模。"
           },
-          "source": "Mexico Business News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMmZORGNoSzlBQUVjam1HbnpuSHZONno3WnNGUDZjMnFYeW9neHl2T1lkc1ZnR0pYLUFBQmtlVlNqQVhyTmd0RU5FVkF3dU8wODVJZjY2dzluczAyZmxuZWpadkZPbGszd2Zsc1VrbklFalhVOHVEY1ZJZFJvU3BDSVg2eFNUZVY2aHFVYTVrUTFvOTI5N2ZvYkV6TVZMVHhmMXhJ?oc=5",
-          "published": "2026-11-06T15:16:09+00:00"
-        }
-      ]
-    },
-    {
-      "id": "challengers",
-      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
-      "stories": [
-        {
-          "featured": true,
-          "title": {
-            "en": "Groq Targets an $8 Billion Valuation Amid the AI Selloff",
-            "zh": "AI板块遭抛售之际，Groq谋求80亿美元估值"
-          },
-          "summary": {
-            "en": "Groq aims to double its valuation to $8 billion amid an AI-sector selloff, Bloomberg reports. The target would be a test of investor appetite for alternative AI-computing providers during a broader repricing. The reported valuation remains an objective, with completion of a transaction still to be established.",
-            "zh": "据Bloomberg报道，在AI板块遭抛售之际，Groq希望将估值翻倍至80亿美元。这一目标将检验板块重新定价期间，投资者对其他AI计算供应商的兴趣。报道中的估值仍是争取目标，相关交易是否完成尚待确认。"
-          },
-          "source": "Bloomberg",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQOWJOMnVOVXFtUmhZNW90dmJQa2ZXUmx2bUtIV3ZPTmlYRWlxdnFiTDFDd085S3hCMEcxYVhpUk9wZm5lRThxZnBhSUJQczhXRlZvN0tkSFRfZG1iWHU1dkR0ZWJQemFLeGotVVBnZDdfdXFQWXBIX05pZ043VTlIeV9PU2ptRVNrWlJtZ2FFNmY3RWhjejFHdU5OV21feS1zUVRWOW5jM1owbDFtNE0wanQtMHU?oc=5",
-          "published": "2026-11-06T23:13:45+00:00"
+          "source": "MLQ.ai",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOblJiVVZBc2FlYVlhREN6R2pobUh0V2JGYldKRVRFTXdYRUt3TTdCSzZBdzNtVmg1ZGl4eVc3TDB6M0xfNEpudjRoN3lmbjdYM0lwcGNyX0NWQlpMa2VoZ2hHcGdob1p3c2N2ZGJZUVFqRWw5THBreHQwQVhFb1ZjaGhhUUxhTnlQanZXVzc4UWpfU0J6dDdRUm1HMWRCWWZuTnE5eUI4MmFRcDF0ZEkzcW9iN3VhdnRoMDFlM2gzTWJiTllFT05zZkFhc1JJajdsRUZB?oc=5",
+          "published": "2026-11-07T16:10:23+00:00"
         }
       ]
     }
@@ -195,182 +179,176 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Efficiency Depends on Devices, Mapping and Scheduling",
-      "zh": "效率取决于器件、映射与调度协同"
+      "en": "Moving Less Data Improves Compute Efficiency",
+      "zh": "减少数据搬移，提升计算效率"
     },
     "dek": {
-      "en": "Device experiments and measured CMOS prototypes address leakage, memory access and early vision processing, while architecture studies examine mapping and inference partitioning. Quantum scheduling and HLS repair extend the focus to execution efficiency and design productivity.",
-      "zh": "器件实验与CMOS原型实测聚焦漏电、存储访问和前端视觉处理，架构研究则考察映射与推理任务拆分。量子调度和HLS修复进一步将效率问题延伸到执行与设计环节。"
+      "en": "CIM macros and sensor compression circuits target the cost of moving and digitizing data, while GPU transport and MoE scheduling redistribute communication work. Device and clock-mesh studies examine how switching mechanisms and prediction accuracy shape design tradeoffs.",
+      "zh": "CIM宏与传感器压缩电路着眼于数据搬移和数字化的成本，GPU传输与MoE调度则重新分配通信任务。器件和时钟网格研究进一步考察开关机制与预测精度如何影响设计权衡。"
     },
     "areas": [
       {
         "id": "devices",
-        "title": {"en": "Devices & Process", "zh": "器件与工艺"},
+        "title": {
+          "en": "Devices & Process",
+          "zh": "器件与工艺"
+        },
         "papers": [
           {
             "title": {
-              "en": "Fluorine Surface Engineering Tunes HZO FeFET Thresholds and Expands the Memory Window",
-              "zh": "氟表面工程调节HZO FeFET阈值并扩大存储窗口"
+              "en": "Bulk-Silicon Transistor Combines Feedback and Thyristor Conduction",
+              "zh": "体硅晶体管结合正反馈与晶闸管导通机制"
             },
-            "authors": "Kyungsoo Park, Sangmyun Lim, Sangkuk Han, et al.",
+            "authors": "Yaeyeon Ko, Doohyeok Lim",
             "affiliation": "",
-            "venue": "Nano Convergence",
-            "venue_url": "https://doi.org/10.1186/s40580-026-00573-x",
+            "venue": "IEEE Transactions on Electron Devices",
+            "venue_url": "https://doi.org/10.1109/TED.2026.3732639",
             "summary": {
-              "en": "Fluorine surface treatment shifts the threshold voltage of HZO-based silicon FeFETs positively by about 0.5 V, expands the memory window by about 0.5 V and reduces leakage at 0 V by 40x. The interface treatment enables normally-off operation of the low-threshold state while largely preserving HZO ferroelectric switching. CIFAR-10 accuracy improves from about 78% to 83% in simulations using measured device characteristics, linking the device changes to a modeled inference benefit.",
-              "zh": "氟表面处理使HZO基硅FeFET的阈值电压正向移动约0.5 V，存储窗口扩大约0.5 V，并使0 V下的漏电流降至原来的约1/40。该界面处理在基本保持HZO铁电翻转特性的同时，使低阈值态实现常关断。采用实测器件特性的仿真将CIFAR-10分类准确率从约78%提高至83%，表明器件改进可在模型层面带来推理收益。"
+              "en": "A bulk-silicon p+-n-p-n+ transistor combines positive-feedback carrier injection with impact-ionization-assisted thyristor conduction and reports a subthreshold swing of about 10 mV/dec. Gate and drain biases select among three conduction regimes, including a bistable operating region. The steep switching is relevant to alternative device architectures, but the reported 3–5 V gate-bias range for the middle regime must be considered when assessing low-voltage integration.",
+              "zh": "该体硅p+-n-p-n+晶体管结合正反馈载流子注入与碰撞电离辅助的晶闸管导通机制，报告的亚阈值摆幅约为10 mV/dec。栅极与漏极偏置可选择三种导通状态，其中包含双稳态工作区。陡峭开关特性为新型器件架构提供了思路，但评估低电压集成时，仍须考虑其中间工作区需要3—5 V栅极偏置这一条件。"
             },
-            "published": "2026-11-04"
-          },
-          {
-            "title": {
-              "en": "Composition-Dependent Atomic Layer Etching Preserves IGZO Electrical Performance",
-              "zh": "组分相关的原子层刻蚀保留IGZO电学性能"
-            },
-            "authors": "Min Chan Kim, Min-seo Kim, Hyeseong Lee, et al.",
-            "affiliation": "",
-            "venue": "ACS Applied Materials and Interfaces",
-            "venue_url": "https://doi.org/10.1021/acsami.6c16962",
-            "summary": {
-              "en": "Hydrogen-based atomic layer etching controls IGZO removal through its elemental composition while largely preserving transistor electrical performance. The near-surface reaction limits channel damage and enables post-deposition trimming inside three-dimensional trenches, improving step coverage to nearly 100%. This provides a process route toward more uniform oxide-semiconductor channels for scaled memory devices.",
-              "zh": "研究通过氢基原子层刻蚀，利用IGZO各元素反应活性的差异调节材料去除速率，同时基本保留晶体管电学性能。反应主要局限于近表面区域，可减少沟道损伤，并在三维沟槽中进行沉积后修整，使台阶覆盖率接近100%。这一工艺为缩尺度存储器件获得更均匀的氧化物半导体沟道提供了路径。"
-            },
-            "published": "2026-11-04"
+            "published": "2026-11-01"
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Circuits & Architecture", "zh": "电路与架构"},
+        "title": {
+          "en": "Circuits & Interconnects",
+          "zh": "电路与互连"
+        },
         "papers": [
           {
             "title": {
-              "en": "A CMOS Vision Sensor Computes Temporal Changes Without Frame Memory",
-              "zh": "无需帧存储的CMOS视觉传感器实现时域变化计算"
+              "en": "TD-dAJC Compresses Analog Video at 100 MS/s and 2 pJ per Pixel",
+              "zh": "TD-dAJC以100 MS/s和每像素2 pJ实现模拟视频压缩"
             },
-            "authors": "Seong-Min Ko, Kishore Kasichainula, Injune Yeo, et al.",
+            "authors": "Harshit Naman, Gourab Barik, Yudhajit Ray, et al.",
             "affiliation": "",
             "venue": "IEEE Journal of Solid-State Circuits",
-            "venue_url": "https://doi.org/10.1109/JSSC.2026.3725699",
+            "venue_url": "https://doi.org/10.1109/JSSC.2026.3712196",
             "summary": {
-              "en": "A 324 × 252 vision-sensor prototype fabricated in 0.18-μm CMOS consumes 4.79 μW at 12.5 frames/s in patch-mode temporal-change processing. A checkerboard pixel architecture and column-shared circuits detect changes without frame memory, while in-pixel time memory supports mixed-signal temporal-derivative computation. The measured design shows how moving initial motion processing into the sensor can reduce memory requirements for low-power vision.",
-              "zh": "采用0.18 μm CMOS制造的324 × 252视觉传感器原型，在图像块模式下以12.5帧/秒处理时域变化，实测功耗为4.79 μW。棋盘式像素架构与列共享电路无需帧存储即可检测变化，像素内时间存储电路则支持混合信号时域导数计算。该设计展示了将初步运动处理前移到传感器内部，以降低低功耗视觉系统存储需求的方法。"
+              "en": "TD-dAJC implements direct analog-to-MJPEG compression in 65-nm CMOS, reporting 100 MS/s throughput and 2 pJ per pixel. Pulse-width-encoded time weights and current integration perform DCT, quantization and associated arithmetic before digitization, reducing ADC workload. The result targets an important energy cost in always-on video sensors; the reported energy applies to the compression circuit.",
+              "zh": "TD-dAJC采用65 nm CMOS实现直接从模拟信号到MJPEG的压缩，报告吞吐率为100 MS/s、能耗为每像素2 pJ。电路通过脉宽编码的时间权重与电流积分，在数字化之前完成DCT、量化及相关运算，从而减轻ADC负担。该设计针对常开视频传感器中的重要能耗环节，所报告能耗对应压缩电路。"
             },
             "published": "2026-11-01"
           },
           {
             "title": {
-              "en": "Memory Fit Learns Page Affinity for Heterogeneous Server Memory",
-              "zh": "Memory Fit学习内存页亲和性，优化异构服务器存储放置"
+              "en": "THz Through-Silicon Link Reaches 264 Gb/s With Offline Equalization",
+              "zh": "太赫兹穿硅互连借助离线均衡达到264 Gb/s"
             },
-            "authors": "Chun Deng, Hui Sub Shim, Evan Laufer, et al.",
+            "authors": "Chen Jiang, Xiao-Di Feng, Xiao-Han Shen, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.07506",
-            "venue_url": "https://arxiv.org/abs/2611.07506",
+            "venue": "IEEE Journal of Solid-State Circuits",
+            "venue_url": "https://doi.org/10.1109/JSSC.2026.3720291",
             "summary": {
-              "en": "Memory Fit supplies the operating system with page-to-memory affinity information by matching access traces against learned models of suitable behavior. The authors implement the abstraction and its soft trace matching algorithm in a BOOMv3 RISC-V processor running Linux 6.6. On extended GUPS, its placements recover 2.2–3.8 times as much of the performance gap to optimal placement as Linux TPP, showing the value of better hardware guidance for heterogeneous-memory management.",
-              "zh": "Memory Fit将访问轨迹与学习得到的适配行为模型进行匹配，向操作系统提供内存页与不同存储介质之间的亲和性信息。作者在运行Linux 6.6的BOOMv3 RISC-V处理器中实现了这一抽象及其软轨迹匹配算法。在扩展GUPS测试中，其页面放置方案弥合的最优放置性能差距为Linux TPP的2.2—3.8倍，体现了更精细硬件信息对异构内存管理的价值。"
+              "en": "THz-TSI demonstrates a wireless through-silicon interconnect at 264 Gb/s and 0.33 pJ/bit with offline equalization. The work supports both bidirectional point-to-point links and broadcast operation, addressing communication between vertically stacked device layers. Offline equalization is a material condition of the reported result, so integrating real-time equalization remains relevant to assessing a deployable link.",
+              "zh": "THz-TSI展示了一种无线穿硅互连，借助离线均衡实现264 Gb/s速率和0.33 pJ/bit能效。研究演示了双向点对点连接与广播模式，面向垂直堆叠器件层之间的通信。离线均衡是上述结果的重要条件，评估可部署链路时仍需考察实时均衡的集成。"
             },
-            "published": "2026-11-05T06:10:55Z"
+            "published": "2026-11-01"
           }
         ]
       },
       {
         "id": "accelerators",
-        "title": {"en": "AI Accelerators & Compute-in-Memory", "zh": "AI加速器与存算一体"},
+        "title": {
+          "en": "AI Accelerators & Compute-in-Memory",
+          "zh": "AI加速器与存算一体"
+        },
         "papers": [
           {
             "title": {
-              "en": "A Valuewise Hybrid-Domain CIM Macro Trades Precision Against Energy",
-              "zh": "按数值重要性分配计算域的混合CIM宏权衡精度与能耗"
+              "en": "A 28-nm SRAM-CIM Macro Reduces Routing and Signed-MAC Overhead",
+              "zh": "28 nm SRAM-CIM宏降低布线与有符号MAC开销"
             },
-            "authors": "Yuan-Zhe Zhao, Yang Wang, Yu-Heng Wang, et al.",
+            "authors": "Yun-Long Liu, Li-Chen Feng, Lin Wu, et al.",
             "affiliation": "",
             "venue": "IEEE Journal of Solid-State Circuits",
-            "venue_url": "https://doi.org/10.1109/JSSC.2026.3723571",
+            "venue_url": "https://doi.org/10.1109/JSSC.2026.3718075",
             "summary": {
-              "en": "A 28-nm valuewise hybrid CIM prototype computes a small proportion of the most significant values digitally and processes most values in analog memory arrays. A heterogeneous SRAM/DRAM memory fabric and asynchronous sparsity management address latency and unnecessary activity. Measured energy efficiencies are 470.5 TOPS/W at 4-bit precision, 109.8 TOPS/W at 8-bit and 48.5 TOPS/W at 12-bit, making the precision dependence of the energy benefit explicit.",
-              "zh": "这款28 nm按数值重要性划分计算域的混合CIM原型，将少量最重要的数值交由数字电路精确计算，其余大部分数值在模拟存储阵列中处理。异构SRAM/DRAM存储结构与异步稀疏管理用于降低时延和无效活动。实测能效在4位、8位和12位精度下分别为470.5、109.8和48.5 TOPS/W，清楚呈现了能效收益对计算精度的依赖。"
+              "en": "A fabricated 28-nm, 32-kb SRAM-CIM macro occupies 0.072 mm² and supports INT8 and BF16 multiply-accumulate operations. Transition-counting lines compress partial-product signals without losing precision, while embedded sign extension adds 3% area overhead and no extra cycles. Stage-wise enabling suppresses spurious switching and improves energy efficiency by 42%, addressing circuit overhead that can erode CIM's data-movement advantage.",
+              "zh": "这款已流片的28 nm、32 kb SRAM-CIM宏面积为0.072 mm²，支持INT8和BF16乘累加运算。跃迁计数线在不损失精度的前提下压缩部分积信号，嵌入式符号扩展仅增加3%面积且无需额外周期。分阶段使能抑制无效翻转，使能效提升42%，针对的是会削弱CIM数据搬移优势的电路开销。"
             },
             "published": "2026-11-01"
           },
           {
             "title": {
-              "en": "Isobar Models Topology-Aware Mapping for Scaled Analog CIM",
-              "zh": "Isobar为扩展模拟CIM建立拓扑感知映射模型"
+              "en": "A 28-nm 2.25-Mb RRAM-CIM Macro Reduces Weight-Access Overhead",
+              "zh": "28 nm、2.25 Mb RRAM-CIM宏降低权重访问开销"
             },
-            "authors": "Yuxin Ren, Danella Zhao, Huanrui Yang",
+            "authors": "Jia-Ning Li, Chang Liu, Chang-Bao Xu, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.08399",
-            "venue_url": "https://arxiv.org/abs/2611.08399",
+            "venue": "IEEE Transactions on Circuits and Systems Part 1: Regular Papers",
+            "venue_url": "https://doi.org/10.1109/TCSI.2026.3723111",
             "summary": {
-              "en": "Isobar models how weight-mapping topology, heterogeneous execution and resource contention affect analog CIM systems as capacity scales through chiplets. For Gemma-7B prefill, its mapping search reduces modeled communication time by 23.3% and end-to-end latency by 18.6% relative to the strongest baseline. The simulator is validated against silicon measurements and cycle-accurate simulation, providing evidence for mapping decisions while keeping the reported system gains at the simulation level.",
-              "zh": "Isobar对模拟CIM通过chiplet扩展容量时，权重映射拓扑、异构执行与资源争用如何影响系统性能进行建模。在Gemma-7B预填充任务中，其映射搜索相对最强基线将仿真通信时间降低23.3%，端到端时延降低18.6%。仿真器经过芯片实测与周期精确仿真校验，可为映射决策提供依据，但所报告的系统收益仍属于仿真结果。"
+              "en": "A fabricated 28-nm, 2.25-Mb RRAM-CIM macro combines hierarchical multi-bit storage coding with charge-domain continuous access. Measurements report a 2.5 ns single-read latency, 0.12 pJ/bit read energy and 12.85 Mb/mm² storage density. The design targets the density and access costs of storing transformer weights on chip; these macro-level metrics help assess that tradeoff without establishing full-system inference efficiency.",
+              "zh": "这款已流片的28 nm、2.25 Mb RRAM-CIM宏，将分层多比特存储编码与电荷域连续访问结合。实测单次读取时延为2.5 ns，读取能耗为0.12 pJ/bit，存储密度为12.85 Mb/mm²。设计针对片上存储Transformer权重的密度与访问成本，这些宏级指标有助于评估相关权衡，但尚不能据此确定整个推理系统的能效。"
             },
-            "published": "2026-11-05T18:11:00Z"
+            "published": "2026-11-01"
           }
         ]
       },
       {
         "id": "ai-research",
-        "title": {"en": "AI Models & Inference Systems", "zh": "AI模型与推理系统"},
+        "title": {
+          "en": "AI Models & Inference Systems",
+          "zh": "AI模型与推理系统"
+        },
         "papers": [
           {
             "title": {
-              "en": "Splitting Decode Shows No Robust Efficiency Advantage Across Modeled Future Systems",
-              "zh": "未来系统建模显示：进一步拆分解码未呈现稳健能效优势"
+              "en": "OpenRDMA Moves GPU Communication Submission Into an 8-Byte Token",
+              "zh": "OpenRDMA以8字节令牌提交GPU通信请求"
             },
-            "authors": "Ramyad Hadidi",
+            "authors": "Ziheng Ji, Chunyu Liu, Weihao Peng, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.08299",
-            "venue_url": "https://arxiv.org/abs/2611.08299",
+            "venue": "arXiv:2611.07559",
+            "venue_url": "https://arxiv.org/abs/2611.07559",
             "summary": {
-              "en": "SiliconForge compares prefill/decode separation with an additional split between attention and feed-forward processing across four model directions, four accelerator classes and two interconnect fabrics. Under a common power budget and optimization rules, the study finds no robust deployment-level advantage for the extra split in SLO-compliant goodput per kW. The analysis shows how added communication and provisioning can offset specialization benefits, with conclusions dependent on modeled workloads and hardware assumptions.",
-              "zh": "SiliconForge在四类模型发展方向、四类加速器和两种互连网络上，对比预填充与解码分离，以及在此基础上进一步拆分注意力和前馈计算的方案。在相同功率预算与优化规则下，研究未发现进一步拆分能在每千瓦满足SLO的有效吞吐量上获得稳健的部署级优势。分析说明，新增通信与资源池配置开销可能抵消专用化收益，结论仍取决于所建模的工作负载与硬件假设。"
+              "en": "OpenRDMA lets a GPU submit an 8-byte token while a dedicated FPGA NIC reconstructs the full work-queue entry from preconfigured context. Its transport supports per-packet multipath delivery, out-of-order arrivals and selective retransmission, with ordered DMA placement and GPU-visible completion flags. The preprint offers a concrete architecture for reducing communication control overhead in AI clusters, with deployment benefits dependent on NIC integration.",
+              "zh": "OpenRDMA让GPU只提交8字节令牌，再由专用FPGA网卡依据预配置上下文重建完整工作队列条目。其传输机制支持逐包多路径、乱序到达和选择性重传，并通过有序DMA放置与GPU可见的完成标志保证数据使用顺序。这篇预印本为降低AI集群的通信控制开销提供了具体架构，实际部署收益仍取决于网卡集成。"
             },
-            "published": "2026-11-05T17:02:06Z"
-          }
-        ]
-      },
-      {
-        "id": "quantum",
-        "title": {"en": "Quantum Computing", "zh": "量子计算"},
-        "papers": [
+            "published": "2026-11-05T07:05:56Z"
+          },
           {
             "title": {
-              "en": "DynaMite Selects Measurement Latencies for Fault-Tolerant Quantum Execution",
-              "zh": "DynaMite动态选择测量时延，优化容错量子执行"
+              "en": "GC-MoE Separates GPU Communication and FP8/FP4 Expert Computation",
+              "zh": "GC-MoE分离GPU通信与FP8/FP4专家计算"
             },
-            "authors": "Dongwhee Kim, Suhas Vittal, Poulami Das",
+            "authors": "Yong Li, Kan Liu, Tao Lan",
             "affiliation": "",
-            "venue": "arXiv:2611.05233",
-            "venue_url": "https://arxiv.org/abs/2611.05233",
+            "venue": "arXiv:2611.04222",
+            "venue_url": "https://arxiv.org/abs/2611.04222",
             "summary": {
-              "en": "DynaMite proposes real-time selection of measurement latency to shorten fault-tolerant quantum programs. The paper identifies qubit measurements as accounting for 43–86% of logical cycle time and argues for scheduling around logical performance rather than relying solely on per-qubit readout calibration. The approach links measurement scheduling to error-correction performance by balancing readout speed, state-discrimination accuracy and decoherence.",
-              "zh": "DynaMite提出实时选择测量时延的策略，以缩短容错量子程序的执行时间。论文指出，量子比特测量占逻辑周期时间的43%—86%，因此调度应围绕逻辑层性能展开，并将单比特读出校准之外的因素纳入考量。该方法通过权衡读出速度、状态判别准确率与退相干，将测量调度和纠错性能联系起来。"
+              "en": "GC-MoE uses CUDA Green Contexts to allocate a small GPU partition to token dispatch and a larger partition to FP8/FP4 grouped GEMM on Hopper and Blackwell. Separate kernels, resource budgets and synchronization domains allow dispatch and computation to overlap while being tuned independently. The preprint targets MoE decode with 1–256 tokens per rank, where dispatch overhead and weight traffic can limit tensor-core utilization.",
+              "zh": "GC-MoE利用CUDA Green Contexts，在Hopper与Blackwell上划分较小的GPU分区负责token分发，较大的分区负责FP8/FP4分组GEMM。独立的内核、资源预算与同步域，使分发和计算能够重叠执行并分别调优。这篇预印本面向每个rank仅有1—256个token的MoE解码场景，此时分发开销与权重流量可能限制Tensor Core利用率。"
             },
-            "published": "2026-11-03T17:18:12Z"
+            "published": "2026-11-03T03:04:04Z"
           }
         ]
       },
       {
         "id": "eda",
-        "title": {"en": "EDA & Design Automation", "zh": "EDA与设计自动化"},
+        "title": {
+          "en": "EDA & Design Automation",
+          "zh": "EDA与设计自动化"
+        },
         "papers": [
           {
             "title": {
-              "en": "MementoHLS Uses Verified Repair History to Improve LLM-Generated HLS",
-              "zh": "MementoHLS利用经验证的修复历史改进LLM生成HLS"
+              "en": "GNN Surrogate Predicts Clock-Mesh Timing and Power Under Variation",
+              "zh": "GNN代理模型预测工艺波动下的时钟网格时序与功耗"
             },
-            "authors": "Xianjing Zhu, Wenqi Lou, Yuanbo Wen, et al.",
+            "authors": "Muhammad Hadir Khan, Wajid Ali, Arya Thottiparambil Manikandan, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.07324",
-            "venue_url": "https://arxiv.org/abs/2611.07324",
+            "venue": "arXiv:2611.01473",
+            "venue_url": "https://arxiv.org/abs/2611.01473",
             "summary": {
-              "en": "MementoHLS combines reusable repair rules with task-specific revision history to improve LLM generation of functionally correct, synthesizable HLS-C. On 94 HLS-Eval tasks, the rate of candidates passing both testbench and synthesis checks rises from 41.7% to 58.9% at pass@1 and from 57.4% to 68.1% at pass@5. Binding all checks to the same candidate strengthens the evidence for generation success, while these metrics establish correctness and synthesizability rather than final chip performance.",
-              "zh": "MementoHLS将可复用修复规则与任务内修改历史结合，用于提高LLM生成功能正确、可综合HLS-C的成功率。在94项HLS-Eval任务上，同一候选同时通过测试平台与综合检查的pass@1从41.7%提高至58.9%，pass@5从57.4%提高至68.1%。将所有检查结果绑定到同一候选增强了成功判定的可信度，这些指标衡量的是功能正确性与可综合性，最终芯片性能仍需另行评估。"
+              "en": "A graph-neural-network surrogate trained on SPICE data predicts clock-mesh timing and power while accounting for on-chip variation. On unseen real designs, average errors are 3.40 ps for delay, 4.14 ps for slew and 4.46 ps for skew; power predictions are within 3.4% of SPICE on average. This offers more detailed guidance for clock-mesh design-space exploration, although the reported accuracy measures agreement with simulation.",
+              "zh": "该图神经网络代理模型以SPICE数据训练，在考虑片上波动的同时预测时钟网格时序与功耗。在未参与训练的真实设计上，延迟、转换时间和时钟偏斜的平均误差分别为3.40 ps、4.14 ps和4.46 ps，功耗相对SPICE的平均预测误差为3.4%。这为时钟网格设计空间探索提供了更细致的依据，但所报告精度衡量的是与仿真结果的一致性。"
             },
-            "published": "2026-11-05T02:09:44Z"
+            "published": "2026-11-01T03:03:14Z"
           }
         ]
       }
