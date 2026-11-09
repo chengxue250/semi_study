@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-08">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Moving Less Data Improves Compute Efficiency — Semi Research 2026-11-08</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-11-08.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Sunday, November 8, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月8日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">Moving Less Data Improves Compute Efficiency</span>
+      <span class="zh">减少数据搬移，提升计算效率</span>
+    </h1>
+    <p class="dek">
+      <span class="en">CIM macros and sensor compression circuits target the cost of moving and digitizing data, while GPU transport and MoE scheduling redistribute communication work. Device and clock-mesh studies examine how switching mechanisms and prediction accuracy shape design tradeoffs.</span>
+      <span class="zh">CIM宏与传感器压缩电路着眼于数据搬移和数字化的成本，GPU传输与MoE调度则重新分配通信任务。器件和时钟网格研究进一步考察开关机制与预测精度如何影响设计权衡。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TED.2026.3732639" target="_blank" rel="noopener">
+          <span class="en">Bulk-Silicon Transistor Combines Feedback and Thyristor Conduction</span>
+          <span class="zh">体硅晶体管结合正反馈与晶闸管导通机制</span>
+        </a>
+      </h3>
+      <p class="authors">Yaeyeon Ko, Doohyeok Lim</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TED.2026.3732639" target="_blank" rel="noopener">IEEE Transactions on Electron Devices</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">A bulk-silicon p+-n-p-n+ transistor combines positive-feedback carrier injection with impact-ionization-assisted thyristor conduction and reports a subthreshold swing of about 10 mV/dec. Gate and drain biases select among three conduction regimes, including a bistable operating region. The steep switching is relevant to alternative device architectures, but the reported 3–5 V gate-bias range for the middle regime must be considered when assessing low-voltage integration.</span>
+        <span class="zh">该体硅p+-n-p-n+晶体管结合正反馈载流子注入与碰撞电离辅助的晶闸管导通机制，报告的亚阈值摆幅约为10 mV/dec。栅极与漏极偏置可选择三种导通状态，其中包含双稳态工作区。陡峭开关特性为新型器件架构提供了思路，但评估低电压集成时，仍须考虑其中间工作区需要3—5 V栅极偏置这一条件。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Interconnects</span>
+      <span class="zh">电路与互连</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3712196" target="_blank" rel="noopener">
+          <span class="en">TD-dAJC Compresses Analog Video at 100 MS/s and 2 pJ per Pixel</span>
+          <span class="zh">TD-dAJC以100 MS/s和每像素2 pJ实现模拟视频压缩</span>
+        </a>
+      </h3>
+      <p class="authors">Harshit Naman, Gourab Barik, Yudhajit Ray, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3712196" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">TD-dAJC implements direct analog-to-MJPEG compression in 65-nm CMOS, reporting 100 MS/s throughput and 2 pJ per pixel. Pulse-width-encoded time weights and current integration perform DCT, quantization and associated arithmetic before digitization, reducing ADC workload. The result targets an important energy cost in always-on video sensors; the reported energy applies to the compression circuit.</span>
+        <span class="zh">TD-dAJC采用65 nm CMOS实现直接从模拟信号到MJPEG的压缩，报告吞吐率为100 MS/s、能耗为每像素2 pJ。电路通过脉宽编码的时间权重与电流积分，在数字化之前完成DCT、量化及相关运算，从而减轻ADC负担。该设计针对常开视频传感器中的重要能耗环节，所报告能耗对应压缩电路。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3720291" target="_blank" rel="noopener">
+          <span class="en">THz Through-Silicon Link Reaches 264 Gb/s With Offline Equalization</span>
+          <span class="zh">太赫兹穿硅互连借助离线均衡达到264 Gb/s</span>
+        </a>
+      </h3>
+      <p class="authors">Chen Jiang, Xiao-Di Feng, Xiao-Han Shen, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3720291" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">THz-TSI demonstrates a wireless through-silicon interconnect at 264 Gb/s and 0.33 pJ/bit with offline equalization. The work supports both bidirectional point-to-point links and broadcast operation, addressing communication between vertically stacked device layers. Offline equalization is a material condition of the reported result, so integrating real-time equalization remains relevant to assessing a deployable link.</span>
+        <span class="zh">THz-TSI展示了一种无线穿硅互连，借助离线均衡实现264 Gb/s速率和0.33 pJ/bit能效。研究演示了双向点对点连接与广播模式，面向垂直堆叠器件层之间的通信。离线均衡是上述结果的重要条件，评估可部署链路时仍需考察实时均衡的集成。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3718075" target="_blank" rel="noopener">
+          <span class="en">A 28-nm SRAM-CIM Macro Reduces Routing and Signed-MAC Overhead</span>
+          <span class="zh">28 nm SRAM-CIM宏降低布线与有符号MAC开销</span>
+        </a>
+      </h3>
+      <p class="authors">Yun-Long Liu, Li-Chen Feng, Lin Wu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3718075" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">A fabricated 28-nm, 32-kb SRAM-CIM macro occupies 0.072 mm² and supports INT8 and BF16 multiply-accumulate operations. Transition-counting lines compress partial-product signals without losing precision, while embedded sign extension adds 3% area overhead and no extra cycles. Stage-wise enabling suppresses spurious switching and improves energy efficiency by 42%, addressing circuit overhead that can erode CIM&#x27;s data-movement advantage.</span>
+        <span class="zh">这款已流片的28 nm、32 kb SRAM-CIM宏面积为0.072 mm²，支持INT8和BF16乘累加运算。跃迁计数线在不损失精度的前提下压缩部分积信号，嵌入式符号扩展仅增加3%面积且无需额外周期。分阶段使能抑制无效翻转，使能效提升42%，针对的是会削弱CIM数据搬移优势的电路开销。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCSI.2026.3723111" target="_blank" rel="noopener">
+          <span class="en">A 28-nm 2.25-Mb RRAM-CIM Macro Reduces Weight-Access Overhead</span>
+          <span class="zh">28 nm、2.25 Mb RRAM-CIM宏降低权重访问开销</span>
+        </a>
+      </h3>
+      <p class="authors">Jia-Ning Li, Chang Liu, Chang-Bao Xu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3723111" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems Part 1: Regular Papers</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">A fabricated 28-nm, 2.25-Mb RRAM-CIM macro combines hierarchical multi-bit storage coding with charge-domain continuous access. Measurements report a 2.5 ns single-read latency, 0.12 pJ/bit read energy and 12.85 Mb/mm² storage density. The design targets the density and access costs of storing transformer weights on chip; these macro-level metrics help assess that tradeoff without establishing full-system inference efficiency.</span>
+        <span class="zh">这款已流片的28 nm、2.25 Mb RRAM-CIM宏，将分层多比特存储编码与电荷域连续访问结合。实测单次读取时延为2.5 ns，读取能耗为0.12 pJ/bit，存储密度为12.85 Mb/mm²。设计针对片上存储Transformer权重的密度与访问成本，这些宏级指标有助于评估相关权衡，但尚不能据此确定整个推理系统的能效。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Models &amp; Inference Systems</span>
+      <span class="zh">AI模型与推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.07559" target="_blank" rel="noopener">
+          <span class="en">OpenRDMA Moves GPU Communication Submission Into an 8-Byte Token</span>
+          <span class="zh">OpenRDMA以8字节令牌提交GPU通信请求</span>
+        </a>
+      </h3>
+      <p class="authors">Ziheng Ji, Chunyu Liu, Weihao Peng, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.07559" target="_blank" rel="noopener">arXiv:2611.07559</a> · 2026-11-05T07:05:56Z</p>
+      <p class="summary">
+        <span class="en">OpenRDMA lets a GPU submit an 8-byte token while a dedicated FPGA NIC reconstructs the full work-queue entry from preconfigured context. Its transport supports per-packet multipath delivery, out-of-order arrivals and selective retransmission, with ordered DMA placement and GPU-visible completion flags. The preprint offers a concrete architecture for reducing communication control overhead in AI clusters, with deployment benefits dependent on NIC integration.</span>
+        <span class="zh">OpenRDMA让GPU只提交8字节令牌，再由专用FPGA网卡依据预配置上下文重建完整工作队列条目。其传输机制支持逐包多路径、乱序到达和选择性重传，并通过有序DMA放置与GPU可见的完成标志保证数据使用顺序。这篇预印本为降低AI集群的通信控制开销提供了具体架构，实际部署收益仍取决于网卡集成。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.04222" target="_blank" rel="noopener">
+          <span class="en">GC-MoE Separates GPU Communication and FP8/FP4 Expert Computation</span>
+          <span class="zh">GC-MoE分离GPU通信与FP8/FP4专家计算</span>
+        </a>
+      </h3>
+      <p class="authors">Yong Li, Kan Liu, Tao Lan</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.04222" target="_blank" rel="noopener">arXiv:2611.04222</a> · 2026-11-03T03:04:04Z</p>
+      <p class="summary">
+        <span class="en">GC-MoE uses CUDA Green Contexts to allocate a small GPU partition to token dispatch and a larger partition to FP8/FP4 grouped GEMM on Hopper and Blackwell. Separate kernels, resource budgets and synchronization domains allow dispatch and computation to overlap while being tuned independently. The preprint targets MoE decode with 1–256 tokens per rank, where dispatch overhead and weight traffic can limit tensor-core utilization.</span>
+        <span class="zh">GC-MoE利用CUDA Green Contexts，在Hopper与Blackwell上划分较小的GPU分区负责token分发，较大的分区负责FP8/FP4分组GEMM。独立的内核、资源预算与同步域，使分发和计算能够重叠执行并分别调优。这篇预印本面向每个rank仅有1—256个token的MoE解码场景，此时分发开销与权重流量可能限制Tensor Core利用率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.01473" target="_blank" rel="noopener">
+          <span class="en">GNN Surrogate Predicts Clock-Mesh Timing and Power Under Variation</span>
+          <span class="zh">GNN代理模型预测工艺波动下的时钟网格时序与功耗</span>
+        </a>
+      </h3>
+      <p class="authors">Muhammad Hadir Khan, Wajid Ali, Arya Thottiparambil Manikandan, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.01473" target="_blank" rel="noopener">arXiv:2611.01473</a> · 2026-11-01T03:03:14Z</p>
+      <p class="summary">
+        <span class="en">A graph-neural-network surrogate trained on SPICE data predicts clock-mesh timing and power while accounting for on-chip variation. On unseen real designs, average errors are 3.40 ps for delay, 4.14 ps for slew and 4.46 ps for skew; power predictions are within 3.4% of SPICE on average. This offers more detailed guidance for clock-mesh design-space exploration, although the reported accuracy measures agreement with simulation.</span>
+        <span class="zh">该图神经网络代理模型以SPICE数据训练，在考虑片上波动的同时预测时钟网格时序与功耗。在未参与训练的真实设计上，延迟、转换时间和时钟偏斜的平均误差分别为3.40 ps、4.14 ps和4.46 ps，功耗相对SPICE的平均预测误差为3.4%。这为时钟网格设计空间探索提供了更细致的依据，但所报告精度衡量的是与仿真结果的一致性。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-08 01:14 UTC · <a href="../2026-11-08.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-08 01:14 UTC · <a href="../2026-11-08.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

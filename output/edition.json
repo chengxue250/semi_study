@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "theme": {
-    "en": "AI's Memory Push Meets New Supply Constraints",
-    "zh": "AI存储扩张遭遇新的供应约束"
+    "en": "AI Expansion Meets Manufacturing and Deployment Friction",
+    "zh": "AI扩张遭遇制造与部署阻力"
   },
   "dek": {
-    "en": "Custom HBM brings advanced logic manufacturing further into the memory supply chain, while competition for EUV tools and reported H200 import delays constrain expansion. TSMC's denial of a 3D DRAM initiative also qualifies expectations of new memory supply.",
-    "zh": "定制HBM推动先进逻辑制造进一步介入存储供应链，但EUV设备争夺和据报出现的H200进口延迟制约扩张。台积电否认开展3D DRAM生产探索，也为新增存储供给的预期划定了边界。"
+    "en": "Terafab's reported wafer targets highlight the scale of planned supply, while a reported Micron construction pause and local data-center votes expose obstacles to expansion. Cooling materials and memory integration offer technical routes through constraints inside the hardware stack.",
+    "zh": "Terafab据报提出的大规模晶圆产能目标，展现了供给扩张的雄心；美光厂房工程据报暂停、美国地方数据中心公投则揭示了扩张面临的阻力。散热材料与存储集成技术，为缓解硬件内部瓶颈提供了新的路径。"
   },
   "sections": [
     {
@@ -17,32 +17,18 @@
       },
       "stories": [
         {
-          "featured": true,
-          "title": {
-            "en": "Nvidia's Custom HBM Reportedly Involves Samsung and TSMC in 3nm Base Dies",
-            "zh": "据报道，Nvidia定制HBM引入三星与台积电参与3nm基底芯片开发"
-          },
-          "summary": {
-            "en": "Nvidia's custom NVHBM effort involves Samsung and TSMC in 3nm base-die development, Wccftech reports. Using an advanced logic process for the base die would extend HBM competition further into the foundry supply chain. The report also notes TSMC's denial of the separate claim that it plans to manufacture 3D DRAM.",
-            "zh": "据Wccftech报道，Nvidia的定制NVHBM项目涉及三星与台积电参与3nm基底芯片开发。基底芯片采用先进逻辑制程，将推动HBM竞争进一步延伸至晶圆代工供应链。报道同时指出，台积电已否认另一项关于其计划制造3D DRAM的说法。"
-          },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/nvidia-custom-hbm-samsung-tsmc-3nm-base-die/",
-          "published": "2026-11-08T00:00:00+00:00"
-        },
-        {
           "featured": false,
           "title": {
-            "en": "ASRock Rack Shows Diamond Rapids Board With 16 DDR5 Channels",
-            "zh": "ASRock Rack展示支持16通道DDR5的Diamond Rapids主板"
+            "en": "Nvidia Board Opens Inquiry Into Reports Concerning Jensen Huang",
+            "zh": "英伟达董事会就涉及黄仁勋的报道展开调查"
           },
           "summary": {
-            "en": "ASRock Rack's DMRD16-2L+ motherboard for Intel Diamond Rapids exposes 16 DDR5 memory channels and 128 PCIe Gen6 lanes through MCIO connections, ServeTheHome reports. The board provides a concrete view of the platform's memory and I/O design, both relevant to servers moving large data sets and supporting attached accelerators.",
-            "zh": "据ServeTheHome报道，面向Intel Diamond Rapids的ASRock Rack DMRD16-2L+主板提供16通道DDR5内存，并通过MCIO连接引出128条PCIe Gen6通道。这块主板具体展示了该平台的内存与I/O设计，两者都关系到服务器处理大规模数据和连接加速器的能力。"
+            "en": "Nvidia's board is investigating reports concerning CEO Jensen Huang's alleged relationship with a client, Tom's Hardware reports. The board says it retains confidence in Huang and the leadership team. The inquiry adds a governance issue for the AI accelerator supplier, with the underlying allegations still under investigation.",
+            "zh": "据Tom's Hardware报道，英伟达董事会正在调查有关CEO黄仁勋据称与一名客户存在私人关系的报道。董事会表示，仍对黄仁勋及管理团队抱有信心。这为这家AI加速器供应商增加了公司治理层面的议题，相关指控仍有待调查。"
           },
-          "source": "ServeTheHome",
-          "url": "https://www.servethehome.com/asrock-rack-dmrd16-2l-plus-diamond-rapids-ocp-summit-2026/",
-          "published": "2026-11-07T16:00:55+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-ceo-jensen-huang-admits-to-having-an-affair-with-suspected-chinese-spy-jensen-apologizes-in-letter-to-staff-company-board-forms-independent-committee-to-investigate",
+          "published": "2026-11-08T21:27:29+00:00"
         }
       ]
     },
@@ -54,32 +40,32 @@
       },
       "stories": [
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "TSMC Denies Exploring 3D DRAM Production at Nvidia's Request",
-            "zh": "台积电否认应Nvidia要求探索3D DRAM生产"
+            "en": "Terafab Reportedly Targets 700,000 Memory Wafers per Month",
+            "zh": "Terafab据报将存储晶圆月产能目标定为70万片"
           },
           "summary": {
-            "en": "TSMC denies reports that it is exploring 3D DRAM production at Nvidia's request, Tom's Hardware reports. The response undercuts expectations that the foundry will provide a new source of DRAM supply on the strength of those reports. Fabricating HBM logic base dies is a separate role from producing the memory cells.",
-            "zh": "据Tom's Hardware报道，台积电否认了其应Nvidia要求探索3D DRAM生产的说法。这一回应削弱了此前报道所引发的、台积电将成为DRAM新增供应来源的预期。制造HBM逻辑基底芯片与生产存储单元属于不同环节。"
+            "en": "Terafab is targeting memory production capacity of about 700,000 wafers per month, Wccftech reports. The Tesla-SpaceX venture has reportedly told suppliers it aims for total capacity of roughly 1 million wafers per month by 2032, supporting its planned memory and logic supply. These are long-term capacity targets; realized chip output will depend on construction, equipment installation and yields.",
+            "zh": "据Wccftech报道，Terafab将存储晶圆月产能目标定为约70万片。这个由Tesla与SpaceX推动的项目据报已向供应商提出，到2032年实现约100万片晶圆的总月产能，以支持其存储与逻辑芯片供应规划。这些属于长期产能目标，实际芯片产出仍取决于厂房建设、设备安装与良率。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/dram/tsmc-denies-exploring-3d-dram-at-nvidias-request-advanced-memory-tech-is-still-years-from-market-viability",
-          "published": "2026-11-07T13:00:00+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/terafab-is-now-aiming-for-a-memory-production-capacity-of-around-700000-wafers-per-month-which-is-roughly-equal-to-samsungs-entire-dram-capacity/",
+          "published": "2026-11-08T23:54:59+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "Researchers Control Nucleation Sites in 2D Single-Crystal Semiconductor Growth",
-            "zh": "研究人员控制二维单晶半导体生长的成核位置"
+            "en": "TSMC's BEOL Memory Work Points Toward Logic-Level Integration",
+            "zh": "台积电BEOL存储研发指向逻辑芯片内部集成"
           },
           "summary": {
-            "en": "Researchers report control over nucleation sites during growth of two-dimensional single-crystal semiconductors, according to Bioengineer.org. Choosing where crystals start growing could make material placement more predictable for device fabrication, a useful step toward integrating 2D semiconductor channels.",
-            "zh": "据Bioengineer.org报道，研究人员实现了对二维单晶半导体生长过程中成核位置的控制。选择晶体开始生长的位置，有望提高器件制造中材料分布的可预测性，为集成二维半导体沟道提供工艺基础。"
+            "en": "TSMC is developing back-end-of-line memory that could use the processor die's footprint for additional storage, Wccftech reports. Integrating memory into the interconnect stack offers a route to placing more storage close to compute. The commercial value of that approach depends on achievable density, device characteristics and integration cost.",
+            "zh": "据Wccftech报道，台积电正在研发后道互连层（BEOL）存储技术，可利用处理器裸片的面积布置额外存储。将存储集成到互连堆栈，为在计算单元附近增加存储容量提供了一条路径。其商业价值取决于最终能够实现的密度、器件特性与集成成本。"
           },
-          "source": "Bioengineer.org",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcGl0cFNXSTM2Rkk2STJUS0cyTmJCWHlyRjlxM1lNUmh1aGdBTGdiZ2Q5Z2d4ZEFlOEJTcDBnbnMzLUxEeG0zWmlpQV9RazNMal9QUmQ1a3JzZzBQME9abzA3c1p1QTg4VnZxZl82azYyRG8xdnMxUWRiZE55RjROWkFFc1kyZzRMRUlsMFZNOGJoY05PU1Y1TjlJMHpITHdfZlRSM19obXRoYW9LaVVYRFhKSWZGamJM?oc=5",
-          "published": "2026-11-07T21:24:31+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/tsmc-is-working-on-a-beol-memory-that-can-leverage-the-larger-footprint-of-the-processor-die-to-its-advantage-even-as-it-issues-a-circuitous-denial-on-3d-dram-development/",
+          "published": "2026-11-08T16:26:41+00:00"
         }
       ]
     },
@@ -91,18 +77,18 @@
       },
       "stories": [
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "Memory Suppliers Eye Record Q4 Revenue as HBM Prices Rise",
-            "zh": "HBM价格上涨，存储供应商有望创下第四季度收入纪录"
+            "en": "Micron Reportedly Pauses Work on $4.5 Billion Taiwan Plant",
+            "zh": "美光据报因劳资纠纷暂停45亿美元台湾厂房工程"
           },
           "summary": {
-            "en": "Memory suppliers may reach record fourth-quarter revenue as HBM prices rise, TokenPost reports. The outlook suggests stronger pricing can support supplier revenue while raising procurement costs for AI hardware buyers; it remains a forecast rather than a reported quarterly result.",
-            "zh": "据TokenPost报道，随着HBM价格上涨，存储供应商第四季度收入可能创下纪录。这一展望意味着价格走强有望支撑供应商收入，同时增加AI硬件采购方的成本；相关数字仍属于业绩预期，尚非已公布的季度结果。"
+            "en": "Micron has reportedly paused work on a $4.5 billion plant in Taiwan following a labor dispute, according to The Edge Malaysia. A construction interruption could put pressure on the project's schedule and the timing of future capacity availability. The reported pause concerns plant work; its eventual effect on production depends on how long the dispute lasts.",
+            "zh": "据The Edge Malaysia报道，美光因劳资纠纷，暂停了一座投资额45亿美元的台湾厂房工程。施工中断可能影响项目进度，以及未来产能投入使用的时间。此次报道涉及厂房工程暂停，对后续生产的实际影响仍取决于纠纷持续多久。"
           },
-          "source": "TokenPost",
-          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1FbENJYWFhYTlldEpZUEw4THJjRVVmVGVnb2ZFWFh4NGRqaTkxbDdGS0VqYm1uLXk1YnJzUEp3d1FfWGRnNDlKR21CSk45NU5yd3pNTFZSYWs?oc=5",
-          "published": "2026-11-08T00:39:00+00:00"
+          "source": "The Edge Malaysia",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBUV2x2TFk5NWJ2aFc4cXVPSXBta1BEQ19FY3J1VlVKWlg3c1lrcHlrTHpHZkdZWWlUVkUwMU4zeGtXNjhOUE1QejIwU3FVbzZM?oc=5",
+          "published": "2026-11-08T15:28:29+00:00"
         }
       ]
     },
@@ -114,18 +100,18 @@
       },
       "stories": [
         {
-          "featured": true,
+          "featured": false,
           "title": {
-            "en": "Samsung and SK hynix Race to Secure ASML EUV Tools",
-            "zh": "三星与SK海力士争相锁定ASML EUV设备"
+            "en": "Diamond Foundry Produces 200mm Single-Crystal Diamond Wafer",
+            "zh": "Diamond Foundry制成200mm单晶金刚石晶圆"
           },
           "summary": {
-            "en": "Samsung and SK hynix are racing to secure ASML EUV equipment amid constrained availability, Chosunbiz reports. Tool delivery slots could become a limiting factor for the timing of manufacturing expansion, even where financing and customer demand are available.",
-            "zh": "据Chosunbiz报道，在ASML EUV设备供应受限的背景下，三星与SK海力士正争相锁定设备。即使资金和客户需求具备，设备交付排期仍可能制约制造产能扩张的时间表。"
+            "en": "Diamond Foundry has produced a 200mm single-crystal diamond wafer intended for semiconductor cooling, Tom's Hardware reports. The material is designed to remove heat and suppress hotspots on AI processors, addressing a constraint that becomes more demanding as power density rises. Its usefulness in deployed systems will depend on integration and manufacturing economics alongside thermal performance.",
+            "zh": "据Tom's Hardware报道，Diamond Foundry已制成一片面向半导体散热的200mm单晶金刚石晶圆。该材料旨在导出AI处理器热量并抑制热点，回应功率密度上升带来的散热压力。其在实际系统中的应用价值，还取决于集成方式、制造成本与热性能的综合表现。"
           },
-          "source": "Chosunbiz",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE04VEdjRjYwc3VqY0MyMTFUOXprVk5FUjZDVHNpVk83ZFRHWDRRSXFwamZsUDh0QnUyLXJyYm9oYTNhRjJiajlkMG9WNEpDRm9vTG80Vm5fQ1lmWjg1Tkl6YWpDbEdJOHVaRlM4eFNfV3R6ZmwtaklsZzhR0gGOAUFVX3lxTFBIQzM3SGI3akh5R2ktWFdMSGN4ZXpmV1MycW5MUDlWeE5HaFBOWm56MmRGMEJTZTdBSks5QkRTREt6ZWNOTUdQNm9ZQTlrS3hBRUVFaUhfaUZEZDZTMk95RlVKSjhYc0dDdC1aSG5YOHpWbDhlVkFwQjVQUUNKTENZWHVwdkF5b1kwR0tYZWc?oc=5",
-          "published": "2026-11-07T21:00:00+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/cooling/diamond-foundry-creates-worlds-first-200mm-single-crystal-diamond-wafer-massive-gem-aims-to-solve-ai-chip-cooling-crisis-envisioned-as-a-cooling-material-for-semiconductors",
+          "published": "2026-11-08T15:25:00+00:00"
         }
       ]
     },
@@ -139,16 +125,30 @@
         {
           "featured": true,
           "title": {
-            "en": "China Reportedly Delays Nvidia H200 Imports to Support Domestic AI Chips",
-            "zh": "据报中国延缓Nvidia H200进口，以支持国产AI芯片"
+            "en": "U.S. Voters Back Data-Center Restrictions in 40 of 41 Local Measures",
+            "zh": "美国41项地方公投中有40项支持限制数据中心开发"
           },
           "summary": {
-            "en": "China is delaying Nvidia H200 imports as it promotes domestic AI chips, according to Chosunbiz. The reported slowdown adds a customs bottleneck to accelerator procurement, making import clearance a separate constraint from product availability. It could affect deployment schedules and the hardware choices available to Chinese AI infrastructure buyers.",
-            "zh": "据Chosunbiz报道，中国正延缓Nvidia H200进口，以推动国产AI芯片发展。报道中的延迟给加速器采购增加了通关瓶颈，进口放行成为产品供货之外的另一项约束。这可能影响中国AI基础设施采购方的部署时间表与硬件选择。"
+            "en": "U.S. voters favored restrictions on data-center development in 40 of 41 local ballot measures during the November 3 midterm elections, Wccftech reports. The results point to local approval and siting as potential constraints on AI infrastructure deployment. The count covers those local measures, and does not establish a nationwide restriction on data-center construction.",
+            "zh": "据Wccftech报道，在11月3日中期选举涉及的41项地方公投中，选民在40项公投中支持限制数据中心开发。这表明地方审批与选址可能成为AI基础设施部署的约束。该统计反映这些地方议案的投票结果，本身并不意味着美国实施全国性的数据中心建设限制。"
           },
-          "source": "Chosunbiz",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWXVUNFliWUE2Q2NZcFBaNDVJWkRpNzhnT1Z6X1dqUm1UQzlaV1Ytc3Q5clZfVzl3Yk83aENKeDM3c3JLMlRyUVR1QVBoQ0FPMFRQZUktVklnV1hIV1FPT2JiRXRkTFUxVV9QVE91cm0xUUdLT2ZNSTUxU2N6OEdmZm9zaXVmcy1J0gGcAUFVX3lxTE1CaE9OdjlhZW5GN000OC04OGZPMzczeTUwZ3FwaWdKeTFZZE56UThjZWFETG8tYWhaa3hZcVFNYjQ3UmxiZHY4M2hQTEVENGNEV3Q0Tl9VLVpDcDZZMXhVcTJCdHZOR0NDeHRTa0hmZ29GX0JJTUVkWnpIaVFKQVFIc0pYajI0eFJkZ2dDeEMxTlFzTWRHZU9iSlk0Zg?oc=5",
-          "published": "2026-11-07T21:00:00+00:00"
+          "source": "Wccftech",
+          "url": "https://wccftech.com/u-s-voters-favor-data-center-restrictions-in-40-of-41-local-ballot-measures-putting-the-ai-boom-under-pressure/",
+          "published": "2026-11-08T16:50:10+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Investigation Questions U.S. H200 Approvals for Chinese Buyers",
+            "zh": "调查质疑美国向部分中国买家批准H200交易的审查机制"
+          },
+          "summary": {
+            "en": "An investigation cited by Wccftech alleges that U.S. regulators approved Nvidia H200 transactions involving Chinese firms operating from deserted offices and linked to sanctioned military suppliers. The findings raise questions about end-user screening in the export-approval process. They add scrutiny to licensing decisions, while any resulting change in policy remains uncertain.",
+            "zh": "Wccftech援引的一项调查称，美国监管部门曾批准涉及部分中国企业的英伟达H200交易，而这些企业的办公地点空置，并与受制裁的军方供应商存在关联。这些调查指称使出口审批中的最终用户审查机制受到质疑。相关许可决定面临更严格审视，但是否会因此调整政策仍不确定。"
+          },
+          "source": "Wccftech",
+          "url": "https://wccftech.com/us-approved-nvidia-h200-sales-chinese-firms-empty-offices-military-ties/",
+          "published": "2026-11-08T16:38:11+00:00"
         }
       ]
     },
@@ -156,22 +156,36 @@
       "id": "earnings",
       "title": {
         "en": "Earnings & Markets",
-        "zh": "财报与市场"
+        "zh": "业绩与市场"
       },
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "indie's Core Chip Revenue Rises 14% Sequentially as Automaker Selects Its Radar",
-            "zh": "indie核心芯片收入环比增长14%，雷达技术获车企选用"
+            "en": "Samsung's Cash Holdings Exceed $146 Billion as Chip Demand Rises",
+            "zh": "芯片需求上升之际，三星现金持有量超过1460亿美元"
           },
           "summary": {
-            "en": "indie Semiconductor's core chip revenue rises 14% from the previous quarter, and a top-three North American automaker selects its radar technology, MLQ.ai reports. The combination links a near-term sales recovery with a future automotive design opportunity, although a selection alone does not establish the timing or volume of production shipments.",
-            "zh": "据MLQ.ai报道，indie Semiconductor核心芯片收入环比增长14%，其雷达技术同时获北美前三大车企之一选用。短期销售回升与未来汽车项目机会形成呼应，但获选本身尚不能确定量产出货的时间和规模。"
+            "en": "Samsung Electronics' cash holdings have exceeded $146 billion as chip demand rises, UPI reports. The balance gives the company financial capacity to support manufacturing investment and absorb large spending commitments. Its effect on chip supply depends on subsequent capital-allocation decisions and project execution.",
+            "zh": "据UPI报道，随着芯片需求上升，三星电子的现金持有量已超过1460亿美元。这笔资金为制造投资和大额支出安排提供了财务支持。其对芯片供给的影响，仍取决于后续资本配置决策与项目执行情况。"
           },
-          "source": "MLQ.ai",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOblJiVVZBc2FlYVlhREN6R2pobUh0V2JGYldKRVRFTXdYRUt3TTdCSzZBdzNtVmg1ZGl4eVc3TDB6M0xfNEpudjRoN3lmbjdYM0lwcGNyX0NWQlpMa2VoZ2hHcGdob1p3c2N2ZGJZUVFqRWw5THBreHQwQVhFb1ZjaGhhUUxhTnlQanZXVzc4UWpfU0J6dDdRUm1HMWRCWWZuTnE5eUI4MmFRcDF0ZEkzcW9iN3VhdnRoMDFlM2gzTWJiTllFT05zZkFhc1JJajdsRUZB?oc=5",
-          "published": "2026-11-07T16:10:23+00:00"
+          "source": "UPI",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOSFd5cHlJMlJLa29PbjJna3B2eWU1WDNHN09FVllNREptUkNVX0JybWZ3WDRmN1FOWHZrME5JZldRY1I4X3J2bnRscnJmNjBSMS1mU21wWkxxdXJwNEZhXzBPZVQ2bDJ5SWJ5RnRwOFlJazlaZTRtbDFGWlBLdjJaS08ycFVKSTUtVjJPbW1CZVdFOTJ2ejFxOGM3WDRlQUdmblHSAacBQVVfeXFMTThuQzlaWS1yU0d6N0ZnWFFuZExvQ3RITjlLeUhHMFhKNG92OUF4LU9DTnFheFMwZktFaHNyeTltS1Z6ek43SkxQaUF1UkZSY0diTkN4UDJNRXpPbkJzazZ6NW1DaVVxMndJZVgtQnVsck9udVNvVnQ5QzZfZmxpZXlTcm9OTmI0NlAxYzZaMm1DVnBUbm40ckpvamF6djZGaW1nSnU1eFE?oc=5",
+          "published": "2026-11-08T23:49:11+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Alpha and Omega Semiconductor Guides December-Quarter Revenue to $170–190 Million",
+            "zh": "Alpha and Omega Semiconductor预计12月季度营收为1.7亿至1.9亿美元"
+          },
+          "summary": {
+            "en": "Alpha and Omega Semiconductor expects revenue of $170 million to $190 million for the December quarter, TokenPost reports. The range provides a near-term sales benchmark for the power-semiconductor supplier. It is forward guidance, with actual performance still dependent on orders and shipments during the quarter.",
+            "zh": "据TokenPost报道，Alpha and Omega Semiconductor预计，截至12月的季度营收为1.7亿至1.9亿美元。该区间为观察这家功率半导体供应商的短期销售表现提供了参考。这属于前瞻性业绩指引，实际表现仍取决于季度内的订单与出货情况。"
+          },
+          "source": "TokenPost",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9yZ2dXb1l5Mjl6REhQT2Q3c0cyb3A4b1RON04ydGtvQldiX3ota0JiZ3dMNkNYaEppdkg0X1g5R2JUX2JscGtlR2pRNjJqT3hXUFp6dGJMYXI?oc=5",
+          "published": "2026-11-08T19:41:35+00:00"
         }
       ]
     }
@@ -179,77 +193,14 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Moving Less Data Improves Compute Efficiency",
-      "zh": "减少数据搬移，提升计算效率"
+      "en": "Locality and Scheduling Turn Hardware Capacity Into Throughput",
+      "zh": "数据局部性与调度将硬件能力转化为吞吐量"
     },
     "dek": {
-      "en": "CIM macros and sensor compression circuits target the cost of moving and digitizing data, while GPU transport and MoE scheduling redistribute communication work. Device and clock-mesh studies examine how switching mechanisms and prediction accuracy shape design tradeoffs.",
-      "zh": "CIM宏与传感器压缩电路着眼于数据搬移和数字化的成本，GPU传输与MoE调度则重新分配通信任务。器件和时钟网格研究进一步考察开关机制与预测精度如何影响设计权衡。"
+      "en": "This week's selected preprints examine how die placement, precision delivery and communication scheduling affect realized performance. GPU measurements, a Tensix simulator and circuit-partitioning results connect software execution choices to hardware constraints.",
+      "zh": "本期预印本关注裸片间的数据放置、精度数据传输和通信调度如何影响实际性能。GPU实测、Tensix模拟器与电路划分结果，从不同层面揭示软件执行方式与硬件约束之间的联系。"
     },
     "areas": [
-      {
-        "id": "devices",
-        "title": {
-          "en": "Devices & Process",
-          "zh": "器件与工艺"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "Bulk-Silicon Transistor Combines Feedback and Thyristor Conduction",
-              "zh": "体硅晶体管结合正反馈与晶闸管导通机制"
-            },
-            "authors": "Yaeyeon Ko, Doohyeok Lim",
-            "affiliation": "",
-            "venue": "IEEE Transactions on Electron Devices",
-            "venue_url": "https://doi.org/10.1109/TED.2026.3732639",
-            "summary": {
-              "en": "A bulk-silicon p+-n-p-n+ transistor combines positive-feedback carrier injection with impact-ionization-assisted thyristor conduction and reports a subthreshold swing of about 10 mV/dec. Gate and drain biases select among three conduction regimes, including a bistable operating region. The steep switching is relevant to alternative device architectures, but the reported 3–5 V gate-bias range for the middle regime must be considered when assessing low-voltage integration.",
-              "zh": "该体硅p+-n-p-n+晶体管结合正反馈载流子注入与碰撞电离辅助的晶闸管导通机制，报告的亚阈值摆幅约为10 mV/dec。栅极与漏极偏置可选择三种导通状态，其中包含双稳态工作区。陡峭开关特性为新型器件架构提供了思路，但评估低电压集成时，仍须考虑其中间工作区需要3—5 V栅极偏置这一条件。"
-            },
-            "published": "2026-11-01"
-          }
-        ]
-      },
-      {
-        "id": "circuits",
-        "title": {
-          "en": "Circuits & Interconnects",
-          "zh": "电路与互连"
-        },
-        "papers": [
-          {
-            "title": {
-              "en": "TD-dAJC Compresses Analog Video at 100 MS/s and 2 pJ per Pixel",
-              "zh": "TD-dAJC以100 MS/s和每像素2 pJ实现模拟视频压缩"
-            },
-            "authors": "Harshit Naman, Gourab Barik, Yudhajit Ray, et al.",
-            "affiliation": "",
-            "venue": "IEEE Journal of Solid-State Circuits",
-            "venue_url": "https://doi.org/10.1109/JSSC.2026.3712196",
-            "summary": {
-              "en": "TD-dAJC implements direct analog-to-MJPEG compression in 65-nm CMOS, reporting 100 MS/s throughput and 2 pJ per pixel. Pulse-width-encoded time weights and current integration perform DCT, quantization and associated arithmetic before digitization, reducing ADC workload. The result targets an important energy cost in always-on video sensors; the reported energy applies to the compression circuit.",
-              "zh": "TD-dAJC采用65 nm CMOS实现直接从模拟信号到MJPEG的压缩，报告吞吐率为100 MS/s、能耗为每像素2 pJ。电路通过脉宽编码的时间权重与电流积分，在数字化之前完成DCT、量化及相关运算，从而减轻ADC负担。该设计针对常开视频传感器中的重要能耗环节，所报告能耗对应压缩电路。"
-            },
-            "published": "2026-11-01"
-          },
-          {
-            "title": {
-              "en": "THz Through-Silicon Link Reaches 264 Gb/s With Offline Equalization",
-              "zh": "太赫兹穿硅互连借助离线均衡达到264 Gb/s"
-            },
-            "authors": "Chen Jiang, Xiao-Di Feng, Xiao-Han Shen, et al.",
-            "affiliation": "",
-            "venue": "IEEE Journal of Solid-State Circuits",
-            "venue_url": "https://doi.org/10.1109/JSSC.2026.3720291",
-            "summary": {
-              "en": "THz-TSI demonstrates a wireless through-silicon interconnect at 264 Gb/s and 0.33 pJ/bit with offline equalization. The work supports both bidirectional point-to-point links and broadcast operation, addressing communication between vertically stacked device layers. Offline equalization is a material condition of the reported result, so integrating real-time equalization remains relevant to assessing a deployable link.",
-              "zh": "THz-TSI展示了一种无线穿硅互连，借助离线均衡实现264 Gb/s速率和0.33 pJ/bit能效。研究演示了双向点对点连接与广播模式，面向垂直堆叠器件层之间的通信。离线均衡是上述结果的重要条件，评估可部署链路时仍需考察实时均衡的集成。"
-            },
-            "published": "2026-11-01"
-          }
-        ]
-      },
       {
         "id": "accelerators",
         "title": {
@@ -259,33 +210,33 @@
         "papers": [
           {
             "title": {
-              "en": "A 28-nm SRAM-CIM Macro Reduces Routing and Signed-MAC Overhead",
-              "zh": "28 nm SRAM-CIM宏降低布线与有符号MAC开销"
+              "en": "Characterizing CUDA Locality Domains on Blackwell GPUs",
+              "zh": "Blackwell GPU上CUDA局部性域的性能特征分析"
             },
-            "authors": "Yun-Long Liu, Li-Chen Feng, Lin Wu, et al.",
+            "authors": "Rocky Wang, Joyce Zhou, Keith Jiang, et al.",
             "affiliation": "",
-            "venue": "IEEE Journal of Solid-State Circuits",
-            "venue_url": "https://doi.org/10.1109/JSSC.2026.3718075",
+            "venue": "arXiv:2611.07535",
+            "venue_url": "https://arxiv.org/abs/2611.07535",
             "summary": {
-              "en": "A fabricated 28-nm, 32-kb SRAM-CIM macro occupies 0.072 mm² and supports INT8 and BF16 multiply-accumulate operations. Transition-counting lines compress partial-product signals without losing precision, while embedded sign extension adds 3% area overhead and no extra cycles. Stage-wise enabling suppresses spurious switching and improves energy efficiency by 42%, addressing circuit overhead that can erode CIM's data-movement advantage.",
-              "zh": "这款已流片的28 nm、32 kb SRAM-CIM宏面积为0.072 mm²，支持INT8和BF16乘累加运算。跃迁计数线在不损失精度的前提下压缩部分积信号，嵌入式符号扩展仅增加3%面积且无需额外周期。分阶段使能抑制无效翻转，使能效提升42%，针对的是会削弱CIM数据搬移优势的电路开销。"
+              "en": "Measurements on an eight-B300 node show that CUDA 13.4 Locality Domains can improve performance through die-aware placement and execution, with reported speedups up to 43.5% for NCCL AllGather and 37% for DeepGEMM EP. The study also identifies allocation overhead above 32 MB associated with barriers and TLB invalidation. These preprint results make cross-die locality a concrete tuning consideration, with gains dependent on access patterns and workload.",
+              "zh": "在配备8颗B300的节点上，研究通过感知裸片位置的数据放置与执行方式，评估CUDA 13.4局部性域，报告NCCL AllGather和DeepGEMM EP的最高性能提升分别为43.5%和37%。研究还发现，超过32 MB的内存分配存在与屏障和TLB失效相关的额外开销。这些预印本实测结果说明，跨裸片局部性已成为具体的调优因素，但收益取决于访问模式和工作负载。"
             },
-            "published": "2026-11-01"
+            "published": "2026-11-05T06:44:09Z"
           },
           {
             "title": {
-              "en": "A 28-nm 2.25-Mb RRAM-CIM Macro Reduces Weight-Access Overhead",
-              "zh": "28 nm、2.25 Mb RRAM-CIM宏降低权重访问开销"
+              "en": "Wolfpine: A RISC-V Simulator for Tenstorrent Tensix",
+              "zh": "Wolfpine：面向Tenstorrent Tensix的RISC-V模拟器"
             },
-            "authors": "Jia-Ning Li, Chang Liu, Chang-Bao Xu, et al.",
+            "authors": "Nick Brown, Daniyal Arshad",
             "affiliation": "",
-            "venue": "IEEE Transactions on Circuits and Systems Part 1: Regular Papers",
-            "venue_url": "https://doi.org/10.1109/TCSI.2026.3723111",
+            "venue": "arXiv:2611.04740",
+            "venue_url": "https://arxiv.org/abs/2611.04740",
             "summary": {
-              "en": "A fabricated 28-nm, 2.25-Mb RRAM-CIM macro combines hierarchical multi-bit storage coding with charge-domain continuous access. Measurements report a 2.5 ns single-read latency, 0.12 pJ/bit read energy and 12.85 Mb/mm² storage density. The design targets the density and access costs of storing transformer weights on chip; these macro-level metrics help assess that tradeoff without establishing full-system inference efficiency.",
-              "zh": "这款已流片的28 nm、2.25 Mb RRAM-CIM宏，将分层多比特存储编码与电荷域连续访问结合。实测单次读取时延为2.5 ns，读取能耗为0.12 pJ/bit，存储密度为12.85 Mb/mm²。设计针对片上存储Transformer权重的密度与访问成本，这些宏级指标有助于评估相关权衡，但尚不能据此确定整个推理系统的能效。"
+              "en": "Wolfpine simulates Tenstorrent's Wormhole and Blackhole Tensix architectures in Python and integrates with TT-Metal. Built from public documentation, open software and hardware measurements, it provides component tracing, typed events and timeline export for investigating execution bottlenecks. The preprint lowers the barrier to architecture exploration, while timing fidelity is added incrementally through an optional cost model.",
+              "zh": "Wolfpine以Python模拟Tenstorrent的Wormhole与Blackhole两代Tensix架构，并与TT-Metal集成。它基于公开文档、开源软件和硬件测量构建，提供组件追踪、类型化事件和时间线导出，便于定位执行瓶颈。该预印本工具降低了架构探索门槛，时序精度则通过可选的成本模型逐步补充。"
             },
-            "published": "2026-11-01"
+            "published": "2026-11-03T11:57:36Z"
           }
         ]
       },
@@ -298,33 +249,93 @@
         "papers": [
           {
             "title": {
-              "en": "OpenRDMA Moves GPU Communication Submission Into an 8-Byte Token",
-              "zh": "OpenRDMA以8字节令牌提交GPU通信请求"
+              "en": "StrataFlux: Memory-Hierarchy-Native Low-Bit LLM Inference",
+              "zh": "StrataFlux：利用存储层次结构的低比特大模型推理"
             },
-            "authors": "Ziheng Ji, Chunyu Liu, Weihao Peng, et al.",
+            "authors": "Jake Hyun, Ziyu Zhao, Jae-sun Seo, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.07559",
-            "venue_url": "https://arxiv.org/abs/2611.07559",
+            "venue": "arXiv:2611.08363",
+            "venue_url": "https://arxiv.org/abs/2611.08363",
             "summary": {
-              "en": "OpenRDMA lets a GPU submit an 8-byte token while a dedicated FPGA NIC reconstructs the full work-queue entry from preconfigured context. Its transport supports per-packet multipath delivery, out-of-order arrivals and selective retransmission, with ordered DMA placement and GPU-visible completion flags. The preprint offers a concrete architecture for reducing communication control overhead in AI clusters, with deployment benefits dependent on NIC integration.",
-              "zh": "OpenRDMA让GPU只提交8字节令牌，再由专用FPGA网卡依据预配置上下文重建完整工作队列条目。其传输机制支持逐包多路径、乱序到达和选择性重传，并通过有序DMA放置与GPU可见的完成标志保证数据使用顺序。这篇预印本为降低AI集群的通信控制开销提供了具体架构，实际部署收益仍取决于网卡集成。"
+              "en": "StrataFlux streams selected precision refinements from host RAM and SSDs to improve low-bit weights and KV caches while overlapping transfers with computation. For 2-bit Llama-3.1-8B-Instruct weights on RTX 5090, it reduces WikiText-2 perplexity from 9.46 to 8.40 while retaining 95.4% of the quantized baseline's throughput. The preprint shows how the memory hierarchy can recover quantization quality, with the throughput result tied to the reported model and platform.",
+              "zh": "StrataFlux从主机内存与SSD中选择性传输用于精度修正的数据，并将传输与计算重叠，以改善低比特权重和KV缓存的精度。在RTX 5090上，针对采用2比特权重的Llama-3.1-8B-Instruct，它将WikiText-2困惑度从9.46降至8.40，同时保留量化基线95.4%的吞吐量。该预印本展示了利用存储层次结构弥补量化精度损失的路径，上述吞吐表现对应其报告的特定模型与平台。"
             },
-            "published": "2026-11-05T07:05:56Z"
+            "published": "2026-11-05T17:42:06Z"
           },
           {
             "title": {
-              "en": "GC-MoE Separates GPU Communication and FP8/FP4 Expert Computation",
-              "zh": "GC-MoE分离GPU通信与FP8/FP4专家计算"
+              "en": "ZYFA: Speed and Accuracy of FP8 FlashAttention on AMD CDNA4",
+              "zh": "ZYFA：AMD CDNA4上FP8 FlashAttention的速度与精度优化"
             },
-            "authors": "Yong Li, Kan Liu, Tao Lan",
+            "authors": "Quentin Anthony, Ganesh Bikshandi, Praneeth Medepalli, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.04222",
-            "venue_url": "https://arxiv.org/abs/2611.04222",
+            "venue": "arXiv:2611.07496",
+            "venue_url": "https://arxiv.org/abs/2611.07496",
             "summary": {
-              "en": "GC-MoE uses CUDA Green Contexts to allocate a small GPU partition to token dispatch and a larger partition to FP8/FP4 grouped GEMM on Hopper and Blackwell. Separate kernels, resource budgets and synchronization domains allow dispatch and computation to overlap while being tuned independently. The preprint targets MoE decode with 1–256 tokens per rank, where dispatch overhead and weight traffic can limit tensor-core utilization.",
-              "zh": "GC-MoE利用CUDA Green Contexts，在Hopper与Blackwell上划分较小的GPU分区负责token分发，较大的分区负责FP8/FP4分组GEMM。独立的内核、资源预算与同步域，使分发和计算能够重叠执行并分别调优。这篇预印本面向每个rank仅有1—256个token的MoE解码场景，此时分发开销与权重流量可能限制Tensor Core利用率。"
+              "en": "ZYFA develops MI355X prefill kernels that combine direct FP8 probability computation, ping-pong scheduling of softmax and matrix multiplication, and power-of-two probability scaling. The motivation is a measured utilization gap: at 32K tokens, the cited AITER kernels reach 39% of peak FP8 matrix throughput versus 49% in BF16. The preprint addresses vector-unit work and instruction ordering that limit attention performance, so the headline FP8 arithmetic advantage alone is insufficient to predict speed.",
+              "zh": "ZYFA面向MI355X开发prefill内核，将直接计算FP8概率、交替执行softmax与矩阵乘法的乒乓调度，以及按2的幂缩放概率结合起来。其出发点是实测利用率差距：在32K token下，文中引用的AITER内核达到FP8矩阵峰值吞吐的39%，BF16则为49%。该预印本针对限制注意力性能的向量单元计算与指令排序开销展开优化，表明仅凭FP8算术峰值优势不足以预测实际速度。"
             },
-            "published": "2026-11-03T03:04:04Z"
+            "published": "2026-11-05T05:58:36Z"
+          },
+          {
+            "title": {
+              "en": "KOSMOS: Self-Scheduling Persistent Kernels for Communication-Compute Overlap",
+              "zh": "KOSMOS：以自调度常驻内核实现通信与计算重叠"
+            },
+            "authors": "Alexander Magro, Aristotle Martin, Ye Wang, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2611.07477",
+            "venue_url": "https://arxiv.org/abs/2611.07477",
+            "summary": {
+              "en": "KOSMOS lets GPU workgroups switch between communication and computation as data becomes ready, using consumer-demand-ordered queues inside persistent kernels. On MI350X and MI355X, the preprint reports 1.10–1.28× end-to-end BF16 TP+SP training speedups in Megatron-LM and 1.29–1.83× speedups over DeepEP for DeepSeek-V3 and Qwen3-235B proxy workloads. The contribution targets idle gaps from fixed schedules; the MoE results apply to the evaluated proxy training configurations.",
+              "zh": "KOSMOS在常驻内核中按消费者需求组织队列，使GPU工作组随数据就绪情况，在通信与计算任务之间切换。该预印本在MI350X和MI355X上报告，Megatron-LM的BF16张量并行加序列并行训练端到端加速为1.10至1.28倍；针对DeepSeek-V3与Qwen3-235B的代理工作负载，相对DeepEP加速1.29至1.83倍。其贡献在于减少固定调度造成的空闲间隙，MoE性能数字对应所评估的代理训练配置。"
+            },
+            "published": "2026-11-05T05:36:08Z"
+          },
+          {
+            "title": {
+              "en": "FastAFD Measures Attention-FFN Disaggregation on Rack-Scale NVLink",
+              "zh": "FastAFD评估机架级NVLink上的Attention与FFN解耦"
+            },
+            "authors": "Yichao Fu, Yuxuan Zhang, Minshen Zhang, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2611.07149",
+            "venue_url": "https://arxiv.org/abs/2611.07149",
+            "summary": {
+              "en": "FastAFD separates attention and MoE expert execution on GB200 NVL72 and overlaps the work of two microbatches. Against the best tested vLLM wide-expert-parallel configuration, it reaches up to 1.17× throughput on Qwen3 and 1.16× on Qwen3.5, while matching the baseline on MiniMax-M2.5. An analytical model predicts throughput within 3% in the reported evaluation, offering a pre-deployment check of whether disaggregation pays for a particular workload.",
+              "zh": "FastAFD在GB200 NVL72上分离注意力与MoE专家执行，并将两个微批次的工作重叠。相对测试中最优的vLLM大规模专家并行配置，Qwen3和Qwen3.5的最高吞吐提升分别为1.17倍和1.16倍，MiniMax-M2.5则与基线持平。文中分析模型在所报告评估中的吞吐预测误差不超过3%，可用于在部署前判断特定工作负载是否适合解耦。"
+            },
+            "published": "2026-11-04T21:21:57Z"
+          },
+          {
+            "title": {
+              "en": "NUMA-Torch: Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket CPUs",
+              "zh": "NUMA-Torch：以编译器优化多路CPU上的NUMA感知大模型prefill"
+            },
+            "authors": "Thisara Rathnayaka Weerakoon, Ishan Dewpura, Niman Ransindu, et al.",
+            "affiliation": "University of Moratuwa / Independent Researcher",
+            "venue": "arXiv:2611.07105",
+            "venue_url": "https://arxiv.org/abs/2611.07105",
+            "summary": {
+              "en": "NUMA-Torch makes TorchInductor partition weights and compute by CPU socket, keeping thread pools and memory allocations local through CPU affinity. The approach targets cross-socket weight traffic that reduces effective DRAM bandwidth during prefill. The preprint evaluates GPT-2 variants from 117M to 762M parameters and BERT Small and Large, so extrapolating its findings to much larger models requires further measurement.",
+              "zh": "NUMA-Torch改造TorchInductor，按CPU插槽划分权重与计算，并通过CPU亲和性将线程池和内存分配限制在本地。该方法针对prefill阶段跨插槽读取权重、导致有效DRAM带宽下降的问题。预印本评估了参数量从1.17亿到7.62亿的GPT-2变体，以及BERT Small和Large，将结论推广到更大模型仍需要进一步测量。"
+            },
+            "published": "2026-11-04T20:17:40Z"
+          },
+          {
+            "title": {
+              "en": "FastKVComp Raises KV Compression Throughput for Disaggregated Serving",
+              "zh": "FastKVComp提升解耦推理服务的KV缓存压缩吞吐量"
+            },
+            "authors": "Junhong Wu, Zedong Liu, Xinyang Ma, et al.",
+            "affiliation": "",
+            "venue": "arXiv:2611.04382",
+            "venue_url": "https://arxiv.org/abs/2611.04382",
+            "summary": {
+              "en": "FastKVComp fuses distribution transformation and low-bit quantization in a TileLang kernel and replaces KVServe's lossless backend with a searchable compression pipeline. The preprint reports up to 5.9× speedup for the fused kernel and lossless-compression throughput rising from below 90 GB/s to over 500 GB/s. Faster compression can preserve the benefit of reduced KV transfers on high-bandwidth links, although these component metrics do not establish the same gain in end-to-end serving throughput.",
+              "zh": "FastKVComp以TileLang内核融合分布变换与低比特量化，并为KVServe换用可搜索的无损压缩流水线。该预印本报告融合内核最高加速5.9倍，无损压缩吞吐量从不足90 GB/s提升至超过500 GB/s。更快的压缩有助于在高带宽互连下保留减少KV传输的收益，但这些组件指标并不代表端到端推理吞吐量也有同等提升。"
+            },
+            "published": "2026-11-03T06:13:07Z"
           }
         ]
       },
@@ -337,18 +348,18 @@
         "papers": [
           {
             "title": {
-              "en": "GNN Surrogate Predicts Clock-Mesh Timing and Power Under Variation",
-              "zh": "GNN代理模型预测工艺波动下的时钟网格时序与功耗"
+              "en": "FRESHPart: Feedback-Reshaped Spectral Embedding for Hypergraph Partitioning",
+              "zh": "FRESHPart：通过反馈重塑谱嵌入的超图划分方法"
             },
-            "authors": "Muhammad Hadir Khan, Wajid Ali, Arya Thottiparambil Manikandan, et al.",
+            "authors": "Rongjian Liang, Zhuo Feng, Brucek Khailany",
             "affiliation": "",
-            "venue": "arXiv:2611.01473",
-            "venue_url": "https://arxiv.org/abs/2611.01473",
+            "venue": "arXiv:2611.05729",
+            "venue_url": "https://arxiv.org/abs/2611.05729",
             "summary": {
-              "en": "A graph-neural-network surrogate trained on SPICE data predicts clock-mesh timing and power while accounting for on-chip variation. On unseen real designs, average errors are 3.40 ps for delay, 4.14 ps for slew and 4.46 ps for skew; power predictions are within 3.4% of SPICE on average. This offers more detailed guidance for clock-mesh design-space exploration, although the reported accuracy measures agreement with simulation.",
-              "zh": "该图神经网络代理模型以SPICE数据训练，在考虑片上波动的同时预测时钟网格时序与功耗。在未参与训练的真实设计上，延迟、转换时间和时钟偏斜的平均误差分别为3.40 ps、4.14 ps和4.46 ps，功耗相对SPICE的平均预测误差为3.4%。这为时钟网格设计空间探索提供了更细致的依据，但所报告精度衡量的是与仿真结果的一致性。"
+              "en": "FRESHPart uses geometry and search feedback to reshape spectral embeddings for circuit-hypergraph partitioning. On Titan23, the preprint reports average cut reductions relative to hMETIS of 13.09% at 2% imbalance tolerance and 25.21% at 20%, completing each benchmark in under 120 seconds on one GPU. The result offers a practical EDA partitioning improvement; the reported metric is partition cut quality rather than final placed-and-routed chip performance.",
+              "zh": "FRESHPart利用几何反馈与搜索反馈重塑谱嵌入，改进电路超图划分。在Titan23基准上，该预印本报告：不平衡容限为2%和20%时，相对hMETIS的平均割代价分别降低13.09%和25.21%，每项基准均在单颗GPU上于120秒内完成。结果为EDA划分提供了实用改进，其指标衡量划分质量，尚不能直接推导最终布局布线后的芯片性能。"
             },
-            "published": "2026-11-01T03:03:14Z"
+            "published": "2026-11-03T23:00:57Z"
           }
         ]
       }
