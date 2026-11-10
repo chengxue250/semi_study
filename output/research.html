@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-09">
+<meta name="edition-date" content="2026-11-10">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Locality and Scheduling Turn Hardware Capacity Into Throughput — Semi Research 2026-11-09</title>
+<title>Precision and Placement Shape Useful AI Throughput — Semi Research 2026-11-10</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, November 9, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月9日 星期一</span>
+      <span class="en">Research digest · Tuesday, November 10, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月10日 星期二</span>
     </div>
     <h1>
-      <span class="en">Locality and Scheduling Turn Hardware Capacity Into Throughput</span>
-      <span class="zh">数据局部性与调度将硬件能力转化为吞吐量</span>
+      <span class="en">Precision and Placement Shape Useful AI Throughput</span>
+      <span class="zh">精度与数据放置共同决定AI有效吞吐量</span>
     </h1>
     <p class="dek">
-      <span class="en">This week&#x27;s selected preprints examine how die placement, precision delivery and communication scheduling affect realized performance. GPU measurements, a Tensix simulator and circuit-partitioning results connect software execution choices to hardware constraints.</span>
-      <span class="zh">本期预印本关注裸片间的数据放置、精度数据传输和通信调度如何影响实际性能。GPU实测、Tensix模拟器与电路划分结果，从不同层面揭示软件执行方式与硬件约束之间的联系。</span>
+      <span class="en">The selected preprints connect low-bit arithmetic, shared compute meshes and memory-array placement to practical execution bottlenecks. Circuit entropy measurements and simulation-driven design tools broaden the reading queue, with modeled accelerator results distinguished from physical hardware measurements.</span>
+      <span class="zh">本期预印本将低比特运算、共享计算阵列与存储阵列映射，同实际执行瓶颈联系起来。电路熵测量和仿真驱动的设计工具进一步拓宽阅读范围，并对加速器建模结果与实体硬件测量作出区分。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 9 paper(s)</span>
@@ -343,32 +343,68 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.07535" target="_blank" rel="noopener">
-          <span class="en">Characterizing CUDA Locality Domains on Blackwell GPUs</span>
-          <span class="zh">Blackwell GPU上CUDA局部性域的性能特征分析</span>
+        <a href="https://arxiv.org/abs/2611.09522" target="_blank" rel="noopener">
+          <span class="en">Atik: A Shared-Mesh Transformer Accelerator for RISC-V</span>
+          <span class="zh">Atik：面向RISC-V的共享阵列Transformer加速器</span>
         </a>
       </h3>
-      <p class="authors">Rocky Wang, Joyce Zhou, Keith Jiang, et al.</p>
+      <p class="authors">Ahmed Zeer, Erkan Uslu</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.07535" target="_blank" rel="noopener">arXiv:2611.07535</a> · 2026-11-05T06:44:09Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.09522" target="_blank" rel="noopener">arXiv:2611.09522</a> · 2026-11-06T14:36:37Z</p>
       <p class="summary">
-        <span class="en">Measurements on an eight-B300 node show that CUDA 13.4 Locality Domains can improve performance through die-aware placement and execution, with reported speedups up to 43.5% for NCCL AllGather and 37% for DeepGEMM EP. The study also identifies allocation overhead above 32 MB associated with barriers and TLB invalidation. These preprint results make cross-die locality a concrete tuning consideration, with gains dependent on access patterns and workload.</span>
-        <span class="zh">在配备8颗B300的节点上，研究通过感知裸片位置的数据放置与执行方式，评估CUDA 13.4局部性域，报告NCCL AllGather和DeepGEMM EP的最高性能提升分别为43.5%和37%。研究还发现，超过32 MB的内存分配存在与屏障和TLB失效相关的额外开销。这些预印本实测结果说明，跨裸片局部性已成为具体的调优因素，但收益取决于访问模式和工作负载。</span>
+        <span class="en">Atik uses one fixed-point MAC mesh for matrix multiplication and dense attention, accepts BF16 tensors, and streams online softmax without materializing the full attention-score matrix. In cycle-by-cycle FireSim evaluation, the 8×8 mesh reaches peak speedups of 31.5× for matrix multiplication and 225.8× for attention against a scalar Rocket BF16 reference. Sharing the datapath offers a concrete way to support both kernels with the same compute resources. The preprint combines simulation with standalone Sky130 physical design; its model-level speedups are hybrid projections rather than full-model hardware runs.</span>
+        <span class="zh">Atik以同一套定点乘加阵列执行矩阵乘法与稠密注意力，输入输出采用BF16，并通过流式在线softmax避免显式保存完整注意力分数矩阵。在逐周期FireSim评估中，8×8阵列相对标量Rocket BF16参考实现，矩阵乘法和注意力的峰值加速分别达到31.5倍和225.8倍。共享数据通路为使用同一组计算资源支持两类内核提供了具体方案。该预印本结合模拟与独立的Sky130物理设计评估，模型级加速来自混合推算，并非完整模型的硬件实跑结果。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.04740" target="_blank" rel="noopener">
-          <span class="en">Wolfpine: A RISC-V Simulator for Tenstorrent Tensix</span>
-          <span class="zh">Wolfpine：面向Tenstorrent Tensix的RISC-V模拟器</span>
+        <a href="https://arxiv.org/abs/2611.08693" target="_blank" rel="noopener">
+          <span class="en">Retraining-Free Accuracy Recovery for Analog Compute-in-Memory</span>
+          <span class="zh">无需重新训练的模拟存算一体精度恢复</span>
         </a>
       </h3>
-      <p class="authors">Nick Brown, Daniyal Arshad</p>
+      <p class="authors">George Karfakis, Puneet Gupta</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.04740" target="_blank" rel="noopener">arXiv:2611.04740</a> · 2026-11-03T11:57:36Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08693" target="_blank" rel="noopener">arXiv:2611.08693</a> · 2026-11-05T20:49:55Z</p>
       <p class="summary">
-        <span class="en">Wolfpine simulates Tenstorrent&#x27;s Wormhole and Blackhole Tensix architectures in Python and integrates with TT-Metal. Built from public documentation, open software and hardware measurements, it provides component tracing, typed events and timeline export for investigating execution bottlenecks. The preprint lowers the barrier to architecture exploration, while timing fidelity is added incrementally through an optional cost model.</span>
-        <span class="zh">Wolfpine以Python模拟Tenstorrent的Wormhole与Blackhole两代Tensix架构，并与TT-Metal集成。它基于公开文档、开源软件和硬件测量构建，提供组件追踪、类型化事件和时间线导出，便于定位执行瓶颈。该预印本工具降低了架构探索门槛，时序精度则通过可选的成本模型逐步补充。</span>
+        <span class="en">Input centering, array-local Hadamard rotations and shared calibration let pretrained models compensate for analog-array errors without updating their weights. On the evaluated ReRAM configuration with 6-bit ADCs, the preprint reports accuracy recovery from 37.4% to 82.9% for ViT-B/16 and from 27.0% to 72.2% for Phi-4, both within 2.2 percentage points of floating-point accuracy. The method could reduce the cost of hardware-aware retraining, with applicability dependent on the target array&#x27;s error distribution and calibration conditions.</span>
+        <span class="zh">研究结合输入中心化、限制在阵列内部的Hadamard旋转和共享校准，使预训练模型无需更新权重即可补偿模拟阵列误差。在所评估的6比特ADC ReRAM配置上，预印本报告ViT-B/16准确率从37.4%恢复至82.9%，Phi-4从27.0%恢复至72.2%，两者与浮点准确率的差距均不超过2.2个百分点。该方法有望降低硬件感知重新训练的成本，其适用性取决于目标阵列的误差分布与校准条件。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.07707" target="_blank" rel="noopener">
+          <span class="en">CAMP: Context-Aware LLM Weight Placement on 3D-IMC Arrays</span>
+          <span class="zh">CAMP：面向3D存算一体阵列的上下文感知大模型权重放置</span>
+        </a>
+      </h3>
+      <p class="authors">Orhun Görkem, Athanasios Vasilopoulos, Georgios Pagonis, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.07707" target="_blank" rel="noopener">arXiv:2611.07707</a> · 2026-11-05T09:27:31Z</p>
+      <p class="summary">
+        <span class="en">CAMP places LLM weights across stacked 3D-IMC arrays using a conflict matrix that captures contention among the architecture, network and inference context. A profiling-driven feedback loop refines the mapping to expose concurrent matrix-vector operations and improve resource use. The contribution makes weight placement an execution-scheduling decision, with benefits that need to be evaluated for each architecture and runtime context.</span>
+        <span class="zh">CAMP通过冲突矩阵描述硬件架构、模型网络与推理上下文共同引发的资源争用，据此将大模型权重放置到堆叠的3D存算一体阵列中。以性能分析驱动的反馈循环进一步优化映射，使更多矩阵向量运算能够并发执行，并改善资源利用。该研究将权重放置转化为执行调度问题，具体收益需要结合各类架构与运行时上下文评估。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Reliability</span>
+      <span class="zh">电路与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.08774" target="_blank" rel="noopener">
+          <span class="en">Gain-Dependent Entropy in a Zener Avalanche Noise TRNG</span>
+          <span class="zh">齐纳雪崩噪声真随机数发生器中的增益相关熵特性</span>
+        </a>
+      </h3>
+      <p class="authors">Rishabh Das</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08774" target="_blank" rel="noopener">arXiv:2611.08774</a> · 2026-11-05T22:51:58Z</p>
+      <p class="summary">
+        <span class="en">This circuit study assesses five amplifier-gain settings and two coupling-capacitor values in a Zener avalanche noise generator, using 1.44 billion raw bits per configuration for NIST SP 800-22 and SP 800-90B evaluation. Replacing the diode with a stable voltage source at the same bias point reduces switching activity by about 97%, supporting avalanche noise as the necessary entropy source. A three-phase autocorrelation pattern associated with comparator saturation and recovery makes analog circuit dynamics a key consideration in entropy assessment for low-cost embedded hardware.</span>
+        <span class="zh">该电路研究评估齐纳雪崩噪声发生器的5种放大器增益与2种耦合电容取值，每种配置采用14.4亿原始比特进行NIST SP 800-22与SP 800-90B评估。将二极管替换为相同偏置点的稳定电压源后，开关活动减少约97%，支持雪崩噪声是必要熵源的判断。研究发现与比较器饱和及恢复过程相关的三阶段自相关结构，说明模拟电路动态是评估低成本嵌入式硬件熵质量的重要因素。</span>
       </p>
     </article>
   </section>
@@ -379,92 +415,32 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.08363" target="_blank" rel="noopener">
-          <span class="en">StrataFlux: Memory-Hierarchy-Native Low-Bit LLM Inference</span>
-          <span class="zh">StrataFlux：利用存储层次结构的低比特大模型推理</span>
+        <a href="https://arxiv.org/abs/2611.09825" target="_blank" rel="noopener">
+          <span class="en">BitDecoding-FP4: Native FP4 KV Cache Decoding</span>
+          <span class="zh">BitDecoding-FP4：原生FP4 KV缓存解码</span>
         </a>
       </h3>
-      <p class="authors">Jake Hyun, Ziyu Zhao, Jae-sun Seo, et al.</p>
+      <p class="authors">Dayou Du, Woon Yee Ng, Guangming Sheng, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.08363" target="_blank" rel="noopener">arXiv:2611.08363</a> · 2026-11-05T17:42:06Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.09825" target="_blank" rel="noopener">arXiv:2611.09825</a> · 2026-11-06T18:13:54Z</p>
       <p class="summary">
-        <span class="en">StrataFlux streams selected precision refinements from host RAM and SSDs to improve low-bit weights and KV caches while overlapping transfers with computation. For 2-bit Llama-3.1-8B-Instruct weights on RTX 5090, it reduces WikiText-2 perplexity from 9.46 to 8.40 while retaining 95.4% of the quantized baseline&#x27;s throughput. The preprint shows how the memory hierarchy can recover quantization quality, with the throughput result tied to the reported model and platform.</span>
-        <span class="zh">StrataFlux从主机内存与SSD中选择性传输用于精度修正的数据，并将传输与计算重叠，以改善低比特权重和KV缓存的精度。在RTX 5090上，针对采用2比特权重的Llama-3.1-8B-Instruct，它将WikiText-2困惑度从9.46降至8.40，同时保留量化基线95.4%的吞吐量。该预印本展示了利用存储层次结构弥补量化精度损失的路径，上述吞吐表现对应其报告的特定模型与平台。</span>
+        <span class="en">BitDecoding-FP4 co-designs quantization and attention kernels to decode directly from FP4 KV caches while addressing query error, probability underflow and key outliers. Splitting queries into two FP4 tensors reduces the reported query-logit error from 60% to 1%; the system also fuses probability quantization into transposed softmax and stacks query matrix operations over paged caches. The preprint targets the accuracy and kernel-overhead barriers that can prevent nominal 4-bit memory savings from becoming useful decoding throughput.</span>
+        <span class="zh">BitDecoding-FP4协同设计量化算法与注意力内核，直接使用FP4 KV缓存进行解码，并处理查询量化误差、概率下溢和键值离群点。将查询拆分为两个FP4张量后，文中报告的查询logit误差从60%降至1%；系统还将概率量化融合到转置softmax中，并在分页缓存上堆叠查询矩阵运算。该预印本针对精度损失与内核开销展开优化，这两类问题会妨碍4比特缓存的理论存储收益转化为实际解码吞吐量。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.07496" target="_blank" rel="noopener">
-          <span class="en">ZYFA: Speed and Accuracy of FP8 FlashAttention on AMD CDNA4</span>
-          <span class="zh">ZYFA：AMD CDNA4上FP8 FlashAttention的速度与精度优化</span>
+        <a href="https://arxiv.org/abs/2611.05906" target="_blank" rel="noopener">
+          <span class="en">CHARM+: Attention Scheduling Across Unequal Communication Links</span>
+          <span class="zh">CHARM+：面向带宽不均衡互连的注意力调度</span>
         </a>
       </h3>
-      <p class="authors">Quentin Anthony, Ganesh Bikshandi, Praneeth Medepalli, et al.</p>
+      <p class="authors">Xinhang Zhang, Boning Zhang, Chengchun Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.07496" target="_blank" rel="noopener">arXiv:2611.07496</a> · 2026-11-05T05:58:36Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.05906" target="_blank" rel="noopener">arXiv:2611.05906</a> · 2026-11-04T03:57:56Z</p>
       <p class="summary">
-        <span class="en">ZYFA develops MI355X prefill kernels that combine direct FP8 probability computation, ping-pong scheduling of softmax and matrix multiplication, and power-of-two probability scaling. The motivation is a measured utilization gap: at 32K tokens, the cited AITER kernels reach 39% of peak FP8 matrix throughput versus 49% in BF16. The preprint addresses vector-unit work and instruction ordering that limit attention performance, so the headline FP8 arithmetic advantage alone is insufficient to predict speed.</span>
-        <span class="zh">ZYFA面向MI355X开发prefill内核，将直接计算FP8概率、交替执行softmax与矩阵乘法的乒乓调度，以及按2的幂缩放概率结合起来。其出发点是实测利用率差距：在32K token下，文中引用的AITER内核达到FP8矩阵峰值吞吐的39%，BF16则为49%。该预印本针对限制注意力性能的向量单元计算与指令排序开销展开优化，表明仅凭FP8算术峰值优势不足以预测实际速度。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.07477" target="_blank" rel="noopener">
-          <span class="en">KOSMOS: Self-Scheduling Persistent Kernels for Communication-Compute Overlap</span>
-          <span class="zh">KOSMOS：以自调度常驻内核实现通信与计算重叠</span>
-        </a>
-      </h3>
-      <p class="authors">Alexander Magro, Aristotle Martin, Ye Wang, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.07477" target="_blank" rel="noopener">arXiv:2611.07477</a> · 2026-11-05T05:36:08Z</p>
-      <p class="summary">
-        <span class="en">KOSMOS lets GPU workgroups switch between communication and computation as data becomes ready, using consumer-demand-ordered queues inside persistent kernels. On MI350X and MI355X, the preprint reports 1.10–1.28× end-to-end BF16 TP+SP training speedups in Megatron-LM and 1.29–1.83× speedups over DeepEP for DeepSeek-V3 and Qwen3-235B proxy workloads. The contribution targets idle gaps from fixed schedules; the MoE results apply to the evaluated proxy training configurations.</span>
-        <span class="zh">KOSMOS在常驻内核中按消费者需求组织队列，使GPU工作组随数据就绪情况，在通信与计算任务之间切换。该预印本在MI350X和MI355X上报告，Megatron-LM的BF16张量并行加序列并行训练端到端加速为1.10至1.28倍；针对DeepSeek-V3与Qwen3-235B的代理工作负载，相对DeepEP加速1.29至1.83倍。其贡献在于减少固定调度造成的空闲间隙，MoE性能数字对应所评估的代理训练配置。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.07149" target="_blank" rel="noopener">
-          <span class="en">FastAFD Measures Attention-FFN Disaggregation on Rack-Scale NVLink</span>
-          <span class="zh">FastAFD评估机架级NVLink上的Attention与FFN解耦</span>
-        </a>
-      </h3>
-      <p class="authors">Yichao Fu, Yuxuan Zhang, Minshen Zhang, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.07149" target="_blank" rel="noopener">arXiv:2611.07149</a> · 2026-11-04T21:21:57Z</p>
-      <p class="summary">
-        <span class="en">FastAFD separates attention and MoE expert execution on GB200 NVL72 and overlaps the work of two microbatches. Against the best tested vLLM wide-expert-parallel configuration, it reaches up to 1.17× throughput on Qwen3 and 1.16× on Qwen3.5, while matching the baseline on MiniMax-M2.5. An analytical model predicts throughput within 3% in the reported evaluation, offering a pre-deployment check of whether disaggregation pays for a particular workload.</span>
-        <span class="zh">FastAFD在GB200 NVL72上分离注意力与MoE专家执行，并将两个微批次的工作重叠。相对测试中最优的vLLM大规模专家并行配置，Qwen3和Qwen3.5的最高吞吐提升分别为1.17倍和1.16倍，MiniMax-M2.5则与基线持平。文中分析模型在所报告评估中的吞吐预测误差不超过3%，可用于在部署前判断特定工作负载是否适合解耦。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.07105" target="_blank" rel="noopener">
-          <span class="en">NUMA-Torch: Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket CPUs</span>
-          <span class="zh">NUMA-Torch：以编译器优化多路CPU上的NUMA感知大模型prefill</span>
-        </a>
-      </h3>
-      <p class="authors">Thisara Rathnayaka Weerakoon, Ishan Dewpura, Niman Ransindu, et al.</p>
-      <p class="affil">University of Moratuwa / Independent Researcher</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2611.07105" target="_blank" rel="noopener">arXiv:2611.07105</a> · 2026-11-04T20:17:40Z</p>
-      <p class="summary">
-        <span class="en">NUMA-Torch makes TorchInductor partition weights and compute by CPU socket, keeping thread pools and memory allocations local through CPU affinity. The approach targets cross-socket weight traffic that reduces effective DRAM bandwidth during prefill. The preprint evaluates GPT-2 variants from 117M to 762M parameters and BERT Small and Large, so extrapolating its findings to much larger models requires further measurement.</span>
-        <span class="zh">NUMA-Torch改造TorchInductor，按CPU插槽划分权重与计算，并通过CPU亲和性将线程池和内存分配限制在本地。该方法针对prefill阶段跨插槽读取权重、导致有效DRAM带宽下降的问题。预印本评估了参数量从1.17亿到7.62亿的GPT-2变体，以及BERT Small和Large，将结论推广到更大模型仍需要进一步测量。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.04382" target="_blank" rel="noopener">
-          <span class="en">FastKVComp Raises KV Compression Throughput for Disaggregated Serving</span>
-          <span class="zh">FastKVComp提升解耦推理服务的KV缓存压缩吞吐量</span>
-        </a>
-      </h3>
-      <p class="authors">Junhong Wu, Zedong Liu, Xinyang Ma, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.04382" target="_blank" rel="noopener">arXiv:2611.04382</a> · 2026-11-03T06:13:07Z</p>
-      <p class="summary">
-        <span class="en">FastKVComp fuses distribution transformation and low-bit quantization in a TileLang kernel and replaces KVServe&#x27;s lossless backend with a searchable compression pipeline. The preprint reports up to 5.9× speedup for the fused kernel and lossless-compression throughput rising from below 90 GB/s to over 500 GB/s. Faster compression can preserve the benefit of reduced KV transfers on high-bandwidth links, although these component metrics do not establish the same gain in end-to-end serving throughput.</span>
-        <span class="zh">FastKVComp以TileLang内核融合分布变换与低比特量化，并为KVServe换用可搜索的无损压缩流水线。该预印本报告融合内核最高加速5.9倍，无损压缩吞吐量从不足90 GB/s提升至超过500 GB/s。更快的压缩有助于在高带宽互连下保留减少KV传输的收益，但这些组件指标并不代表端到端推理吞吐量也有同等提升。</span>
+        <span class="en">CHARM+ reorganizes sequence-parallel attention communication into levels and separates cross-hardware transfers from local communication to reduce synchronization caused by unequal bandwidth. Against Ring-Attention, the preprint reports average forward/backward speedups of 1.3×/1.7× on a dual-NUMA PCIe architecture and 2.8×/2.9× on a dual-node NVLink architecture. The different gains show why communication scheduling needs to reflect the actual interconnect topology; these are attention-algorithm results rather than whole-model speedups.</span>
+        <span class="zh">CHARM+将序列并行注意力通信重组为多个层级，并分离跨硬件传输与本地通信，以减少带宽不均衡引发的同步开销。相对Ring-Attention，预印本报告双NUMA PCIe架构上的前向与反向平均加速分别为1.3倍和1.7倍，双节点NVLink架构上分别为2.8倍和2.9倍。收益差异说明通信调度需要匹配实际互连拓扑；这些数字衡量注意力算法性能，尚不能直接等同于完整模型加速。</span>
       </p>
     </article>
   </section>
@@ -475,17 +451,47 @@
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.05729" target="_blank" rel="noopener">
-          <span class="en">FRESHPart: Feedback-Reshaped Spectral Embedding for Hypergraph Partitioning</span>
-          <span class="zh">FRESHPart：通过反馈重塑谱嵌入的超图划分方法</span>
+        <a href="https://arxiv.org/abs/2611.08543" target="_blank" rel="noopener">
+          <span class="en">SAFTAC: Simulation-Augmented LLM Training for Analog Circuit Design</span>
+          <span class="zh">SAFTAC：以仿真增强大模型训练的模拟电路设计方法</span>
         </a>
       </h3>
-      <p class="authors">Rongjian Liang, Zhuo Feng, Brucek Khailany</p>
+      <p class="authors">Junsheng Huang, Yifan Sun, Zhuoer Zhang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.05729" target="_blank" rel="noopener">arXiv:2611.05729</a> · 2026-11-03T23:00:57Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08543" target="_blank" rel="noopener">arXiv:2611.08543</a> · 2026-11-05T03:54:10Z</p>
       <p class="summary">
-        <span class="en">FRESHPart uses geometry and search feedback to reshape spectral embeddings for circuit-hypergraph partitioning. On Titan23, the preprint reports average cut reductions relative to hMETIS of 13.09% at 2% imbalance tolerance and 25.21% at 20%, completing each benchmark in under 120 seconds on one GPU. The result offers a practical EDA partitioning improvement; the reported metric is partition cut quality rather than final placed-and-routed chip performance.</span>
-        <span class="zh">FRESHPart利用几何反馈与搜索反馈重塑谱嵌入，改进电路超图划分。在Titan23基准上，该预印本报告：不平衡容限为2%和20%时，相对hMETIS的平均割代价分别降低13.09%和25.21%，每项基准均在单颗GPU上于120秒内完成。结果为EDA划分提供了实用改进，其指标衡量划分质量，尚不能直接推导最终布局布线后的芯片性能。</span>
+        <span class="en">SAFTAC builds a simulation-grounded dataset of 8,626 design tasks across 10 analog-circuit types, including specifications, labeled ports, loads, testbenches and reference netlists. It combines three-stage supervised fine-tuning with reinforcement fine-tuning augmented by simulation feedback so open-source LLMs can generate and revise designs against explicit requirements. The work addresses missing training information for specification-driven design, while physical implementation and fabricated performance require subsequent validation.</span>
+        <span class="zh">SAFTAC构建了以仿真为基础的数据集，包含10类模拟电路的8626项设计任务，并提供指标要求、标注端口、负载、测试平台和参考网表。它结合三阶段监督微调与仿真反馈增强的强化微调，使开源大模型能够依据明确要求生成并修改设计。该工作补充了指标驱动设计所缺少的训练信息，物理实现与流片后的性能仍需后续验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.06079" target="_blank" rel="noopener">
+          <span class="en">TauLang: Explicit Space-Time Programming for Static Accelerators</span>
+          <span class="zh">TauLang：面向静态调度加速器的显式时空编程</span>
+        </a>
+      </h3>
+      <p class="authors">Xuxiao Yang, Junchi Wu, Yuqi Peng, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.06079" target="_blank" rel="noopener">arXiv:2611.06079</a> · 2026-11-04T07:21:03Z</p>
+      <p class="summary">
+        <span class="en">TauLang makes operation issue times explicit in a kernel language for statically scheduled accelerators, where cycle timing is part of program correctness. Its compiler checks timing relationships algebraically and jointly solves tensor placement and cycle scheduling with integer linear programming. The approach could make schedule exploration easier on TSP-style machines, with evaluation conducted on a cycle-accurate TSP-like model rather than establishing performance on deployed Groq hardware.</span>
+        <span class="zh">TauLang在面向静态调度加速器的内核语言中显式表达操作发射时间，因为这类机器的周期时序直接关系到程序正确性。编译器通过代数方式检查时序关系，并以整数线性规划联合求解张量放置与周期调度。该方法有望简化TSP类架构的调度探索，评估采用类似TSP机器的周期精确模型，其结果尚不能直接代表已部署Groq硬件的性能。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.08526" target="_blank" rel="noopener">
+          <span class="en">RoadBlock Models Microscaling Formats Inside Programmable Tensor Cores</span>
+          <span class="zh">RoadBlock在可编程Tensor Core中建模微缩放数值格式</span>
+        </a>
+      </h3>
+      <p class="authors">Nikhil Rout, Blaise Tine</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08526" target="_blank" rel="noopener">arXiv:2611.08526</a> · 2026-11-04T01:17:32Z</p>
+      <p class="summary">
+        <span class="en">RoadBlock is an open-source framework built on the RISC-V Vortex GPGPU that models custom microscaling formats inside a programmable Tensor Core. It exposes data width, scale-factor width and block size as parameters and derives per-thread metadata tiling, enabling perplexity and power-performance-area tradeoffs to include integration overhead. The tool supports format selection before committing to silicon, with its results serving as modeling evidence that still needs physical validation.</span>
+        <span class="zh">RoadBlock是基于RISC-V Vortex GPGPU构建的开源框架，可在可编程Tensor Core中建模自定义微缩放数值格式。它将数据位宽、缩放因子位宽与分组大小参数化，并推导每个线程的元数据分块方式，使困惑度与功耗、性能、面积的权衡能够纳入集成开销。该工具支持在确定芯片实现前筛选格式，其结果属于建模证据，仍需物理实现验证。</span>
       </p>
     </article>
   </section>
@@ -513,8 +519,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-09 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-09 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-10 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-10 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
