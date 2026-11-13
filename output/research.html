@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-12">
+<meta name="edition-date" content="2026-11-13">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Efficiency Hinges on Representation and Scheduling — Semi Research 2026-11-12</title>
+<title>Hardware Efficiency Depends on Circuits and Dataflow — Semi Research 2026-11-13</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, November 12, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月12日 星期四</span>
+      <span class="en">Research digest · Friday, November 13, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月13日 星期五</span>
     </div>
     <h1>
-      <span class="en">Inference Efficiency Hinges on Representation and Scheduling</span>
-      <span class="zh">表示方式与调度决定推理效率</span>
+      <span class="en">Hardware Efficiency Depends on Circuits and Dataflow</span>
+      <span class="zh">电路与数据流共同决定硬件效率</span>
     </h1>
     <p class="dek">
-      <span class="en">This selection examines speculative and diffusion decoding, distributed attention, and device-aware model deployment. Quantization, visual document compression, and byte-level modeling explore how representation choices redistribute memory and processing costs.</span>
-      <span class="zh">本次选文关注推测解码、扩散解码、分布式注意力以及面向具体设备的模型部署。量化、文档视觉压缩和字节级建模则探索表示方式如何重新分配内存与处理开销。</span>
+      <span class="en">New device and EDA papers join earlier-November circuit and neuromorphic work from the merged feed. The selection examines reconfigurable logic, chiplet communication, parasitic-aware computation, and low-power quantum control.</span>
+      <span class="zh">本期将新近的器件与EDA论文，同合并候选池中11月较早发表的电路及类脑计算研究一并选读。关注方向包括可重构逻辑、chiplet通信、考虑寄生效应的计算，以及低功耗量子控制。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 8 paper(s)</span>
@@ -336,129 +336,159 @@
     </div>
   </header>
 
-    <section class="area" id="ai-research">
+    <section class="area" id="devices">
     <h2>
-      <span class="en">AI Research &amp; Inference Systems</span>
-      <span class="zh">AI研究与推理系统</span>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.14399" target="_blank" rel="noopener">
-          <span class="en">REAL Loss Optimizes Expected Acceptance Length in Speculative Decoding</span>
-          <span class="zh">REAL Loss直接优化推测解码的期望接受长度</span>
+        <a href="https://doi.org/10.1002/adfm.79553" target="_blank" rel="noopener">
+          <span class="en">Reconfigurable Neuromorphic Logic Circuits Driven by Ion-Mediated Organic Electrochemical Diodes</span>
+          <span class="zh">离子调控有机电化学二极管驱动的可重构类脑逻辑电路</span>
         </a>
       </h3>
-      <p class="authors">Yu Tian</p>
+      <p class="authors">Dongmi Heo, Min-Hu Huang, Youngseok Kim, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.14399" target="_blank" rel="noopener">arXiv:2611.14399</a> · 2026-11-10T17:45:12Z</p>
+      <p class="venue"><a href="https://doi.org/10.1002/adfm.79553" target="_blank" rel="noopener">Advanced Functional Materials</a> · 2026-11-10</p>
       <p class="summary">
-        <span class="en">REAL derives a draft-model training objective that directly estimates expected acceptance length in speculative decoding, using path weights and Rao-Blackwellization. In a controlled comparison with a Qwen3.6-35B-A3B target and a Domino drafter, it improves acceptance length against WTV, VSD, DBLast, and a static LK baseline across nine task subsets and five seeds. Longer accepted blocks could reduce target-model passes per generated token.</span>
-        <span class="zh">REAL利用路径权重与Rao-Blackwell化，推导出直接估计推测解码期望接受长度的草稿模型训练目标。在采用Qwen3.6-35B-A3B目标模型和Domino草稿模型的受控比较中，它在9个任务子集、5个随机种子下取得了优于WTV、VSD、DBLast及静态LK基线的接受长度。每轮接受更多token，有望减少生成每个token所需的目标模型前向计算次数。</span>
+        <span class="en">Organic electrochemical diodes implement multiple logic functions in a single diode-resistor configuration, with input-voltage polarity and frequency reprogramming channel conductance. Cascading two multistate circuits produces a proof-of-concept half-adder. The result connects device-level state control to reconfigurable logic, with the demonstrated scope centered on small circuits.</span>
+        <span class="zh">有机电化学二极管通过输入电压的极性与频率调节沟道电导，在单个二极管—电阻结构中实现多种逻辑功能。研究将两个多状态逻辑电路级联，演示了概念验证性质的半加器。这一结果把器件状态调控与可重构逻辑连接起来，当前演示集中于小规模电路。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Readout Systems</span>
+      <span class="zh">电路与读出系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCSI.2026.3709046" target="_blank" rel="noopener">
+          <span class="en">A Multi-Functional Streaming Readout ASIC With Channel-Embedded DSP and Neural Inference</span>
+          <span class="zh">通道内集成DSP与神经网络推理的多功能流式读出ASIC</span>
+        </a>
+      </h3>
+      <p class="authors">S. Mandal, G. Deptuch, Jack Fried, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3709046" target="_blank" rel="noopener">IEEE Transactions on Circuits and Systems Part 1: Regular Papers</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">A 65 nm CMOS radiation-detector readout ASIC integrates 23 independent channels, each combining an analog front end, a 12-bit ADC, programmable DSP, and a fixed-point multilayer perceptron. The neural engine uses 8-bit weights and 12-bit activations for on-chip regression and classification. Supporting feature streaming alongside full waveforms moves data reduction into the acquisition chip and targets output-bandwidth demand.</span>
+        <span class="zh">一款采用65 nm CMOS的辐射探测器读出ASIC集成23个独立通道，每通道包含模拟前端、12 bit ADC、可编程DSP及定点多层感知机。神经网络引擎使用8 bit权重和12 bit激活值，在片上执行回归与分类。芯片同时支持完整波形和特征流输出，将数据压缩处理前移到采集芯片，以降低输出带宽需求。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCAD.2026.3663301" target="_blank" rel="noopener">
+          <span class="en">SpikeLet Combines Hierarchical Interconnects with Spatial-Temporal Parallelism for Neuromorphic Chiplets</span>
+          <span class="zh">SpikeLet结合分层互连与时空并行，扩展类脑chiplet系统</span>
+        </a>
+      </h3>
+      <p class="authors">Jia-Jun Lu, Xiao-Yang Zeng, Chi-Xiao Chen, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2026.3663301" target="_blank" rel="noopener">IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">SpikeLet combines hierarchical spike aggregation, cross-layer and cross-timestep parallelism, and communication-aware mapping for multichiplet spiking neural networks. On a 4-by-4-chiplet prototype, the authors report a 74.2% reduction in transmission latency in their evaluation. The design addresses the communication and scheduling costs that become important when a spiking network grows beyond one chip&#x27;s capacity.</span>
+        <span class="zh">SpikeLet面向多chiplet脉冲神经网络，结合分层脉冲聚合、跨层与跨时间步并行，以及通信感知映射。在4×4个chiplet的原型上，作者报告其评估中的传输延迟降低74.2%。该设计针对脉冲网络规模超过单芯片容量后逐渐突出的通信与调度开销。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.14387" target="_blank" rel="noopener">
-          <span class="en">B3 Overlaps Block Denoising for Faster Diffusion Language Models</span>
-          <span class="zh">B3通过重叠分块去噪加速扩散语言模型</span>
+        <a href="http://arxiv.org/abs/2611.03735" target="_blank" rel="noopener">
+          <span class="en">HyVox Splits Low-Power Speaker Identification Across Neuromorphic and von Neumann Processors</span>
+          <span class="zh">HyVox在类脑与冯·诺依曼处理器间划分低功耗说话人识别任务</span>
         </a>
       </h3>
-      <p class="authors">Amir Mann, Jonathan Fhima, Shaked Brody, et al.</p>
+      <p class="authors">S. Addy, Eduardo Calle-Ortiz, Prashant Shenoy, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.14387" target="_blank" rel="noopener">arXiv:2611.14387</a> · 2026-11-10T17:40:24Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.03735" target="_blank" rel="noopener">arXiv:2611.03735</a> · 2026-11-01</p>
       <p class="summary">
-        <span class="en">B3 refines two adjacent token blocks within a shared forward pass and opens the next block adaptively in self-editing diffusion language models. Across 10 datasets, the authors report an 11.5–14.5% speedup with comparable generation quality. The method targets latency lost when a block waits for its slowest token and requires no additional training or hyperparameter tuning.</span>
-        <span class="zh">B3在自编辑扩散语言模型中，让两个相邻token块共享一次前向计算进行迭代细化，并自适应地启动下一个块。作者在10个数据集上报告，生成质量相当时可获得11.5%至14.5%的加速。该方法减少了一个块等待最慢token所造成的延迟，无需额外训练或超参数调优。</span>
+        <span class="en">HyVox assigns speech embeddings to a neuromorphic processor and speaker matching, unknown-speaker rejection, and enrollment to a microcontroller. Its backbone compresses 6.5-fold to 29,000 synapses, while a 32-neuron embedding extractor passes only spike counts between the processors. This partition lets new speakers enter through gallery-prototype updates and concentrates sparse event-driven computation on the neuromorphic chip.</span>
+        <span class="zh">HyVox将语音嵌入计算交给类脑处理器，将说话人匹配、未知说话人拒识及注册交给微控制器。其骨干网络压缩6.5倍至29000个突触，32神经元嵌入提取器仅通过脉冲计数与另一处理器交换信息。这种划分允许通过更新说话人库中的原型注册新用户，并将稀疏事件驱动计算集中到类脑芯片上。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Aware AI Research</span>
+      <span class="zh">硬件感知AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.08712" target="_blank" rel="noopener">
+          <span class="en">An Educated Guess Derives Activation-Aligned Gradients for Zeroth-Order Optimization</span>
+          <span class="zh">An Educated Guess利用激活几何构造零阶优化的梯度估计</span>
+        </a>
+      </h3>
+      <p class="authors">Justus Huebotter, Serge Thill, M. van Gerven, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.08712" target="_blank" rel="noopener">arXiv:2611.08712</a> · 2026-11-05</p>
+      <p class="summary">
+        <span class="en">Spectral Zeroth-Order methods use activation geometry available during forward passes to derive gradient-search directions under explicit stochastic assumptions. The approach targets the poor alignment between random perturbations and true gradients in high-dimensional models. The preprint connects inference-only gradient estimation to learning on neuromorphic, asynchronous, and other hardware with demanding synchronization or differentiability constraints.</span>
+        <span class="zh">Spectral Zeroth-Order方法利用前向计算中可获取的激活几何，在明确的随机假设下推导梯度搜索方向。该方法针对高维模型中随机扰动与真实梯度对齐程度较差的问题。这篇预印本将仅依赖前向计算的梯度估计，与类脑、异步及其他在同步或可微性方面受限的硬件学习联系起来。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Hardware &amp; Control</span>
+      <span class="zh">量子硬件与控制</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/JSSC.2026.3736028" target="_blank" rel="noopener">
+          <span class="en">A 16-Channel Cryo-CMOS Flux Control Pulse Generator ASIC</span>
+          <span class="zh">16通道低温CMOS磁通控制脉冲发生器ASIC</span>
+        </a>
+      </h3>
+      <p class="authors">K. Tien, D. Frank, J. Bulzacchelli, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/JSSC.2026.3736028" target="_blank" rel="noopener">IEEE Journal of Solid-State Circuits</a> · 2026-11-01</p>
+      <p class="summary">
+        <span class="en">A 16-channel cryo-CMOS flux-control ASIC achieves a qubit-limited two-qubit gate error rate of 0.084% with a superconducting quantum processor while consuming less than 7 mW per flux-control channel. Three 10-bit sub-DACs operating at rates up to 1 GS/s combine to deliver 14-bit level resolution, with on-chip digital precompensation for off-chip distortion. The measured combination of gate fidelity and channel power provides a concrete integration point for scaling cryogenic qubit control.</span>
+        <span class="zh">一款16通道低温CMOS磁通控制ASIC与超导量子处理器联合演示，实现了受量子比特本身限制的0.084%双量子比特门错误率，每个磁通控制通道功耗低于7 mW。3个以最高1 GS/s速率工作的10 bit子DAC组合出14 bit电平分辨率，并由片上数字预补偿修正片外失真。门保真度与通道功耗的联合实测，为扩展低温量子比特控制提供了具体的集成参考。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">Electronic Design Automation</span>
+      <span class="zh">电子设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.3390/electronics15215180" target="_blank" rel="noopener">
+          <span class="en">Agentic Design of Approximate DFT IP in TSMC 28 nm CMOS with RF-SoC Verification</span>
+          <span class="zh">基于智能体设计台积电28 nm近似DFT IP，并开展RF-SoC验证</span>
+        </a>
+      </h3>
+      <p class="authors">M. S. de Silva, R. J. Cintra, A. Madanayake</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/electronics15215180" target="_blank" rel="noopener">Electronics</a> · 2026-11-07</p>
+      <p class="summary">
+        <span class="en">A Claude-based agent designs approximate-DFT digital IP around sparse butterfly factorizations, targeting TSMC 28 nm CMOS with RF-SoC verification. The approximate transforms are described as requiring O(N) multiplication operations, making arithmetic structure a central design constraint. The work provides a domain-specific case for examining AI-assisted HDL generation and hardware verification.</span>
+        <span class="zh">研究使用基于Claude的智能体，围绕稀疏蝶形分解设计近似离散傅里叶变换数字IP，面向台积电28 nm CMOS并开展RF-SoC验证。这类近似变换所需的乘法运算量被描述为O(N)，因此算术结构成为设计中的核心约束。该工作为考察AI辅助HDL生成与硬件验证提供了一个专门领域的案例。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.13293" target="_blank" rel="noopener">
-          <span class="en">Decode Token Parallelism for Memory-Efficient Distributed LLM Attention</span>
-          <span class="zh">Decode Token Parallelism实现内存高效的分布式LLM注意力</span>
+        <a href="https://doi.org/10.1109/TCAD.2026.3685536" target="_blank" rel="noopener">
+          <span class="en">Signal-Integrity-Aware Training and Readout for Memristor Crossbar Arrays</span>
+          <span class="zh">面向忆阻器交叉阵列的信号完整性感知训练与读出</span>
         </a>
       </h3>
-      <p class="authors">Susav Shrestha, Brad Settlemyer, Narasimha Reddy</p>
+      <p class="authors">Han-Zhi Ma, Jia-Rui Qiu, Ye Shi, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.13293" target="_blank" rel="noopener">arXiv:2611.13293</a> · 2026-11-09T22:01:46Z</p>
+      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2026.3685536" target="_blank" rel="noopener">IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</a> · 2026-11-01</p>
       <p class="summary">
-        <span class="en">Decode Token Parallelism separates model-weight placement from attention ownership, distributing one model copy in layer blocks across nodes. Each active node runs projections and MLP work for the full batch within its NVLink domain, and every node computes attention for its own requests using local KV caches. This arrangement targets the memory-capacity and cross-node communication costs that constrain high-concurrency, long-context decoding.</span>
-        <span class="zh">Decode Token Parallelism将模型权重的放置与注意力计算的归属解耦，把单份模型按层块分布到多个节点。持有当前层块的节点在自身NVLink域内处理整个批次的投影与MLP计算，各节点则利用本地KV缓存为各自请求计算注意力。这种安排针对高并发、长上下文解码中的内存容量与跨节点通信开销。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.14356" target="_blank" rel="noopener">
-          <span class="en">EngineAgent Automates On-Device LLM Engine Enablement</span>
-          <span class="zh">EngineAgent自动完成端侧LLM推理引擎适配</span>
-        </a>
-      </h3>
-      <p class="authors">Zhengxiang Huang, Yujie Sun, Shengheng Chen, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.14356" target="_blank" rel="noopener">arXiv:2611.14356</a> · 2026-11-10T17:16:47Z</p>
-      <p class="summary">
-        <span class="en">EngineAgent automates support for new mobile LLMs by mapping dependencies across model conversion, graph construction, operators, and hardware backends. It prepares engine knowledge and backend-specific build and debugging workflows, then uses a builder and an auditor with device-side validation to coordinate implementation. The evaluation spans 12 tasks, three mobile LLMs, and four engine–backend pairs across CPUs, GPUs, and NPUs, focusing on the engineering work required for engine portability.</span>
-        <span class="zh">EngineAgent通过梳理模型转换、计算图构建、算子与硬件后端之间的依赖，自动完成移动端LLM的引擎适配。系统先整理引擎知识，预先验证后端的构建与调试流程，再通过构建者、审查者和设备端验证协调实现。评估覆盖12项任务、3个移动端LLM及涉及CPU、GPU和NPU的4组引擎—后端组合，聚焦引擎可移植性所需的工程工作。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.13509" target="_blank" rel="noopener">
-          <span class="en">Mobile AI Factory Builds Specialized Language Models for Mobile Devices</span>
-          <span class="zh">Mobile AI Factory为移动设备构建专用语言模型</span>
-        </a>
-      </h3>
-      <p class="authors">Evan Li, Krishna Deshpande, Wen Cheng, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.13509" target="_blank" rel="noopener">arXiv:2611.13509</a> · 2026-11-10T03:29:29Z</p>
-      <p class="summary">
-        <span class="en">Mobile AI Factory searches model sizes, fine-tuning settings, and quantization choices using measurements from the target phone. Across 10 tasks and four Android phones, the system combines an LLM orchestrator with rollback rules that reject accuracy regressions. On an entity-extraction task, its search uses about one nineteenth of the GPU time required to exhaustively train 27 variants, illustrating how hardware measurements can guide a smaller model-selection budget.</span>
-        <span class="zh">Mobile AI Factory利用目标手机的实测数据，搜索模型规模、微调设置与量化方案。该系统在10项任务和4款Android手机上接受评估，结合LLM编排器与回滚规则，撤销导致准确率下降的调整。在一项实体抽取任务中，其搜索所用GPU时间约为穷举训练27种模型变体的1/19，展示了硬件实测如何帮助压缩模型选择的计算预算。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.14413" target="_blank" rel="noopener">
-          <span class="en">Weight Precision and Option-Order Averaging Share a Fixed Inference Budget</span>
-          <span class="zh">固定推理预算下权衡权重精度与选项顺序平均</span>
-        </a>
-      </h3>
-      <p class="authors">Mohammed Nayeem Khan, Logesh L, Aliyas Ahmad Misri</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.14413" target="_blank" rel="noopener">arXiv:2611.14413</a> · 2026-11-10T17:53:44Z</p>
-      <p class="summary">
-        <span class="en">Simulated round-to-nearest weight quantization on Qwen3-0.6B and Qwen3-1.7B finds no accuracy loss from six-bit weights in tests spanning four multiple-choice benchmarks. For the 0.6B model at four bits, averaging four cyclic answer-option orderings recovers 12.6 percentage points. The study exposes a tradeoff between weight storage and repeated inference passes, with 300 items per benchmark defining the evaluation scope.</span>
-        <span class="zh">在Qwen3-0.6B和Qwen3-1.7B上进行的最近舍入权重量化模拟显示，覆盖4个多项选择基准的测试中，6 bit权重未带来准确率损失。对于采用4 bit权重的0.6B模型，对4种循环排列的选项顺序进行平均可恢复12.6个百分点。该研究揭示了权重存储与多次推理之间的预算权衡，评估范围为每个基准300道题。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.13675" target="_blank" rel="noopener">
-          <span class="en">OpticalRAG Compresses Retrieved Documents into Visual Tokens</span>
-          <span class="zh">OpticalRAG将检索文档压缩为视觉token</span>
-        </a>
-      </h3>
-      <p class="authors">Senhao Liu, Yuheng Zhang, Chunyu Wei, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.13675" target="_blank" rel="noopener">arXiv:2611.13675</a> · 2026-11-10T07:24:50Z</p>
-      <p class="summary">
-        <span class="en">OpticalRAG renders retrieved documents as page images, uses a frozen vision encoder, and compresses their visual representations into as few as 16 tokens injected into an LLM. Its shared projection connects text-query retrieval with the visual-token compressor. It targets the context-window pressure of long-document RAG by transferring document processing into a visual encoding and compression stage.</span>
-        <span class="zh">OpticalRAG将检索文档渲染成页面图像，经冻结的视觉编码器处理后，将视觉表示压缩为最少16个注入LLM的token。它通过共享投影连接文本查询检索与视觉token压缩器。该方法将文档处理转移到视觉编码和压缩阶段，以缓解长文档RAG的上下文窗口压力。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.13607" target="_blank" rel="noopener">
-          <span class="en">One Byte, One Token Converts a 27B Hybrid-Attention LLM</span>
-          <span class="zh">One Byte, One Token将270亿参数混合注意力LLM转换为字节级模型</span>
-        </a>
-      </h3>
-      <p class="authors">Liwei Zhang, ZhiMing Tong</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.13607" target="_blank" rel="noopener">arXiv:2611.13607</a> · 2026-11-10T05:33:41Z</p>
-      <p class="summary">
-        <span class="en">One Byte, One Token converts Qwen3.8-27B from subword tokens to a pure byte-level model, shrinking its vocabulary from 248,320 entries to 384. The two-stage conversion uses 4.77 GB of supervised bytes and takes 178.6 hours on eight H200 GPUs. Changing the vocabulary and sequence representation shifts the costs of embedding tables, output projections, and sequence processing, giving hardware-aware deployment studies a concrete conversion recipe.</span>
-        <span class="zh">One Byte, One Token将Qwen3.8-27B从子词token模型转换为纯字节级模型，把词表从248320项缩减至384项。两阶段转换使用4.77 GB的受监督字节数据，在8张H200 GPU上耗时178.6小时。词表与序列表示的改变会重新分配嵌入表、输出投影及序列处理的开销，为面向硬件的部署研究提供具体转换方案。</span>
+        <span class="en">A parasitic-aware training and inference scheme combines fast partial-element equivalent-circuit modeling with a readout rule based on quasi-steady-state arrival time. Matrix decomposition and sparse techniques accelerate array modeling, while dynamic unstructured pruning and parasitic correction address data-dependent signal distortion. The method links interconnect behavior to model deployment, targeting delay, crosstalk, and voltage-drop errors in memristor crossbars.</span>
+        <span class="zh">一套考虑寄生效应的训练与推理方案，将快速部分元等效电路建模与基于准稳态到达时间的读出规则相结合。矩阵分解和稀疏技术用于加速阵列建模，动态非结构化剪枝与寄生效应校正则处理数据相关的信号失真。该方法将互连行为纳入模型部署，针对忆阻器交叉阵列中的延迟、串扰及压降误差。</span>
       </p>
     </article>
   </section>
@@ -486,8 +516,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-12 01:16 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-12 01:16 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-13 01:17 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-13 01:17 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
