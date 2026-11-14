@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-31">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Memory Goes Magnetic; MoE Serving Splits Apart — Semi Research 2026-05-31</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Lang visibility */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-05-31.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Sunday, May 31, 2026</span>
+      <span class="zh">研究摘要 · 2026年5月31日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">Memory Goes Magnetic; MoE Serving Splits Apart</span>
+      <span class="zh">存储走向磁性，MoE服务架构走向分裂</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s literature centers on two threads: MRAM-and-magnetic device candidates re-emerging as the cleanest path to in-memory CNNs, and the AFD / disaggregation movement at the systems level — both pointing at the same diagnosis that current monolithic GPU pods are mismatched to MoE-shaped workloads.</span>
+      <span class="zh">本周文献集中于两条主线：MRAM与磁性器件作为存内CNN最干净路径重新登场；以及系统层面的AFD／解耦运动——两者都指向同一诊断：当前单体GPU pod架构与MoE形状的负载并不匹配。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; 3D-IC</span>
+      <span class="zh">器件与3D-IC</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.29942" target="_blank" rel="noopener">
+          <span class="en">Reconfigurable multistate MRAM synapses with vortex STNO neurons for scalable in-memory CNNs</span>
+          <span class="zh">面向可扩展存内CNN的多态可重构MRAM突触与涡旋STNO神经元</span>
+        </a><span class="tag">preprint</span><span class="tag">MRAM</span><span class="tag">neuromorphic</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">spintronics research consortium</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.29942" target="_blank" rel="noopener">arXiv:2605.29942</a> · 2026-05-28</p>
+      <p class="summary">
+        <span class="en">Proposes a unified MRAM + spin-torque nano-oscillator (STNO) architecture where MTJ multistate cells serve as synaptic weights and vortex STNOs serve as oscillator-neurons — all on a CMOS-compatible substrate. The interesting move is folding synapse and neuron onto the same device family rather than the usual MRAM-only weight-store + CMOS neuron pattern; in their simulated CNN deployments this cuts neuron-side area and energy dramatically. Still simulation, not measured silicon at scale, but it points at the architectural template for a credible MRAM-native edge accelerator.</span>
+        <span class="zh">提出统一的MRAM + 自旋力矩纳米振荡器（STNO）架构：MTJ多态单元作为突触权重，涡旋STNO作为振荡器神经元，全部位于CMOS兼容衬底。亮点在于把突触和神经元折叠到同一器件家族，而非常见的「MRAM只做权重存储+CMOS做神经元」模式；在模拟的CNN部署中，神经元侧的面积与能耗均大幅下降。仍属仿真层级而非规模化实测硅片，但已为可信的MRAM原生边缘加速器提供了清晰架构模板。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.29867" target="_blank" rel="noopener">
+          <span class="en">Design-oriented modeling of TSV substrate-noise coupling to ring VCOs</span>
+          <span class="zh">面向设计的TSV衬底噪声向环形VCO耦合建模</span>
+        </a><span class="tag">preprint</span><span class="tag">3D-IC</span><span class="tag">mixed-signal</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.29867" target="_blank" rel="noopener">arXiv:2605.29867</a> · 2026-05-28</p>
+      <p class="summary">
+        <span class="en">Derives a closed-form three-port RLGC macromodel for TSV-induced substrate-noise coupling into ring VCOs in mixed-signal 3D-IC stacks — validated on a three-stage ring VCO in 22nm FD-SOI. The contribution is making TSV noise tractable for analog-block layout at design time, instead of requiring full EM extraction after the fact. Practical relevance: as chiplet RF/analog blocks get placed adjacent to TSV-dense digital tiles, the spectral purity of PLLs and clock distribution depends on whether designers have a tool like this in their flow.</span>
+        <span class="zh">推导出TSV在混合信号3D-IC堆叠中向环形VCO产生衬底噪声耦合的闭式三端RLGC宏模型，并在22 nm FD-SOI的三级环形VCO上得到验证。贡献在于：在设计阶段就能让TSV噪声变得可处理，而无需事后做完整电磁场提取。实际意义：随着chiplet中的射频/模拟模块越来越多地与TSV密集的数字单元相邻放置，PLL与时钟分发的频谱纯度，将取决于设计者流程中是否有此类工具。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="in-memory">
+    <h2>
+      <span class="en">In-Memory &amp; Memristor</span>
+      <span class="zh">存内计算与忆阻器</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.29728" target="_blank" rel="noopener">
+          <span class="en">PRISM: processing-in-memory sparse MTTKRP for tensor decomposition acceleration</span>
+          <span class="zh">PRISM：面向张量分解加速的存内稀疏MTTKRP</span>
+        </a><span class="tag">preprint</span><span class="tag">PIM</span><span class="tag">tensor decomposition</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.29728" target="_blank" rel="noopener">arXiv:2605.29728</a> · 2026-05-28</p>
+      <p class="summary">
+        <span class="en">Tensor decomposition (CP-ALS) is a sneaky-important workload for recommendation systems, scientific computing, and certain ML feature-extraction paths — and the inner loop (Sparse MTTKRP) is bandwidth-bound in ways PIM is meant to address. PRISM is a co-designed PIM datapath that handles the irregular sparse-access patterns this kernel demands, with measured speedups vs. host-CPU baselines. Worth tracking because tensor decomposition is one of the rare AI-adjacent workloads where PIM advantage isn&#x27;t theoretical — the memory-bandwidth gap is structural.</span>
+        <span class="zh">张量分解（CP-ALS）是推荐系统、科学计算与某些ML特征提取路径中悄然重要的负载——而其内层循环（Sparse MTTKRP）的带宽受限模式，正是PIM被设计来解决的。PRISM是面向该核所需的不规则稀疏访问模式联合设计的PIM数据通路，相对主机CPU基线给出实测加速。值得关注的原因：张量分解是少数AI相邻负载中、PIM优势并非理论而是结构性的领域——其内存带宽缺口是结构性的。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.29533" target="_blank" rel="noopener">
+          <span class="en">Uncertainty-triggered wake-up: memristor front-end for energy-efficient edge AI</span>
+          <span class="zh">不确定性触发唤醒：面向高能效边缘AI的忆阻器前端</span>
+        </a><span class="tag">preprint</span><span class="tag">memristor</span><span class="tag">edge AI</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.29533" target="_blank" rel="noopener">arXiv:2605.29533</a> · 2026-05-28</p>
+      <p class="summary">
+        <span class="en">Couples a fabricated memristor Bayesian machine — operating as an always-on, ultra-low-power probabilistic screener — to a programmable CPU running a higher-accuracy software neural net that only fires when the memristor front-end&#x27;s uncertainty crosses a threshold. The argument is structural: memristor variability and integration friction don&#x27;t matter at the screening layer; they only matter if you make the memristor the final decision-maker. This is a more honest device-system pairing than the usual memristor-replaces-everything pitch.</span>
+        <span class="zh">把已经流片的忆阻器贝叶斯机器（作为常驻开机、超低功耗的概率筛选器）与运行更高精度软件神经网络的可编程CPU耦合：仅当忆阻器前端的不确定性越过阈值时才唤醒CPU。论点是结构性的：忆阻器的器件波动与集成摩擦在筛选层并不重要；只有当你让忆阻器做最终决策时，才变得致命。这是比常见的「忆阻器取代一切」更诚实的器件-系统配对方式。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="moe-serving">
+    <h2>
+      <span class="en">MoE Serving &amp; Networks</span>
+      <span class="zh">MoE服务与网络</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.28302" target="_blank" rel="noopener">
+          <span class="en">How far can disaggregation go? Attention-FFN disaggregation for efficient MoE LLM serving</span>
+          <span class="zh">解耦能走多远？面向高效MoE LLM服务的注意力-FFN解耦</span>
+        </a><span class="tag">preprint</span><span class="tag">MoE</span><span class="tag">disaggregation</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.28302" target="_blank" rel="noopener">arXiv:2605.28302</a> · 2026-05-27</p>
+      <p class="summary">
+        <span class="en">Maps the design space of Attention-FFN Disaggregation (AFD) for MoE serving — placing memory-bound attention work and compute-intensive expert-FFN work on physically distinct resource pools, with the MoE dispatch/combine pattern as the communication layer between them. The contribution isn&#x27;t claiming AFD wins everywhere; it&#x27;s a rigorous exploration of when AFD beats the simpler prefill-decode disaggregation and when it doesn&#x27;t. Practical relevance: vendors building MoE inference appliances (Cerebras, Groq, FuriosaAI) all need this design-space analysis before committing silicon partitions.</span>
+        <span class="zh">对MoE服务下「注意力-FFN解耦（AFD）」的设计空间进行刻画：把内存受限的注意力工作与计算密集的专家FFN工作放在物理上不同的资源池，MoE的dispatch/combine作为两者之间的通信层。本文贡献并非「AFD处处取胜」，而是一次严谨探索：何时AFD优于更简单的「预填充-解码解耦」、何时不优。实际意义：搭建MoE推理设备的厂商（Cerebras、Groq、FuriosaAI）在做硅片分区承诺之前，都需要这种设计空间分析。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.29135" target="_blank" rel="noopener">
+          <span class="en">Rotary GPU: exploring local execution paths for large MoE models under limited GPU memory</span>
+          <span class="zh">Rotary GPU：在受限GPU内存下探索大MoE模型的本地执行路径</span>
+        </a><span class="tag">preprint</span><span class="tag">MoE</span><span class="tag">on-prem</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.29135" target="_blank" rel="noopener">arXiv:2605.29135</a> · 2026-05-27</p>
+      <p class="summary">
+        <span class="en">Asks an under-discussed question: once large MoE models exist, can they run usefully on the much smaller hardware that organizations under budget, security, or air-gap constraints actually have? Proposes a &#x27;rotary&#x27; execution pattern that pages experts in and out of limited GPU memory rather than requiring resident parameter counts. Not glamorous, but practical — and tracks the same disaggregation thesis as the AFD work above, just from the on-prem-deployment angle rather than the hyperscaler angle.</span>
+        <span class="zh">提出一个被低估的问题：当大型MoE模型已经存在，它们能否在那些受预算、安全或气隙约束、硬件远小于超大规模客户的组织中跑出实用价值？论文提出一种「旋转」执行模式，把专家在有限GPU内存中分页换入换出，避免要求所有参数常驻。不性感但实用——与上面AFD工作指向同一解耦命题，只是切入点从超大规模客户变成本地部署。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.27963" target="_blank" rel="noopener">
+          <span class="en">Throughput-optimized networks at scale (Google TPU v4/5p case study)</span>
+          <span class="zh">规模下的吞吐量优化网络（Google TPU v4/5p案例）</span>
+        </a><span class="tag">preprint</span><span class="tag">TPU</span><span class="tag">network topology</span>
+      </h3>
+      <p class="authors">Google infrastructure team</p>
+      <p class="affil">Google</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.27963" target="_blank" rel="noopener">arXiv:2605.27963</a> · 2026-05-27</p>
+      <p class="summary">
+        <span class="en">Treats TPU v4/v5p topology, routing, and collectives as a joint optimization problem and shows the existing deployed networks leave &#x27;terabytes per second&#x27; of throughput on the table. The work matters less for the specific TPU result and more for the methodology: this is the first paper to demonstrate that the reconfigurable-fabric design point can be optimized at scale with publishable end-to-end metrics. Watch for whether the same approach migrates to GB200 / Rubin NVL fabrics, where reconfigurability is more limited but the optimization opportunity is just as large.</span>
+        <span class="zh">把TPU v4/v5p的拓扑、路由与集合通信视作联合优化问题，并表明现有部署网络在吞吐量上存在「每秒TB级」的留白。本文意义不在TPU具体结果，而在方法论：这是首次有论文证明，可重构织物设计点在规模下可被优化、并发布端到端可比较指标。值得关注的是：同一方法能否迁移到可重构性更弱、但优化空间同样巨大的GB200／Rubin NVL织物。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="emerging">
+    <h2>
+      <span class="en">Emerging Computing</span>
+      <span class="zh">新兴计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.27560" target="_blank" rel="noopener">
+          <span class="en">MATBG Josephson diode as a universal thermal machine</span>
+          <span class="zh">MATBG Josephson二极管作为通用热机</span>
+        </a><span class="tag">preprint</span><span class="tag">MATBG</span><span class="tag">quantum thermodynamics</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.27560" target="_blank" rel="noopener">arXiv:2605.27560</a> · 2026-05-26</p>
+      <p class="summary">
+        <span class="en">Magic-angle twisted bilayer graphene Josephson junctions with gate-tunable valley-polarized weak links implement quantum Stirling, Otto, and Carnot cycles — driven by the valley polarization potential rather than the usual superconducting phase bias. Distant from product silicon, but worth tracking because MATBG-based devices keep producing &#x27;this shouldn&#x27;t work this cleanly&#x27; results, and the device space that keeps doing that is the one to watch for the next decade&#x27;s unexpected commercial substrate.</span>
+        <span class="zh">魔角扭曲双层石墨烯（MATBG）的Josephson结、配以可栅控的谷极化弱链路，实现量子Stirling、Otto与Carnot循环——以谷极化电位作为驱动参数，而非常规的超导相位偏置。距离量产硅片还很远，但值得关注：MATBG器件不断给出「不应该这么干净就成立」的结果，而这类持续给出此类结果的器件空间，正是值得观察的——下一个十年里那些意想不到的商用衬底很可能来自这里。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.30206" target="_blank" rel="noopener">
+          <span class="en">Induced nonlinear phase shift of forward-volume spin waves in YIG films and 1D magnonic crystals</span>
+          <span class="zh">YIG薄膜与一维磁子晶体中前向体自旋波的诱导非线性相移</span>
+        </a><span class="tag">preprint</span><span class="tag">magnonic</span><span class="tag">spin waves</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.30206" target="_blank" rel="noopener">arXiv:2605.30206</a> · 2026-05-28</p>
+      <p class="summary">
+        <span class="en">Demonstrates that forward-volume spin waves in perpendicularly-magnetized YIG films can be phase-shifted up to 180° by a co-propagating pumping wave at only a few milliwatts — a substantial improvement over surface-spin-wave equivalents and exactly the type of low-power nonlinearity magnonic computing needs to look credible. Still YIG-on-substrate physics rather than wafer-scale silicon, but the trajectory matters: magnonic logic gates have been one device-physics breakthrough away from credibility for a decade; this is the kind of result that closes that gap.</span>
+        <span class="zh">证明垂直磁化YIG薄膜中的前向体自旋波（SW），可被同向传播的泵浦波在仅几毫瓦功率下产生最多180°相移——这是相对于表面自旋波类似实验的实质性改进，恰恰是磁子计算需要的「低功耗非线性」。仍属YIG-on-衬底物理而非晶圆级硅工艺，但走势重要：磁子逻辑门十年来一直差「一次器件物理突破」即可获得可信度；这正是缩短此缺口的那类结果。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-31 13:26 UTC · <a href="../2026-05-31.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-05-31 13:26 UTC · <a href="../2026-05-31.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

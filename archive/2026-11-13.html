@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-13">
+<meta name="generator" content="semi-news-daily">
+<title>AI Chip Leadership Shifts as Investment Continues — Semi News 2026-11-13</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, November 13, 2026</span>
+      <span class="zh">2026年11月13日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Chip Leadership Shifts as Investment Continues</span>
+      <span class="zh">AI芯片领导层更迭，产业投资继续推进</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Nvidia faces a CEO succession process as Samsung pledges 46 trillion won for an HBM hub and Cerebras gains a Microsoft deal. Growing congressional support for tighter China export controls adds another variable to AI-chip suppliers&#x27; plans.</span>
+      <span class="zh">英伟达启动CEO接班人遴选之际，三星承诺投入46万亿韩元建设HBM基地，Cerebras则获得与微软的交易。美国国会对收紧芯片对华出口管制的支持上升，为AI芯片供应商的规划增添了变量。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.eetimes.com/jensen-resigns-over-second-affair/" target="_blank" rel="noopener">
+          <span class="en">Jensen Huang Resigns as Nvidia CEO as Board Searches for Successor</span>
+          <span class="zh">黄仁勋辞任英伟达CEO，董事会寻找接班人</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 4h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Jensen Huang resigns as Nvidia CEO, and the board is searching for a new leader, EE Times reports. The succession process becomes an immediate governance issue for a company whose accelerator roadmap anchors many customers&#x27; AI infrastructure plans.</span>
+        <span class="zh">据EE Times报道，黄仁勋辞任英伟达CEO，董事会正在寻找新的公司负责人。英伟达的加速器路线图牵动众多客户的AI基础设施规划，接班人遴选因而成为公司当前的重要治理议题。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOZURSZ1lUNTlHeVhNY1loLVE4bDd5ZElkc3k4ZjlaU3JkZkFudU52MUFYRFVGVDFoNVhmc0k5ZFZXbmM5T0hUWWNqUGxDQVFPaXU2Y3JuTTFrY0IySG5jbmRuWEtqNDFzdUdSSWpJMl9Fd3RlR2NUWmg1SzRHSDJ2cXRERVM0S3g2WEc2eVhNd3UzSE1rX1ZPQVl1b1o5S19ON0hnWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Says Employee Data Was Posted Online from Cloud Provider&#x27;s Systems</span>
+          <span class="zh">台积电称员工个人资料从云服务商系统外泄并被发布到网上</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MLQ.ai</span> · 4h ago</span>
+        <span class="zh"><span class="source">MLQ.ai</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC says employee personal data was posted online from a cloud provider&#x27;s systems, according to MLQ.ai. The incident puts third-party data handling and protection of employees&#x27; information under scrutiny at the foundry.</span>
+        <span class="zh">据MLQ.ai报道，台积电表示，来自一家云服务商系统的员工个人资料被发布到网上。这起事件使台积电对第三方的数据管理及员工信息保护面临审视。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE03ZG9jZ0pKdVMtMHZpZ2dOa2UwdHRoaHhIRFlxcmRWaHptNThSS200WVZsT3JXVk5XX2I5S285V1o1MEQtWlUyNEdLMm9OUEV1ZnM5emtEWWlWSmVzTDhYQjBXSlFQNERqSkhwSXJoYkg?oc=5" target="_blank" rel="noopener">
+          <span class="en">Lee Jae-yong Pledges 46 Trillion Won to Turn Onyang into an HBM Hub</span>
+          <span class="zh">李在镕承诺投资46万亿韩元，将温阳园区打造为HBM基地</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Korea IT Times</span> · 37m ago</span>
+        <span class="zh"><span class="source">Korea IT Times</span> · 37分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Lee Jae-yong pledges 46 trillion won to transform Samsung&#x27;s Onyang campus into an HBM hub, Korea IT Times reports. The commitment adds a large, site-specific investment plan to the competition to supply memory for AI accelerators.</span>
+        <span class="zh">据Korea IT Times报道，李在镕承诺投入46万亿韩元，将三星温阳园区改造为HBM基地。这项面向具体园区的大规模投资计划，进一步加码了AI加速器配套存储的供应竞争。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE90ejVqaWRGMmZma3BBeGlnN3JibVJkOUtPdVpPN2lYdnl6UEVpcXM3T1NuRGhnS2dQU04yRTNlVkk3bE5janFhRm1aS2k1S3YtNC1kWG9nOVNNbFJta2N5RjVOTVFRZldBTjdHNUFlVmNJeGhwdEI5b0xn0gGOAUFVX3lxTE8wRWR5bWYyRzZ5c0Z1Smx3UDlGLXFwc3lac29PRVdTbnk5eHRyZ2hUazJvb0JqUjREdVBkZXNwNmNPWGFQUW03RFNIYTM4TGdhNk1lOGU3aUJoTFphTy1lSjdxRHd3aHFVc01vVWlvZ1FRLURLSmF4TS1XRzBNNUt4ZUVBTXNQZl9yWmhjSnc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Taiwan DRAM Makers Plan EUV Adoption as Memory Demand Shifts Supply</span>
+          <span class="zh">存储需求改变供给格局，台湾DRAM厂商计划导入EUV</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosunbiz</span> · 4h ago</span>
+        <span class="zh"><span class="source">Chosunbiz</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwanese DRAM makers plan to adopt EUV as the memory boom changes supply dynamics, Chosunbiz reports. The transition would make EUV tool access and process integration more important to their manufacturing roadmaps while extending demand for advanced lithography across the memory sector.</span>
+        <span class="zh">据Chosunbiz报道，随着存储景气改变供给格局，台湾DRAM厂商计划导入EUV。这一转型将使EUV设备获取与工艺整合在其制造路线图中更加重要，也会扩大存储行业对先进光刻的需求。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOeHlFYlB5LV9UV19QUS0xbU4xaFI3X3Jmb2g3WEFGeVA3R1c1NzdpY3RFSEtDTW9GNXhtemJpVUR1Nk9hdm5jbEFCeU5WSk0tUEhfbFRWUjJIdHA1RDdjRnlFTmlfZ3N3akpRLUlHN0ZKRHBoSjdNZFpINFYtdHVRZXN2d2tldG52UlRxN2dERzkxX3NXSFdwckVaYnBjWmlpcWRyazNYMmFmZDdYdTJyOVcxUlQyQ1c5V3c?oc=5" target="_blank" rel="noopener">
+          <span class="en">Speaker Johnson Says Congress Is Building Consensus on China Chip Export Limits</span>
+          <span class="zh">众议长约翰逊称国会正就限制芯片对华出口形成共识</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">1470 &amp; 100.3 WMBD</span> · 4h ago</span>
+        <span class="zh"><span class="source">1470 &amp; 100.3 WMBD</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">House Speaker Mike Johnson says Congress is developing consensus on limiting chip exports to China, 1470 &amp; 100.3 WMBD reports. His remarks signal growing legislative support for restrictions, increasing uncertainty around future market access for chip suppliers and Chinese buyers.</span>
+        <span class="zh">据1470 &amp; 100.3 WMBD报道，美国众议院议长Mike Johnson表示，国会正就限制芯片对华出口形成共识。这番表态显示相关限制获得更多立法层面的支持，也使芯片供应商与中国买方未来的市场准入预期更加不确定。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">业绩与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaHk5ZHFYY1lPVFNoNmVrclg2YzBsQWFpVGNMYjZRUWxCX2Q4ak9KbTlydnJzWktmLUJ2SHdndEp4MS0xcWtNSGg2Znd6b0hGSEdJM0VBOWprODNnRENmdjlCd3Npc0FzYjZnTWNuZ3dWdHQ1ektvVkwxT01vZWR4VjA1YmpQdk9KYjNCSExCSEhFMlY2QjM4Ylg5NDY5MmxZRk82X2lyVVNwX2M?oc=5" target="_blank" rel="noopener">
+          <span class="en">Applied Materials Sales and Profit Rise on Semiconductor Demand</span>
+          <span class="zh">半导体需求推动应用材料销售额与利润增长</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Wall Street Journal</span> · 3h ago</span>
+        <span class="zh"><span class="source">The Wall Street Journal</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Applied Materials reports higher sales and profit on semiconductor demand, according to The Wall Street Journal. Growth at the equipment supplier indicates that chipmakers&#x27; investment spending is continuing to translate into revenue for manufacturing-tool vendors.</span>
+        <span class="zh">据《华尔街日报》报道，半导体需求推动应用材料销售额与利润增长。这家设备供应商的业绩增长表明，芯片制造商的投资支出仍在转化为制造设备厂商的收入。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNUmNlbmpTUGx1XzhHZTJ0X0VsX190WlFpeFpocXZVdlZCeDNiaTk3MVNWNWJiWDFlQmZhaGUzRkNlS2N1d1NaQTlBVVRkUzJNaWs1WEZ2dGxsWnloWDU0MTFPdHlMczhROWZVWk11NFBaUFItaE0xLVhPdFN0SWhQZUNneXhtVEZydnNITTlmV1RndnJNZUgyR0pXTG1IQ1F0cG91YXdMZFVKRlNBUWYtSUE3aFhkaktpclhSaWRYc1NDeFhWQzJr?oc=5" target="_blank" rel="noopener">
+          <span class="en">GCT Semiconductor Pushes 5G Ramp to 1H27 as Shipments and Cash Decline</span>
+          <span class="zh">GCT Semiconductor将5G放量推迟至2027年上半年，出货与现金同步下降</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Finviz</span> · 2h ago</span>
+        <span class="zh"><span class="source">Finviz</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">GCT Semiconductor pushes its 5G ramp to the first half of 2027 as shipments fall and cash shrinks, according to Finviz. The schedule makes the timing of 5G volume shipments central to the company&#x27;s near-term revenue and liquidity outlook.</span>
+        <span class="zh">据Finviz报道，GCT Semiconductor将5G业务放量时间推迟至2027年上半年，同时面临出货下降与现金减少。5G批量出货的兑现时间，因而成为判断公司近期营收及流动性前景的重要因素。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPM2NWSnVMTzNLbGJ1NHB3NnFoWndpeE9DM0t4SHJRUEw3cVd0elkzYkxwWDZnSjVQeHgtM2llLTFKV3VIeWVEWWp5cTEzcjlZOVFkdHJjcGFsMmh1SGxTa2E5RFp6ZU1rUmVLRGotYXBEZDM4Y1dlUkFCSmtNNUxYNDJhYlJnRnpldW5IMERmbnpVaHBieWdiUkJuXy1Cc1M0NXA0VkR2TFhJYVNEZThncGlFZUFOUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras Shares Rise 17% on AI-Chip Revenue and Microsoft Deal</span>
+          <span class="zh">AI芯片营收增长与微软交易推动Cerebras股价上涨17%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SiliconANGLE</span> · 1h ago</span>
+        <span class="zh"><span class="source">SiliconANGLE</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras shares rise 17% following surging AI-chip revenue and a Microsoft deal, SiliconANGLE reports. The named customer adds a concrete commercial milestone for an alternative AI-chip supplier as buyers evaluate accelerator options.</span>
+        <span class="zh">据SiliconANGLE报道，AI芯片营收快速增长及与微软的交易推动Cerebras股价上涨17%。在买方评估不同加速器方案之际，微软这一具名客户为这家AI芯片新势力增添了明确的商业进展。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE10aWlCdEhTN2JBU3NKVlhfR21Ba0tNMmp5MU40ZUpfMXBSc3FYVTFHeXZoUGtCbFpZd2RQbkltTmdGMFBmT0VsV1hjOTlkNXRMdzF4MWJsVmItRW1nYno2c0VQUE1NZk94UVE0VkJGOVNabW10T18zVg?oc=5" target="_blank" rel="noopener">
+          <span class="en">EnCharge Brings Analog Compute to M.2</span>
+          <span class="zh">EnCharge将模拟计算引入M.2模块</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Jon Peddie</span> · 6h ago</span>
+        <span class="zh"><span class="source">Jon Peddie</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">EnCharge is bringing analog compute to M.2, Jon Peddie reports. Using the common module format could ease host-system integration and make analog acceleration easier to evaluate in compact systems.</span>
+        <span class="zh">据Jon Peddie报道，EnCharge正将模拟计算引入M.2模块。采用这一常见模块形态，有望简化主机系统集成，也方便紧凑型系统评估模拟加速方案。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-13 01:17 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-13 01:17 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

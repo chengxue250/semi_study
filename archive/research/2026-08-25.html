@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-25">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Wide-bandgap devices confront interfaces and models — Semi Research 2026-08-25</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-08-25.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Tuesday, August 25, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月25日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">Wide-bandgap devices confront interfaces and models</span>
+      <span class="zh">宽禁带器件直面界面与模型难题</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s selection centers on SiC, GaN, diamond and two-dimensional heterostructures, where thermal gains and high-field performance depend on interface control and credible device models.</span>
+      <span class="zh">本周论文聚焦SiC、GaN、金刚石及二维异质结构：其散热收益和高场性能取决于界面控制与可信的器件模型。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1371/journal.pone.0355480" target="_blank" rel="noopener">
+          <span class="en">Comparing inhomogeneous Schottky-barrier models in SiC polytypes</span>
+          <span class="zh">SiC多型中非均匀肖特基势垒模型的比较</span>
+        </a>
+      </h3>
+      <p class="authors">Fayssal Mekaret, A. Rabehi, B. Zebentout, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1371/journal.pone.0355480" target="_blank" rel="noopener">PLoS ONE</a> · 2026-08-21</p>
+      <p class="summary">
+        <span class="en">The authors compare Cowley–Sze, Werner Gaussian-distribution and Tung localized-patch descriptions of Schottky-barrier inhomogeneity in 3C-, 4H- and 6H-SiC. The analysis separates interface-state pinning, statistical barrier variation and localized low-barrier current paths, helping modelers choose a mechanism rather than treating nonideal I–V behavior as a single effect.</span>
+        <span class="zh">作者比较了Cowley–Sze、Werner高斯分布和Tung局域斑块三种模型，用于描述3C、4H和6H-SiC中的肖特基势垒非均匀性。该分析区分了界面态钉扎、势垒统计波动和低势垒局域电流路径，有助于建模者避免将非理想I–V特性归为单一效应。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.20506" target="_blank" rel="noopener">
+          <span class="en">Diamond heat spreaders can electrostatically alter GaN FETs</span>
+          <span class="zh">金刚石散热层可通过静电效应改变GaN FET性能</span>
+        </a>
+      </h3>
+      <p class="authors">Lincoln D. Hogan, MD Mazharul Islam, A. Aziz</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2608.20506" target="_blank" rel="noopener">arXiv:2608.20506</a> · 2026-08-20</p>
+      <p class="summary">
+        <span class="en">TCAD simulations of AlGaN/GaN HEMTs with integrated diamond heat spreaders reproduce the expected thermal benefit but reveal a countervailing electrostatic effect at the diamond/GaN interface. Band bending and interfacial hole accumulation can alter vertical transport and suppress on-state current, so thermal integration cannot be designed independently of electrostatics.</span>
+        <span class="zh">针对集成金刚石散热层的AlGaN/GaN HEMT的TCAD仿真重现了预期的散热收益，却发现了金刚石/GaN界面的相反静电效应。能带弯曲和界面空穴积累会改变垂直输运并抑制导通电流，因此散热集成不能脱离静电设计而单独优化。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.3390/ma19163529" target="_blank" rel="noopener">
+          <span class="en">Diamond power devices: progress and barriers in harsh environments</span>
+          <span class="zh">金刚石功率器件在严苛环境中的进展与障碍</span>
+        </a>
+      </h3>
+      <p class="authors">Nuwayyir Alshammari, M. V. Rao, Qiliang Li</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/ma19163529" target="_blank" rel="noopener">Materials</a> · 2026-08-20</p>
+      <p class="summary">
+        <span class="en">This review maps progress in diamond growth, substrates, surface control, dielectrics and device structures for ultrawide-bandgap electronics. It finds the strongest high-voltage evidence in diodes, while transistors remain constrained by threshold control, normally-off operation, contacts, interfaces and reliability.</span>
+        <span class="zh">该综述梳理了面向超宽禁带电子学的金刚石生长、衬底、表面控制、介质和器件结构进展。文中认为二极管在高压能力方面证据最充分，而晶体管仍受阈值控制、常关特性、接触、界面和可靠性限制。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsami.6c08831" target="_blank" rel="noopener">
+          <span class="en">GaN/TMD heterojunctions span high-frequency and sensing devices</span>
+          <span class="zh">GaN/TMD异质结覆盖高频与传感器件</span>
+        </a>
+      </h3>
+      <p class="authors">Guoxin Li, Lipeng Luo, Qian Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1021/acsami.6c08831" target="_blank" rel="noopener">ACS Applied Materials and Interfaces</a> · 2026-08-14</p>
+      <p class="summary">
+        <span class="en">The review surveys GaN and transition-metal dichalcogenide heterojunctions for electronics, optoelectronics, sensing and energy conversion. It identifies interface engineering, material synthesis and large-area integration as the common obstacles between attractive device demonstrations and practical deployment.</span>
+        <span class="zh">该综述考察GaN与过渡金属硫族化物异质结在电子、光电子、传感和能量转换中的应用。文中指出，界面工程、材料合成和大面积集成是从有吸引力的器件演示走向实际部署的共同障碍。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.3389/fphy.2026.1817906" target="_blank" rel="noopener">
+          <span class="en">Graphene MOS-HEMT study explores a two-dimensional power device</span>
+          <span class="zh">石墨烯MOS-HEMT研究探索二维功率器件</span>
+        </a>
+      </h3>
+      <p class="authors">Neelu, K. Mazumdar</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3389/fphy.2026.1817906" target="_blank" rel="noopener">Frontiers of Physics</a> · 2026-08-11</p>
+      <p class="summary">
+        <span class="en">Using Silvaco ATLAS simulations, this work models a graphene-channel MOS-HEMT with graphene oxide as the gate dielectric. At a reported 1 V threshold it obtains 1,280 mA drain current, about twice the cited GaN comparison, but the result remains a simulation-led device proposal rather than measured hardware.</span>
+        <span class="zh">该工作使用Silvaco ATLAS仿真，以石墨烯为沟道、氧化石墨烯为栅介质构建MOS-HEMT。在报告的1 V阈值下，漏电流达到1,280 mA，约为所引用GaN对照的两倍；但该结果仍是以仿真为主的器件方案，而非实测硬件。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Reliability</span>
+      <span class="zh">电路与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.3390/electronics15163558" target="_blank" rel="noopener">
+          <span class="en">Electrothermal SPICE modeling for 650 V GaN power conversion</span>
+          <span class="zh">面向650 V GaN功率转换的电热SPICE建模</span>
+        </a>
+      </h3>
+      <p class="authors">Mohamed Foued Guellati, Z. Riah, Y. Azzouz, M. Tlig</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/electronics15163558" target="_blank" rel="noopener">Electronics</a> · 2026-08-11</p>
+      <p class="summary">
+        <span class="en">The paper calibrates an electrothermal model of a commercial 650 V GaN HEMT against static I–V and dynamic C–V data, then optimizes it with an LTspice and genetic-algorithm flow. It reports mean absolute relative errors below 7% for forward I–V and 13% for reverse I–V from 25–100 °C, directly addressing the models needed for EMI and EMC design.</span>
+        <span class="zh">论文以静态I–V和动态C–V数据校准商用650 V GaN HEMT的电热模型，再通过LTspice与遗传算法流程进行优化。其报告在25–100 °C范围内正向I–V平均相对误差低于7%、反向I–V低于13%，直接服务于EMI和EMC设计所需的可信模型。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-25 01:13 UTC · <a href="../2026-08-25.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-25 01:13 UTC · <a href="../2026-08-25.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

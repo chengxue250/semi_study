@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-26">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Efficiency Work Moves Up the Stack — Semi Research 2026-06-26</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-26.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Friday, June 26, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月26日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">Efficiency Work Moves Up the Stack</span>
+      <span class="zh">效率研究沿计算栈上移</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s research candidates emphasize practical bottlenecks: lithography modeling, RF power design, GPU cache state, KV-cache compression, and kernel generation. The common thread is less about new peak compute and more about extracting usable efficiency from memory, tools, and physical constraints.</span>
+      <span class="zh">本期研究更关注实际瓶颈：光刻建模、射频功放设计、GPU缓存状态、KV-cache压缩和kernel生成。共同线索不是追求新的峰值算力，而是在内存、工具链和物理约束中挖出可用效率。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27207" target="_blank" rel="noopener">
+          <span class="en">Organic Semiconductor Alignment via Vapor-Guided Droplet Confinement</span>
+          <span class="zh">利用蒸汽引导液滴限域实现有机半导体取向</span>
+        </a>
+      </h3>
+      <p class="authors">Robert Malinowski, Alessandro Rossi, Lewis M. Cowen, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27207" target="_blank" rel="noopener">arXiv:2606.27207</a> · 2026-06-25T16:02:25Z</p>
+      <p class="summary">
+        <span class="en">The paper uses flows inside microliter vapor-guided droplets to align organic semiconductor nanowires before deposition. Organic field-effect transistors made with the films show about 40% higher saturation current than spin-coated controls. The result is most interesting for printed and flexible electronics because the method is contactless and can work on curved substrates, but it is still a materials/process demonstration rather than a manufacturable line flow.</span>
+        <span class="zh">这篇论文利用微升级蒸汽引导液滴内部的流动，在沉积前对有机半导体纳米线进行取向。有机场效应晶体管测试显示，相比旋涂对照样品，饱和电流提升约40%。这对印刷和柔性电子很有意义，因为方法非接触且可用于曲面基底，但目前仍是材料与工艺演示，不是可直接量产的产线流程。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27098" target="_blank" rel="noopener">
+          <span class="en">Residual GPU Cache State on Apple M4 Pro</span>
+          <span class="zh">Apple M4 Pro上的GPU残留缓存状态</span>
+        </a>
+      </h3>
+      <p class="authors">Faruk Alpay, Baris Basaran</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27098" target="_blank" rel="noopener">arXiv:2606.27098</a> · 2026-06-25T14:35:28Z</p>
+      <p class="summary">
+        <span class="en">Alpay and Basaran characterize cache state left after GPU commands on a 14-core Apple M4 Pro. Their Metal experiments show a reproducible post-GPU shared-cache displacement window that slows the first CPU traversal after large GPU footprints, with a second traversal clearing most of the cost. The work matters for unified-memory SoCs because CPU-GPU phase boundaries can create performance artifacts even when there is no simultaneous DRAM contention.</span>
+        <span class="zh">Alpay和Basaran在14核Apple M4 Pro上刻画了GPU命令完成后留下的缓存状态。Metal实验显示，大GPU访问足迹会造成可重复的GPU后共享缓存置换窗口，使第一次CPU遍历变慢，而第二次遍历能清除大部分成本。这对统一内存SoC很重要，因为即使没有同时发生DRAM争用，CPU-GPU阶段边界也可能产生性能伪影。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27042" target="_blank" rel="noopener">
+          <span class="en">KAN-Based Digital Predistortion for Analog Radio-over-Fiber Fronthaul</span>
+          <span class="zh">面向模拟Radio-over-Fiber前传的KAN数字预失真</span>
+        </a>
+      </h3>
+      <p class="authors">Carlos Daniel Fontes da Silva, Tianyu Jiang, Lu Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27042" target="_blank" rel="noopener">arXiv:2606.27042</a> · 2026-06-25T13:47:22Z</p>
+      <p class="summary">
+        <span class="en">This paper demonstrates a Kolmogorov-Arnold Network digital predistortion model for nonlinear distortion in analog radio-over-fiber fronthaul. The symbolic ETDKAN version delivers ACLR and EVM close to neural-network models while keeping complexity near memory-polynomial DPD, and experiments show a 4-5 dB ACLR reduction. The practical angle is strong because fronthaul linearization is often limited by power and implementation cost, not only model accuracy.</span>
+        <span class="zh">这篇论文展示了用于模拟Radio-over-Fiber前传非线性失真的Kolmogorov-Arnold Network数字预失真模型。符号化ETDKAN在ACLR和EVM上接近神经网络模型，同时复杂度接近记忆多项式DPD，实验中ACLR降低4-5 dB。其实用价值在于，前传线性化常受功耗和实现成本限制，而不只是模型精度。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27002" target="_blank" rel="noopener">
+          <span class="en">Deep-Learning Inverse Design for a Wideband Inverted Doherty PA</span>
+          <span class="zh">用于宽带反相Doherty功放的深度学习逆向设计</span>
+        </a>
+      </h3>
+      <p class="authors">Han Zhou, Haojie Chang, David Widen, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27002" target="_blank" rel="noopener">arXiv:2606.27002</a> · 2026-06-25T13:19:38Z</p>
+      <p class="summary">
+        <span class="en">The authors combine CNNs and genetic algorithms to synthesize a pixelated combiner network for an inverted Doherty power amplifier. A fabricated GaN HEMT prototype reaches 51%-63% peak drain efficiency and 48%-54% 6 dB back-off efficiency from 1.9 to 2.5 GHz, with DPD bringing ACLR below -53.2 dBc. The measured prototype is the important part: it moves the inverse-design claim beyond layout search and into RF hardware results.</span>
+        <span class="zh">作者结合CNN和遗传算法，为反相Doherty功率放大器合成像素化合路网络。制成的GaN HEMT原型在1.9-2.5 GHz范围内达到51%-63%峰值漏极效率和48%-54%的6 dB回退效率，配合DPD后ACLR低于-53.2 dBc。关键在于它有实测原型，把逆向设计从版图搜索推进到射频硬件结果。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.26758" target="_blank" rel="noopener">
+          <span class="en">EGG: Expert-Guided Agent Framework for GPU Kernel Generation</span>
+          <span class="zh">EGG：面向GPU Kernel生成的专家引导Agent框架</span>
+        </a>
+      </h3>
+      <p class="authors">Yaochen Han, Ke Fan, Hongxu Jiang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26758" target="_blank" rel="noopener">arXiv:2606.26758</a> · 2026-06-25T08:44:26Z</p>
+      <p class="summary">
+        <span class="en">EGG decomposes LLM-based GPU kernel generation into algorithmic structure design and hardware-specific tuning. The framework injects expert optimization principles for parallel mapping, tensor tiling, and memory behavior instead of relying on unguided code generation. The hardware relevance is direct: if the approach holds up on real kernels, it could reduce the human bottleneck in extracting performance from accelerators, though benchmark breadth and correctness guarantees remain the caveats.</span>
+        <span class="zh">EGG把基于LLM的GPU kernel生成拆成算法结构设计和硬件特定调优两个阶段。该框架引入专家优化原则来指导并行映射、张量tiling和内存行为，而不是依赖无约束代码生成。其硬件相关性很直接：如果能在真实kernel上稳定成立，它可能缓解从加速器中榨取性能时的人力瓶颈，但基准覆盖范围和正确性保证仍是需要观察的限制。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27161" target="_blank" rel="noopener">
+          <span class="en">TOPS: First-Principles Visual Token Pruning for Efficient MLLM Inference</span>
+          <span class="zh">TOPS：面向高效MLLM推理的第一性原理视觉Token剪枝</span>
+        </a>
+      </h3>
+      <p class="authors">Tinghao Wang, Yichen Guo, Rui Huang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27161" target="_blank" rel="noopener">arXiv:2606.27161</a> · 2026-06-25T15:29:37Z</p>
+      <p class="summary">
+        <span class="en">TOPS reframes visual-token pruning as constructing token optimal preservation sets based on task relevance, information coverage, and semantic diversity. It is training-free and model-agnostic, with experiments across seven MLLM backbones and 14 benchmarks. The hardware angle is that visual-token reduction directly cuts attention and memory traffic during multimodal inference, though the paper is still a systems method rather than measured accelerator silicon.</span>
+        <span class="zh">TOPS把视觉token剪枝重新表述为构建最优token保留集合，核心原则是任务相关性、信息覆盖和语义多样性。该方法无需训练且与模型无关，并在7个MLLM骨干和14个基准上测试。硬件意义在于，减少视觉token会直接降低多模态推理中的attention计算和内存流量，不过这仍是系统方法论文，并非实测加速器芯片。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.26875" target="_blank" rel="noopener">
+          <span class="en">Information-Aware KV Cache Compression for Long Reasoning</span>
+          <span class="zh">面向长推理的信息感知KV-cache压缩</span>
+        </a>
+      </h3>
+      <p class="authors">Jushi Kai, Zhuiri Xiao, Alexandra Birch, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26875" target="_blank" rel="noopener">arXiv:2606.26875</a> · 2026-06-25T11:03:37Z</p>
+      <p class="summary">
+        <span class="en">InfoKV adds information-theoretic signals to KV-cache compression, using predictive uncertainty and representation evolution alongside attention scores. The authors argue that high-uncertainty tokens can influence distant future contexts more than attention-only methods capture. For inference hardware, the relevant claim is lower cache footprint during long reasoning without simply discarding distant context, but deployment value depends on latency overhead and robustness across models.</span>
+        <span class="zh">InfoKV在KV-cache压缩中加入信息论信号，把预测不确定性和层间表示演化与attention分数结合。作者认为，高不确定性token对远期上下文的影响可能超过纯attention方法能捕捉的范围。对推理硬件而言，关键主张是在长推理中降低缓存占用，同时不只是粗暴丢弃远端上下文，但部署价值取决于额外延迟和跨模型稳健性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum</span>
+      <span class="zh">量子</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27119" target="_blank" rel="noopener">
+          <span class="en">Efficient Foundation Decoders for Fault-Tolerant Quantum Computing</span>
+          <span class="zh">面向容错量子计算的高效Foundation Decoder</span>
+        </a>
+      </h3>
+      <p class="authors">Ge Yan, Shanchuan Li, Shiyi Xiao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27119" target="_blank" rel="noopener">arXiv:2606.27119</a> · 2026-06-25T14:58:33Z</p>
+      <p class="summary">
+        <span class="en">The paper proposes neural transfer unification to train foundation decoders across quantum error-correcting code distances. Its NTU-Transformer outperforms correlation-aware matching on a planar surface-code example and scales to larger code distances through transfer adaptation. The result is relevant because decoder training cost is a real bottleneck for fault-tolerant systems, but the evidence is still decoder benchmarking rather than a full hardware-control stack.</span>
+        <span class="zh">这篇论文提出neural transfer unification，用于跨量子纠错码距离训练foundation decoder。其NTU-Transformer在一个平面surface code例子上超过correlation-aware matching，并通过迁移适配扩展到更大的码距。这个结果相关性很强，因为decoder训练成本是容错系统的真实瓶颈，但证据仍是decoder基准测试，而不是完整硬件控制栈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Tools</span>
+      <span class="zh">EDA与设计工具</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.26713" target="_blank" rel="noopener">
+          <span class="en">LithoDreamer: Physics-Informed World Model for Computational Lithography</span>
+          <span class="zh">LithoDreamer：面向计算光刻的物理信息World Model</span>
+        </a>
+      </h3>
+      <p class="authors">Yuqi Jiang, Yumeng Liu, Zimu Li, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26713" target="_blank" rel="noopener">arXiv:2606.26713</a> · 2026-06-25T07:48:59Z</p>
+      <p class="summary">
+        <span class="en">LithoDreamer models the layout-mask-resist-ADI flow as a multi-stage physical evolution problem rather than a single learned mapping. The framework uses physics-informed latent states and contrastive variational optimization to guide process interventions. It is relevant to EDA because computational lithography is increasingly a yield limiter at advanced nodes, but the abstracted benchmark setting means fabs would still need tool-calibrated validation.</span>
+        <span class="zh">LithoDreamer把layout-mask-resist-ADI流程建模为多阶段物理演化问题，而不是单一的学习映射。该框架使用物理信息潜空间和对比变分优化来指导工艺干预。它对EDA有意义，因为计算光刻正日益成为先进制程良率限制因素，但其基准仍较抽象，晶圆厂还需要基于具体设备的校准验证。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-26 01:16 UTC · <a href="../2026-06-26.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-26 01:16 UTC · <a href="../2026-06-26.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-04">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Tensor Cores, Thermal Pixels and Quantized Experts — Semi Research 2026-06-04</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Lang visibility */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-04.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, June 4, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月4日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Tensor Cores, Thermal Pixels and Quantized Experts</span>
+      <span class="zh">张量核、热像素与量化专家</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Today&#x27;s research queue leans toward practical AI-infrastructure efficiency: using tensor cores for irregular graph work, generating GPU kernels, quantizing MoE and diffusion models, and instrumenting heat at chip scale.</span>
+      <span class="zh">今天的研究队列偏向实际AI基础设施效率：用张量核处理不规则图计算、生成GPU内核、量化MoE与扩散大模型，并在芯片尺度测量热行为。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators-systems">
+    <h2>
+      <span class="en">Accelerators &amp; Systems</span>
+      <span class="zh">加速器与系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.05081" target="_blank" rel="noopener">
+          <span class="en">Graph Traversal on Tensor Cores: A BFS Framework for Modern GPUs</span>
+          <span class="zh">在张量核上做图遍历：面向现代GPU的BFS框架</span>
+        </a><span class="tag">GPU</span><span class="tag">tensor cores</span><span class="tag">graph analytics</span>
+      </h3>
+      <p class="authors">Deniz Elbek, Kamer Kaya</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.05081" target="_blank" rel="noopener">arXiv:2606.05081</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">This paper reformulates breadth-first search so parts of the irregular graph workload can run on GPU tensor cores. The contribution is useful because tensor cores are abundant but often idle for non-dense-linear-algebra tasks. The caveat is that graph traversal remains memory- and synchronization-sensitive, so the practical value depends on when the framework can switch back to conventional CUDA execution without overhead.</span>
+        <span class="zh">这篇论文把广度优先搜索重新表述，让不规则图工作负载的一部分能够运行在GPU张量核上。它的价值在于，张量核数量充足，但在非密集线性代数任务中经常闲置。局限是图遍历仍然受内存访问和同步开销限制，因此实际价值取决于框架能否在合适时机低开销切回传统CUDA执行。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.04847" target="_blank" rel="noopener">
+          <span class="en">MusaCoder: Native GPU Kernel Generation with Full-Stack Training on Moore Threads GPU</span>
+          <span class="zh">MusaCoder：在摩尔线程GPU上训练原生GPU内核生成模型</span>
+        </a><span class="tag">GPU</span><span class="tag">compiler</span><span class="tag">kernel generation</span>
+      </h3>
+      <p class="authors">Kun Cheng, Songshuo Lu, Sicong Liao, Tankun Li, Yafei Zhang, Dong Yang, Qiheng Lv, Hua Wang, Zhi Chen, Yaohua Tang</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.04847" target="_blank" rel="noopener">arXiv:2606.04847</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">MusaCoder targets native GPU kernel generation across CUDA and MUSA backends, using execution feedback and a distributed verifier to train code-generation models. The hardware angle is important: compiler automation is becoming part of accelerator competitiveness, especially for non-CUDA ecosystems that need credible developer leverage. The main caveat is benchmark transfer, because kernel-generation wins only matter if they hold on messy real workloads.</span>
+        <span class="zh">MusaCoder面向CUDA和MUSA后端生成原生GPU内核，并使用执行反馈和分布式验证器训练代码生成模型。硬件意义很强：编译器自动化正在成为加速器竞争力的一部分，尤其是非CUDA生态需要可信的开发者杠杆。主要限制是基准迁移，因为内核生成优势只有在真实复杂工作负载上保持成立才有意义。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.04850" target="_blank" rel="noopener">
+          <span class="en">Uncertainty-Aware End-to-End Co-Design of Neural Network Processors</span>
+          <span class="zh">带不确定性感知的神经网络处理器端到端协同设计</span>
+        </a><span class="tag">AI processor</span><span class="tag">co-design</span><span class="tag">fabrication</span>
+      </h3>
+      <p class="authors">Yuyang Du, Yujun Huang, Gioele Zardini</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.04850" target="_blank" rel="noopener">arXiv:2606.04850</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">The paper frames neural-network processor design as an end-to-end co-design problem spanning training, mapping and fabrication uncertainty. That is the right abstraction for AI silicon because model accuracy, compiler mapping and physical implementation cannot be optimized independently forever. The caveat is that co-design frameworks can become too abstract unless they expose concrete tradeoffs for area, yield, timing and workload mix.</span>
+        <span class="zh">这篇论文把神经网络处理器设计表述为横跨训练、映射和制造不确定性的端到端协同设计问题。这个抽象适合AI芯片，因为模型精度、编译映射和物理实现无法永远独立优化。局限在于，协同设计框架如果不能给出面积、良率、时序和工作负载组合上的具体取舍，就容易停留在过抽象层面。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="model-compression">
+    <h2>
+      <span class="en">Model Compression &amp; Efficient Inference</span>
+      <span class="zh">模型压缩与高效推理</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.04980" target="_blank" rel="noopener">
+          <span class="en">AlphaQ: Calibration-Free Bit Allocation for Mixture-of-Experts Quantization</span>
+          <span class="zh">AlphaQ：无需校准数据的MoE量化比特分配</span>
+        </a><span class="tag">MoE</span><span class="tag">quantization</span><span class="tag">memory footprint</span>
+      </h3>
+      <p class="authors">Wanqi Yang, Yuexiao Ma, Alexander Conzelmann, Xiawu Zheng, Michael W. Mahoney, T. Konstantin Rusch, Shiwei Liu</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.04980" target="_blank" rel="noopener">arXiv:2606.04980</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">AlphaQ proposes calibration-free bit allocation for Mixture-of-Experts models, using weight-spectrum signals rather than representative calibration data. That is relevant because frontier MoE deployment is memory-bound and the true training distribution is often unavailable to downstream deployers. The caveat is that spectral quality proxies must survive across architectures and routing patterns, not only selected MoE benchmarks.</span>
+        <span class="zh">AlphaQ提出无需校准数据的MoE量化比特分配方法，用权重谱信号替代代表性校准集。这很实用，因为前沿MoE部署受内存约束，而下游部署方通常拿不到真实训练分布。局限在于，谱质量代理指标必须能跨架构和路由模式成立，而不只是在特定MoE基准上有效。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.04945" target="_blank" rel="noopener">
+          <span class="en">STaR-Quant: State-Time Consistent Post-Training Quantization for Diffusion Large Language Models</span>
+          <span class="zh">STaR-Quant：面向扩散大语言模型的状态-时间一致PTQ</span>
+        </a><span class="tag">DLLM</span><span class="tag">PTQ</span><span class="tag">inference</span>
+      </h3>
+      <p class="authors">Xin Yan, Aqiang Wang, Zhenglin Wan, Xingrui Yuand Ivor Tsang</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.04945" target="_blank" rel="noopener">arXiv:2606.04945</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">STaR-Quant targets post-training quantization for diffusion large language models, where iterative denoising creates state-dependent activations and temporal error accumulation. The paper is worth tracking because DLLMs promise different latency and generation tradeoffs from autoregressive models, but only if their compute and memory overheads can be reduced. The caveat is ecosystem maturity: DLLMs are still early compared with mainstream serving stacks.</span>
+        <span class="zh">STaR-Quant面向扩散大语言模型的训练后量化，处理迭代去噪带来的状态相关激活差异和时间误差累积。这篇论文值得关注，因为DLLM承诺与自回归模型不同的延迟和生成取舍，但前提是其计算和内存开销能降下来。局限是生态成熟度：与主流服务栈相比，DLLM仍处于较早阶段。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.04920" target="_blank" rel="noopener">
+          <span class="en">Toward Multi-Domain and Long-Tailed Quantization via Feature Alignment and Scaling</span>
+          <span class="zh">通过特征对齐与缩放实现多域和长尾量化</span>
+        </a><span class="tag">quantization</span><span class="tag">edge AI</span><span class="tag">domain shift</span>
+      </h3>
+      <p class="authors">Chin-Yuan Yeh, Ting-An Chen, De-Nian Yang, Ming-Syan Chen</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.04920" target="_blank" rel="noopener">arXiv:2606.04920</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">This work studies quantization under domain shift and long-tailed data, two conditions that are common in edge and enterprise deployments. The hardware relevance is straightforward: low-bit inference only helps if accuracy survives the data distribution actually seen in production. The caveat is that the paper focuses on benchmark settings, so deployment value will depend on how well the alignment and scaling ideas transfer to larger models.</span>
+        <span class="zh">这项工作研究域迁移和长尾数据下的量化，而这两种情况在边缘和企业部署中很常见。硬件相关性很直接：低比特推理只有在真实生产分布下保持准确率才有价值。局限是论文主要基于基准设置，因此部署价值取决于对齐和缩放方法能否迁移到更大模型。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.05004" target="_blank" rel="noopener">
+          <span class="en">SharedRequest: Privacy-Preserving Model-Agnostic Inference for Large Language Models</span>
+          <span class="zh">SharedRequest：模型无关的隐私保护大模型推理</span>
+        </a><span class="tag">LLM inference</span><span class="tag">privacy</span><span class="tag">batching</span>
+      </h3>
+      <p class="authors">Peihua Mai, Xuanrong Gao, Youlong Ding, Xianglong Du, Wei Liu, Yan Pang</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.05004" target="_blank" rel="noopener">arXiv:2606.05004</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">SharedRequest protects prompt privacy by batching original prompts with noisy variants and semantically equivalent instructions, without modifying the target model. The systems angle is useful because privacy techniques often lose deployment traction when they require model access or heavy cryptography. The caveat is that batching changes latency and workload shape, so serving economics need to be evaluated alongside privacy gains.</span>
+        <span class="zh">SharedRequest通过把原始提示、噪声变体和语义等价指令放入批处理中保护提示隐私，并且不需要修改目标模型。系统意义在于，隐私技术如果要求访问模型或引入重型密码学，常常难以部署。局限是批处理会改变延迟和工作负载形态，因此需要把服务成本与隐私收益一起评估。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="devices-sensors">
+    <h2>
+      <span class="en">Devices, Photonics &amp; Sensing</span>
+      <span class="zh">器件、光子与传感</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.04902" target="_blank" rel="noopener">
+          <span class="en">ThermoPix: A High-Spatial-Resolution ElectronicPhotonic Temperature Sensor Array With Microsecond Row Readout</span>
+          <span class="zh">ThermoPix：微秒行读出的高空间分辨率电子光子温度传感阵列</span>
+        </a><span class="tag">thermal sensing</span><span class="tag">photonics</span><span class="tag">CMOS</span>
+      </h3>
+      <p class="authors">Md Rahatul Islam Udoy, Dharanidhar Dang, Wantong Li, Sumeet Kumar Gupta, Suman Datta, Ahmedullah Aziz</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.04902" target="_blank" rel="noopener">arXiv:2606.04902</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">ThermoPix proposes a CMOS-compatible electronic-photonic temperature sensor array with microsecond row readout. The timing is good: AI packages and dense accelerators increasingly need spatially resolved thermal observability, not just board-level temperature telemetry. The caveat is that the reported work is simulation-driven, so integration complexity, calibration drift and optical power distribution still need measured silicon evidence.</span>
+        <span class="zh">ThermoPix提出一种兼容CMOS的电子光子温度传感阵列，具备微秒级行读出。这个方向很应景：AI封装和高密度加速器越来越需要空间分辨的热观测，而不只是板级温度遥测。局限是当前结果主要来自仿真，因此集成复杂度、校准漂移和光功率分配仍需要实测硅验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.04914" target="_blank" rel="noopener">
+          <span class="en">Tunable Resonator Integrated Magnetometry</span>
+          <span class="zh">集成可调谐谐振器磁力计</span>
+        </a><span class="tag">sensor</span><span class="tag">resonator</span><span class="tag">magnetometry</span>
+      </h3>
+      <p class="authors">Colin Stack, Brian Sears, Aruna Ramanayaka, David Ferguson, Ilya Sochnikov, Tony X. Zhou</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.04914" target="_blank" rel="noopener">arXiv:2606.04914</a> · 2026-06-03</p>
+      <p class="summary">
+        <span class="en">This applied-physics paper explores tunable resonator integrated magnetometry, a sensing direction relevant to compact instrumentation and potentially integrated diagnostic systems. It is not a near-term semiconductor manufacturing story, but it fits the broader move toward smaller, more integrated physical sensors. The caveat is application pull: the device concept needs clear advantages over existing magnetometry approaches in size, noise and operating conditions.</span>
+        <span class="zh">这篇应用物理论文探索集成可调谐谐振器磁力计，方向上与紧凑仪器和潜在集成诊断系统相关。它不是短期半导体制造新闻，但符合物理传感器小型化、集成化的大趋势。局限在于应用牵引：这种器件概念需要在尺寸、噪声和工作条件上相对现有磁力计体现明确优势。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-04 13:14 UTC · <a href="../2026-06-04.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-04 13:14 UTC · <a href="../2026-06-04.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

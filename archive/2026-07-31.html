@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-31">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Pulls Packaging, Memory, and Policy Together — Semi News 2026-07-31</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, July 31, 2026</span>
+      <span class="zh">2026年7月31日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Pulls Packaging, Memory, and Policy Together</span>
+      <span class="zh">AI需求牵动封装、存储与政策</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI infrastructure demand is pushing advanced packaging and server-memory roadmaps forward while governments fund domestic research and scrutinize supply choices. The next constraint is increasingly the system around the accelerator, not the accelerator alone.</span>
+      <span class="zh">AI基础设施需求正在推动先进封装和服务器存储路线图前移，同时各国加码本土研发投入并审视供应链选择。下一阶段的约束越来越来自加速器周边的系统能力，而非加速器本身。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/amds-physical-ai-plans-come-into-focus-as-company-launches-ryzen-embedded-ai-x100/" target="_blank" rel="noopener">
+          <span class="en">AMD launches Ryzen Embedded AI X100 for physical-AI systems</span>
+          <span class="zh">AMD推出面向物理AI系统的Ryzen Embedded AI X100</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 3h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD introduced the Ryzen Embedded AI X100 and outlined a physical-AI hardware stack spanning SoCs, modules, and developer kits. The move targets embedded and industrial deployments, where local perception and control workloads need a different product path from rack-scale GPU training.</span>
+        <span class="zh">AMD推出Ryzen Embedded AI X100，并展示了涵盖SoC、模块和开发套件的物理AI硬件栈。该产品面向嵌入式和工业部署；这些场景的本地感知与控制负载需要区别于机架级GPU训练的产品路径。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNaFcybDZQMUMtSGVVLTBwMjlWQ1p1VXN3SmVONnVIZ0ZzX1A0WWUzQTA3Q0hYbGxZRHkwZlFUb0dMRDA0OWphWEF0ai16TTByeElNdUw3ZGN2VGxhYmdRcmVXVHFGMkdBb2hXTXdxa0ppYWRBM2h6c3o1dm91dXpOazczT0VzalMzbXlfRXBoU3FvU21DMVhkY25sYjdpeDUwOTI4TlhkR18?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC reportedly develops an EMIB-like AI packaging approach</span>
+          <span class="zh">报道称台积电正开发类似EMIB的AI先进封装方案</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 7h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says TSMC is developing an AI-chip packaging technology analogous to Intel&#x27;s EMIB approach. If commercialized, another bridge-based option could broaden how TSMC assembles large AI systems as interconnect density and package yield become central competitive variables.</span>
+        <span class="zh">报道称，台积电正在开发一种类似Intel EMIB的AI芯片封装技术。若实现商业化，这一新增的桥接式选项可能扩展台积电组装大型AI系统的方式，因为互连密度和封装良率正成为关键竞争变量。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimAJBVV95cUxNRllOLWhlVGZRb3o5WjVxMUJQOFQtYll6eDNiLWFGckc2TkN5eHVlS0FkUVVMc3h1YzF3NU5CWDRObUE0SE9keDhDcXFFVUlQTVZ4RGstd1czQjZxX1JZZVdvYkFSRzFPN1BKN0VCOF9mdlMzc0d5SUg4cFRxa2M5Q2Jjd0hXc2NfWnVCbUxvenFOTTZkdmxiNVdOMjZRbGVSMFdkXzU0YmptQjRhN3lWdlpMS2Y2VkhHNDYxU00tbHpVT3N0QWNkU1hhSHkzT0ZnX3M1WVY1cW1WcncwakFlNVFQMW5XWFdkS2U2VzRaamNoczVldGZwU0tuM2Mza1NYRGNfdlRkNURta2FfaVdZU0p0eTRwNWpu?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung targets a second Taylor semiconductor plant by end-2026</span>
+          <span class="zh">三星计划在2026年底前启动泰勒第二座半导体工厂建设</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 2h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung plans to begin construction on a second semiconductor plant in Taylor, Texas, by the end of 2026. The project would deepen the company&#x27;s U.S. manufacturing footprint, though construction timing is only an early step before tool installation, process qualification, and volume output.</span>
+        <span class="zh">三星计划在2026年底前启动美国得州泰勒第二座半导体工厂的建设。该项目将扩大其在美国的制造布局，但开工只是早期节点，后续仍需经历设备进厂、工艺认证和量产爬坡。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.embedded.com/renesas-upgrades-ddr5-mrdimm-chipset/" target="_blank" rel="noopener">
+          <span class="en">Renesas upgrades DDR5 MRDIMM chipset to 16,000 MT/s</span>
+          <span class="zh">瑞萨将DDR5 MRDIMM芯片组升级至16,000 MT/s</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Embedded.com</span> · 6h ago</span>
+        <span class="zh"><span class="source">Embedded.com</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Renesas launched its third-generation DDR5 MRDIMM chipset, including the RRG5013 MRCD and RRG5103 MDB, for server modules rated up to 16,000 MT/s. Faster multiplexed-rank memory is aimed at the bandwidth pressure of AI and cloud servers, where CPU and accelerator utilization increasingly depends on feeding data quickly enough.</span>
+        <span class="zh">瑞萨推出第三代DDR5 MRDIMM芯片组，包括RRG5013 MRCD和RRG5103 MDB，支持最高16,000 MT/s的服务器模块。更快的多路复用Rank内存瞄准AI和云服务器的带宽压力，因为CPU和加速器的利用率越来越取决于数据供给速度。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/memory-makers-push-ddr5-mrdimm-speeds-to-16000-mtps-closing-gap-on-final-17600-mtps-target/" target="_blank" rel="noopener">
+          <span class="en">DDR5 MRDIMM roadmap reaches 16,000 MT/s</span>
+          <span class="zh">DDR5 MRDIMM路线图推进至16,000 MT/s</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Memory suppliers are preparing third-generation DDR5 MRDIMMs above 16,000 MT/s, with a stated eventual target of 17,600 MT/s; first-generation parts began above 8,000 MT/s. The roadmap underscores that server-memory bandwidth is being upgraded alongside AI processors, rather than treated as a secondary platform specification.</span>
+        <span class="zh">存储厂商正准备速度超过16,000 MT/s的第三代DDR5 MRDIMM，并将最终目标定为17,600 MT/s；第一代产品起步速度已超过8,000 MT/s。该路线图表明，服务器内存带宽正在与AI处理器同步升级，而不再只是平台的次要规格。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/storage/2026/07/30/gpus-could-explode-to-multiple-tb-with-new-storage-inspired-memory-tech/5281363" target="_blank" rel="noopener">
+          <span class="en">Storage-inspired memory proposal targets multi-terabyte GPUs</span>
+          <span class="zh">受存储技术启发的新型内存瞄准多TB GPU容量</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register (Systems)</span> · 6h ago</span>
+        <span class="zh"><span class="source">The Register (Systems)</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A storage-inspired high-bandwidth flash concept is being positioned as a way to give GPUs capacities in the multi-terabyte range while seeking speeds closer to HBM. The proposal is not a replacement for deployed HBM today, but it highlights how memory capacity and bandwidth are becoming a first-order limiter for larger AI models.</span>
+        <span class="zh">一种受存储技术启发的高带宽闪存方案被定位为可将GPU容量提升至多TB级，并争取接近HBM的速度。它并非当下已部署HBM的替代品，但凸显出内存容量和带宽正在成为更大AI模型的一阶限制因素。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOWtTN1dadzFxb1FLRE1SRlFEMnJsci1JbmtDN3FfbHlFdmpma1d6U3NhSHlxWlFuYl9PZnpMMkROdFJRQjRjVGhRcFF5SmN5M1AxZHliNENMWnNhZlk4UTVPaUtUNHFTR0ZGMWxHMFhuRnFhRU5FeG9pUzdlNWdBdkdRM0hMZ3VLZHpoWXIwSDdCZUhINlVmN0w5VHZTaWFlSmx3X3NBYV95dw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Genesis Mission awardee pursues X-ray lithography challenge to ASML</span>
+          <span class="zh">获Genesis Mission资助团队尝试以X射线光刻挑战ASML</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — ASML</span> · 1h ago</span>
+        <span class="zh"><span class="source">GNews — ASML</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">An awardee in the U.S. Genesis Mission program is pursuing X-ray lithography as a potential challenge to ASML&#x27;s established lithography position. The effort is an early technology bet: proving source power, mask infrastructure, throughput, and process economics remains far harder than demonstrating a novel exposure concept.</span>
+        <span class="zh">美国Genesis Mission项目的一家获资助团队正探索X射线光刻，以挑战ASML已建立的光刻地位。这仍是一项早期技术押注：要证明光源功率、掩模生态、吞吐量和工艺经济性，远比展示一种新曝光概念更困难。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/shanghai-aishengna-named-as-the-maker-of-chinas-first-domestic-immersion-duv-scanners" target="_blank" rel="noopener">
+          <span class="en">Report identifies Aishengna in China&#x27;s immersion-DUV effort</span>
+          <span class="zh">报道称爱生纳参与中国浸没式DUV光刻设备研发</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tom&#x27;s Hardware reports that Shanghai Aishengna has been identified by an unnamed source as the developer of a domestic immersion-DUV scanner effort, while the named companies did not comment. The report places a viable domestic 7 nm-capable scanner as far out as 2038, illustrating both the strategic importance and long development horizon of lithography localization.</span>
+        <span class="zh">Tom&#x27;s Hardware报道称，一名匿名消息人士认定上海爱生纳正在开发国产浸没式DUV扫描仪，而相关公司未予置评。报道将具备7 nm能力的国产可用扫描仪时间点放在2038年，说明光刻本土化既具战略重要性，也有漫长的研发周期。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNV2N6YTNQZGpiY3RtS1lDbjFBV0U1eHQ1MzY5QVNDZ1FtSi1MT2ctX2p6UlJjdExjdWhQemdWb3l6ckp2NFEycEVSNGJSM0FTOHRwZGswcVZiVUh4b1cyeVRzdGJRR2xsWkJJd19tQ0hhbk9LSzB6U1d3alJVeW5kMDhUUDFLaEhOLXJPaHRXU2wzbTdJTEdLQXZWaWZ6WGJLQXlZeGVQYVZKT1pLTEQ2ejRhUE5aeGFE?oc=5" target="_blank" rel="noopener">
+          <span class="en">United States signs $874 million in semiconductor-research letters of intent</span>
+          <span class="zh">美国签署总额8.74亿美元的半导体研究意向书</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 5h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The United States signed letters of intent worth $874 million to support semiconductor research. The commitments put public money behind the research layer of the supply chain, where advances in materials, processes, design tools, and packaging can shape manufacturing competitiveness years before a new fab reaches volume.</span>
+        <span class="zh">美国签署了总额8.74亿美元的半导体研究意向书。这些承诺将公共资金投向供应链的研发层；材料、工艺、设计工具和封装的进步，往往会在新晶圆厂量产前多年塑造制造竞争力。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/apple-says-its-evaluating-various-memory-sources-including-chinese-ones-that-would-help-us-on-the-supply-side-despite-a-pushback-from-us-senators/" target="_blank" rel="noopener">
+          <span class="en">Apple keeps evaluating Chinese memory suppliers amid Senate pushback</span>
+          <span class="zh">面对参议员施压，苹果仍在评估中国存储供应商</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 2h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Apple said it is evaluating multiple memory sources, including Chinese vendors, as it seeks relief from supply constraints and higher memory costs. The choice has become a policy issue as U.S. lawmakers oppose potential sourcing from CXMT and YMTC, turning a component-procurement decision into a test of supply-chain strategy.</span>
+        <span class="zh">苹果表示，正评估包括中国厂商在内的多种存储来源，以缓解供应约束和更高的存储成本。由于美国议员反对可能从CXMT和YMTC采购，这一元件采购选择已成为供应链战略的政策考验。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-31 01:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-31 01:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

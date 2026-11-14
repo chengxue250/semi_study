@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-27">
+<meta name="generator" content="semi-news-daily">
+<title>AI infrastructure shifts toward memory and scale — Semi News 2026-08-27</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, August 27, 2026</span>
+      <span class="zh">2026年8月27日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">AI infrastructure shifts toward memory and scale</span>
+      <span class="zh">AI基础设施转向存储与规模化</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Nvidia is bringing more of the memory stack into its own design as cloud GPU commitments reach the millions. The resulting demand is also pulling in tool investment, alternative inference systems, and attention to packaging limits.</span>
+      <span class="zh">Nvidia正将更多存储栈设计纳入自身体系，云端GPU部署承诺已达数百万颗。这一需求也在带动设备投资、替代推理系统，并将封装限制推到更显著的位置。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/amazon-commits-to-3-million-nvidia-gpus-in-aws-tripling-a-deal-that-started-at-just-one-million/" target="_blank" rel="noopener">
+          <span class="en">AWS expands its Nvidia GPU commitment to three million units</span>
+          <span class="zh">AWS将Nvidia GPU部署承诺扩大至300万颗</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 2h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Amazon and Nvidia expanded their AWS collaboration to a commitment of up to three million Nvidia GPUs globally, triple the initial one-million-unit arrangement. The systems are intended for agentic AI, automation, and physical-AI workloads, making hyperscaler demand a direct driver of accelerator supply planning.</span>
+        <span class="zh">Amazon与Nvidia扩大AWS合作，承诺在全球部署最多300万颗Nvidia GPU，规模是最初100万颗安排的三倍。这些系统面向智能体AI、自动化和具身AI工作负载，使超大规模云厂商需求成为加速器供应规划的直接驱动力。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/08/26/metas-new-mtia-400-chip-has-a-split-personality-training-ai-and-serving-ads/5292727" target="_blank" rel="noopener">
+          <span class="en">Meta’s MTIA 400 targets model training and ad serving</span>
+          <span class="zh">Meta的MTIA 400同时瞄准模型训练与广告服务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register (Systems)</span> · 3h ago</span>
+        <span class="zh"><span class="source">The Register (Systems)</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Meta’s MTIA 400 is presented as an in-house accelerator spanning AI training and advertising inference rather than a single specialized task. The Register says it is faster than Blackwell in some context, while noting it is not yet a wholesale substitute for Nvidia or AMD systems.</span>
+        <span class="zh">Meta将MTIA 400定位为同时覆盖AI训练和广告推理的自研加速器，而非仅服务单一专用任务。《The Register》称其在某些语境下快于Blackwell，但也指出它尚不能全面替代Nvidia或AMD系统。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/dram/nvidia-custom-nvhbm-promises-30-percent-higher-bandwidth-15-percent-lower-power-than-commodity-hbm4e-custom-base-die-and-phy-will-be-available-to-nvlink-fusion-partners" target="_blank" rel="noopener">
+          <span class="en">Nvidia introduces NVHBM with a custom base die and PHY</span>
+          <span class="zh">Nvidia推出采用定制Base Die和PHY的NVHBM</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 2h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia introduced NVHBM, a custom high-bandwidth-memory implementation for NVLink Fusion partners, claiming 30% more bandwidth and 15% lower power than commodity HBM4E. Designing the base die and PHY itself extends Nvidia’s control from GPU and interconnect into a layer that increasingly constrains AI-system performance.</span>
+        <span class="zh">Nvidia推出面向NVLink Fusion合作伙伴的定制高带宽存储NVHBM，声称相较通用HBM4E可实现30%更高带宽和15%更低功耗。通过自行设计Base Die和PHY，Nvidia将控制范围从GPU和互连延伸至日益制约AI系统性能的存储层。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxONDM5Y2RFRW5JLVhiOGZXbjR0bFQtdEFKTzBCa2VOZnFkdHJUUFdkSFA3aDVFMTI1Nnp4aXhqWC1FRHNibmRySTFZMnpZVWhud2lzaWJyZENWSEwtWlZmbzdqd1EweWs5eHFFMXZwelEzXzlnRjh4Q2M5SXJHa1hNei1lVTYzZUl0eVlyNFJ5bEFUdjJHWUHSAZsBQVVfeXFMUF9USHhyUmhyU2IzZU1Cajh2S1BUR1ZPUG9OUzFON2RkcW1rUnFvVFp6VDJ3LUhYOG9RVTNpN0ZUek1QdHY3ZDZrNWVzaEstNzgzWjVya24wa05ncWozcG5VeUZfem44NGhXaktKS2ZraXJXYVZDS0szUzN4emt4UVdVbnBBZmZRZFpDM1ZkbVFQN2lpbGg2WmFWWEU?oc=5" target="_blank" rel="noopener">
+          <span class="en">South Korea’s president meets Samsung amid chip-investment pressure</span>
+          <span class="zh">韩国总统在芯片投资压力下会见Samsung掌门人</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 1h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">South Korean President Lee met Samsung’s chief as pressure builds around semiconductor investment. The meeting puts the country’s industrial-policy attention on the capital intensity of chip manufacturing and on Samsung’s role in maintaining domestic technology capacity.</span>
+        <span class="zh">在半导体投资压力上升之际，韩国总统李在明会见Samsung掌门人。这次会面凸显韩国工业政策正聚焦芯片制造的高资本密集度，以及Samsung在维持本土技术产能中的角色。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxPZmt1Y0JkTlpqZFZHYTFxaEpwV3p4SlFHb3p5dHRPaGZ2cFltcF9BLTRwdE92VnhVS0VIRTkwQjk5RXV2NzZiNks4N0NETy1mTEl5Q3NBT3ItYkR4U0FXdXZ4NEIxZzhNOE5NV3ZKVGwtMlQyQXhZdGNTdFFSWjkwQzRfYmozQ3VGY0RaR1hKMVVQdEwtcUZ4Vmc0dWx2S2V4Y3NqNEE0elBlSlRoS21GOA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Lam Research commits $1.5 billion to a Tualatin expansion</span>
+          <span class="zh">Lam Research承诺向Tualatin扩建项目投入15亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 4h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A chip-manufacturing-equipment company committed $1.5 billion in Tualatin and broke ground on a new laboratory; the report identifies the investment as Lam Research’s expansion. Tool R&amp;D capacity is strategically important as logic, memory, and advanced packaging require tighter process control for AI-era production.</span>
+        <span class="zh">一家芯片制造设备公司在Tualatin承诺投资15亿美元并为新实验室破土动工，报道所指为Lam Research的扩建。随着逻辑、存储和先进封装都需要更严密的工艺控制来支撑AI时代生产，设备研发能力的重要性正在上升。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPbzBQZVdtRGp4S3F2TEU1VFE3MFFTMGVKd0xVRjEwWFhCVnBkYk9PaHpPTlRkQnlBb0hqZ2JTT0k3Ry1HOVBieGRYWDR1dVJnaWhMS0xGYXIyZUY3Y3BkT3NCQ3AzelQ2VGw3SmJjcWQ5NWVnYktkeVAzUjRpRjRGMFpPOGlqREx4bFdSd1BNYUFlc3BTMDhBVFFVWUlSVGF0Z19XOWhXNTB4bzdCTFdB?oc=5" target="_blank" rel="noopener">
+          <span class="en">Atomic layer etching gains attention for nanoscale fabrication</span>
+          <span class="zh">原子层蚀刻在纳米级制造中受到关注</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 6h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AIP reports on atomic layer etching as a semiconductor nanofabrication method. Its ability to remove material with near-atomic precision becomes more valuable as critical dimensions shrink and pattern-transfer error budgets tighten.</span>
+        <span class="zh">AIP报道了原子层蚀刻这一半导体纳米制造方法。它能以接近原子级的精度去除材料；随着关键尺寸继续缩小、图形转移的误差预算收紧，这种能力愈加重要。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxORHBvUmNQS19ydUxXV1lpMzdwWkNmWGxiN3FKNU5ZZmNtem9kdlY3T2FRSGNXY2RHb2dqcXdMdXUwdloyaUNZWUxXWkNGbld4a0ZXRXNLemE2T1MzaktzNDBqeWt4NXdwR29JNjdqZkZOTU9YUzdyQS1nalU2R1hQNE53Rm5MNGtBLXZwZ1RtTTNlR3pxOFlVbnJyTkFiTTlRX2RvRFIybnZoek9JLURfLXZramdXZlNQaTRURWtBek1sTDRmN1llN1pVYTc?oc=5" target="_blank" rel="noopener">
+          <span class="en">India’s first Vera Rubin cluster is reported to use 9,000 GPUs</span>
+          <span class="zh">报道称印度首个Vera Rubin集群将使用9000颗GPU</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span> · 8h ago</span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tech Times reports that India is landing its first Vera Rubin cluster, built around 9,000 GPUs and a green-power plan, while flagging U.S. export risk. The report illustrates how national compute projects are now coupled to export-control exposure and power procurement.</span>
+        <span class="zh">Tech Times报道称，印度正部署首个Vera Rubin集群，配置9000颗GPU并采用绿色电力方案，同时面临美国出口风险。该报道说明，国家级算力项目现已同时受制于出口管制风险和电力采购。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">新兴挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNM3lBVXJNZjZ1NUxkRmpQYUgyTDB5STl2eTBUZ2JKcUoxZ2U0eFNRNTM1UHM3TllPek9hdG9IXzFmMlNxMVc1VjJoZkZoX19nZHZfWi04OE5LdHdyS1JZd0p0QTFhbC1kR1pvbHBpZ2F5Qkpmdy1VaG50TmVGU0IzZXE0djdkSlBNeVFjS2Fpc3RJUFhhUmdNTUhESFRxRnVwZTlIeWpNSQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Rebellions pitches lower-cost, open-source AI inference to telcos</span>
+          <span class="zh">Rebellions向电信运营商推介低成本、开源AI推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Rebellions / Furiosa</span> · 6h ago</span>
+        <span class="zh"><span class="source">GNews — Rebellions / Furiosa</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chip startup Rebellions is courting telecom operators with a lower-cost AI-inference proposition and an open-source pitch. Telcos need distributed inference close to networks, but must fit deployments into strict power, footprint, and procurement constraints.</span>
+        <span class="zh">芯片初创公司Rebellions正以更低成本的AI推理方案和开源主张争取电信运营商。电信运营商需要在网络边缘附近部署分布式推理，却必须满足严格的功耗、空间和采购约束。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQcFRTVWROallfTzZUNEIyNzJqb3ViX3NtNDJDVWlNY19RU0RWSEZQV29qZ0lEZ1ZleThtTkVQb2dJR2ltbzkwZndjTVZ5d0k1Rm1nUkNva2tsTFJKd0w5Vk5zQzhMZmJwSERTUENJdUhYMHhTa1c2a0F0dk5UTEFNRk1FS0NTVzAtODNIbFNDYS1OaUhxMG1uWjk3NkRqdjZDaVM4U28zMFpEckUtNUh2YnBDVWQ3RU5lYnRFc0pR0gG-AUFVX3lxTFBwVFNVZE5qWV9PNlQ0QjI3MmpvdWJfc200MkNVaU1jX1FTRFZIRlBXb2pnSURnVmV5OG1ORVBvZ0lHaW1vOTBmd2NNVnl3STVGbWdSQ29ra2xMUkp3TDlWTnNDOExmYnBIRFNQQ0l1SFgweFNrVzZrQXR2TlRMQU1GTUVLQ1NXMC04M0hsU0NhLU5pSHEwbW5aOTc2RGp2NkNpUzhTbzMwWkRyRS01SHZicENVZDdFTmVidEVzSlE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras describes a CS-4 with three WSE-3 Turbo wafers</span>
+          <span class="zh">Cerebras披露由三枚WSE-3 Turbo晶圆构成的CS-4</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Cerebras</span> · 7h ago</span>
+        <span class="zh"><span class="source">GNews — Cerebras</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras describes its CS-4 as combining three WSE-3 Turbo wafers for 750 PFLOPS, alongside a claimed 30-fold advantage over GPU racks. The figures are company claims, but the configuration shows wafer-scale specialists continuing to compete on inference-system throughput and simplicity.</span>
+        <span class="zh">Cerebras称CS-4由三枚WSE-3 Turbo晶圆组成，提供750 PFLOPS，并宣称相较GPU机架快30倍。这些数值属于公司主张，但该配置表明晶圆级计算厂商仍在以推理系统吞吐和简化性展开竞争。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-27 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-27 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
