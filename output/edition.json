@@ -1,14 +1,51 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "theme": {
-    "en": "AI Supply Chains Expand Under Intensifying Scrutiny",
-    "zh": "AI供应链扩张伴随更严格的审视"
+    "en": "AI Compute Scales as Access Rules Tighten",
+    "zh": "AI算力扩张，远程访问管制收紧"
   },
   "dek": {
-    "en": "SK hynix orders HBM4 equipment and develops supplier-validation infrastructure as TSMC approves a $500 million investment company. Calls for leadership changes at Nvidia, proposals for tighter China export controls and a continuing DRAM antitrust case bring governance and legal scrutiny into the expansion cycle.",
-    "zh": "SK海力士订购HBM4设备并建设供应商验证设施，台积电则批准设立5亿美元投资公司。要求Nvidia调整领导层的呼声、收紧对华出口管制的提议，以及继续推进的DRAM反垄断诉讼，使公司治理与法律审视成为这轮扩张的重要议题。"
+    "en": "The U.S. extends advanced-chip controls to cover how overseas data centers serve remote customers. At SC26, a 10,000-plus-GPU optical network and a live demo that splits inference across two kinds of chips show how operators are building capacity.",
+    "zh": "美国扩大先进芯片出口管制，将境外数据中心向客户提供远程算力的方式纳入监管。SC26上，一套连接逾万颗GPU的光互连网络和一场由两类芯片分担推理任务的现场演示，展示了算力基础设施扩容的不同路径。"
   },
   "sections": [
+    {
+      "id": "policy",
+      "title": {
+        "en": "Policy & Export Controls",
+        "zh": "政策与出口管制"
+      },
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "U.S. Targets Remote Access to Advanced AI Chips",
+            "zh": "美国将先进AI芯片的远程访问纳入管制"
+          },
+          "summary": {
+            "en": "The U.S. Bureau of Industry and Security issued an interim final rule targeting access to advanced AI chips and servers via data centers outside China and other arms-embargoed markets. The measure adds licensing requirements for certain advanced computing shipments and transfers involving Brazil, Indonesia, Malaysia, Singapore and Thailand. Chip vendors and cloud operators now have to consider who will use the compute alongside where the hardware will be installed.",
+            "zh": "美国商务部工业与安全局发布临时最终规则，针对中国等受武器禁运国家和地区通过境外数据中心远程使用先进AI芯片和服务器的情形。规则对涉及巴西、印度尼西亚、马来西亚、新加坡和泰国的部分先进计算产品出口、再出口和境内转移新增许可要求。芯片供应商和云服务商在评估合规时，需要同时考虑设备部署地点和算力的实际使用者。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/new-us-rules-aim-to-restrict-remote-access-to-ai-servers-and-infrastructure-seeks-to-combat-cloud-rental-workarounds-to-gpu-export-controls",
+          "published": "2026-11-16T21:50:00+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "Singapore Reviews Impact of U.S. Chip Controls",
+            "zh": "新加坡评估美国芯片管制的影响"
+          },
+          "summary": {
+            "en": "Singapore's trade and digital ministries said they are assessing the new U.S. controls with affected companies and discussing implementation with U.S. officials. Their talks include how eligible Singapore companies can retain access to advanced chips, an issue for local cloud operators planning GPU deployments.",
+            "zh": "新加坡能源与贸易工业部和数码发展及新闻部表示，正与受影响企业评估美国新规，并与美方沟通实施细节。双方讨论的议题包括如何让符合条件的新加坡企业继续获得先进芯片，这关系到当地云服务商接下来的GPU部署。"
+          },
+          "source": "CNA",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZVZ3elR4czNuZl9TM21GQmFoZU93MUZlT3VQN194TWRPb0pwYnRfci1LX3FTcmhVbXJqd2VKTHlYZm9UTmUxek5iNU8zUFplelE5R1NPdGFIRlplVW9WaVl6YVBDRjZGSXgzeDJwSkpmMXhTTVZQaVF2amktQ1VtdDRMRQ?oc=5",
+          "published": "2026-11-16T23:44:07+00:00"
+        }
+      ]
+    },
     {
       "id": "ai-accelerators",
       "title": {
@@ -19,30 +56,44 @@
         {
           "featured": true,
           "title": {
-            "en": "Bessent Urges Nvidia to Choose an Outside CEO",
-            "zh": "Bessent敦促Nvidia从外部选聘CEO"
+            "en": "Lambda Deploys Co-Packaged Optics for More Than 10,000 GPUs",
+            "zh": "Lambda部署共封装光学网络，连接逾万颗GPU"
           },
           "summary": {
-            "en": "Bessent calls for a major shakeup at Nvidia and urges the company to choose an outside CEO, CNBC reports. The intervention raises the stakes of Nvidia's leadership search for customers and suppliers planning around its AI accelerator roadmap.",
-            "zh": "据CNBC报道，Bessent要求Nvidia进行重大调整，并敦促公司从外部选聘CEO。对于围绕Nvidia AI加速器路线图制定计划的客户和供应商，这一表态使公司领导层人选的影响进一步扩大。"
+            "en": "Lambda and Nvidia disclosed a production network at Lambda's Quebec campus connecting more than 10,000 Blackwell Ultra GPUs with switches that use co-packaged optics. The deployment brings optical engines into the switch package at cluster scale, where network power and link reliability affect how much GPU capacity customers can use.",
+            "zh": "Lambda与英伟达披露，Lambda在魁北克园区已投产一套采用共封装光学（CPO）交换机的网络，连接逾1万颗Blackwell Ultra GPU。此次部署在万卡集群中把光引擎集成到交换芯片封装内，网络功耗和链路可靠性会直接影响客户可用的算力。"
           },
-          "source": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA2V3FTYlVUQ2VXQjBsaE1rbGpaU0FsM2RJN2FydGM4VHJsSU43eDR0SUMxNFhXZGtfZ2M2cDFWa2xLakZIellLQWNlaHpNazBCamhVeG14T25tREVFZG1ST3ExMHJma2l4Z3RCWktVbFBXRXduZlFFdHJsaXIxd9IBgwFBVV95cUxPeGkzNkNkWTB4ZkUzekc2SVFfVUlfQ0lFQTFtcWNMS05oaTA1dWhadV80YVZjNzJYLWhsT083bjFSZGNPdjEwU0JMeUZHVWdQS0ZmWTJOYm1hNU1qOVRtRnI5ZjJ1ZjgwV29ZTVhmNzVsMFZfUExiazhQeUltenVvU2tzYw?oc=5",
-          "published": "2026-11-15T16:49:11+00:00"
+          "source": "ServeTheHome",
+          "url": "https://www.servethehome.com/nvidia-and-lambda-disclose-first-production-co-packaged-optics-cluster-it-is-finally-real/",
+          "published": "2026-11-16T21:24:47+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "IEDM 2026 Preview Highlights Faster, More Efficient AI Hardware",
-            "zh": "IEDM 2026前瞻聚焦更快、更高效的AI硬件"
+            "en": "Nvidia Unveils Rubin HPC GPU for 2028",
+            "zh": "英伟达发布Rubin HPC GPU，预计2028年供货"
           },
           "summary": {
-            "en": "SemiWiki's preview of the upcoming IEDM 2026 highlights research addressing AI demand for more computing power, faster memory and better energy efficiency. These directions matter to accelerator roadmaps because compute performance, memory access and power consumption jointly constrain AI systems.",
-            "zh": "SemiWiki对即将举行的IEDM 2026的前瞻，聚焦应对AI算力、更快存储器和更高能效需求的研究。这些方向关系到加速器路线图，因为计算性能、存储访问与功耗共同制约AI系统的扩展。"
+            "en": "Nvidia unveiled Rubin HPC at SC26 and expects the scientific-computing GPU to be available in 2028. The company specifies more than 50,000 CUDA cores per GPU, acceleration for sparse data operations and seventh-generation NVLink. The design targets workloads such as simulations, where getting irregularly accessed data to the cores can limit performance.",
+            "zh": "英伟达在SC26发布面向科学计算的Rubin HPC GPU，预计于2028年供货。据公司披露，单颗GPU配有逾5万个CUDA核心，支持稀疏数据操作加速和第七代NVLink互连。该设计面向仿真等工作负载，这类任务往往会因数据访问不规则、计算核心等待数据而受限。"
           },
-          "source": "SemiWiki",
-          "url": "https://semiwiki.com/events/376230-iedm-2026-reveals-new-paths-to-faster-more-efficient-ai/",
-          "published": "2026-11-15T18:00:47+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-announces-rubin-hpc-gpu-with-record-number-of-cuda-cores-at-supercomputing-2026-new-chip-accelerates-agentic-hpc-workloads-arrives-in-2028",
+          "published": "2026-11-16T19:05:24+00:00"
+        },
+        {
+          "featured": false,
+          "title": {
+            "en": "AMD-Powered Lux Debuts at No. 14 on TOP500",
+            "zh": "搭载AMD芯片的Lux首次登上TOP500，位列第14"
+          },
+          "summary": {
+            "en": "Oak Ridge National Laboratory's Lux system debuted at No. 14 on the November TOP500, using EPYC CPUs and more than 4,000 Instinct MI355X GPUs. Lux is the first of two systems under a $1 billion U.S. Department of Energy and AMD partnership. AMD hardware powers 202 systems on the full list, up from 177 a year earlier.",
+            "zh": "橡树岭国家实验室的Lux首次登上11月TOP500榜单，位列第14，采用EPYC CPU和逾4,000颗Instinct MI355X GPU。Lux是美国能源部与AMD总额10亿美元合作项目中的首套系统，该项目共建设两套系统。整份榜单中，采用AMD硬件的系统从一年前的177套升至202套。"
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/supercomputers/amd-grabs-over-40-percent-of-new-top500-list-for-supercomputers-up-14-percent-since-last-year-new-lux-system-developed-between-amd-and-department-of-energy-debuts-at-no-14-with-epyc-cpus-and-instinct-mi355x-gpus",
+          "published": "2026-11-16T21:00:00+00:00"
         }
       ]
     },
@@ -56,141 +107,108 @@
         {
           "featured": false,
           "title": {
-            "en": "TSMC Approves $500 Million Investment Company for Chip Firms and Suppliers",
-            "zh": "台积电批准设立5亿美元投资公司，支持芯片企业与供应商"
+            "en": "TSMC Shares Drop 9.7% in Three Sessions After Record Sales",
+            "zh": "台积电月营收创新高，美股ADR随后三日跌9.7%"
           },
           "summary": {
-            "en": "TSMC approves a $500 million investment company to back chip businesses and, for the first time, its own suppliers, Dealroom reports. The vehicle creates a direct financing channel into the foundry's broader ecosystem, linking equity investment with the development of its customer and supplier base.",
-            "zh": "据Dealroom报道，台积电批准设立5亿美元投资公司，支持芯片企业，并首次将自身供应商纳入投资范围。这一载体为其代工生态提供直接融资渠道，将股权投资与客户及供应商体系的发展联系起来。"
+            "en": "TSMC's U.S.-listed shares fell 9.7% over three sessions through Monday after the foundry reported record October revenue of NT$586.89 billion, up 59.7% from a year earlier. The selloff came amid wider concerns about AI infrastructure financing, leaving investors to weigh that uncertainty against the foundry's recent sales growth.",
+            "zh": "台积电此前公布10月营收达到创纪录的新台币5,868.9亿元，同比增长59.7%。截至周一，其美国存托凭证在三个交易日内下跌9.7%。这一轮下跌反映出，尽管台积电近期销售强劲，市场仍在评估AI基础设施融资能否支撑客户今后的采购。"
           },
-          "source": "Dealroom",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNclpNUE5XRWFCUWhRcUF3WDFZVXQwVnlCV1hkTWJLRjBTQm85ek1aNjY1RWtvVWZTYXdhMkVuai14SVJCSVRibkpWME1xVXdURVkzdjZSdnBFempYa2RydElQeEV4TXM3aGFmeklRbDBtM2dtWF83eldpZkoyYUpscWhhNVFHVXRfSXROckNuc1BlWmMyRm1XT3pBbm9pcXNac1JkLVRDMGVzdFpRbC0wUG9HTFhyZmVFcnpKVU5xbVV3MUtMdlg5R0JzY0UybjY3ZG5KaQ?oc=5",
-          "published": "2026-11-15T21:30:00+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "TSMC Receives Record Aid as Fab Expansion Continues",
-            "zh": "台积电扩建晶圆厂，获得创纪录补助"
-          },
-          "summary": {
-            "en": "TSMC receives record government aid as it expands its fabs, Taipei Times reports. Public support affects the financing of construction and equipment costs, making subsidies an important part of the economics of its manufacturing expansion.",
-            "zh": "据Taipei Times报道，台积电在扩建晶圆厂的同时获得创纪录的政府补助。公共资金影响厂房建设与设备支出的融资安排，使补贴成为其制造业务扩张成本收益的重要组成部分。"
-          },
-          "source": "Taipei Times",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBzVHRXRS1EZDlKLUkyak81dkMxOGZBZlk5aE01TzZlTHBKMWxnbUhWUkpuMXNiZGtYZlA5MWVKSUMtU2lGcVZKUG4zTzBDc2JzUXpFSmVZay00ZHdRV3hQWVlSRDhpNHhZM0FWMjNENGJaMU5qSEE?oc=5",
-          "published": "2026-11-15T16:00:00+00:00"
+          "source": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNaGY2S2JVVWttQ0JpODJNSDE1TjN3SEZaOXRVMjNIaHQxS3VsOUNkcFpXWkNRYzU1TjByeER5RHZXWkc3eVJSWEJPcDl3N1J2cXNFNUt0T190UWxpNU5SOVZrRjFFTG9oSDRrTzF5YjVzMVJpa3pCSy1XSU95OXBGTkZuaTRja3ktMC12cTJidnVtWHRxMmJtLXFkckdHOEZnVWc3Mkw1amxUaUxzcmhWSlVUdTFJUXdKeUVXZ2tPd0VXM3N2TUIwNUFpazBmZnpqS21VdVp2bi1qaW1hN1oxNHhkSHI?oc=5",
+          "published": "2026-11-17T00:41:00+00:00"
         }
       ]
     },
     {
       "id": "memory",
       "title": {
-        "en": "Memory & Storage",
-        "zh": "存储器与存储系统"
+        "en": "Memory",
+        "zh": "存储"
       },
       "stories": [
         {
-          "featured": false,
-          "title": {
-            "en": "CXMT Plans Limited HBM3E Production as Yields Trail SK hynix",
-            "zh": "长鑫存储计划小规模生产HBM3E，良率仍落后于SK海力士"
-          },
-          "summary": {
-            "en": "CXMT plans limited HBM3E production while its yields trail SK hynix, TokenPost reports. The reported yield gap makes manufacturing execution central to how much usable AI memory the company can deliver as it enters this market.",
-            "zh": "据TokenPost报道，长鑫存储计划开展小规模HBM3E生产，其良率仍落后于SK海力士。报道所述的良率差距意味着，在进入这一市场的过程中，制造环节的执行能力将直接影响公司能够交付的合格AI存储器数量。"
-          },
-          "source": "TokenPost",
-          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9TQ3ZZVnJ1SURGeXpEcU9yV2RZVVE5X1FISkZQUGUwOHljYVh0UVNzMFhoTnZXRWdJblN6SXc0NFY5WER3Rzg0MFVNbHZkaENpUFd0c1pjaDJCQkU?oc=5",
-          "published": "2026-11-16T00:44:00+00:00"
-        },
-        {
           "featured": true,
           "title": {
-            "en": "SK hynix Places Equipment Orders on Broader HBM4 Demand",
-            "zh": "SK海力士面向更广泛的HBM4需求下达设备订单"
+            "en": "SK hynix’s Sales to Top Customer Double to Nearly 35 Trillion Won",
+            "zh": "SK海力士来自最大客户的营收翻番，接近35万亿韩元"
           },
           "summary": {
-            "en": "SK hynix places new equipment orders as it anticipates HBM4 demand beyond Nvidia, TechPowerUp reports. The spending ties next-generation memory capacity plans to expectations of a broader AI accelerator customer base.",
-            "zh": "据TechPowerUp报道，SK海力士预期Nvidia以外的客户也将带来HBM4需求，并据此下达新设备订单。这笔投入将下一代存储器的产能规划与更广泛的AI加速器客户需求预期联系起来。"
+            "en": "SK hynix disclosed 34.98 trillion won in January–September sales to its largest customer, widely believed to be Nvidia, up from 17.36 trillion won a year earlier. Analysts linked the increase to higher HBM4 shipments after the memory entered full-scale production in the third quarter. The customer accounted for 14.79% of sales over the nine months, compared with 26.98% for all of 2025.",
+            "zh": "SK海力士披露，今年前九个月对最大客户的销售额为34.98万亿韩元，上年同期为17.36万亿韩元，业内普遍认为该客户是英伟达。分析人士认为，增长得益于HBM4在第三季度进入大规模量产后出货增加。该客户占SK海力士今年前九个月营收的14.79%，2025年全年的这一比例为26.98%。"
           },
-          "source": "TechPowerUp",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOMnFHbFJnajJZWUNfSWctSmNoMTM1MlF4VGhLNTAzSmZUQ1lWUWR2X3NnT1pYazg0YlVNdkhLa25JQkFzWmlaLWh5Z01lZlREYmpKc0JqMmdJTk5PcG5BQmFpaWlfMmJQdVJmOUtUSEhtNlhWRGs1dGFVS0xTZHM0Z2M3TzNYZE5BZ01vMzdudGUydU84MHlTLVZOdHJfcHlkTEJzNklheW11ZkFmcklPdXdjM1Fndmx4d3ZjY2ZKU1AxQ0U?oc=5",
-          "published": "2026-11-15T16:37:03+00:00"
+          "source": "Seoul Economic Daily",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUi1ERDBtaUItcnVPRXNOM3JIZkcwVnZlZ0pYakp6dFluQU43ZjRQeUdiODhlWFVkcFpyNjBPZ0kwMk9BbG9wM1FKZnh1Y0htR2hEMFVKdXhWaWpXd2Q5bFFoYWcwRDhoU2d0QUNIbHJ5V2lrM2Z4RGp5enFvX1pVVjNZWWp0eW9lUmdwcVIwdnpjdWZpTlBTeHFmdVF4Z0c4SDU1Rg?oc=5",
+          "published": "2026-11-16T22:00:05+00:00"
         }
       ]
     },
     {
       "id": "equipment",
       "title": {
-        "en": "Equipment & Materials",
-        "zh": "设备与材料"
+        "en": "Equipment & Advanced Packaging",
+        "zh": "设备与先进封装"
       },
       "stories": [
         {
-          "featured": true,
-          "title": {
-            "en": "SK hynix Targets May 2027 Completion for 874.6 Billion Won Trinity Fab",
-            "zh": "SK海力士计划于2027年5月建成投资8746亿韩元的Trinity Fab"
-          },
-          "summary": {
-            "en": "SK hynix plans to complete its 874.6 billion won Trinity Fab in May 2027, BigGo Finance reports. The facility is intended to lower barriers to mass-production validation for chip materials and equipment, helping suppliers qualify products for semiconductor manufacturing.",
-            "zh": "据BigGo Finance报道，SK海力士计划于2027年5月建成投资8746亿韩元的Trinity Fab。该设施旨在降低芯片材料与设备开展量产验证的门槛，帮助供应商完成面向半导体制造的产品验证。"
-          },
-          "source": "BigGo Finance",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9ad2o5QzRZZFJIUU9rT1NUSlZ3UVRoRlRKTmRJTjRaZ3VWVjdBR0Q4TW12aDc3VDYtdmRjNUgwMjVXMVhlMVJkQUQ5Rmhya19QdVNCMlRwZWMyV0FPUGV0Tml5anFwMktnTFZlMks4dE5EOXRKTWc?oc=5",
-          "published": "2026-11-16T00:25:00+00:00"
-        },
-        {
           "featured": false,
           "title": {
-            "en": "EV Group Targets Manufacturing Challenges in Qubit Scaling",
-            "zh": "EV Group着手应对量子比特规模化的制造挑战"
+            "en": "SemiFive Unveils 3D Packaging That Stacks DRAM on Logic",
+            "zh": "SemiFive推出将DRAM堆叠在逻辑芯片上的3D封装平台"
           },
           "summary": {
-            "en": "EV Group outlines manufacturing support aimed at scaling qubits, New Electronics reports. For quantum hardware developers, reproducible fabrication is essential to increasing qubit counts and integrating larger devices, connecting equipment capabilities with system expansion.",
-            "zh": "据New Electronics报道，EV Group提出面向量子比特规模扩大的制造支持方案。对于量子硬件开发商，可重复的制造工艺是增加量子比特数量和集成更大规模器件的基础，使设备能力与系统扩展紧密相连。"
+            "en": "SemiFive unveiled an SC26 packaging platform that stacks DRAM directly above logic and uses hundreds of thousands of connections between the dies. The company says shorter signal paths can lower energy per bit, while eliminating the interposer could reduce packaging costs. The platform gives custom AI chip designers a way to pursue high memory bandwidth with a different package layout from standard HBM.",
+            "zh": "SemiFive在SC26发布一款3D封装平台，将DRAM直接堆叠在逻辑芯片上方，两者之间设置数十万条物理互连通道。公司称，缩短信号传输距离有望降低每比特能耗，省去中介层则有望降低封装成本。这为定制AI芯片提供了一条实现高内存带宽的路径。"
           },
-          "source": "New Electronics",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQQ2FtcTV5d0t1UzBONS1MQ3JJM2R2YWVzM2tndFR2R3YtWTV6aV9iOXVwN09jaDFoVnNVb25EQTBURGRXQ05WQXUxSUVGNnFON3JZX3dGWm9oSlNZYUF0SXVaaW5uaHFzLWZFQmtVMzVIU2RPOWRtVHJSRjFhRzhZekZadnowV1RpRmRDYnRoaHkwSUNjQWN5YTdhS2NjR3N5U1BZWmJzVDIwSUNLQXRzRWJaUFp5M041TDhOa19NMTZwamdZOGY1eHR5dk0?oc=5",
-          "published": "2026-11-15T21:56:14+00:00"
+          "source": "Digital Today",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNVHJXTUpNSE5iMmtjMGM4enhUXzc2cVNCWVpJSVV2bW9reHAxTU1hbU14N0ktcmZHRkdXYjlrMmhJR1Jia0pjZWFHUXJ0RVFxSm9CVmpNNldvb1dIMlFQXzJSMTV4R2pMSDVXaXJ3Ym4weFNsekFZVlBxMDM4SGNfblZCcVJMZ1pJSzYtWkVLb0pnSzIyZ3JZVXlnQ2o?oc=5",
+          "published": "2026-11-17T00:18:36+00:00"
         }
       ]
     },
     {
-      "id": "policy",
+      "id": "earnings",
       "title": {
-        "en": "Policy & Geopolitics",
-        "zh": "政策与地缘政治"
+        "en": "Earnings & Outlook",
+        "zh": "业绩与展望"
       },
       "stories": [
         {
           "featured": false,
           "title": {
-            "en": "DRAM Antitrust Case Against Samsung, SK hynix and Micron Proceeds",
-            "zh": "针对三星、SK海力士与美光的DRAM反垄断诉讼继续推进"
+            "en": "Tower Looks to Silicon Photonics to Lift Margins",
+            "zh": "Tower寄望硅光业务带动利润率上升"
           },
           "summary": {
-            "en": "Samsung, SK hynix and Micron fail to win dismissal of a DRAM antitrust suit, TechPowerUp reports. The decision allows the claims to proceed, keeping the suppliers' market conduct under legal scrutiny.",
-            "zh": "据TechPowerUp报道，三星、SK海力士与美光未能成功申请驳回一宗DRAM反垄断诉讼。这一决定使相关指控得以继续进入诉讼程序，三家供应商的市场行为将持续受到法律审视。"
+            "en": "Tower Semiconductor's outlook calls for about $600 million in fourth-quarter revenue and roughly $2 billion for 2026, following third-quarter sales of $526 million, up 33% year over year. Tower is targeting a $1.1 billion annualized silicon photonics revenue run rate in the fourth quarter. How quickly the company brings on new capacity will help determine whether it can reach its 2028 targets of $3.6 billion in revenue and $1.2 billion in net profit.",
+            "zh": "Tower Semiconductor预计第四季度营收约6亿美元，2026年全年约20亿美元。第三季度营收为5.26亿美元，同比增长33%。公司预计第四季度硅光业务的年化营收规模可达11亿美元，新产能的投产速度将影响其能否实现2028年36亿美元营收和12亿美元净利润的目标。"
           },
-          "source": "TechPowerUp",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPS1hmbDljMlQ4Q2JaZlJhOGtnbXZZb2tvZk9SdEgwdkZKVnBHSUtfODJKV1VXaUcxNzNDYUlfdm84LTlZcXh3QzNscEFRbjVJeWZ1RDJpOEMxZzE1RXpySHBaV054REtxNWZVQjdDNXFVRUlhanVZTnEtWHZ0TVZEcmNfc3FGZUlld2VBTHJGMy1SUzZvQTZyQXQ4dE1ZaTFpeUNYTEgxSUtuTU5r0gGsAUFVX3lxTE9LWGZsOWMyVDhDYlpmUmE4a2dtdllva29mT1J0SDB2RkpWcEdJS184MkpXVVdpRzE3M0NhSV92bzgtOVlxeHdDM2xwQVFuNUl5ZnVEMmk4QzFnMTVFenJIcFpXTnhES3E1ZlVCN0M1cVVFSWFqdVlOcS1YdnRNVkRyY19zcUZlSWV3ZUFMckYzLVJTNm9BNnJBdDh0TVlpMWl5Q1hMSDFJS25NTms?oc=5",
-          "published": "2026-11-15T18:13:01+00:00"
-        },
+          "source": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxORHp0cFF1RUJaUDdVaXZZWWgzczNrajlqMHBVcGlOVWk3ZGh0S2dwUXJKcThPMTh4RVdxWTd3RGlwVlF6OHJyWFFUN3A1N2w0UVc4MW9iVTVDRzZxdFZoR2JIcVJmMnEzTVpSbElSYU52VC1Obi1ZbmRacktPcDh3bk5ocWFtdXZtOUVHOFN4NnhjRG00RmpmbkQ5UHQ3SEQ5WnFLQ21iRQ?oc=5",
+          "published": "2026-11-16T22:03:47+00:00"
+        }
+      ]
+    },
+    {
+      "id": "challengers",
+      "title": {
+        "en": "Accelerator Challengers",
+        "zh": "加速器新势力"
+      },
+      "stories": [
         {
           "featured": false,
           "title": {
-            "en": "US Lawmakers Seek Tighter AI Chip Export Curbs on China",
-            "zh": "美国议员推动收紧对华AI芯片出口限制"
+            "en": "Intel and SambaNova Demo Inference Split Across Two Chips",
+            "zh": "英特尔与SambaNova展示两类芯片分工推理"
           },
           "summary": {
-            "en": "US lawmakers push for tougher AI chip export restrictions on China following the Nvidia controversy, Hindustan Times reports. Any resulting restrictions would affect the addressable market for advanced accelerators and the compliance requirements of their sales channels.",
-            "zh": "据Hindustan Times报道，在Nvidia相关争议发生后，美国议员正推动对华实施更严格的AI芯片出口限制。由此产生的限制措施将影响先进加速器可进入的市场，以及销售渠道需要满足的合规要求。"
+            "en": "Intel and SambaNova demonstrated a disaggregated inference system at SC26 that uses Intel D270 GPUs for prompt prefill and SambaNova SN50 reconfigurable dataflow units for token generation. Both systems use air cooling. Splitting the stages lets operators provision prefill and decode capacity separately, which can help them accommodate changes in the mix of prompt and output lengths.",
+            "zh": "英特尔与SambaNova在SC26展示了分离式推理架构，由英特尔D270 GPU负责提示词预填充，SambaNova SN50可重构数据流单元负责解码并生成词元。两套设备均采用风冷。拆分推理阶段后，运营商可以分别配置预填充和解码的算力，以适应输入和输出长度分布的变化。"
           },
-          "source": "Hindustan Times",
-          "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNazZqU0x5ZEQ1ZFFXMnhXT3ZhQ1cxcU5GTUI0WjlJVGtNaUZuME0taVFYbTAtMTJXQnZOQWxsc3FzVTJmb3A1aFhLUWZiOTByZkl1T1JJaklnWUJ1LUU4MVRFa25xQXpCSTJ6TzU5V1I2OWh6UlRWWF9zUVdiTnM0bGFMWjQwSkZEeDJSRHVnWG8yS0dLdXlabHhsRS1lVGZqRS1qZFdRYnBGcU5wQXJkMGdHOFFfWHNJRWl0MnhfYUVOSElOZkJWRFByT3hhVVJjc1h2NjhVYTdZMDYxR084aHlFLVltMEFVRUpKaV93VkhpUdIB9wFBVV95cUxNZkhDYU9RNlNlVUNTcnBmUUo1b0FKNUttbWl5SFlYMHR1NW5DNHNDSlhaelZ0VEhTOHp2RERSNFd3Z1VHODJ5TTBrNVhudjZRSE5NUU8yVVVZNWxrREdCaWJfeFBQVkdNSXE5eVFvYkozQ0hWaE9udTZRMVczOGM4dXdfeDdsaUtGY3FGOUN1Mk5IclFSdlRoc2puQThSMHVJalI4UFZsbUVQTDdHTFNVRVQwblgxbUtzWFQ1NXNyU1R6QzlQdTlpeTBvMzR2YUhkWWRLYjgtRklsR2FRMFk4QU81SEpuX2s2NXR6aXQ3aXpRR1BnOWdz?oc=5",
-          "published": "2026-11-15T16:03:20+00:00"
+          "source": "CASRAI",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUm5oRk5pVm5MQUZWbTBmY0tfTmxCRFplLTdvd0wwU0I2RUZ6SWJsaW9kYno1M0UzcHc1RWlqcnNvLTZFVUFwNkF4M1FoZ3ppdlhkU0tEZUxMNUNKZGJOWUhBYXJRWUVnRzF1OTBpdlh0RFY0WERZblQtUEhQNk9iTDlQTVFDQkEtRTVZ?oc=5",
+          "published": "2026-11-16T22:24:16+00:00"
         }
       ]
     }
@@ -198,191 +216,176 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Interfaces and Variability Shape Efficient AI Hardware",
-      "zh": "界面工程与变异性补偿推动高效AI硬件"
+      "en": "Data Movement Shapes Hardware and Inference",
+      "zh": "数据搬运影响硬件与推理性能"
     },
     "dek": {
-      "en": "Ferroelectric devices, magnetic p-bit arrays and superconducting circuits address memory operation, variation compensation and neural computation. Photonic simulation and activity-aware SNN pruning extend the reading queue to cross-layer design and workload efficiency.",
-      "zh": "铁电器件、磁性p-bit阵列与超导电路分别推进存储操作、变异性补偿和神经计算。光子仿真与面向脉冲活动的SNN剪枝进一步将研究视角延伸至跨层设计和工作负载效率。"
+      "en": "An FPGA prototype measures the cost of loading model weights, while systems papers test how to move inference data across GPU memory, host DRAM and SSDs. Other papers cover amorphous materials design, sub-terahertz receivers and quantum-circuit trainability.",
+      "zh": "一项FPGA实验测量了加载模型权重的开销，多篇系统论文则研究如何在GPU显存、主机DRAM和SSD之间搬运推理数据。本期也收录了非晶材料设计、亚太赫兹接收机和量子线路可训练性的研究。"
     },
     "areas": [
       {
         "id": "devices",
         "title": {
-          "en": "Devices & Process",
-          "zh": "器件与工艺"
+          "en": "Devices & Materials",
+          "zh": "器件与材料"
         },
         "papers": [
           {
             "title": {
-              "en": "Room-Temperature Montmorillonite Dielectrics Enable Low-Voltage 2D Transistors",
-              "zh": "室温加工的蒙脱石介电层支持低电压二维晶体管"
+              "en": "Graph Diffusion for Inverse Design of Disordered Materials",
+              "zh": "用图扩散模型逆向设计无序材料"
             },
-            "authors": "Wen-Jie Li, Jun-Ying Xue, Peng Chen, et al.",
+            "authors": "Jiani Hu, Chenyan Wang, Yongkun Yang, et al.",
             "affiliation": "",
-            "venue": "Nature Communications",
-            "venue_url": "https://doi.org/10.1038/s41467-026-79139-8",
+            "venue": "arXiv:2611.18420",
+            "venue_url": "https://arxiv.org/abs/2611.18420",
             "summary": {
-              "en": "An aqueous montmorillonite ink forms a solution-processed dielectric at room temperature, and all-solution-processed MoS2 transistors operate at 1 V with hysteresis as low as 1 mV. The organic-free formulation removes the need for ligand-removal annealing and works with several n-type and p-type 2D semiconductors. The result offers a low-thermal-budget route to gate dielectrics for temperature-sensitive integration.",
-              "zh": "研究利用水系蒙脱石墨水在室温下形成溶液加工介电层，全溶液加工的MoS2晶体管可在1 V下工作，迟滞最低达到1 mV。该配方不含有机组分，省去了去除配体所需的退火步骤，并适用于多种n型与p型二维半导体。这为对温度敏感的集成工艺提供了一条低热预算栅介电层制备路径。"
+              "en": "GaDiT generates disordered atomic structures using dynamic periodic graphs and diffusion conditioned on target properties. In tests on amorphous carbon, silicon and silica, the authors report sampling roughly 100 times faster than existing corrector-based methods. The model can propose structures with combinations of properties outside the training distribution, which could expand the search space for amorphous electronic materials.",
+              "zh": "GaDiT将动态周期图与按目标属性设定条件的扩散模型结合，用于生成无序原子结构。在非晶碳、非晶硅和非晶二氧化硅的测试中，作者报告采样速度约为现有基于校正步骤的方法的100倍。模型还可提出属性组合超出训练分布的候选结构，有助于扩大非晶电子材料的搜索范围。"
             },
-            "published": "2026-11-11"
-          },
-          {
-            "title": {
-              "en": "Nb2O5 Interlayers Improve Polarization and Resistance Contrast in HZO Tunnel Junctions",
-              "zh": "Nb2O5中间层提升HZO隧道结的极化与电阻态对比度"
-            },
-            "authors": "Hyungseok Lee, Hyo-Bae Kim, Gunho Kim, et al.",
-            "affiliation": "",
-            "venue": "ACS Applied Electronic Materials",
-            "venue_url": "https://doi.org/10.1021/acsaelm.6c01936",
-            "summary": {
-              "en": "Replacing an Al2O3 interlayer with Nb2O5 raises PUND-derived 2Pr from 17.2 to 27.4 μC/cm² in HZO ferroelectric tunnel junctions with matched layer and total stack thicknesses. At a 1.2 V read voltage, the tunneling electroresistance ratio rises from 36 to 60, with a larger relative current increase in the low-resistance state. The controlled comparison identifies interlayer selection as a lever for tuning polarization and readout contrast in nonvolatile memory.",
-              "zh": "在HZO层厚与介电堆叠总厚度保持一致的铁电隧道结中，以Nb2O5替代Al2O3中间层，使通过PUND测得的2Pr从17.2提高至27.4 μC/cm²。在1.2 V读取电压下，隧穿电致电阻比从36升至60，低阻态电流的相对增幅更大。这一控制变量比较表明，中间层材料选择可用于调节非易失存储器的极化与读取对比度。"
-            },
-            "published": "2026-11-12"
-          },
-          {
-            "title": {
-              "en": "All-ALD Growth Supports Reliable Sub-2-nm Hafnia Tunnel Junctions",
-              "zh": "全原子层沉积工艺支持高可靠性的亚2nm氧化铪隧道结"
-            },
-            "authors": "Ren-Hao Xue, Yu-Shi Sun, Rui-Zhan Yan, et al.",
-            "affiliation": "",
-            "venue": "Nano Letters",
-            "venue_url": "https://doi.org/10.1021/acs.nanolett.6c02499",
-            "summary": {
-              "en": "An all-atomic-layer-deposition process produces sub-2-nm hafnia ferroelectric tunnel junctions operating below 2 V with a breakdown field of about 12.1 MV/cm. The work combines controlled growth and low-roughness interfaces to address reliability during barrier scaling. Four-bit nonvolatile multilevel operation also supports an in-memory-computing simulation reporting 95.78% accuracy.",
-              "zh": "研究采用全原子层沉积工艺制备亚2nm氧化铪铁电隧道结，实现低于2 V的工作电压，击穿场强约为12.1 MV/cm。该工作通过精确控制生长过程和形成低粗糙度界面，应对势垒减薄带来的可靠性问题。器件还实现4 bit非易失多级操作，并在基于该特性的存内计算仿真中报告95.78%的准确率。"
-            },
-            "published": "2026-11-10"
+            "published": "2026-11-13T17:00:44Z"
           }
         ]
       },
       {
         "id": "circuits",
         "title": {
-          "en": "Circuits & Reliability",
-          "zh": "电路与可靠性"
+          "en": "Circuits & Architecture",
+          "zh": "电路与架构"
         },
         "papers": [
           {
             "title": {
-              "en": "Magnetic p-Bit Arrays Compensate Device Variation for Stochastic Neural Computing",
-              "zh": "磁性p-bit阵列通过器件变异性补偿实现随机神经计算"
+              "en": "Two-Round Estimation for Sub-Terahertz OFDM Receivers",
+              "zh": "面向亚太赫兹OFDM接收机的两轮估计"
             },
-            "authors": "Jia-Chen Bao, Song-Song Li, Rui-Zhi Ren, et al.",
+            "authors": "Ruilin Wang, Xiaodai Dong",
             "affiliation": "",
-            "venue": "Advanced Science",
-            "venue_url": "https://doi.org/10.1002/advs.78604",
+            "venue": "arXiv:2611.18450",
+            "venue_url": "https://arxiv.org/abs/2611.18450",
             "summary": {
-              "en": "A chip-level array of voltage-controlled magnetic-anisotropy MTJs uses a tail-truncation strategy to compensate variation in probabilistic switching ranges. The chip implements restricted Boltzmann machines and deep belief networks for image recognition, anomaly detection, image completion and generation. Joint adjustment of voltage-pulse amplitude and duration adds a control mechanism for improving network performance, making device calibration central to scaling probabilistic hardware.",
-              "zh": "研究在芯片级电压控制磁各向异性MTJ阵列中引入尾部截断策略，补偿器件概率开关范围的差异。该芯片实现受限玻尔兹曼机与深度信念网络，用于图像识别、异常检测、图像补全和生成。联合调节电压脉冲幅度与持续时间，为改善网络性能增加了控制手段，也使器件校准成为概率计算硬件扩展的重要环节。"
+              "en": "PACT jointly estimates the channel and oscillator phase noise in sub-terahertz OFDM, then uses the decoder's confidence and provisional symbol decisions to refine both estimates. At an Eb/N0 of 30 dB, its code-block error rate was about 70% and 57% lower than the best learning-based baseline across two benchmark settings, respectively. The results show how decoder feedback can improve reception when fading and oscillator noise act together.",
+              "zh": "PACT在亚太赫兹OFDM接收机中联合估计信道和振荡器相位噪声，再利用译码置信度和初步符号判决细化两项估计。在Eb/N0为30 dB时，两组基准测试的码块错误率分别比表现最好的学习型基线低约70%和57%。结果表明，当信道衰落与振荡器相位噪声同时存在时，译码反馈有助于改善接收性能。"
             },
-            "published": "2026-11-10"
-          },
-          {
-            "title": {
-              "en": "Multi-Weight AQFP Cells Demonstrate Superconducting Neural-Circuit Building Blocks",
-              "zh": "多权重AQFP单元展示超导神经电路基础模块"
-            },
-            "authors": "Yu-Xing He, Yi-Fan Kong, Yu-Hao Yang, et al.",
-            "affiliation": "",
-            "venue": "Superconductor Science and Technology",
-            "venue_url": "https://doi.org/10.1088/1361-6668/aebfcf",
-            "summary": {
-              "en": "A three-inductor transformer gives adiabatic quantum-flux-parametron cells multiple output-current amplitudes by tuning the intermediate inductance. Numerical simulations verify weighted current summation and threshold activation, and fabricated circuits measured at 4.2 K confirm multi-weight synaptic-cell and threshold-controlled operation. The results provide measured circuit building blocks for superconducting neural hardware.",
-              "zh": "研究通过三电感变压器调节中间电感，使绝热量子磁通参量器件（AQFP）单元产生多级输出电流幅度。数值仿真验证了加权电流求和与阈值激活，制备电路在4.2 K下的测量进一步确认了多权重突触单元与阈值控制功能。这些结果为超导神经硬件提供了经过实测的电路基础模块。"
-            },
-            "published": "2026-11-09"
+            "published": "2026-11-13T17:22:57Z"
           }
         ]
       },
       {
         "id": "accelerators",
         "title": {
-          "en": "AI Accelerators & Compute-in-Memory",
-          "zh": "AI加速器与存算一体"
+          "en": "AI Accelerators & Interconnects",
+          "zh": "AI加速器与互连"
         },
         "papers": [
           {
             "title": {
-              "en": "Polarization Selects Memory and Threshold Modes in α-In2Se3 Memristors",
-              "zh": "极化控制α-In2Se3忆阻器的存储与阈值开关模式"
+              "en": "Agilex FPGA Measures the Cost of Gated DeltaNet State Paging",
+              "zh": "Agilex FPGA实测Gated DeltaNet状态分页开销"
             },
-            "authors": "Soo-Hyun Lee, Jong-Hyun Kim, Hyeong-Kyu Jin, et al.",
+            "authors": "Cong Xu, Ravi Sankar",
             "affiliation": "",
-            "venue": "ACS Nano",
-            "venue_url": "https://doi.org/10.1021/acsnano.6c16642",
+            "venue": "arXiv:2611.18422",
+            "venue_url": "https://arxiv.org/abs/2611.18422",
             "summary": {
-                "en": "In a low-compliance-current regime, ferroelectric polarization selects nonvolatile memory switching or volatile threshold switching in a single α-In2Se3-based memristor through a decoupled in-plane poling terminal. The devices report a 4.7% coefficient of variation in set voltage and stable operation over more than 9,000 cycles. Combining both modes on one material platform supplies the volatile dynamics and nonvolatile readout weights needed for physical reservoir computing.",
-                "zh": "研究在低限流条件下，通过独立的面内极化端口调控铁电极化，使单个α-In2Se3忆阻器可在非易失存储开关与易失阈值开关模式之间选择。器件置位电压的变异系数为4.7%，并实现超过9000次循环的稳定操作。同一材料平台兼具两种模式，可提供物理储备池计算所需的易失动态响应与非易失读出权重。"
+              "en": "The authors implemented one layer of a 369-million-parameter Gated DeltaNet hybrid on an Agilex 5 FPGA and paged its recurrent state to external memory. With synthetic weights at 75 MHz, the layer took 11.15 ms per token, with weight matrix-vector operations accounting for about 62% of the time and state handling including paging for 13%. For this implementation, optimizing weight delivery has more scope to improve latency than optimizing state paging.",
+              "zh": "作者在Agilex 5 FPGA上实现了一个3.69亿参数Gated DeltaNet混合模型中的一层，并将循环状态分页存入片外内存。使用合成权重、在75 MHz下实测，该层每个词元耗时11.15毫秒，其中权重矩阵与向量相乘约占62%，包含分页在内的状态处理占13%。在这套实现中，优化权重供给比优化状态分页更有望缩短延迟。"
             },
-            "published": "2026-11-12"
+            "published": "2026-11-13T17:01:18Z"
           },
           {
             "title": {
-              "en": "A Vertical Transistor Integrates a Multiscale Reservoir and Nonvolatile Readout",
-              "zh": "垂直晶体管集成多时间尺度储备池与非易失读出"
+              "en": "Obaleth Compiles GPU-Initiated Communication with Compute",
+              "zh": "Obaleth联合编译GPU主动发起的通信与计算"
             },
-            "authors": "Qin-Yong Dai, Hang-Yuan Cui, Yi-Shan Cao, et al.",
-            "affiliation": "",
-            "venue": "Light: Science & Applications",
-            "venue_url": "https://doi.org/10.1038/s41377-026-02420-4",
+            "authors": "Javid Baydamirli, Ismayil Ismayilov, Kaan Oktay, Didem Unat",
+            "affiliation": "Koç University, fal",
+            "venue": "arXiv:2611.18145",
+            "venue_url": "https://arxiv.org/abs/2611.18145",
             "summary": {
-              "en": "A vertical organic transistor integrates a multi-timescale photoelectric reservoir with a linear ferroelectric readout, allowing their dynamics and weights to be tuned independently. A Rubrene/F16CuPc heterojunction provides wavelength-dependent relaxation, and a ferroelectric stack provides symmetric nonvolatile weight updates with retention exceeding 3,000 seconds. The integration addresses the differing device requirements of reservoir and readout layers in edge machine vision.",
-              "zh": "研究在垂直有机场效应晶体管中集成多时间尺度光电储备池与线性铁电读出，使动态响应与权重能够独立调节。Rubrene/F16CuPc异质结提供随波长变化的弛豫过程，铁电堆叠则实现对称的非易失权重更新，保持时间超过3000秒。这种集成方式针对边缘机器视觉中储备池层与读出层各自不同的器件需求提供了解决路径。"
+              "en": "Obaleth brings GPU-initiated communication into a kernel's intermediate representation so the compiler can schedule transfers alongside computation. In an all-to-all test on 256 H100 GPUs with 256 bytes per peer, it ran 1.25× as fast as NVSHMEM and 2.3× as fast as NCCL GIN. On 16 B200 GPUs serving Qwen3-235B in vLLM, it cut time per output token by 10–24% compared with DeepEP.",
+              "zh": "Obaleth将GPU主动发起的通信纳入内核的中间表示，使编译器可以统一调度数据传输和计算。在256颗H100上进行每个对端256字节的全对全通信测试时，其速度分别为NVSHMEM的1.25倍、NCCL GIN的2.3倍。在16颗B200上用vLLM部署Qwen3-235B时，相较于使用DeepEP，每个输出词元的耗时缩短了10%至24%。"
             },
-            "published": "2026-11-09"
+            "published": "2026-11-13T13:19:59Z"
           }
         ]
       },
       {
         "id": "ai-research",
         "title": {
-          "en": "Hardware-Relevant AI Research",
-          "zh": "面向硬件的AI研究"
+          "en": "AI Research & Inference Systems",
+          "zh": "AI研究与推理系统"
         },
         "papers": [
           {
             "title": {
-              "en": "Homeostatic Metabolic Pruning Targets Energy-Efficient Spiking Networks",
-              "zh": "稳态代谢剪枝面向高能效脉冲神经网络"
+              "en": "MosaicKV Schedules KV-Cache Pages Across Cloud Tenants",
+              "zh": "MosaicKV为多租户云推理调度KV缓存页"
             },
-            "authors": "Jun-Xiang Zhang, Jiang-Rong Shen, Hui-Yan Xue, et al.",
-            "affiliation": "",
-            "venue": "ACM Multimedia 2026",
-            "venue_url": "https://doi.org/10.1145/3767308.3836183",
+            "authors": "Rui Li, Shuang Cao",
+            "affiliation": "Hill Research",
+            "venue": "ACM SoCC 2026",
+            "venue_url": "https://doi.org/10.1145/3815789.3827960",
             "summary": {
-              "en": "An activity-aware SNN pruning framework uses accumulated firing traces to remove hyperactive redundancy, then adjusts BatchNorm biases and gradient weights during homeostatic fine-tuning. It preserves information-dense convolutional layers and compresses parameter-heavy fully connected layers more aggressively. By incorporating firing activity into structural learning, the method targets both parameter storage and the event-processing work that drives neuromorphic energy consumption.",
-              "zh": "研究提出面向活动水平的SNN剪枝框架，利用累积发放轨迹去除过度活跃的冗余结构，再通过稳态微调调整BatchNorm偏置与梯度权重。该方法保留信息密集的卷积层，并对参数较多的全连接层进行更大幅度压缩。通过将发放活动纳入结构学习，方法同时针对参数存储开销与影响神经形态能耗的事件处理工作量进行优化。"
+              "en": "MosaicKV treats KV-cache pages as a shared resource that can move between GPU HBM and host DRAM as workloads compete for memory. It uses the decoder's predictable layer order to prefetch pages and schedule microbatches around PCIe transfers. This gives a cloud operator a way to manage tail latency for time to first token when tenants collectively need more cache capacity than the GPU provides.",
+              "zh": "MosaicKV将KV缓存页视为多个租户共享的资源，根据显存竞争情况在GPU的HBM与主机DRAM之间迁移。系统利用解码器逐层访问顺序可预测的特点进行预取，并按PCIe传输进度安排微批次。在租户的缓存总需求超过GPU显存容量时，这种调度可用于控制首词元延迟的长尾。"
             },
-            "published": "2026-11-09"
+            "published": "2026-11-17"
+          },
+          {
+            "title": {
+              "en": "JetFire Uses Hybrid Memory for Long-Context Attention",
+              "zh": "JetFire利用分层内存计算长上下文注意力"
+            },
+            "authors": "Feng Yu, Hongshi Tan, Yao Chen, Gustavo Alonso, Weng-Fai Wong, Bingsheng He",
+            "affiliation": "National University of Singapore, Huazhong University of Science and Technology, ETH Zürich",
+            "venue": "ACM ATC 2026",
+            "venue_url": "https://doi.org/10.1145/3828523.3857090",
+            "summary": {
+              "en": "JetFire scans a quantized KV-cache copy in GPU HBM to identify the tokens that contribute most to attention, then uses full-precision data in host DRAM to correct their contributions. At the longest context lengths shared by both systems, JetFire-K3V2 ran end to end 1.3–3.0× as fast as TurboQuant in vLLM. The split lets the system store a compact copy of the full context on the GPU and use high precision selectively.",
+              "zh": "JetFire先扫描GPU HBM中的量化KV缓存副本，找出对注意力贡献最大的词元，再利用主机DRAM中的全精度数据修正这些词元的贡献。在两种方法均支持的最长上下文条件下，JetFire-K3V2在vLLM中的端到端速度为TurboQuant的1.3至3.0倍。这种分工让GPU只需保留完整上下文的低精度副本，并将高精度计算集中在关键位置。"
+            },
+            "published": "2026-11-15"
+          },
+          {
+            "title": {
+              "en": "Octopus Retrieves Sparse KV Cache Across Multiple SSDs",
+              "zh": "Octopus用多块SSD并行读取稀疏KV缓存"
+            },
+            "authors": "Tuowei Wang, Liyun Chu, Ruwen Fan, Ju Ren",
+            "affiliation": "Tsinghua University",
+            "venue": "ACM ATC 2026",
+            "venue_url": "https://doi.org/10.1145/3828523.3857061",
+            "summary": {
+              "en": "Octopus uses correlations in sparse attention to identify groups of KV-cache entries that are frequently fetched together. It distributes those groups across SSDs in advance and selectively replicates them so reads can be spread across drives. The design addresses the I/O bottleneck of using flash as a lower-cost capacity tier for persistent inference caches.",
+              "zh": "Octopus利用稀疏注意力中的访问相关性，找出经常被一同读取的KV缓存条目。系统预先将这些条目组分布到多块SSD，并有选择地复制部分条目组，使读取负载可以在多块盘之间分摊。该设计针对把闪存用作持久化推理缓存的低成本容量层时遇到的I/O瓶颈。"
+            },
+            "published": "2026-11-15"
           }
         ]
       },
       {
-        "id": "eda",
+        "id": "quantum",
         "title": {
-          "en": "EDA & Design Tools",
-          "zh": "EDA与设计工具"
+          "en": "Quantum Computing",
+          "zh": "量子计算"
         },
         "papers": [
           {
             "title": {
-              "en": "PISim Connects Photonic Architectures, Device Impairments and Neural Inference",
-              "zh": "PISim联结光子架构、器件非理想因素与神经网络推理"
+              "en": "Circuit Structure Predicts Trainability in Variational Quantum Models",
+              "zh": "线路结构可用于判断变分量子模型的可训练性"
             },
-            "authors": "Andreas Falkenberg",
+            "authors": "Wenbo Xie, Wojciech Szpankowski, Ananth Grama",
             "affiliation": "",
-            "venue": "arXiv:2611.16522",
-            "venue_url": "http://arxiv.org/abs/2611.16522",
+            "venue": "arXiv:2611.18378",
+            "venue_url": "https://arxiv.org/abs/2611.18378",
             "summary": {
-              "en": "PISim couples neural-network execution to models of six photonic accelerator families, six modulator technologies and four optical-source organizations. It combines quantization, noise, thermal drift, loss and crosstalk with interface timing to evaluate electronic-optical bottlenecks. Demonstrations use simulated MNIST multilayer perceptrons, providing a common framework for examining accuracy and throughput trade-offs before fabrication.",
-              "zh": "PISim将神经网络执行与6类光子加速器架构、6种调制器技术及4种光源组织方式的模型相结合。该工具综合量化、噪声、热漂移、损耗、串扰与接口时序，评估电光协同中的瓶颈。演示采用MNIST多层感知机仿真，为流片前比较准确率与吞吐量之间的取舍提供统一框架。"
+              "en": "The authors derive a sufficient condition for gradients in a variational quantum circuit to retain at least inverse-polynomial variance under specified circuit and subspace assumptions. They also propose estimating gradient variance by sampling circuit runs. This offers a way to check for vanishing gradients before committing resources to training.",
+              "zh": "作者在给定的线路和子空间条件下，推导出一个充分条件，使变分量子线路的梯度方差至少保持在逆多项式量级。论文还提出通过多次运行线路来采样估计梯度方差，从而在投入训练资源之前判断梯度是否会消失。"
             },
-            "published": "2026-11-12"
+            "published": "2026-11-13T16:22:31Z"
           }
         ]
       }

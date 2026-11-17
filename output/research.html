@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-16">
+<meta name="edition-date" content="2026-11-17">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Interfaces and Variability Shape Efficient AI Hardware — Semi Research 2026-11-16</title>
+<title>Data Movement Shapes Hardware and Inference — Semi Research 2026-11-17</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,185 +319,170 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Monday, November 16, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月16日 星期一</span>
+      <span class="en">Research digest · Tuesday, November 17, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月17日 星期二</span>
     </div>
     <h1>
-      <span class="en">Interfaces and Variability Shape Efficient AI Hardware</span>
-      <span class="zh">界面工程与变异性补偿推动高效AI硬件</span>
+      <span class="en">Data Movement Shapes Hardware and Inference</span>
+      <span class="zh">数据搬运影响硬件与推理性能</span>
     </h1>
     <p class="dek">
-      <span class="en">Ferroelectric devices, magnetic p-bit arrays and superconducting circuits address memory operation, variation compensation and neural computation. Photonic simulation and activity-aware SNN pruning extend the reading queue to cross-layer design and workload efficiency.</span>
-      <span class="zh">铁电器件、磁性p-bit阵列与超导电路分别推进存储操作、变异性补偿和神经计算。光子仿真与面向脉冲活动的SNN剪枝进一步将研究视角延伸至跨层设计和工作负载效率。</span>
+      <span class="en">An FPGA prototype measures the cost of loading model weights, while systems papers test how to move inference data across GPU memory, host DRAM and SSDs. Other papers cover amorphous materials design, sub-terahertz receivers and quantum-circuit trainability.</span>
+      <span class="zh">一项FPGA实验测量了加载模型权重的开销，多篇系统论文则研究如何在GPU显存、主机DRAM和SSD之间搬运推理数据。本期也收录了非晶材料设计、亚太赫兹接收机和量子线路可训练性的研究。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
     </div>
   </header>
 
     <section class="area" id="devices">
     <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
+      <span class="en">Devices &amp; Materials</span>
+      <span class="zh">器件与材料</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1038/s41467-026-79139-8" target="_blank" rel="noopener">
-          <span class="en">Room-Temperature Montmorillonite Dielectrics Enable Low-Voltage 2D Transistors</span>
-          <span class="zh">室温加工的蒙脱石介电层支持低电压二维晶体管</span>
+        <a href="https://arxiv.org/abs/2611.18420" target="_blank" rel="noopener">
+          <span class="en">Graph Diffusion for Inverse Design of Disordered Materials</span>
+          <span class="zh">用图扩散模型逆向设计无序材料</span>
         </a>
       </h3>
-      <p class="authors">Wen-Jie Li, Jun-Ying Xue, Peng Chen, et al.</p>
+      <p class="authors">Jiani Hu, Chenyan Wang, Yongkun Yang, et al.</p>
       
-      <p class="venue"><a href="https://doi.org/10.1038/s41467-026-79139-8" target="_blank" rel="noopener">Nature Communications</a> · 2026-11-11</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18420" target="_blank" rel="noopener">arXiv:2611.18420</a> · 2026-11-13T17:00:44Z</p>
       <p class="summary">
-        <span class="en">An aqueous montmorillonite ink forms a solution-processed dielectric at room temperature, and all-solution-processed MoS2 transistors operate at 1 V with hysteresis as low as 1 mV. The organic-free formulation removes the need for ligand-removal annealing and works with several n-type and p-type 2D semiconductors. The result offers a low-thermal-budget route to gate dielectrics for temperature-sensitive integration.</span>
-        <span class="zh">研究利用水系蒙脱石墨水在室温下形成溶液加工介电层，全溶液加工的MoS2晶体管可在1 V下工作，迟滞最低达到1 mV。该配方不含有机组分，省去了去除配体所需的退火步骤，并适用于多种n型与p型二维半导体。这为对温度敏感的集成工艺提供了一条低热预算栅介电层制备路径。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1021/acsaelm.6c01936" target="_blank" rel="noopener">
-          <span class="en">Nb2O5 Interlayers Improve Polarization and Resistance Contrast in HZO Tunnel Junctions</span>
-          <span class="zh">Nb2O5中间层提升HZO隧道结的极化与电阻态对比度</span>
-        </a>
-      </h3>
-      <p class="authors">Hyungseok Lee, Hyo-Bae Kim, Gunho Kim, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1021/acsaelm.6c01936" target="_blank" rel="noopener">ACS Applied Electronic Materials</a> · 2026-11-12</p>
-      <p class="summary">
-        <span class="en">Replacing an Al2O3 interlayer with Nb2O5 raises PUND-derived 2Pr from 17.2 to 27.4 μC/cm² in HZO ferroelectric tunnel junctions with matched layer and total stack thicknesses. At a 1.2 V read voltage, the tunneling electroresistance ratio rises from 36 to 60, with a larger relative current increase in the low-resistance state. The controlled comparison identifies interlayer selection as a lever for tuning polarization and readout contrast in nonvolatile memory.</span>
-        <span class="zh">在HZO层厚与介电堆叠总厚度保持一致的铁电隧道结中，以Nb2O5替代Al2O3中间层，使通过PUND测得的2Pr从17.2提高至27.4 μC/cm²。在1.2 V读取电压下，隧穿电致电阻比从36升至60，低阻态电流的相对增幅更大。这一控制变量比较表明，中间层材料选择可用于调节非易失存储器的极化与读取对比度。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1021/acs.nanolett.6c02499" target="_blank" rel="noopener">
-          <span class="en">All-ALD Growth Supports Reliable Sub-2-nm Hafnia Tunnel Junctions</span>
-          <span class="zh">全原子层沉积工艺支持高可靠性的亚2nm氧化铪隧道结</span>
-        </a>
-      </h3>
-      <p class="authors">Ren-Hao Xue, Yu-Shi Sun, Rui-Zhan Yan, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1021/acs.nanolett.6c02499" target="_blank" rel="noopener">Nano Letters</a> · 2026-11-10</p>
-      <p class="summary">
-        <span class="en">An all-atomic-layer-deposition process produces sub-2-nm hafnia ferroelectric tunnel junctions operating below 2 V with a breakdown field of about 12.1 MV/cm. The work combines controlled growth and low-roughness interfaces to address reliability during barrier scaling. Four-bit nonvolatile multilevel operation also supports an in-memory-computing simulation reporting 95.78% accuracy.</span>
-        <span class="zh">研究采用全原子层沉积工艺制备亚2nm氧化铪铁电隧道结，实现低于2 V的工作电压，击穿场强约为12.1 MV/cm。该工作通过精确控制生长过程和形成低粗糙度界面，应对势垒减薄带来的可靠性问题。器件还实现4 bit非易失多级操作，并在基于该特性的存内计算仿真中报告95.78%的准确率。</span>
+        <span class="en">GaDiT generates disordered atomic structures using dynamic periodic graphs and diffusion conditioned on target properties. In tests on amorphous carbon, silicon and silica, the authors report sampling roughly 100 times faster than existing corrector-based methods. The model can propose structures with combinations of properties outside the training distribution, which could expand the search space for amorphous electronic materials.</span>
+        <span class="zh">GaDiT将动态周期图与按目标属性设定条件的扩散模型结合，用于生成无序原子结构。在非晶碳、非晶硅和非晶二氧化硅的测试中，作者报告采样速度约为现有基于校正步骤的方法的100倍。模型还可提出属性组合超出训练分布的候选结构，有助于扩大非晶电子材料的搜索范围。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Reliability</span>
-      <span class="zh">电路与可靠性</span>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1002/advs.78604" target="_blank" rel="noopener">
-          <span class="en">Magnetic p-Bit Arrays Compensate Device Variation for Stochastic Neural Computing</span>
-          <span class="zh">磁性p-bit阵列通过器件变异性补偿实现随机神经计算</span>
+        <a href="https://arxiv.org/abs/2611.18450" target="_blank" rel="noopener">
+          <span class="en">Two-Round Estimation for Sub-Terahertz OFDM Receivers</span>
+          <span class="zh">面向亚太赫兹OFDM接收机的两轮估计</span>
         </a>
       </h3>
-      <p class="authors">Jia-Chen Bao, Song-Song Li, Rui-Zhi Ren, et al.</p>
+      <p class="authors">Ruilin Wang, Xiaodai Dong</p>
       
-      <p class="venue"><a href="https://doi.org/10.1002/advs.78604" target="_blank" rel="noopener">Advanced Science</a> · 2026-11-10</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18450" target="_blank" rel="noopener">arXiv:2611.18450</a> · 2026-11-13T17:22:57Z</p>
       <p class="summary">
-        <span class="en">A chip-level array of voltage-controlled magnetic-anisotropy MTJs uses a tail-truncation strategy to compensate variation in probabilistic switching ranges. The chip implements restricted Boltzmann machines and deep belief networks for image recognition, anomaly detection, image completion and generation. Joint adjustment of voltage-pulse amplitude and duration adds a control mechanism for improving network performance, making device calibration central to scaling probabilistic hardware.</span>
-        <span class="zh">研究在芯片级电压控制磁各向异性MTJ阵列中引入尾部截断策略，补偿器件概率开关范围的差异。该芯片实现受限玻尔兹曼机与深度信念网络，用于图像识别、异常检测、图像补全和生成。联合调节电压脉冲幅度与持续时间，为改善网络性能增加了控制手段，也使器件校准成为概率计算硬件扩展的重要环节。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1088/1361-6668/aebfcf" target="_blank" rel="noopener">
-          <span class="en">Multi-Weight AQFP Cells Demonstrate Superconducting Neural-Circuit Building Blocks</span>
-          <span class="zh">多权重AQFP单元展示超导神经电路基础模块</span>
-        </a>
-      </h3>
-      <p class="authors">Yu-Xing He, Yi-Fan Kong, Yu-Hao Yang, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1088/1361-6668/aebfcf" target="_blank" rel="noopener">Superconductor Science and Technology</a> · 2026-11-09</p>
-      <p class="summary">
-        <span class="en">A three-inductor transformer gives adiabatic quantum-flux-parametron cells multiple output-current amplitudes by tuning the intermediate inductance. Numerical simulations verify weighted current summation and threshold activation, and fabricated circuits measured at 4.2 K confirm multi-weight synaptic-cell and threshold-controlled operation. The results provide measured circuit building blocks for superconducting neural hardware.</span>
-        <span class="zh">研究通过三电感变压器调节中间电感，使绝热量子磁通参量器件（AQFP）单元产生多级输出电流幅度。数值仿真验证了加权电流求和与阈值激活，制备电路在4.2 K下的测量进一步确认了多权重突触单元与阈值控制功能。这些结果为超导神经硬件提供了经过实测的电路基础模块。</span>
+        <span class="en">PACT jointly estimates the channel and oscillator phase noise in sub-terahertz OFDM, then uses the decoder&#x27;s confidence and provisional symbol decisions to refine both estimates. At an Eb/N0 of 30 dB, its code-block error rate was about 70% and 57% lower than the best learning-based baseline across two benchmark settings, respectively. The results show how decoder feedback can improve reception when fading and oscillator noise act together.</span>
+        <span class="zh">PACT在亚太赫兹OFDM接收机中联合估计信道和振荡器相位噪声，再利用译码置信度和初步符号判决细化两项估计。在Eb/N0为30 dB时，两组基准测试的码块错误率分别比表现最好的学习型基线低约70%和57%。结果表明，当信道衰落与振荡器相位噪声同时存在时，译码反馈有助于改善接收性能。</span>
       </p>
     </article>
   </section>
   <section class="area" id="accelerators">
     <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
+      <span class="en">AI Accelerators &amp; Interconnects</span>
+      <span class="zh">AI加速器与互连</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1021/acsnano.6c16642" target="_blank" rel="noopener">
-          <span class="en">Polarization Selects Memory and Threshold Modes in α-In2Se3 Memristors</span>
-          <span class="zh">极化控制α-In2Se3忆阻器的存储与阈值开关模式</span>
+        <a href="https://arxiv.org/abs/2611.18422" target="_blank" rel="noopener">
+          <span class="en">Agilex FPGA Measures the Cost of Gated DeltaNet State Paging</span>
+          <span class="zh">Agilex FPGA实测Gated DeltaNet状态分页开销</span>
         </a>
       </h3>
-      <p class="authors">Soo-Hyun Lee, Jong-Hyun Kim, Hyeong-Kyu Jin, et al.</p>
+      <p class="authors">Cong Xu, Ravi Sankar</p>
       
-      <p class="venue"><a href="https://doi.org/10.1021/acsnano.6c16642" target="_blank" rel="noopener">ACS Nano</a> · 2026-11-12</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18422" target="_blank" rel="noopener">arXiv:2611.18422</a> · 2026-11-13T17:01:18Z</p>
       <p class="summary">
-        <span class="en">In a low-compliance-current regime, ferroelectric polarization selects nonvolatile memory switching or volatile threshold switching in a single α-In2Se3-based memristor through a decoupled in-plane poling terminal. The devices report a 4.7% coefficient of variation in set voltage and stable operation over more than 9,000 cycles. Combining both modes on one material platform supplies the volatile dynamics and nonvolatile readout weights needed for physical reservoir computing.</span>
-        <span class="zh">研究在低限流条件下，通过独立的面内极化端口调控铁电极化，使单个α-In2Se3忆阻器可在非易失存储开关与易失阈值开关模式之间选择。器件置位电压的变异系数为4.7%，并实现超过9000次循环的稳定操作。同一材料平台兼具两种模式，可提供物理储备池计算所需的易失动态响应与非易失读出权重。</span>
+        <span class="en">The authors implemented one layer of a 369-million-parameter Gated DeltaNet hybrid on an Agilex 5 FPGA and paged its recurrent state to external memory. With synthetic weights at 75 MHz, the layer took 11.15 ms per token, with weight matrix-vector operations accounting for about 62% of the time and state handling including paging for 13%. For this implementation, optimizing weight delivery has more scope to improve latency than optimizing state paging.</span>
+        <span class="zh">作者在Agilex 5 FPGA上实现了一个3.69亿参数Gated DeltaNet混合模型中的一层，并将循环状态分页存入片外内存。使用合成权重、在75 MHz下实测，该层每个词元耗时11.15毫秒，其中权重矩阵与向量相乘约占62%，包含分页在内的状态处理占13%。在这套实现中，优化权重供给比优化状态分页更有望缩短延迟。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1038/s41377-026-02420-4" target="_blank" rel="noopener">
-          <span class="en">A Vertical Transistor Integrates a Multiscale Reservoir and Nonvolatile Readout</span>
-          <span class="zh">垂直晶体管集成多时间尺度储备池与非易失读出</span>
+        <a href="https://arxiv.org/abs/2611.18145" target="_blank" rel="noopener">
+          <span class="en">Obaleth Compiles GPU-Initiated Communication with Compute</span>
+          <span class="zh">Obaleth联合编译GPU主动发起的通信与计算</span>
         </a>
       </h3>
-      <p class="authors">Qin-Yong Dai, Hang-Yuan Cui, Yi-Shan Cao, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1038/s41377-026-02420-4" target="_blank" rel="noopener">Light: Science &amp; Applications</a> · 2026-11-09</p>
+      <p class="authors">Javid Baydamirli, Ismayil Ismayilov, Kaan Oktay, Didem Unat</p>
+      <p class="affil">Koç University, fal</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18145" target="_blank" rel="noopener">arXiv:2611.18145</a> · 2026-11-13T13:19:59Z</p>
       <p class="summary">
-        <span class="en">A vertical organic transistor integrates a multi-timescale photoelectric reservoir with a linear ferroelectric readout, allowing their dynamics and weights to be tuned independently. A Rubrene/F16CuPc heterojunction provides wavelength-dependent relaxation, and a ferroelectric stack provides symmetric nonvolatile weight updates with retention exceeding 3,000 seconds. The integration addresses the differing device requirements of reservoir and readout layers in edge machine vision.</span>
-        <span class="zh">研究在垂直有机场效应晶体管中集成多时间尺度光电储备池与线性铁电读出，使动态响应与权重能够独立调节。Rubrene/F16CuPc异质结提供随波长变化的弛豫过程，铁电堆叠则实现对称的非易失权重更新，保持时间超过3000秒。这种集成方式针对边缘机器视觉中储备池层与读出层各自不同的器件需求提供了解决路径。</span>
+        <span class="en">Obaleth brings GPU-initiated communication into a kernel&#x27;s intermediate representation so the compiler can schedule transfers alongside computation. In an all-to-all test on 256 H100 GPUs with 256 bytes per peer, it ran 1.25× as fast as NVSHMEM and 2.3× as fast as NCCL GIN. On 16 B200 GPUs serving Qwen3-235B in vLLM, it cut time per output token by 10–24% compared with DeepEP.</span>
+        <span class="zh">Obaleth将GPU主动发起的通信纳入内核的中间表示，使编译器可以统一调度数据传输和计算。在256颗H100上进行每个对端256字节的全对全通信测试时，其速度分别为NVSHMEM的1.25倍、NCCL GIN的2.3倍。在16颗B200上用vLLM部署Qwen3-235B时，相较于使用DeepEP，每个输出词元的耗时缩短了10%至24%。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Hardware-Relevant AI Research</span>
-      <span class="zh">面向硬件的AI研究</span>
+      <span class="en">AI Research &amp; Inference Systems</span>
+      <span class="zh">AI研究与推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3767308.3836183" target="_blank" rel="noopener">
-          <span class="en">Homeostatic Metabolic Pruning Targets Energy-Efficient Spiking Networks</span>
-          <span class="zh">稳态代谢剪枝面向高能效脉冲神经网络</span>
+        <a href="https://doi.org/10.1145/3815789.3827960" target="_blank" rel="noopener">
+          <span class="en">MosaicKV Schedules KV-Cache Pages Across Cloud Tenants</span>
+          <span class="zh">MosaicKV为多租户云推理调度KV缓存页</span>
         </a>
       </h3>
-      <p class="authors">Jun-Xiang Zhang, Jiang-Rong Shen, Hui-Yan Xue, et al.</p>
-      
-      <p class="venue"><a href="https://doi.org/10.1145/3767308.3836183" target="_blank" rel="noopener">ACM Multimedia 2026</a> · 2026-11-09</p>
+      <p class="authors">Rui Li, Shuang Cao</p>
+      <p class="affil">Hill Research</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3815789.3827960" target="_blank" rel="noopener">ACM SoCC 2026</a> · 2026-11-17</p>
       <p class="summary">
-        <span class="en">An activity-aware SNN pruning framework uses accumulated firing traces to remove hyperactive redundancy, then adjusts BatchNorm biases and gradient weights during homeostatic fine-tuning. It preserves information-dense convolutional layers and compresses parameter-heavy fully connected layers more aggressively. By incorporating firing activity into structural learning, the method targets both parameter storage and the event-processing work that drives neuromorphic energy consumption.</span>
-        <span class="zh">研究提出面向活动水平的SNN剪枝框架，利用累积发放轨迹去除过度活跃的冗余结构，再通过稳态微调调整BatchNorm偏置与梯度权重。该方法保留信息密集的卷积层，并对参数较多的全连接层进行更大幅度压缩。通过将发放活动纳入结构学习，方法同时针对参数存储开销与影响神经形态能耗的事件处理工作量进行优化。</span>
+        <span class="en">MosaicKV treats KV-cache pages as a shared resource that can move between GPU HBM and host DRAM as workloads compete for memory. It uses the decoder&#x27;s predictable layer order to prefetch pages and schedule microbatches around PCIe transfers. This gives a cloud operator a way to manage tail latency for time to first token when tenants collectively need more cache capacity than the GPU provides.</span>
+        <span class="zh">MosaicKV将KV缓存页视为多个租户共享的资源，根据显存竞争情况在GPU的HBM与主机DRAM之间迁移。系统利用解码器逐层访问顺序可预测的特点进行预取，并按PCIe传输进度安排微批次。在租户的缓存总需求超过GPU显存容量时，这种调度可用于控制首词元延迟的长尾。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3828523.3857090" target="_blank" rel="noopener">
+          <span class="en">JetFire Uses Hybrid Memory for Long-Context Attention</span>
+          <span class="zh">JetFire利用分层内存计算长上下文注意力</span>
+        </a>
+      </h3>
+      <p class="authors">Feng Yu, Hongshi Tan, Yao Chen, Gustavo Alonso, Weng-Fai Wong, Bingsheng He</p>
+      <p class="affil">National University of Singapore, Huazhong University of Science and Technology, ETH Zürich</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857090" target="_blank" rel="noopener">ACM ATC 2026</a> · 2026-11-15</p>
+      <p class="summary">
+        <span class="en">JetFire scans a quantized KV-cache copy in GPU HBM to identify the tokens that contribute most to attention, then uses full-precision data in host DRAM to correct their contributions. At the longest context lengths shared by both systems, JetFire-K3V2 ran end to end 1.3–3.0× as fast as TurboQuant in vLLM. The split lets the system store a compact copy of the full context on the GPU and use high precision selectively.</span>
+        <span class="zh">JetFire先扫描GPU HBM中的量化KV缓存副本，找出对注意力贡献最大的词元，再利用主机DRAM中的全精度数据修正这些词元的贡献。在两种方法均支持的最长上下文条件下，JetFire-K3V2在vLLM中的端到端速度为TurboQuant的1.3至3.0倍。这种分工让GPU只需保留完整上下文的低精度副本，并将高精度计算集中在关键位置。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3828523.3857061" target="_blank" rel="noopener">
+          <span class="en">Octopus Retrieves Sparse KV Cache Across Multiple SSDs</span>
+          <span class="zh">Octopus用多块SSD并行读取稀疏KV缓存</span>
+        </a>
+      </h3>
+      <p class="authors">Tuowei Wang, Liyun Chu, Ruwen Fan, Ju Ren</p>
+      <p class="affil">Tsinghua University</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857061" target="_blank" rel="noopener">ACM ATC 2026</a> · 2026-11-15</p>
+      <p class="summary">
+        <span class="en">Octopus uses correlations in sparse attention to identify groups of KV-cache entries that are frequently fetched together. It distributes those groups across SSDs in advance and selectively replicates them so reads can be spread across drives. The design addresses the I/O bottleneck of using flash as a lower-cost capacity tier for persistent inference caches.</span>
+        <span class="zh">Octopus利用稀疏注意力中的访问相关性，找出经常被一同读取的KV缓存条目。系统预先将这些条目组分布到多块SSD，并有选择地复制部分条目组，使读取负载可以在多块盘之间分摊。该设计针对把闪存用作持久化推理缓存的低成本容量层时遇到的I/O瓶颈。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="eda">
+  <section class="area" id="quantum">
     <h2>
-      <span class="en">EDA &amp; Design Tools</span>
-      <span class="zh">EDA与设计工具</span>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2611.16522" target="_blank" rel="noopener">
-          <span class="en">PISim Connects Photonic Architectures, Device Impairments and Neural Inference</span>
-          <span class="zh">PISim联结光子架构、器件非理想因素与神经网络推理</span>
+        <a href="https://arxiv.org/abs/2611.18378" target="_blank" rel="noopener">
+          <span class="en">Circuit Structure Predicts Trainability in Variational Quantum Models</span>
+          <span class="zh">线路结构可用于判断变分量子模型的可训练性</span>
         </a>
       </h3>
-      <p class="authors">Andreas Falkenberg</p>
+      <p class="authors">Wenbo Xie, Wojciech Szpankowski, Ananth Grama</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2611.16522" target="_blank" rel="noopener">arXiv:2611.16522</a> · 2026-11-12</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18378" target="_blank" rel="noopener">arXiv:2611.18378</a> · 2026-11-13T16:22:31Z</p>
       <p class="summary">
-        <span class="en">PISim couples neural-network execution to models of six photonic accelerator families, six modulator technologies and four optical-source organizations. It combines quantization, noise, thermal drift, loss and crosstalk with interface timing to evaluate electronic-optical bottlenecks. Demonstrations use simulated MNIST multilayer perceptrons, providing a common framework for examining accuracy and throughput trade-offs before fabrication.</span>
-        <span class="zh">PISim将神经网络执行与6类光子加速器架构、6种调制器技术及4种光源组织方式的模型相结合。该工具综合量化、噪声、热漂移、损耗、串扰与接口时序，评估电光协同中的瓶颈。演示采用MNIST多层感知机仿真，为流片前比较准确率与吞吐量之间的取舍提供统一框架。</span>
+        <span class="en">The authors derive a sufficient condition for gradients in a variational quantum circuit to retain at least inverse-polynomial variance under specified circuit and subspace assumptions. They also propose estimating gradient variance by sampling circuit runs. This offers a way to check for vanishing gradients before committing resources to training.</span>
+        <span class="zh">作者在给定的线路和子空间条件下，推导出一个充分条件，使变分量子线路的梯度方差至少保持在逆多项式量级。论文还提出通过多次运行线路来采样估计梯度方差，从而在投入训练资源之前判断梯度是否会消失。</span>
       </p>
     </article>
   </section>
@@ -525,8 +510,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-16 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-16 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-17 04:41 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-17 04:41 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

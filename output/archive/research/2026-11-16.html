@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-16">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Interfaces and Variability Shape Efficient AI Hardware — Semi Research 2026-11-16</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-11-16.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Monday, November 16, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月16日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Interfaces and Variability Shape Efficient AI Hardware</span>
+      <span class="zh">界面工程与变异性补偿推动高效AI硬件</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Ferroelectric devices, magnetic p-bit arrays and superconducting circuits address memory operation, variation compensation and neural computation. Photonic simulation and activity-aware SNN pruning extend the reading queue to cross-layer design and workload efficiency.</span>
+      <span class="zh">铁电器件、磁性p-bit阵列与超导电路分别推进存储操作、变异性补偿和神经计算。光子仿真与面向脉冲活动的SNN剪枝进一步将研究视角延伸至跨层设计和工作负载效率。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s41467-026-79139-8" target="_blank" rel="noopener">
+          <span class="en">Room-Temperature Montmorillonite Dielectrics Enable Low-Voltage 2D Transistors</span>
+          <span class="zh">室温加工的蒙脱石介电层支持低电压二维晶体管</span>
+        </a>
+      </h3>
+      <p class="authors">Wen-Jie Li, Jun-Ying Xue, Peng Chen, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1038/s41467-026-79139-8" target="_blank" rel="noopener">Nature Communications</a> · 2026-11-11</p>
+      <p class="summary">
+        <span class="en">An aqueous montmorillonite ink forms a solution-processed dielectric at room temperature, and all-solution-processed MoS2 transistors operate at 1 V with hysteresis as low as 1 mV. The organic-free formulation removes the need for ligand-removal annealing and works with several n-type and p-type 2D semiconductors. The result offers a low-thermal-budget route to gate dielectrics for temperature-sensitive integration.</span>
+        <span class="zh">研究利用水系蒙脱石墨水在室温下形成溶液加工介电层，全溶液加工的MoS2晶体管可在1 V下工作，迟滞最低达到1 mV。该配方不含有机组分，省去了去除配体所需的退火步骤，并适用于多种n型与p型二维半导体。这为对温度敏感的集成工艺提供了一条低热预算栅介电层制备路径。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsaelm.6c01936" target="_blank" rel="noopener">
+          <span class="en">Nb2O5 Interlayers Improve Polarization and Resistance Contrast in HZO Tunnel Junctions</span>
+          <span class="zh">Nb2O5中间层提升HZO隧道结的极化与电阻态对比度</span>
+        </a>
+      </h3>
+      <p class="authors">Hyungseok Lee, Hyo-Bae Kim, Gunho Kim, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1021/acsaelm.6c01936" target="_blank" rel="noopener">ACS Applied Electronic Materials</a> · 2026-11-12</p>
+      <p class="summary">
+        <span class="en">Replacing an Al2O3 interlayer with Nb2O5 raises PUND-derived 2Pr from 17.2 to 27.4 μC/cm² in HZO ferroelectric tunnel junctions with matched layer and total stack thicknesses. At a 1.2 V read voltage, the tunneling electroresistance ratio rises from 36 to 60, with a larger relative current increase in the low-resistance state. The controlled comparison identifies interlayer selection as a lever for tuning polarization and readout contrast in nonvolatile memory.</span>
+        <span class="zh">在HZO层厚与介电堆叠总厚度保持一致的铁电隧道结中，以Nb2O5替代Al2O3中间层，使通过PUND测得的2Pr从17.2提高至27.4 μC/cm²。在1.2 V读取电压下，隧穿电致电阻比从36升至60，低阻态电流的相对增幅更大。这一控制变量比较表明，中间层材料选择可用于调节非易失存储器的极化与读取对比度。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acs.nanolett.6c02499" target="_blank" rel="noopener">
+          <span class="en">All-ALD Growth Supports Reliable Sub-2-nm Hafnia Tunnel Junctions</span>
+          <span class="zh">全原子层沉积工艺支持高可靠性的亚2nm氧化铪隧道结</span>
+        </a>
+      </h3>
+      <p class="authors">Ren-Hao Xue, Yu-Shi Sun, Rui-Zhan Yan, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1021/acs.nanolett.6c02499" target="_blank" rel="noopener">Nano Letters</a> · 2026-11-10</p>
+      <p class="summary">
+        <span class="en">An all-atomic-layer-deposition process produces sub-2-nm hafnia ferroelectric tunnel junctions operating below 2 V with a breakdown field of about 12.1 MV/cm. The work combines controlled growth and low-roughness interfaces to address reliability during barrier scaling. Four-bit nonvolatile multilevel operation also supports an in-memory-computing simulation reporting 95.78% accuracy.</span>
+        <span class="zh">研究采用全原子层沉积工艺制备亚2nm氧化铪铁电隧道结，实现低于2 V的工作电压，击穿场强约为12.1 MV/cm。该工作通过精确控制生长过程和形成低粗糙度界面，应对势垒减薄带来的可靠性问题。器件还实现4 bit非易失多级操作，并在基于该特性的存内计算仿真中报告95.78%的准确率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Reliability</span>
+      <span class="zh">电路与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/advs.78604" target="_blank" rel="noopener">
+          <span class="en">Magnetic p-Bit Arrays Compensate Device Variation for Stochastic Neural Computing</span>
+          <span class="zh">磁性p-bit阵列通过器件变异性补偿实现随机神经计算</span>
+        </a>
+      </h3>
+      <p class="authors">Jia-Chen Bao, Song-Song Li, Rui-Zhi Ren, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1002/advs.78604" target="_blank" rel="noopener">Advanced Science</a> · 2026-11-10</p>
+      <p class="summary">
+        <span class="en">A chip-level array of voltage-controlled magnetic-anisotropy MTJs uses a tail-truncation strategy to compensate variation in probabilistic switching ranges. The chip implements restricted Boltzmann machines and deep belief networks for image recognition, anomaly detection, image completion and generation. Joint adjustment of voltage-pulse amplitude and duration adds a control mechanism for improving network performance, making device calibration central to scaling probabilistic hardware.</span>
+        <span class="zh">研究在芯片级电压控制磁各向异性MTJ阵列中引入尾部截断策略，补偿器件概率开关范围的差异。该芯片实现受限玻尔兹曼机与深度信念网络，用于图像识别、异常检测、图像补全和生成。联合调节电压脉冲幅度与持续时间，为改善网络性能增加了控制手段，也使器件校准成为概率计算硬件扩展的重要环节。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1088/1361-6668/aebfcf" target="_blank" rel="noopener">
+          <span class="en">Multi-Weight AQFP Cells Demonstrate Superconducting Neural-Circuit Building Blocks</span>
+          <span class="zh">多权重AQFP单元展示超导神经电路基础模块</span>
+        </a>
+      </h3>
+      <p class="authors">Yu-Xing He, Yi-Fan Kong, Yu-Hao Yang, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1088/1361-6668/aebfcf" target="_blank" rel="noopener">Superconductor Science and Technology</a> · 2026-11-09</p>
+      <p class="summary">
+        <span class="en">A three-inductor transformer gives adiabatic quantum-flux-parametron cells multiple output-current amplitudes by tuning the intermediate inductance. Numerical simulations verify weighted current summation and threshold activation, and fabricated circuits measured at 4.2 K confirm multi-weight synaptic-cell and threshold-controlled operation. The results provide measured circuit building blocks for superconducting neural hardware.</span>
+        <span class="zh">研究通过三电感变压器调节中间电感，使绝热量子磁通参量器件（AQFP）单元产生多级输出电流幅度。数值仿真验证了加权电流求和与阈值激活，制备电路在4.2 K下的测量进一步确认了多权重突触单元与阈值控制功能。这些结果为超导神经硬件提供了经过实测的电路基础模块。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsnano.6c16642" target="_blank" rel="noopener">
+          <span class="en">Polarization Selects Memory and Threshold Modes in α-In2Se3 Memristors</span>
+          <span class="zh">极化控制α-In2Se3忆阻器的存储与阈值开关模式</span>
+        </a>
+      </h3>
+      <p class="authors">Soo-Hyun Lee, Jong-Hyun Kim, Hyeong-Kyu Jin, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1021/acsnano.6c16642" target="_blank" rel="noopener">ACS Nano</a> · 2026-11-12</p>
+      <p class="summary">
+        <span class="en">In a low-compliance-current regime, ferroelectric polarization selects nonvolatile memory switching or volatile threshold switching in a single α-In2Se3-based memristor through a decoupled in-plane poling terminal. The devices report a 4.7% coefficient of variation in set voltage and stable operation over more than 9,000 cycles. Combining both modes on one material platform supplies the volatile dynamics and nonvolatile readout weights needed for physical reservoir computing.</span>
+        <span class="zh">研究在低限流条件下，通过独立的面内极化端口调控铁电极化，使单个α-In2Se3忆阻器可在非易失存储开关与易失阈值开关模式之间选择。器件置位电压的变异系数为4.7%，并实现超过9000次循环的稳定操作。同一材料平台兼具两种模式，可提供物理储备池计算所需的易失动态响应与非易失读出权重。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s41377-026-02420-4" target="_blank" rel="noopener">
+          <span class="en">A Vertical Transistor Integrates a Multiscale Reservoir and Nonvolatile Readout</span>
+          <span class="zh">垂直晶体管集成多时间尺度储备池与非易失读出</span>
+        </a>
+      </h3>
+      <p class="authors">Qin-Yong Dai, Hang-Yuan Cui, Yi-Shan Cao, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1038/s41377-026-02420-4" target="_blank" rel="noopener">Light: Science &amp; Applications</a> · 2026-11-09</p>
+      <p class="summary">
+        <span class="en">A vertical organic transistor integrates a multi-timescale photoelectric reservoir with a linear ferroelectric readout, allowing their dynamics and weights to be tuned independently. A Rubrene/F16CuPc heterojunction provides wavelength-dependent relaxation, and a ferroelectric stack provides symmetric nonvolatile weight updates with retention exceeding 3,000 seconds. The integration addresses the differing device requirements of reservoir and readout layers in edge machine vision.</span>
+        <span class="zh">研究在垂直有机场效应晶体管中集成多时间尺度光电储备池与线性铁电读出，使动态响应与权重能够独立调节。Rubrene/F16CuPc异质结提供随波长变化的弛豫过程，铁电堆叠则实现对称的非易失权重更新，保持时间超过3000秒。这种集成方式针对边缘机器视觉中储备池层与读出层各自不同的器件需求提供了解决路径。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Relevant AI Research</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3767308.3836183" target="_blank" rel="noopener">
+          <span class="en">Homeostatic Metabolic Pruning Targets Energy-Efficient Spiking Networks</span>
+          <span class="zh">稳态代谢剪枝面向高能效脉冲神经网络</span>
+        </a>
+      </h3>
+      <p class="authors">Jun-Xiang Zhang, Jiang-Rong Shen, Hui-Yan Xue, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3767308.3836183" target="_blank" rel="noopener">ACM Multimedia 2026</a> · 2026-11-09</p>
+      <p class="summary">
+        <span class="en">An activity-aware SNN pruning framework uses accumulated firing traces to remove hyperactive redundancy, then adjusts BatchNorm biases and gradient weights during homeostatic fine-tuning. It preserves information-dense convolutional layers and compresses parameter-heavy fully connected layers more aggressively. By incorporating firing activity into structural learning, the method targets both parameter storage and the event-processing work that drives neuromorphic energy consumption.</span>
+        <span class="zh">研究提出面向活动水平的SNN剪枝框架，利用累积发放轨迹去除过度活跃的冗余结构，再通过稳态微调调整BatchNorm偏置与梯度权重。该方法保留信息密集的卷积层，并对参数较多的全连接层进行更大幅度压缩。通过将发放活动纳入结构学习，方法同时针对参数存储开销与影响神经形态能耗的事件处理工作量进行优化。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Tools</span>
+      <span class="zh">EDA与设计工具</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.16522" target="_blank" rel="noopener">
+          <span class="en">PISim Connects Photonic Architectures, Device Impairments and Neural Inference</span>
+          <span class="zh">PISim联结光子架构、器件非理想因素与神经网络推理</span>
+        </a>
+      </h3>
+      <p class="authors">Andreas Falkenberg</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2611.16522" target="_blank" rel="noopener">arXiv:2611.16522</a> · 2026-11-12</p>
+      <p class="summary">
+        <span class="en">PISim couples neural-network execution to models of six photonic accelerator families, six modulator technologies and four optical-source organizations. It combines quantization, noise, thermal drift, loss and crosstalk with interface timing to evaluate electronic-optical bottlenecks. Demonstrations use simulated MNIST multilayer perceptrons, providing a common framework for examining accuracy and throughput trade-offs before fabrication.</span>
+        <span class="zh">PISim将神经网络执行与6类光子加速器架构、6种调制器技术及4种光源组织方式的模型相结合。该工具综合量化、噪声、热漂移、损耗、串扰与接口时序，评估电光协同中的瓶颈。演示采用MNIST多层感知机仿真，为流片前比较准确率与吞吐量之间的取舍提供统一框架。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-16 01:15 UTC · <a href="../2026-11-16.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-16 01:15 UTC · <a href="../2026-11-16.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
