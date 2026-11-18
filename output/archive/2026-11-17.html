@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-17">
+<meta name="generator" content="semi-news-daily">
+<title>AI Compute Scales as Access Rules Tighten — Semi News 2026-11-17</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Tuesday, November 17, 2026</span>
+      <span class="zh">2026年11月17日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">AI Compute Scales as Access Rules Tighten</span>
+      <span class="zh">AI算力扩张，远程访问管制收紧</span>
+    </h1>
+    <p class="dek">
+      <span class="en">The U.S. extends advanced-chip controls to cover how overseas data centers serve remote customers. At SC26, a 10,000-plus-GPU optical network and a live demo that splits inference across two kinds of chips show how operators are building capacity.</span>
+      <span class="zh">美国扩大先进芯片出口管制，将境外数据中心向客户提供远程算力的方式纳入监管。SC26上，一套连接逾万颗GPU的光互连网络和一场由两类芯片分担推理任务的现场演示，展示了算力基础设施扩容的不同路径。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Export Controls</span>
+      <span class="zh">政策与出口管制</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/new-us-rules-aim-to-restrict-remote-access-to-ai-servers-and-infrastructure-seeks-to-combat-cloud-rental-workarounds-to-gpu-export-controls" target="_blank" rel="noopener">
+          <span class="en">U.S. Targets Remote Access to Advanced AI Chips</span>
+          <span class="zh">美国将先进AI芯片的远程访问纳入管制</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 6h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The U.S. Bureau of Industry and Security issued an interim final rule targeting access to advanced AI chips and servers via data centers outside China and other arms-embargoed markets. The measure adds licensing requirements for certain advanced computing shipments and transfers involving Brazil, Indonesia, Malaysia, Singapore and Thailand. Chip vendors and cloud operators now have to consider who will use the compute alongside where the hardware will be installed.</span>
+        <span class="zh">美国商务部工业与安全局发布临时最终规则，针对中国等受武器禁运国家和地区通过境外数据中心远程使用先进AI芯片和服务器的情形。规则对涉及巴西、印度尼西亚、马来西亚、新加坡和泰国的部分先进计算产品出口、再出口和境内转移新增许可要求。芯片供应商和云服务商在评估合规时，需要同时考虑设备部署地点和算力的实际使用者。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxPZVZ3elR4czNuZl9TM21GQmFoZU93MUZlT3VQN194TWRPb0pwYnRfci1LX3FTcmhVbXJqd2VKTHlYZm9UTmUxek5iNU8zUFplelE5R1NPdGFIRlplVW9WaVl6YVBDRjZGSXgzeDJwSkpmMXhTTVZQaVF2amktQ1VtdDRMRQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Singapore Reviews Impact of U.S. Chip Controls</span>
+          <span class="zh">新加坡评估美国芯片管制的影响</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CNA</span> · 4h ago</span>
+        <span class="zh"><span class="source">CNA</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Singapore&#x27;s trade and digital ministries said they are assessing the new U.S. controls with affected companies and discussing implementation with U.S. officials. Their talks include how eligible Singapore companies can retain access to advanced chips, an issue for local cloud operators planning GPU deployments.</span>
+        <span class="zh">新加坡能源与贸易工业部和数码发展及新闻部表示，正与受影响企业评估美国新规，并与美方沟通实施细节。双方讨论的议题包括如何让符合条件的新加坡企业继续获得先进芯片，这关系到当地云服务商接下来的GPU部署。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.servethehome.com/nvidia-and-lambda-disclose-first-production-co-packaged-optics-cluster-it-is-finally-real/" target="_blank" rel="noopener">
+          <span class="en">Lambda Deploys Co-Packaged Optics for More Than 10,000 GPUs</span>
+          <span class="zh">Lambda部署共封装光学网络，连接逾万颗GPU</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 7h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Lambda and Nvidia disclosed a production network at Lambda&#x27;s Quebec campus connecting more than 10,000 Blackwell Ultra GPUs with switches that use co-packaged optics. The deployment brings optical engines into the switch package at cluster scale, where network power and link reliability affect how much GPU capacity customers can use.</span>
+        <span class="zh">Lambda与英伟达披露，Lambda在魁北克园区已投产一套采用共封装光学（CPO）交换机的网络，连接逾1万颗Blackwell Ultra GPU。此次部署在万卡集群中把光引擎集成到交换芯片封装内，网络功耗和链路可靠性会直接影响客户可用的算力。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/gpus/nvidia-announces-rubin-hpc-gpu-with-record-number-of-cuda-cores-at-supercomputing-2026-new-chip-accelerates-agentic-hpc-workloads-arrives-in-2028" target="_blank" rel="noopener">
+          <span class="en">Nvidia Unveils Rubin HPC GPU for 2028</span>
+          <span class="zh">英伟达发布Rubin HPC GPU，预计2028年供货</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 9h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia unveiled Rubin HPC at SC26 and expects the scientific-computing GPU to be available in 2028. The company specifies more than 50,000 CUDA cores per GPU, acceleration for sparse data operations and seventh-generation NVLink. The design targets workloads such as simulations, where getting irregularly accessed data to the cores can limit performance.</span>
+        <span class="zh">英伟达在SC26发布面向科学计算的Rubin HPC GPU，预计于2028年供货。据公司披露，单颗GPU配有逾5万个CUDA核心，支持稀疏数据操作加速和第七代NVLink互连。该设计面向仿真等工作负载，这类任务往往会因数据访问不规则、计算核心等待数据而受限。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/supercomputers/amd-grabs-over-40-percent-of-new-top500-list-for-supercomputers-up-14-percent-since-last-year-new-lux-system-developed-between-amd-and-department-of-energy-debuts-at-no-14-with-epyc-cpus-and-instinct-mi355x-gpus" target="_blank" rel="noopener">
+          <span class="en">AMD-Powered Lux Debuts at No. 14 on TOP500</span>
+          <span class="zh">搭载AMD芯片的Lux首次登上TOP500，位列第14</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Oak Ridge National Laboratory&#x27;s Lux system debuted at No. 14 on the November TOP500, using EPYC CPUs and more than 4,000 Instinct MI355X GPUs. Lux is the first of two systems under a $1 billion U.S. Department of Energy and AMD partnership. AMD hardware powers 202 systems on the full list, up from 177 a year earlier.</span>
+        <span class="zh">橡树岭国家实验室的Lux首次登上11月TOP500榜单，位列第14，采用EPYC CPU和逾4,000颗Instinct MI355X GPU。Lux是美国能源部与AMD总额10亿美元合作项目中的首套系统，该项目共建设两套系统。整份榜单中，采用AMD硬件的系统从一年前的177套升至202套。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5AFBVV95cUxNaGY2S2JVVWttQ0JpODJNSDE1TjN3SEZaOXRVMjNIaHQxS3VsOUNkcFpXWkNRYzU1TjByeER5RHZXWkc3eVJSWEJPcDl3N1J2cXNFNUt0T190UWxpNU5SOVZrRjFFTG9oSDRrTzF5YjVzMVJpa3pCSy1XSU95OXBGTkZuaTRja3ktMC12cTJidnVtWHRxMmJtLXFkckdHOEZnVWc3Mkw1amxUaUxzcmhWSlVUdTFJUXdKeUVXZ2tPd0VXM3N2TUIwNUFpazBmZnpqS21VdVp2bi1qaW1hN1oxNHhkSHI?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Shares Drop 9.7% in Three Sessions After Record Sales</span>
+          <span class="zh">台积电月营收创新高，美股ADR随后三日跌9.7%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">24/7 Wall St.</span> · 4h ago</span>
+        <span class="zh"><span class="source">24/7 Wall St.</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s U.S.-listed shares fell 9.7% over three sessions through Monday after the foundry reported record October revenue of NT$586.89 billion, up 59.7% from a year earlier. The selloff came amid wider concerns about AI infrastructure financing, leaving investors to weigh that uncertainty against the foundry&#x27;s recent sales growth.</span>
+        <span class="zh">台积电此前公布10月营收达到创纪录的新台币5,868.9亿元，同比增长59.7%。截至周一，其美国存托凭证在三个交易日内下跌9.7%。这一轮下跌反映出，尽管台积电近期销售强劲，市场仍在评估AI基础设施融资能否支撑客户今后的采购。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPUi1ERDBtaUItcnVPRXNOM3JIZkcwVnZlZ0pYakp6dFluQU43ZjRQeUdiODhlWFVkcFpyNjBPZ0kwMk9BbG9wM1FKZnh1Y0htR2hEMFVKdXhWaWpXd2Q5bFFoYWcwRDhoU2d0QUNIbHJ5V2lrM2Z4RGp5enFvX1pVVjNZWWp0eW9lUmdwcVIwdnpjdWZpTlBTeHFmdVF4Z0c4SDU1Rg?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix’s Sales to Top Customer Double to Nearly 35 Trillion Won</span>
+          <span class="zh">SK海力士来自最大客户的营收翻番，接近35万亿韩元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Seoul Economic Daily</span> · 6h ago</span>
+        <span class="zh"><span class="source">Seoul Economic Daily</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix disclosed 34.98 trillion won in January–September sales to its largest customer, widely believed to be Nvidia, up from 17.36 trillion won a year earlier. Analysts linked the increase to higher HBM4 shipments after the memory entered full-scale production in the third quarter. The customer accounted for 14.79% of sales over the nine months, compared with 26.98% for all of 2025.</span>
+        <span class="zh">SK海力士披露，今年前九个月对最大客户的销售额为34.98万亿韩元，上年同期为17.36万亿韩元，业内普遍认为该客户是英伟达。分析人士认为，增长得益于HBM4在第三季度进入大规模量产后出货增加。该客户占SK海力士今年前九个月营收的14.79%，2025年全年的这一比例为26.98%。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Advanced Packaging</span>
+      <span class="zh">设备与先进封装</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNVHJXTUpNSE5iMmtjMGM4enhUXzc2cVNCWVpJSVV2bW9reHAxTU1hbU14N0ktcmZHRkdXYjlrMmhJR1Jia0pjZWFHUXJ0RVFxSm9CVmpNNldvb1dIMlFQXzJSMTV4R2pMSDVXaXJ3Ym4weFNsekFZVlBxMDM4SGNfblZCcVJMZ1pJSzYtWkVLb0pnSzIyZ3JZVXlnQ2o?oc=5" target="_blank" rel="noopener">
+          <span class="en">SemiFive Unveils 3D Packaging That Stacks DRAM on Logic</span>
+          <span class="zh">SemiFive推出将DRAM堆叠在逻辑芯片上的3D封装平台</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Digital Today</span> · 4h ago</span>
+        <span class="zh"><span class="source">Digital Today</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SemiFive unveiled an SC26 packaging platform that stacks DRAM directly above logic and uses hundreds of thousands of connections between the dies. The company says shorter signal paths can lower energy per bit, while eliminating the interposer could reduce packaging costs. The platform gives custom AI chip designers a way to pursue high memory bandwidth with a different package layout from standard HBM.</span>
+        <span class="zh">SemiFive在SC26发布一款3D封装平台，将DRAM直接堆叠在逻辑芯片上方，两者之间设置数十万条物理互连通道。公司称，缩短信号传输距离有望降低每比特能耗，省去中介层则有望降低封装成本。这为定制AI芯片提供了一条实现高内存带宽的路径。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Outlook</span>
+      <span class="zh">业绩与展望</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxORHp0cFF1RUJaUDdVaXZZWWgzczNrajlqMHBVcGlOVWk3ZGh0S2dwUXJKcThPMTh4RVdxWTd3RGlwVlF6OHJyWFFUN3A1N2w0UVc4MW9iVTVDRzZxdFZoR2JIcVJmMnEzTVpSbElSYU52VC1Obi1ZbmRacktPcDh3bk5ocWFtdXZtOUVHOFN4NnhjRG00RmpmbkQ5UHQ3SEQ5WnFLQ21iRQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Tower Looks to Silicon Photonics to Lift Margins</span>
+          <span class="zh">Tower寄望硅光业务带动利润率上升</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 6h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tower Semiconductor&#x27;s outlook calls for about $600 million in fourth-quarter revenue and roughly $2 billion for 2026, following third-quarter sales of $526 million, up 33% year over year. Tower is targeting a $1.1 billion annualized silicon photonics revenue run rate in the fourth quarter. How quickly the company brings on new capacity will help determine whether it can reach its 2028 targets of $3.6 billion in revenue and $1.2 billion in net profit.</span>
+        <span class="zh">Tower Semiconductor预计第四季度营收约6亿美元，2026年全年约20亿美元。第三季度营收为5.26亿美元，同比增长33%。公司预计第四季度硅光业务的年化营收规模可达11亿美元，新产能的投产速度将影响其能否实现2028年36亿美元营收和12亿美元净利润的目标。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Accelerator Challengers</span>
+      <span class="zh">加速器新势力</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUm5oRk5pVm5MQUZWbTBmY0tfTmxCRFplLTdvd0wwU0I2RUZ6SWJsaW9kYno1M0UzcHc1RWlqcnNvLTZFVUFwNkF4M1FoZ3ppdlhkU0tEZUxMNUNKZGJOWUhBYXJRWUVnRzF1OTBpdlh0RFY0WERZblQtUEhQNk9iTDlQTVFDQkEtRTVZ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Intel and SambaNova Demo Inference Split Across Two Chips</span>
+          <span class="zh">英特尔与SambaNova展示两类芯片分工推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CASRAI</span> · 6h ago</span>
+        <span class="zh"><span class="source">CASRAI</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel and SambaNova demonstrated a disaggregated inference system at SC26 that uses Intel D270 GPUs for prompt prefill and SambaNova SN50 reconfigurable dataflow units for token generation. Both systems use air cooling. Splitting the stages lets operators provision prefill and decode capacity separately, which can help them accommodate changes in the mix of prompt and output lengths.</span>
+        <span class="zh">英特尔与SambaNova在SC26展示了分离式推理架构，由英特尔D270 GPU负责提示词预填充，SambaNova SN50可重构数据流单元负责解码并生成词元。两套设备均采用风冷。拆分推理阶段后，运营商可以分别配置预填充和解码的算力，以适应输入和输出长度分布的变化。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-17 04:41 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-17 04:41 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

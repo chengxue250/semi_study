@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-17">
+<meta name="edition-date" content="2026-11-18">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Data Movement Shapes Hardware and Inference — Semi Research 2026-11-17</title>
+<title>Execution Paths Set the Cost of AI — Semi Research 2026-11-18</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Tuesday, November 17, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月17日 星期二</span>
+      <span class="en">Research digest · Wednesday, November 18, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月18日 星期三</span>
     </div>
     <h1>
-      <span class="en">Data Movement Shapes Hardware and Inference</span>
-      <span class="zh">数据搬运影响硬件与推理性能</span>
+      <span class="en">Execution Paths Set the Cost of AI</span>
+      <span class="zh">执行路径决定AI计算成本</span>
     </h1>
     <p class="dek">
-      <span class="en">An FPGA prototype measures the cost of loading model weights, while systems papers test how to move inference data across GPU memory, host DRAM and SSDs. Other papers cover amorphous materials design, sub-terahertz receivers and quantum-circuit trainability.</span>
-      <span class="zh">一项FPGA实验测量了加载模型权重的开销，多篇系统论文则研究如何在GPU显存、主机DRAM和SSD之间搬运推理数据。本期也收录了非晶材料设计、亚太赫兹接收机和量子线路可训练性的研究。</span>
+      <span class="en">Eight preprints examine reproducible FP4 training, GPU storage access, network-aware execution and inference efficiency. Their results connect hardware utilization to numerical methods and scheduling, with benefits bounded by the tested models and deployment conditions.</span>
+      <span class="zh">本期8篇预印本涵盖可复现FP4训练、GPU存储访问、面向网络拓扑的执行方式和推理效率。研究将硬件利用率与数值方法、调度方式联系起来，相关收益仍需结合所测试的模型和部署条件理解。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 8 paper(s)</span>
@@ -336,153 +336,135 @@
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="accelerators">
     <h2>
-      <span class="en">Devices &amp; Materials</span>
-      <span class="zh">器件与材料</span>
+      <span class="en">Accelerator Systems &amp; Interconnects</span>
+      <span class="zh">加速器系统与互连</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.18420" target="_blank" rel="noopener">
-          <span class="en">Graph Diffusion for Inverse Design of Disordered Materials</span>
-          <span class="zh">用图扩散模型逆向设计无序材料</span>
+        <a href="https://arxiv.org/abs/2611.21288" target="_blank" rel="noopener">
+          <span class="en">GNoF: GPU-Native NVMe-over-Fabrics With Lower Polling Overhead</span>
+          <span class="zh">GNoF：降低轮询开销的GPU原生NVMe-oF数据通路</span>
         </a>
       </h3>
-      <p class="authors">Jiani Hu, Chenyan Wang, Yongkun Yang, et al.</p>
+      <p class="authors">Lei Tian, Wenhao Gu</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.18420" target="_blank" rel="noopener">arXiv:2611.18420</a> · 2026-11-13T17:00:44Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.21288" target="_blank" rel="noopener">arXiv:2611.21288</a> · 2026-11-16T15:55:18Z</p>
       <p class="summary">
-        <span class="en">GaDiT generates disordered atomic structures using dynamic periodic graphs and diffusion conditioned on target properties. In tests on amorphous carbon, silicon and silica, the authors report sampling roughly 100 times faster than existing corrector-based methods. The model can propose structures with combinations of properties outside the training distribution, which could expand the search space for amorphous electronic materials.</span>
-        <span class="zh">GaDiT将动态周期图与按目标属性设定条件的扩散模型结合，用于生成无序原子结构。在非晶碳、非晶硅和非晶二氧化硅的测试中，作者报告采样速度约为现有基于校正步骤的方法的100倍。模型还可提出属性组合超出训练分布的候选结构，有助于扩大非晶电子材料的搜索范围。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Architecture</span>
-      <span class="zh">电路与架构</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.18450" target="_blank" rel="noopener">
-          <span class="en">Two-Round Estimation for Sub-Terahertz OFDM Receivers</span>
-          <span class="zh">面向亚太赫兹OFDM接收机的两轮估计</span>
-        </a>
-      </h3>
-      <p class="authors">Ruilin Wang, Xiaodai Dong</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.18450" target="_blank" rel="noopener">arXiv:2611.18450</a> · 2026-11-13T17:22:57Z</p>
-      <p class="summary">
-        <span class="en">PACT jointly estimates the channel and oscillator phase noise in sub-terahertz OFDM, then uses the decoder&#x27;s confidence and provisional symbol decisions to refine both estimates. At an Eb/N0 of 30 dB, its code-block error rate was about 70% and 57% lower than the best learning-based baseline across two benchmark settings, respectively. The results show how decoder feedback can improve reception when fading and oscillator noise act together.</span>
-        <span class="zh">PACT在亚太赫兹OFDM接收机中联合估计信道和振荡器相位噪声，再利用译码置信度和初步符号判决细化两项估计。在Eb/N0为30 dB时，两组基准测试的码块错误率分别比表现最好的学习型基线低约70%和57%。结果表明，当信道衰落与振荡器相位噪声同时存在时，译码反馈有助于改善接收性能。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="accelerators">
-    <h2>
-      <span class="en">AI Accelerators &amp; Interconnects</span>
-      <span class="zh">AI加速器与互连</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.18422" target="_blank" rel="noopener">
-          <span class="en">Agilex FPGA Measures the Cost of Gated DeltaNet State Paging</span>
-          <span class="zh">Agilex FPGA实测Gated DeltaNet状态分页开销</span>
-        </a>
-      </h3>
-      <p class="authors">Cong Xu, Ravi Sankar</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.18422" target="_blank" rel="noopener">arXiv:2611.18422</a> · 2026-11-13T17:01:18Z</p>
-      <p class="summary">
-        <span class="en">The authors implemented one layer of a 369-million-parameter Gated DeltaNet hybrid on an Agilex 5 FPGA and paged its recurrent state to external memory. With synthetic weights at 75 MHz, the layer took 11.15 ms per token, with weight matrix-vector operations accounting for about 62% of the time and state handling including paging for 13%. For this implementation, optimizing weight delivery has more scope to improve latency than optimizing state paging.</span>
-        <span class="zh">作者在Agilex 5 FPGA上实现了一个3.69亿参数Gated DeltaNet混合模型中的一层，并将循环状态分页存入片外内存。使用合成权重、在75 MHz下实测，该层每个词元耗时11.15毫秒，其中权重矩阵与向量相乘约占62%，包含分页在内的状态处理占13%。在这套实现中，优化权重供给比优化状态分页更有望缩短延迟。</span>
+        <span class="en">GNoF moves NVMe-oF/RDMA command construction, submission and completion handling onto the GPU, retaining CPU involvement for connection setup and administrative tasks. It batches doorbell updates and completion polling to reduce the SM time consumed while waiting through 10–100 microsecond fabric round trips. This targets a practical cost of GPU-initiated remote storage: freeing the CPU is insufficient if storage waits occupy GPU compute resources.</span>
+        <span class="zh">GNoF将NVMe-oF/RDMA命令构造、提交和完成处理移到GPU上，CPU仍负责连接初始化和管理任务。系统批量处理门铃更新与完成队列轮询，以减少等待10至100微秒网络往返时占用的SM资源。这项工作针对GPU主动访问远程存储的一项实际代价：若存储等待持续占用GPU计算资源，仅释放CPU还不够。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.18145" target="_blank" rel="noopener">
-          <span class="en">Obaleth Compiles GPU-Initiated Communication with Compute</span>
-          <span class="zh">Obaleth联合编译GPU主动发起的通信与计算</span>
+        <a href="https://arxiv.org/abs/2611.21442" target="_blank" rel="noopener">
+          <span class="en">Bipartible Routes HTTP Storage Requests Through InfiniBand</span>
+          <span class="zh">Bipartible将HTTP存储请求导向InfiniBand</span>
         </a>
       </h3>
-      <p class="authors">Javid Baydamirli, Ismayil Ismayilov, Kaan Oktay, Didem Unat</p>
-      <p class="affil">Koç University, fal</p>
-      <p class="venue"><a href="https://arxiv.org/abs/2611.18145" target="_blank" rel="noopener">arXiv:2611.18145</a> · 2026-11-13T13:19:59Z</p>
+      <p class="authors">Richard Henwood, John Lockman, Luke Wilson</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.21442" target="_blank" rel="noopener">arXiv:2611.21442</a> · 2026-11-16T17:30:44Z</p>
       <p class="summary">
-        <span class="en">Obaleth brings GPU-initiated communication into a kernel&#x27;s intermediate representation so the compiler can schedule transfers alongside computation. In an all-to-all test on 256 H100 GPUs with 256 bytes per peer, it ran 1.25× as fast as NVSHMEM and 2.3× as fast as NCCL GIN. On 16 B200 GPUs serving Qwen3-235B in vLLM, it cut time per output token by 10–24% compared with DeepEP.</span>
-        <span class="zh">Obaleth将GPU主动发起的通信纳入内核的中间表示，使编译器可以统一调度数据传输和计算。在256颗H100上进行每个对端256字节的全对全通信测试时，其速度分别为NVSHMEM的1.25倍、NCCL GIN的2.3倍。在16颗B200上用vLLM部署Qwen3-235B时，相较于使用DeepEP，每个输出词元的耗时缩短了10%至24%。</span>
+        <span class="en">The Bipartible architecture places clones of a global HTTP service on HPC compute hosts so storage requests can use the InfiniBand network without modifying workload code or network configuration. It addresses the mismatch between cloud-native HTTP applications and clusters whose high-performance storage fabric is separate from TCP networking. The approach assumes the persistent storage is reachable over InfiniBand, so its applicability depends on the cluster layout.</span>
+        <span class="zh">Bipartible架构在HPC计算主机上部署全局HTTP服务的副本，让存储请求利用InfiniBand网络，而无需修改工作负载代码或网络配置。它针对云原生HTTP应用与HPC集群之间的适配问题，后者的高性能存储网络通常独立于TCP网络。该方法要求持久化存储可通过InfiniBand访问，因此适用范围取决于集群布局。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.20824" target="_blank" rel="noopener">
+          <span class="en">Network-Native DNN Synthesis Designs Around Physical Topology</span>
+          <span class="zh">面向物理网络拓扑合成分布式DNN架构</span>
+        </a>
+      </h3>
+      <p class="authors">Fan Yang, Xiaolong Wu, Qi Cao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.20824" target="_blank" rel="noopener">arXiv:2611.20824</a> · 2026-11-16T10:06:22Z</p>
+      <p class="summary">
+        <span class="en">LPAS synthesizes a distributed DNN architecture from the physical network topology under communication, compute, storage, synchronization and latency constraints. Across the evaluated networks, the authors report gaps below 0.6% to an LP-derived upper bound and lower runtime than direct mixed-integer optimization. This gives designers a way to fit neural computation to available infrastructure, although proximity to an optimization bound does not establish model accuracy.</span>
+        <span class="zh">LPAS在通信、计算、存储、同步和延迟约束下，依据物理网络拓扑合成分布式DNN架构。作者报告，在所测试的网络上，求解结果与线性规划推导的上界相差不到0.6%，运行时间也低于直接采用混合整数优化的方法。这为按现有基础设施安排神经网络计算提供了路径，但接近优化上界并不等于已经证明模型精度。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Research &amp; Inference Systems</span>
-      <span class="zh">AI研究与推理系统</span>
+      <span class="en">AI Training, Architectures &amp; Inference</span>
+      <span class="zh">AI训练、架构与推理</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3815789.3827960" target="_blank" rel="noopener">
-          <span class="en">MosaicKV Schedules KV-Cache Pages Across Cloud Tenants</span>
-          <span class="zh">MosaicKV为多租户云推理调度KV缓存页</span>
+        <a href="https://arxiv.org/abs/2611.21584" target="_blank" rel="noopener">
+          <span class="en">CertiSum Makes MXFP4 Training Bitwise Identical Across GPUs</span>
+          <span class="zh">CertiSum实现跨GPU平台的MXFP4训练逐比特一致</span>
         </a>
       </h3>
-      <p class="authors">Rui Li, Shuang Cao</p>
-      <p class="affil">Hill Research</p>
-      <p class="venue"><a href="https://doi.org/10.1145/3815789.3827960" target="_blank" rel="noopener">ACM SoCC 2026</a> · 2026-11-17</p>
-      <p class="summary">
-        <span class="en">MosaicKV treats KV-cache pages as a shared resource that can move between GPU HBM and host DRAM as workloads compete for memory. It uses the decoder&#x27;s predictable layer order to prefetch pages and schedule microbatches around PCIe transfers. This gives a cloud operator a way to manage tail latency for time to first token when tenants collectively need more cache capacity than the GPU provides.</span>
-        <span class="zh">MosaicKV将KV缓存页视为多个租户共享的资源，根据显存竞争情况在GPU的HBM与主机DRAM之间迁移。系统利用解码器逐层访问顺序可预测的特点进行预取，并按PCIe传输进度安排微批次。在租户的缓存总需求超过GPU显存容量时，这种调度可用于控制首词元延迟的长尾。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1145/3828523.3857090" target="_blank" rel="noopener">
-          <span class="en">JetFire Uses Hybrid Memory for Long-Context Attention</span>
-          <span class="zh">JetFire利用分层内存计算长上下文注意力</span>
-        </a>
-      </h3>
-      <p class="authors">Feng Yu, Hongshi Tan, Yao Chen, Gustavo Alonso, Weng-Fai Wong, Bingsheng He</p>
-      <p class="affil">National University of Singapore, Huazhong University of Science and Technology, ETH Zürich</p>
-      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857090" target="_blank" rel="noopener">ACM ATC 2026</a> · 2026-11-15</p>
-      <p class="summary">
-        <span class="en">JetFire scans a quantized KV-cache copy in GPU HBM to identify the tokens that contribute most to attention, then uses full-precision data in host DRAM to correct their contributions. At the longest context lengths shared by both systems, JetFire-K3V2 ran end to end 1.3–3.0× as fast as TurboQuant in vLLM. The split lets the system store a compact copy of the full context on the GPU and use high precision selectively.</span>
-        <span class="zh">JetFire先扫描GPU HBM中的量化KV缓存副本，找出对注意力贡献最大的词元，再利用主机DRAM中的全精度数据修正这些词元的贡献。在两种方法均支持的最长上下文条件下，JetFire-K3V2在vLLM中的端到端速度为TurboQuant的1.3至3.0倍。这种分工让GPU只需保留完整上下文的低精度副本，并将高精度计算集中在关键位置。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://doi.org/10.1145/3828523.3857061" target="_blank" rel="noopener">
-          <span class="en">Octopus Retrieves Sparse KV Cache Across Multiple SSDs</span>
-          <span class="zh">Octopus用多块SSD并行读取稀疏KV缓存</span>
-        </a>
-      </h3>
-      <p class="authors">Tuowei Wang, Liyun Chu, Ruwen Fan, Ju Ren</p>
-      <p class="affil">Tsinghua University</p>
-      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857061" target="_blank" rel="noopener">ACM ATC 2026</a> · 2026-11-15</p>
-      <p class="summary">
-        <span class="en">Octopus uses correlations in sparse attention to identify groups of KV-cache entries that are frequently fetched together. It distributes those groups across SSDs in advance and selectively replicates them so reads can be spread across drives. The design addresses the I/O bottleneck of using flash as a lower-cost capacity tier for persistent inference caches.</span>
-        <span class="zh">Octopus利用稀疏注意力中的访问相关性，找出经常被一同读取的KV缓存条目。系统预先将这些条目组分布到多块SSD，并有选择地复制部分条目组，使读取负载可以在多块盘之间分摊。该设计针对把闪存用作持久化推理缓存的低成本容量层时遇到的I/O瓶颈。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum Computing</span>
-      <span class="zh">量子计算</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.18378" target="_blank" rel="noopener">
-          <span class="en">Circuit Structure Predicts Trainability in Variational Quantum Models</span>
-          <span class="zh">线路结构可用于判断变分量子模型的可训练性</span>
-        </a>
-      </h3>
-      <p class="authors">Wenbo Xie, Wojciech Szpankowski, Ananth Grama</p>
+      <p class="authors">Steve Rhyner, Yubo Gao, Stefan de Lasa, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.18378" target="_blank" rel="noopener">arXiv:2611.18378</a> · 2026-11-13T16:22:31Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.21584" target="_blank" rel="noopener">arXiv:2611.21584</a> · 2026-11-16T18:54:07Z</p>
       <p class="summary">
-        <span class="en">The authors derive a sufficient condition for gradients in a variational quantum circuit to retain at least inverse-polynomial variance under specified circuit and subspace assumptions. They also propose estimating gradient variance by sampling circuit runs. This offers a way to check for vanishing gradients before committing resources to training.</span>
-        <span class="zh">作者在给定的线路和子空间条件下，推导出一个充分条件，使变分量子线路的梯度方差至少保持在逆多项式量级。论文还提出通过多次运行线路来采样估计梯度方差，从而在投入训练资源之前判断梯度是否会消失。</span>
+        <span class="en">CertiSum certifies when native FP32 accumulation of MXFP4 products is exact and recomputes uncertified results, while keeping quantization blocks and partial-sum merging invariant across layouts. In 200-step Qwen3-8B-Base experiments, training states matched bit for bit across AMD MI350X and Nvidia GB200 and across parallelism changes on MI350X. Across three 8B–14B models, the reported training-step latency overhead was 11.8–60.5% versus non-exact MXFP4, making reproducibility an explicit performance trade-off.</span>
+        <span class="zh">CertiSum验证原生FP32累加MXFP4乘积何时能够保持精确，对未通过验证的结果重新精确计算，并使量化块和部分和合并不随并行布局改变。在Qwen3-8B-Base的200步实验中，AMD MI350X与英伟达GB200上的训练状态逐比特一致，在MI350X上改变并行方式也保持一致。对3个80亿至140亿参数模型，作者报告相较非精确MXFP4，单步训练延迟增加11.8%至60.5%，说明可复现性需要付出明确的性能代价。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.21165" target="_blank" rel="noopener">
+          <span class="en">Multimodal Serving Measures Energy Costs of Stage Separation</span>
+          <span class="zh">多模态推理研究量化阶段拆分的能耗收益与延迟代价</span>
+        </a>
+      </h3>
+      <p class="authors">Yifan Sun, Jiantong Jiang, Zhexiang Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.21165" target="_blank" rel="noopener">arXiv:2611.21165</a> · 2026-11-16T14:29:27Z</p>
+      <p class="summary">
+        <span class="en">Across four multimodal models with a fixed three-GPU budget, separating visual encoding, prefill and decode reduced GPU energy per successful request by 13.3–37.0% at nearly unchanged output-token throughput, but increased mean time to first token. Across the evaluated workloads, uniform downclocking to 80% reduced GPU energy by 11.7–18.6% with modest changes in mean latency. The measurements show why stage-level power savings must be evaluated with pipeline queueing and request latency, rather than power alone.</span>
+        <span class="zh">在固定使用3颗GPU、测试4个多模态模型的条件下，将视觉编码、预填充和解码拆分，使每个成功请求的GPU能耗降低13.3%至37.0%，输出词元吞吐量基本不变，但平均首词元延迟上升。在所测试的负载中，统一降频至80%可使GPU能耗降低11.7%至18.6%，平均延迟变化较小。这些测量说明，评估单个阶段的节电收益时，需要同时考虑流水线排队与请求延迟，不能只看功率。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.21459" target="_blank" rel="noopener">
+          <span class="en">Balanced Twin Factorization Reuses Shared Computation in MLLMs</span>
+          <span class="zh">平衡孪生权重分解复用多模态大模型中的共享计算</span>
+        </a>
+      </h3>
+      <p class="authors">Bryan A. Plummer, Shan Lu, Keval Doshi, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.21459" target="_blank" rel="noopener">arXiv:2611.21459</a> · 2026-11-16T17:43:21Z</p>
+      <p class="summary">
+        <span class="en">Balanced Twin Weight Factorization reuses a single shared-basis forward pass when factorized layers receive the same input. Its balancing mechanism aims to prevent larger layers from dominating the shared representation when the paired layers have different sizes. The method targets the gap between reducing FLOPs and reducing actual latency, where multiple small matrix operations can otherwise erase compression benefits.</span>
+        <span class="zh">平衡孪生权重分解在多个分解层接收相同输入时，只执行一次共享基矩阵的前向计算并复用结果。当成对的层尺寸不同时，其平衡机制旨在避免较大的层主导共享表示。该方法针对减少FLOPs却未必降低实际延迟的问题，因为用多个小矩阵运算替代一次大矩阵运算，可能抵消压缩带来的收益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.20771" target="_blank" rel="noopener">
+          <span class="en">Nemotron 3.5 Bolt Uses Speculative Decoding for Local Agents</span>
+          <span class="zh">Nemotron 3.5 Bolt以投机解码加速本地智能体</span>
+        </a>
+      </h3>
+      <p class="authors">NVIDIA, Adi Margolin, Aditya Malte, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.20771" target="_blank" rel="noopener">arXiv:2611.20771</a> · 2026-11-16T09:21:45Z</p>
+      <p class="summary">
+        <span class="en">Nemotron 3.5 Bolt E4B 4GB further post-trains Gemma-4-E4B-it for conversational and tool-using agents and includes a DFlash draft model. The authors report 2.74× per-user decode speed with DFlash versus decoding without speculation at concurrency one, and 1.21× the generation throughput of Gemma-4-E4B-it with MTP at batch size one. These are distinct baselines and single-user or single-batch conditions, so the figures should not be read as general serving-throughput gains.</span>
+        <span class="zh">Nemotron 3.5 Bolt E4B 4GB在Gemma-4-E4B-it基础上进一步后训练，面向对话和工具调用智能体，并配套DFlash草稿模型。作者报告，在并发数为1时，使用DFlash的单用户解码速度为不采用投机解码时的2.74倍；在批大小为1时，生成吞吐量为采用MTP的Gemma-4-E4B-it的1.21倍。两项结果对应不同基线，且均为单用户或单批次条件，不能直接视为普遍适用的服务吞吐增益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.21608" target="_blank" rel="noopener">
+          <span class="en">Latent Lattice Models Add Persistent Computational States</span>
+          <span class="zh">潜变量格点模型引入跨词元持续存在的计算状态</span>
+        </a>
+      </h3>
+      <p class="authors">Shivam Duggal, Zongze Wu, William T. Freeman, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.21608" target="_blank" rel="noopener">arXiv:2611.21608</a> · 2026-11-16T18:59:38Z</p>
+      <p class="summary">
+        <span class="en">Latent Lattice Language Models add per-layer recurrent latent streams that persist across tokens and condition attention, KV-cache writes, MLP computation and decoding. After training on 20 billion FineWeb-Edu tokens, a 406-million-parameter model reduced validation perplexity from 15.41 to 14.40 versus a parameter-matched Transformer. The architecture changes the state and computation that inference hardware must support, but the reported quality gain does not establish a latency or energy improvement.</span>
+        <span class="zh">潜变量格点语言模型在各层增加跨词元持续存在的循环潜变量流，用于调节注意力、KV缓存写入、MLP计算和解码。在200亿个FineWeb-Edu词元上训练后，一个4.06亿参数模型的验证困惑度从参数量相当的Transformer的15.41降至14.40。这一架构改变了推理硬件需要支持的状态和计算方式，但所报告的质量提升并不等于已证明延迟或能耗改善。</span>
       </p>
     </article>
   </section>
@@ -510,8 +492,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-17 04:41 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-17 04:41 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-18 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-18 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
