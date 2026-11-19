@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-18">
+<meta name="edition-date" content="2026-11-19">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Execution Paths Set the Cost of AI — Semi Research 2026-11-18</title>
+<title>Inference Efficiency Depends on the Whole System — Semi Research 2026-11-19</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Wednesday, November 18, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月18日 星期三</span>
+      <span class="en">Research digest · Thursday, November 19, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月19日 星期四</span>
     </div>
     <h1>
-      <span class="en">Execution Paths Set the Cost of AI</span>
-      <span class="zh">执行路径决定AI计算成本</span>
+      <span class="en">Inference Efficiency Depends on the Whole System</span>
+      <span class="zh">推理效率取决于整个系统</span>
     </h1>
     <p class="dek">
-      <span class="en">Eight preprints examine reproducible FP4 training, GPU storage access, network-aware execution and inference efficiency. Their results connect hardware utilization to numerical methods and scheduling, with benefits bounded by the tested models and deployment conditions.</span>
-      <span class="zh">本期8篇预印本涵盖可复现FP4训练、GPU存储访问、面向网络拓扑的执行方式和推理效率。研究将硬件利用率与数值方法、调度方式联系起来，相关收益仍需结合所测试的模型和部署条件理解。</span>
+      <span class="en">Eight papers connect quantization and accelerator design with interconnects, production workloads and evaluation methods. The reading queue combines conference publications with preprints and distinguishes measured results from architectural proposals.</span>
+      <span class="zh">本期8篇论文将量化和加速器设计，与互连、生产负载及评测方法联系起来。阅读清单同时纳入会议论文和预印本，并区分实测结果与架构方案。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 8 paper(s)</span>
@@ -338,133 +338,133 @@
 
     <section class="area" id="accelerators">
     <h2>
-      <span class="en">Accelerator Systems &amp; Interconnects</span>
-      <span class="zh">加速器系统与互连</span>
+      <span class="en">Accelerator Architecture &amp; Systems</span>
+      <span class="zh">加速器架构与系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.21288" target="_blank" rel="noopener">
-          <span class="en">GNoF: GPU-Native NVMe-over-Fabrics With Lower Polling Overhead</span>
-          <span class="zh">GNoF：降低轮询开销的GPU原生NVMe-oF数据通路</span>
+        <a href="http://arxiv.org/abs/2611.21677" target="_blank" rel="noopener">
+          <span class="en">Chimera Co-Designs FPGA Compute, HBM Access and Floorplan for LLM Decode</span>
+          <span class="zh">Chimera协同设计FPGA计算、HBM访问与布局以支持大模型解码</span>
         </a>
       </h3>
-      <p class="authors">Lei Tian, Wenhao Gu</p>
+      <p class="authors">Zhi-Heng Chen, Yi-Fan Zhang, Yuseon Chou, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.21288" target="_blank" rel="noopener">arXiv:2611.21288</a> · 2026-11-16T15:55:18Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.21677" target="_blank" rel="noopener">arXiv:2611.21677</a> · 2026-11-14</p>
       <p class="summary">
-        <span class="en">GNoF moves NVMe-oF/RDMA command construction, submission and completion handling onto the GPU, retaining CPU involvement for connection setup and administrative tasks. It batches doorbell updates and completion polling to reduce the SM time consumed while waiting through 10–100 microsecond fabric round trips. This targets a practical cost of GPU-initiated remote storage: freeing the CPU is insufficient if storage waits occupy GPU compute resources.</span>
-        <span class="zh">GNoF将NVMe-oF/RDMA命令构造、提交和完成处理移到GPU上，CPU仍负责连接初始化和管理任务。系统批量处理门铃更新与完成队列轮询，以减少等待10至100微秒网络往返时占用的SM资源。这项工作针对GPU主动访问远程存储的一项实际代价：若存储等待持续占用GPU计算资源，仅释放CPU还不够。</span>
+        <span class="en">Chimera co-designs compute lanes, HBM access and placement across the dies of an FPGA, using HBM Proxy Ports to reach compute in every super logic region. On an AMD Alveo U280, the authors build ten designs for eight models, including an 80B-parameter MoE model using four memory tiers. The work addresses the routing and resource limits that prevent raw HBM bandwidth from becoming useful decode throughput; the supplied abstract does not include comparative performance figures.</span>
+        <span class="zh">Chimera在多裸片FPGA上协同设计计算通路、HBM访问与布局，通过HBM Proxy Ports让各个超级逻辑区域中的计算资源都能访问HBM。作者在AMD Alveo U280上为8个模型构建了10种设计，其中包括使用4级存储的800亿参数MoE模型。这项工作针对布线和资源约束，解决HBM标称带宽难以充分转化为解码吞吐的问题；所提供的摘要尚未包含对比性能数字。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.21442" target="_blank" rel="noopener">
-          <span class="en">Bipartible Routes HTTP Storage Requests Through InfiniBand</span>
-          <span class="zh">Bipartible将HTTP存储请求导向InfiniBand</span>
+        <a href="http://arxiv.org/abs/2611.18523" target="_blank" rel="noopener">
+          <span class="en">Mutable Inference Shares Accelerator Resources Between Prediction and Learning</span>
+          <span class="zh">Mutable Inference在预测与学习之间共享加速器资源</span>
         </a>
       </h3>
-      <p class="authors">Richard Henwood, John Lockman, Luke Wilson</p>
+      <p class="authors">Yi-Min Gao, Liang-Tao Dai, Melika Morsali, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.21442" target="_blank" rel="noopener">arXiv:2611.21442</a> · 2026-11-16T17:30:44Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.18523" target="_blank" rel="noopener">arXiv:2611.18523</a> · 2026-11-13</p>
       <p class="summary">
-        <span class="en">The Bipartible architecture places clones of a global HTTP service on HPC compute hosts so storage requests can use the InfiniBand network without modifying workload code or network configuration. It addresses the mismatch between cloud-native HTTP applications and clusters whose high-performance storage fabric is separate from TCP networking. The approach assumes the persistent storage is reachable over InfiniBand, so its applicability depends on the cluster layout.</span>
-        <span class="zh">Bipartible架构在HPC计算主机上部署全局HTTP服务的副本，让存储请求利用InfiniBand网络，而无需修改工作负载代码或网络配置。它针对云原生HTTP应用与HPC集群之间的适配问题，后者的高性能存储网络通常独立于TCP网络。该方法要求持久化存储可通过InfiniBand访问，因此适用范围取决于集群布局。</span>
+        <span class="en">Learning While Serving shares accelerator compute between latency-critical prediction and more flexible inference-time learning. It exploits matrix capacity left idle by non-matrix attention operations and uses per-layer weight versioning so updates can coexist with in-flight computations. The architecture targets models that learn from context during inference, making it relevant to hardware beyond fixed-weight decoding; no silicon measurement is established by the supplied abstract.</span>
+        <span class="zh">Learning While Serving让延迟敏感的预测与时间安排更灵活的推理时学习共享加速器计算资源。它利用注意力非矩阵运算期间闲置的矩阵计算能力，并通过逐层权重版本管理，使权重更新与尚未完成的计算并存。该架构面向推理过程中持续从上下文学习的模型，将硬件设计问题扩展到固定权重解码之外；所提供的摘要尚未给出芯片实测结果。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.20824" target="_blank" rel="noopener">
-          <span class="en">Network-Native DNN Synthesis Designs Around Physical Topology</span>
-          <span class="zh">面向物理网络拓扑合成分布式DNN架构</span>
+        <a href="http://arxiv.org/abs/2611.20289" target="_blank" rel="noopener">
+          <span class="en">Two DGX Sparks Favor Different Parallelism at Different Loads</span>
+          <span class="zh">双DGX Spark在不同负载下适合不同并行方式</span>
         </a>
       </h3>
-      <p class="authors">Fan Yang, Xiaolong Wu, Qi Cao, et al.</p>
+      <p class="authors">Kevin Bhimani, Christian Escobar, Daniel Mihovch, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.20824" target="_blank" rel="noopener">arXiv:2611.20824</a> · 2026-11-16T10:06:22Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.20289" target="_blank" rel="noopener">arXiv:2611.20289</a> · 2026-11-15</p>
       <p class="summary">
-        <span class="en">LPAS synthesizes a distributed DNN architecture from the physical network topology under communication, compute, storage, synchronization and latency constraints. Across the evaluated networks, the authors report gaps below 0.6% to an LP-derived upper bound and lower runtime than direct mixed-integer optimization. This gives designers a way to fit neural computation to available infrastructure, although proximity to an optimization bound does not establish model accuracy.</span>
-        <span class="zh">LPAS在通信、计算、存储、同步和延迟约束下，依据物理网络拓扑合成分布式DNN架构。作者报告，在所测试的网络上，求解结果与线性规划推导的上界相差不到0.6%，运行时间也低于直接采用混合整数优化的方法。这为按现有基础设施安排神经网络计算提供了路径，但接近优化上界并不等于已经证明模型精度。</span>
+        <span class="en">Across 17 checkpoints on one or two DGX Spark GB10 systems linked by 200 GbE, tensor parallelism delivered a median 1.59× peak-throughput gain over one system, versus 1.39× for pipeline parallelism. Tensor parallelism also cut unloaded inter-token latency to 0.52–0.73× of the single-system value. For models fitting on one system, replication generally offered higher throughput at high concurrency, so the best way to add a second machine depends on the serving load.</span>
+        <span class="zh">研究在1台或2台通过200 GbE互连的DGX Spark GB10上测试了17个模型检查点；相较单机，张量并行的峰值吞吐增益中位数为1.59倍，流水线并行为1.39倍。张量并行还将无负载条件下的词元间延迟降至单机的0.52至0.73倍。对于单机能够容纳的模型，高并发下复制部署通常提供更高吞吐，因此第二台机器的最佳使用方式取决于服务负载。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">AI Training, Architectures &amp; Inference</span>
-      <span class="zh">AI训练、架构与推理</span>
+      <span class="en">Quantization, KV Cache &amp; Inference Systems</span>
+      <span class="zh">量化、KV缓存与推理系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.21584" target="_blank" rel="noopener">
-          <span class="en">CertiSum Makes MXFP4 Training Bitwise Identical Across GPUs</span>
-          <span class="zh">CertiSum实现跨GPU平台的MXFP4训练逐比特一致</span>
+        <a href="http://arxiv.org/abs/2611.21974" target="_blank" rel="noopener">
+          <span class="en">Beyond Bitwidth Tests Mixed Precision Against Real Blackwell Deployment Limits</span>
+          <span class="zh">Beyond Bitwidth按Blackwell实际部署约束评测混合精度量化</span>
         </a>
       </h3>
-      <p class="authors">Steve Rhyner, Yubo Gao, Stefan de Lasa, et al.</p>
+      <p class="authors">Hyojung Han</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.21584" target="_blank" rel="noopener">arXiv:2611.21584</a> · 2026-11-16T18:54:07Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.21974" target="_blank" rel="noopener">arXiv:2611.21974</a> · 2026-11-16</p>
       <p class="summary">
-        <span class="en">CertiSum certifies when native FP32 accumulation of MXFP4 products is exact and recomputes uncertified results, while keeping quantization blocks and partial-sum merging invariant across layouts. In 200-step Qwen3-8B-Base experiments, training states matched bit for bit across AMD MI350X and Nvidia GB200 and across parallelism changes on MI350X. Across three 8B–14B models, the reported training-step latency overhead was 11.8–60.5% versus non-exact MXFP4, making reproducibility an explicit performance trade-off.</span>
-        <span class="zh">CertiSum验证原生FP32累加MXFP4乘积何时能够保持精确，对未通过验证的结果重新精确计算，并使量化块和部分和合并不随并行布局改变。在Qwen3-8B-Base的200步实验中，AMD MI350X与英伟达GB200上的训练状态逐比特一致，在MI350X上改变并行方式也保持一致。对3个80亿至140亿参数模型，作者报告相较非精确MXFP4，单步训练延迟增加11.8%至60.5%，说明可复现性需要付出明确的性能代价。</span>
+        <span class="en">For Qwen3-8B on an Nvidia B200 with vLLM, a configuration combining 98 NVFP4 weight-only modules, 46 INT8 modules and an INT8 output head passed the study&#x27;s held-out quality and deployment gates. With 16-bit activations, it used 5.917 GiB for weight loading and achieved a time-per-output-token ratio of 0.939 relative to BF16. All seven tested INT2 grids degenerated during generation, showing why nominal bitwidth alone is a poor deployment criterion. The passing configuration remains a result for this model, hardware and evaluation set.</span>
+        <span class="zh">研究在英伟达B200与vLLM上测试Qwen3-8B，将98个仅权重采用NVFP4的模块、46个INT8模块及INT8输出头组合后，通过了独立保留测试集上的质量与部署门槛。在激活保持16位的条件下，该配置的权重加载内存为5.917 GiB，每输出词元耗时为BF16基线的0.939倍。测试的7组INT2配置均出现生成退化，说明名义位宽不足以作为部署标准。通过门槛的结果仍限于这一模型、硬件和评测集。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.21165" target="_blank" rel="noopener">
-          <span class="en">Multimodal Serving Measures Energy Costs of Stage Separation</span>
-          <span class="zh">多模态推理研究量化阶段拆分的能耗收益与延迟代价</span>
+        <a href="http://arxiv.org/abs/2611.20549" target="_blank" rel="noopener">
+          <span class="en">RoShift Turns Activation Sparsity into Measured Decode Speedups</span>
+          <span class="zh">RoShift将激活稀疏性转化为实测解码加速</span>
         </a>
       </h3>
-      <p class="authors">Yifan Sun, Jiantong Jiang, Zhexiang Zhang, et al.</p>
+      <p class="authors">Geunsoo Song, Jiwon Seo, Hoeseok Yang, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.21165" target="_blank" rel="noopener">arXiv:2611.21165</a> · 2026-11-16T14:29:27Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.20549" target="_blank" rel="noopener">arXiv:2611.20549</a> · 2026-11-16</p>
       <p class="summary">
-        <span class="en">Across four multimodal models with a fixed three-GPU budget, separating visual encoding, prefill and decode reduced GPU energy per successful request by 13.3–37.0% at nearly unchanged output-token throughput, but increased mean time to first token. Across the evaluated workloads, uniform downclocking to 80% reduced GPU energy by 11.7–18.6% with modest changes in mean latency. The measurements show why stage-level power savings must be evaluated with pipeline queueing and request latency, rather than power alone.</span>
-        <span class="zh">在固定使用3颗GPU、测试4个多模态模型的条件下，将视觉编码、预填充和解码拆分，使每个成功请求的GPU能耗降低13.3%至37.0%，输出词元吞吐量基本不变，但平均首词元延迟上升。在所测试的负载中，统一降频至80%可使GPU能耗降低11.7%至18.6%，平均延迟变化较小。这些测量说明，评估单个阶段的节电收益时，需要同时考虑流水线排队与请求延迟，不能只看功率。</span>
+        <span class="en">RoShift combines a deferred activation shift with weight-aware rotation to create sparsity without training, then fuses the required corrections to preserve decode efficiency. Across five models, it improves average accuracy over TEAL by 1.60 and 3.29 percentage points at 50% and 60% sparsity, respectively. On an RTX 5090, the authors report up to 1.72× decoding speed over the dense model at 50% sparsity. The measured speedup connects skipped weight reads to runtime, but its maximum is specific to the tested configuration.</span>
+        <span class="zh">RoShift通过延迟执行补偿的激活平移与权重感知旋转，在无需训练的情况下提高稀疏性，并融合必要的补偿运算以保持解码效率。在5个模型上，50%和60%稀疏度下的平均准确率分别比TEAL高1.60和3.29个百分点。作者报告，在RTX 5090上以50%稀疏度运行时，解码速度最高为稠密模型的1.72倍。实测加速将减少权重读取与运行时间联系起来，但最高收益仅对应所测试的具体配置。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.21459" target="_blank" rel="noopener">
-          <span class="en">Balanced Twin Factorization Reuses Shared Computation in MLLMs</span>
-          <span class="zh">平衡孪生权重分解复用多模态大模型中的共享计算</span>
+        <a href="https://doi.org/10.1145/3828523.3857108" target="_blank" rel="noopener">
+          <span class="en">HACK Computes Attention Directly on INT2 KV Cache</span>
+          <span class="zh">HACK直接在INT2 KV缓存上计算注意力</span>
         </a>
       </h3>
-      <p class="authors">Bryan A. Plummer, Shan Lu, Keval Doshi, et al.</p>
+      <p class="authors">Ze-Yu Zhang, Hai-Ying Shen, S. Vargaftik, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.21459" target="_blank" rel="noopener">arXiv:2611.21459</a> · 2026-11-16T17:43:21Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857108" target="_blank" rel="noopener">ACM SIGOPS Annual Technical Conference 2026</a> · 2026-11-14</p>
       <p class="summary">
-        <span class="en">Balanced Twin Weight Factorization reuses a single shared-basis forward pass when factorized layers receive the same input. Its balancing mechanism aims to prevent larger layers from dominating the shared representation when the paired layers have different sizes. The method targets the gap between reducing FLOPs and reducing actual latency, where multiple small matrix operations can otherwise erase compression benefits.</span>
-        <span class="zh">平衡孪生权重分解在多个分解层接收相同输入时，只执行一次共享基矩阵的前向计算并复用结果。当成对的层尺寸不同时，其平衡机制旨在避免较大的层主导共享表示。该方法针对减少FLOPs却未必降低实际延迟的问题，因为用多个小矩阵运算替代一次大矩阵运算，可能抵消压缩带来的收益。</span>
+        <span class="en">HACK keeps KV data in compressed INT2 form for transfer and caching, and computes attention directly on that representation in disaggregated inference. This targets both the network cost of moving KV between prefill and decode and the repeated dequantization cost of conventional low-bit caching. The supplied abstract establishes the mechanism but does not expose quantitative accuracy or end-to-end latency results.</span>
+        <span class="zh">HACK在分离式推理中，以压缩后的INT2格式传输和缓存KV数据，并直接在该表示上计算注意力。它同时针对预填充与解码阶段之间搬运KV的网络成本，以及传统低位宽缓存反复反量化的开销。所提供的摘要说明了技术机制，但尚未给出量化精度或端到端延迟的具体结果。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.20771" target="_blank" rel="noopener">
-          <span class="en">Nemotron 3.5 Bolt Uses Speculative Decoding for Local Agents</span>
-          <span class="zh">Nemotron 3.5 Bolt以投机解码加速本地智能体</span>
+        <a href="https://doi.org/10.1145/3828523.3857044" target="_blank" rel="noopener">
+          <span class="en">Production MaaS Trace Maps Resource Allocation Across More Than 100,000 GPUs</span>
+          <span class="zh">生产级MaaS轨迹分析覆盖逾10万颗GPU的资源分配</span>
         </a>
       </h3>
-      <p class="authors">NVIDIA, Adi Margolin, Aditya Malte, et al.</p>
+      <p class="authors">Yin Zheng, Ling-Yun Yang, Ying-Hao Yu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.20771" target="_blank" rel="noopener">arXiv:2611.20771</a> · 2026-11-16T09:21:45Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857044" target="_blank" rel="noopener">ACM SIGOPS Annual Technical Conference 2026</a> · 2026-11-14</p>
       <p class="summary">
-        <span class="en">Nemotron 3.5 Bolt E4B 4GB further post-trains Gemma-4-E4B-it for conversational and tool-using agents and includes a DFlash draft model. The authors report 2.74× per-user decode speed with DFlash versus decoding without speculation at concurrency one, and 1.21× the generation throughput of Gemma-4-E4B-it with MTP at batch size one. These are distinct baselines and single-user or single-batch conditions, so the figures should not be read as general serving-throughput gains.</span>
-        <span class="zh">Nemotron 3.5 Bolt E4B 4GB在Gemma-4-E4B-it基础上进一步后训练，面向对话和工具调用智能体，并配套DFlash草稿模型。作者报告，在并发数为1时，使用DFlash的单用户解码速度为不采用投机解码时的2.74倍；在批大小为1时，生成吞吐量为采用MTP的Gemma-4-E4B-it的1.21倍。两项结果对应不同基线，且均为单用户或单批次条件，不能直接视为普遍适用的服务吞吐增益。</span>
+        <span class="en">A six-month trace from the xMaaS production platform covers more than 100,000 GPUs, 300,000 applications and 70,000 model variants. The study examines cluster-wide resource supply, changing application demand and deployment choices across heterogeneous GPUs, extending characterization beyond individual requests. This scale makes the workload evidence useful for judging serving-system assumptions, although the supplied excerpt does not report utilization rates or a demonstrated scheduling gain.</span>
+        <span class="zh">研究分析xMaaS生产平台长达6个月的运行轨迹，覆盖逾10万颗GPU、30万个应用和7万个模型变体。它从整个集群层面考察资源供给、应用需求变化和异构GPU上的部署选择，将负载刻画从单个请求扩展到资源分配。这一规模的生产数据有助于检验推理服务系统的设计假设，但所提供的摘要尚未报告利用率数字或已验证的调度收益。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.21608" target="_blank" rel="noopener">
-          <span class="en">Latent Lattice Models Add Persistent Computational States</span>
-          <span class="zh">潜变量格点模型引入跨词元持续存在的计算状态</span>
+        <a href="https://doi.org/10.1145/3815789.3827963" target="_blank" rel="noopener">
+          <span class="en">LLM Inference Evaluation Study Exposes Baseline and Metric Pitfalls</span>
+          <span class="zh">大模型推理评测研究揭示基线与指标设计缺陷</span>
         </a>
       </h3>
-      <p class="authors">Shivam Duggal, Zongze Wu, William T. Freeman, et al.</p>
+      <p class="authors">Amey Agrawal, Nitin Kedia, Anmol Agarwal, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.21608" target="_blank" rel="noopener">arXiv:2611.21608</a> · 2026-11-16T18:59:38Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3815789.3827963" target="_blank" rel="noopener">ACM Symposium on Cloud Computing 2026, Volume 1</a> · 2026-11-17</p>
       <p class="summary">
-        <span class="en">Latent Lattice Language Models add per-layer recurrent latent streams that persist across tokens and condition attention, KV-cache writes, MLP computation and decoding. After training on 20 billion FineWeb-Edu tokens, a 406-million-parameter model reduced validation perplexity from 15.41 to 14.40 versus a parameter-matched Transformer. The architecture changes the state and computation that inference hardware must support, but the reported quality gain does not establish a latency or energy improvement.</span>
-        <span class="zh">潜变量格点语言模型在各层增加跨词元持续存在的循环潜变量流，用于调节注意力、KV缓存写入、MLP计算和解码。在200亿个FineWeb-Edu词元上训练后，一个4.06亿参数模型的验证困惑度从参数量相当的Transformer的15.41降至14.40。这一架构改变了推理硬件需要支持的状态和计算方式，但所报告的质量提升并不等于已证明延迟或能耗改善。</span>
+        <span class="en">This study identifies recurring inference-evaluation problems in baseline fairness, workload setup and metric design. It explains how implementation differences can obscure algorithmic contributions and how normalized metrics can hide variability in autoregressive token delivery. The analysis provides a useful checklist for assessing accelerator and serving claims, particularly when prefill, decode and user-visible latency are combined into a single headline number.</span>
+        <span class="zh">这项研究梳理了推理评测在基线公平性、负载设置和指标设计上的常见问题。它说明，实现细节的差异可能掩盖算法本身的贡献，而归一化指标也可能隐藏自回归词元输出的波动。这些分析有助于审视加速器与推理服务的性能主张，尤其适用于预填充、解码及用户感知延迟被合并成单一宣传数字的情况。</span>
       </p>
     </article>
   </section>
@@ -492,8 +492,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-18 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-18 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-19 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-19 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
