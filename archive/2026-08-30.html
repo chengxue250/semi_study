@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-30">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Tightens Memory and Access — Semi News 2026-08-30</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Sunday, August 30, 2026</span>
+      <span class="zh">2026年8月30日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Tightens Memory and Access</span>
+      <span class="zh">AI需求收紧存储供给与算力准入</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Memory pricing and supply expectations are moving higher as AI infrastructure absorbs capacity, while Washington focuses on routes that could extend Chinese access to advanced compute. Equipment localization and rack-scale deployments show the pressure is spreading across the stack.</span>
+      <span class="zh">AI基础设施正在吸收更多产能，推高存储价格与紧缺预期；与此同时，美国正把监管焦点转向可能扩大中国获得先进算力的路径。设备国产化和整柜级部署表明，这一压力正蔓延至整条产业链。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.servethehome.com/cisco-secure-ai-factory-with-nvidia-expands-to-supermicro-rack-scale-systems/" target="_blank" rel="noopener">
+          <span class="en">Cisco and NVIDIA expand secure AI factory to Supermicro racks</span>
+          <span class="zh">Cisco与NVIDIA将安全AI工厂扩展至Supermicro整柜系统</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 4h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cisco&#x27;s Secure AI Factory with NVIDIA is adding integrated Supermicro rack-scale systems for larger AI clusters. The move packages networking, compute and security into a more standardized deployment path, reflecting demand for faster cluster integration rather than component-by-component assembly.</span>
+        <span class="zh">Cisco的Secure AI Factory with NVIDIA新增了Supermicro整柜级系统，以支持更大规模的AI集群。该方案把网络、计算和安全能力打包成更标准化的部署路径，反映出市场希望加快集群集成，而非逐一组装组件。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOd29DNVNHS1E4UUZVQW1QVXdSZkMyX0NIdW5YZWtIWURFWmFJSFgzUXJXRTRVdlpWMV9Pa1h6Y1RWamZjY1hLMXVmMWhwLVpGd01OSzl5elNmV19WMkVEN21nbGhhOHhidGxZcUlZR2tOdGRpNTFnRV9vbGIxZzFmSTIyX3hlQXBqcS1sZGNnXzYzWFFDRksyWTFkVQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC and U.S. researchers report SOT-MRAM work for AI</span>
+          <span class="zh">台积电与美国研究人员报道面向AI的SOT-MRAM研究</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 1h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says TSMC and U.S. scientists have developed spin-orbit-torque MRAM work aimed at AI applications. SOT-MRAM is relevant because non-volatile memory with fast switching could eventually support lower-energy data movement, although the report does not establish a commercial manufacturing timetable.</span>
+        <span class="zh">报道指出，台积电与美国科学家开展了面向AI应用的自旋轨道力矩MRAM研究。SOT-MRAM之所以受到关注，是因为具备快速切换能力的非易失存储器有望降低数据搬运能耗；不过该报道并未给出商业化制造时间表。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxQa3FCazN0TVhoeWlqN254cnlsTEo3VEFWR0tTTTVmLUxUcFFybXBpZU04T2dtNlBmR0NxVzcxc0dGWkNDVWI1cEp2RDVRQWtCMDQ0U2FseEpFTlo4Mkt6WGJGdHdVek9PSnV2Wk5oYUlEQTg2c1VrYnQwZzBsNEdad2NrZm1UbkNSSEVOUTZDRnM3dHk4d0c0b3NMQdIBoAFBVV95cUxNdlFpVVdabV91ckxhTG9TZDNTVTN3WVltMlhOZWFza3ExVTkycW1yeW92TlVYTkNSZWVobF9WUmxZZzAtQTk0MjhxRXVoZno1d1Fkb1FTUnludG1yNDZyM0RDTUtGY1ZNQ0QydlpVQ3puTUpvT3ZNNklJQWZkS0o4MnNPN3o3bFRZV2hUTlgzclYwZE9rQ1hsM3RhM1ltdHNf?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix CEO expects memory shortage to extend to 2030</span>
+          <span class="zh">SK hynix CEO预计存储芯片短缺将延续至2030年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — HBM</span> · 7h ago</span>
+        <span class="zh"><span class="source">GNews — HBM</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix&#x27;s CEO said the memory-chip shortage could last until 2030. That is a notably long view of AI-led tightness: it implies capacity additions may remain behind demand from high-bandwidth-memory and data-center customers for several years.</span>
+        <span class="zh">SK hynix首席执行官表示，存储芯片短缺可能持续到2030年。这是对AI驱动供需紧张的长期判断，意味着未来数年新增产能仍可能落后于HBM和数据中心客户带来的需求。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/dram-nand-flash-costs-exceed-soc-bom/" target="_blank" rel="noopener">
+          <span class="en">Mobile DRAM and NAND bundle reportedly rises 340% year on year</span>
+          <span class="zh">手机DRAM与NAND组合价格据报同比上涨340%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A new estimate puts a 12GB DRAM plus 256GB NAND package at roughly $310, after a reported 340% increase from a year earlier; the bundle is said to exceed the cost of a premium smartphone SoC. If sustained, that inversion would push handset makers to revisit bill-of-materials assumptions and pricing rather than treat memory as a secondary cost line.</span>
+        <span class="zh">一项最新估算称，12GB DRAM加256GB NAND的组合价格约为310美元，较去年上涨340%，并据称已超过高端智能手机SoC的成本。若这一变化延续，手机厂商将不得不重新审视物料清单与定价假设，而不能再把存储视为次要成本项。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxPSzlkUHhuaVQ2QUtiYlBST1dKakRjblprZjR2aTVaMFhVSFd5S05Cd0tkUnFEMVo1MVJobHZYMUhpZVZURENjd1hWVEotUmJYUHRyWXNyUkRZVWdVSlBtQ01ORVN2VnNYTmszS2tNRzdIeEVsWkRDalZXcmxOaktCNUh1bWxyb1djeEVFdHZCeDhNWkdJVjNVdWZrcjR0V2ZmZ1h6akpsOFRabEhRbkdxX1lsUUg4WW54NmltUmdZWENOaXVzQ2RhTFVmT3BkQnEwUktxNXdpVEttdmM?oc=5" target="_blank" rel="noopener">
+          <span class="en">Axcelis–Veeco deal recasts the equipment portfolio</span>
+          <span class="zh">Axcelis与Veeco交易重塑半导体设备组合</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 6h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Analysis of the Axcelis Technologies and Veeco combination frames the merger as a reshaping of their semiconductor-equipment exposure. Combining ion-implantation and process-equipment franchises could broaden the merged supplier&#x27;s customer and technology footprint, while integration execution becomes the key variable.</span>
+        <span class="zh">对Axcelis Technologies与Veeco合并的分析认为，这笔交易正在重塑双方在半导体设备领域的布局。离子注入与工艺设备业务的结合可扩大合并后供应商的客户和技术覆盖面，但整合执行将成为关键变量。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRTNIOG9VSnpfdE05d0JjX1ZhRlY2ck51V0RjX0tGQ0lGYVc4aFhnWDctR05TVkhGT2dnVUxlWEdyS1NJYk5tU3lzUU5adFRLWFRjY3g2c3ZGX2tuN2hIWUNpWU1DOS05SXZBaDBVVzN0bDlpeC1abjdSQ1p6ZUIzWm5PTDNzTVBmZm15QjFsUkYwbUlYcHNYTnNFRU0xeWR2Q2N5UjN1SDRlX0pCRTY0R1R4TVNkNk5pQ1ZBaXZXel9CZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">China equipment localization reaches 35%, with gaps in subsystems</span>
+          <span class="zh">中国半导体设备国产化率达35%，关键子系统仍有缺口</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 7h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report puts China&#x27;s semiconductor-equipment localization rate at 35%, while saying vacuum valves and RF power equipment remain about 80% foreign supplied. The figures underline that progress at the tool level does not remove dependence on specialized upstream subsystems that can constrain domestic manufacturing.</span>
+        <span class="zh">一份报道称，中国半导体设备国产化率已达35%，但真空阀和射频电源等设备仍约80%依赖海外供应。该数据表明，整机层面的进展并不等于摆脱对专业上游子系统的依赖，而这些环节仍可能约束国内制造能力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFA3eGhyU2ZVOGdsR3hpc1dRczN0RVRXZG95dkctdVR1S2xnM1hTcGhnSkhPdk5femNXSk52eUc4ZnlVV19RU0V6Z2hUQWx1MUpueGRvZFMxRlhhQkxwajVpWmtSVGVEcGVKZnRPMy1xZjRxc2NET0E?oc=5" target="_blank" rel="noopener">
+          <span class="en">U.S. targets third-country cloud route for Chinese AI access</span>
+          <span class="zh">美国瞄准经第三国云服务获取中国AI算力的路径</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Chip export controls</span> · 6h ago</span>
+        <span class="zh"><span class="source">GNews — Chip export controls</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says the U.S. is moving to block a third-country cloud workaround that could give Chinese users access to advanced AI compute through data centers in Thailand and Singapore. The proposal would shift enforcement beyond physical-chip shipments toward the location and control of remote compute services.</span>
+        <span class="zh">报道称，美国正推动封堵一条第三国云服务绕行路径，该路径可能让中国用户通过泰国和新加坡的数据中心获得先进AI算力。此举将把执法重点从实体芯片出货延伸到远程计算服务的所在地与控制权。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; Design Tools</span>
+      <span class="zh">新兴厂商与设计工具</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNbE1LWlo0MFd2NXM2OWtUTzA2MVI0cjdvUUpycmNZWUp1WVp6UGhUamNHT3c1NkhVQVhQdS1RX1drYlgtMkNSV2ZpYUFYUWoyb0Utc3JSYVNCYXRncFFXRzFtS1FlbFNCRGVISnJwcnNwMzJicmlBcXIxNk4zY2pOUEpfNnVab0hGWmpFaG92ZVBfcS1KWTB0RXR6NWhKUjVqTnZ1RXROZEFJV1d60gGyAUFVX3lxTFBCMjdaT2tVb2djeDVGbWhxYjZTS2I3LTJ6d2lXT1hnOEJhNFRQT1N4eWh4am9FSTNDUHVPVmx1SG5uWXFxVGJPTHlNY3JhUzBJM01zZ1FvRFRrOE1zR0EtdVFiZ3ZkT3Nja2JQUUs5U1hETlFxdmxwenZlVTdNb3F4ZHNGRVd2Mjgzb28xek5OLWo3VGRqYVVuWEpMcEpxcFU3ZG0zZkpoTHRrZUs4VGlRSnc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Agentrys raises $24.5 million for agentic chip-design platform</span>
+          <span class="zh">Agentrys为智能体芯片设计平台融资2,450万美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 3h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Agentrys has raised $24.5 million for its agentic chip-design platform and says it exceeded 90% on an NVIDIA benchmark. The financing highlights continued interest in using AI agents for design flows, but the reported benchmark result should be distinguished from production design-win and tape-out evidence.</span>
+        <span class="zh">Agentrys为其智能体芯片设计平台融资2,450万美元，并称在一项NVIDIA基准测试中超过90%。这笔融资显示市场仍在关注AI智能体进入设计流程，但该基准成绩应与量产设计导入和流片验证证据区分开来。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-30 01:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-30 01:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

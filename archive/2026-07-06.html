@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-06">
+<meta name="generator" content="semi-news-daily">
+<title>Memory Scarcity Sets the Fab Agenda — Semi News 2026-07-06</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Monday, July 6, 2026</span>
+      <span class="zh">2026年7月6日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Memory Scarcity Sets the Fab Agenda</span>
+      <span class="zh">存储紧缺重写晶圆厂议程</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI demand keeps memory and advanced packaging at the center of semiconductor capex while export-control enforcement tightens around accelerator supply chains. Today&#x27;s stories point less to a single breakthrough than to a capacity scramble across DRAM, NAND, substrates, materials, and policy.</span>
+      <span class="zh">AI需求把存储和先进封装推到半导体资本开支的中心，同时出口管制执法继续压向加速器供应链。今天的主线不是单一技术突破，而是DRAM、NAND、基板、材料与政策层面的产能争夺。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBudXNqMkRrTzN1MG1vUjFCWU1EQVdJUVNZdUZrcTNEbV9DSk1Nd21jQlBuNG81d01hR3NLaHl0MTJxRXo4XzRncndXT0ZKMVlRRldveHFIcm81VFQyMGZ2NEJkSk1OV0E?oc=5" target="_blank" rel="noopener">
+          <span class="en">Meta&#x27;s Cloud Plan Reopens the AI-Chip Bubble Debate</span>
+          <span class="zh">Meta云计划重新引发AI芯片投资泡沫讨论</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 1h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Elec frames Meta&#x27;s cloud buildout as a test of whether AI semiconductor spending is outrunning near-term demand. The useful signal is not the bubble label itself, but the pressure it puts on accelerator, memory, and server suppliers to justify another round of capacity commitments.</span>
+        <span class="zh">The Elec把Meta的云端建设计划放在AI半导体投资是否超前需求的框架下讨论。真正值得关注的不是「泡沫」标签本身，而是它给加速器、存储和服务器供应商带来的压力：下一轮产能承诺需要更清晰的需求支撑。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxQdHNRQV9Hbm5zR3NJdWVjUEprQ0tlbEx2RE0wdWdrdEdwaXYtaFNsMmwwemRRMy16T2VWT2RsLXBXMVhVVVJvSzNBS2dGMHgxUUdJTlFWSlRFTUZlMXZmMXQ5Wkd6WHhNM1BkMVhWLURCR1JxNTVUNnIxS1FRM21SU0hCb3hfUDRueVVDU1VJSXh5b0w4ZGNkRlJxYWZFWTV1X0Z5Q0tPSEdYS2lEY241dUs4dnJxaWtycXV4Q1pfYW9jdU4zblE?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC&#x27;s $82B Capex Ambition Sets the Earnings Bar</span>
+          <span class="zh">台积电820亿美元资本开支目标抬高财报门槛</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AD HOC NEWS</span> · 9h ago</span>
+        <span class="zh"><span class="source">AD HOC NEWS</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s pricing power and reported $82B capex ambition are setting expectations before earnings. If management confirms that AI demand can absorb both price increases and a larger buildout, the read-through will extend from EUV tools to advanced packaging and high-bandwidth memory.</span>
+        <span class="zh">台积电的定价能力和据报820亿美元资本开支目标，正在抬高市场对本轮财报的预期。如果管理层确认AI需求足以消化涨价和更大规模扩产，影响将从EUV设备延伸到先进封装和HBM供应链。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPcTR2SmRuSGxnNFg4ZjBWVEJ1TGZnWEU4Y0QtcUFFbzNiQi1FRWZkanVCaXdqclR1U0ZLMkZSa05aaDhxT1V2YWt5ei1fVjdRcUxlaE1qb05IU25sMEpNOVNhWnl6RVFCWVVfQkMtSXR6b2d4Q1JDSUFobTVJNnI5dA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Tokyo Puts Billions Behind Micron&#x27;s Chip Plan</span>
+          <span class="zh">东京以数十亿美元支持Micron芯片计划</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TheStreet</span> · 1h ago</span>
+        <span class="zh"><span class="source">TheStreet</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Japan is putting billions behind Micron&#x27;s chip plan, reinforcing the country&#x27;s push to localize advanced memory capacity. The timing matters because HBM and high-end DRAM remain the gating items for AI server ramps, and public support can shift where the next incremental wafers are tooled.</span>
+        <span class="zh">日本正以数十亿美元支持Micron的芯片计划，继续推动先进存储产能本地化。时点很关键：HBM和高端DRAM仍是AI服务器放量的约束项，政府补贴会影响下一批增量晶圆产能落在哪里。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE5ob2VreVV2ZmY2S0RSNXdrOUxTNFIta2pqdzh1RVdpd3owWUxSdFNqN25Tcm16NzhFOUtnWm5zaUQ2eW9VcER0azN4ZTJaRU9iNlV0X1Q4Rk55TVdfWDdNaE15T2tjLXNjdEo3aTJlc1lSWGxvS2VNSzB30gGOAUFVX3lxTE1pamlfM25Ia09GZWgzeVhrbWVEbEJialJIVEcwNHVUcmh1aGFGOWJkZnZHVllzUFcyRm9RVmViZ29TcWJ4d091NWFtQUdsM01ESlJWM3V5eVhpNnM4TlVUT2NGZTF1NDhMV2FjTDlhMUVfVWkyVlBfaE5SQXFBaV9hNHFoWlZKM25GQXB1cmc?oc=5" target="_blank" rel="noopener">
+          <span class="en">AI DRAM Shortage Limits China Dumping as CXMT Reaches No. 4</span>
+          <span class="zh">AI驱动DRAM紧缺抑制倾销，CXMT升至第四</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosunbiz</span> · 4h ago</span>
+        <span class="zh"><span class="source">Chosunbiz</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chosunbiz reports that AI-driven DRAM tightness is curbing the old fear of China-origin memory dumping while CXMT climbs to the No. 4 position. That changes the competitive frame: Chinese supply is still a long-term pricing risk, but today&#x27;s market is being pulled upward by AI server demand.</span>
+        <span class="zh">Chosunbiz报道，AI带动的DRAM紧缺正在削弱市场对中国存储倾销的旧有担忧，同时CXMT升至行业第四。竞争框架因此变化：中国供给仍是长期价格风险，但当下市场更受AI服务器需求上拉。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPLVJub2M4M1doZS02QXpWNUFhZVlrMDU1R1JWMVdaaTVqbEpiamM1SXNCSWp5LWFUSzZJdWpBQ1pGcFFqWDcxNkVlUW1yNGxuT2QwR0tFdUdTRVhoMnBjV0Mwazc1YVVhRmw4M0JKTW9kMFhuYmdBdnNCbGwwZjExN2d4eEpWRkZHeEE4SG9BcWx4cGtMYjBKb0hNT3h0X3UxUzB2T0UyYnQ2cC1MSndn?oc=5" target="_blank" rel="noopener">
+          <span class="en">Kioxia Ships Samples of Next-Generation AI Memory</span>
+          <span class="zh">Kioxia出货下一代AI存储样品</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 5h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Kioxia has shipped samples of a next-generation memory product aimed at AI systems. Sampling does not equal volume supply, but it signals that NAND-linked suppliers are trying to move closer to the AI memory discussion rather than leave the entire bottleneck narrative to HBM vendors.</span>
+        <span class="zh">Kioxia已出货面向AI系统的下一代存储样品。样品不等于量产供给，但它表明与NAND相关的供应商也在试图靠近AI存储主线，而不是把瓶颈叙事完全让给HBM厂商。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/cxmt-developing-high-density-dram-without-euv-might-make-apple-interested/" target="_blank" rel="noopener">
+          <span class="en">CXMT Works on High-Density DRAM Without EUV</span>
+          <span class="zh">CXMT研发无需EUV的高密度DRAM</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 10h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Wccftech reports that CXMT is working on high-density DRAM using DUV-based process routes, while Apple is said to be evaluating Chinese DRAM as a supply-risk hedge. The article also cites estimates that AI datacenters could consume more than 60% of memory shipments next year, which explains why even non-EUV DRAM roadmaps matter to customers outside China.</span>
+        <span class="zh">Wccftech报道，CXMT正在研发基于DUV路线的高密度DRAM，同时Apple据称把中国DRAM视为降低供应风险的选项。报道还引用估算称，明年AI数据中心可能消耗超过60%的存储出货，这解释了为什么即便是非EUV DRAM路线也会被中国以外客户关注。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi9gFBVV95cUxQemlkYWVMQjdJVDVuYzZpU1k0TW16M2l2VElUMmhFX3VHZm5wZXBzbUFfUVduSUR2TmZ1dFlKT25OVDJVYkNDQmZnYlNlV1NDRzQ3MnNnaWM2WFRYWXpLdXFLMnRKcmdkaHRDU2wtTi1mc0lnX05YdFRERkY4SUlGOWFUa2lwNjBPY2V6OE1GdmZnbVprYTVtc0pkbGplRml3RUw1bTNZS2p2MkNwOTZVaXZRV0szaXloVmN5MEhZeEEzTE15ZnZ1OEwwajJwZTZGUWYzRzlnM3o3WEZDYWFsS0FVZnlhYV8ya0l5dXpYV1NkdVlsWnc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Electro-Mechanics Eyes Glass-Core JV for 2H27 Output</span>
+          <span class="zh">三星电机拟建玻璃核心基板合资公司，目标2027下半年量产</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TrendForce</span> · 1h ago</span>
+        <span class="zh"><span class="source">TrendForce</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TrendForce reports that Samsung Electro-Mechanics plans a glass-core substrate joint venture with a Sumitomo unit, targeting production in the second half of 2027. Glass-core work matters because advanced packages need flatter, more dimensionally stable substrates as chiplet and AI accelerator packages grow larger.</span>
+        <span class="zh">TrendForce报道，Samsung Electro-Mechanics计划与Sumitomo旗下单位成立玻璃核心基板合资公司，目标在2027年下半年投产。玻璃核心基板值得关注，因为随着chiplet和AI加速器封装面积扩大，先进封装需要更平整、尺寸稳定性更高的基板。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBuajNJOE5tb3FJaXM0NExFblJkQjRmUGxNTUdmT0VqLTZmMWFhcEtSYWlQemoxZWZGUThvYmV1ZVVpcy11b3JEOW5aZGhVTjg5SXl4RnZCWHhPbjZFc3dXQ2tuSmI1TWs?oc=5" target="_blank" rel="noopener">
+          <span class="en">LG Chem Makes Its First Semiconductor Stripper Supply to Amkor</span>
+          <span class="zh">LG Chem首次向Amkor供应半导体剥离液</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">LG Chem has made its first semiconductor stripper supply to Amkor, according to The Elec. The deal is small compared with fab-tool announcements, but materials qualification is sticky: once a chemistry is approved in packaging or wafer processes, it can become a recurring supply position.</span>
+        <span class="zh">据The Elec报道，LG Chem首次向Amkor供应半导体剥离液。相较大型设备订单，这笔材料供应规模可能不大，但材料认证具有黏性：一旦化学品进入封装或晶圆流程的合格清单，就可能形成持续供应位置。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPU1NrMGlvcms0WUQ3ZXhvNlRjRFB6TXJkSFVOSjRaV1JFanNEandEcWZhaUl3ekQ4dHNTelg0eW5oSHV2djFSMldRblN4UElXazh6bGhnbFJDYTVzdzJrSHRQYVozd0dCVFRWX2pzazRmV0xqdXRuSFp4NWFDMmctQU9PeWZyei1NWHFLeTF2R214V2ZPTTIyZTVUQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">The Economist Reopens the Question of China&#x27;s EUV Access</span>
+          <span class="zh">The Economist重提中国是否获得EUV关键能力</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Economist</span> · 9h ago</span>
+        <span class="zh"><span class="source">The Economist</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Economist revisits whether China has obtained access to the equipment capability often described as the world&#x27;s most important chipmaking machine. The question keeps ASML-class lithography at the center of export-control policy, because domestic progress in any part of that stack would change the timetable for advanced-node self-sufficiency.</span>
+        <span class="zh">The Economist重新讨论中国是否获得了常被称为全球最重要芯片制造设备的相关能力。这个问题让ASML级光刻继续处在出口管制政策中心，因为该设备栈任何环节的国产进展都会改变先进制程自主化的时间表。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5iWDctUHFsZWN3QTVJYnBlU0dDT21wTU12NVd1N3ZwRlk5eEpNMldnX3BLdEJHbmVKdkZLNkZNWmdJVHVwT3BEMVB2Nk5GTElYMU41bDRsSC1ibmItZ3E5VmxNT1k0OXF4MlVXMUZKSFI5dEpoVTdLbmxfRGk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Taiwan Raids Super Micro Offices in Nvidia AI-Chip Smuggling Probe</span>
+          <span class="zh">台湾在Nvidia AI芯片走私调查中突击搜查Super Micro办公室</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AOL</span> · 2h ago</span>
+        <span class="zh"><span class="source">AOL</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Super Micro shares fell 8% after Taiwanese authorities raided company offices in a probe tied to alleged Nvidia AI-chip smuggling. The material point is enforcement: export controls are moving deeper into server assembly, distribution, and logistics rather than stopping at chip vendors.</span>
+        <span class="zh">台湾主管机关在一起涉嫌Nvidia AI芯片走私调查中突击搜查Super Micro办公室后，Super Micro股价下跌8%。核心信号是执法范围正在深入服务器组装、分销和物流环节，而不再只停留在芯片供应商层面。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9yLWFlR2wtV2JDOUIzTmVRNm9LOWhwX19uSUd2Xy1nalIzWlR0YVpUYmdTbW5EbXJwcmtqbHBaaHhneDEzQnJMSkRjbjh1SXRJcUR2Q3A5eWlBSm9kMUpyQlFHVWViR2FiUkt5SHJRTQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">NDAA Chip Provisions Remain Unsettled</span>
+          <span class="zh">NDAA中的芯片条款仍未尘埃落定</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Punchbowl News</span> · 53m ago</span>
+        <span class="zh"><span class="source">Punchbowl News</span> · 53分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Punchbowl News says the chips fight around the U.S. defense authorization bill will continue. For the semiconductor sector, the point is procedural but important: export-control, procurement, and industrial-policy language can still move as the NDAA advances.</span>
+        <span class="zh">Punchbowl News称，美国国防授权法案中的芯片议题仍将继续拉锯。对半导体行业来说，这属于程序性但重要的信号：随着NDAA推进，出口管制、采购和产业政策相关措辞仍可能变化。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-06 01:16 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-06 01:16 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

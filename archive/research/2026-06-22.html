@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-22">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Scaling Moves Into Devices, Memory, and Context — Semi Research 2026-06-22</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-22.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Monday, June 22, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月22日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Scaling Moves Into Devices, Memory, and Context</span>
+      <span class="zh">扩展转向器件、存储与上下文</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s work attacks bottlenecks from nanoscale interfaces and 3D integration to ferroelectric compute-in-memory and prompt-cache continuity. The strongest results connect measured device behavior with system-level cost, latency, reliability, or thermal limits.</span>
+      <span class="zh">本周研究从纳米界面和3D集成一路推进到铁电存内计算与提示缓存连续性。最有价值的结果把器件实测行为与系统级成本、时延、可靠性或散热限制连接起来。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/aelm.202500879" target="_blank" rel="noopener">
+          <span class="en">How Perimeter Scaling Changes Ferroelectric HZO Capacitors</span>
+          <span class="zh">周长缩放如何改变铁电HZO电容器</span>
+        </a>
+      </h3>
+      <p class="authors">L. Trupină, Ș. Neațu, L. Pintilie, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1002/aelm.202500879" target="_blank" rel="noopener">Advanced Electronic Materials</a> · 2026-06-18</p>
+      <p class="summary">
+        <span class="en">Measurements on W/Hf0.5Zr0.5O2/p-Ge capacitors spanning 10 µm to 0.1 µm show that switched charge stays nearly constant as sweep rate changes, while the smallest 0.01 µm² devices fall below the current-detection floor because of parasitic capacitance. Submicron capacitors show an apparent rise in remanent polarization as perimeter-to-area ratio increases, pointing to edge-dominated switching. The result matters because geometry and measurement parasitics can masquerade as intrinsic ferroelectric improvement during scaling.</span>
+        <span class="zh">对尺寸从10 µm缩小到0.1 µm的W/Hf0.5Zr0.5O2/p-Ge电容器测量表明，扫描速率变化时翻转电荷基本不变，而最小的0.01 µm²器件因寄生电容影响，其翻转电流低于检测下限。亚微米电容器随着周长面积比提高，呈现出剩余极化增强的表观现象，说明边缘主导的翻转作用正在增大。该结果的重要性在于，缩放过程中几何效应和测量寄生项可能被误判为材料本征铁电性能提升。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1021/acsnano.6c04995" target="_blank" rel="noopener">
+          <span class="en">CNT CFET Logic Integrates with 3D-Stacked Photodiodes</span>
+          <span class="zh">CNT CFET逻辑与3D堆叠光电二极管实现单片集成</span>
+        </a>
+      </h3>
+      <p class="authors">Xiao Luo, Haoyu Zhang, Haoyun Liu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1021/acsnano.6c04995" target="_blank" rel="noopener">ACS Nano</a> · 2026-06-17</p>
+      <p class="summary">
+        <span class="en">The work monolithically integrates carbon-nanotube complementary FETs in a true vertically stacked CFET layout with 3D-stacked photodiodes, and demonstrates logic gates, a 4-transistor SRAM cell, and a five-stage ring oscillator. Its inverters reach a peak gain of 147 at 1 V and retain a gain of 9.7 with 3.3 pW static power at 0.2 V. This is a measured route toward unified sensing and computing, although the research-scale stack still needs evidence on array yield and process uniformity.</span>
+        <span class="zh">该工作将真正垂直堆叠结构的碳纳米管互补FET与3D堆叠光电二极管进行单片集成，并演示了逻辑门、4晶体管SRAM单元和五级环形振荡器。其反相器在1 V下峰值增益达到147，在0.2 V下以3.3 pW静态功耗仍保持9.7的增益。它为感知与计算一体化提供了实测路径，但研究级堆叠仍需补充阵列良率与工艺均匀性证据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1088/2053-1583/ae7d3d" target="_blank" rel="noopener">
+          <span class="en">Van der Waals-Integrable HfOx Dielectric for 2D Transistors</span>
+          <span class="zh">面向二维晶体管的范德华可集成HfOx介质</span>
+        </a>
+      </h3>
+      <p class="authors">Nuertai Jiazila, Jiequn Sun, Yunhao Wang, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1088/2053-1583/ae7d3d" target="_blank" rel="noopener">2D Materials</a> · 2026-06-15</p>
+      <p class="summary">
+        <span class="en">Ultraviolet-ozone conversion of HfS2 produces a van der Waals-integrable HfOx dielectric with an approximately 8.9 MV/cm breakdown field, dielectric constant near 9.6, and leakage around 10^-5 A/cm². MoS2 transistors using the dielectric show an on/off ratio near 10^9, mobility of about 35.3 cm²/V·s, and an 80.2 mV/dec subthreshold swing; floating-gate devices reach a 14 V memory window. The device data are promising for cleaner 2D interfaces, but endurance, wafer-scale uniformity, and integration yield remain open.</span>
+        <span class="zh">通过紫外臭氧将HfS2转化为可进行范德华集成的HfOx介质，其击穿场约为8.9 MV/cm、介电常数约9.6、漏电流约10^-5 A/cm²。采用该介质的MoS2晶体管开关比接近10^9、迁移率约35.3 cm²/V·s、亚阈值摆幅为80.2 mV/dec；浮栅器件的存储窗口达到14 V。这些器件数据有利于构建更洁净的二维材料界面，但耐久性、晶圆级均匀性和集成良率仍待验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.19526" target="_blank" rel="noopener">
+          <span class="en">SPINE Profiles Accumulated Bit Flips in Quantized Networks</span>
+          <span class="zh">SPINE分析量化神经网络中的累积位翻转</span>
+        </a>
+      </h3>
+      <p class="authors">Nathan Guimarães, Ian Kersz, Leonardo R. Gobatto, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.19526" target="_blank" rel="noopener">arXiv:2606.19526</a> · 2026-06-17T19:17:08Z</p>
+      <p class="summary">
+        <span class="en">SPINE injects cumulative weight bit flips directly into edge-CPU binaries through GDB, producing per-layer fault profiles without retraining the model or modifying application code. Tests across multiple network topologies, quantization levels, and memory layouts are intended to identify where selective hardening has the most value. The preprint presents a useful profiling method, but it does not report a standardized radiation campaign that would qualify a deployed device.</span>
+        <span class="zh">SPINE通过GDB直接向边缘CPU二进制文件中的权重注入累积位翻转，无需重新训练模型或修改应用代码即可生成逐层故障画像。该方法跨多种网络拓扑、量化精度和内存布局进行测试，用于识别最值得选择性加固的位置。这篇预印本提供了实用的分析方法，但并未给出可用于器件认证的标准化辐照测试。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.4071/001c.163572" target="_blank" rel="noopener">
+          <span class="en">Diamond-Coated Capillary Interposer Targets 3D Hotspots</span>
+          <span class="zh">金刚石涂层毛细结构中介层瞄准3D热点</span>
+        </a>
+      </h3>
+      <p class="authors">S. Moore, M. Bauer, S. Moghaddam</p>
+      
+      <p class="venue"><a href="https://doi.org/10.4071/001c.163572" target="_blank" rel="noopener">IMAPSource Proceedings</a> · 2026-06-17</p>
+      <p class="summary">
+        <span class="en">The proposed 3D-heterogeneous-integration interposer uses laser-machined wick pillars for capillary-fed two-phase cooling and selectively coats them with diamond to improve vertical thermal conduction. Moving evaporation into the packaging layer could remove localized heat without expanding the package footprint. The paper establishes a plausible structure and performance envelope, but package-scale reliability, fluid containment, and manufacturability still need validation.</span>
+        <span class="zh">该3D异构集成中介层采用激光加工的吸液芯柱实现毛细驱动两相冷却，并选择性覆盖金刚石以增强垂直导热。将蒸发界面引入封装层，有望在不扩大封装占地的情况下移除局部热点。论文给出了可行结构和性能边界，但封装级可靠性、流体密封性及可制造性仍需验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.16896" target="_blank" rel="noopener">
+          <span class="en">FerroNDS Maps Real-Time Forecasting onto Ferroelectric CIM</span>
+          <span class="zh">FerroNDS将实时预测映射到铁电存内计算</span>
+        </a>
+      </h3>
+      <p class="authors">Keshava Katti, A. Selvakumar, Pratik Chaudhari, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.16896" target="_blank" rel="noopener">arXiv:2606.16896</a> · 2026-06-15</p>
+      <p class="summary">
+        <span class="en">FerroNDS maps integrator and oscillator primitives onto multi-bit ferrodiodes, using a 128-neuron system to compute short-time Fourier transforms and forecast signals 500 ms ahead. It reports 1.64 µJ per neuron per inference at 200 Hz and 0.29 µJ at 10 kHz, with a 25–40× area reduction versus SRAM-based digital systems and per-layer latency down to 63.87 µs. The end-to-end mapping is notable, but the preprint&#x27;s energy and area comparisons need validation across larger models and fabricated arrays.</span>
+        <span class="zh">FerroNDS把积分器与振荡器原语映射到多位铁电二极管上，以128神经元系统计算短时傅里叶变换并预测未来500 ms的信号。论文报告在200 Hz下每神经元每次推理能耗为1.64 µJ，在10 kHz下为0.29 µJ；相较基于SRAM的数字系统，面积缩小25–40倍，单层时延最低63.87 µs。端到端映射具有参考价值，但预印本中的能耗与面积对比仍需在更大模型和实际制造阵列上验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research &amp; Inference Systems</span>
+      <span class="zh">AI研究与推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.17016" target="_blank" rel="noopener">
+          <span class="en">TokenPilot Preserves Prompt Caches While Compacting Agent Context</span>
+          <span class="zh">TokenPilot在压缩智能体上下文时保持提示缓存连续性</span>
+        </a>
+      </h3>
+      <p class="authors">Buqiang Xu, Z. Xue, Dian Chen, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.17016" target="_blank" rel="noopener">arXiv:2606.17016</a> · 2026-06-15</p>
+      <p class="summary">
+        <span class="en">TokenPilot combines ingestion-aware compaction with lifecycle-aware eviction so long-running agents can remove stale context without repeatedly invalidating reusable prompt prefixes. On PinchBench and Claw-Eval, it reports cost reductions of 56–61% in isolated runs and 61–87% in continuous runs while maintaining competitive task performance. Integration into LightMem2 makes the system reproducible, but broader model providers and production traces are needed to test whether the cache gains generalize.</span>
+        <span class="zh">TokenPilot结合摄取感知压缩与生命周期感知淘汰，使长时运行的智能体能够删除过期上下文，同时避免反复破坏可复用的提示前缀。在PinchBench和Claw-Eval上，它报告独立模式成本下降56–61%，连续模式下降61–87%，且任务性能保持竞争力。该系统已集成到LightMem2，便于复现，但仍需通过更多模型服务商和生产轨迹验证缓存收益能否泛化。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Hardware &amp; Systems</span>
+      <span class="zh">量子硬件与系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.17026" target="_blank" rel="noopener">
+          <span class="en">Bath Memory Becomes a Precision Resource in Quantum Transport</span>
+          <span class="zh">环境记忆成为量子输运的精度资源</span>
+        </a>
+      </h3>
+      <p class="authors">J. Molina, Sheikh Parvez Mandal, Mahasweta Pandit, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.17026" target="_blank" rel="noopener">arXiv:2606.17026</a> · 2026-06-15</p>
+      <p class="summary">
+        <span class="en">The paper derives a dual impedance-matching condition that aligns conductor mode splitting, boundary dissipation, and bath bandwidth in a noninteracting quantum-dot chain. Exact nonequilibrium Green&#x27;s-function calculations across Lorentzian, Gaussian, and Newns bath spectra show a bandwidth where the current Fano factor is minimized and precision exceeds the Markovian limit. This is a theoretical design rule rather than an experimental demonstration, and its robustness to interactions and device disorder remains open.</span>
+        <span class="zh">论文针对无相互作用量子点链推导出双重阻抗匹配条件，使导体模态分裂、边界耗散与环境带宽相互对齐。对Lorentzian、Gaussian和Newns三类环境谱进行的精确非平衡格林函数计算显示，存在一个可使电流Fano因子最小、精度超越Markov极限的带宽。该结果目前是理论设计准则而非实验演示，其对相互作用和器件无序的鲁棒性仍待研究。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Methods</span>
+      <span class="zh">EDA与设计方法</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.18117" target="_blank" rel="noopener">
+          <span class="en">IMPart Integrates Memetic Search into Multilevel Hypergraph Partitioning</span>
+          <span class="zh">IMPart将模因搜索集成进多层超图划分</span>
+        </a>
+      </h3>
+      <p class="authors">Yugao Zhu, Zhicheng Guo, Shang Liu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.18117" target="_blank" rel="noopener">arXiv:2606.18117</a> · 2026-06-16T16:19:49Z</p>
+      <p class="summary">
+        <span class="en">IMPart moves recombination and mutation directly into the uncoarsening phase of one multilevel hypergraph partitioner instead of invoking separate partitioners for each memetic operation. The design targets large-k partitioning, where conventional high-quality memetic methods often become too slow for practical VLSI use. The candidate abstract does not expose quantitative gains, so the key question is whether solution quality improves enough to justify runtime against current production partitioners.</span>
+        <span class="zh">IMPart不再为每次模因操作单独调用划分器，而是把重组与变异直接嵌入单个多层超图划分器的反粗化阶段。该设计面向大k划分问题，因为传统高质量模因方法在此类场景中通常过慢，难以用于实际VLSI流程。候选摘要未给出量化增益，因此关键仍是其解质量提升能否抵消相对现有生产级划分器的运行时间成本。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-22 01:18 UTC · <a href="../2026-06-22.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-22 01:18 UTC · <a href="../2026-06-22.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

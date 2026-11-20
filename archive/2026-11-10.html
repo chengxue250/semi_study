@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-10">
+<meta name="generator" content="semi-news-daily">
+<title>AI Compute Expands as Access Rules Tighten — Semi News 2026-11-10</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Tuesday, November 10, 2026</span>
+      <span class="zh">2026年11月10日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">AI Compute Expands as Access Rules Tighten</span>
+      <span class="zh">AI算力扩容与访问限制同步推进</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Google expands its TPU lineup around memory bandwidth and confidential computing, while reported Nvidia cloud quotas would constrain Chinese access to overseas GPUs. ASML&#x27;s higher outlook and Mitsui Chemicals&#x27; planned JSR acquisition bring lithography and materials into the same picture.</span>
+      <span class="zh">Google围绕内存带宽与机密计算扩展TPU产品线，而报道中的英伟达云服务配额可能收紧中国客户对境外GPU的访问。ASML上调业绩指引，以及三井化学拟收购JSR，也将光刻设备与材料供应纳入这轮算力扩张的观察范围。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.servethehome.com/google-tpu-8tx-8i-max-amd-epyc-turin/" target="_blank" rel="noopener">
+          <span class="en">Google Adds Confidential TPU 8tx and Higher-Bandwidth TPU 8i Max</span>
+          <span class="zh">Google推出支持机密计算的TPU 8tx与更高带宽的TPU 8i Max</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 3h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Google&#x27;s TPU 8tx pairs AMD EPYC Turin hosts with confidential computing, while TPU 8i Max doubles memory bandwidth for inference, ServeTheHome reports. The variants address two deployment constraints: protecting sensitive workloads and moving data quickly enough to feed accelerator compute. The bandwidth increase is particularly relevant to memory-bound inference, although application throughput also depends on the workload.</span>
+        <span class="zh">据ServeTheHome报道，Google的TPU 8tx搭配AMD EPYC Turin主机并支持机密计算，TPU 8i Max则将推理内存带宽翻倍。两款产品分别针对敏感工作负载保护，以及数据传输能否跟上加速器计算速度这两项部署约束。带宽提升对受内存限制的推理尤其有意义，实际应用吞吐量仍取决于工作负载。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/microsofts-project-zenith-arrives-on-amd-ryzen-ai-halo-bringing-ready-to-code-windows-11-to-192gb-ai-mini-pcs/" target="_blank" rel="noopener">
+          <span class="en">AMD Brings Project Zenith to Ryzen AI Halo with Up to 192GB Unified Memory</span>
+          <span class="zh">AMD将Project Zenith引入Ryzen AI Halo，统一内存最高192GB</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD has made Microsoft&#x27;s Project Zenith available on the Ryzen AI Halo developer platform, providing a preconfigured Windows 11 development environment. The Ryzen AI Max+ PRO 495-based mini PC supports up to 192GB of unified memory. The release combines local AI memory capacity with a ready-to-code software setup, reducing the initial configuration work for developers.</span>
+        <span class="zh">AMD宣布，微软Project Zenith现已登陆Ryzen AI Halo开发平台，提供预先配置的Windows 11开发环境。这款基于Ryzen AI Max+ PRO 495的迷你PC最高配备192GB统一内存。此次更新将本地AI所需的内存容量与开箱即可编码的软件环境结合起来，减少开发者前期配置工作。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPY3UxZVlHZTEzdEkwWWhWZTRiZ1BYOFlvNkxReVBnU0c4S2JzYjR6bEt0N0x0X0NYNDZPemFHeTVzdmV1TG9YdHZXLVMxVWZESHp6YWYxTmFTcE1nVDAxVGd4M2RlMjl3Q1MtRGp2ejVidTZhWUJ2VFRDVzdXVUp1dDJrSUJNa1JFVE9qTDV5NU56TDVPVmprTjJHNnNyYTR6X0pR?oc=5" target="_blank" rel="noopener">
+          <span class="en">Keysight Combines RF and Photonic Design for Tower Semiconductor</span>
+          <span class="zh">Keysight为Tower Semiconductor整合射频与光子设计</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance</span> · 9h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Keysight is bringing radio-frequency and photonic design together for Tower Semiconductor, according to a report carried by Yahoo Finance. A combined design flow could help engineers coordinate electronic and optical components earlier in development, making design-tool integration relevant to customers building mixed RF and photonic systems.</span>
+        <span class="zh">据Yahoo Finance刊载的报道，Keysight正在为Tower Semiconductor整合射频与光子设计。统一的设计流程有望帮助工程师在开发早期协调电子与光学组件，为同时涉及射频和光子功能的系统开发提供工具支持。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQMUpkUFZzMlNsT2hrWGM4R0VwY0FZYVdZak0xeUhPN1hLcUZQdGw0LXUtYlhOYllmdTNKQmtoVU9QM1prMXdzcDU2d3BQT0hzdnJzQ19NdnRrZDBRdXNFZ1pDOFBVQlZ4U0c4YWNaMUlBQWYxRU9GcjcxeFhvaHU4UEE4cWhfb0NoMDdTSXBVNnBwR3ZPYUxTODFHSUZ4UGhnV2c?oc=5" target="_blank" rel="noopener">
+          <span class="en">Agni Semiconductor Raises $11 Million for Scandium-Based Memory</span>
+          <span class="zh">Agni Semiconductor为钪基存储芯片融资1100万美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Dealroom</span> · 1h ago</span>
+        <span class="zh"><span class="source">Dealroom</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Agni Semiconductor has raised an $11 million seed round for scandium-based memory chips, Dealroom reports. The financing backs an alternative materials approach in memory, where device characteristics ultimately determine suitable applications. This is an early-stage funding milestone; production scale and commercial device performance are not established by the announcement.</span>
+        <span class="zh">据Dealroom报道，Agni Semiconductor为钪基存储芯片完成1100万美元种子轮融资。这笔资金支持以不同材料路线开发存储器，其适用场景最终取决于器件特性。此次披露属于早期融资进展，尚未确立量产规模或商业器件性能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxONTNYeHZ4bG5jRVBzOHhyQ3pleHdENy1OWHVwRy1UU0dIeGxiOUoxdEpVOGtJQnhRbGtBdmc0cVU1REF1b1JhOHRzM0NFVzdWX09tNzB3bE1PUmdnRXVoQTEyY2hBbGE0TmtMTV9DUER4M09ZdlVTcllNV250cURFa2docHdHUmpYTzBQTW9yUlFmek0ycWtTUjlPcTk5aHVnVDdVMHV0ZGhBdGM?oc=5" target="_blank" rel="noopener">
+          <span class="en">Mitsui Chemicals Plans JSR Acquisition to Expand Electronic Materials</span>
+          <span class="zh">三井化学拟收购JSR，扩大电子材料业务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chemical &amp; Engineering News</span> · 6h ago</span>
+        <span class="zh"><span class="source">Chemical &amp; Engineering News</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Mitsui Chemicals plans to acquire JSR as it expands in electronic materials, Chemical &amp; Engineering News reports. The proposed transaction would change ownership of an established semiconductor-materials supplier. For chipmakers, the practical implications would center on continuity of qualified materials and the combined company&#x27;s investment priorities.</span>
+        <span class="zh">据Chemical &amp; Engineering News报道，三井化学计划收购JSR，以扩大电子材料业务。这项拟议交易将改变一家成熟半导体材料供应商的所有权。对芯片制造商而言，实际影响将主要体现为已认证材料的供应连续性，以及合并后公司的投资重点。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/policy/nvidia-cracks-down-on-overseas-cloud-ai-gpu-rentals-for-china-partners-face-51-percent-non-chinese-quota-as-black-market-b300-rack-prices-surge-to-usd2-8-million" target="_blank" rel="noopener">
+          <span class="en">Nvidia May Cap Chinese Business at Overseas Cloud Partners at 49%</span>
+          <span class="zh">英伟达或将境外云合作伙伴的中国业务占比限制在49%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia may require overseas cloud partners to keep at least 51% of their business non-Chinese, effectively capping Chinese business at 49%, Tom&#x27;s Hardware reports. Such a quota would make customer mix a constraint on Chinese firms renting AI GPUs abroad, alongside the availability of the hardware itself. The reported measure concerns a possible partner policy, with its impact dependent on the final scope and enforcement.</span>
+        <span class="zh">据Tom&#x27;s Hardware报道，英伟达可能要求境外云合作伙伴至少51%的业务来自非中国客户，即将中国业务占比限制在49%。此类配额会使客户构成成为中国企业租用境外AI GPU的一项约束，硬件供给之外还需考虑服务商的客户分配。报道涉及可能实施的合作伙伴政策，具体影响取决于最终适用范围与执行方式。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNRmJfRkx2N1Q2RzUtdU9vU1RNbHBOMWNseHBNX250bmo0a1NCXzlfODdFNHJpdkJKeEdJSkhNUmtkVHU4cXVLLU5UZ1Nmb3dYUDlmVXc0N210TGZWR2JpVTdOSUx2OGxCREtMc21hbk9ybkpCSDdRdkxsQjgxVE1xb2lGMXMwUVQxLWJmaTltazRES25FV2lSa3ZfYmUxRmN5UmR4SDZZNA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Texoma Semiconductor Tech Hub Receives Nearly $24 Million in Federal Funding</span>
+          <span class="zh">Texoma半导体技术中心获得近2400万美元联邦资金</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">KXII</span> · 1h ago</span>
+        <span class="zh"><span class="source">KXII</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Texoma Semiconductor Tech Hub has been awarded nearly $24 million in federal funding, KXII reports. The award adds public backing to regional semiconductor development. Its contribution to manufacturing capability will depend on how the funding is deployed and the projects it supports.</span>
+        <span class="zh">据KXII报道，Texoma半导体技术中心获得近2400万美元联邦资金。这项拨款为区域半导体发展增加了公共资金支持。其对制造能力的实际贡献，仍取决于资金投向及所支持项目的实施情况。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">业绩与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxNU1ZrNWhHMHlDYVlLRmpraVFSRUhmSVR3ZTdpYTY0UGFvbmZ5WEVVT1JaNHNiOF9YWXFPX25hTGEzZlVaRkt0UU1QNTRwQ2QwQjlBU2tGSTl6a3RuWHlHM3FLNDEwTzNabE5GZDJWcW5RNDltWlFpMENPdmVXcDFnZmZTMU9kT01hVG0yTVRRQS1BMVp3ZTFFdExLblpvR1ZfS1UyU3hGSk4xemtmY0pvN1E0NklWWG9SOGJZdmM3QktWV00?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML Raises 2026 Guidance as AI Demand Drives Capacity Expansion</span>
+          <span class="zh">AI需求推动产能扩张，ASML上调2026年业绩指引</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingView</span> · 7h ago</span>
+        <span class="zh"><span class="source">TradingView</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML has raised its 2026 guidance as AI demand accelerates capacity expansion, according to TradingView. The revision suggests that AI investment is feeding through to the lithography-tool outlook. Customer investment plans and equipment-delivery schedules will help determine how quickly that demand translates into additional manufacturing capacity.</span>
+        <span class="zh">据TradingView报道，随着AI需求推动产能加速扩张，ASML上调了2026年业绩指引。这一调整表明，AI投资正传导至光刻设备的业务预期。客户投资计划与设备交付进度，将影响相关需求转化为新增制造产能的速度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQWGNlTWpLVjlYZ3lsQjRvNVhnTFdNWGhfYTNia3BWTXZ3MEFXTzFpM1llbFBJMGpqUER6ZlNJRzhwbU1LNERLOTg5bHJBMVFNa2FmRGN1QVpkNGZBSmlnbTRUUktrM2RGQ1RFdExTMG5CMjhpWTVuSnhqb1prNlEyelYwbkh2VExuRk9aajVIamZkeU16Nkt0V0dxU3ZhOUhaejYyM1VFT3EzQnJzdlI3VVI5NTE3WGNTU2JxbllLWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">South Korea Targets Rebellions Chips on Nvidia&#x27;s Platform by 2028</span>
+          <span class="zh">韩国计划到2028年在英伟达平台上运行Rebellions芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Forbes</span> · 9h ago</span>
+        <span class="zh"><span class="source">Forbes</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Forbes reports that South Korea plans to run Rebellions AI chips on Nvidia&#x27;s platform by 2028. If implemented, the integration would give Korean-designed accelerators a route into an established infrastructure ecosystem. The 2028 timetable makes compatibility and execution the next milestones to watch.</span>
+        <span class="zh">据Forbes报道，韩国计划到2028年在英伟达平台上运行Rebellions AI芯片。如果落实，这项集成将为韩国设计的加速器提供接入成熟基础设施生态的路径。围绕2028年这一目标，兼容性与实施进展将成为后续观察重点。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-10 01:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-10 01:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-27">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Memory Hierarchies Move Into the Algorithm — Semi Research 2026-07-27</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-07-27.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Monday, July 27, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月27日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Memory Hierarchies Move Into the Algorithm</span>
+      <span class="zh">内存层级走进算法设计</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s work treats data movement as a first-class design variable, from hierarchical KV compression and CXL-backed reuse to in-NAND search and photonic interposers. At the same time, EDA-agent benchmarks show that reliable tool interaction remains harder than generating isolated blocks of RTL.</span>
+      <span class="zh">本周研究将数据搬运视为首要设计变量，覆盖分层KV压缩、CXL支持的缓存复用、NAND内搜索与光子中介层。同时，EDA智能体基准表明，可靠地操作工具链仍比生成孤立RTL模块更难。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.19661" target="_blank" rel="noopener">
+          <span class="en">Leveraging ECRAM for Edge Continual Learning</span>
+          <span class="zh">利用ECRAM实现边缘端持续学习</span>
+        </a>
+      </h3>
+      <p class="authors">N. Tasnim, H. Liu, Q. Cao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.19661" target="_blank" rel="noopener">arXiv:2607.19661</a> · 2026-07-22T02:00:22Z</p>
+      <p class="summary">
+        <span class="en">CLASP combines ECRAM-based in-memory computing with an end-to-end system for continual learning at the edge, targeting both analog computation noise and the weak training support of prior IMC designs. Moving weight updates closer to memory could reduce the CPU/GPU data movement that makes on-device adaptation expensive. The preprint record supplies no measured-chip result, so the manufacturability and endurance case still needs device-level validation.</span>
+        <span class="zh">CLASP将基于ECRAM的存内计算与端到端边缘持续学习系统结合，同时处理模拟计算噪声与既有IMC设计训练支持不足的问题。把权重更新移近存储器，有望减少端侧自适应中昂贵的CPU/GPU数据搬运。该预印本记录未提供实测芯片结果，制造可行性与耐久性仍需器件级验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.19922" target="_blank" rel="noopener">
+          <span class="en">DGNA Maps GPU NUMA Behavior Through Microbenchmarks</span>
+          <span class="zh">DGNA通过微基准解析GPU NUMA行为</span>
+        </a>
+      </h3>
+      <p class="authors">C. Liu, Y. Chen, T. E. Carlson</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.19922" target="_blank" rel="noopener">arXiv:2607.19922</a> · 2026-07-22T08:53:09Z</p>
+      <p class="summary">
+        <span class="en">DGNA measures L2-cache and DRAM latency without architecture-specific intrinsic instructions, then uses a Gaussian mixture model to separate latency distributions from outliers. The authors apply the method to Nvidia A100 and H100 GPUs, offering software and simulator designers a way to infer otherwise undocumented NUMA behavior. These are reverse-engineered microbenchmark results, not vendor-confirmed topology.</span>
+        <span class="zh">DGNA无需依赖特定架构的内建指令即可测量L2缓存与DRAM延迟，并使用高斯混合模型从异常值中分离延迟分布。作者将该方法用于Nvidia A100与H100 GPU，为软件和模拟器设计者推断未公开的NUMA行为提供路径。这些结论来自逆向微基准，并非厂商确认的拓扑。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.20141" target="_blank" rel="noopener">
+          <span class="en">From Known Good Die to Reliability-Aware Chiplet Screening</span>
+          <span class="zh">从已知良品裸片走向可靠性感知的chiplet筛选</span>
+        </a>
+      </h3>
+      <p class="authors">P. Metku, C. Gandu</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.20141" target="_blank" rel="noopener">arXiv:2607.20141</a> · 2026-07-22T13:43:43Z</p>
+      <p class="summary">
+        <span class="en">This work recasts chiplet screening as a Bayesian inference problem that maps pre-assembly telemetry to post-assembly failure risk, with safety gates and uncertainty-aware disposition boundaries. The framework addresses a real gap: a functionally good die is not automatically a die with a quantified lifetime guarantee after packaging. Validation uses Monte Carlo data from 4,000 synthetic dies, so fab telemetry and field failures are still needed to test calibration.</span>
+        <span class="zh">该研究把chiplet筛选重构为贝叶斯推断问题，将封装前遥测数据映射为封装后失效风险，并加入安全门控与不确定性感知的处置边界。它直指一个现实缺口：功能合格的裸片并不自动具备封装后的量化寿命保证。验证仅使用4,000颗合成裸片的蒙特卡洛数据，仍需晶圆厂遥测与现场失效数据检验其校准能力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.22022" target="_blank" rel="noopener">
+          <span class="en">HEMERA Streams Mamba-2 Without Quadratic Intermediate Storage</span>
+          <span class="zh">HEMERA以流式执行消除Mamba-2二次方中间存储</span>
+        </a>
+      </h3>
+      <p class="authors">H. Ding, L. Liang, R. Qiao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22022" target="_blank" rel="noopener">arXiv:2607.22022</a> · 2026-07-24T06:40:36Z</p>
+      <p class="summary">
+        <span class="en">HEMERA algebraically reformulates Mamba-2&#x27;s matrix-form state-space duality into a streaming-recursive dataflow that avoids quadratic intermediate materialization. A heterogeneous memory-centric accelerator then maps state propagation and matrix work onto different execution resources, directly targeting edge bandwidth limits. The supplied preprint record does not include complete benchmark or measured-silicon figures, so the claimed system advantage remains to be quantified independently.</span>
+        <span class="zh">HEMERA把Mamba-2矩阵形式的状态空间对偶计算代数重构为流式递归数据流，从而避免二次方规模的中间结果物化。异构内存中心加速器再将状态传播与矩阵运算映射到不同执行资源，直接瞄准边缘设备的带宽限制。所给预印本记录未包含完整基准或实测芯片数据，其系统优势仍需独立量化。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3831707" target="_blank" rel="noopener">
+          <span class="en">PHONON Co-Designs a Photonic Interposer Network for LLM Chiplets</span>
+          <span class="zh">PHONON为LLM chiplet协同设计光子中介层网络</span>
+        </a>
+      </h3>
+      <p class="authors">G. Narang, A. R. Bommana, K. Chakrabarty</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3831707" target="_blank" rel="noopener">ACM Transactions on Design Automation of Electronic Systems</a> · 2026-07-22</p>
+      <p class="summary">
+        <span class="en">PHONON jointly optimizes compute-to-compute and compute-to-storage traffic in a silicon-photonic network on an interposer for multi-chiplet LLM inference. Structured waveguide placement, cluster-level storage connectivity, and kernel mapping aim to reduce crossings, propagation loss, and long multi-hop transfers. The paper targets a credible packaging bottleneck, but the supplied record does not show a fabricated photonic interposer, so its gains should be read as architectural evidence.</span>
+        <span class="zh">PHONON面向多chiplet LLM推理，在硅光中介层网络中协同优化计算到计算与计算到存储的流量。其结构化波导布局、簇级存储连接和计算核映射旨在减少交叉、传播损耗及长距离多跳传输。论文瞄准了可信的封装瓶颈，但所给记录未显示已制造的光子中介层，因此相关收益应视为架构层证据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.17538" target="_blank" rel="noopener">
+          <span class="en">D-NOVA Pushes RAG Similarity Search Into 3D NAND</span>
+          <span class="zh">D-NOVA将RAG相似度搜索推进3D NAND内部</span>
+        </a>
+      </h3>
+      <p class="authors">C. E. Song, S. Pinge, T. Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.17538" target="_blank" rel="noopener">arXiv:2607.17538</a> · 2026-07-20T04:31:09Z</p>
+      <p class="summary">
+        <span class="en">D-NOVA embeds an IVF-based retrieval pipeline into the 3D NAND array using a NAND-tailored dual-bound similarity metric and a lightweight vector adapter. The design attacks the nearly 70% of retrieval time that the paper attributes to processors outside storage, potentially reducing movement in RAG serving. The candidate record does not provide measured-array results, leaving sensing margins, endurance, and recall under device variation as open questions.</span>
+        <span class="zh">D-NOVA利用面向NAND的双界相似度指标与轻量向量适配器，把基于IVF的检索流程嵌入3D NAND阵列。该设计针对论文所称近70%的检索时间消耗在存储器外处理器上的问题，有望减少RAG服务中的数据搬运。候选记录未提供阵列实测结果，感测裕量、耐久性及器件波动下的召回率仍是开放问题。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Relevant AI Research</span>
+      <span class="zh">硬件相关AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.22389" target="_blank" rel="noopener">
+          <span class="en">HiKV Compresses KV Cache at Token and Element Granularity</span>
+          <span class="zh">HiKV在Token与元素两级压缩KV Cache</span>
+        </a>
+      </h3>
+      <p class="authors">C. Fang, J. Yin, M. Shi, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.22389" target="_blank" rel="noopener">arXiv:2607.22389</a> · 2026-07-24T15:15:10Z</p>
+      <p class="summary">
+        <span class="en">HiKV first evicts low-importance tokens and then loads only significant elements within retained tokens, with one reconfigurable sorter accelerating both stages. Across representative LLMs, the authors report up to 7.95x attention speedup, 90% lower energy, and no more than 1% accuracy loss; at equal accuracy, external-memory accesses fall another 1.82–4.87x versus prior importance-based methods. The results are from a preprint and still need independent reproduction on deployed hardware.</span>
+        <span class="zh">HiKV先淘汰低重要性Token，再仅加载保留Token中的关键元素，并用一个可重构排序器加速两个阶段。作者在代表性LLM上报告最高7.95倍注意力加速、90%能耗降低且精度损失不超过1%；在等精度条件下，外部内存访问较既有重要性感知方法进一步减少1.82至4.87倍。该结果来自预印本，仍需在实际部署硬件上独立复现。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.19438" target="_blank" rel="noopener">
+          <span class="en">BaseRT Exploits Apple M5 Neural Accelerators for Local LLMs</span>
+          <span class="zh">BaseRT利用Apple M5 Neural Accelerators加速本地LLM</span>
+        </a>
+      </h3>
+      <p class="authors">F. Waschkowski, P. Rathnayaka, L. Wesemann</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.19438" target="_blank" rel="noopener">arXiv:2607.19438</a> · 2026-07-21T06:42:18Z</p>
+      <p class="summary">
+        <span class="en">BaseRT adds hand-written Metal 4 kernels for dense and MoE GEMM plus flash-attention prefill, routing compute-bound work through the M5&#x27;s per-core Neural Accelerators while retaining specialized decode kernels. On an M5 Pro across 15 model configurations up to 35B parameters, it reports as much as 6.4x higher prompt throughput than llama.cpp, 3.9x over MLX, and up to 1.75x faster decode than llama.cpp. The comparison is platform-specific, and broader reproducibility will depend on public code and matched quantization settings.</span>
+        <span class="zh">BaseRT为稠密与MoE GEMM以及Flash Attention预填充加入手写Metal 4内核，把计算受限任务送入M5每个核心的Neural Accelerator，同时保留专用解码内核。在M5 Pro上测试15种、最高35B参数的模型配置后，论文报告提示词处理吞吐最高为llama.cpp的6.4倍、MLX的3.9倍，解码速度最高比llama.cpp快1.75倍。该比较高度依赖平台，更广泛的可复现性取决于公开代码与一致的量化设置。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2607.18141" target="_blank" rel="noopener">
+          <span class="en">HyMCache Uses CXL Hybrid Memory for Reusable KV State</span>
+          <span class="zh">HyMCache以CXL混合内存承载可复用KV状态</span>
+        </a>
+      </h3>
+      <p class="authors">H. Jang, I. Song, S. H. Noh, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2607.18141" target="_blank" rel="noopener">arXiv:2607.18141</a> · 2026-07-20</p>
+      <p class="summary">
+        <span class="en">HyMCache combines a small in-device DRAM tier with SSD-backed capacity behind CXL to store reusable KV state for long-context, multi-turn serving. Request-level prefix prefetching and opportunistic write buffering exploit the cache&#x27;s predictable, read-heavy, append-only behavior, aiming for TB-scale capacity at SSD cost. Evaluation uses a real CXL-hybrid-memory prototype, but the supplied record omits the final comparative numbers, so latency under larger shared workloads remains the key result to inspect.</span>
+        <span class="zh">HyMCache把少量设备内DRAM与CXL接口后的SSD容量结合，用于存储长上下文、多轮服务中可复用的KV状态。请求级前缀预取与机会式写缓冲利用KV Cache可预测、读密集和仅追加的访问特征，目标是在SSD成本下提供TB级容量。评估使用真实CXL混合内存原型，但所给记录缺少最终对比数字，因此更大规模共享负载下的延迟仍是最值得核查的结果。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2607.17528" target="_blank" rel="noopener">
+          <span class="en">Benchmarking AI Agents on End-to-End RTL-to-GDS</span>
+          <span class="zh">端到端RTL-to-GDS流程中的AI智能体基准</span>
+        </a>
+      </h3>
+      <p class="authors">J. Deng, Z. Chen, X. Wei, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2607.17528" target="_blank" rel="noopener">arXiv:2607.17528</a> · 2026-07-20T04:08:06Z</p>
+      <p class="summary">
+        <span class="en">This benchmark runs three agent architectures and four foundation models through a PicoRV32 RTL-to-GDS flow with commercial EDA tools under two timing targets. Domain skills improve individual subtasks but do not ensure end-to-end completion, while agents reaching similar design progress differ by as much as 141x in Token ROI. Tool-interface mismatches, especially during physical design, remain a larger reliability problem than isolated RTL generation.</span>
+        <span class="zh">该基准让3种智能体架构与4个基础模型在两档时序目标下，使用商业EDA工具完成PicoRV32的RTL-to-GDS流程。领域技能能改善单项任务，却无法保证端到端完成；设计进度相近的智能体在Token ROI上最多相差141倍。工具接口不匹配，尤其是物理设计阶段的问题，仍比孤立的RTL生成更影响可靠性。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-27 01:15 UTC · <a href="../2026-07-27.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-27 01:15 UTC · <a href="../2026-07-27.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

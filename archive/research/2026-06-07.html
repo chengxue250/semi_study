@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-07">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Inference Efficiency Moves Into System Design — Semi Research 2026-06-07</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-07.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Sunday, June 7, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月7日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">Inference Efficiency Moves Into System Design</span>
+      <span class="zh">推理效率进入系统级设计</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s strongest papers attack long-context costs through shared routing, programmable sparse attention, and non-uniform KV caches. EDA and GPU work extend the same theme by making inter-die routing and extreme-precision arithmetic more explicit optimization targets.</span>
+      <span class="zh">本周最值得关注的论文通过共享路由、可编程稀疏注意力与非均匀KV cache降低长上下文成本。EDA与GPU方向也延续了这一主题，将跨裸片布线和超高精度算术变成更明确的优化目标。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06386" target="_blank" rel="noopener">
+          <span class="en">GPU Multi-Precision Integer Division at Extreme Bit Widths</span>
+          <span class="zh">面向超高位宽的GPU多精度整数除法</span>
+        </a>
+      </h3>
+      <p class="authors">Martin B. Marchioro, Aske N. Raahauge, Marc I. Løvenskjold, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06386" target="_blank" rel="noopener">arXiv:2606.06386</a> · 2026-06-04T16:51:22Z</p>
+      <p class="summary">
+        <span class="en">The paper implements integer-domain Newton division on CUDA for precisions from 2^15 to 2^18 bits, a range not supported by CGBN division. Prefix-sum and multiplication refinements bring measured performance close to the authors&#x27; operation-count cost model. The result is specialized rather than a general AI kernel, but it is relevant to GPU workloads in cryptography and symbolic computation that exceed standard big-integer libraries.</span>
+        <span class="zh">该论文在CUDA上实现了全整数域的Newton除法，覆盖2^15至2^18位精度，这一范围不受CGBN除法支持。通过前缀和与多精度乘法优化，实测性能接近作者基于运算次数建立的成本模型。该成果并非通用AI内核，但对超出标准大整数库能力的密码学与符号计算GPU工作负载具有价值。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research &amp; Inference Systems</span>
+      <span class="zh">AI研究与推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06479" target="_blank" rel="noopener">
+          <span class="en">Pretraining Recurrent Networks Without Unrolling Them</span>
+          <span class="zh">无需循环展开的循环网络预训练</span>
+        </a>
+      </h3>
+      <p class="authors">Akarsh Kumar, Phillip Isola</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06479" target="_blank" rel="noopener">arXiv:2606.06479</a> · 2026-06-04T17:57:33Z</p>
+      <p class="summary">
+        <span class="en">Supervised Memory Training uses a Transformer encoder to generate one-step memory-transition labels, then trains a nonlinear RNN without backpropagation through time. This creates a time-parallel training path with O(1) gradient length between tokens and outperforms BPTT in the reported language and pixel-sequence experiments. The preprint could make recurrent inference architectures easier to train, but broader model-scale and hardware-efficiency results are still needed.</span>
+        <span class="zh">Supervised Memory Training先用Transformer编码器生成单步记忆状态转移标签，再训练非线性RNN，从而避免时间反向传播。该方法形成可按时间并行的训练路径，使任意token间的梯度路径长度为O(1)，并在论文报告的语言与像素序列实验中优于BPTT。这项预印本可能降低循环推理架构的训练难度，但仍需更大模型规模与硬件效率数据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06467" target="_blank" rel="noopener">
+          <span class="en">Cross-Layer Sparse Attention Shares One Routing Index</span>
+          <span class="zh">跨层稀疏注意力共享单一路由索引</span>
+        </a>
+      </h3>
+      <p class="authors">Yutao Sun, Yanqi Zhang, Li Dong, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06467" target="_blank" rel="noopener">arXiv:2606.06467</a> · 2026-06-04T17:54:04Z</p>
+      <p class="summary">
+        <span class="en">Cross-Layer Sparse Attention computes token-level top-k routing once and reuses the index across decoder layers in a YOCO-style KV-sharing architecture. Sharing both KV state and routing attacks prefill cost, cache capacity, and decode overhead without falling back to coarse block sparsity. The paper reports quality across short- and long-context benchmarks, but the preprint still needs independent end-to-end serving validation.</span>
+        <span class="zh">Cross-Layer Sparse Attention在YOCO式KV共享架构中只计算一次token级top-k路由，并在多个解码层复用该索引。同时共享KV状态与路由，可共同降低prefill成本、cache容量和解码开销，又无需退回到较粗粒度的块稀疏。论文在短上下文与长上下文基准上报告了质量结果，但仍需独立的端到端服务验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06453" target="_blank" rel="noopener">
+          <span class="en">Vortex Turns Sparse-Attention Ideas Into Serving Kernels</span>
+          <span class="zh">Vortex将稀疏注意力设计转化为服务内核</span>
+        </a>
+      </h3>
+      <p class="authors">Zhuoming Chen, Xinrui Zhong, Qilong Feng, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06453" target="_blank" rel="noopener">arXiv:2606.06453</a> · 2026-06-04T17:48:17Z</p>
+      <p class="summary">
+        <span class="en">Vortex combines a Python-embedded sparse-attention language with a page-centric tensor abstraction and a backend integrated into LLM serving stacks. Algorithms generated and refined through the system reach up to 3.46x the throughput of full attention while preserving accuracy in the reported tests. The useful contribution is programmability plus deployment, although the best results depend on the paper&#x27;s benchmark and serving environment.</span>
+        <span class="zh">Vortex将嵌入Python的稀疏注意力描述语言、以页面为中心的张量抽象，以及集成到LLM服务栈的后端结合起来。通过该系统生成并优化的算法，在论文测试中可达到完整注意力最高3.46倍的吞吐量，同时保持准确率。其关键贡献是把可编程性与部署结合，但最佳结果仍依赖论文所用基准和服务环境。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06448" target="_blank" rel="noopener">
+          <span class="en">Agent Memory Gets a Systems-Level Cost Model</span>
+          <span class="zh">Agent记忆获得系统级成本模型</span>
+        </a>
+      </h3>
+      <p class="authors">Yasmine Omri, Ziyu Gan, Zachary Broveak, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06448" target="_blank" rel="noopener">arXiv:2606.06448</a> · 2026-06-04T17:44:18Z</p>
+      <p class="summary">
+        <span class="en">This study profiles ten agent-memory systems across two benchmark suites and separates construction, retrieval, and generation costs. Its four-axis taxonomy and ten system recommendations expose how designs move work between read and write paths, including scheduling, freshness, and amortization tradeoffs. The characterization is useful for storage-tier and fleet planning, but conclusions may shift as agent workloads and memory implementations mature.</span>
+        <span class="zh">该研究在两套基准上分析了10种Agent记忆系统，并将构建、检索与生成成本分别归因。其四维分类法与10项系统建议揭示了不同设计如何在读写路径之间转移工作，包括调度、新鲜度与成本摊销权衡。这些结果有助于存储分层与集群规划，但随着Agent负载和记忆实现演进，结论仍可能变化。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06302" target="_blank" rel="noopener">
+          <span class="en">Tangram Makes Non-Uniform KV Caches Practical</span>
+          <span class="zh">Tangram让非均匀KV cache走向实用</span>
+        </a>
+      </h3>
+      <p class="authors">Hyungmin Kim, Minsoo Kim, Hongseok Kim, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06302" target="_blank" rel="noopener">arXiv:2606.06302</a> · 2026-06-04T15:41:27Z</p>
+      <p class="summary">
+        <span class="en">Tangram assigns a deterministic memory budget to each attention head, groups heads with similar retention needs into vectorized page tables, and balances work ahead of time. These choices target the fragmentation, scheduling, and kernel-utilization penalties that have limited non-uniform KV-cache compression in multi-turn serving. The architecture is well matched to GPU memory constraints, though the available abstract does not expose enough end-to-end numbers to judge deployment gains.</span>
+        <span class="zh">Tangram为每个注意力头分配确定性的内存预算，将保留需求相近的头组织进向量化页表，并提前完成负载均衡。这些设计针对多轮服务中限制非均匀KV cache压缩的内存碎片、调度复杂度与内核利用率损失。其架构与GPU内存约束高度相关，但现有摘要缺少足够的端到端数据，尚难判断实际部署收益。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06316" target="_blank" rel="noopener">
+          <span class="en">Quantum Discovery of Rare Events Without Prior Labels</span>
+          <span class="zh">无需预先标记的量子稀有事件发现</span>
+        </a>
+      </h3>
+      <p class="authors">Naixu Guo, Po-Wei Huang, Qisheng Wang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06316" target="_blank" rel="noopener">arXiv:2606.06316</a> · 2026-06-04T15:54:53Z</p>
+      <p class="summary">
+        <span class="en">The proposed quantum algorithm discovers and samples events below a probability threshold without first identifying which outcomes are rare. It achieves optimal quantum scaling with the threshold, including a quadratic speedup for heavy-tailed systems with nonzero tail mass and a polynomial speedup for stationary stochastic processes. The result is algorithmic rather than an experimental hardware demonstration, so practical advantage depends on state preparation and fault-tolerant resources.</span>
+        <span class="zh">该量子算法无需预先知道哪些结果属于稀有事件，就能发现并采样概率低于阈值的事件。其复杂度随稀有度阈值达到最优量子缩放，对尾部质量非零的重尾系统可获得二次加速，对平稳随机过程则可获得多项式加速。该成果属于算法研究而非实验硬件演示，实际优势仍取决于量子态制备与容错资源。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Methods</span>
+      <span class="zh">EDA与设计方法</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.06421" target="_blank" rel="noopener">
+          <span class="en">Routing Models for 2.5D and 3D Multi-Die FPGAs</span>
+          <span class="zh">面向2.5D与3D多裸片FPGA的布线模型</span>
+        </a>
+      </h3>
+      <p class="authors">Amirhossein Poolad, Soheil Gholami Shahrouz, Andrew Boutros, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.06421" target="_blank" rel="noopener">arXiv:2606.06421</a> · 2026-06-04T17:26:46Z</p>
+      <p class="summary">
+        <span class="en">The authors extend VTR and VPR to model, place, and route a broad range of 2.5D and 3D FPGA inter-die fabrics. Their design-space exploration uses HSPICE models for 7 nm active dies and a 45 nm silicon interposer to quantify how die-crossing technologies affect density and latency. This gives FPGA architects a more realistic open-source path for evaluating stacked designs, but the evidence is simulation-based rather than measured multi-die silicon.</span>
+        <span class="zh">作者扩展了VTR与VPR，使其能够对多种2.5D和3D FPGA跨裸片互连结构进行建模、布局与布线。设计空间探索采用7 nm有源裸片和45 nm硅中介层的HSPICE模型，量化不同跨裸片技术对密度与延迟的影响。这为FPGA架构师评估堆叠设计提供了更真实的开源路径，但证据来自仿真而非多裸片实测硅片。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-07 12:11 UTC · <a href="../2026-06-07.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-07 12:11 UTC · <a href="../2026-06-07.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

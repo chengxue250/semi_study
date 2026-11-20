@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-18">
+<meta name="generator" content="semi-news-daily">
+<title>AI Hardware Gains Depend on Integration and Execution — Semi News 2026-11-18</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Wednesday, November 18, 2026</span>
+      <span class="zh">2026年11月18日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">AI Hardware Gains Depend on Integration and Execution</span>
+      <span class="zh">AI硬件性能取决于系统整合与执行</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Vera software tuning, MicroLED interconnect evaluation and HBM system design put the focus on how components work together. Manufacturing expansion and Nvidia&#x27;s talent and export-oversight developments add execution questions beyond chip specifications.</span>
+      <span class="zh">Vera的软件优化、MicroLED互连评估和HBM系统设计，将焦点引向各个部件如何协同工作。制造环节扩张，以及英伟达的人才与出口监督动态，也带来了芯片规格之外的执行问题。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/cpus/nvidia-claims-its-vera-cpu-can-gain-up-to-39-percent-performance-boost-via-software-optimization-at-sc26-architectural-fine-tuning-is-needed-to-fully-unleash-custom-olympus-cores" target="_blank" rel="noopener">
+          <span class="en">Nvidia Reports Nearly 39% Vera CPU Gains From Software Tuning</span>
+          <span class="zh">英伟达称软件优化可使Vera CPU在特定负载下提速近39%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia demonstrated at SC26 that software optimization can improve its Vera CPU&#x27;s performance by nearly 39% on certain workloads, according to Tom&#x27;s Hardware. Vera uses custom Olympus Arm cores, making architecture-specific tuning an important part of realizing its performance. The reported uplift applies to selected workloads rather than a general improvement across applications.</span>
+        <span class="zh">据Tom&#x27;s Hardware报道，英伟达在SC26展示，软件优化可让Vera CPU在特定工作负载下的性能提升近39%。Vera采用定制Olympus Arm核心，因此针对微架构的软件调优，是发挥硬件性能的重要环节。这一增幅对应所展示的特定负载，不能直接推广到所有应用。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/big-tech/nvidia-employee-warns-of-irreplaceable-talent-exodus-if-jensen-huang-not-reinstated-cautions-board-and-top-brass-that-talent-at-nvidia-is-now-contemplating-departing" target="_blank" rel="noopener">
+          <span class="en">Nvidia Employee Letter Warns of Departures Without Huang&#x27;s Return</span>
+          <span class="zh">英伟达员工致信董事会，警告黄仁勋不复职可能引发人才流失</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 4h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">An internal letter to Nvidia&#x27;s board and senior executives warns that irreplaceable staff could leave unless Jensen Huang is reinstated as CEO, Tom&#x27;s Hardware reports. The warning adds employee retention to the company&#x27;s leadership dispute, with potential implications for engineering continuity. It describes a risk of departures, rather than confirming that an exodus has occurred.</span>
+        <span class="zh">Tom&#x27;s Hardware报道，一封发给英伟达董事会和高管的内部信警告，若黄仁勋未获恢复CEO职务，部分难以替代的人才可能离职。这使领导层争议进一步涉及员工留任，并可能影响工程研发的连续性。信中提出的是人才流失风险，并不代表大规模离职已经发生。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetasia.com/intel-altera-develop-fpga-based-sensor-bridge-for-edge-ai-systems/" target="_blank" rel="noopener">
+          <span class="en">Intel and Altera Build FPGA Sensor Bridges for Edge AI</span>
+          <span class="zh">英特尔与Altera开发面向边缘AI的FPGA传感器桥接方案</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 56m ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 56分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel and Altera developed reference solutions combining Intel processors and software with FPGA hardware for real-time sensor integration. Programmable bridging gives edge AI designers a way to adapt sensor interfaces and data paths to application requirements. The announcement concerns reference solutions, rather than a disclosed production deployment.</span>
+        <span class="zh">英特尔与Altera开发了参考方案，将英特尔处理器及软件与FPGA硬件结合，用于实时传感器集成。可编程桥接使边缘AI设计者能够按应用需求调整传感器接口和数据通路。此次发布的是参考方案，尚非已披露的量产部署。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOZEg3ZXp6dFBmMFJ2ZElDdWpJNm9KVUVaaEJETks4bnYzNDFqREczdlY4dzZDNmd0bjN2R3dUaE5nWmtqck55OTdiclM5SFJ5M09aRi1veExZSmxZZEdqQkwzV05LSXFlWTZrR211S1BXdnVBbDh5aEFiY1RZODdYX0IwNHNxU2J4dkZwdDQzVjZyeHdVZDFzejF3T2NscURtUDJXZEFSMjgzVlVHUHc?oc=5" target="_blank" rel="noopener">
+          <span class="en">GlobalFoundries Starts New Fab Project in New York&#x27;s Capital Region</span>
+          <span class="zh">格芯在纽约州首府地区启动新晶圆厂项目</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Business Facilities</span> · 1h ago</span>
+        <span class="zh"><span class="source">Business Facilities</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">GlobalFoundries has kicked off a new semiconductor fab project in New York&#x27;s Capital Region, Business Facilities reports. The project signals further investment in the region&#x27;s manufacturing base. A project launch precedes production, so it should not be counted as capacity already available to customers.</span>
+        <span class="zh">据Business Facilities报道，格芯在纽约州首府地区启动了一个新的半导体晶圆厂项目。这表明当地的芯片制造基地继续吸引新增投资。项目启动与正式投产仍有距离，不能将其视为客户已经可以使用的产能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/3dic/376277-can-faster-hbm-solve-ais-memory-bottleneck/" target="_blank" rel="noopener">
+          <span class="en">HBM4 Bandwidth Gains Put System Design in Focus</span>
+          <span class="zh">HBM4带宽提升，让系统设计成为关键</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 7h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A SemiWiki analysis argues that faster HBM alone cannot determine the performance of next-generation AI accelerators. HBM4 widens the interface and increases available bandwidth, while custom HBM opens opportunities to optimize the memory-to-accelerator connection. The implication for designers is to assess memory as part of the complete system rather than use peak bandwidth as a proxy for application performance.</span>
+        <span class="zh">SemiWiki的一篇分析指出，仅提高HBM速度，无法决定下一代AI加速器的实际性能。HBM4通过加宽接口提高可用带宽，定制HBM则为优化存储与加速器之间的连接提供了空间。对设计者而言，需要把存储放在完整系统中评估，不能直接用峰值带宽代替应用性能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment, Materials &amp; Packaging</span>
+      <span class="zh">设备、材料与封装</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetasia.com/polar-light-foxconn-sign-agreement-on-microled-optical-interconnects/" target="_blank" rel="noopener">
+          <span class="en">Polar Light and Foxconn Evaluate 5-µm MicroLED Optical Links</span>
+          <span class="zh">Polar Light与富士康评估5微米MicroLED光互连</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 46m ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 46分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Polar Light and Foxconn signed an agreement to evaluate 5-µm green MicroLED emitters for optical connectivity in AI data centers and computing systems. The work explores another emitter technology for moving data between computing components. It remains an evaluation program, with no commercial deployment established by the announcement.</span>
+        <span class="zh">Polar Light与富士康签署协议，将评估用于AI数据中心和计算系统光互连的5微米绿色MicroLED发光器件。这项工作探索以另一类发光器件技术，在计算部件之间传输数据。目前双方仍处于评估阶段，公告尚未确立商业部署。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetasia.com/fpt-starts-trial-operations-at-vietnam-chip-testing-and-packaging-plant/" target="_blank" rel="noopener">
+          <span class="en">FPT Begins Trial Operations at Vietnam Packaging and Test Plant</span>
+          <span class="zh">FPT越南封装测试工厂开始试运行</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 1h ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">FPT started trial operations at its chip testing and packaging facility in Bac Ninh, Vietnam. The plant has six production lines and designed annual capacity of 300 million chips, targeting domestic and international customers. Trial operation advances the facility toward customer production, but the design figure is not a measure of current output.</span>
+        <span class="zh">FPT位于越南北宁的芯片测试与封装工厂开始试运行。该厂设有6条生产线，设计年产能为3亿颗芯片，面向国内外客户。试运行推动工厂向客户量产交付迈进，但设计产能并不等于当前实际产量。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetasia.com/semiconductor-equipment-market-forecast-to-reach-372b-by-2033/" target="_blank" rel="noopener">
+          <span class="en">Equipment Market Forecast Points to $372 Billion by 2033</span>
+          <span class="zh">市场研究预测半导体设备市场2033年达3720亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times Asia</span> · 36m ago</span>
+        <span class="zh"><span class="source">EE Times Asia</span> · 36分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">MarketsandMarkets forecasts that the semiconductor equipment market will reach $372 billion by 2033, with annual growth of 10.6%, EE Times Asia reports. Its demand drivers include advanced logic, memory, AI chips and packaging investment. This is a third-party market projection rather than reported equipment orders or supplier guidance.</span>
+        <span class="zh">据EE Times Asia报道，MarketsandMarkets预测半导体设备市场到2033年将达到3720亿美元，年增长率为10.6%。该机构将先进逻辑、存储、AI芯片和封装投资列为需求驱动力。这属于第三方市场预测，并非已经落地的设备订单或供应商业绩指引。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Export Oversight</span>
+      <span class="zh">政策与出口监督</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPdXVzZHFDUHV1YjBFMTFUajM3dlhQRHJSNFQ2M0U3SGUtd0JDWlBUQTh3em9OaXdMVWlnODlocTNHNlpHMnhrMFlQSnpGdlF5WldMQTc0X3U5ZlRzXzdObUdral9IUEVVdEM0cmdFTFhUSkdxaFZlVjVvckFmRktLMV9iNVNILUl2OFg3QWZzTXJRUlg5RXNmNmVhZWg4ZllidjUwZ0RxTUtEQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia Creates Committee for National Security and Chip Exports</span>
+          <span class="zh">英伟达设立委员会，监督国家安全与芯片出口事务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechTarget</span> · 4h ago</span>
+        <span class="zh"><span class="source">TechTarget</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia created a committee to oversee national-security and chip-export matters, TechTarget reports. The move adds a dedicated oversight mechanism for decisions affecting access to its chips. Establishing the committee is a corporate governance action and does not itself change government export permissions.</span>
+        <span class="zh">据TechTarget报道，英伟达设立了一个委员会，监督国家安全及芯片出口相关事务。此举为影响其芯片市场准入的决策增加了专门监督机制。设立委员会属于公司治理举措，本身并不改变政府的出口许可。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE5Wa01Ra2tkTVkzMGpGTXY0NElXc2YzUEZzVENyUndWRmdyWjU3Vm1Zel9lWEp5bE9hX05abHVrc05pWHRNQWZ6NEhnTXhlcW0yeXFuejA1Tk1zamJDeURCdWJhem8wRjJ1Sy1rT2Vtcl8wTFRiRW9IZmZR?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras Launches Disaggregated Inference</span>
+          <span class="zh">Cerebras推出分离式推理</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Cerebras</span> · 6h ago</span>
+        <span class="zh"><span class="source">Cerebras</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras announced the launch of disaggregated inference. Separating inference stages allows their compute resources to be provisioned independently, offering another deployment model for specialized AI hardware. The launch announcement alone does not establish a workload-independent speed or cost advantage.</span>
+        <span class="zh">Cerebras宣布推出分离式推理。将推理阶段拆分后，可以分别配置各阶段的计算资源，为专用AI硬件提供另一种部署方式。仅凭发布消息，尚不能确定其在不同工作负载下都具备速度或成本优势。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-18 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-18 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

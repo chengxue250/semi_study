@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-17">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Data Movement Shapes Hardware and Inference — Semi Research 2026-11-17</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-11-17.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Tuesday, November 17, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月17日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">Data Movement Shapes Hardware and Inference</span>
+      <span class="zh">数据搬运影响硬件与推理性能</span>
+    </h1>
+    <p class="dek">
+      <span class="en">An FPGA prototype measures the cost of loading model weights, while systems papers test how to move inference data across GPU memory, host DRAM and SSDs. Other papers cover amorphous materials design, sub-terahertz receivers and quantum-circuit trainability.</span>
+      <span class="zh">一项FPGA实验测量了加载模型权重的开销，多篇系统论文则研究如何在GPU显存、主机DRAM和SSD之间搬运推理数据。本期也收录了非晶材料设计、亚太赫兹接收机和量子线路可训练性的研究。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Materials</span>
+      <span class="zh">器件与材料</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.18420" target="_blank" rel="noopener">
+          <span class="en">Graph Diffusion for Inverse Design of Disordered Materials</span>
+          <span class="zh">用图扩散模型逆向设计无序材料</span>
+        </a>
+      </h3>
+      <p class="authors">Jiani Hu, Chenyan Wang, Yongkun Yang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18420" target="_blank" rel="noopener">arXiv:2611.18420</a> · 2026-11-13T17:00:44Z</p>
+      <p class="summary">
+        <span class="en">GaDiT generates disordered atomic structures using dynamic periodic graphs and diffusion conditioned on target properties. In tests on amorphous carbon, silicon and silica, the authors report sampling roughly 100 times faster than existing corrector-based methods. The model can propose structures with combinations of properties outside the training distribution, which could expand the search space for amorphous electronic materials.</span>
+        <span class="zh">GaDiT将动态周期图与按目标属性设定条件的扩散模型结合，用于生成无序原子结构。在非晶碳、非晶硅和非晶二氧化硅的测试中，作者报告采样速度约为现有基于校正步骤的方法的100倍。模型还可提出属性组合超出训练分布的候选结构，有助于扩大非晶电子材料的搜索范围。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.18450" target="_blank" rel="noopener">
+          <span class="en">Two-Round Estimation for Sub-Terahertz OFDM Receivers</span>
+          <span class="zh">面向亚太赫兹OFDM接收机的两轮估计</span>
+        </a>
+      </h3>
+      <p class="authors">Ruilin Wang, Xiaodai Dong</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18450" target="_blank" rel="noopener">arXiv:2611.18450</a> · 2026-11-13T17:22:57Z</p>
+      <p class="summary">
+        <span class="en">PACT jointly estimates the channel and oscillator phase noise in sub-terahertz OFDM, then uses the decoder&#x27;s confidence and provisional symbol decisions to refine both estimates. At an Eb/N0 of 30 dB, its code-block error rate was about 70% and 57% lower than the best learning-based baseline across two benchmark settings, respectively. The results show how decoder feedback can improve reception when fading and oscillator noise act together.</span>
+        <span class="zh">PACT在亚太赫兹OFDM接收机中联合估计信道和振荡器相位噪声，再利用译码置信度和初步符号判决细化两项估计。在Eb/N0为30 dB时，两组基准测试的码块错误率分别比表现最好的学习型基线低约70%和57%。结果表明，当信道衰落与振荡器相位噪声同时存在时，译码反馈有助于改善接收性能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Interconnects</span>
+      <span class="zh">AI加速器与互连</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.18422" target="_blank" rel="noopener">
+          <span class="en">Agilex FPGA Measures the Cost of Gated DeltaNet State Paging</span>
+          <span class="zh">Agilex FPGA实测Gated DeltaNet状态分页开销</span>
+        </a>
+      </h3>
+      <p class="authors">Cong Xu, Ravi Sankar</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18422" target="_blank" rel="noopener">arXiv:2611.18422</a> · 2026-11-13T17:01:18Z</p>
+      <p class="summary">
+        <span class="en">The authors implemented one layer of a 369-million-parameter Gated DeltaNet hybrid on an Agilex 5 FPGA and paged its recurrent state to external memory. With synthetic weights at 75 MHz, the layer took 11.15 ms per token, with weight matrix-vector operations accounting for about 62% of the time and state handling including paging for 13%. For this implementation, optimizing weight delivery has more scope to improve latency than optimizing state paging.</span>
+        <span class="zh">作者在Agilex 5 FPGA上实现了一个3.69亿参数Gated DeltaNet混合模型中的一层，并将循环状态分页存入片外内存。使用合成权重、在75 MHz下实测，该层每个词元耗时11.15毫秒，其中权重矩阵与向量相乘约占62%，包含分页在内的状态处理占13%。在这套实现中，优化权重供给比优化状态分页更有望缩短延迟。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.18145" target="_blank" rel="noopener">
+          <span class="en">Obaleth Compiles GPU-Initiated Communication with Compute</span>
+          <span class="zh">Obaleth联合编译GPU主动发起的通信与计算</span>
+        </a>
+      </h3>
+      <p class="authors">Javid Baydamirli, Ismayil Ismayilov, Kaan Oktay, Didem Unat</p>
+      <p class="affil">Koç University, fal</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18145" target="_blank" rel="noopener">arXiv:2611.18145</a> · 2026-11-13T13:19:59Z</p>
+      <p class="summary">
+        <span class="en">Obaleth brings GPU-initiated communication into a kernel&#x27;s intermediate representation so the compiler can schedule transfers alongside computation. In an all-to-all test on 256 H100 GPUs with 256 bytes per peer, it ran 1.25× as fast as NVSHMEM and 2.3× as fast as NCCL GIN. On 16 B200 GPUs serving Qwen3-235B in vLLM, it cut time per output token by 10–24% compared with DeepEP.</span>
+        <span class="zh">Obaleth将GPU主动发起的通信纳入内核的中间表示，使编译器可以统一调度数据传输和计算。在256颗H100上进行每个对端256字节的全对全通信测试时，其速度分别为NVSHMEM的1.25倍、NCCL GIN的2.3倍。在16颗B200上用vLLM部署Qwen3-235B时，相较于使用DeepEP，每个输出词元的耗时缩短了10%至24%。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research &amp; Inference Systems</span>
+      <span class="zh">AI研究与推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3815789.3827960" target="_blank" rel="noopener">
+          <span class="en">MosaicKV Schedules KV-Cache Pages Across Cloud Tenants</span>
+          <span class="zh">MosaicKV为多租户云推理调度KV缓存页</span>
+        </a>
+      </h3>
+      <p class="authors">Rui Li, Shuang Cao</p>
+      <p class="affil">Hill Research</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3815789.3827960" target="_blank" rel="noopener">ACM SoCC 2026</a> · 2026-11-17</p>
+      <p class="summary">
+        <span class="en">MosaicKV treats KV-cache pages as a shared resource that can move between GPU HBM and host DRAM as workloads compete for memory. It uses the decoder&#x27;s predictable layer order to prefetch pages and schedule microbatches around PCIe transfers. This gives a cloud operator a way to manage tail latency for time to first token when tenants collectively need more cache capacity than the GPU provides.</span>
+        <span class="zh">MosaicKV将KV缓存页视为多个租户共享的资源，根据显存竞争情况在GPU的HBM与主机DRAM之间迁移。系统利用解码器逐层访问顺序可预测的特点进行预取，并按PCIe传输进度安排微批次。在租户的缓存总需求超过GPU显存容量时，这种调度可用于控制首词元延迟的长尾。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3828523.3857090" target="_blank" rel="noopener">
+          <span class="en">JetFire Uses Hybrid Memory for Long-Context Attention</span>
+          <span class="zh">JetFire利用分层内存计算长上下文注意力</span>
+        </a>
+      </h3>
+      <p class="authors">Feng Yu, Hongshi Tan, Yao Chen, Gustavo Alonso, Weng-Fai Wong, Bingsheng He</p>
+      <p class="affil">National University of Singapore, Huazhong University of Science and Technology, ETH Zürich</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857090" target="_blank" rel="noopener">ACM ATC 2026</a> · 2026-11-15</p>
+      <p class="summary">
+        <span class="en">JetFire scans a quantized KV-cache copy in GPU HBM to identify the tokens that contribute most to attention, then uses full-precision data in host DRAM to correct their contributions. At the longest context lengths shared by both systems, JetFire-K3V2 ran end to end 1.3–3.0× as fast as TurboQuant in vLLM. The split lets the system store a compact copy of the full context on the GPU and use high precision selectively.</span>
+        <span class="zh">JetFire先扫描GPU HBM中的量化KV缓存副本，找出对注意力贡献最大的词元，再利用主机DRAM中的全精度数据修正这些词元的贡献。在两种方法均支持的最长上下文条件下，JetFire-K3V2在vLLM中的端到端速度为TurboQuant的1.3至3.0倍。这种分工让GPU只需保留完整上下文的低精度副本，并将高精度计算集中在关键位置。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3828523.3857061" target="_blank" rel="noopener">
+          <span class="en">Octopus Retrieves Sparse KV Cache Across Multiple SSDs</span>
+          <span class="zh">Octopus用多块SSD并行读取稀疏KV缓存</span>
+        </a>
+      </h3>
+      <p class="authors">Tuowei Wang, Liyun Chu, Ruwen Fan, Ju Ren</p>
+      <p class="affil">Tsinghua University</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857061" target="_blank" rel="noopener">ACM ATC 2026</a> · 2026-11-15</p>
+      <p class="summary">
+        <span class="en">Octopus uses correlations in sparse attention to identify groups of KV-cache entries that are frequently fetched together. It distributes those groups across SSDs in advance and selectively replicates them so reads can be spread across drives. The design addresses the I/O bottleneck of using flash as a lower-cost capacity tier for persistent inference caches.</span>
+        <span class="zh">Octopus利用稀疏注意力中的访问相关性，找出经常被一同读取的KV缓存条目。系统预先将这些条目组分布到多块SSD，并有选择地复制部分条目组，使读取负载可以在多块盘之间分摊。该设计针对把闪存用作持久化推理缓存的低成本容量层时遇到的I/O瓶颈。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Computing</span>
+      <span class="zh">量子计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.18378" target="_blank" rel="noopener">
+          <span class="en">Circuit Structure Predicts Trainability in Variational Quantum Models</span>
+          <span class="zh">线路结构可用于判断变分量子模型的可训练性</span>
+        </a>
+      </h3>
+      <p class="authors">Wenbo Xie, Wojciech Szpankowski, Ananth Grama</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.18378" target="_blank" rel="noopener">arXiv:2611.18378</a> · 2026-11-13T16:22:31Z</p>
+      <p class="summary">
+        <span class="en">The authors derive a sufficient condition for gradients in a variational quantum circuit to retain at least inverse-polynomial variance under specified circuit and subspace assumptions. They also propose estimating gradient variance by sampling circuit runs. This offers a way to check for vanishing gradients before committing resources to training.</span>
+        <span class="zh">作者在给定的线路和子空间条件下，推导出一个充分条件，使变分量子线路的梯度方差至少保持在逆多项式量级。论文还提出通过多次运行线路来采样估计梯度方差，从而在投入训练资源之前判断梯度是否会消失。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-17 04:41 UTC · <a href="../2026-11-17.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-17 04:41 UTC · <a href="../2026-11-17.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

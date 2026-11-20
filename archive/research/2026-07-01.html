@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-01">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Neuromorphic Work Moves From Models To Blocks — Semi Research 2026-07-01</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-07-01.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Wednesday, July 1, 2026</span>
+      <span class="zh">研究摘要 · 2026年7月1日 星期三</span>
+    </div>
+    <h1>
+      <span class="en">Neuromorphic Work Moves From Models To Blocks</span>
+      <span class="zh">神经形态从模型走向模块</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s papers cluster around implementable neuromorphic building blocks: ferroelectric devices, memristive crossbars, SkyWater 130 nm IP, and event-driven deployment flows. The EDA and systems papers show the same pressure from another angle, with AI agents and distributed switch memory trying to make hardware design and data-plane state less brittle.</span>
+      <span class="zh">本周论文集中在更可实现的神经形态构件上：铁电器件、忆阻交叉阵列、SkyWater 130 nm IP，以及事件驱动部署流程。EDA和系统论文从另一个角度呈现同样压力：AI agent和分布式交换机内存都在试图降低硬件设计与数据平面状态管理的脆弱性。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s41467-026-74648-y" target="_blank" rel="noopener">
+          <span class="en">Biomimetic ferroelectric-semiconductor transistor for multisensory integration</span>
+          <span class="zh">用于多感官集成的仿生铁电-半导体晶体管</span>
+        </a>
+      </h3>
+      <p class="authors">Shuo Liu, Ligong Zhang, Ruiqing Xie, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1038/s41467-026-74648-y" target="_blank" rel="noopener">Nature Communications</a> · 2026-06-20</p>
+      <p class="summary">
+        <span class="en">Liu et al. report a ferroelectric-semiconductor transistor that emulates neuronal multisensory integration. The device-level contribution matters because neuromorphic sensing needs memory and nonlinear weighting near the sensor, not only digital post-processing after data movement. The caveat is manufacturability: a Nature Communications device result still needs array-level yield, endurance, and CMOS integration evidence before it becomes a platform.</span>
+        <span class="zh">Liu等人报道了一种铁电-半导体晶体管，用于模拟神经元的多感官集成。这个器件级结果重要，是因为神经形态传感需要在传感器附近完成记忆和非线性加权，而不只是把数据搬走后再做数字处理。需要保留的caveat是可制造性：Nature Communications级别的单器件结果还需要阵列良率、耐久性和CMOS集成证据，才能成为平台。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.64898/2026.06.23.26356282" target="_blank" rel="noopener">
+          <span class="en">A conformable CMOS ultrasound system for point-of-care imaging</span>
+          <span class="zh">面向床旁成像的贴合式CMOS超声系统</span>
+        </a>
+      </h3>
+      <p class="authors">J. S. Letchumanan, S. Gandhi, H. Yin, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.64898/2026.06.23.26356282" target="_blank" rel="noopener">medRxiv</a> · 2026-06-26</p>
+      <p class="summary">
+        <span class="en">Letchumanan et al. describe a conformable CMOS ultrasound system aimed at point-of-care imaging. The hardware angle is the integration of ultrasound sensing with CMOS electronics in a form factor that can move closer to wearable or bedside use. Because the candidate is a medRxiv preprint, the clinical and manufacturing claims should be treated as early until peer review and broader device validation arrive.</span>
+        <span class="zh">Letchumanan等人描述了一种面向床旁成像的贴合式CMOS超声系统。其硬件看点在于把超声传感与CMOS电子学集成到更接近可穿戴或床旁使用的形态中。由于候选项来自medRxiv预印本，临床与制造相关主张在同行评审和更大范围器件验证前都应视为早期结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.4071/001c.163731" target="_blank" rel="noopener">
+          <span class="en">3D integration technologies for miniaturized TPMS modules</span>
+          <span class="zh">用于小型化TPMS模块的3D集成技术</span>
+        </a>
+      </h3>
+      <p class="authors">N. Lietaer, M. Taklo, A. Klumpp, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.4071/001c.163731" target="_blank" rel="noopener">IMAPSource Proceedings</a> · 2026-06-22</p>
+      <p class="summary">
+        <span class="en">Lietaer et al. detail 3D integration of MEMS, ASIC, radio, power, and antenna blocks for a miniaturized tire-pressure monitoring system. The paper is useful because it names the interconnect stack: Au stud bump bonding, SnAg microbumps, Cu/Sn SLID, and tungsten-filled TSVs. This is not frontier-node logic, but it is a concrete heterogeneous-integration case where packaging choices dominate system feasibility.</span>
+        <span class="zh">Lietaer等人详细介绍了用于小型化胎压监测系统的MEMS、ASIC、射频、电源和天线模块3D集成。论文有价值之处在于明确列出互连技术栈：Au stud bump bonding、SnAg微凸点、Cu/Sn SLID以及钨填充TSV。这不是先进制程逻辑芯片，但它是一个具体的异构集成案例，封装选择直接决定系统可行性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Systems</span>
+      <span class="zh">电路与系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TC.2026.3678701" target="_blank" rel="noopener">
+          <span class="en">dVRM pools register memory across programmable switches</span>
+          <span class="zh">dVRM在可编程交换机之间池化寄存器内存</span>
+        </a>
+      </h3>
+      <p class="authors">Mimi Qian, Lin Cui, Fung Po Tso, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TC.2026.3678701" target="_blank" rel="noopener">IEEE Transactions on Computers</a> · 2026-07-01</p>
+      <p class="summary">
+        <span class="en">Qian et al. propose dVRM, a distributed virtual-register-memory framework that pools register resources across multiple programmable switches. The work targets a real bottleneck: applications such as telemetry and in-network computation can run into the roughly 15 MB SRAM limit of a Tofino switch. The interesting systems idea is adaptive bit-width allocation driven by data-plane feedback, though deployment will depend on how much latency and coordination overhead the pool adds.</span>
+        <span class="zh">Qian等人提出dVRM，这是一种在多台可编程交换机之间池化寄存器资源的分布式虚拟寄存器内存框架。它瞄准的是实际瓶颈：遥测、网内计算等应用会遇到Tofino交换机约15 MB SRAM的限制。值得关注的系统思路是由数据平面反馈驱动的自适应位宽分配，但真实部署还要看内存池带来的延迟和协调开销。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">
+          <span class="en">A SkyWater 130 nm neuromorphic IP suite</span>
+          <span class="zh">一套SkyWater 130 nm神经形态IP模块</span>
+        </a>
+      </h3>
+      <p class="authors">P. Kumaresan, Santhosh Sivasubramani</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">arXiv:2606.22635</a> · 2026-06-21</p>
+      <p class="summary">
+        <span class="en">Kumaresan and Sivasubramani present four interface-compatible digital IP blocks for neuromorphic edge systems in SkyWater 130 nm: a PVT sensor/TRNG block, a stochastic LIF neuron, an STDP learning controller, and a memristive-crossbar controller. The practical value is the common SPI register model and gate-level verification, which makes the blocks easier to integrate than one-off neuromorphic demos. The caveat is that this is still IP-block work at a mature node, not measured performance from a complete neuromorphic SoC.</span>
+        <span class="zh">Kumaresan和Sivasubramani在SkyWater 130 nm中提出四个接口兼容的神经形态边缘系统数字IP：PVT传感器/TRNG模块、随机LIF神经元、STDP学习控制器，以及忆阻交叉阵列控制器。其实用价值在于统一的SPI寄存器模型和门级验证，使这些模块比一次性的神经形态demo更容易集成。需要注意的是，这仍是成熟制程上的IP模块工作，并非完整神经形态SoC的实测性能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.22621" target="_blank" rel="noopener">
+          <span class="en">Multi-level resistive synapses for on-chip neural networks</span>
+          <span class="zh">用于片上神经网络的多级阻变突触</span>
+        </a>
+      </h3>
+      <p class="authors">D. A. T. Pizzo</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.22621" target="_blank" rel="noopener">arXiv:2606.22621</a> · 2026-06-21</p>
+      <p class="summary">
+        <span class="en">Pizzo builds a physics-based design flow for multi-level memristive synapses in a 1T1R crossbar fabric. The paper connects ionic-transport modeling, differential signed-weight synapses, analog VMM, and in-situ outer-product learning into one proposed accelerator substrate. It is useful as an architecture and device-modeling exercise, but the claims about LLM suitability need measured arrays and endurance data before they can be read as silicon evidence.</span>
+        <span class="zh">Pizzo为1T1R交叉阵列中的多级忆阻突触构建了一套基于物理的设计流程。论文把离子输运建模、差分有符号权重突触、模拟VMM和原位外积学习连接成一个拟议的加速器基底。它作为架构和器件建模练习有价值，但关于适合LLM的主张仍需要实测阵列和耐久性数据，才能被视为硅证据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.24075" target="_blank" rel="noopener">
+          <span class="en">Spike-driven transformers for radar and communication modulation recognition</span>
+          <span class="zh">用于雷达与通信调制识别的脉冲驱动Transformer</span>
+        </a>
+      </h3>
+      <p class="authors">Xiaohu Li, Chongxiao Qu, Caiyong Lin, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.24075" target="_blank" rel="noopener">arXiv:2606.24075</a> · 2026-06-23</p>
+      <p class="summary">
+        <span class="en">Li et al. introduce EMRFormer, a spiking-neural-network architecture for automatic modulation recognition on radar and communication IQ waveforms. The paper combines an adaptive spike encoder, integer LIF neurons, spike-separable CNN layers, and a SpikeFormer backbone to reduce the compute burden for edge platforms. It is hardware-relevant because AMR is a real embedded workload, but the candidate summary emphasizes benchmark accuracy more than measured energy on deployed neuromorphic silicon.</span>
+        <span class="zh">Li等人提出EMRFormer，这是一种面向雷达和通信IQ波形自动调制识别的脉冲神经网络架构。论文结合自适应脉冲编码器、整数LIF神经元、spike-separable CNN层和SpikeFormer主干，以降低边缘平台上的计算负担。它具备硬件相关性，因为AMR是真实的嵌入式负载，但候选摘要更强调基准准确率，而不是部署到神经形态硅片后的实测能耗。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.20031" target="_blank" rel="noopener">
+          <span class="en">Neuromorphic reinforcement learning for warehouse pathfinding</span>
+          <span class="zh">用于仓储路径规划的神经形态强化学习框架</span>
+        </a>
+      </h3>
+      <p class="authors">Junzhe Xu, Zecui Zeng, Lusong Li, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.20031" target="_blank" rel="noopener">arXiv:2606.20031</a> · 2026-06-18</p>
+      <p class="summary">
+        <span class="en">Xu et al. present SDQN-RMFS, a pipeline that trains an ANN policy for robotic mobile fulfillment pathfinding, distills it into an SNN, and deploys it on a neuromorphic chip. The hardware-relevant piece is the sparse event-driven execution, which can reduce power for real-time routing decisions in constrained warehouses. The result is application-specific, so the key question is whether the ANN-to-SNN conversion remains stable as maps, congestion, and robot fleets change.</span>
+        <span class="zh">Xu等人提出SDQN-RMFS：先为机器人移动履约系统的路径规划训练ANN策略，再蒸馏为SNN，并部署到神经形态芯片上。与硬件相关的关键点是稀疏事件驱动执行，它有望降低受限仓储环境中实时路径决策的功耗。该结果偏应用场景，后续关键问题是当地图、拥堵和机器人规模变化时，ANN到SNN的转换能否保持稳定。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Co-Design</span>
+      <span class="zh">EDA与协同设计</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">
+          <span class="en">CHIA: agentic AI for hardware/software co-design research</span>
+          <span class="zh">CHIA：面向软硬件协同设计研究的agentic AI框架</span>
+        </a>
+      </h3>
+      <p class="authors">Angela Cui, Ferran Hermida-Rivera, Jack Toubes, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">arXiv:2606.27350</a> · 2026-06-25</p>
+      <p class="summary">
+        <span class="en">Cui et al. introduce CHIA, an open-source framework for building agentic AI-driven hardware/software co-design loops. The notable contribution is not another coding assistant demo, but a graph-based flow that can call tools such as Chipyard, gem5, FireSim, Hammer, Vivado, and evolutionary coding agents. If the framework proves reproducible, it could make AI-assisted architecture exploration easier to audit; until then, the main risk is that agent loops hide tool failures behind plausible automation logs.</span>
+        <span class="zh">Cui等人介绍CHIA，这是一个用于构建agentic AI驱动软硬件协同设计循环的开源框架。其重点不是又一个代码助手demo，而是用图结构流程调用Chipyard、gem5、FireSim、Hammer、Vivado和进化式编码agent等工具。若该框架具备可复现性，它可能让AI辅助架构探索更容易审计；在此之前，主要风险是agent循环用看似合理的自动化日志掩盖工具失败。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-01 01:19 UTC · <a href="../2026-07-01.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-07-01 01:19 UTC · <a href="../2026-07-01.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-02">
+<meta name="generator" content="semi-news-daily">
+<title>Policy Money and Inference Bets Reshape Supply — Semi News 2026-08-02</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Sunday, August 2, 2026</span>
+      <span class="zh">2026年8月2日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">Policy Money and Inference Bets Reshape Supply</span>
+      <span class="zh">政策资金与推理押注重塑供给</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Public incentives are steering new fab and AI-hub plans while chip companies chase inference demand, advanced packaging, and faster storage links. Memory pricing remains the clearest near-term signal that the AI supply chain is still tight.</span>
+      <span class="zh">公共激励正推动新晶圆厂和AI枢纽计划，芯片公司则围绕推理需求、先进封装和更快的存储互连展开布局。存储价格仍是AI供应链偏紧最直接的短期信号。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNUzRucnk5VmkxVVdTaGNpUk5UMW1haklZTnoxdllNWF95cTR3aTFTanI1ZzBSZmVyTUJySnBtUS1vQmp3dDFFQVFsVmdJVUFJa01RMi1fTVI4UjdZWEVDcmNjdGI0aGw3R1dVMl83bDRMdjBUWk1ERms0QnhBYUctRHpWd1plWWRYMVpvZnQ4cHd4ZFRoYkJDZEwzUzlxbzI4R0ZqOXpoX2huZUZwZzZmQzlpZHU2dGFia2ZFQ2hoX2wtOGFpanJ4VkVxRVh3bzJHLUFWVTRJVnhaLTVPc2FKVmJBcnZLQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Huawei Pangu Pro Reportedly Trains 505 Billion Parameters Without Nvidia</span>
+          <span class="zh">报道称华为盘古Pro在无Nvidia条件下训练5050亿参数</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 8h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A Tech Times report says Huawei&#x27;s Pangu Pro trained a 505-billion-parameter model without Nvidia hardware, while questioning what the underlying supply chain implies. The claim matters because it turns attention to the practical availability of domestic accelerators, networking, and memory rather than model size alone.</span>
+        <span class="zh">Tech Times报道称，华为盘古Pro在未使用Nvidia硬件的条件下训练了5050亿参数模型，同时也追问其背后的供应链含义。该消息的关键不只在模型规模，更在于国产加速器、网络与存储能否获得稳定供给。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5EeWIwR2hPbGlVbTA0eFk1UTFoMk9pUlFQSU1XS2RiX1FJNHlwMDFicTMwX3lFZmZyaTI3Qk01dmItN0ZNN2I4Y25KTWNxY0VxaHVhU1ZQU05lRFlUaWdFdTV3?oc=5" target="_blank" rel="noopener">
+          <span class="en">MediaTek Targets 15–20% Data-Center Share; First AI Accelerator Enters Production in Q4</span>
+          <span class="zh">MediaTek上调数据中心份额目标至15%–20%，首款AI加速器将于第四季度投产</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — TSMC</span> · 9h ago</span>
+        <span class="zh"><span class="source">GNews — TSMC</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">MediaTek said in its Q2 2026 earnings call that it now targets a 15–20% share of the data-center market and expects its first AI accelerator to enter production in Q4. The target moves the company from client and mobile silicon toward a far more capital- and supply-intensive server market.</span>
+        <span class="zh">MediaTek在2026年第二季度财报电话会上表示，已将数据中心市场份额目标定为15%–20%，并预计首款AI加速器将在第四季度投产。这一目标意味着公司正从客户端和移动芯片进一步切入资本与供应链要求更高的服务器市场。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/intel-starts-paying-overtime-bonuses-to-expedite-work-on-its-ohio-fab-as-emib-t-package-yield-approaches-90-percent/" target="_blank" rel="noopener">
+          <span class="en">Intel Reportedly Uses Overtime Incentives for Ohio Fab as EMIB-T Yield Nears 90%</span>
+          <span class="zh">报道称Intel为俄亥俄晶圆厂发放加班奖金，EMIB-T良率接近90%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Wccftech reports that Intel is paying overtime bonuses to accelerate work on its Ohio fab complex, with an operational target cited for 2031. The report also says EMIB-T package yield is approaching 90%, leaving substrate yield as the reported remaining issue; advanced-packaging execution is central to Intel&#x27;s foundry pitch.</span>
+        <span class="zh">Wccftech报道称，Intel正通过加班奖金加快俄亥俄晶圆厂综合体建设，报道提及其运营目标为2031年。报道还称EMIB-T封装良率接近90%，基板良率仍是剩余问题；先进封装的量产执行力是Intel代工战略的核心环节。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory &amp; Storage</span>
+      <span class="zh">存储与存储系统</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPaWtoMVg4WGhEc05OejBjMFlxYjc3VTlIR0JjU2J3TVJmZEhrckE5YlBKVGZKdWNrSTRzMlBldU1mUnlkcVpleGdPMGRrVVl2OXcwZlE5TVR6UGU5eFhtWnEyRXdJZUlVaGFaX2RNRGFpODQ3ZURZaElCUmk4MEwxMzdzSmduX2RnNXNWUURxOXRfTk9EcDczMnBGWm14U0N1T0RxTlkyUHZhWWhPbG1rR2VHTTNlSC1xOE9FcGlvWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Memory Prices Reportedly Drive a 178.8% Jump in Semiconductor Exports</span>
+          <span class="zh">报道称存储价格推动半导体出口增长178.8%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 3h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Digital Today attributes a 178.8% jump in semiconductor exports to memory prices reaching $45. The reported move illustrates how pricing in commodity and AI-adjacent memory can quickly dominate trade and revenue statistics when supply remains constrained.</span>
+        <span class="zh">Digital Today将半导体出口178.8%的增长归因于存储价格升至45美元。该报道显示，在供给仍受约束时，通用存储与AI相关存储的定价能够迅速主导贸易和营收数据。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/kioxia-cm10-series-launched-for-the-pcie-gen6-generation-of-ssds/" target="_blank" rel="noopener">
+          <span class="en">Kioxia Launches CM10 SSD Family for PCIe Gen6</span>
+          <span class="zh">Kioxia推出面向PCIe Gen6的CM10 SSD系列</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 10h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Kioxia introduced the CM10 SSD family for the PCIe Gen6 generation, spanning 2.5-inch and EDSFF form factors as well as air- and liquid-cooled configurations. The line also covers PCIe Gen5 and Gen6 options and two NAND generations, broadening the qualification choices for data-center storage deployments.</span>
+        <span class="zh">Kioxia推出面向PCIe Gen6时代的CM10 SSD系列，覆盖2.5英寸和EDSFF形态，并提供风冷与液冷配置。该产品线还涵盖PCIe Gen5和Gen6选项以及两代NAND，为数据中心存储部署扩大了认证与配置选择。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5AFBVV95cUxPN2RESkdXU2E2dFNOejdDRjFhVDQ0MVFVeFBQdE1iOWdaYy1rRHJtUmZnTEEwaWZneUtoNDdRajFHWXRuVXRnYkY0bnNMVDRaS1dIRXY5dzhxWGlXYWIzdWM0MkZmU3ZYYWJPNkFCbU5TWDJtWFF2X0ZPQWloQ3NzeFpNeW84dlI1bUxJX2d1cDBwMENvcGhlY1FZZVRySzdIcVFSM3lMMDF0ZEhpejVtNVUwb01zeTZSaG10Z19NX3FiMmo5a0MxRUJaam82MEZMcldheGc4NzJzakpuU2ZCNnBZWFg?oc=5" target="_blank" rel="noopener">
+          <span class="en">US Announces $874 Million CHIPS Act AI Push, With GlobalFoundries Taking the Largest Award</span>
+          <span class="zh">美国宣布8.74亿美元CHIPS法案AI计划，GlobalFoundries获最大份额</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 2h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says the Trump administration unveiled an $874 million CHIPS Act initiative focused on AI, with GlobalFoundries receiving the largest award. Directing funds toward AI-related capacity and capabilities could reshape which domestic suppliers are positioned to serve government-backed demand.</span>
+        <span class="zh">报道称，特朗普政府公布了一项总额8.74亿美元、聚焦AI的CHIPS法案计划，GlobalFoundries获得其中最大一笔奖励。资金投向AI相关产能与能力，可能重塑哪些美国本土供应商更有机会承接政府支持的需求。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOTjNTNHFoMWEyam8tbEdqQmlSY3pkUEMta1JZMUNjRTAtVTVhSUZMNnBjdWJFd0txakFBRDJqZk01UUxIbVhHd3B5V1JpYThDNUJxS29PQjBxXzhVREV6Z3I2XzNCNWRuOHNRR0liRldIbUJnekI5UFdfRkNEanRJTzNjXzZ5dGpRbnZNVXZSdEI4Nk43eC1OSlc4VEtjR0l6c1NJRFZOQU5sMGNCLWFMMlpNdWpxV1ItUXR3eV9n?oc=5" target="_blank" rel="noopener">
+          <span class="en">India Breaks Ground on Semiconductor Manufacturing Unit in Uttar Pradesh</span>
+          <span class="zh">印度在北方邦为半导体制造项目奠基</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters Technology (Google News)</span> · 6h ago</span>
+        <span class="zh"><span class="source">Reuters Technology (Google News)</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">India&#x27;s prime minister laid the foundation stone for a semiconductor manufacturing unit in Uttar Pradesh, according to News On AIR. The project adds another regional manufacturing initiative as India seeks to turn policy support into physical capacity and a local supplier base.</span>
+        <span class="zh">据News On AIR报道，印度总理为北方邦一座半导体制造项目举行奠基仪式。随着印度寻求把政策支持转化为实体产能和本土供应链，该项目为其区域制造布局再添一环。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxNUkVCREJTcV9ubUxGdUNzSWFxSTNfdDFmbmRXUDlFOHN5OG9PNzRfMmlDRDA4djZVazNlTVE2ejhsM0NfYzZYeWlOU2Q5RFg0WDNQV3lmMDQwRHZDNjJBdUZqNWhPcWI0YV9rc3ZIb2xXTHBwV29hVFpZRVgwa0o0M2RDRFdLSU02UHhjMGNEYXFiajRoTU5fZ3c1OG43VkM0YVpHXzctV2xkLTFLZGN4S29rSDYyTU12NkhJbGQwZWROenllNGQyQ1k2ZmQxWmxT?oc=5" target="_blank" rel="noopener">
+          <span class="en">Etched Receives SK hynix Investment for Custom AI-Inference Chips</span>
+          <span class="zh">Etched获SK hynix投资，推进定制AI推理芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">GNews — Etched</span> · 2h ago</span>
+        <span class="zh"><span class="source">GNews — Etched</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TechRadar reports that Etched has secured an investment from SK hynix after placing a bet on custom AI-inference chips. The investment ties a specialist inference-chip effort to a leading memory supplier, a notable alignment as memory bandwidth and capacity shape inference-system design.</span>
+        <span class="zh">TechRadar报道称，专注定制AI推理芯片的Etched获得了SK hynix投资。这项投资将专用推理芯片公司与领先存储供应商连接起来；在存储带宽和容量日益影响推理系统设计的背景下，这种协同值得关注。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-02 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-02 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

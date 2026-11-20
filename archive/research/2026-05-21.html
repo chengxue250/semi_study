@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-21">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Compute-in-Memory Comes of Age While LLM Serving Treats Hardware as a First-Class Variable — Semi Research 2026-05-21</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Lang visibility */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-05-21.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, May 21, 2026</span>
+      <span class="zh">研究摘要 · 2026年5月21日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Compute-in-Memory Comes of Age While LLM Serving Treats Hardware as a First-Class Variable</span>
+      <span class="zh">存算一体走向系统,LLM服务把硬件当作一等变量</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week the hardware stack and the software stack converge on the same problem from opposite directions. From the silicon side: a fabricated TiO2/HfZrO2 ferroelectric FET, a 16Kb 3T1R ReRAM CIM macro spanning CNN and SNN inference, and an SNN inference architecture that finally exploits temporal sparsity. From the systems side: three new LLM-serving works treat GPU power caps, MoE expert parallelism, and per-phase quantization not as constraints but as control knobs.</span>
+      <span class="zh">本周硬件栈与软件栈从两端逼近同一个问题。硬件侧:TiO2/HfZrO2铁电FET的工艺、同时支持CNN与SNN推理的16Kb 3T1R ReRAM CIM macro、以及真正利用时间稀疏性的SNN推理架构。系统侧:三项新的LLM服务工作分别将GPU功耗上限、MoE专家并行、按阶段量化精度从硬约束转为可调旋钮。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.20375" target="_blank" rel="noopener">
+          <span class="en">2D GaSe single-pixel spectrometer via electro-optical barrier co-modulation</span>
+          <span class="zh">基于电-光势垒协同调制的2D GaSe单像素光谱仪</span>
+        </a><span class="tag">device-fab</span><span class="tag">2D-materials</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20375" target="_blank" rel="noopener">arXiv:2605.20375</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">A few-layer GaSe device is shown to act as a computational spectrometer by jointly modulating an electrostatic gate and an optical bias, replacing the dispersive optics of a conventional spectrometer with a single pixel. Reconstruction is done in software. The interest for chip-scale sensing is real, though spectral resolution and noise floor haven&#x27;t been benchmarked against silicon-photonic or filter-array competitors.</span>
+        <span class="zh">作者证明一只少层GaSe器件可同时受电压和光学偏置调制,从而以单像素替代传统光谱仪的色散光学,后续由软件重建光谱。对芯片级光谱传感意义明确,但本文尚未与硅光及滤波器阵列方案在光谱分辨率与噪声底上做对比。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与体系结构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.21203" target="_blank" rel="noopener">
+          <span class="en">Dynamic control-flow execution for runtime-reconfigurable processors</span>
+          <span class="zh">面向运行时可重构处理器的动态控制流执行支持</span>
+        </a><span class="tag">architecture</span><span class="tag">simulation-only</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21203" target="_blank" rel="noopener">arXiv:2605.21203</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">The paper tackles a long-standing limitation of CGRA/reconfigurable fabrics: irregular control flow forces fallback to a host CPU and wipes out the energy advantage. The proposed extensions support data-dependent branches natively on the reconfigurable substrate. Evaluation is simulation-only, but the design is concrete enough to be implementable, and the energy numbers are competitive with prior CGRA work.</span>
+        <span class="zh">本文针对CGRA等可重构架构长期存在的短板:不规则控制流必须回落到主机CPU,能效优势随之消失。作者提出的扩展可在可重构基底原生支持数据相关分支。评估为仿真级,但设计具体到可落地的程度,能效与前期CGRA工作相当。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.20717" target="_blank" rel="noopener">
+          <span class="en">E-ReCON: a 16Kb 3T1R ReRAM CIM macro for both CNN and SNN edge inference</span>
+          <span class="zh">E-ReCON:面向CNN与SNN边缘推理的16Kb 3T1R ReRAM存内计算宏</span>
+        </a><span class="tag">tape-out</span><span class="tag">compute-in-memory</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20717" target="_blank" rel="noopener">arXiv:2605.20717</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">The macro is real silicon: a 0.85µm² 3T1R ReRAM bitcell driving an AND-based in-memory multiplier that supports both conventional CNN and spiking workloads, with a novel interleaved 10T/28T adder tree to amortize accumulation overhead. The dual-mode CNN/SNN capability is the differentiating claim — most prior CIM macros pick one. Edge-inference targets, not data-center.</span>
+        <span class="zh">该宏为实际流片:0.85µm² 3T1R ReRAM位单元搭配基于AND的存内乘法,同时支持传统CNN与脉冲网络负载,并引入新颖的10T/28T交错加法树以分摊累加开销。&#x27;CNN/SNN双模&#x27;是其核心差异点——此前的CIM宏多只支持其一。面向边缘推理,而非数据中心。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.20802" target="_blank" rel="noopener">
+          <span class="en">ELSA: an elastic SNN inference architecture that exploits temporal sparsity</span>
+          <span class="zh">ELSA:真正利用时间稀疏性的弹性脉冲神经网络推理架构</span>
+        </a><span class="tag">architecture</span><span class="tag">neuromorphic</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20802" target="_blank" rel="noopener">arXiv:2605.20802</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">SNN accelerators have advertised event-driven efficiency for years, but most are still layer-by-layer pipelines that wait for the full input window before emitting an output. ELSA implements true elastic inference: confident outputs are emitted as soon as enough spikes accumulate, and downstream layers are gated accordingly. The architectural lesson is that SNN efficiency is fundamentally a scheduling problem, not just a circuit one.</span>
+        <span class="zh">SNN加速器多年来一直宣传事件驱动的能效,但绝大多数仍是逐层流水、等满输入窗口才输出。ELSA实现了真正的弹性推理:在脉冲累积到置信阈值时立即输出,下游层据此被门控。其架构启示是:SNN的能效首先是调度问题,而非单纯的电路问题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.20406" target="_blank" rel="noopener">
+          <span class="en">High-performance TiO2 ferroelectric FETs with HfZrO2 dielectric for neuromorphic computing</span>
+          <span class="zh">面向类脑计算的高性能TiO2铁电FET(HfZrO2介质)</span>
+        </a><span class="tag">device-fab</span><span class="tag">neuromorphic</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20406" target="_blank" rel="noopener">arXiv:2605.20406</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">Bottom-gate FeFETs using TiO2 channels on HfZrO2 ferroelectric dielectric, reported with high on/off ratios across two gate-stack thicknesses. The novelty is moving the CMOS-back-end-compatible HZO stack into a configuration that supports gradual conductance modulation — the prerequisite for analog weight storage. Single-device characterization only; no array-level retention or endurance data yet.</span>
+        <span class="zh">作者在HfZrO2铁电介质上以TiO2作为沟道,制备底栅FeFET并报告两种栅叠厚度下的高开关比。新意在于将与CMOS后段兼容的HZO体系配置为支持电导渐变调制——这是模拟权重存储的前提。仅为单器件表征,尚无阵列级保持或耐久数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research (hardware-relevant)</span>
+      <span class="zh">AI研究(与硬件相关)</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.20315" target="_blank" rel="noopener">
+          <span class="en">Mix-Quant: phase-aware quantization — aggressive in prefill, precise in decode</span>
+          <span class="zh">Mix-Quant:阶段感知量化——预填激进、解码精确</span>
+        </a><span class="tag">quantization</span><span class="tag">LLM-serving</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.20315" target="_blank" rel="noopener">arXiv:2605.20315</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">Most LLM quantization schemes pick a single precision for the whole forward pass; Mix-Quant observes that the prefill phase (compute-bound, error-tolerant due to attention averaging) and the decode phase (memory-bound, error-sensitive) want different precisions. The framework runs prefill at FP4 / INT4 and decode at higher precision, with measured throughput gains on agentic, long-context workloads. The framing — phase as a first-class quantization dimension — is the more durable contribution than any specific schedule.</span>
+        <span class="zh">多数LLM量化方案对整次前向使用统一精度;Mix-Quant注意到prefill阶段(计算密集、对误差宽容)与decode阶段(内存密集、对误差敏感)需要不同精度。框架在prefill使用FP4/INT4,decode使用更高精度,在Agentic长上下文负载上获得实测吞吐量提升。比起具体调度,&#x27;阶段作为一等量化维度&#x27;这一框架本身更具持久价值。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.21427" target="_blank" rel="noopener">
+          <span class="en">PALS: power-aware LLM serving — GPU power caps as a runtime variable</span>
+          <span class="zh">PALS:功耗感知的LLM服务——把GPU功耗上限当成运行时变量</span>
+        </a><span class="tag">LLM-serving</span><span class="tag">MoE</span><span class="tag">power</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21427" target="_blank" rel="noopener">arXiv:2605.21427</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">Existing LLM-serving systems treat GPU power as a static datacenter constraint and optimize only batching, scheduling, and parallelism. PALS treats power caps as a first-class control surface, dynamically retuning per-GPU power limits across expert-parallel MoE replicas to match the actual computation cost per token. The reported gains in tokens-per-watt are modest but the architectural shift is the right one: in a memory-bound inference regime, the binding constraint is increasingly thermal, not FLOPS.</span>
+        <span class="zh">现有LLM服务系统将GPU功耗视为数据中心层面的静态约束,只在批处理、调度、并行上做优化。PALS将功耗上限当作一等控制面,在专家并行MoE副本之间动态调整每卡功耗上限,以匹配每token的实际计算开销。论文给出的能效提升不算激进,但架构方向是对的:在内存受限的推理形态下,真正的硬约束越来越是热,而非FLOPS。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.21100" target="_blank" rel="noopener">
+          <span class="en">NanoCP: request-level dynamic context parallelism for data-expert parallel MoE decoding</span>
+          <span class="zh">NanoCP:用于数据-专家并行MoE解码的请求级动态上下文并行</span>
+        </a><span class="tag">LLM-serving</span><span class="tag">MoE</span><span class="tag">KV-cache</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21100" target="_blank" rel="noopener">arXiv:2605.21100</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">Modern MoE serving binds each request&#x27;s attention, MoE communication, and KV cache to a single instance — fine for short prompts, ruinous for long context because attention cost scales with KV-cache size while MoE all-to-all latency scales with batch. NanoCP dynamically splits context parallelism per request, decoupling these two scaling laws. The contribution is small in code but large in implication: MoE serving has to stop pretending requests are uniform.</span>
+        <span class="zh">现代MoE服务系统将每个请求的注意力、MoE通信与KV缓存绑定到单一实例——短提示词没问题,长上下文则灾难性:注意力开销随KV缓存大小增长,MoE的all-to-all延迟随批大小增长,两者的扩展规律相互矛盾。NanoCP按请求动态分配上下文并行度,解耦了这两个维度。代码层改动不大,意义却大:MoE服务必须停止假装请求是同质的。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum Devices</span>
+      <span class="zh">量子器件</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.21045" target="_blank" rel="noopener">
+          <span class="en">Towards transistor-based quantum computing: telesistors and topologically protected Clifford gates</span>
+          <span class="zh">面向晶体管化的量子计算:Telesistor与拓扑保护Clifford门</span>
+        </a><span class="tag">theory</span><span class="tag">preprint</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.21045" target="_blank" rel="noopener">arXiv:2605.21045</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">The authors propose a universal QC architecture in which the elementary unit is a teleportation-based &#x27;telesistor&#x27; built from symmetry-protected topological ground states, which suppress certain noise channels and yield Clifford gates without active error correction. The hope is to make the architectural picture of a quantum processor more transistor-like — a tractable, composable element. Theoretical proposal; nothing fabricated.</span>
+        <span class="zh">作者提出一种通用量子计算架构,其基元为基于对称性保护拓扑序基态的&#x27;telesistor&#x27;:通过隐形传态实现门操作,从而被动抑制特定噪声、无需主动纠错即可获得Clifford门。其雄心在于让量子处理器的架构图景更像经典晶体管:可分解、可组合。目前为理论提案,尚无器件实现。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA, Verification &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.10807" target="_blank" rel="noopener">
+          <span class="en">LLMs for secure hardware design: opportunities and severe vulnerabilities</span>
+          <span class="zh">大模型用于硬件安全设计:机会与严重漏洞</span>
+        </a><span class="tag">survey</span><span class="tag">EDA</span>
+      </h3>
+      <p class="authors">et al. (see paper)</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2605.10807" target="_blank" rel="noopener">arXiv:2605.10807</a> · 2026-05-21</p>
+      <p class="summary">
+        <span class="en">A comprehensive review of LLMs across the EDA stack — RTL generation, testbench synthesis, spec-to-silicon — that breaks from the usual cheerleading and catalogs concrete vulnerabilities: prompt-injection-induced Trojans, leakage of pre-silicon IP through chat logs, and verification gaps the models reliably miss. The clearest practitioner-facing summary published this year.</span>
+        <span class="zh">对大模型在EDA各环节(RTL生成、测试平台合成、规格到芯片的桥接)应用的全面综述,但跳出业内常见的乐观叙述,系统记录了具体漏洞:提示注入诱导的硬件木马、聊天日志泄漏前期IP、以及模型反复遗漏的验证盲区。是今年面向实务工程师最清晰的一份梳理。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-23 01:26 UTC · <a href="../2026-05-21.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-05-23 01:26 UTC · <a href="../2026-05-21.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

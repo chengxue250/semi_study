@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-20">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Inference Bottlenecks Move Beyond Compute — Semi Research 2026-08-20</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-08-20.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, August 20, 2026</span>
+      <span class="zh">研究摘要 · 2026年8月20日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Inference Bottlenecks Move Beyond Compute</span>
+      <span class="zh">推理瓶颈走出计算核心</span>
+    </h1>
+    <p class="dek">
+      <span class="en">New work targets the data movement, mixed precision, memory hierarchy, and device integration that increasingly govern useful AI throughput. Measured silicon in event vision and emerging memory provides a counterweight to simulation-only system proposals.</span>
+      <span class="zh">最新研究开始聚焦数据搬运、混合精度、存储层级与器件集成，这些因素正日益决定AI的有效吞吐。事件视觉与新型存储中的实测芯片结果，也为以仿真为主的系统方案提供了重要参照。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">Accelerators &amp; Workloads</span>
+      <span class="zh">加速器与工作负载</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.17787" target="_blank" rel="noopener">
+          <span class="en">ETHEREAL brings event-driven graph vision to measured silicon</span>
+          <span class="zh">ETHEREAL将事件驱动图视觉落实到实测芯片</span>
+        </a>
+      </h3>
+      <p class="authors">Adrian Kneip, Martin Lefebvre, D. Gehrig, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.17787" target="_blank" rel="noopener">arXiv:2608.17787</a> · 2026-08-18</p>
+      <p class="summary">
+        <span class="en">ETHEREAL is a dedicated processor for event-driven graph neural networks, combining a neighbor-parallel spline-convolution engine with a split 2D/3D memory hierarchy. Measured results report 25.6 microseconds per inference and 1.6 microjoules on a VGA event-vision workload. The silicon result is notable, although broader comparisons will require more workloads and complete system power accounting.</span>
+        <span class="zh">ETHEREAL是一款面向事件驱动图神经网络的专用处理器，结合邻居并行样条卷积引擎与二维/三维分层存储结构。实测结果显示，在VGA事件视觉任务上，每次推理延迟为25.6微秒、能耗为1.6微焦耳。该芯片结果具有意义，但更全面的比较仍需要更多工作负载与完整系统功耗核算。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.17336" target="_blank" rel="noopener">
+          <span class="en">TileMix routes attention precision at hardware-sized tiles</span>
+          <span class="zh">TileMix以硬件对齐分块调度注意力精度</span>
+        </a>
+      </h3>
+      <p class="authors">Hanzhi Zhang, Qiao Zhang, Qinglei Cao, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.17336" target="_blank" rel="noopener">arXiv:2608.17336</a> · 2026-08-18</p>
+      <p class="summary">
+        <span class="en">TileMix assigns FP16 or INT8 execution to hardware-aligned attention score tiles while maintaining one shared online-softmax state. It preserves dense token connectivity and supports grouped-query attention, variable-length batches, and INT8 KV caches without retraining. A100 results are promising, but portability depends on whether other accelerator kernels can expose equally efficient tile-level routing.</span>
+        <span class="zh">TileMix为硬件对齐的注意力分数块分配FP16或INT8执行路径，同时维护共享的在线softmax状态。该方法保留稠密token连接，并支持分组查询注意力、变长批次和INT8 KV缓存，无需重新训练。A100结果具有潜力，但能否迁移到其他加速器，取决于其内核是否能同样高效地提供分块级精度调度。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2608.15127" target="_blank" rel="noopener">
+          <span class="en">AgentSysBench characterizes the systems cost of agentic AI</span>
+          <span class="zh">AgentSysBench刻画智能体AI的系统成本</span>
+        </a>
+      </h3>
+      <p class="authors">Chaokun Chang, Yukun Zhou, Kaihua Fu, et al.</p>
+
+      <p class="venue"><a href="http://arxiv.org/abs/2608.15127" target="_blank" rel="noopener">arXiv:2608.15127</a> · 2026-08-15</p>
+      <p class="summary">
+        <span class="en">AgentSysBench measures ten agentic applications and finds that non-LLM components dominate latency in half of them. Sandbox working sets reach 28 GB per session, resource affinities vary sharply, and production state can remain idle for minutes or hours. The study argues that agent serving needs coordinated CPU, GPU, memory, sandbox, and control-plane scheduling rather than model-only optimization.</span>
+        <span class="zh">AgentSysBench测量了10类智能体应用，发现其中一半的延迟主要来自非LLM组件。单会话沙箱工作集最高达到28 GB，不同组件的资源偏好差异明显，生产环境中的状态还可能空闲数分钟至数小时。研究据此指出，智能体服务需要协同调度CPU、GPU、存储、沙箱与控制平面，而不能只优化模型推理。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="memory-systems">
+    <h2>
+      <span class="en">Memory &amp; Interconnect Systems</span>
+      <span class="zh">存储与互联系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3789240.3828750" target="_blank" rel="noopener">
+          <span class="en">ARK coordinates paths for disaggregated KV-cache transfers</span>
+          <span class="zh">ARK为解耦式KV缓存传输协调路径</span>
+        </a>
+      </h3>
+      <p class="authors">Hung-Chun Lin, Ting-Wei Hsu, Chung-En Ho, Ahmed Saeed</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3828750" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-17</p>
+      <p class="summary">
+        <span class="en">ARK treats KV-cache transfers between prefill and decode pools as long-lived elephant flows that can justify lightweight coordination. Senders reserve source-port hashes that spread simultaneous RDMA flows across spine links without switch changes. Simulations report up to 34% lower P95 flow-completion time and 12.9% lower mean time to first token, with hardware-scale validation still needed.</span>
+        <span class="zh">ARK将预填充与解码资源池之间的KV缓存传输视为长时大象流，从而使轻量协调具有经济性。发送端通过预留源端口哈希，将并发RDMA流分散到不同脊交换链路，无需修改交换机。仿真显示，P95流完成时间最高降低34%，平均首token时间最高降低12.9%，但仍需要硬件规模验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3789240.3829159" target="_blank" rel="noopener">
+          <span class="en">DualPath uses idle decode-side I/O for agentic KV caches</span>
+          <span class="zh">DualPath利用解码侧闲置I/O搬运智能体KV缓存</span>
+        </a>
+      </h3>
+      <p class="authors">Yongtong Wu, Shaoyuan Chen, Rilin Huang, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3829159" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
+      <p class="summary">
+        <span class="en">DualPath adds a storage-to-decode route for loading KV caches, then transfers data to prefill engines over RDMA. This uses NIC bandwidth that otherwise sits idle while prefill-side storage links saturate. Production-style experiments report up to 1.87 times higher offline throughput, though benefits depend on topology, scheduler quality, and interference control.</span>
+        <span class="zh">DualPath增加了一条存储到解码引擎的KV缓存加载路径，再通过RDMA将数据传给预填充引擎。这样可利用原本闲置的解码侧NIC带宽，缓解预填充侧存储链路饱和。类生产实验报告离线吞吐最高提升1.87倍，但收益取决于网络拓扑、调度质量与干扰控制。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3789240.3822568" target="_blank" rel="noopener">
+          <span class="en">A CXL memory expander replaces NVMe staging for GPU data</span>
+          <span class="zh">CXL内存扩展器替代GPU数据的NVMe暂存层</span>
+        </a>
+      </h3>
+      <p class="authors">Veerasenareddy Burru, Pradeep Kumar Nalla, Alok Prasad</p>
+
+      <p class="venue"><a href="https://doi.org/10.1145/3789240.3822568" target="_blank" rel="noopener">ACM SIGCOMM 2026</a> · 2026-08-11</p>
+      <p class="summary">
+        <span class="en">This work evaluates a CXL memory expander with an on-device DMA controller as a staging tier between host capacity and GPU HBM. PCIe peer-to-peer DMA works around the lack of native GPU participation in CXL and reaches a reported 51 GB/s read bandwidth, well above a single enterprise NVMe drive. The result is a useful systems prototype, but cost, capacity, and multi-device contention determine deployment value.</span>
+        <span class="zh">该研究评估了一种带片上DMA控制器的CXL内存扩展器，将其作为主机容量与GPU HBM之间的暂存层。PCIe点对点DMA绕过了GPU无法原生参与CXL协议的问题，报告读取带宽达到51 GB/s，明显高于单块企业级NVMe硬盘。该原型具有系统价值，但实际部署仍取决于成本、容量与多设备争用。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="devices-memory">
+    <h2>
+      <span class="en">Devices &amp; Emerging Memory</span>
+      <span class="zh">器件与新型存储</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s44335-026-00091-3" target="_blank" rel="noopener">
+          <span class="en">IGZO capacitive cells perform differentiable in-memory distance</span>
+          <span class="zh">IGZO电容单元实现可微分存内距离计算</span>
+        </a>
+      </h3>
+      <p class="authors">Changhoon Joe, K. Byun, Minseung Kang, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1038/s44335-026-00091-3" target="_blank" rel="noopener">npj Unconventional Computing</a> · 2026-08-14</p>
+      <p class="summary">
+        <span class="en">The authors implement analog in-memory distance computing with IGZO thin-film transistor capacitive units, combining embedding extraction and similarity search. Continuous outputs enable hardware-in-the-loop representation learning without a separate digital distance engine. One-shot learning reportedly matches GPU accuracy with up to 576 times better energy efficiency, although array scale and peripheral overhead remain important caveats.</span>
+        <span class="zh">作者利用IGZO薄膜晶体管电容单元实现模拟存内距离计算，将嵌入提取与相似度搜索结合在同一架构中。连续输出支持硬件在环表征学习，无需独立数字距离计算引擎。一次学习任务据称可达到GPU相近精度，并实现最高576倍能效提升，但阵列规模与外围电路开销仍是重要限制。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/aelm.202500798" target="_blank" rel="noopener">
+          <span class="en">HfO2 RRAM is tested down to 1.5 kelvin</span>
+          <span class="zh">HfO2 RRAM完成低至1.5开尔文测试</span>
+        </a>
+      </h3>
+      <p class="authors">Emilio Perez-Bosch Quesada, Alberto Mistroni, Ruolan Jia, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1002/aelm.202500798" target="_blank" rel="noopener">Advanced Electronic Materials</a> · 2026-08-13</p>
+      <p class="summary">
+        <span class="en">This study evaluates 1T1R HfO2-based RRAM from room temperature down to 1.5 K for cryogenic memory use. Lower temperatures improve low-resistance-state separation but raise current and reset-voltage challenges, with the access transistor driving much of the behavior. Gate-bias tuning improves programming, indicating that cryogenic memory design must co-optimize the selector and resistive element.</span>
+        <span class="zh">该研究面向低温存储应用，测试了从室温到1.5 K的1T1R HfO2 RRAM。低温改善了低阻态分离度，却带来更高电流与复位电压问题，其中访问晶体管主导了大部分变化。通过调整栅极偏置可改善编程，说明低温存储必须协同优化选择器与阻变单元。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1116/6.0005641" target="_blank" rel="noopener">
+          <span class="en">A plasma process thins ferroelectric HZO below 10 nm</span>
+          <span class="zh">等离子工艺将铁电HZO减薄至10纳米以下</span>
+        </a>
+      </h3>
+      <p class="authors">Vincent Michaud, C. Boixaderas, L. Grenouillet, et al.</p>
+
+      <p class="venue"><a href="https://doi.org/10.1116/6.0005641" target="_blank" rel="noopener">Journal of Vacuum Science &amp; Technology A</a> · 2026-08-12</p>
+      <p class="summary">
+        <span class="en">The work crystallizes a 10 nm HZO layer between TiN electrodes at 400 degrees Celsius, then selectively removes the top electrode and plasma-thins the ferroelectric film. This sequence targets sub-10 nm HZO while staying within a back-end-compatible thermal budget. The process addresses a practical integration barrier, though electrical endurance and uniformity after thinning remain the next tests.</span>
+        <span class="zh">该工艺先在TiN电极之间以400摄氏度结晶10纳米HZO层，再选择性去除顶部电极并通过等离子体减薄铁电薄膜。其目标是在后端兼容热预算内获得10纳米以下HZO。该方案解决了一项实际集成障碍，但减薄后的电学耐久性与均匀性仍需进一步验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1063/5.0347885" target="_blank" rel="noopener">
+          <span class="en">Area-ratio control expands the operating window of ferroelectric GaN</span>
+          <span class="zh">面积比控制拓宽铁电GaN器件工作窗口</span>
+        </a>
+      </h3>
+      <p class="authors">Jongmin Park, H. Joo, Geonwook Yoo</p>
+
+      <p class="venue"><a href="https://doi.org/10.1063/5.0347885" target="_blank" rel="noopener">Applied Physics Letters</a> · 2026-08-10</p>
+      <p class="summary">
+        <span class="en">An AlScN/GaN ferroelectric HEMT uses an 8:1 area-ratio-controlled MFMIS gate stack to manage voltage partitioning. The device reports a 26.8 mV/dec subthreshold slope, a 5.7 V DC memory window, and endurance to 30 million cycles. The results support reconfigurable GaN devices, but system relevance will depend on variability, retention, and fabrication compatibility.</span>
+        <span class="zh">这款AlScN/GaN铁电HEMT采用8:1面积比控制的MFMIS栅堆栈，以调节电压分配。器件报告26.8 mV/dec亚阈值摆幅、5.7 V直流存储窗口，并承受3000万次循环。结果支持可重构GaN器件方向，但系统价值仍取决于一致性、保持特性与制造兼容性。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-20 13:55 UTC · <a href="../2026-08-20.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-08-20 13:55 UTC · <a href="../2026-08-20.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

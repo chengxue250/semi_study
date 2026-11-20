@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-09">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Reprices the Chip Stack — Semi News 2026-07-09</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, July 9, 2026</span>
+      <span class="zh">2026年7月9日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Reprices the Chip Stack</span>
+      <span class="zh">AI需求重定价芯片供应链</span>
+    </h1>
+    <p class="dek">
+      <span class="en">China may reopen a narrow path for Nvidia H200 imports while foundries, memory suppliers, and AI-chip challengers all use scarcity to reset terms. The day reads less like a single product cycle and more like a full-stack capacity negotiation.</span>
+      <span class="zh">中国可能为Nvidia H200进口重新打开有限窗口，同时晶圆代工、存储供应商和AI芯片挑战者都在借供给紧张重设议价条件。今天的主线不像单一产品周期，更像整条芯片栈的产能谈判。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/china-weighs-reversing-its-own-nvidia-ban-may-let-alibaba-bytedance-others-buy-200000-h200-chips/" target="_blank" rel="noopener">
+          <span class="en">China Weighs Limited Access to 200,000 Nvidia H200 Chips</span>
+          <span class="zh">中国考虑有限放行20万颗Nvidia H200芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 6h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Wccftech, citing a report from The Information, says Chinese authorities are considering allowing Alibaba, ByteDance, DeepSeek and other firms to buy restricted quantities of Nvidia H200 GPUs, potentially totaling 200,000 chips. That would soften China&#x27;s own purchasing curbs without removing the broader U.S. export-control overhang. For Nvidia and domestic cloud buyers, even a limited channel would matter because advanced AI training and inference supply remains constrained.</span>
+        <span class="zh">Wccftech援引The Information报道称，中国监管层正考虑允许Alibaba、ByteDance、DeepSeek等企业以受限数量购买Nvidia H200 GPU，总量可能达到20万颗。这将放松中国自身采购限制的一部分，但并不消除美国出口管制带来的整体不确定性。对Nvidia和中国云厂商来说，即便只是有限通道，也会影响先进AI训练与推理算力的供给。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.embedded.com/qualcomm-unveils-dragonfly-data-center-portfolio-for-agentic-ai-infrastructure/" target="_blank" rel="noopener">
+          <span class="en">Qualcomm Introduces Dragonfly Data-Center AI Portfolio</span>
+          <span class="zh">Qualcomm推出Dragonfly数据中心AI产品组合</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Embedded.com</span> · 4h ago</span>
+        <span class="zh"><span class="source">Embedded.com</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Qualcomm unveiled its Dragonfly data-center portfolio for agentic AI infrastructure, combining CPUs, AI accelerators and HBC technology for inference workloads. The move pushes Qualcomm deeper into server AI, where power efficiency and system-level integration are becoming as important as peak accelerator throughput. It also broadens the set of Arm-based and custom-silicon alternatives competing for inference deployments.</span>
+        <span class="zh">Qualcomm发布面向agentic AI基础设施的Dragonfly数据中心产品组合，涵盖CPU、AI加速器和HBC技术，重点面向推理负载。这意味着Qualcomm进一步进入服务器AI市场，而该市场中能效和系统集成能力正变得与加速器峰值吞吐同样重要。它也扩大了Arm架构和定制硅方案在推理部署中的竞争范围。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry</span>
+      <span class="zh">晶圆代工</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxNOHBGT1ZBQTM0YnJHNThRb3hzVUdDQ09RZHNMLWRTRXBLQnhFWXBfT3dERFgzNmZCVjJnbFNRUFZjSUpaX1ZaNGRaOU5sbGRNUW5uUGpScTdTVkZ6THhaMzhEZFhqMWcwUWVrUVl6Tl91VUY1OVhxTHl4RVUxaTlrcTZ2WlJnOGRMd0hKMUtR0gGOAUFVX3lxTE04cEZPVkFBMzRickc1OFFveHNVR0NDT1Fkc0wtZFNFcEtCeEVZcF9Pd0REWDM2ZkJWMmdsU1FQVmNJSlpfVlo0ZFo5TmxsZE1Rbm5QalJxN1NWRnpMeFozOERkWGoxZzBRZWtRWXpOX3VVRjU5WHFMeXhFVTFpOWtxNnZaUmc4ZEx3SEoxS1E?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC and Samsung Raise Foundry Prices as AI Demand Shifts Leverage</span>
+          <span class="zh">AI需求推动TSMC与Samsung上调代工价格</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosunbiz</span> · 4h ago</span>
+        <span class="zh"><span class="source">Chosunbiz</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chosunbiz reports that TSMC and Samsung are raising foundry prices as AI demand shifts more negotiating power toward suppliers. The move signals that advanced-node and packaging-linked capacity remain tight enough for major foundries to defend margins. Customers building AI processors may face higher wafer costs at the same time they are competing for memory and advanced packaging slots.</span>
+        <span class="zh">Chosunbiz报道称，随着AI需求改变供需关系，TSMC和Samsung正在上调晶圆代工价格。这表明先进制程以及与先进封装相关的产能仍然紧张，足以让主要代工厂维护利润率。开发AI处理器的客户可能在争夺存储和先进封装产能的同时，承受更高的晶圆成本。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9qWElVSFJweGt3NmxwUmhNNmlSb1NsR2pPSVBSZDdKRjVJTDZQNmN6M0JOUDh5dEk1anVJdHJNRVdsX1gyYmV2OUdvb21XR3JnZmVJODQ3MkhmR09EdlRkVlJ6N1ZEczYyRWxmU3d3?oc=5" target="_blank" rel="noopener">
+          <span class="en">Intel Plans 14A2 Node With Dual-Side Power</span>
+          <span class="zh">Intel规划采用双侧供电的14A2制程</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">HotHardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">HotHardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">HotHardware reports that Intel is planning a 14A2 process node with dual-side power delivery as it tries to compete with TSMC and Samsung at future leading-edge nodes. Backside and dual-side power schemes aim to reduce routing congestion and improve performance-per-watt, but they also add manufacturing complexity. The roadmap underscores how power delivery has become a front-line process-technology battleground.</span>
+        <span class="zh">HotHardware报道称，Intel正规划带有双侧供电的14A2制程，以在未来先进节点上与TSMC和Samsung竞争。背面供电和双侧供电方案旨在降低布线拥塞、提升每瓦性能，但也会增加制造复杂度。这一路线图凸显供电架构已经成为先进制程竞争的一线战场。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/rapidus-fab-roadmap-examined" target="_blank" rel="noopener">
+          <span class="en">Rapidus Roadmap Centers Japan&#x27;s Leading-Edge Return on One Hokkaido Fab</span>
+          <span class="zh">Rapidus以北海道单座晶圆厂承载日本先进制程回归</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tom&#x27;s Hardware examines Rapidus&#x27;s plan to bring Japan back into leading-edge logic with one fab in Chitose, Hokkaido, a 2027 deadline and roughly 60 potential customers. The concentration raises execution risk because process ramp, customer qualification and ecosystem buildout all depend on the same site. Rapidus remains strategically important because Japan wants a domestic advanced-logic option rather than only materials and equipment strength.</span>
+        <span class="zh">Tom&#x27;s Hardware梳理了Rapidus的路线图：该公司试图依靠北海道千岁的一座晶圆厂、2027年期限以及约60家潜在客户，让日本重返先进逻辑制造。产能和技术路线集中在单一厂区，意味着制程爬坡、客户认证和生态建设都承受较高执行风险。Rapidus仍具战略意义，因为日本希望拥有本土先进逻辑制造选项，而不只是在材料和设备环节保持优势。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/personal-tech/2026/07/08/ai-memory-crunch-takes-a-bite-out-of-pc-shipments/5268593" target="_blank" rel="noopener">
+          <span class="en">AI Memory Crunch Starts to Weigh on PC Shipments</span>
+          <span class="zh">AI存储紧缺开始拖累PC出货</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 9h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Register reports that the AI memory crunch is taking a bite out of PC shipments, with IDC warning that smaller players may struggle as the DRAM shortage persists. AI servers continue to pull high-value memory supply toward data-center demand, leaving less flexibility for commodity PC channels. The story shows how HBM and server DRAM tightness can spill into adjacent electronics markets.</span>
+        <span class="zh">The Register报道称，AI存储紧缺正在影响PC出货，IDC警告在DRAM短缺持续的情况下，小型厂商可能更难应对。AI服务器继续把高价值存储供应吸向数据中心需求，压缩了PC等大宗渠道的调配空间。这说明HBM和服务器DRAM紧张会外溢到相邻电子市场。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE1uWGFwMXMyMlhlaVRUakxsQy1pU0JybEUtdXI0VzhTM05vN25FMkpNTF9qOUl5UjlReGZwQ3NlcmMzdUNCQmFBcVpEMHc1X3RIYnJKT3M4N1g1Vmd4aHl3VERHZ0lOU0g3Vy1hNjdaTFBZWUpBQk84Wi1ZR2E?oc=5" target="_blank" rel="noopener">
+          <span class="en">Ultrathin Chip Stacks Point to Higher HBM Density</span>
+          <span class="zh">超薄芯片堆叠指向更高HBM密度</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Xplore</span> · 6h ago</span>
+        <span class="zh"><span class="source">Tech Xplore</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tech Xplore reports on ultrathin chip-stack work that could quadruple high-bandwidth memory density and ease AI memory bottlenecks. The result is still a technology-development story, not immediate capacity, but it targets the exact bottleneck limiting accelerator systems: bandwidth and density near compute. If manufacturable, denser stacks would help reduce the package and board-level pressure around future AI accelerators.</span>
+        <span class="zh">Tech Xplore报道了一项超薄芯片堆叠工作，称其有望将高带宽存储密度提高至四倍，从而缓解AI存储瓶颈。这仍属于技术研发进展，并非即时产能，但它瞄准了限制加速器系统的关键问题：计算单元附近的带宽和密度。如果能够实现量产，更高密度堆叠将缓解未来AI加速器在封装和板级设计上的压力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/eda/moores-lab-ai/370928-mooreslabai-at-dac-2026-why-the-future-of-semiconductor-engineering-is-agentic-not-just-generative/" target="_blank" rel="noopener">
+          <span class="en">MooresLabAI Frames DAC 2026 Around Agentic Chip Engineering</span>
+          <span class="zh">MooresLabAI在DAC 2026聚焦agentic芯片工程</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 4h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SemiWiki reports that MooresLabAI is using DAC 2026 to argue that semiconductor engineering is moving from generic generative assistance toward agentic workflows across specifications, RTL, verification, debugging and signoff. The story is about design tools rather than fab equipment, but it targets a real constraint: engineering capacity is increasingly a bottleneck alongside transistor scaling. The practical question is whether these agents can integrate with existing EDA flows without weakening traceability and verification quality.</span>
+        <span class="zh">SemiWiki报道称，MooresLabAI在DAC 2026强调半导体工程将从通用生成式辅助，转向覆盖规格、RTL、验证、调试和signoff的agentic工作流。该消息关注的是设计工具而非晶圆厂设备，但它瞄准了真实瓶颈：工程能力正与晶体管缩放一样成为限制因素。实际问题在于，这类agent能否接入现有EDA流程，同时不削弱可追溯性和验证质量。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZG1ZTFAxeWJOZUprYk53czNNeXhOR1N1V1ZDUFh2dkdNTHFjalVOVmFYLTg1V0lTZEhVczR6WkxoSDA3THNmdG8yOXFDTWMxdFl1UVhwSDNlU1pqV1VLVkNaaEtsT2UwZmVncmo3dHZBWGQ3UExqUU1vdk0wektQZWJFNks4QUNJ?oc=5" target="_blank" rel="noopener">
+          <span class="en">DeepSeek and Zhipu Push AI Chips Under Sanctions Pressure</span>
+          <span class="zh">DeepSeek与Zhipu在制裁压力下推进AI芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosun Ilbo</span> · 2h ago</span>
+        <span class="zh"><span class="source">Chosun Ilbo</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chosun Ilbo reports that DeepSeek and Zhipu are developing AI chips as U.S. sanctions constrain access to leading imported accelerators. The move reflects a broader attempt by Chinese AI firms to reduce exposure to Nvidia supply uncertainty and export-control decisions. Domestic silicon may not close the performance gap quickly, but it changes procurement strategy and gives Beijing another lever in AI infrastructure planning.</span>
+        <span class="zh">朝鲜日报报道称，在美国制裁限制先进进口加速器获取的背景下，DeepSeek和Zhipu正在开发AI芯片。这反映出中国AI公司试图降低对Nvidia供应不确定性和出口管制决定的暴露。国产硅方案未必能迅速弥合性能差距，但会改变采购策略，并为中国AI基础设施规划提供新的抓手。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVVRScWUyVnVLeUUzcEdCRDYybHg2dWZFZXlwQ0hsdWRlN0ZNdHh4dndPcmdhV3JUUXhnVDFxV05Rb2Jadk5hY3gyUkZ3M21oOG0zSzB3M1pWSW00OWk1ZlN1clNlN1pVSVlNVzdKT0Q4dFluM3FIakhlYXVKT1l2dkM5OVhrVGw2c1lMdThmdXZhUXdvSTdDSHlOdHZRT3g5UnB1Y1d6Q3h5cE0?oc=5" target="_blank" rel="noopener">
+          <span class="en">China and the Netherlands Seek a Path Out of Nexperia Dispute</span>
+          <span class="zh">中国与荷兰寻求化解Nexperia争端</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Table.Briefings</span> · 3h ago</span>
+        <span class="zh"><span class="source">Table.Briefings</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Table.Briefings reports that China and the Netherlands are looking for a way out of their Nexperia dispute. The issue matters because Nexperia sits in the mature-node and discrete-device supply chain where disruptions can ripple through automotive and industrial customers. A negotiated path would reduce one source of Europe-China semiconductor friction, even as advanced-node controls remain unresolved.</span>
+        <span class="zh">Table.Briefings报道称，中国和荷兰正在寻求解决Nexperia争端的路径。Nexperia处在成熟制程和分立器件供应链中，供应扰动可能波及汽车和工业客户。若双方找到谈判出口，将减少中欧半导体摩擦的一处风险点，尽管先进制程管制问题仍未解决。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNRDlVX3AtWW1GLVkyMzR2YXplRWdfbUFJYkJHLW0wUVBtc2huSFN0X19SdUE2NWpaOGtDbFNpNTRhejdQeHQtMWV3UUM5MHBUU2hXbWZfNnM4RldDSnM2aXRMNGRJZU10c056UHZkSmRVbnNKakhjNjE2Q0dyM2lSV0tyY2sxdEpaZzBHTmhmbjhwdk0tdFREeA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Innodisk Revenue Surges on AI Memory Demand and Price Hikes</span>
+          <span class="zh">AI存储需求与涨价推动Innodisk营收大增</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Digitimes</span> · 1h ago</span>
+        <span class="zh"><span class="source">Digitimes</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Digitimes reports that Innodisk revenue surged on AI memory demand and price hikes. The result is a smaller-company signal that the memory upcycle is not limited to HBM leaders, because industrial and embedded memory suppliers are also seeing AI-related demand. It reinforces the view that pricing power has spread across more of the memory chain.</span>
+        <span class="zh">Digitimes报道称，受AI存储需求和涨价推动，Innodisk营收大幅增长。这是一个来自较小公司的信号，说明存储上行周期并不限于HBM龙头，工业和嵌入式存储供应商也在受益于AI相关需求。它进一步表明，定价能力正在向更广泛的存储链条扩散。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxOR1pnU29ONERXTVotNUxGWDFMZlVFSnhYZDBYdUE0N1FMY19USGEzNG04bmlrbTkzU0tjbXcxY2FyT25HS0p3QjlteVhicDhub2R4R1d1TFVGUGFzMEt6TWxxZFBXZ2dyWjFJMUp1dWs0bFBONFVaQ2xvSkM1UUFVeUdzQnRMdXh1TnJBOXZVT2xkbzNOLVcyZHNzdkw5TEtVQjM4dGNoYU5SSU9Xa0E2a1BHXy1EZ1E?oc=5" target="_blank" rel="noopener">
+          <span class="en">SambaNova Raises $1 Billion at $11 Billion Valuation</span>
+          <span class="zh">SambaNova以110亿美元估值融资10亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AI Insider</span> · 7h ago</span>
+        <span class="zh"><span class="source">AI Insider</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AI Insider reports that SambaNova secured $1 billion in funding at an $11 billion valuation and landed JPMorgan Chase as an inference partner. The financing gives the company more runway as enterprise AI buyers test alternatives to GPU-only deployments. Its traction with a large bank also matters because on-prem inference is one of the clearer openings for accelerator challengers.</span>
+        <span class="zh">AI Insider报道称，SambaNova以110亿美元估值获得10亿美元融资，并将JPMorgan Chase纳入推理合作伙伴。融资将为该公司提供更长的窗口，以争取正在测试非GPU单一路线的企业AI客户。与大型银行的合作也很关键，因为本地部署推理是加速器挑战者较明确的切入口之一。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-09 01:16 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-09 01:16 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

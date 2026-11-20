@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-28">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Data Movement Sets the Research Agenda — Semi Research 2026-06-28</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-28.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Sunday, June 28, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月28日 星期日</span>
+    </div>
+    <h1>
+      <span class="en">Data Movement Sets the Research Agenda</span>
+      <span class="zh">数据搬移主导研究议程</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s stronger papers treat memory placement, interconnect overhead, photonic switching, and safety verification as first-order design problems. The common thread is that compute blocks matter less when data movement, topology, and packaging constraints dominate system behavior.</span>
+      <span class="zh">本周较强的论文把存储位置、互连开销、光子交换和安全验证视为一阶设计问题。共同线索是，当数据搬移、拓扑和封装约束主导系统行为时，单个计算模块本身的重要性会下降。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1002/adom.202503295" target="_blank" rel="noopener">
+          <span class="en">Non-Volatile Silicon Mach-Zehnder Switches Using Graphene Heaters and Sb2Se3 Phase Change Material</span>
+          <span class="zh">基于Graphene加热器和Sb2Se3相变材料的非易失硅Mach-Zehnder开关</span>
+        </a>
+      </h3>
+      <p class="authors">J. Samland, F. Hoff, T. Veslin, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1002/adom.202503295" target="_blank" rel="noopener">Advanced Optical Materials</a> · 2026-06-23</p>
+      <p class="summary">
+        <span class="en">Samland et al. experimentally demonstrate non-volatile silicon Mach-Zehnder switches using Sb2Se3 phase-change material switched by graphene heaters. The reported device reaches a 0.7 pi phase shift, VpiL of about 0.56 Vcm, and a 28 dB extinction ratio. The result is useful for neuromorphic and reconfigurable PICs because the optical state can persist without continuous heater power, though the path to dense, repeatable arrays still depends on process control and cycling data.</span>
+        <span class="zh">Samland等人实验展示了使用Sb2Se3相变材料、由graphene加热器切换的非易失硅Mach-Zehnder开关。器件实现了0.7π相移、约0.56 Vcm的VπL和28 dB消光比。这个结果对神经形态和可重构PIC有价值，因为光学状态无需持续加热功耗即可保持，但走向高密度、可重复阵列仍取决于工艺控制和循环可靠性数据。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s41378-026-01298-x" target="_blank" rel="noopener">
+          <span class="en">Scalable Silicon Photonic MEMS Switches with Quasi-Buckling-Free Directional Couplers</span>
+          <span class="zh">采用准无翘曲方向耦合器的可扩展硅光子MEMS开关</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Hu, J. Zhu, Y. Liu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1038/s41378-026-01298-x" target="_blank" rel="noopener">Microsystems &amp; Nanoengineering</a> · 2026-06-15</p>
+      <p class="summary">
+        <span class="en">Hu et al. co-design the mechanics and optics of a 2x2 horizontal adiabatic-directional-coupler MEMS switch to suppress buckling. The fabricated switches show broad 180 nm bandwidth, roughly 2 microsecond switching, more than 7.2 billion cycles, and a demonstrated 64x64 Benes array. That combination makes the work more relevant to AI optical switching fabrics than a single-device photonics result, although packaging and control overhead remain the scaling tests.</span>
+        <span class="zh">Hu等人对2x2水平绝热方向耦合器MEMS开关进行机光协同设计，以抑制翘曲。实测开关具备180 nm宽带、约2微秒切换速度、超过72亿次循环，并展示了64x64 Benes阵列。这个组合使其相比单器件光子结果更接近AI光交换网络需求，不过封装和控制开销仍是规模化考验。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27240" target="_blank" rel="noopener">
+          <span class="en">Scratchpad Memory and Heterogeneity Trade-offs in CGRAs</span>
+          <span class="zh">CGRA中Scratchpad Memory与异构性的权衡</span>
+        </a>
+      </h3>
+      <p class="authors">M. J. Belda, L. Orlandic, F. Castro, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27240" target="_blank" rel="noopener">arXiv:2606.27240</a> · 2026-06-25T16:24:35Z</p>
+      <p class="summary">
+        <span class="en">Belda et al. evaluate how scratchpad memory and heterogeneous processing elements change CGRA behavior on FFT, GEMM, and a seizure-detection transformer workload. The scratchpad reduces memory traffic by 8x versus a memory-less design, while the homogeneous architecture cuts area overhead by 4.4x to 8.2x compared with prior CGRAs. The paper is useful because it separates data-movement wins from PE-specialization wins instead of treating CGRA efficiency as one knob.</span>
+        <span class="zh">Belda等人在FFT、GEMM和癫痫检测Transformer工作负载上评估scratchpad memory与异构处理单元如何改变CGRA表现。相较无本地存储设计，scratchpad将存储流量降低8倍；而同构架构相对既有CGRA把面积开销降低4.4倍到8.2倍。论文的价值在于把数据搬移收益和PE专用化收益拆开分析，而不是把CGRA效率视为单一旋钮。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3827618" target="_blank" rel="noopener">
+          <span class="en">Location-Aware Scheduling for Multitasking MCM-GPUs</span>
+          <span class="zh">面向多任务MCM-GPU的位置感知调度</span>
+        </a>
+      </h3>
+      <p class="authors">T. Zhang, G. Zhang, Y. He, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3827618" target="_blank" rel="noopener">ACM TODAES</a> · 2026-06-24</p>
+      <p class="summary">
+        <span class="en">Zhang et al. show that placement decisions become first-order when multiple applications share a multi-chip-module GPU. Some workload pairs perform better when co-located on the same GPU chip to maximize memory bandwidth use, while others benefit from being split across chips to reduce contention. That observation maps directly to cloud GPU scheduling as chiplet GPUs become the norm rather than an exotic package choice.</span>
+        <span class="zh">Zhang等人指出，当多个应用共享多芯片模块GPU时，任务放置会成为一阶性能因素。有些工作负载组合放在同一GPU芯片上更利于利用存储带宽，另一些则适合跨芯片分布以降低争用。随着chiplet GPU成为常态而不再是特殊封装选择，这个观察直接映射到云端GPU调度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3821578" target="_blank" rel="noopener">
+          <span class="en">Protocol and Software Co-Optimization for dGPU In-Kernel ML</span>
+          <span class="zh">面向dGPU内核内机器学习的协议与软件协同优化</span>
+        </a>
+      </h3>
+      <p class="authors">W. Li, S. Zhu, P. Cuan, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3821578" target="_blank" rel="noopener">ACM TACO</a> · 2026-06-23</p>
+      <p class="summary">
+        <span class="en">Li et al. target the PCIe and software-path bottleneck that makes small-batch in-kernel ML offload unattractive on dGPUs. Their co-optimization combines feature selection, mixed-precision quantization, lightweight compression, and adaptive transfer scheduling, cutting transferred bytes by 50% to 87.5%. The key result is that the dGPU break-even batch size drops from 256 to 64 and latency falls 3.2x to 5.8x, showing that protocol overhead can dominate raw accelerator throughput.</span>
+        <span class="zh">Li等人针对小批量内核内机器学习卸载到dGPU时的PCIe和软件路径瓶颈。其协同优化结合特征选择、混合精度量化、轻量压缩和自适应传输调度，把传输字节数减少50%到87.5%。关键结果是dGPU盈亏平衡批量从256降到64，端到端延迟降低3.2倍到5.8倍，说明协议开销可能压过原始加速器吞吐。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">
+          <span class="en">A Neuromorphic Silicon Suite in SkyWater 130 nm</span>
+          <span class="zh">基于SkyWater 130 nm的神经形态硅IP套件</span>
+        </a>
+      </h3>
+      <p class="authors">P. Kumaresan, S. Sivasubramani</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.22635" target="_blank" rel="noopener">arXiv:2606.22635</a> · 2026-06-21T18:46:33Z</p>
+      <p class="summary">
+        <span class="en">Kumaresan and Sivasubramani present four interface-compatible neuromorphic IP blocks in SkyWater 130 nm: a PVT sensor, stochastic LIF neuron, STDP controller, and memristive-crossbar controller. The blocks share an SPI register file and were verified with 99 cocotb tests at RTL and gate level. It is not a production neuromorphic chip yet, but open, standard-cell blocks lower the barrier for reproducible edge-neuromorphic experiments.</span>
+        <span class="zh">Kumaresan和Sivasubramani在SkyWater 130 nm中提出4个接口兼容的神经形态IP模块：PVT传感器、随机LIF神经元、STDP控制器和memristive crossbar控制器。这些模块共享SPI寄存器文件，并通过99个RTL和门级cocotb测试验证。它还不是量产神经形态芯片，但开放的标准单元模块降低了可复现实验门槛。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.23742" target="_blank" rel="noopener">
+          <span class="en">Low-Power Analogue Neural Networks with Trainable Nonlinear Connections</span>
+          <span class="zh">具备可训练非线性连接的低功耗模拟神经网络</span>
+        </a>
+      </h3>
+      <p class="authors">I. T. Vidamour, F. Aguirre, T. J. Hayward, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.23742" target="_blank" rel="noopener">arXiv:2606.23742</a> · 2026-06-21T15:55:23Z</p>
+      <p class="summary">
+        <span class="en">Vidamour et al. put trainable nonlinear functions on analog neural-network connections rather than treating device nonlinearities as scalar weights. The approach maps well to smooth continuous-control tasks, transfers across about 35,000 hardware connections, and is projected at roughly 30 microwatts in a dedicated CMOS implementation. The caveat is important: the advantage is task-dependent and does not carry over cleanly to classification-like decision boundaries.</span>
+        <span class="zh">Vidamour等人把可训练非线性函数放在模拟神经网络连接上，而不是把器件非线性简单当作标量权重。该方法适合平滑连续控制任务，可迁移到约3.5万个硬件连接，并预计在专用CMOS实现中功耗约30微瓦。需要注意的是，这种优势依赖任务类型，并不能自然迁移到类似分类边界的问题。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research for Hardware</span>
+      <span class="zh">面向硬件的AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.25532" target="_blank" rel="noopener">
+          <span class="en">Physically Constrained Agents for Hardware-Aware Foundation Model Compression</span>
+          <span class="zh">面向硬件约束基础模型压缩的物理约束智能体</span>
+        </a>
+      </h3>
+      <p class="authors">J. Zhang, W. Sun, C. Wang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25532" target="_blank" rel="noopener">arXiv:2606.25532</a> · 2026-06-24T08:07:59Z</p>
+      <p class="summary">
+        <span class="en">Zhang et al. build a physically grounded multi-agent discovery system for hardware-compliant foundation-model deployment. The generated methods include Q-Enhance for long-context dense models and MoE-Salient-AQ for sparse MoE quantization, with the paper claiming a 235B-parameter model deployed on dual A100s after a 75% memory reduction and 0.64% accuracy loss. The result is relevant because compression is framed around hardware constraints, but the claims need independent reproduction before they should guide accelerator roadmaps.</span>
+        <span class="zh">Zhang等人构建了一个具备物理约束的多智能体发现系统，用于符合硬件约束的基础模型部署。生成的方法包括面向长上下文稠密模型的Q-Enhance，以及面向稀疏MoE量化的MoE-Salient-AQ；论文声称在内存需求降低75%、精度损失0.64%的情况下，将235B参数模型部署到双A100服务器。该结果重要在于把压缩问题放入硬件约束中讨论，但相关主张仍需独立复现后才适合作为加速器路线图依据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Verification</span>
+      <span class="zh">EDA与验证</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.25296" target="_blank" rel="noopener">
+          <span class="en">SafeGen Uses LLMs and Formal Verification for Functional-Safety Assertions</span>
+          <span class="zh">SafeGen用LLM和形式验证生成函数安全断言</span>
+        </a>
+      </h3>
+      <p class="authors">X. Tan, A. Chaudhuri, R. Parekhji, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25296" target="_blank" rel="noopener">arXiv:2606.25296</a> · 2026-06-24T01:58:38Z</p>
+      <p class="summary">
+        <span class="en">Tan et al. propose SafeGen, an LLM-driven framework that generates functional-safety assertions and evaluates fault criticality with formal verification support. The system links safety documents, FMEDA guidance, RTL information, and generated assertions through a document-level Hyper Knowledge Graph. The value is traceability rather than text generation alone, but automotive-grade adoption will depend on how well the generated assertions survive adversarial and coverage audits.</span>
+        <span class="zh">Tan等人提出SafeGen，这是一个由LLM驱动、并结合形式验证来生成函数安全断言和评估故障关键性的框架。系统通过文档级Hyper Knowledge Graph把安全文档、FMEDA指南、RTL信息和生成断言连接起来。其价值不只是文本生成，而是可追溯性；不过要进入汽车级流程，还要看生成断言能否经受对抗性检查和覆盖率审计。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum &amp; Photonics</span>
+      <span class="zh">量子与光子</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s41566-026-01944-w" target="_blank" rel="noopener">
+          <span class="en">A Photonic Integrated Long-Distance Quantum Communication Network</span>
+          <span class="zh">光子集成长距离量子通信网络</span>
+        </a>
+      </h3>
+      <p class="authors">L. Zhang, J. Pan, T.-Y. Chen, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1038/s41566-026-01944-w" target="_blank" rel="noopener">Nature Photonics</a> · 2026-06-19</p>
+      <p class="summary">
+        <span class="en">Zhang et al. report a photonic integrated long-distance quantum communication network in Nature Photonics. The candidate metadata does not expose detailed performance numbers, but the venue and topic make it relevant to integrated quantum links rather than lab-bench optics alone. The paper belongs on the reading queue because photonic integration is one of the few credible routes to scaling quantum networking hardware.</span>
+        <span class="zh">Zhang等人在Nature Photonics报道了一个光子集成长距离量子通信网络。候选元数据没有给出详细性能数字，但从期刊和主题看，它更接近集成量子链路，而不只是实验台光学演示。该论文值得列入阅读队列，因为光子集成是扩展量子网络硬件的少数可信路径之一。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-28 01:17 UTC · <a href="../2026-06-28.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-28 01:17 UTC · <a href="../2026-06-28.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

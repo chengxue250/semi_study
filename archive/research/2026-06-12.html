@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-12">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Architectures Push Work Closer to Data — Semi Research 2026-06-12</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-12.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Friday, June 12, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月12日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">Architectures Push Work Closer to Data</span>
+      <span class="zh">架构把计算推向数据所在处</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s strongest hardware papers reduce movement through in-SRAM vector execution, hybrid compute-in-memory, tightly coupled NTT units, and specialized datapaths. The gains are concrete, but several results remain FPGA-based or simulation-only rather than measured custom silicon.</span>
+      <span class="zh">本周较强的硬件论文通过SRAM内向量执行、混合存算一体、紧耦合NTT单元和专用数据通路减少数据搬运。性能收益较为具体，但部分结果仍来自FPGA或仿真，而非实测定制芯片。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCSI.2025.3643496" target="_blank" rel="noopener">
+          <span class="en">Hybrid Analog-Digital Compute-in-Memory With Dynamic Weight Division</span>
+          <span class="zh">采用动态权重拆分的模数混合存算一体架构</span>
+        </a>
+      </h3>
+      <p class="authors">J. Wu, L. Jiang, S. Sun, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2025.3643496" target="_blank" rel="noopener">IEEE TCAS-I</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">The design combines a 10T SRAM compute cell, multicycle capacitive weighting, and a reconfigurable SAR ADC that can operate as one 8-bit converter or two 4-bit converters. In 28nm simulation it reaches 15.56 TOPS/W for a 12-bit 8+4 configuration, targeting the efficiency gap between analog and digital CIM. The result is simulation-only, so array nonidealities and measured silicon overhead remain open.</span>
+        <span class="zh">该设计结合10T SRAM计算单元、多周期电容加权，以及可在单个8-bit ADC和两个并行4-bit ADC之间切换的SAR ADC。在28nm仿真中，12-bit的8+4配置达到15.56 TOPS/W，目标是缩小模拟与数字CIM之间的效率差距。结果仅基于仿真，阵列非理想性和实测芯片开销仍待验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3817062" target="_blank" rel="noopener">
+          <span class="en">A Heterogeneous Vector Processor With In-SRAM Computing</span>
+          <span class="zh">集成SRAM内计算的异构向量处理器</span>
+        </a>
+      </h3>
+      <p class="authors">R. Wang, D. Zhang, S. Yao, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3817062" target="_blank" rel="noopener">ACM TACO</a> · 2026-05-29</p>
+      <p class="summary">
+        <span class="en">HVPU couples a conventional vector processing unit with compute-capable SRAM through a common frontend interface, dynamic hazard handling, and concurrent dispatch. Multiple PIM blocks and dual control pipelines aim to expose SRAM-array parallelism without forcing software to manage two disconnected engines. The architectural integration is the main contribution; the candidate record does not provide measured-silicon evidence.</span>
+        <span class="zh">HVPU通过统一前端接口、动态冒险处理和并发分派，把传统向量处理单元与具备计算能力的SRAM连接起来。多个PIM模块和双控制流水线用于释放SRAM阵列并行度，同时避免软件管理两个彼此割裂的执行引擎。论文的主要贡献在于架构集成，候选记录未提供实测芯片证据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Hardware-Relevant AI Research</span>
+      <span class="zh">硬件相关AI研究</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.05627" target="_blank" rel="noopener">
+          <span class="en">Full-Space Quantization for Efficient Nonlinear Activation Approximation</span>
+          <span class="zh">面向高效非线性激活近似的全空间量化</span>
+        </a>
+      </h3>
+      <p class="authors">H. Chen, Y. Feng, H. Pan, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.05627" target="_blank" rel="noopener">arXiv:2606.05627</a> · 2026-06-04</p>
+      <p class="summary">
+        <span class="en">FQA searches quantized coefficient space while accounting for both fractional-bit truncation and coefficient quantization in piecewise polynomial activation units. Two hardware schemes expose different resource-performance trade-offs, while a target-guided bisection window reduces the cost of the enlarged search. The reported benefit is fewer segments at a given maximum absolute error, but the preprint record does not establish measured silicon.</span>
+        <span class="zh">FQA在分段多项式激活单元中同时考虑小数位截断误差和系数量化误差，并搜索完整的量化系数空间。论文给出两种面向不同资源与性能权衡的硬件方案，并用目标引导的二分窗口降低扩展搜索空间的计算成本。结果显示在给定最大绝对误差下可减少分段数量，但该预印本尚未给出实测芯片。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCAD.2025.3627145" target="_blank" rel="noopener">
+          <span class="en">A Tightly Coupled RISC-V NTT Unit Integrated With the Load-Store Pipeline</span>
+          <span class="zh">与访存流水线紧耦合的RISC-V NTT单元</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Zhao, Z. Xie, R. Zhan, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCAD.2025.3627145" target="_blank" rel="noopener">IEEE TCAD</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">NTT-LSU integrates a configurable number-theoretic-transform engine directly with a RISC-V load-store unit and adds custom NTT and inverse-NTT instructions. A hybrid-width datapath reduces transfer overhead while retaining support for multiple lattice-cryptography parameter sets. The approach attacks data movement rather than only arithmetic latency, which is important for practical post-quantum processors.</span>
+        <span class="zh">NTT-LSU把可配置的数论变换引擎直接集成到RISC-V访存单元，并增加NTT与逆NTT定制指令。混合位宽数据通路降低了数据传输开销，同时支持多种格密码参数配置。该方案不只优化算术延迟，也直接处理数据搬运问题，这对实用后量子处理器尤为重要。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TVLSI.2026.3668770" target="_blank" rel="noopener">
+          <span class="en">A Correlation-Resistant Massive-MIMO Detector With Lower VLSI Cost</span>
+          <span class="zh">降低VLSI开销的抗信道相关大规模MIMO检测器</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Tsai, W. Lin, C. Shen, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TVLSI.2026.3668770" target="_blank" rel="noopener">IEEE TVLSI</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">The detector combines approximate expectation propagation with Chebyshev-accelerated Richardson iteration to preserve near-optimal detection under correlated channels. Its VLSI architecture reports 18.7% lower latency and 17.3% less hardware complexity than a prior design targeting correlated channels. The key result is avoiding channel-specific processing that otherwise raises both area and delay.</span>
+        <span class="zh">该检测器把近似期望传播与Chebyshev加速Richardson迭代结合，在相关信道下维持接近最优的检测性能。其VLSI架构相较此前面向相关信道的设计，延迟降低18.7%，硬件复杂度下降17.3%。核心价值在于避免会同时增加面积和延迟的信道特定处理。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.3390/electronics15112399" target="_blank" rel="noopener">
+          <span class="en">A Convolution-Aware RISC-V Soft Processor for Wearable Inference</span>
+          <span class="zh">面向可穿戴推理的卷积感知RISC-V软核处理器</span>
+        </a>
+      </h3>
+      <p class="authors">F. Pizarro Diaz, B. Robinson, J. Patarroyo Montenegro</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/electronics15112399" target="_blank" rel="noopener">Electronics 15(11)</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">This FPGA soft processor adds a two-lane SIMD integer datapath and split-stage floating-point accumulation for one-dimensional convolution workloads. On an Artix-7 Basys3 board it reports a 6x speedup over MicroBlaze-class soft processors at the same 0.073 W static power, with 44% higher dynamic power. The evidence is measured on FPGA rather than ASIC silicon, but the resource-performance trade-off is directly relevant to wearable inference.</span>
+        <span class="zh">这款FPGA软核处理器为一维卷积加入双通道SIMD整数数据通路和分阶段浮点累加流水线。在Artix-7 Basys3平台上，它相对MicroBlaze级软核实现6倍加速，静态功耗同为0.073 W，动态功耗高44%。结果来自FPGA而非ASIC实测，但其资源与性能权衡对可穿戴推理具有直接参考价值。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TCSI.2026.3669396" target="_blank" rel="noopener">
+          <span class="en">Side-Channel-Resilient Midori Hardware for Secure Edge Devices</span>
+          <span class="zh">面向安全边缘设备的抗侧信道Midori硬件</span>
+        </a>
+      </h3>
+      <p class="authors">R. Mishra, M. Okade, K. Mahapatra</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TCSI.2026.3669396" target="_blank" rel="noopener">IEEE TCAS-I</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">The Midori-64 implementation uses a 16-bit hybrid serial-parallel datapath and masked S-boxes to balance compactness with resistance to power analysis. The paper reports 55.7% lower area, 62.38% lower power, and 78.2% lower energy for the masked S-box implementation against its comparison baseline. System-level security still depends on the complete masking flow and physical implementation, not the S-box alone.</span>
+        <span class="zh">该Midori-64实现采用16-bit串并混合数据通路和掩码S-box，在紧凑面积与抗功耗分析之间取舍。论文称其掩码S-box相对对比基线，面积降低55.7%、功耗降低62.38%、能耗降低78.2%。系统级安全性仍取决于完整掩码流程和物理实现，而不能只由S-box决定。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1088/1748-0221/21/06/P06006" target="_blank" rel="noopener">
+          <span class="en">MultiRad Standardizes Radiation Testing Across Processor Classes</span>
+          <span class="zh">MultiRad统一不同处理器类别的辐射测试</span>
+        </a>
+      </h3>
+      <p class="authors">L. Laurini, L. Ost, S. Cuenca-Asensi, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1088/1748-0221/21/06/P06006" target="_blank" rel="noopener">Journal of Instrumentation 21(06)</a> · 2026-06-01</p>
+      <p class="summary">
+        <span class="en">MultiRad formalizes a radiation-test method that has been applied from 8-bit microcontrollers to 64-bit processors under 14-MeV and thermal-neutron exposure. The platform has supported 20 journal articles since 2020, indicating reuse across multiple devices rather than a one-off setup. Its value is methodological consistency for reliability comparisons, not a new radiation-hardened circuit.</span>
+        <span class="zh">MultiRad形成了一套辐射测试方法，已用于从8-bit微控制器到64-bit处理器，并覆盖14-MeV中子和热中子辐照。自2020年以来，该平台已支持20篇期刊论文，说明它能够跨多种器件复用，而非一次性测试装置。其价值在于为可靠性比较提供一致方法，而不是提出新的抗辐射电路。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-12 04:22 UTC · <a href="../2026-06-12.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-12 04:22 UTC · <a href="../2026-06-12.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

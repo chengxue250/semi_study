@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-25">
+<meta name="generator" content="semi-news-daily">
+<title>Custom Silicon Pushes Against Memory Limits — Semi News 2026-06-25</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, June 25, 2026</span>
+      <span class="zh">2026年6月25日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Custom Silicon Pushes Against Memory Limits</span>
+      <span class="zh">定制芯片逼近内存边界</span>
+    </h1>
+    <p class="dek">
+      <span class="en">OpenAI, Broadcom, and Qualcomm are pushing more AI compute into vertical silicon stacks, while Micron, SK hynix, and JCET show that memory and packaging capacity still set the pace. Export controls keep turning product roadmaps into regional variants rather than a single global lineup.</span>
+      <span class="zh">OpenAI、Broadcom和Qualcomm把更多AI计算推向垂直整合的芯片栈，而Micron、SK hynix和JCET的消息显示，存储与封装产能仍在决定节奏。出口管制继续把产品路线图切成区域化版本，而不是单一的全球产品线。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/broadcom-and-openai-unveil-custom-built-jalapeno-inference-processor-openais-first-chip-is-a-massive-reticle-sized-asic-built-in-an-ultra-fast-nine-month-development-cycle" target="_blank" rel="noopener">
+          <span class="en">Broadcom and OpenAI unveil custom Jalapeno inference processor</span>
+          <span class="zh">Broadcom与OpenAI发布定制Jalapeno推理处理器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 6h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Broadcom and OpenAI unveiled Jalapeno, a custom inference ASIC described as a reticle-sized processor built in a nine-month development cycle. Tom&#x27;s Hardware says it is OpenAI&#x27;s first custom chip and is positioned around performance per watt for inference. The story matters because large model builders are moving more accelerator demand toward vertically controlled silicon rather than relying only on merchant GPUs.</span>
+        <span class="zh">Broadcom和OpenAI发布了Jalapeno定制推理ASIC，报道称这是一颗接近reticle尺寸、用九个月完成开发周期的处理器。Tom&#x27;s Hardware称其为OpenAI的首款定制芯片，重点放在推理性能功耗比上。这件事的意义在于，大模型公司正把更多加速器需求推向自控的垂直芯片方案，而不只是采购通用GPU。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.servethehome.com/qualcomm-investor-day-2026-data-center-announcements-cpus-ai-accelerators-and-more/" target="_blank" rel="noopener">
+          <span class="en">Qualcomm lays out Dragonfly data-center CPUs, AI accelerators, and HBC</span>
+          <span class="zh">Qualcomm公布Dragonfly数据中心CPU、AI加速器与HBC</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 5h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Qualcomm used Investor Day 2026 to outline Dragonfly data-center announcements spanning CPUs, AI accelerators, and High Bandwidth Compute, its HBM alternative. ServeTheHome frames the portfolio as Qualcomm&#x27;s attempt to compete for AI factory infrastructure, not just edge or mobile inference. The important point is that memory bandwidth, networking, and CPU attach are being sold as one platform story.</span>
+        <span class="zh">Qualcomm在2026年投资者日公布Dragonfly数据中心路线，覆盖CPU、AI加速器以及作为HBM替代思路的High Bandwidth Compute。ServeTheHome将这套组合视为Qualcomm进入AI factory基础设施市场的尝试，而不只是边缘或移动端推理。关键在于，内存带宽、网络与CPU配套被一起打包成平台叙事。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/hygon-128-core-512-thread-c86-cpu-targets-intel-xeon-as-china-races-to-cut-foreign-chip-reliance/" target="_blank" rel="noopener">
+          <span class="en">Hygon targets data centers with 128-core C86 CPU roadmap</span>
+          <span class="zh">海光以128核C86 CPU路线图瞄准数据中心</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Hygon presented new China-focused data-center CPUs and GPUs, led by a C86 CPU roadmap targeting 128 cores, 512 threads, and a reported 15% IPC gain. Wccftech frames the launch as part of China&#x27;s effort to reduce reliance on foreign chips. It is a policy-sensitive compute story as much as a product story, because domestic server silicon is becoming a response to export constraints.</span>
+        <span class="zh">海光展示了面向中国数据中心的新CPU和GPU路线，其中C86 CPU规划指向128核、512线程，并宣称IPC提升15%。Wccftech将其放在中国降低对海外芯片依赖的大背景下。它不仅是产品新闻，也是政策驱动的算力新闻，因为国产服务器芯片正在成为出口限制下的替代路径。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPR1FXYklES0lFQ3YtNC1FM1JRNzBmaUotQkR4NzlnUmIwSUkzeUE0MlpNSGgtTU1OMTJsaXRFaU1qWG1nVTYzUE9zMnlyeVdJc2VFaUtnV3o2RGVTMkMweEJsYkx5Mkw0X2liSjZFSUxDdC1CejQ3QW5WaHdUakxLWEVzQmh2cmxIX1ZpVjdMdU5scFZwYzZqa2FiUDN6cEJ5dXRPaU1HMnN5MEhQRlHSAa4BQVVfeXFMTjlnT3hwSHkwcUhZSlBFSnh4alhCdkJpSWd6ZHJQMENWbkFRWjR1R21COEsyTU44VzFwbmV3ZUlsbmR0WXFNT3VpS3otVDNlbWVoQm8teGxhS3R4WDByeE1Delp1d3BkQ1dibHdNRmtpa1R2YUExRmlDcHJjMHlPY1BzQjdITkp5UmxpM1VMQkx4RUVBWHVjRl8yWGQwMzA5WVBwOXlNRHZqQXViaVlR?oc=5" target="_blank" rel="noopener">
+          <span class="en">JCET plans a new Shanghai plant for advanced chip packaging</span>
+          <span class="zh">长电科技计划在上海新建先进封装工厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">South China Morning Post</span> · 48m ago</span>
+        <span class="zh"><span class="source">South China Morning Post</span> · 48分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">China&#x27;s JCET will build a new plant in Shanghai to expand advanced chip packaging capacity, the South China Morning Post reported. Advanced packaging is increasingly the constraint between foundry output and usable AI systems, especially as chiplets and high-bandwidth memory stacks become standard. The investment also adds local assembly depth to China&#x27;s semiconductor supply chain.</span>
+        <span class="zh">据South China Morning Post报道，中国长电科技将在上海建设新工厂，以扩大先进芯片封装产能。随着chiplet和高带宽存储堆栈成为主流，先进封装正在成为晶圆产出转化为可用AI系统之间的关键约束。这项投资也会增强中国半导体供应链在本地组装环节的厚度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxOU01KZ1lNcVAycmk3MldtQWpVblJoWnFQdHJoZ0FFTklpWk5aS2FSM3hRTlVPN09oRHhsVGRXaVdicm9JUnQ2dl9YcFptZXVRZllkRGh6V2FqcHVpVzFWTkJORVp2SER3UHpoOVFRY19DUUVSLVBrdkxMcG1RZEMtSEZDNjJqbGQtQUQ2NlIxQmxpNUdLYWpzZ21Ld3RBRklMdnctTGF2ZF9MYmZRMVZXTUlYN2MyY05HMFhqX3gtWGJDMzFhNDZwSVVIVUZSNDBGTDI4?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix reportedly overtakes Samsung after 26 years</span>
+          <span class="zh">SK hynix据称26年来首次超越Samsung</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Times</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tech Times</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tech Times reports that SK hynix has dethroned Samsung after 26 years and is choosing near-term DDR5 profits over an aggressive HBM4 ramp. The framing highlights a real tension for memory makers: AI demand rewards HBM capacity, but server DRAM pricing can also absorb scarce leading-edge production. For customers, the balance affects how quickly HBM4 supply can broaden beyond early flagship platforms.</span>
+        <span class="zh">Tech Times报道称，SK hynix在26年后超越Samsung，并选择优先获取DDR5的近期利润，而不是全力加速HBM4爬坡。这个说法凸显了存储厂商的现实取舍：AI需求推高HBM价值，但服务器DRAM价格同样能消化稀缺的先进产能。对客户来说，这会影响HBM4供给从早期旗舰平台扩散到更广市场的速度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxOUDJmSmwwR0pwcFRTVDJOLWRLUlRDQ1QxdEJaN0RKSWZyNHVZVzVNNE9zeVJLdDJJZmZINTRCcVRBSHRZMVRQOFVrWEI3cHlicy1Ed1lBeE1EV3RnR0NlbS1jU3ZXa1VuUk05cl9ZUWZTZmxZd1dEdE1DQm1OR3ZTTDNuS1FsTU5uY1R4eGpFaVoyeVk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Europe scales 6-inch photonic chip production</span>
+          <span class="zh">欧洲推进6英寸光子芯片量产</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Interesting Engineering</span> · 4h ago</span>
+        <span class="zh"><span class="source">Interesting Engineering</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Interesting Engineering reports that Europe is scaling 6-inch photonic chip production toward mass manufacturing. Photonic chips matter for optical I/O, sensing, and data-center interconnects, but the sector has often been limited by manufacturability rather than lab demonstrations. A 6-inch production path is a useful signal if it can translate into yield, packaging, and process repeatability.</span>
+        <span class="zh">Interesting Engineering报道称，欧洲正在把6英寸光子芯片生产推向规模制造。光子芯片关系到optical I/O、传感和数据中心互连，但这一领域长期受限于可制造性，而不是缺少实验室演示。6英寸生产路径是一个有用信号，前提是它能继续转化为良率、封装和工艺重复性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxOWVFtMGJFRGIxYWc0Qm1DMEJxVGE4MG9LY1Mtcy1NNUZWR0NWZTZxdWQxaS1pUGJWUzVFajJXcS1EakhmN0NIVmxmNDAzOWVvemFDUkxLSjZsbFRiZHF5ZnVQQXlNclRBckVvcXFNZ0lBb2xJS09NNUZDdHREOERpRHVn0gGHAUFVX3lxTE5LZy12eUtCbzZNbzF0NHBrWWVwTU41SWlBR05rODBfdkg3MDR3ZU9zX0FEaEc2SUpzdV9wVjJjSVpYYmJzTnNIYmo2Q2dEVlIxSTh1bGpkdURSWkdGMi1xWGtKdXdrTG82Zkk2djNLN3NMMVVEcEE0QXhaclZkT2xBRFQ4UHRKYw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia&#x27;s Huang calls smuggled-parts data centers a dead end</span>
+          <span class="zh">黄仁勋称走私零部件数据中心是死路</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CNBC</span> · 6h ago</span>
+        <span class="zh"><span class="source">CNBC</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CNBC reports that Nvidia CEO Jensen Huang called black-market data centers built from smuggled Nvidia parts a dead end. The comment keeps export controls and compliance in the center of the AI infrastructure debate. It also signals Nvidia&#x27;s need to separate legitimate regional sales channels from gray-market clusters that may be unreliable or unsupported.</span>
+        <span class="zh">CNBC报道称，Nvidia CEO黄仁勋把使用走私Nvidia零部件搭建的黑市数据中心称为死路。这个表态让出口管制和合规继续处在AI基础设施讨论的中心。它也显示Nvidia需要把合法区域销售渠道与可能缺乏可靠性和支持的灰色集群区分开。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxOdzJBaXk5SkFTRmczVDN6cVVDX1ZYRzR3MTAtSE5yWi04V3RyTHRzWDVFOE9yX2ZORkNTRzZ6THZxM3BLeVFkdnFOWEZQSTdJajRYUERYNmVpbk56RTJwclh6UEJWanBEd1pjLXNNcmdyWGxhX2xhSDRBa0NhNXRNckR6VU5qektNcjlDRzhXel9tMERHdDNvcElyd3RmTEhudzZEa3BLZ3VndzY2RWdscFAzamNYOEdzNUFiYmVEY2ItZEVaM0VUcF8wY3g4dDN2T3E0eklVSl9LclV0ZW00NkY4dWNoQ1k?oc=5" target="_blank" rel="noopener">
+          <span class="en">Qualcomm plans China-specific data-center chip under US curbs</span>
+          <span class="zh">Qualcomm计划按美国限制设计中国版数据中心芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Nikkei Asia</span> · 5h ago</span>
+        <span class="zh"><span class="source">Nikkei Asia</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nikkei Asia reports that Qualcomm plans to design a China-specific data-center chip to comply with US export controls. That is a practical sign of product bifurcation: accelerator vendors are building regional SKUs rather than shipping one global performance envelope. The trade-off is access to China demand at the cost of added validation, support, and roadmap complexity.</span>
+        <span class="zh">Nikkei Asia报道称，Qualcomm计划设计一款符合美国出口管制的中国专用数据中心芯片。这是产品分叉的实际信号：加速器厂商正在构建区域SKU，而不是交付单一全球性能边界。代价是在进入中国需求的同时，增加验证、支持和路线图复杂度。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/us-secures-netherlands-for-pax-silica-alliance-in-key-win-for-strategic-chip-alliance-tension-remains-over-match-act-restrictions" target="_blank" rel="noopener">
+          <span class="en">US brings the Netherlands into Pax Silica chip alliance</span>
+          <span class="zh">美国将荷兰纳入Pax Silica芯片联盟</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tom&#x27;s Hardware reports that the US has secured the Netherlands for the Pax Silica Alliance, while tension remains over MATCH Act restrictions. The Netherlands is strategically important because lithography and semiconductor-tool supply chains run through Dutch capabilities. The alliance story shows Washington trying to harden friend-shored chip capacity without fully resolving subsidy and restriction disputes.</span>
+        <span class="zh">Tom&#x27;s Hardware报道称，美国已让荷兰加入Pax Silica Alliance，但围绕MATCH Act限制仍存在紧张。荷兰具有战略重要性，因为光刻和半导体设备供应链离不开荷兰能力。这个联盟信号说明华盛顿正在强化友岸芯片产能，但补贴和限制规则的分歧尚未完全解决。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNRGMwZURyeWNtcERIV0JrMmJMSTYyb0FXNFNyYnpNdWU4V3JSWS1pRmxmcXAtLVZFQ3BoUHBNc3hMaDJKclJIUGIyWUFoQzQ5RXlrVmpoTVRCVVRPT0NhM1JJN3JjclByVUF4a1VEM29EdjZyazY5U0dxUWNyQTEwSnpEMWJKeEJJNXRnb0RQSTRkaF9mWmppOW5jdUpMUU9NQTlYazFKSGUzWU5vVU0yUndIUGU5d9IBuwFBVV95cUxQRkFFUFh1ZTlDYWZIVy01a2k0M1M0LS1YYTBrYm1SSXhlT2lDVWx1Ry15ZWpZazVHQ2RFMmFodXA5MzZKRjRSdmxUZ1FtMlhiNmxxOGxHSGVwV0x4SU9wMXlhTEVGYndWYldtS2hQZ2JxN1ZYQVMtQ2sxN3cwaF9wTlJZNEdxek1VeklQMy1LdEY3Ym1Kby00S2w5YU16eUpYdDFFVEx0My1pRmRIVHZEOTNZOTBtWGhET1JJ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron forecasts strong quarter on memory-chip demand</span>
+          <span class="zh">Micron因存储芯片需求给出强劲季度展望</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Korea Times</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Korea Times</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Korea Times reports that Micron forecast strong quarterly results as memory-chip demand rises. The read-through is that AI infrastructure demand is still tightening supply for HBM and advanced DRAM, even after a sharp run in memory names. For chip buyers, the message is that memory availability and pricing remain central constraints on AI server ramps.</span>
+        <span class="zh">The Korea Times报道称，随着存储芯片需求上升，Micron给出了强劲的季度业绩展望。其含义是，即使存储股已经大幅上涨，AI基础设施需求仍在收紧HBM和先进DRAM供给。对芯片买家来说，存储可获得性和价格仍是AI服务器爬坡的核心约束。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTFBPVHNvX1dYX2RJTkJPdEpPdU52Ny1IdU0xOTFoWFNETmp2U21DUnlDMTczSkI5TWtfdVJUaTMteElhSDE1TndScmpxVk12dnJGWm9pLV8tTXJ2OUVOMVZFNjZWU0JxcmlGNXZUZnhfeWNJVXRFR09VejhCdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras stock tumbles after first post-IPO earnings report</span>
+          <span class="zh">Cerebras上市后首份财报发布后股价下跌</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Barron&#x27;s</span> · 7h ago</span>
+        <span class="zh"><span class="source">Barron&#x27;s</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Barron&#x27;s reports that Cerebras shares tumbled after the AI-chip company delivered its first quarterly financial report since going public. The reaction shows that public-market tolerance for accelerator challengers depends on execution, not only on AI demand. It also gives investors another benchmark for how non-GPU architectures are being valued after IPO.</span>
+        <span class="zh">Barron&#x27;s报道称，AI芯片公司Cerebras发布上市后的首份季度财报后股价下跌。市场反应说明，公开市场对加速器挑战者的容忍度取决于执行，而不只是AI需求叙事。这也为投资者评估非GPU架构在IPO后的定价提供了另一个样本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPMV9JNkRQbEtxZlBKMkFWZW5FOWRQeWhoWHlUc3ZkUVZ1MnFDZU1DRnVBZ0lzTldpQUFnTi15RFBZaGFVSWFFODFQRFZtdW5VVFR6Z05wT196LXdERkgtWjU5OGQ0Y0pjcWRCS0U1Rk9hdjZHQ0xDRktEdjhnaDA2RmRmT0F3bHRodjNoendmSklBM01lbjBlWE1sSi1Td3RhemVJZmNqMDNmdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">SambaNova reportedly seeks a $10 billion valuation</span>
+          <span class="zh">SambaNova据称寻求100亿美元估值</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Information</span> · 5h ago</span>
+        <span class="zh"><span class="source">The Information</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Information reports that Intel-backed AI-chip firm SambaNova is set to nearly quintuple its valuation to $10 billion. The financing signal matters because challenger silicon companies still need large capital pools to support hardware, software, and customer deployment cycles. It also suggests investors remain willing to fund alternatives to Nvidia despite long sales cycles and uncertain utilization.</span>
+        <span class="zh">The Information报道称，Intel支持的AI芯片公司SambaNova估值可能接近翻五倍至100亿美元。这个融资信号重要，因为挑战者芯片公司仍需要大规模资本来支撑硬件、软件和客户部署周期。它也说明，即便销售周期长、利用率存在不确定性，投资者仍愿意押注Nvidia之外的替代方案。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-25 01:18 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-25 01:18 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

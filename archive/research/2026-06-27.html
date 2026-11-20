@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-27">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Hardware Research Chases Memory Locality — Semi Research 2026-06-27</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-27.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Saturday, June 27, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月27日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">Hardware Research Chases Memory Locality</span>
+      <span class="zh">硬件研究追逐存储局部性</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s strongest papers converge on moving less data: cache-resident LLM execution, sparse-GEMM dataflows, memristive arrays, photonic mappings, and tools that make hardware exploration less manual. The common thread is that AI performance is increasingly bounded by memory hierarchy, verification effort, and physical placement rather than raw multiply throughput alone.</span>
+      <span class="zh">本周最有价值的论文共同指向减少数据搬移：缓存驻留LLM执行、稀疏GEMM数据流、忆阻器阵列、光子映射，以及降低人工探索成本的硬件工具。共同主线是，AI性能越来越受存储层次、验证工作量和物理布局约束，而不只是受乘法吞吐限制。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.23159" target="_blank" rel="noopener">
+          <span class="en">General-purpose nonlinear approximation with linear integrated photonics</span>
+          <span class="zh">用线性集成光子实现通用非线性函数逼近</span>
+        </a>
+      </h3>
+      <p class="authors">A. Mizuno, I. Takai, M. Nakai, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.23159" target="_blank" rel="noopener">arXiv:2606.23159</a> · 2026-06-22T11:02:40Z</p>
+      <p class="summary">
+        <span class="en">Mizuno et al. show an optoelectronic route for nonlinear function approximation using optical random Fourier features on a linear silicon-photonic platform. The reported demonstrations include tenth-order Legendre polynomials, special functions, activation functions, 2D nonlinear functions, and a 10D softmax layer. The work matters because photonic AI hardware is strong at linear algebra but usually struggles to host useful nonlinear operations on chip. It is still a platform result, not a complete AI accelerator.</span>
+        <span class="zh">Mizuno等人展示了一种光电方法，在线性硅光平台上通过 optical random Fourier features 实现非线性函数逼近。论文演示了10阶Legendre多项式、若干特殊函数、激活函数、二维非线性函数和10维softmax层。它的重要性在于，光子AI硬件擅长线性代数，但通常难以在片上承载有用的非线性运算。需要注意的是，这仍是平台级结果，不是完整AI加速器。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.22588" target="_blank" rel="noopener">
+          <span class="en">Non-uniform L2 cache latency across NVIDIA L40 SMs</span>
+          <span class="zh">NVIDIA L40各SM之间的非均匀L2缓存延迟</span>
+        </a>
+      </h3>
+      <p class="authors">F. Alpay, B. Basaran</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.22588" target="_blank" rel="noopener">arXiv:2606.22588</a> · 2026-06-21T16:50:45Z</p>
+      <p class="summary">
+        <span class="en">Alpay and Basaran measure L2-hit latency on an NVIDIA L40 and find that it varies by physical streaming multiprocessor, spanning 222-339 cycles rather than a single nominal value near 279 cycles. Their probe resolves all 142 SMs and reports a repeatable 52% latency range, with topology patterns that also generalize to Blackwell RTX 5090. This matters for performance modeling and for side-channel-style hardware fingerprinting. The caveat is that it is a measurement study on specific devices, not a vendor-documented architectural contract.</span>
+        <span class="zh">Alpay和Basaran测量NVIDIA L40的L2命中延迟，发现延迟会随物理SM位置变化，并非接近279周期的单一值，而是在222-339周期之间变化。他们的探针解析了全部142个SM，并报告可重复的52%延迟范围，且类似拓扑模式也出现在Blackwell RTX 5090上。这对性能建模和类似侧信道的硬件指纹识别都重要。需要注意的是，这是一项针对特定器件的测量研究，不是厂商公开的架构契约。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.22283" target="_blank" rel="noopener">
+          <span class="en">Apple Neural Engine architecture, programming, and performance</span>
+          <span class="zh">Apple Neural Engine的架构、编程与性能</span>
+        </a>
+      </h3>
+      <p class="authors">S. H. Bryngelson</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.22283" target="_blank" rel="noopener">arXiv:2606.22283</a> · 2026-06-21T00:17:34Z</p>
+      <p class="summary">
+        <span class="en">Bryngelson provides a reverse-engineered account of the Apple Neural Engine across A11-A18 and M1-M5-class systems, combining direct measurement, static analysis, runtime inspection, and firmware work. The paper documents datapaths, roofline limits, dispatch paths, program formats, weight compression, and kernel-driver protocols. It is useful because ANE is widely shipped but weakly documented, leaving researchers dependent on Core ML abstractions. The author labels claims as measured, decompile-derived, or predicted, which is important given the private interface and version fragility.</span>
+        <span class="zh">Bryngelson给出了Apple Neural Engine在A11-A18和M1-M5系列系统中的逆向工程分析，结合直接测量、静态分析、运行时检查和固件研究。论文记录了数据通路、roofline限制、调度路径、程序格式、权重压缩和内核驱动协议。它有价值是因为ANE出货规模很大，但公开文档很少，研究者往往只能通过Core ML抽象间接观察。作者把结论区分为实测、反编译推导和预测，这对一个私有且版本脆弱的接口尤其重要。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.26701" target="_blank" rel="noopener">
+          <span class="en">SegFold: dynamic dataflow for sparse GEMM acceleration</span>
+          <span class="zh">SegFold：面向稀疏GEMM加速的动态数据流</span>
+        </a>
+      </h3>
+      <p class="authors">X. Wu, H. Wang, J. Cong, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26701" target="_blank" rel="noopener">arXiv:2606.26701</a> · 2026-06-25T07:32:26Z</p>
+      <p class="summary">
+        <span class="en">Wu et al. introduce SegFold, a sparse GEMM accelerator built around fine-grained dynamic scheduling instead of a fixed inner-product, outer-product, or Gustavson-style dataflow. The design uses a memory controller to find local reuse opportunities and a merge network to remap work across processing elements for load balance. This is relevant because sparse linear algebra increasingly appears in graph workloads and compressed AI models where static dataflows leave utilization on the table. The result is a co-design proposal, so silicon area and measured power remain the next questions.</span>
+        <span class="zh">Wu等人提出SegFold，这是一种稀疏GEMM加速器，核心是细粒度动态调度，而不是固定的内积、外积或Gustavson式数据流。设计通过内存控制器寻找局部复用机会，并用合并网络在处理单元之间动态重映射工作以改善负载均衡。它的重要性在于，稀疏线性代数越来越多地出现在图计算和压缩AI模型中，静态数据流会留下利用率损失。该工作仍是协同设计方案，面积和实测功耗是下一步问题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27319" target="_blank" rel="noopener">
+          <span class="en">An ISA for IMPLY-based memristive processing-in-array</span>
+          <span class="zh">面向IMPLY忆阻器阵列内处理的指令集架构</span>
+        </a>
+      </h3>
+      <p class="authors">L. Splittgerber, F. Seiler, N. TaheriNejad</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27319" target="_blank" rel="noopener">arXiv:2606.27319</a> · 2026-06-25T17:32:30Z</p>
+      <p class="summary">
+        <span class="en">Splittgerber, Seiler, and TaheriNejad propose a general-purpose microcontroller architecture and RV32I-derived ISA for IMPLY-based memristive processing-in-array. The work moves beyond treating in-memory computing as a coprocessor and instead asks what a standalone ultra-low-power edge processor would need. It is a useful framing for non-volatile compute fabrics because programmability and addressing often become the real blockers. The caveat is that the summary points to architectural and circuit metrics rather than a fabricated measured chip.</span>
+        <span class="zh">Splittgerber、Seiler和TaheriNejad提出了一种面向IMPLY忆阻器阵列内处理的通用微控制器架构，并给出从RV32I派生的ISA。该工作不再只把存内计算视为协处理器，而是讨论一个独立超低功耗边缘处理器需要什么。对于非易失计算阵列来说，这种视角有价值，因为可编程性和寻址机制常常才是真正阻碍。需要注意的是，摘要指向架构和电路指标，而不是已流片的实测芯片。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.25313" target="_blank" rel="noopener">
+          <span class="en">A programmable probabilistic computer with 1,000,000 p-bits</span>
+          <span class="zh">包含1,000,000个p-bit的可编程概率计算机</span>
+        </a>
+      </h3>
+      <p class="authors">N. A. Aadit, X. Zhang, S. Chowdhury, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25313" target="_blank" rel="noopener">arXiv:2606.25313</a> · 2026-06-24T02:26:33Z</p>
+      <p class="summary">
+        <span class="en">Aadit et al. scale probabilistic computing by networking FPGAs into a one-million-p-bit Ising machine. The system performs Gibbs sampling at more than a trillion flips per second while keeping coupling weights in local on-chip memory and exchanging only one-bit boundary states. The key contribution is not just size, but the communication-frequency condition under which a partitioned machine behaves like a monolithic sampler. It is an FPGA-networked prototype, so the path to dense custom silicon remains open.</span>
+        <span class="zh">Aadit等人通过联网FPGA扩展概率计算，构建了包含100万个p-bit的Ising机器。系统执行Gibbs采样时超过每秒1万亿次翻转，耦合权重保留在本地片上存储中，设备间只交换1 bit边界状态。关键贡献不只是规模，而是给出了分区机器在何种通信频率条件下能表现得像单体采样器。它是联网FPGA原型，距离高密度定制硅实现仍有距离。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Research Systems</span>
+      <span class="zh">AI研究系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.25353" target="_blank" rel="noopener">
+          <span class="en">Cache-resident LLM inference in GB-scale last-level caches</span>
+          <span class="zh">在GB级末级缓存中执行缓存驻留LLM推理</span>
+        </a>
+      </h3>
+      <p class="authors">W. Zhang, T. Gu, M. Canini, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.25353" target="_blank" rel="noopener">arXiv:2606.25353</a> · 2026-06-24T03:41:30Z</p>
+      <p class="summary">
+        <span class="en">Zhang et al. propose a cache-resident execution model for LLM inference on systems with GB-scale last-level caches. The design separates weight-centric operators from attention and KV-cache management, keeping reusable weights cache-resident while scaling KV capacity independently. This targets a real inference bottleneck: data movement rather than arithmetic throughput. The caveat is that it depends on hierarchical-memory CPU clusters and specialized runtime scheduling, so portability to GPU-first deployments is not automatic.</span>
+        <span class="zh">Zhang等人提出一种面向GB级末级缓存系统的LLM推理缓存驻留执行模型。该设计把以权重为中心的算子与attention和KV-cache管理分离，让可复用权重留在缓存中，同时独立扩展KV容量。它瞄准了真实推理瓶颈：数据搬移，而不是纯算术吞吐。需要注意的是，它依赖分层存储CPU集群和专用运行时调度，不能自动迁移到GPU优先部署。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.26383" target="_blank" rel="noopener">
+          <span class="en">SOLAR: AI-powered speed-of-light performance analysis</span>
+          <span class="zh">SOLAR：AI辅助的速度上限性能分析</span>
+        </a>
+      </h3>
+      <p class="authors">Q. Huang, S. Damani, Z. Ye, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.26383" target="_blank" rel="noopener">arXiv:2606.26383</a> · 2026-06-24T21:09:29Z</p>
+      <p class="summary">
+        <span class="en">Huang et al. introduce SOLAR, a framework that derives speed-of-light performance bounds from PyTorch and JAX programs. An LLM frontend translates source into an executable affine-loop IR, while deterministic passes lift that IR into einsum graphs and compute unfused, fused, and cache-aware bounds. The tool is useful because it tells model and kernel developers how far current implementations sit from architectural limits. The authors report zero observed SOL violations, but the method still depends on translation validation and workload coverage.</span>
+        <span class="zh">Huang等人提出SOLAR，一个从PyTorch和JAX程序推导速度上限性能边界的框架。LLM前端把源码翻译为可执行的仿射循环IR，确定性流程再将其提升为einsum图，并计算未融合、融合和缓存感知的边界。该工具有价值，因为它能告诉模型和kernel开发者当前实现距离架构极限还有多远。作者报告没有观察到SOL违规，但方法仍依赖翻译验证和工作负载覆盖范围。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">
+          <span class="en">CHIA: agentic AI for hardware/software co-design loops</span>
+          <span class="zh">CHIA：面向软硬件协同设计循环的智能体AI框架</span>
+        </a>
+      </h3>
+      <p class="authors">A. Cui, F. Hermida-Rivera, J. Toubes, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.27350" target="_blank" rel="noopener">arXiv:2606.27350</a> · 2026-06-25T17:55:37Z</p>
+      <p class="summary">
+        <span class="en">Cui et al. present CHIA, an open-source framework for building agentic AI hardware/software co-design workflows as directed cyclic graphs. Its library connects tools such as Chipyard, gem5, ChampSim, FireSim, Hammer, commercial ASIC CAD flows, Vivado, and evolutionary coding agents. The contribution is infrastructure: making AI-infused design loops reproducible enough to study instead of one-off demos. The paper should be read as a workflow substrate, not proof that agents can replace expert architects.</span>
+        <span class="zh">Cui等人提出CHIA，一个开源框架，用有向循环图来构建智能体AI驱动的软硬件协同设计工作流。其库连接Chipyard、gem5、ChampSim、FireSim、Hammer、商业ASIC CAD流程、Vivado和进化式代码智能体等工具。贡献点在基础设施：让嵌入AI的设计循环足够可复现，便于研究，而不是停留在一次性演示。应把这篇论文视为工作流底座，而不是智能体替代资深架构师的证明。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.23759" target="_blank" rel="noopener">
+          <span class="en">VeriPilot uses LLMs and golden models for Verilog debugging</span>
+          <span class="zh">VeriPilot用LLM和黄金模型调试Verilog</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Wang, C. Liu, J. Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.23759" target="_blank" rel="noopener">arXiv:2606.23759</a> · 2026-06-22T09:15:40Z</p>
+      <p class="summary">
+        <span class="en">Wang et al. propose VeriPilot, an LLM-powered Verilog debugging framework that aligns a buggy design with a golden reference model and traces internal signal semantics through control-data-flow graphs. This moves beyond compiler-output prompting by giving the model a structured localization path to suspicious code regions. It matters because verification and debug consume large fractions of digital-design effort, and LLM tools need structure to be useful on real RTL. The caveat is the reliance on a golden model, which is not always available in early design.</span>
+        <span class="zh">Wang等人提出VeriPilot，一个LLM驱动的Verilog调试框架，通过把有缺陷设计与黄金参考模型对齐，并沿控制数据流图追踪内部信号语义来定位问题。它不只是把编译器输出交给模型，而是给模型提供结构化的可疑代码定位路径。这很重要，因为验证和调试占据数字设计的大量工作量，而LLM工具要在真实RTL中有用就需要结构约束。限制在于它依赖黄金模型，而早期设计阶段并不总是具备。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-27 01:18 UTC · <a href="../2026-06-27.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-27 01:18 UTC · <a href="../2026-06-27.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

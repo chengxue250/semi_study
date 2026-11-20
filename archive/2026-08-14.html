@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-14">
+<meta name="generator" content="semi-news-daily">
+<title>AI Infrastructure Spreads Across the Silicon Stack — Semi News 2026-08-14</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, August 14, 2026</span>
+      <span class="zh">2026年8月14日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Infrastructure Spreads Across the Silicon Stack</span>
+      <span class="zh">AI基础设施贯穿整个硅栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI capacity is no longer only a GPU story: memory, optical I/O, PCIe fabrics, advanced packaging, foundry capacity, and process-tool labs are all scaling around it. The day&#x27;s announcements show the bottleneck—and the investment—moving through every layer of the hardware stack.</span>
+      <span class="zh">AI算力扩张已不只是GPU的故事：存储、光互连、PCIe互连、先进封装、晶圆代工和工艺设备实验室都在同步扩容。今日消息显示，瓶颈与投资正在硬件栈的各层之间转移。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/microchip-switchtec-160-lane-pcie-gen6-switch-shown-at-fms-2026-with-xpressconnect-pcie-6-retimer/" target="_blank" rel="noopener">
+          <span class="en">Microchip Shows a 160-Lane PCIe Gen6 Switch at FMS 2026</span>
+          <span class="zh">Microchip在FMS 2026展示160通道PCIe Gen6交换芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 7h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Microchip demonstrated a 160-lane Switchtec PCIe Gen6 switch at FMS 2026 alongside an XpressConnect PCIe 6 retimer. The combination targets the signal reach and fabric fan-out needed to connect accelerators, memory, and hosts at rack scale. This is a trade-show demonstration rather than evidence of volume deployment, but it shows PCIe 6 infrastructure moving toward complete switching and retiming platforms.</span>
+        <span class="zh">Microchip在FMS 2026展示了160通道Switchtec PCIe Gen6交换芯片，并配套演示XpressConnect PCIe 6重定时器。该组合面向机架级加速器、存储与主机互连所需的信号传输距离和扇出能力。目前这仍是展会演示，而非规模部署，但说明PCIe 6基础设施正从单一器件走向完整的交换与重定时平台。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPd2o2aV9QMGEwOGVxd0pjcmNSVF9ONlVQcDJnUFJxSlhPWU9JYjlBVkMxMVpfMzZKbEJMZVZXR21DbnViZDc0RlFDcEhhbU5xbU1KaWotcmNfekJOZ0dpT3ZMeVItV19SNXFSckpCbjNNMUN5QkVmY3AzYWNldXh0aURzUGZ2eGwtX0lLcXhxcmRXODJ5aWxqd082MA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Sony and TSMC Plan a $6.3 Billion Image-Sensor Venture</span>
+          <span class="zh">Sony与TSMC拟建$6.3B下一代图像传感器合资项目</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BW Businessworld</span> · 7h ago</span>
+        <span class="zh"><span class="source">BW Businessworld</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Sony and TSMC are planning a $6.3 billion joint venture for next-generation image sensors. If completed, the project would pair Sony&#x27;s sensor franchise with TSMC&#x27;s manufacturing scale and deepen the foundry&#x27;s exposure to specialty imaging silicon beyond leading-edge logic. The report describes a plan, so ownership, location, process mix, and construction timing remain key open details.</span>
+        <span class="zh">Sony与TSMC计划成立规模达$6.3B的合资项目，生产下一代图像传感器。若项目落地，Sony的传感器业务将与TSMC的制造规模结合，也会让后者在先进逻辑之外进一步扩大特色图像芯片业务。报道目前仍停留在计划阶段，股权、选址、制程组合和建设时间仍是关键待定项。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxQdnFJZE5lNkhxMno5UDR5WE5mVVBVbzVNbm5wWTdoTFNwUVozWXk1R2RheEpKU0tLZHRsdE44d1lrc3FHVTZ1MmVjeXVFMV9JWmxTYVpIWEFfLWdZd2ZsZjR5bmJDSlliakJnZ1N4bDBQTEVvZXpjNHE5SHpCLXExQzFlSWZaNDRDMUh5LVpwQTNiMjd4akE0TE5GUHhtQjFGMUdZUw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Chinese Foundries Post Triple-Digit Quarterly Growth</span>
+          <span class="zh">中国晶圆代工厂录得季度三位数增长</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">gasworld</span> · 9h ago</span>
+        <span class="zh"><span class="source">gasworld</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chinese foundries recorded triple-digit quarterly growth, according to gasworld. The acceleration points to a sharp domestic manufacturing ramp, with implications for mature-node supply, industrial-gas demand, and equipment utilization. The candidate report does not specify whether the growth measure is revenue, output, or another operating metric, so the headline rate should not be read as a direct capacity figure.</span>
+        <span class="zh">据gasworld报道，中国晶圆代工厂录得季度三位数增长。这一加速势头指向国内制造快速爬坡，并将影响成熟制程供给、工业气体需求和设备利用率。候选报道未说明增长口径是收入、产量还是其他运营指标，因此不能把标题中的增速直接等同于产能增幅。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxOX1ZMQmJpVzBVeGVJYlF3NVFEcE9FZllJdXBDRG9vWGpBZnpENmdiWTlialBEOWdQX0Z0QTFLWURBRzNtRDhEbHZ3SklMazBBem9jam9xYW1wQjdQSm1vaDg3djZPcHNHdXg5a1Q2UE9aZTdoQ0NLd3VzX0xkbUlUZlF4cTZtR2tFNFk4?oc=5" target="_blank" rel="noopener">
+          <span class="en">Rapidus Targets Eight-Reticle Interposers by 2030</span>
+          <span class="zh">Rapidus计划2030年实现八倍光罩尺寸中介层</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 1h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Rapidus is targeting interposers spanning eight reticles by 2030. That scale would support much larger multi-chip packages and reflects how advanced packaging is becoming part of the foundry roadmap, not a downstream afterthought. The date is a target rather than a production commitment, leaving process readiness, yield, and customer qualification to be demonstrated.</span>
+        <span class="zh">Rapidus计划到2030年实现覆盖八倍光罩尺寸的中介层。这一尺寸可承载更大的多芯片封装，也表明先进封装已进入晶圆代工路线图核心，而不再只是后段配套。2030年仍是目标而非量产承诺，工艺成熟度、良率和客户认证仍有待验证。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNdEhOcjd1ZWtaV3VCNTh3Vk41Z3RtMmVsTUdLRG13SW1ZMHhtWXctTUV3MDl1alFiaFBiX2VPd3JqcU5uUnJDVGgzdExfOUd5dXh0N0pZRE1YdU5jeDN2Rm9EczRHa2hvTk5kYnRJTG5QNE9xbTY4cWZESlRqR2M3eGN6cWVaSGNsUU5sMGI4WEFkUXFwR1NkX1U5ZUdya2h5MUpF?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia GPU Prices Rise 87% in 17 Months as HBM Tightens</span>
+          <span class="zh">HBM供应趋紧推动Nvidia GPU价格17个月上涨87%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Seoul Economic Daily</span> · 4h ago</span>
+        <span class="zh"><span class="source">Seoul Economic Daily</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia GPU prices have climbed 87% over 17 months as tight HBM supply constrains accelerator availability, Seoul Economic Daily reports. The increase shows that memory availability is feeding directly into system pricing rather than remaining a component-level issue. It also raises the value of capacity commitments and alternative memory tiers for customers planning large AI clusters.</span>
+        <span class="zh">据《首尔经济日报》报道，受HBM供应紧张限制加速器供给影响，Nvidia GPU价格在17个月内上涨87%。这说明存储供给已经直接传导至整机价格，不再只是元器件层面的问题。对于规划大型AI集群的客户而言，锁定产能和引入替代存储层的价值随之上升。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1zUFRWSXF1Sl8xbGlWZ3hUa21zRGpnb0ZITEV3NjQza1NuZEhra2hsSVRwZGpUX1BwRWVjZWg5THR3YmdGazVEbVpZcU9uUjFpNzFQRXlETnhkSVlSMmV6dmlFMXNUbE9ld1F5WWlPNlE1OU0wdWljLVhGMElpT2s?oc=5" target="_blank" rel="noopener">
+          <span class="en">HBF Consortium Publishes Its First High Bandwidth Flash Specification</span>
+          <span class="zh">HBF联盟发布首个High Bandwidth Flash规范</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing</span> · 9h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The HBF consortium released its first High Bandwidth Flash specification, positioning flash as a new tier for AI workloads constrained by HBM capacity. HBF would not replace HBM&#x27;s latency role, but a standardized high-bandwidth flash layer could keep larger model states closer to accelerators than conventional SSD storage. A specification is only the starting point; controller support, packaging, endurance, and shipping silicon will determine whether the tier becomes practical.</span>
+        <span class="zh">HBF联盟发布首个High Bandwidth Flash规范，试图为受HBM容量限制的AI工作负载增加新的存储层。HBF不会取代HBM的低延迟角色，但标准化的高带宽闪存层有望让更大规模的模型状态比传统SSD更靠近加速器。规范只是起点，控制器支持、封装、耐久性和实际出货芯片将决定这一层级能否落地。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikgJBVV95cUxQTUhGaEhQajhFUFBNT3JnZXFLRFdJMmVGam1sWEpzUkc4YnVxN0tBb3ZsMHd2ZUpxZHJaa2VnWTNUQTdyc2djZlJReEZmTE82d24xVkptOHZVZW04UmtiM2t0TGoxVnZyblhGWndSMk11dy1meG1OOC1nRFZjU0NlUWhKcEFmRFZ1Nk5EbkQzTThFS2MtZVZXZ1BRdmtPWUMwOXVGd0k5ZGJ3dnRfRXV3eWlQOVdkY2hiMkN4S3JleUJEYUVfUXZQWEIyc2tFZTAxVU1nNnJGUHhDbUhWYjRYS28zdkx6OGduSlBPaGVhenpQemxxbnZVbTBvWjZ0eEpBLUtVd0NZblV1Q0dtRmw4SVZn?oc=5" target="_blank" rel="noopener">
+          <span class="en">Lam Research Plans More Than $3 Billion for Its Global Lab Network</span>
+          <span class="zh">Lam Research拟投入逾$3B扩大全球实验室网络</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingView</span> · 4h ago</span>
+        <span class="zh"><span class="source">TradingView</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Lam Research plans to invest more than $3 billion to expand its global laboratory network. The spending signals that process development and customer co-engineering are scaling alongside AI-driven fab investment, particularly as new materials and 3D structures lengthen qualification cycles. The announcement is an investment envelope, and the timing and capacity added at individual sites will matter more than the headline total.</span>
+        <span class="zh">Lam Research计划投入超过$3B，扩大全球实验室网络。这笔投入表明，随着新材料和3D结构拉长验证周期，工艺开发与客户协同工程正和AI驱动的晶圆厂投资同步扩张。该数字属于投资总额框架，实际影响更取决于各站点的投入时间和新增能力。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1WRWRUZ0t3R1dob1V5UjhJNTdGTWtuSmdrdXZ1NFhzYmZ1cktCQ3I3QUo5azhldzhHNFJ3ZEdJdHJDWVZLRWpxVXJzSkwyWkZfTTRMRXhMbWFYQzBXN0NHYVRkaDJlVFU?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Electro-Mechanics Delays Its Glass-Substrate Investment</span>
+          <span class="zh">Samsung Electro-Mechanics推迟半导体玻璃基板投资</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Elec</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Elec</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung Electro-Mechanics has delayed an investment in semiconductor glass substrates. The move pushes out one prospective source of large, dimensionally stable substrates for advanced packages just as AI systems are driving package sizes upward. A delay does not invalidate the technology, but it does indicate that cost, process maturity, or customer timing has not yet cleared the company&#x27;s investment threshold.</span>
+        <span class="zh">Samsung Electro-Mechanics已推迟半导体玻璃基板投资。在AI系统推动封装尺寸持续增大的背景下，这会延后一个潜在的大尺寸、高尺寸稳定性基板供应来源。推迟并不等于否定技术路线，但说明成本、工艺成熟度或客户导入时间尚未达到公司的投资门槛。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxOVGZHVldVY3RITElyUUo1anB3dlhZTmVEcWh3TTcwUTJRS2c5bVQwUWtlSGQ4c0Mtb2h1ZkphNGtzWkRTWVJwMVNSTzd1QWxqQ2VkZUVMTVVjazRmSDZwc2NHb1NhUTVBWmpTU04xbGV0VFBPUVZ4dTRkV0ZWWFdmNW9adjFTdkRqWmFudER6OVNUSHBsQWZrS2pEaUU1Z1BiU3FfTUEzcVlfclMtaE5NY0RJS2hkRlHSAbwBQVVfeXFMTWpmVjdUTW9sdEdPQVRxcjBpTVliUXJ0YnFxQmJWMHJBdXgwWjhRdnRpT1NmN3Jsa3ZRRVBDUDEtZkpxWVlvc0dyYlJiaUFJaUVSOEsxam9TellmSXZlWlFTbGF2OEhTc0ZqS2ZvT1dyWXhMQmszRWZqUi1NY0x2alVuN1I2cGtPS3V0YzFkT254V1BYWU9jOFp1eW1OX1ZhMlBMRjBTRG1xLUl1ODdrU0JycjRBRFQ4T1VIdno?oc=5" target="_blank" rel="noopener">
+          <span class="en">Washington Maps How China Rents Nvidia Chips It Cannot Buy</span>
+          <span class="zh">华盛顿追踪中国如何租用无法购买的Nvidia芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">WION</span> · 4h ago</span>
+        <span class="zh"><span class="source">WION</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">US officials are mapping how Chinese users rent access to Nvidia chips that export controls prevent them from purchasing. The focus shifts enforcement from physical chip shipments toward remote compute and cloud access, where ownership and use occur in different jurisdictions. The mapping effort is not itself a new restriction, but it identifies the policy boundary likely to draw the next round of scrutiny.</span>
+        <span class="zh">美国官员正在梳理中国用户如何租用因出口管制而无法直接购买的Nvidia芯片。监管重点由实体芯片出货延伸到远程算力和云端访问，因为设备所有权与实际使用可能分属不同司法辖区。此次梳理本身并非新限制，但指出了下一轮审查最可能聚焦的政策边界。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOcFZ4MklGVUUxRXpiQzE0eVViVFJZVDZvZWVyS29PUUtzMUlyY2dhb3ZERnN5YnBJNzFHOUpUVU93c0QtUy13YXQ0bnk1OU5Wc01WX1ZOX1M4NzFaUm00bGVLRFRzWjNoczdjX0RjNzJ5QVE4WWE4T3FjdUJ3WVVHeVVVRXFFNWFXMnRxem1fYVBpbHVERjRfOV96QkhpNXNVRGxZYkFCeXFpR0JaLVk3Z01vRVFsZFE2TFphcUJkaHJJTEFZdDFMcWlqUjlSZG1PbHpGTTlGcUtBdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Applied Materials&#x27; Q4 Outlook Tops Expectations</span>
+          <span class="zh">Applied Materials第四财季指引高于预期</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingView</span> · 4h ago</span>
+        <span class="zh"><span class="source">TradingView</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Applied Materials issued fourth-quarter revenue and earnings guidance above expectations, even as its shares slipped in after-hours trading. The outlook suggests wafer-fab equipment demand remains firm enough to support near-term results despite investor caution. With no forecast figures in the candidate feed, the significance is the direction of guidance rather than the size of the beat.</span>
+        <span class="zh">Applied Materials给出的第四财季收入和盈利指引高于市场预期，但股价在盘后交易中仍然下跌。这一展望说明，尽管投资者态度谨慎，晶圆制造设备需求仍足以支撑近期业绩。候选信息未提供具体预测数字，因此重点在于指引方向，而非超预期幅度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNMmxwb2lPTHdoN3lwZUdqRmZ0MFBWanFkenp0RzhteFQ2SjlOWWFMUFg5dHV0WVloLXlvdkNXY1FmQW9sVEQyTU9lNHdRYk8xT2Q5OGlFZFV2UkxWUzE3SlM5Zl9XRUpSZTZxck5TbmhsNkNLOGU3Y20tR20tLWs0Qzlob1NTMkJqemVoc0NoelB2VWUzZFpSMllPXzFjVWN3Qm5UeGlnNl9hUTdQQ2NnNXFCT0VZeTlBLWVFZnJfOEMycWs2dW1EcXg5RlJOZjBqbS1HTXlGNk9tYThWOERoMA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Lightmatter Leads a 19-Company Silicon-Photonics Infrastructure Initiative</span>
+          <span class="zh">Lightmatter牵头19家公司推进硅光基础设施标准化</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Data Center Dynamics</span> · 5h ago</span>
+        <span class="zh"><span class="source">Data Center Dynamics</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Lightmatter launched a 19-company initiative to standardize infrastructure ready for silicon photonics. The coalition gives optical I/O suppliers and system builders a shared architecture discussion as electrical interconnects encounter power and reach limits in larger AI clusters. Its value will depend on concrete specifications and adoption; formation of the group alone does not guarantee interoperable products.</span>
+        <span class="zh">Lightmatter发起由19家公司参与的计划，推动适配硅光技术的基础设施标准化。随着大型AI集群中的电互连遭遇功耗和传输距离限制，该联盟为光I/O供应商与系统厂商提供共同的架构讨论平台。其价值最终取决于具体规范和产业采用，仅成立组织并不能保证产品互操作。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxQdEdWaGZEWU5STUVJYzFDUjYxQjZhTFZMLVpsMlowTUdJYy1CMTN6NjRLaUh6TFFaT2FHRjI0VFRtOXV1Q1YwejZaV19fMmpmWk5vUG5fWDhDcEQ4TjdyeEVlQ2lYaEt2MHlHVTR1WFVRcGlGNW1NMWgtSnJrWDVnOXZac0s0M3gwekE1MlIwRWh6M1J2Y2RJLWVQemsyZnJkel9SVQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras Runs OpenAI&#x27;s GPT-5.6 Sol at 750 Tokens per Second</span>
+          <span class="zh">Cerebras以每秒750个token运行OpenAI GPT-5.6 Sol</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Unite.AI</span> · 6h ago</span>
+        <span class="zh"><span class="source">Unite.AI</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras is powering a new ultrafast tier for OpenAI&#x27;s GPT-5.6 Sol at up to 750 tokens per second. A named, customer-facing deployment is meaningful evidence for wafer-scale inference beyond benchmark demonstrations, especially for latency-sensitive interactive workloads. The reported throughput does not by itself disclose batch size, context length, quality settings, or service economics, which are necessary for direct platform comparisons.</span>
+        <span class="zh">Cerebras为OpenAI GPT-5.6 Sol的新ultrafast服务层提供算力，速度最高达到每秒750个token。具名且面向客户的部署，是晶圆级推理超越基准演示的重要证据，尤其适用于对延迟敏感的交互式工作负载。不过，该吞吐率未单独披露批量大小、上下文长度、质量设置和服务成本，尚不足以直接比较不同平台。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-14 01:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-14 01:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

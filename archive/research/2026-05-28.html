@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-28">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Open Buses, Ferroelectric Attention, Mechanical Logic — Semi Research 2026-05-28</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Lang visibility */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-05-28.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, May 28, 2026</span>
+      <span class="zh">研究摘要 · 2026年5月28日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Open Buses, Ferroelectric Attention, Mechanical Logic</span>
+      <span class="zh">开放总线、铁电注意力、机械逻辑</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week the research stack pushes on three axes at once: open re-implementations of vendor-specific interconnects (Huawei UB), in-memory architectures aimed directly at the transformer KV-cache, and non-electronic logic — nanomechanical, Josephson, altermagnetic — moving from physics demos toward design-tool territory.</span>
+      <span class="zh">本周研究栈在三条轴上同时推进：对厂商专属互连的开源克隆（华为UB）、直接瞄准Transformer KV缓存的存内架构，以及非电子逻辑——纳米机械、Josephson、交错磁——从物理演示向设计工具阵地推进。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="architecture">
+    <h2>
+      <span class="en">Architecture &amp; Chiplets</span>
+      <span class="zh">架构与chiplet</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.28717" target="_blank" rel="noopener">
+          <span class="en">OpenURMA: a clean-room open implementation of Huawei&#x27;s Unified Bus protocol</span>
+          <span class="zh">OpenURMA：华为UB协议的洁净室开源实现</span>
+        </a><span class="tag">preprint</span><span class="tag">interconnect</span><span class="tag">open hardware</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.28717" target="_blank" rel="noopener">arXiv:2605.28717</a> · 2026-05-27</p>
+      <p class="summary">
+        <span class="en">Huawei published the Unified Bus (UB) spec in 2025 as an RDMA alternative that decouples per-application endpoint state from per-host transport state — directly attacking the PCIe four-traversal latency penalty that RoCE inherits from InfiniBand. This paper is the first publicly-documented clean-room implementation of UB outside Huawei, and reports comparable wire-rate latency on a generic NIC. Even if UB never becomes a US-vendor product, the existence of an open implementation matters: it makes UB a real competitive option that hyperscalers can prototype against, rather than a Huawei-only specification.</span>
+        <span class="zh">华为在2025年发布Unified Bus（UB）规范，作为RDMA的替代方案——通过将「应用级端点状态」与「主机级传输状态」解耦，直接攻击RoCE从InfiniBand继承的PCIe四次穿越延迟惩罚。本论文是华为之外首个公开文档化的UB洁净室实现，并在通用网卡上报告了可比的线速延迟。即使UB最终未成为美国厂商的产品，开源实现的存在仍有意义：它把UB从「华为专属规范」变成了超大规模客户可以原型验证的真实竞争选项。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.27757" target="_blank" rel="noopener">
+          <span class="en">CLIPGen: a chiplet-link IP modeling and generation framework for 2.5D architecture exploration</span>
+          <span class="zh">CLIPGen：面向2.5D架构探索的chiplet链路IP建模与生成框架</span>
+        </a><span class="tag">preprint</span><span class="tag">chiplet</span><span class="tag">design space exploration</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.27757" target="_blank" rel="noopener">arXiv:2605.27757</a> · 2026-05-26</p>
+      <p class="summary">
+        <span class="en">System architects evaluating 2.5D chiplet partitions today choose between detailed interconnect models that require deep packaging expertise and high-level models too coarse to drive real architectural decisions. CLIPGen sits in the gap with a parameterized chiplet-link IP generator that consumes high-level packaging choices (substrate, bump pitch, lane width) and produces concrete latency / energy / area numbers. The framework matters because UCIe-class chiplet-link decisions are now happening before tape-out commitments — the silicon is fixed but the partition isn&#x27;t, and a usable open framework changes who can run those experiments.</span>
+        <span class="zh">评估2.5D chiplet分区时，系统架构师当下只能在「需要深度封装专家知识的详细互连模型」与「粗到无法驱动真实架构决策的高层模型」之间二选一。CLIPGen补上了这一空缺：参数化的chiplet链路IP生成器以高层封装选项（基板、bump pitch、lane宽度）为输入，输出具体的延迟/能耗/面积数字。意义在于：UCIe级chiplet链路决策如今发生在流片承诺之前——硅片已固定但分区未定——一个可用的开源框架，改变了能跑这类实验的群体范围。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="memory">
+    <h2>
+      <span class="en">Memory &amp; Disaggregation</span>
+      <span class="zh">存储与解耦</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.27745" target="_blank" rel="noopener">
+          <span class="en">CXL-ClusterSim: modeling CXL-based disaggregated memory clusters for pooling and sharing</span>
+          <span class="zh">CXL-ClusterSim：面向池化与共享的CXL解耦存储集群建模</span>
+        </a><span class="tag">preprint</span><span class="tag">CXL</span><span class="tag">memory disaggregation</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.27745" target="_blank" rel="noopener">arXiv:2605.27745</a> · 2026-05-26</p>
+      <p class="summary">
+        <span class="en">Couples gem5 (host-side) with SST (fabric-side) to produce the first cycle-accurate simulator for CXL-disaggregated DRAM clusters at cluster scale — addressing the under-utilization problem that motivates CXL pooling in the first place (modern cloud DRAM allocations show peak-to-average ratios that justify pooling). The contribution is tooling rather than novel architecture, but it matters: every hyperscaler is now sizing CXL fabrics on their own internal estimates, and a public simulator gives the rest of the field a calibration target.</span>
+        <span class="zh">将gem5（主机侧）与SST（织物侧）耦合，构建出首个集群规模、面向CXL解耦DRAM集群的周期级精确模拟器——直接回应了驱动CXL池化的根本问题（现代云上DRAM分配峰均比之高，足以证成池化）。贡献在工具而非新架构，但仍有意义：每家超大规模客户当下都在用自家内部估算来调整CXL织物规模，而公开模拟器让业界其余玩家有了校准基准。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.28208" target="_blank" rel="noopener">
+          <span class="en">Nonvolatile charge-domain attention with HZO ferroelectric capacitors</span>
+          <span class="zh">基于HZO铁电电容的非易失电荷域注意力计算</span>
+        </a><span class="tag">preprint</span><span class="tag">in-memory computing</span><span class="tag">ferroelectric</span><span class="tag">attention</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.28208" target="_blank" rel="noopener">arXiv:2605.28208</a> · 2026-05-27</p>
+      <p class="summary">
+        <span class="en">Proposes the Ferroelectric Charge-Domain Compute Cell (FCDC) — a hafnium-zirconium-oxide memcapacitor with an access transistor that stores analog state nonvolatilely and performs charge-domain VMM for attention. Two deployment modes are evaluated: full-substrate (Q/K/V/O projections plus both attention matmuls) and KV-coprocessor (KV storage + the two attention matmuls only). The work is device-to-system simulation rather than measured silicon, but the framing — treat attention compute and KV-cache movement as a joint problem at the device level — is exactly the unit of analysis the field needs now that KV-cache pressure dominates inference cost.</span>
+        <span class="zh">提出铁电电荷域计算单元（FCDC）：一种带访问晶体管的氧化铪锆（HZO）忆容器，以非易失方式存储模拟状态，并执行注意力的电荷域向量-矩阵乘（VMM）。论文评估两种部署模式：全衬底模式（Q/K/V/O投影 + 两次注意力矩阵乘）与KV协处理器模式（仅承担KV存储 + 两次注意力矩阵乘）。该工作是器件到系统级仿真而非实测硅片，但其「把注意力计算与KV缓存搬运视作器件级联合问题」的视角，正是KV缓存压力主导推理成本之后该领域所需的分析单元。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="efficiency">
+    <h2>
+      <span class="en">Compute Efficiency &amp; Telemetry</span>
+      <span class="zh">算力效率与遥测</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.27599" target="_blank" rel="noopener">
+          <span class="en">The energy blind spot: Nvidia&#x27;s flagship edge AI hardware cannot support process-level energy attribution</span>
+          <span class="zh">能耗盲点：英伟达旗舰边缘AI硬件无法支持进程级能耗归因</span>
+        </a><span class="tag">preprint</span><span class="tag">edge AI</span><span class="tag">energy telemetry</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.27599" target="_blank" rel="noopener">arXiv:2605.27599</a> · 2026-05-26</p>
+      <p class="summary">
+        <span class="en">Empirical study showing that the GB10-based edge AI desktops shipping in 2026 (Nvidia DGX Spark, plus Dell / HP / ASUS / MSI / Acer / Gigabyte variants) lack the telemetry primitives needed to attribute energy at the process level — making agentic AI workloads, where one user goal triggers many orchestrated steps, fundamentally un-instrumentable for cost-per-task analysis. The authors connect this to their earlier finding that workflow orchestration dominates agentic energy (4-7× over linear baselines), and argue Nvidia&#x27;s edge silicon is shipping a measurement gap, not a feature gap. Direct relevance for anyone evaluating edge-AI TCO honestly.</span>
+        <span class="zh">实证研究表明：2026年发货的GB10系列边缘AI台式机（Nvidia DGX Spark以及戴尔/惠普/华硕/微星/宏碁/技嘉等版本）缺乏进程级能耗归因所需的遥测原语——这使得「一个用户目标触发多步骤编排」的agentic AI负载，在每任务成本分析上根本无法被测量。作者将其与此前发现（工作流编排在agentic能耗中占主导，较线性基线高4-7倍）相连，论证英伟达边缘硅片当前出货的是测量能力缺口，而非功能缺口。对所有正经评估边缘AI TCO的人具有直接相关性。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.28451" target="_blank" rel="noopener">
+          <span class="en">Range, not precision: block-floating-point half-precision FFT and SAR imaging on Apple Silicon</span>
+          <span class="zh">动态范围才是关键：Apple Silicon上的块浮点半精度FFT与SAR成像</span>
+        </a><span class="tag">preprint</span><span class="tag">numerical formats</span><span class="tag">Apple Silicon</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.28451" target="_blank" rel="noopener">arXiv:2605.28451</a> · 2026-05-27</p>
+      <p class="summary">
+        <span class="en">Shows empirically that for FFT and synthetic-aperture-radar pipelines, the binding constraint of FP16 is not the 10-bit mantissa but the 5-bit exponent&#x27;s dynamic range — and that block-floating-point reframing recovers radar-grade SQNR (56-61 dB) at full FP16 throughput on Apple Silicon GPUs. This is a numerical-format paper that quietly maps onto the OCP-MX direction the entire AI accelerator industry is moving: shared-exponent formats keep beating naive lower-precision both for accuracy and for hardware cost. Worth tracking as a methodology cousin to the MX-SAFE work from last week.</span>
+        <span class="zh">实证表明：在FFT与合成孔径雷达（SAR）流水线中，FP16的约束并非10位尾数，而是5位指数能表示的动态范围；通过块浮点（BFP）重构，可在Apple Silicon GPU上以FP16全吞吐量恢复雷达级SQNR（56-61 dB）。这是一篇数值格式论文，但悄然映射到整个AI加速器行业向OCP-MX方向的迁移：共享指数格式在精度与硬件成本两端都持续打败朴素的低精度。可作为上周MX-SAFE工作的方法论近亲来跟踪。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="emerging">
+    <h2>
+      <span class="en">Emerging Devices &amp; Computing</span>
+      <span class="zh">新兴器件与计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.27830" target="_blank" rel="noopener">
+          <span class="en">Magneto-optical detection of anisotropic spin currents in altermagnetic RuO2</span>
+          <span class="zh">交错磁RuO2中各向异性自旋流的磁光检测</span>
+        </a><span class="tag">preprint</span><span class="tag">altermagnet</span><span class="tag">spintronics</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.27830" target="_blank" rel="noopener">arXiv:2605.27830</a> · 2026-05-27</p>
+      <p class="summary">
+        <span class="en">Altermagnets — recently identified collinear antiferromagnets that host large spin-split electronic bands — are a candidate platform for efficient spin-current generation that could feed next-generation SOT-MRAM with higher charge-to-spin conversion efficiency. This paper resolves an open question about whether RuO2, the leading altermagnet candidate, sustains robust magnetic order beyond ultrathin films: a 12-nm-thick (101)-oriented RuO2 layer on sapphire shows altermagnetic spin splitting strong enough to detect via polarization-resolved second-harmonic generation. Practical step toward usable altermagnetic devices, not just theoretical work.</span>
+        <span class="zh">交错磁（altermagnets）是最近被识别的一类共线反铁磁体——具有大自旋劈裂电子带，是高效自旋流产生的候选平台，可为下一代SOT-MRAM提供更高的电荷-自旋转换效率。本文回答了一个悬而未决的问题：RuO2作为领先的交错磁候选材料，超薄膜以外能否保持稳健磁序。结果显示，蓝宝石上12 nm厚(101)取向RuO2薄膜的交错磁自旋劈裂可被偏振分辨二次谐波生成检测到。这是面向可用交错磁器件的实质性一步，而非纯理论工作。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2605.26319" target="_blank" rel="noopener">
+          <span class="en">Programming nanomechanical computation with light</span>
+          <span class="zh">以光编程纳米机械计算</span>
+        </a><span class="tag">preprint</span><span class="tag">optomechanics</span><span class="tag">unconventional computing</span>
+      </h3>
+      <p class="authors">co-authors not extracted</p>
+      <p class="affil">academic team</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2605.26319" target="_blank" rel="noopener">arXiv:2605.26319</a> · 2026-05-25</p>
+      <p class="summary">
+        <span class="en">Demonstrates a complete set of digital logic gates with level restoration and controlled mechanical coupling — built from cavity-optomechanical interactions where laser drive controls the nonlinearity. The gates work on nanomechanical degrees of freedom rather than electrons, opening a route to computation that uses thermal noise and topology as resources rather than nuisances. Still a physics demo, not a competitive substrate; the interesting question is whether nanomechanical logic can hit useful clock rates without burning the laser-power budget that currently dominates the noise floor.</span>
+        <span class="zh">演示了完整的数字逻辑门集合——具备电平恢复与可控机械耦合——基于腔光机相互作用构建，由激光驱动控制非线性。这些门工作在纳米机械自由度而非电子上，开辟了一条以热噪声与拓扑作为计算资源（而非困扰）的路径。仍是物理学层级演示而非有竞争力的衬底；有趣的问题是：纳米机械逻辑能否在不烧光当前主导噪声底的激光功率预算的前提下，达到有用的时钟速率。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-28 14:19 UTC · <a href="../2026-05-28.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-05-28 14:19 UTC · <a href="../2026-05-28.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
