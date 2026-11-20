@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-19">
+<meta name="edition-date" content="2026-11-20">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Efficiency Depends on the Whole System — Semi Research 2026-11-19</title>
+<title>Efficiency Depends on Scheduling, Precision and Memory — Semi Research 2026-11-20</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Thursday, November 19, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月19日 星期四</span>
+      <span class="en">Research digest · Friday, November 20, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月20日 星期五</span>
     </div>
     <h1>
-      <span class="en">Inference Efficiency Depends on the Whole System</span>
-      <span class="zh">推理效率取决于整个系统</span>
+      <span class="en">Efficiency Depends on Scheduling, Precision and Memory</span>
+      <span class="zh">效率取决于调度、精度与存储</span>
     </h1>
     <p class="dek">
-      <span class="en">Eight papers connect quantization and accelerator design with interconnects, production workloads and evaluation methods. The reading queue combines conference publications with preprints and distinguishes measured results from architectural proposals.</span>
-      <span class="zh">本期8篇论文将量化和加速器设计，与互连、生产负载及评测方法联系起来。阅读清单同时纳入会议论文和预印本，并区分实测结果与架构方案。</span>
+      <span class="en">Eight preprints examine production inference dispatch, edge learning, hybrid attention, quantization verification and local engineering agents. Reported gains range from fewer H100s in a production A/B test to tighter error bounds, with benchmark scope and deployment assumptions kept explicit.</span>
+      <span class="zh">本期8篇预印本涵盖生产推理调度、边缘学习、混合注意力、量化验证及本地工程智能体。研究结果从生产A/B测试中减少H100用量，到收紧量化误差边界；摘要保留各自的评测范围与部署条件。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 8 paper(s)</span>
@@ -338,133 +338,145 @@
 
     <section class="area" id="accelerators">
     <h2>
-      <span class="en">Accelerator Architecture &amp; Systems</span>
-      <span class="zh">加速器架构与系统</span>
+      <span class="en">Edge Accelerators &amp; Learning Systems</span>
+      <span class="zh">边缘加速器与学习系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2611.21677" target="_blank" rel="noopener">
-          <span class="en">Chimera Co-Designs FPGA Compute, HBM Access and Floorplan for LLM Decode</span>
-          <span class="zh">Chimera协同设计FPGA计算、HBM访问与布局以支持大模型解码</span>
+        <a href="https://arxiv.org/abs/2611.24637" target="_blank" rel="noopener">
+          <span class="en">Hypnos Splits Edge Continual Learning Between a RISC-V Device and a Smart Charger</span>
+          <span class="zh">Hypnos将边缘持续学习分配给RISC-V设备与智能充电器</span>
         </a>
       </h3>
-      <p class="authors">Zhi-Heng Chen, Yi-Fan Zhang, Yuseon Chou, et al.</p>
+      <p class="authors">Guilherme Guedes, Marco Apolinario Lainez, Charlotte Frenkel</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2611.21677" target="_blank" rel="noopener">arXiv:2611.21677</a> · 2026-11-14</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24637" target="_blank" rel="noopener">arXiv:2611.24637</a> · 2026-11-18T15:46:58Z</p>
       <p class="summary">
-        <span class="en">Chimera co-designs compute lanes, HBM access and placement across the dies of an FPGA, using HBM Proxy Ports to reach compute in every super logic region. On an AMD Alveo U280, the authors build ten designs for eight models, including an 80B-parameter MoE model using four memory tiers. The work addresses the routing and resource limits that prevent raw HBM bandwidth from becoming useful decode throughput; the supplied abstract does not include comparative performance figures.</span>
-        <span class="zh">Chimera在多裸片FPGA上协同设计计算通路、HBM访问与布局，通过HBM Proxy Ports让各个超级逻辑区域中的计算资源都能访问HBM。作者在AMD Alveo U280上为8个模型构建了10种设计，其中包括使用4级存储的800亿参数MoE模型。这项工作针对布线和资源约束，解决HBM标称带宽难以充分转化为解码吞吐的问题；所提供的摘要尚未包含对比性能数字。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2611.18523" target="_blank" rel="noopener">
-          <span class="en">Mutable Inference Shares Accelerator Resources Between Prediction and Learning</span>
-          <span class="zh">Mutable Inference在预测与学习之间共享加速器资源</span>
-        </a>
-      </h3>
-      <p class="authors">Yi-Min Gao, Liang-Tao Dai, Melika Morsali, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2611.18523" target="_blank" rel="noopener">arXiv:2611.18523</a> · 2026-11-13</p>
-      <p class="summary">
-        <span class="en">Learning While Serving shares accelerator compute between latency-critical prediction and more flexible inference-time learning. It exploits matrix capacity left idle by non-matrix attention operations and uses per-layer weight versioning so updates can coexist with in-flight computations. The architecture targets models that learn from context during inference, making it relevant to hardware beyond fixed-weight decoding; no silicon measurement is established by the supplied abstract.</span>
-        <span class="zh">Learning While Serving让延迟敏感的预测与时间安排更灵活的推理时学习共享加速器计算资源。它利用注意力非矩阵运算期间闲置的矩阵计算能力，并通过逐层权重版本管理，使权重更新与尚未完成的计算并存。该架构面向推理过程中持续从上下文学习的模型，将硬件设计问题扩展到固定权重解码之外；所提供的摘要尚未给出芯片实测结果。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="http://arxiv.org/abs/2611.20289" target="_blank" rel="noopener">
-          <span class="en">Two DGX Sparks Favor Different Parallelism at Different Loads</span>
-          <span class="zh">双DGX Spark在不同负载下适合不同并行方式</span>
-        </a>
-      </h3>
-      <p class="authors">Kevin Bhimani, Christian Escobar, Daniel Mihovch, et al.</p>
-      
-      <p class="venue"><a href="http://arxiv.org/abs/2611.20289" target="_blank" rel="noopener">arXiv:2611.20289</a> · 2026-11-15</p>
-      <p class="summary">
-        <span class="en">Across 17 checkpoints on one or two DGX Spark GB10 systems linked by 200 GbE, tensor parallelism delivered a median 1.59× peak-throughput gain over one system, versus 1.39× for pipeline parallelism. Tensor parallelism also cut unloaded inter-token latency to 0.52–0.73× of the single-system value. For models fitting on one system, replication generally offered higher throughput at high concurrency, so the best way to add a second machine depends on the serving load.</span>
-        <span class="zh">研究在1台或2台通过200 GbE互连的DGX Spark GB10上测试了17个模型检查点；相较单机，张量并行的峰值吞吐增益中位数为1.59倍，流水线并行为1.39倍。张量并行还将无负载条件下的词元间延迟降至单机的0.52至0.73倍。对于单机能够容纳的模型，高并发下复制部署通常提供更高吞吐，因此第二台机器的最佳使用方式取决于服务负载。</span>
+        <span class="en">Hypnos separates continual learning into a wake phase on a small RISC-V MCU-based system and a sleep phase on a smart charger. The device performs inference and lightweight gradient-free prototype updates, while the charger uses rehearsal-based gradient updates when power and memory budgets are larger. This partition targets adaptation without placing full backpropagation on the edge device; the supplied abstract mentions a ZCU104 FPGA deployment but ends before quantitative results.</span>
+        <span class="zh">Hypnos将持续学习分为两个阶段：由基于RISC-V MCU的小型系统承担清醒阶段，由智能充电器承担睡眠阶段。设备负责推理和轻量级无梯度原型更新，充电器则在电力与内存预算更充足时，通过样本回放进行梯度更新。这种划分旨在实现在线适应，同时避免在边缘设备上执行完整反向传播；所提供的摘要提及ZCU104 FPGA部署，但在量化结果之前已被截断。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Quantization, KV Cache &amp; Inference Systems</span>
-      <span class="zh">量化、KV缓存与推理系统</span>
+      <span class="en">Inference Systems, Models &amp; Quantization</span>
+      <span class="zh">推理系统、模型与量化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2611.21974" target="_blank" rel="noopener">
-          <span class="en">Beyond Bitwidth Tests Mixed Precision Against Real Blackwell Deployment Limits</span>
-          <span class="zh">Beyond Bitwidth按Blackwell实际部署约束评测混合精度量化</span>
+        <a href="https://arxiv.org/abs/2611.24891" target="_blank" rel="noopener">
+          <span class="en">Cap-and-Track Adapts Inference Dispatch to Changing Backend Capacity</span>
+          <span class="zh">Cap-and-Track让推理请求分发适应后端容量变化</span>
         </a>
       </h3>
-      <p class="authors">Hyojung Han</p>
+      <p class="authors">Benjamin Novotny, Doug Szeto, Chang Wang, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2611.21974" target="_blank" rel="noopener">arXiv:2611.21974</a> · 2026-11-16</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24891" target="_blank" rel="noopener">arXiv:2611.24891</a> · 2026-11-18T18:34:10Z</p>
       <p class="summary">
-        <span class="en">For Qwen3-8B on an Nvidia B200 with vLLM, a configuration combining 98 NVFP4 weight-only modules, 46 INT8 modules and an INT8 output head passed the study&#x27;s held-out quality and deployment gates. With 16-bit activations, it used 5.917 GiB for weight loading and achieved a time-per-output-token ratio of 0.939 relative to BF16. All seven tested INT2 grids degenerated during generation, showing why nominal bitwidth alone is a poor deployment criterion. The passing configuration remains a result for this model, hardware and evaluation set.</span>
-        <span class="zh">研究在英伟达B200与vLLM上测试Qwen3-8B，将98个仅权重采用NVFP4的模块、46个INT8模块及INT8输出头组合后，通过了独立保留测试集上的质量与部署门槛。在激活保持16位的条件下，该配置的权重加载内存为5.917 GiB，每输出词元耗时为BF16基线的0.939倍。测试的7组INT2配置均出现生成退化，说明名义位宽不足以作为部署标准。通过门槛的结果仍限于这一模型、硬件和评测集。</span>
+        <span class="en">Cap-and-Track uses fast admission refusals to track available inference capacity, holding excess and retried work in durable priority queues outside execution. In a concurrent production A/B test at Meta, the traffic shaper served a classifier on 43% fewer H100s than its queued, fixed-rate predecessor, while lower-priority work waited longer during backfill peaks. Real-engine replay at steady capacity put goodput within 1% of a fixed rate tuned above measured capacity. The production result concerns asynchronous classifier serving rather than a general reduction in interactive LLM hardware needs.</span>
+        <span class="zh">Cap-and-Track利用快速准入拒绝信号追踪可用推理容量，将超额任务及待重试任务保存在执行路径之外的持久化优先队列中。在Meta的同期生产A/B测试中，该流量整形器运行一个分类器时，比采用队列与固定分发速率的前代方案少用43%的H100，但低优先级任务在回填高峰时等待更久。在稳定容量下的真实引擎回放中，其有效吞吐与调至高于实测容量的固定速率方案相差不到1%。生产结果针对异步分类服务，不能直接推广为交互式大模型所需硬件的普遍降幅。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="http://arxiv.org/abs/2611.20549" target="_blank" rel="noopener">
-          <span class="en">RoShift Turns Activation Sparsity into Measured Decode Speedups</span>
-          <span class="zh">RoShift将激活稀疏性转化为实测解码加速</span>
+        <a href="https://arxiv.org/abs/2611.24809" target="_blank" rel="noopener">
+          <span class="en">FlashMorph2 Selects Hybrid Attention Layers Under the Recovery Objective</span>
+          <span class="zh">FlashMorph2按恢复训练目标选择混合注意力层</span>
         </a>
       </h3>
-      <p class="authors">Geunsoo Song, Jiwon Seo, Hoeseok Yang, et al.</p>
+      <p class="authors">Disen Lan, Xuanda Wang, Jianbin Zheng, et al.</p>
       
-      <p class="venue"><a href="http://arxiv.org/abs/2611.20549" target="_blank" rel="noopener">arXiv:2611.20549</a> · 2026-11-16</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24809" target="_blank" rel="noopener">arXiv:2611.24809</a> · 2026-11-18T17:45:51Z</p>
       <p class="summary">
-        <span class="en">RoShift combines a deferred activation shift with weight-aware rotation to create sparsity without training, then fuses the required corrections to preserve decode efficiency. Across five models, it improves average accuracy over TEAL by 1.60 and 3.29 percentage points at 50% and 60% sparsity, respectively. On an RTX 5090, the authors report up to 1.72× decoding speed over the dense model at 50% sparsity. The measured speedup connects skipped weight reads to runtime, but its maximum is specific to the tested configuration.</span>
-        <span class="zh">RoShift通过延迟执行补偿的激活平移与权重感知旋转，在无需训练的情况下提高稀疏性，并融合必要的补偿运算以保持解码效率。在5个模型上，50%和60%稀疏度下的平均准确率分别比TEAL高1.60和3.29个百分点。作者报告，在RTX 5090上以50%稀疏度运行时，解码速度最高为稠密模型的1.72倍。实测加速将减少权重读取与运行时间联系起来，但最高收益仅对应所测试的具体配置。</span>
+        <span class="en">FlashMorph2 converts pretrained Transformers into hybrid full- and linear-attention models by evaluating discrete architectures on their own hidden states and jointly updating layer-selection scores and weights. Across tested Qwen3 scales and linear-attention variants, average scores improve over FlashMorph by 2.42 points on RULER, 1.08 on LongBench and 0.76 on recall-intensive tasks. Layer selection takes 0.72–3.57 GPU-hours for 0.6B–8B models. These results address selection quality and cost; the supplied excerpt does not give an end-to-end serving speedup.</span>
+        <span class="zh">FlashMorph2通过使用离散架构自身产生的隐藏状态进行评估，并联合更新层选择分数与权重，将预训练Transformer转换为结合完整注意力和线性注意力的模型。在所测试的Qwen3规模与线性注意力变体上，相比FlashMorph，RULER、LongBench及高召回需求任务的平均分分别提高2.42、1.08和0.76分。对于6亿至80亿参数模型，层选择耗时为0.72至3.57 GPU小时。这些结果针对选择质量与成本，所提供的摘要尚未给出端到端推理服务加速比。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3828523.3857108" target="_blank" rel="noopener">
-          <span class="en">HACK Computes Attention Directly on INT2 KV Cache</span>
-          <span class="zh">HACK直接在INT2 KV缓存上计算注意力</span>
+        <a href="https://arxiv.org/abs/2611.24648" target="_blank" rel="noopener">
+          <span class="en">Zonotopic Analysis Tightens Quantized-Network Error Bounds</span>
+          <span class="zh">Zonotope分析收紧量化神经网络误差边界</span>
         </a>
       </h3>
-      <p class="authors">Ze-Yu Zhang, Hai-Ying Shen, S. Vargaftik, et al.</p>
+      <p class="authors">Robert Debbas, Éric Goubault, Sylvie Putot</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857108" target="_blank" rel="noopener">ACM SIGOPS Annual Technical Conference 2026</a> · 2026-11-14</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24648" target="_blank" rel="noopener">arXiv:2611.24648</a> · 2026-11-18T15:52:07Z</p>
       <p class="summary">
-        <span class="en">HACK keeps KV data in compressed INT2 form for transfer and caching, and computes attention directly on that representation in disaggregated inference. This targets both the network cost of moving KV between prefill and decode and the repeated dequantization cost of conventional low-bit caching. The supplied abstract establishes the mechanism but does not expose quantitative accuracy or end-to-end latency results.</span>
-        <span class="zh">HACK在分离式推理中，以压缩后的INT2格式传输和缓存KV数据，并直接在该表示上计算注意力。它同时针对预填充与解码阶段之间搬运KV的网络成本，以及传统低位宽缓存反复反量化的开销。所提供的摘要说明了技术机制，但尚未给出量化精度或端到端延迟的具体结果。</span>
+        <span class="en">This work verifies quantized ReLU networks with a zonotope-based abstract interpretation framework that handles rounding and clamping jointly. On ACAS Xu at the two smallest tested perturbation radii, constrained zonotopes reduce average error-bound widths by about 70–85% and runtimes by 65–80% relative to QEBVerif&#x27;s symbolic DRA propagation. Plain zonotopes produce competitive sound bounds nearly 300 times faster on average. Gains vary with bitwidth, and symbolic DRA yields tighter bounds at larger radii, making the method&#x27;s advantage regime-dependent.</span>
+        <span class="zh">研究提出基于zonotope（带状多面体）的抽象解释框架，联合处理舍入与截断，以验证量化ReLU网络。在ACAS Xu基准的两个最小测试扰动半径下，相比QEBVerif的符号DRA传播，约束zonotope将平均误差边界宽度缩小约70%至85%，运行时间减少65%至80%。普通zonotope方法也能给出有竞争力的可靠边界，平均速度接近快300倍。收益随位宽而变化，较大扰动半径下符号DRA的边界更紧，因此优势取决于具体参数区间。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3828523.3857044" target="_blank" rel="noopener">
-          <span class="en">Production MaaS Trace Maps Resource Allocation Across More Than 100,000 GPUs</span>
-          <span class="zh">生产级MaaS轨迹分析覆盖逾10万颗GPU的资源分配</span>
+        <a href="https://arxiv.org/abs/2611.24636" target="_blank" rel="noopener">
+          <span class="en">Clover Combines MoE Diffusion Generation with Recurrent Context Memory</span>
+          <span class="zh">Clover结合MoE扩散生成与循环上下文记忆</span>
         </a>
       </h3>
-      <p class="authors">Yin Zheng, Ling-Yun Yang, Ying-Hao Yu, et al.</p>
+      <p class="authors">DiffuSpace Technical Team</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857044" target="_blank" rel="noopener">ACM SIGOPS Annual Technical Conference 2026</a> · 2026-11-14</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24636" target="_blank" rel="noopener">arXiv:2611.24636</a> · 2026-11-18T15:46:14Z</p>
       <p class="summary">
-        <span class="en">A six-month trace from the xMaaS production platform covers more than 100,000 GPUs, 300,000 applications and 70,000 model variants. The study examines cluster-wide resource supply, changing application demand and deployment choices across heterogeneous GPUs, extending characterization beyond individual requests. This scale makes the workload evidence useful for judging serving-system assumptions, although the supplied excerpt does not report utilization rates or a demonstrated scheduling gain.</span>
-        <span class="zh">研究分析xMaaS生产平台长达6个月的运行轨迹，覆盖逾10万颗GPU、30万个应用和7万个模型变体。它从整个集群层面考察资源供给、应用需求变化和异构GPU上的部署选择，将负载刻画从单个请求扩展到资源分配。这一规模的生产数据有助于检验推理服务系统的设计假设，但所提供的摘要尚未报告利用率数字或已验证的调度收益。</span>
+        <span class="en">Clover-35B-A3B-Preview is a diffusion language model with 35B total parameters and 3B activated parameters, combining recurrent memory for prior context with bidirectional attention inside each generated block. The authors report scores of 73.6 on SWE-bench Verified and 51.7 on Terminal-Bench 2.1. On internal agent workloads, generation reaches a reported 680 tokens/s on one Nvidia GB300 at BF16 and batch size one. That throughput is tied to the stated internal workload and does not establish performance across serving conditions.</span>
+        <span class="zh">Clover-35B-A3B-Preview是一款总参数350亿、激活参数30亿的扩散语言模型，将历史上下文的循环记忆与当前生成块内的双向注意力结合。作者报告，其SWE-bench Verified和Terminal-Bench 2.1得分分别为73.6和51.7。在内部智能体负载上，单颗英伟达GB300以BF16精度、批量大小为1运行时，报告的生成速度达到每秒680个词元。该吞吐对应指定的内部负载，不能据此判断各种服务条件下的表现。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://doi.org/10.1145/3815789.3827963" target="_blank" rel="noopener">
-          <span class="en">LLM Inference Evaluation Study Exposes Baseline and Metric Pitfalls</span>
-          <span class="zh">大模型推理评测研究揭示基线与指标设计缺陷</span>
+        <a href="https://arxiv.org/abs/2611.24619" target="_blank" rel="noopener">
+          <span class="en">GateWatch Uses Compact Boolean Rules for LLM Activation Monitoring</span>
+          <span class="zh">GateWatch以紧凑布尔规则监测大模型激活</span>
         </a>
       </h3>
-      <p class="authors">Amey Agrawal, Nitin Kedia, Anmol Agarwal, et al.</p>
+      <p class="authors">Firas Spanioli, Yaniv David</p>
       
-      <p class="venue"><a href="https://doi.org/10.1145/3815789.3827963" target="_blank" rel="noopener">ACM Symposium on Cloud Computing 2026, Volume 1</a> · 2026-11-17</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24619" target="_blank" rel="noopener">arXiv:2611.24619</a> · 2026-11-18T15:37:04Z</p>
       <p class="summary">
-        <span class="en">This study identifies recurring inference-evaluation problems in baseline fairness, workload setup and metric design. It explains how implementation differences can obscure algorithmic contributions and how normalized metrics can hide variability in autoregressive token delivery. The analysis provides a useful checklist for assessing accelerator and serving claims, particularly when prefill, decode and user-visible latency are combined into a single headline number.</span>
-        <span class="zh">这项研究梳理了推理评测在基线公平性、负载设置和指标设计上的常见问题。它说明，实现细节的差异可能掩盖算法本身的贡献，而归一化指标也可能隐藏自回归词元输出的波动。这些分析有助于审视加速器与推理服务的性能主张，尤其适用于预填充、解码及用户感知延迟被合并成单一宣传数字的情况。</span>
+        <span class="en">GateWatch expresses activation-monitor decisions as Boolean logic over a small set of binarized sparse-autoencoder features. GateWatchServe computes only selected features, streams binary values across layers and evaluates probes through compact lookup tables. Across 24 Gemma-2-9B tasks, the authors report 80.49% mean test accuracy with averages of 3.8 features and 3.5 logic gates per probe. The compact rule size is promising for monitoring cost, but the supplied excerpt does not quantify end-to-end inference overhead.</span>
+        <span class="zh">GateWatch将激活监测器的决策表示为少量二值化稀疏自编码器特征上的布尔逻辑。GateWatchServe只计算选中的特征，跨层流式传递二值结果，并通过紧凑查找表评估探针。在Gemma-2-9B的24项任务上，作者报告平均测试准确率为80.49%，每个探针平均仅使用3.8个特征与3.5个逻辑门。紧凑规则有助于降低监测成本，但所提供的摘要尚未量化端到端推理开销。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">Engineering Automation &amp; Simulation</span>
+      <span class="zh">工程自动化与仿真</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.24880" target="_blank" rel="noopener">
+          <span class="en">Local AI Agents Measure the Deployment Costs of Power Electronics Simulation</span>
+          <span class="zh">本地AI智能体评估电力电子仿真的部署成本</span>
+        </a>
+      </h3>
+      <p class="authors">Yuzhuo Li, Pasan Gunawardena, Yunwei Li</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24880" target="_blank" rel="noopener">arXiv:2611.24880</a> · 2026-11-18T18:27:40Z</p>
+      <p class="summary">
+        <span class="en">This paper presents an evaluation framework for locally hosted AI agents that build, run, measure and revise power electronics simulations. It treats power, energy, token use and elapsed time as deployment costs, extending assessment beyond whether an agent completes a design task. The approach is relevant when engineering data and licensed simulators must remain on site. The supplied abstract is truncated before numerical comparisons, so it does not support a specific cost or efficiency claim.</span>
+        <span class="zh">论文提出评估框架，研究由本地部署AI智能体构建、运行、测量和修改电力电子仿真的流程。它将功率、能耗、词元用量与耗时纳入部署成本，评价范围超出了智能体能否完成设计任务。对于工程数据和授权仿真软件必须留在本地的场景，这种方法具有实际意义。所提供的摘要在数值对比之前已被截断，因此无法支持具体的成本或效率结论。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum &amp; Hybrid Learning</span>
+      <span class="zh">量子与混合学习</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.24798" target="_blank" rel="noopener">
+          <span class="en">Soft-MoQE Learns to Combine Fixed Quantum Feature Maps</span>
+          <span class="zh">Soft-MoQE学习组合固定量子特征映射</span>
+        </a>
+      </h3>
+      <p class="authors">Valeria Repetto, Romina D&#x27;Aurizio, Piero Farinelli</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.24798" target="_blank" rel="noopener">arXiv:2611.24798</a> · 2026-11-18T17:41:45Z</p>
+      <p class="summary">
+        <span class="en">Soft-MoQE replaces trainable quantum circuits with a pool of fixed quantum feature maps combined by an input-dependent classical gating network. On three PCA-reduced MNIST and FashionMNIST tasks, it outperforms the best individual expert, uniform expert averaging and a linear baseline, while reaching task-dependent performance comparable to a trainable quantum neural network. This avoids optimizing quantum parameters and targets the cost and optimization difficulties of variational training. The supplied results do not establish quantum advantage over strong classical models or performance on unreduced datasets.</span>
+        <span class="zh">Soft-MoQE用一组固定量子特征映射替代可训练量子电路，再由依赖输入的经典门控网络组合这些映射。在经过PCA降维的3项MNIST与FashionMNIST任务上，它优于最佳单个专家、专家均匀平均和线性基线，并在部分任务中达到与可训练量子神经网络相当的表现。该方法无需优化量子参数，针对变分训练的成本与优化困难。现有结果尚不能证明其相对强经典模型的量子优势，也不能说明在未降维数据集上的表现。</span>
       </p>
     </article>
   </section>
@@ -492,8 +504,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-19 01:15 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-19 01:15 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-20 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-20 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 

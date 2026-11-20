@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-19">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Inference Efficiency Depends on the Whole System — Semi Research 2026-11-19</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-11-19.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, November 19, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月19日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Inference Efficiency Depends on the Whole System</span>
+      <span class="zh">推理效率取决于整个系统</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Eight papers connect quantization and accelerator design with interconnects, production workloads and evaluation methods. The reading queue combines conference publications with preprints and distinguishes measured results from architectural proposals.</span>
+      <span class="zh">本期8篇论文将量化和加速器设计，与互连、生产负载及评测方法联系起来。阅读清单同时纳入会议论文和预印本，并区分实测结果与架构方案。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">Accelerator Architecture &amp; Systems</span>
+      <span class="zh">加速器架构与系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.21677" target="_blank" rel="noopener">
+          <span class="en">Chimera Co-Designs FPGA Compute, HBM Access and Floorplan for LLM Decode</span>
+          <span class="zh">Chimera协同设计FPGA计算、HBM访问与布局以支持大模型解码</span>
+        </a>
+      </h3>
+      <p class="authors">Zhi-Heng Chen, Yi-Fan Zhang, Yuseon Chou, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.21677" target="_blank" rel="noopener">arXiv:2611.21677</a> · 2026-11-14</p>
+      <p class="summary">
+        <span class="en">Chimera co-designs compute lanes, HBM access and placement across the dies of an FPGA, using HBM Proxy Ports to reach compute in every super logic region. On an AMD Alveo U280, the authors build ten designs for eight models, including an 80B-parameter MoE model using four memory tiers. The work addresses the routing and resource limits that prevent raw HBM bandwidth from becoming useful decode throughput; the supplied abstract does not include comparative performance figures.</span>
+        <span class="zh">Chimera在多裸片FPGA上协同设计计算通路、HBM访问与布局，通过HBM Proxy Ports让各个超级逻辑区域中的计算资源都能访问HBM。作者在AMD Alveo U280上为8个模型构建了10种设计，其中包括使用4级存储的800亿参数MoE模型。这项工作针对布线和资源约束，解决HBM标称带宽难以充分转化为解码吞吐的问题；所提供的摘要尚未包含对比性能数字。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.18523" target="_blank" rel="noopener">
+          <span class="en">Mutable Inference Shares Accelerator Resources Between Prediction and Learning</span>
+          <span class="zh">Mutable Inference在预测与学习之间共享加速器资源</span>
+        </a>
+      </h3>
+      <p class="authors">Yi-Min Gao, Liang-Tao Dai, Melika Morsali, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.18523" target="_blank" rel="noopener">arXiv:2611.18523</a> · 2026-11-13</p>
+      <p class="summary">
+        <span class="en">Learning While Serving shares accelerator compute between latency-critical prediction and more flexible inference-time learning. It exploits matrix capacity left idle by non-matrix attention operations and uses per-layer weight versioning so updates can coexist with in-flight computations. The architecture targets models that learn from context during inference, making it relevant to hardware beyond fixed-weight decoding; no silicon measurement is established by the supplied abstract.</span>
+        <span class="zh">Learning While Serving让延迟敏感的预测与时间安排更灵活的推理时学习共享加速器计算资源。它利用注意力非矩阵运算期间闲置的矩阵计算能力，并通过逐层权重版本管理，使权重更新与尚未完成的计算并存。该架构面向推理过程中持续从上下文学习的模型，将硬件设计问题扩展到固定权重解码之外；所提供的摘要尚未给出芯片实测结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.20289" target="_blank" rel="noopener">
+          <span class="en">Two DGX Sparks Favor Different Parallelism at Different Loads</span>
+          <span class="zh">双DGX Spark在不同负载下适合不同并行方式</span>
+        </a>
+      </h3>
+      <p class="authors">Kevin Bhimani, Christian Escobar, Daniel Mihovch, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.20289" target="_blank" rel="noopener">arXiv:2611.20289</a> · 2026-11-15</p>
+      <p class="summary">
+        <span class="en">Across 17 checkpoints on one or two DGX Spark GB10 systems linked by 200 GbE, tensor parallelism delivered a median 1.59× peak-throughput gain over one system, versus 1.39× for pipeline parallelism. Tensor parallelism also cut unloaded inter-token latency to 0.52–0.73× of the single-system value. For models fitting on one system, replication generally offered higher throughput at high concurrency, so the best way to add a second machine depends on the serving load.</span>
+        <span class="zh">研究在1台或2台通过200 GbE互连的DGX Spark GB10上测试了17个模型检查点；相较单机，张量并行的峰值吞吐增益中位数为1.59倍，流水线并行为1.39倍。张量并行还将无负载条件下的词元间延迟降至单机的0.52至0.73倍。对于单机能够容纳的模型，高并发下复制部署通常提供更高吞吐，因此第二台机器的最佳使用方式取决于服务负载。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Quantization, KV Cache &amp; Inference Systems</span>
+      <span class="zh">量化、KV缓存与推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.21974" target="_blank" rel="noopener">
+          <span class="en">Beyond Bitwidth Tests Mixed Precision Against Real Blackwell Deployment Limits</span>
+          <span class="zh">Beyond Bitwidth按Blackwell实际部署约束评测混合精度量化</span>
+        </a>
+      </h3>
+      <p class="authors">Hyojung Han</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.21974" target="_blank" rel="noopener">arXiv:2611.21974</a> · 2026-11-16</p>
+      <p class="summary">
+        <span class="en">For Qwen3-8B on an Nvidia B200 with vLLM, a configuration combining 98 NVFP4 weight-only modules, 46 INT8 modules and an INT8 output head passed the study&#x27;s held-out quality and deployment gates. With 16-bit activations, it used 5.917 GiB for weight loading and achieved a time-per-output-token ratio of 0.939 relative to BF16. All seven tested INT2 grids degenerated during generation, showing why nominal bitwidth alone is a poor deployment criterion. The passing configuration remains a result for this model, hardware and evaluation set.</span>
+        <span class="zh">研究在英伟达B200与vLLM上测试Qwen3-8B，将98个仅权重采用NVFP4的模块、46个INT8模块及INT8输出头组合后，通过了独立保留测试集上的质量与部署门槛。在激活保持16位的条件下，该配置的权重加载内存为5.917 GiB，每输出词元耗时为BF16基线的0.939倍。测试的7组INT2配置均出现生成退化，说明名义位宽不足以作为部署标准。通过门槛的结果仍限于这一模型、硬件和评测集。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.20549" target="_blank" rel="noopener">
+          <span class="en">RoShift Turns Activation Sparsity into Measured Decode Speedups</span>
+          <span class="zh">RoShift将激活稀疏性转化为实测解码加速</span>
+        </a>
+      </h3>
+      <p class="authors">Geunsoo Song, Jiwon Seo, Hoeseok Yang, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.20549" target="_blank" rel="noopener">arXiv:2611.20549</a> · 2026-11-16</p>
+      <p class="summary">
+        <span class="en">RoShift combines a deferred activation shift with weight-aware rotation to create sparsity without training, then fuses the required corrections to preserve decode efficiency. Across five models, it improves average accuracy over TEAL by 1.60 and 3.29 percentage points at 50% and 60% sparsity, respectively. On an RTX 5090, the authors report up to 1.72× decoding speed over the dense model at 50% sparsity. The measured speedup connects skipped weight reads to runtime, but its maximum is specific to the tested configuration.</span>
+        <span class="zh">RoShift通过延迟执行补偿的激活平移与权重感知旋转，在无需训练的情况下提高稀疏性，并融合必要的补偿运算以保持解码效率。在5个模型上，50%和60%稀疏度下的平均准确率分别比TEAL高1.60和3.29个百分点。作者报告，在RTX 5090上以50%稀疏度运行时，解码速度最高为稠密模型的1.72倍。实测加速将减少权重读取与运行时间联系起来，但最高收益仅对应所测试的具体配置。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3828523.3857108" target="_blank" rel="noopener">
+          <span class="en">HACK Computes Attention Directly on INT2 KV Cache</span>
+          <span class="zh">HACK直接在INT2 KV缓存上计算注意力</span>
+        </a>
+      </h3>
+      <p class="authors">Ze-Yu Zhang, Hai-Ying Shen, S. Vargaftik, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857108" target="_blank" rel="noopener">ACM SIGOPS Annual Technical Conference 2026</a> · 2026-11-14</p>
+      <p class="summary">
+        <span class="en">HACK keeps KV data in compressed INT2 form for transfer and caching, and computes attention directly on that representation in disaggregated inference. This targets both the network cost of moving KV between prefill and decode and the repeated dequantization cost of conventional low-bit caching. The supplied abstract establishes the mechanism but does not expose quantitative accuracy or end-to-end latency results.</span>
+        <span class="zh">HACK在分离式推理中，以压缩后的INT2格式传输和缓存KV数据，并直接在该表示上计算注意力。它同时针对预填充与解码阶段之间搬运KV的网络成本，以及传统低位宽缓存反复反量化的开销。所提供的摘要说明了技术机制，但尚未给出量化精度或端到端延迟的具体结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3828523.3857044" target="_blank" rel="noopener">
+          <span class="en">Production MaaS Trace Maps Resource Allocation Across More Than 100,000 GPUs</span>
+          <span class="zh">生产级MaaS轨迹分析覆盖逾10万颗GPU的资源分配</span>
+        </a>
+      </h3>
+      <p class="authors">Yin Zheng, Ling-Yun Yang, Ying-Hao Yu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3828523.3857044" target="_blank" rel="noopener">ACM SIGOPS Annual Technical Conference 2026</a> · 2026-11-14</p>
+      <p class="summary">
+        <span class="en">A six-month trace from the xMaaS production platform covers more than 100,000 GPUs, 300,000 applications and 70,000 model variants. The study examines cluster-wide resource supply, changing application demand and deployment choices across heterogeneous GPUs, extending characterization beyond individual requests. This scale makes the workload evidence useful for judging serving-system assumptions, although the supplied excerpt does not report utilization rates or a demonstrated scheduling gain.</span>
+        <span class="zh">研究分析xMaaS生产平台长达6个月的运行轨迹，覆盖逾10万颗GPU、30万个应用和7万个模型变体。它从整个集群层面考察资源供给、应用需求变化和异构GPU上的部署选择，将负载刻画从单个请求扩展到资源分配。这一规模的生产数据有助于检验推理服务系统的设计假设，但所提供的摘要尚未报告利用率数字或已验证的调度收益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3815789.3827963" target="_blank" rel="noopener">
+          <span class="en">LLM Inference Evaluation Study Exposes Baseline and Metric Pitfalls</span>
+          <span class="zh">大模型推理评测研究揭示基线与指标设计缺陷</span>
+        </a>
+      </h3>
+      <p class="authors">Amey Agrawal, Nitin Kedia, Anmol Agarwal, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3815789.3827963" target="_blank" rel="noopener">ACM Symposium on Cloud Computing 2026, Volume 1</a> · 2026-11-17</p>
+      <p class="summary">
+        <span class="en">This study identifies recurring inference-evaluation problems in baseline fairness, workload setup and metric design. It explains how implementation differences can obscure algorithmic contributions and how normalized metrics can hide variability in autoregressive token delivery. The analysis provides a useful checklist for assessing accelerator and serving claims, particularly when prefill, decode and user-visible latency are combined into a single headline number.</span>
+        <span class="zh">这项研究梳理了推理评测在基线公平性、负载设置和指标设计上的常见问题。它说明，实现细节的差异可能掩盖算法本身的贡献，而归一化指标也可能隐藏自回归词元输出的波动。这些分析有助于审视加速器与推理服务的性能主张，尤其适用于预填充、解码及用户感知延迟被合并成单一宣传数字的情况。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-19 01:15 UTC · <a href="../2026-11-19.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-19 01:15 UTC · <a href="../2026-11-19.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
