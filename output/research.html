@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-20">
+<meta name="edition-date" content="2026-11-24">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Efficiency Depends on Scheduling, Precision and Memory — Semi Research 2026-11-20</title>
+<title>Inference Efficiency Depends on Memory and Execution — Semi Research 2026-11-24</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, November 20, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月20日 星期五</span>
+      <span class="en">Research digest · Tuesday, November 24, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月24日 星期二</span>
     </div>
     <h1>
-      <span class="en">Efficiency Depends on Scheduling, Precision and Memory</span>
-      <span class="zh">效率取决于调度、精度与存储</span>
+      <span class="en">Inference Efficiency Depends on Memory and Execution</span>
+      <span class="zh">推理效率取决于存储组织与执行方式</span>
     </h1>
     <p class="dek">
-      <span class="en">Eight preprints examine production inference dispatch, edge learning, hybrid attention, quantization verification and local engineering agents. Reported gains range from fewer H100s in a production A/B test to tighter error bounds, with benchmark scope and deployment assumptions kept explicit.</span>
-      <span class="zh">本期8篇预印本涵盖生产推理调度、边缘学习、混合注意力、量化验证及本地工程智能体。研究结果从生产A/B测试中减少H100用量，到收紧量化误差边界；摘要保留各自的评测范围与部署条件。</span>
+      <span class="en">Eight preprints examine heterogeneous memory, vector quantization, MoE execution, compact model states and RFIC layout analysis. The reading queue emphasizes mechanisms that change hardware workload, with reported results kept within their stated evaluation scope.</span>
+      <span class="zh">本期8篇预印本涵盖异构存储、向量量化、MoE执行、紧凑模型状态及RFIC版图分析。选文聚焦能够改变硬件负载的机制，量化结果均保留其原有评测范围。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 8 paper(s)</span>
@@ -338,145 +338,139 @@
 
     <section class="area" id="accelerators">
     <h2>
-      <span class="en">Edge Accelerators &amp; Learning Systems</span>
-      <span class="zh">边缘加速器与学习系统</span>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.24637" target="_blank" rel="noopener">
-          <span class="en">Hypnos Splits Edge Continual Learning Between a RISC-V Device and a Smart Charger</span>
-          <span class="zh">Hypnos将边缘持续学习分配给RISC-V设备与智能充电器</span>
+        <a href="https://arxiv.org/abs/2611.27701" target="_blank" rel="noopener">
+          <span class="en">FOREST Coordinates HBF, RRAM and HBM for Speculative LLM Inference</span>
+          <span class="zh">FOREST协同HBF、RRAM与HBM支持大模型推测式推理</span>
         </a>
       </h3>
-      <p class="authors">Guilherme Guedes, Marco Apolinario Lainez, Charlotte Frenkel</p>
+      <p class="authors">Hao Ding, Zheng Shi, Dongxue Zhao, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24637" target="_blank" rel="noopener">arXiv:2611.24637</a> · 2026-11-18T15:46:58Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27701" target="_blank" rel="noopener">arXiv:2611.27701</a> · 2026-11-20T15:07:53Z</p>
       <p class="summary">
-        <span class="en">Hypnos separates continual learning into a wake phase on a small RISC-V MCU-based system and a sleep phase on a smart charger. The device performs inference and lightweight gradient-free prototype updates, while the charger uses rehearsal-based gradient updates when power and memory budgets are larger. This partition targets adaptation without placing full backpropagation on the edge device; the supplied abstract mentions a ZCU104 FPGA deployment but ends before quantitative results.</span>
-        <span class="zh">Hypnos将持续学习分为两个阶段：由基于RISC-V MCU的小型系统承担清醒阶段，由智能充电器承担睡眠阶段。设备负责推理和轻量级无梯度原型更新，充电器则在电力与内存预算更充足时，通过样本回放进行梯度更新。这种划分旨在实现在线适应，同时避免在边缘设备上执行完整反向传播；所提供的摘要提及ZCU104 FPGA部署，但在量化结果之前已被截断。</span>
+        <span class="en">FOREST proposes a heterogeneous memory-centric architecture that coordinates HBF, 3D-stacked RRAM and HBM memory-compute trees for speculative decoding. Its design separates the demands of latency-sensitive drafting, weight-intensive target verification and growing KV-cache attention, including wide low-frequency RRAM reads and overlapped SRAM-DCIM weight refills. This targets the resource mismatch of serving all stages through shared HBM, but the supplied abstract ends before evaluation results and does not establish measured-silicon performance.</span>
+        <span class="zh">FOREST提出以存储为中心的异构架构，协同HBF、3D堆叠RRAM与HBM存储计算树来执行推测解码。该设计区分低延迟草稿生成、密集读取权重的目标模型验证，以及KV-cache不断增长的注意力计算，并采用超宽低频RRAM读取和可重叠的SRAM-DCIM权重补充。这一方案针对所有阶段共用HBM带来的资源错配，但所提供的摘要在评测结果之前已截断，尚不能据此确认实测芯片性能。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27561" target="_blank" rel="noopener">
+          <span class="en">VQACC Reuses Operand Buffers for Ultra-Low-Bit LLM Inference</span>
+          <span class="zh">VQACC复用操作数缓冲器支持超低位宽大模型推理</span>
+        </a>
+      </h3>
+      <p class="authors">Hao Wang, Yang Shi, Jiageng Shi, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27561" target="_blank" rel="noopener">arXiv:2611.27561</a> · 2026-11-20T12:57:48Z</p>
+      <p class="summary">
+        <span class="en">VQACC changes operand-buffer access logic and data mapping so systolic-array LLM accelerators can reuse existing storage and ports for vector-quantization codebook lookups. By integrating dequantization into operand addressing, it targets the lookup overhead that can erode the benefit of ultra-low-bit weights. The authors report a 2.63-fold speedup over EVA; the supplied abstract truncates the hardware-overhead description and provides no measured-silicon evidence.</span>
+        <span class="zh">VQACC通过调整操作数缓冲器的访问逻辑与数据映射，让采用脉动阵列的大模型加速器复用现有存储和端口执行向量量化码本查找。它将反量化融入操作数寻址流程，针对查表开销侵蚀超低位宽权重收益的问题。作者报告，相比EVA基线实现2.63倍加速；所提供的摘要截断了硬件开销说明，也未提供实测芯片证据。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Inference Systems, Models &amp; Quantization</span>
-      <span class="zh">推理系统、模型与量化</span>
+      <span class="en">Inference Systems, Memory &amp; Compression</span>
+      <span class="zh">推理系统、存储与压缩</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.24891" target="_blank" rel="noopener">
-          <span class="en">Cap-and-Track Adapts Inference Dispatch to Changing Backend Capacity</span>
-          <span class="zh">Cap-and-Track让推理请求分发适应后端容量变化</span>
+        <a href="https://arxiv.org/abs/2611.27765" target="_blank" rel="noopener">
+          <span class="en">Weave Adapts MoE Megakernel Warp Scheduling to Routing Loads</span>
+          <span class="zh">Weave按路由负载动态调整MoE巨型内核的warp调度</span>
         </a>
       </h3>
-      <p class="authors">Benjamin Novotny, Doug Szeto, Chang Wang, et al.</p>
+      <p class="authors">Ziyu Huang, Yangjie Zhou, Chenhao Zhu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24891" target="_blank" rel="noopener">arXiv:2611.24891</a> · 2026-11-18T18:34:10Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27765" target="_blank" rel="noopener">arXiv:2611.27765</a> · 2026-11-20T15:55:34Z</p>
       <p class="summary">
-        <span class="en">Cap-and-Track uses fast admission refusals to track available inference capacity, holding excess and retried work in durable priority queues outside execution. In a concurrent production A/B test at Meta, the traffic shaper served a classifier on 43% fewer H100s than its queued, fixed-rate predecessor, while lower-priority work waited longer during backfill peaks. Real-engine replay at steady capacity put goodput within 1% of a fixed rate tuned above measured capacity. The production result concerns asynchronous classifier serving rather than a general reduction in interactive LLM hardware needs.</span>
-        <span class="zh">Cap-and-Track利用快速准入拒绝信号追踪可用推理容量，将超额任务及待重试任务保存在执行路径之外的持久化优先队列中。在Meta的同期生产A/B测试中，该流量整形器运行一个分类器时，比采用队列与固定分发速率的前代方案少用43%的H100，但低优先级任务在回填高峰时等待更久。在稳定容量下的真实引擎回放中，其有效吞吐与调至高于实测容量的固定速率方案相差不到1%。生产结果针对异步分类服务，不能直接推广为交互式大模型所需硬件的普遍降幅。</span>
+        <span class="en">Weave schedules communication and computation within a persistent MoE megakernel at both SM and warp granularity, adapting resource allocation to routing-dependent loads. Its temporal schedule also changes warp roles during execution to reduce idle periods at layer boundaries and around data dependencies. The mechanism addresses utilization lost when whole SMs are reserved for communication, but the supplied abstract does not include benchmark speedups.</span>
+        <span class="zh">Weave在常驻MoE巨型内核中，以SM和warp两种粒度调度通信与计算，使资源分配适应由路由结果决定的负载。其时间调度还会在执行过程中切换warp角色，以减少层起止阶段及数据依赖附近的空闲。该机制针对将整个SM保留给通信所造成的利用率损失，但所提供的摘要未包含基准测试加速比。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.24809" target="_blank" rel="noopener">
-          <span class="en">FlashMorph2 Selects Hybrid Attention Layers Under the Recovery Objective</span>
-          <span class="zh">FlashMorph2按恢复训练目标选择混合注意力层</span>
+        <a href="https://arxiv.org/abs/2611.27604" target="_blank" rel="noopener">
+          <span class="en">IsoMoE Preserves Outputs Across CPU-GPU Expert Placement</span>
+          <span class="zh">IsoMoE保持不同CPU与GPU专家放置下的输出一致性</span>
         </a>
       </h3>
-      <p class="authors">Disen Lan, Xuanda Wang, Jianbin Zheng, et al.</p>
+      <p class="authors">Hang Gu, Teng Wang, Zhendong Zheng, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24809" target="_blank" rel="noopener">arXiv:2611.24809</a> · 2026-11-18T17:45:51Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27604" target="_blank" rel="noopener">arXiv:2611.27604</a> · 2026-11-20T13:33:57Z</p>
       <p class="summary">
-        <span class="en">FlashMorph2 converts pretrained Transformers into hybrid full- and linear-attention models by evaluating discrete architectures on their own hidden states and jointly updating layer-selection scores and weights. Across tested Qwen3 scales and linear-attention variants, average scores improve over FlashMorph by 2.42 points on RULER, 1.08 on LongBench and 0.76 on recall-intensive tasks. Layer selection takes 0.72–3.57 GPU-hours for 0.6B–8B models. These results address selection quality and cost; the supplied excerpt does not give an end-to-end serving speedup.</span>
-        <span class="zh">FlashMorph2通过使用离散架构自身产生的隐藏状态进行评估，并联合更新层选择分数与权重，将预训练Transformer转换为结合完整注意力和线性注意力的模型。在所测试的Qwen3规模与线性注意力变体上，相比FlashMorph，RULER、LongBench及高召回需求任务的平均分分别提高2.42、1.08和0.76分。对于6亿至80亿参数模型，层选择耗时为0.72至3.57 GPU小时。这些结果针对选择质量与成本，所提供的摘要尚未给出端到端推理服务加速比。</span>
+        <span class="en">IsoMoE proposes hybrid CPU-GPU MoE inference whose outputs remain unchanged when experts move between devices, using a GPU kernel that reproduces CPU expert arithmetic bit for bit. It combines a layout for AVX-512 computation on lossless 12-bit experts with a dual micro-batch pipeline that overlaps CPU and GPU work. The approach targets both reproducibility and CPU memory traffic; the supplied abstract cuts off during the three-model evaluation and does not support a numerical throughput claim.</span>
+        <span class="zh">IsoMoE提出CPU与GPU混合MoE推理系统，通过让GPU内核逐位复现CPU专家运算，使专家在设备间移动时输出保持一致。它将面向AVX-512的无损12位专家计算布局，与重叠执行CPU和GPU任务的双微批流水线结合。该方法同时针对结果可复现性与CPU内存流量；所提供的摘要在三个模型的评测部分被截断，尚不能支持具体吞吐提升数字。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.24648" target="_blank" rel="noopener">
-          <span class="en">Zonotopic Analysis Tightens Quantized-Network Error Bounds</span>
-          <span class="zh">Zonotope分析收紧量化神经网络误差边界</span>
+        <a href="https://arxiv.org/abs/2611.27973" target="_blank" rel="noopener">
+          <span class="en">MemOnce Reconstructs KV Caches from Compact Memory States</span>
+          <span class="zh">MemOnce从紧凑记忆状态重建KV-cache</span>
         </a>
       </h3>
-      <p class="authors">Robert Debbas, Éric Goubault, Sylvie Putot</p>
+      <p class="authors">Chang Nie, Chaoyou Fu, Songlin Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24648" target="_blank" rel="noopener">arXiv:2611.24648</a> · 2026-11-18T15:52:07Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27973" target="_blank" rel="noopener">arXiv:2611.27973</a> · 2026-11-20T18:51:29Z</p>
       <p class="summary">
-        <span class="en">This work verifies quantized ReLU networks with a zonotope-based abstract interpretation framework that handles rounding and clamping jointly. On ACAS Xu at the two smallest tested perturbation radii, constrained zonotopes reduce average error-bound widths by about 70–85% and runtimes by 65–80% relative to QEBVerif&#x27;s symbolic DRA propagation. Plain zonotopes produce competitive sound bounds nearly 300 times faster on average. Gains vary with bitwidth, and symbolic DRA yields tighter bounds at larger radii, making the method&#x27;s advantage regime-dependent.</span>
-        <span class="zh">研究提出基于zonotope（带状多面体）的抽象解释框架，联合处理舍入与截断，以验证量化ReLU网络。在ACAS Xu基准的两个最小测试扰动半径下，相比QEBVerif的符号DRA传播，约束zonotope将平均误差边界宽度缩小约70%至85%，运行时间减少65%至80%。普通zonotope方法也能给出有竞争力的可靠边界，平均速度接近快300倍。收益随位宽而变化，较大扰动半径下符号DRA的边界更紧，因此优势取决于具体参数区间。</span>
+        <span class="en">MemOnce caches a small subset of final-layer hidden states and dynamically decodes them into attention-layer KV caches, rather than retaining every layer&#x27;s token-level cache. Sparse memory retrieval computes indices once across layers, targeting the GPU memory growth of long-running interactions without relying solely on a fixed-size history state. The authors claim linear-time complexity, but the supplied abstract stops before experimental details, leaving retention quality and serving costs unquantified.</span>
+        <span class="zh">MemOnce缓存少量末层隐藏状态，再动态将其解码为各注意力层的KV-cache，从而避免保留每层逐词元的完整缓存。其稀疏记忆检索在各层之间只计算一次索引，旨在缓解长时交互中的GPU内存增长，同时避免完全依赖固定大小的历史状态。作者声称可实现线性时间复杂度，但所提供的摘要在实验细节之前已结束，尚无法量化细节保留能力与服务成本。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.24636" target="_blank" rel="noopener">
-          <span class="en">Clover Combines MoE Diffusion Generation with Recurrent Context Memory</span>
-          <span class="zh">Clover结合MoE扩散生成与循环上下文记忆</span>
+        <a href="https://arxiv.org/abs/2611.27759" target="_blank" rel="noopener">
+          <span class="en">DPMA Learns Joint Pruning and Merging Under an MoE Expert Budget</span>
+          <span class="zh">DPMA在MoE专家预算下联合学习剪枝与合并</span>
         </a>
       </h3>
-      <p class="authors">DiffuSpace Technical Team</p>
+      <p class="authors">Jon Irureta, Jon Imaz, Philipp Wiesner, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24636" target="_blank" rel="noopener">arXiv:2611.24636</a> · 2026-11-18T15:46:14Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27759" target="_blank" rel="noopener">arXiv:2611.27759</a> · 2026-11-20T15:46:35Z</p>
       <p class="summary">
-        <span class="en">Clover-35B-A3B-Preview is a diffusion language model with 35B total parameters and 3B activated parameters, combining recurrent memory for prior context with bidirectional attention inside each generated block. The authors report scores of 73.6 on SWE-bench Verified and 51.7 on Terminal-Bench 2.1. On internal agent workloads, generation reaches a reported 680 tokens/s on one Nvidia GB300 at BF16 and batch size one. That throughput is tied to the stated internal workload and does not establish performance across serving conditions.</span>
-        <span class="zh">Clover-35B-A3B-Preview是一款总参数350亿、激活参数30亿的扩散语言模型，将历史上下文的循环记忆与当前生成块内的双向注意力结合。作者报告，其SWE-bench Verified和Terminal-Bench 2.1得分分别为73.6和51.7。在内部智能体负载上，单颗英伟达GB300以BF16精度、批量大小为1运行时，报告的生成速度达到每秒680个词元。该吞吐对应指定的内部负载，不能据此判断各种服务条件下的表现。</span>
+        <span class="en">DPMA jointly learns expert pruning, parameter merging and routing-weight reassignment under a global expert budget while keeping model weights frozen. Across four MoE models, eight multiple-choice benchmarks and five compression ratios, it achieves the best benchmark-and-ratio averaged accuracy on every model among the evaluated methods. At 75% expert reduction it beats the strongest baseline on every model by up to 6.7 percentage points, although this accuracy result does not by itself establish deployment speed or energy savings.</span>
+        <span class="zh">DPMA在全局专家预算约束下，联合学习专家剪枝、参数合并与路由权重重分配，并保持模型权重冻结。在四个MoE模型、八项选择题基准与五种压缩比例的评测中，它在每个模型上跨基准和压缩比例的平均准确率均为所比较方法中最高。专家数量减少75%时，它在每个模型上都超过最强基线，最大优势为6.7个百分点，但准确率结果本身尚不能证明实际部署中的速度或能耗收益。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.24619" target="_blank" rel="noopener">
-          <span class="en">GateWatch Uses Compact Boolean Rules for LLM Activation Monitoring</span>
-          <span class="zh">GateWatch以紧凑布尔规则监测大模型激活</span>
+        <a href="https://arxiv.org/abs/2611.27962" target="_blank" rel="noopener">
+          <span class="en">Model Carving Learns Transformer Topology During Training</span>
+          <span class="zh">Model Carving在训练过程中学习Transformer拓扑</span>
         </a>
       </h3>
-      <p class="authors">Firas Spanioli, Yaniv David</p>
+      <p class="authors">Kaden Zheng, Pratyusha Sharma</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24619" target="_blank" rel="noopener">arXiv:2611.24619</a> · 2026-11-18T15:37:04Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27962" target="_blank" rel="noopener">arXiv:2611.27962</a> · 2026-11-20T18:41:39Z</p>
       <p class="summary">
-        <span class="en">GateWatch expresses activation-monitor decisions as Boolean logic over a small set of binarized sparse-autoencoder features. GateWatchServe computes only selected features, streams binary values across layers and evaluates probes through compact lookup tables. Across 24 Gemma-2-9B tasks, the authors report 80.49% mean test accuracy with averages of 3.8 features and 3.5 logic gates per probe. The compact rule size is promising for monitoring cost, but the supplied excerpt does not quantify end-to-end inference overhead.</span>
-        <span class="zh">GateWatch将激活监测器的决策表示为少量二值化稀疏自编码器特征上的布尔逻辑。GateWatchServe只计算选中的特征，跨层流式传递二值结果，并通过紧凑查找表评估探针。在Gemma-2-9B的24项任务上，作者报告平均测试准确率为80.49%，每个探针平均仅使用3.8个特征与3.5个逻辑门。紧凑规则有助于降低监测成本，但所提供的摘要尚未量化端到端推理开销。</span>
+        <span class="en">Model Carving applies learnable scalar gates to Transformer sublayers so training jointly optimizes weights and removes components, producing a smaller heterogeneous topology. Tests cover standard Transformers from 140M to 2.7B parameters and looped Transformers from 140M to 1.3B. The authors report that carved models trained at a given compute budget reach lower validation loss than dense models using up to 1.7 times as much compute; the excerpt does not quantify inference latency on hardware.</span>
+        <span class="zh">Model Carving为Transformer子层加入可学习的标量门控，使训练在优化权重的同时移除组件，形成更小的异构拓扑。实验覆盖1.4亿至27亿参数的标准Transformer，以及1.4亿至13亿参数的循环Transformer。作者报告，在给定训练算力预算下，裁刻模型的验证损失低于使用至多1.7倍算力的稠密模型；摘录未量化其在硬件上的推理延迟。</span>
       </p>
     </article>
   </section>
   <section class="area" id="eda">
     <h2>
-      <span class="en">Engineering Automation &amp; Simulation</span>
-      <span class="zh">工程自动化与仿真</span>
+      <span class="en">RFIC Design &amp; Engineering Automation</span>
+      <span class="zh">RFIC设计与工程自动化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.24880" target="_blank" rel="noopener">
-          <span class="en">Local AI Agents Measure the Deployment Costs of Power Electronics Simulation</span>
-          <span class="zh">本地AI智能体评估电力电子仿真的部署成本</span>
+        <a href="https://arxiv.org/abs/2611.27559" target="_blank" rel="noopener">
+          <span class="en">Can Language Models Read Pixelated RFIC Passive Layouts?</span>
+          <span class="zh">语言模型能否读懂像素化RFIC无源器件版图？</span>
         </a>
       </h3>
-      <p class="authors">Yuzhuo Li, Pasan Gunawardena, Yunwei Li</p>
+      <p class="authors">Jonathan Zhou, Kaushik Sengupta</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24880" target="_blank" rel="noopener">arXiv:2611.24880</a> · 2026-11-18T18:27:40Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27559" target="_blank" rel="noopener">arXiv:2611.27559</a> · 2026-11-20T12:55:27Z</p>
       <p class="summary">
-        <span class="en">This paper presents an evaluation framework for locally hosted AI agents that build, run, measure and revise power electronics simulations. It treats power, energy, token use and elapsed time as deployment costs, extending assessment beyond whether an agent completes a design task. The approach is relevant when engineering data and licensed simulators must remain on site. The supplied abstract is truncated before numerical comparisons, so it does not support a specific cost or efficiency claim.</span>
-        <span class="zh">论文提出评估框架，研究由本地部署AI智能体构建、运行、测量和修改电力电子仿真的流程。它将功率、能耗、词元用量与耗时纳入部署成本，评价范围超出了智能体能否完成设计任务。对于工程数据和授权仿真软件必须留在本地的场景，这种方法具有实际意义。所提供的摘要在数值对比之前已被截断，因此无法支持具体的成本或效率结论。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum &amp; Hybrid Learning</span>
-      <span class="zh">量子与混合学习</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.24798" target="_blank" rel="noopener">
-          <span class="en">Soft-MoQE Learns to Combine Fixed Quantum Feature Maps</span>
-          <span class="zh">Soft-MoQE学习组合固定量子特征映射</span>
-        </a>
-      </h3>
-      <p class="authors">Valeria Repetto, Romina D&#x27;Aurizio, Piero Farinelli</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.24798" target="_blank" rel="noopener">arXiv:2611.24798</a> · 2026-11-18T17:41:45Z</p>
-      <p class="summary">
-        <span class="en">Soft-MoQE replaces trainable quantum circuits with a pool of fixed quantum feature maps combined by an input-dependent classical gating network. On three PCA-reduced MNIST and FashionMNIST tasks, it outperforms the best individual expert, uniform expert averaging and a linear baseline, while reaching task-dependent performance comparable to a trainable quantum neural network. This avoids optimizing quantum parameters and targets the cost and optimization difficulties of variational training. The supplied results do not establish quantum advantage over strong classical models or performance on unreduced datasets.</span>
-        <span class="zh">Soft-MoQE用一组固定量子特征映射替代可训练量子电路，再由依赖输入的经典门控网络组合这些映射。在经过PCA降维的3项MNIST与FashionMNIST任务上，它优于最佳单个专家、专家均匀平均和线性基线，并在部分任务中达到与可训练量子神经网络相当的表现。该方法无需优化量子参数，针对变分训练的成本与优化困难。现有结果尚不能证明其相对强经典模型的量子优势，也不能说明在未降维数据集上的表现。</span>
+        <span class="en">This study asks a language model with all tools disabled to predict 20–100 GHz input impedance and loss from pixelated passive layouts on 18-by-18 and 27-by-27 grids. Across eight genetic-algorithm-synthesized layouts and five random fills, predicted Smith-chart trajectories broadly follow full-wave simulations, but their features appear about 16% lower in frequency. The result suggests a possible aid for interpreting inverse-designed layouts, while the systematic bias and small test set limit its use as a substitute for electromagnetic verification.</span>
+        <span class="zh">研究要求一个关闭全部工具的语言模型，根据18×18和27×27网格上的像素化无源器件版图，预测20至100 GHz范围内的输入阻抗与损耗。在八个由遗传算法合成的版图及五个随机填充结构上，预测的Smith圆图轨迹总体跟随全波仿真结果，但特征频率系统性地偏低约16%。结果表明，该方法或可辅助理解逆向设计版图，但系统偏差与较小测试集限制了其替代电磁验证的能力。</span>
       </p>
     </article>
   </section>
@@ -504,8 +498,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-20 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-20 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-24 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-24 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
