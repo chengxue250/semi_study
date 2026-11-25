@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-24">
+<meta name="edition-date" content="2026-11-25">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Inference Efficiency Depends on Memory and Execution — Semi Research 2026-11-24</title>
+<title>Hardware Efficiency Depends on Models and Verification — Semi Research 2026-11-25</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,158 +319,191 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Tuesday, November 24, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月24日 星期二</span>
+      <span class="en">Research digest · Wednesday, November 25, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月25日 星期三</span>
     </div>
     <h1>
-      <span class="en">Inference Efficiency Depends on Memory and Execution</span>
-      <span class="zh">推理效率取决于存储组织与执行方式</span>
+      <span class="en">Hardware Efficiency Depends on Models and Verification</span>
+      <span class="zh">硬件效率取决于建模与验证</span>
     </h1>
     <p class="dek">
-      <span class="en">Eight preprints examine heterogeneous memory, vector quantization, MoE execution, compact model states and RFIC layout analysis. The reading queue emphasizes mechanisms that change hardware workload, with reported results kept within their stated evaluation scope.</span>
-      <span class="zh">本期8篇预印本涵盖异构存储、向量量化、MoE执行、紧凑模型状态及RFIC版图分析。选文聚焦能够改变硬件负载的机制，量化结果均保留其原有评测范围。</span>
+      <span class="en">Nine preprints examine interconnect reliability, power-control contracts, circuit reconstruction, thermal analysis and memory-centric acceleration. The selection connects physical constraints with inference execution, keeping FPGA demonstrations, post-layout studies and architectural proposals distinct.</span>
+      <span class="zh">本期9篇预印本涵盖互连可靠性、电源控制契约、电路重建、热分析与存储中心加速。选文将物理约束与推理执行联系起来，并区分FPGA演示、布局后评估和架构提案的证据层次。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 8篇</span>
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
     </div>
   </header>
 
-    <section class="area" id="accelerators">
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.31206" target="_blank" rel="noopener">
+          <span class="en">A Solute-Aware Model Revisits Electromigration in Al-Cu Interconnects</span>
+          <span class="zh">考虑溶质演化的模型重新评估Al-Cu互连电迁移</span>
+        </a>
+      </h3>
+      <p class="authors">Narahara Chari Dingari, David R. Heskett</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.31206" target="_blank" rel="noopener">arXiv:2611.31206</a> · 2026-11-23T18:53:12Z</p>
+      <p class="summary">
+        <span class="en">The authors couple copper redistribution to the Korhonen stress equation on random grain maps, separating mobile dissolved copper from immobile precipitates. Simulations use 1,000 maps per condition at 200 °C for wide, narrow and near-bamboo Al-Cu lines; assuming all copper is mobile exaggerates the nucleation-time reduction by a further factor of 2.24–2.36 at 2 wt% copper. The result shows why solute state and microstructure matter in lifetime prediction, while remaining a modelling study rather than a measured device-lifetime result.</span>
+        <span class="zh">作者在随机晶粒分布上，将铜再分布与Korhonen应力方程耦合，并区分可迁移的固溶铜与不可迁移的析出相。仿真在200 °C下对宽线、窄线和近竹节状Al-Cu线的每种条件使用1000组晶粒分布；在铜含量为2 wt%时，将全部铜视为可迁移会进一步夸大成核时间的缩短，幅度达2.24至2.36倍。研究说明，寿命预测需要考虑溶质状态和微观结构，但这些仍是模型结果，而非器件寿命实测。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Reliability</span>
+      <span class="zh">电路与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.30631" target="_blank" rel="noopener">
+          <span class="en">Lightswitch Links Digital Power-Control Requests to Physical Completion</span>
+          <span class="zh">Lightswitch将数字电源控制请求与物理完成条件关联</span>
+        </a>
+      </h3>
+      <p class="authors">Sabrina Yarzada, Paul Yi-Chia Chen, Yuanhan Li, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.30631" target="_blank" rel="noopener">arXiv:2611.30631</a> · 2026-11-23T12:58:57Z</p>
+      <p class="summary">
+        <span class="en">This work proposes checkable logical-physical contracts for reusable on-die power-control services, combining formally verified digital guarantees with physically validated completion conditions. The Lightswitch proof of concept is assessed using post-layout designs in TSMC 28 nm. It addresses the gap between issuing a digital power request and ensuring the physical action has completed; the supplied abstract does not report fabricated-silicon measurements.</span>
+        <span class="zh">研究为可复用的片上电源控制服务提出可检查的逻辑—物理契约，将经过形式验证的数字保证与经过物理验证的完成条件结合。作者以Lightswitch为概念验证，并使用台积电28 nm工艺的布局后设计进行评估。该方法针对数字电源请求发出与物理动作实际完成之间的衔接问题；所提供的摘要未报告流片实测结果。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">Design Automation &amp; Verification</span>
+      <span class="zh">设计自动化与验证</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.31082" target="_blank" rel="noopener">
+          <span class="en">ChiProgramBench Tests Circuit Reconstruction Through Pin-Level Experiments</span>
+          <span class="zh">ChiProgramBench通过引脚级实验测试电路重建能力</span>
+        </a>
+      </h3>
+      <p class="authors">Tianrun Gou, Qingyao Yang, Wendong Xu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.31082" target="_blank" rel="noopener">arXiv:2611.31082</a> · 2026-11-23T17:32:36Z</p>
+      <p class="summary">
+        <span class="en">ChiProgramBench introduces 18 tasks in which agents probe hidden stateful circuits through their pins and submit replacement gate-level netlists. Across 432 trials with six agent configurations, only 12.0% of black-box trials and 14.8% of function-guided trials pass every hidden test. Power, delay and area receive credit only after full functional success, making the benchmark relevant to whether AI can recover both circuit behavior and efficient implementations.</span>
+        <span class="zh">ChiProgramBench提出18项任务，要求智能体通过引脚探测隐藏的有状态电路，再提交替代的门级网表。在六种智能体配置的432次试验中，仅12.0%的黑盒试验和14.8%的功能提示试验通过全部隐藏测试。只有功能完全通过后，功耗、延迟和面积才计入评分，因此该基准有助于检验AI能否同时恢复电路行为并生成高效实现。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.30505" target="_blank" rel="noopener">
+          <span class="en">HLWalk Accelerates Thermal Analysis of Heterogeneous 2.5D and 3D ICs</span>
+          <span class="zh">HLWalk加速异构2.5D与3D芯片热分析</span>
+        </a>
+      </h3>
+      <p class="authors">Qibo Xue, Shengnan Cai, Tianshu Hou, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.30505" target="_blank" rel="noopener">arXiv:2611.30505</a> · 2026-11-23T11:24:29Z</p>
+      <p class="summary">
+        <span class="en">HLWalk combines local boundary-integral reconstruction, modal splitting and scale-aware random walks to analyze heterogeneous 2.5D and 3D ICs. Low-order modes are solved deterministically while Monte Carlo sampling handles the residual, targeting boundary error and the cost of resolving fine structures such as TSVs. The authors report faster wall-clock execution and better accuracy on IC benchmarks, but the supplied abstract provides no numerical speedup or error bounds.</span>
+        <span class="zh">HLWalk结合局部边界积分重构、模态分裂及尺度感知随机游走，对异构2.5D和3D芯片进行热分析。它确定性求解低阶模态，仅对剩余部分采用蒙特卡洛采样，以降低边界误差和解析TSV等精细结构的计算成本。作者报告其在芯片基准上运行更快、精度更高，但所提供的摘要未给出具体加速比或误差界限。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
     <h2>
       <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
       <span class="zh">AI加速器与存算一体</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.27701" target="_blank" rel="noopener">
-          <span class="en">FOREST Coordinates HBF, RRAM and HBM for Speculative LLM Inference</span>
-          <span class="zh">FOREST协同HBF、RRAM与HBM支持大模型推测式推理</span>
+        <a href="https://arxiv.org/abs/2611.30446" target="_blank" rel="noopener">
+          <span class="en">Pudding Makes Processing-Using-DRAM Compilation Retargetable</span>
+          <span class="zh">Pudding支持面向DRAM内计算的可重定向编译</span>
         </a>
       </h3>
-      <p class="authors">Hao Ding, Zheng Shi, Dongxue Zhao, et al.</p>
+      <p class="authors">Tianrui Zheng, João Paulo Cardoso de Lima, Alexander Kusnezoff, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27701" target="_blank" rel="noopener">arXiv:2611.27701</a> · 2026-11-20T15:07:53Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.30446" target="_blank" rel="noopener">arXiv:2611.30446</a> · 2026-11-23T10:38:33Z</p>
       <p class="summary">
-        <span class="en">FOREST proposes a heterogeneous memory-centric architecture that coordinates HBF, 3D-stacked RRAM and HBM memory-compute trees for speculative decoding. Its design separates the demands of latency-sensitive drafting, weight-intensive target verification and growing KV-cache attention, including wide low-frequency RRAM reads and overlapped SRAM-DCIM weight refills. This targets the resource mismatch of serving all stages through shared HBM, but the supplied abstract ends before evaluation results and does not establish measured-silicon performance.</span>
-        <span class="zh">FOREST提出以存储为中心的异构架构，协同HBF、3D堆叠RRAM与HBM存储计算树来执行推测解码。该设计区分低延迟草稿生成、密集读取权重的目标模型验证，以及KV-cache不断增长的注意力计算，并采用超宽低频RRAM读取和可重叠的SRAM-DCIM权重补充。这一方案针对所有阶段共用HBM带来的资源错配，但所提供的摘要在评测结果之前已截断，尚不能据此确认实测芯片性能。</span>
+        <span class="en">Pudding proposes an MLIR-based compiler that makes a Processing-Using-DRAM architecture description an explicit input, allowing retargeting without hard-coding each architecture into the compiler. Tensor-level passes use bit-slicing, mixed precision and ILP-based placement, while logic-level equality saturation explores Boolean implementations. The aim is to reduce PUD commands and inter-bank movement across different memory-computing designs; the supplied excerpt does not include evaluation results.</span>
+        <span class="zh">Pudding提出基于MLIR的编译器，将DRAM内计算架构描述作为显式输入，从而避免为每种架构在编译器中硬编码支持。张量层采用位切片、混合精度和基于整数线性规划的放置，逻辑层则通过等式饱和搜索布尔实现。目标是在不同存储计算设计间减少PUD指令和存储体间数据搬移；所提供的摘录未包含评测结果。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.27561" target="_blank" rel="noopener">
-          <span class="en">VQACC Reuses Operand Buffers for Ultra-Low-Bit LLM Inference</span>
-          <span class="zh">VQACC复用操作数缓冲器支持超低位宽大模型推理</span>
+        <a href="https://arxiv.org/abs/2611.30417" target="_blank" rel="noopener">
+          <span class="en">ANOR Splits Sparse Attention Between GPU Cache Hits and PNM Misses</span>
+          <span class="zh">ANOR让GPU处理稀疏注意力缓存命中、PNM处理未命中</span>
         </a>
       </h3>
-      <p class="authors">Hao Wang, Yang Shi, Jiageng Shi, et al.</p>
+      <p class="authors">Hyunsu Ye, Hyunmin Choi, Jaehong Cho, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27561" target="_blank" rel="noopener">arXiv:2611.27561</a> · 2026-11-20T12:57:48Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.30417" target="_blank" rel="noopener">arXiv:2611.30417</a> · 2026-11-23T10:16:06Z</p>
       <p class="summary">
-        <span class="en">VQACC changes operand-buffer access logic and data mapping so systolic-array LLM accelerators can reuse existing storage and ports for vector-quantization codebook lookups. By integrating dequantization into operand addressing, it targets the lookup overhead that can erode the benefit of ultra-low-bit weights. The authors report a 2.63-fold speedup over EVA; the supplied abstract truncates the hardware-overhead description and provides no measured-silicon evidence.</span>
-        <span class="zh">VQACC通过调整操作数缓冲器的访问逻辑与数据映射，让采用脉动阵列的大模型加速器复用现有存储和端口执行向量量化码本查找。它将反量化融入操作数寻址流程，针对查表开销侵蚀超低位宽权重收益的问题。作者报告，相比EVA基线实现2.63倍加速；所提供的摘要截断了硬件开销说明，也未提供实测芯片证据。</span>
+        <span class="en">ANOR proposes a GPU-PNM hierarchy that retains the full KV cache near memory while caching recently selected entries on the GPU. Most attention runs on GPU cache hits, and CXL-attached PNM devices process misses directly, allowing GPU cache updates to be separated from current-step execution. This targets the bandwidth imbalance that can leave GPUs waiting in PNM-centric systems; the supplied abstract cuts off before performance results.</span>
+        <span class="zh">ANOR提出GPU与近存计算协同的层次结构，在近存侧保留完整KV-cache，并在GPU缓存近期被选中的条目。大部分注意力计算利用GPU缓存命中完成，连接CXL的PNM设备直接处理未命中，使GPU缓存更新可与当前解码步解耦。该方案针对以PNM为中心的系统中带宽不均衡导致GPU等待的问题；所提供的摘要在性能结果之前已截断。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.30216" target="_blank" rel="noopener">
+          <span class="en">EdgeALM Runs Large Audio Language Models on an 8 GB FPGA Card</span>
+          <span class="zh">EdgeALM在8 GB FPGA卡上运行大型音频语言模型</span>
+        </a>
+      </h3>
+      <p class="authors">Chenglin Yang, Feifan Xu, Xingyuan Li, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.30216" target="_blank" rel="noopener">arXiv:2611.30216</a> · 2026-11-23T07:50:16Z</p>
+      <p class="summary">
+        <span class="en">EdgeALM combines AWQ-style quantization, modality-conditioned vocabulary pruning and concurrent convolution and matrix engines in an FPGA accelerator. On one Alveo U50 with 8 GB of HBM, the authors demonstrate more than 20 models, including models up to 13 billion parameters, and report audio-to-text throughput up to 169.5 tokens/s. This is a hardware implementation rather than an architecture-only proposal, although the supplied excerpt does not identify the model and operating conditions associated with peak throughput.</span>
+        <span class="zh">EdgeALM在FPGA加速器中结合AWQ式量化、按模态条件进行的词表剪枝，以及并行工作的卷积与矩阵引擎。作者在一块配备8 GB HBM的Alveo U50上演示了20余个模型，其中包括最大130亿参数的模型，并报告音频转文本吞吐最高169.5 tokens/s。这提供了实际硬件实现证据，但所提供的摘录未说明峰值吞吐对应的模型及运行条件。</span>
       </p>
     </article>
   </section>
   <section class="area" id="ai-research">
     <h2>
-      <span class="en">Inference Systems, Memory &amp; Compression</span>
-      <span class="zh">推理系统、存储与压缩</span>
+      <span class="en">Inference Systems &amp; Quantization</span>
+      <span class="zh">推理系统与量化</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.27765" target="_blank" rel="noopener">
-          <span class="en">Weave Adapts MoE Megakernel Warp Scheduling to Routing Loads</span>
-          <span class="zh">Weave按路由负载动态调整MoE巨型内核的warp调度</span>
+        <a href="https://arxiv.org/abs/2611.30587" target="_blank" rel="noopener">
+          <span class="en">DECAL Calibrates Diffusion LLM Quantization for Parallel Decoding</span>
+          <span class="zh">DECAL面向并行解码校准扩散大模型量化</span>
         </a>
       </h3>
-      <p class="authors">Ziyu Huang, Yangjie Zhou, Chenhao Zhu, et al.</p>
+      <p class="authors">Huan Xu, Maosen Zhao, Pengtao Chen, Tao Chen</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27765" target="_blank" rel="noopener">arXiv:2611.27765</a> · 2026-11-20T15:55:34Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.30587" target="_blank" rel="noopener">arXiv:2611.30587</a> · 2026-11-23T12:27:42Z</p>
       <p class="summary">
-        <span class="en">Weave schedules communication and computation within a persistent MoE megakernel at both SM and warp granularity, adapting resource allocation to routing-dependent loads. Its temporal schedule also changes warp roles during execution to reduce idle periods at layer boundaries and around data dependencies. The mechanism addresses utilization lost when whole SMs are reserved for communication, but the supplied abstract does not include benchmark speedups.</span>
-        <span class="zh">Weave在常驻MoE巨型内核中，以SM和warp两种粒度调度通信与计算，使资源分配适应由路由结果决定的负载。其时间调度还会在执行过程中切换warp角色，以减少层起止阶段及数据依赖附近的空闲。该机制针对将整个SM保留给通信所造成的利用率损失，但所提供的摘要未包含基准测试加速比。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.27604" target="_blank" rel="noopener">
-          <span class="en">IsoMoE Preserves Outputs Across CPU-GPU Expert Placement</span>
-          <span class="zh">IsoMoE保持不同CPU与GPU专家放置下的输出一致性</span>
-        </a>
-      </h3>
-      <p class="authors">Hang Gu, Teng Wang, Zhendong Zheng, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27604" target="_blank" rel="noopener">arXiv:2611.27604</a> · 2026-11-20T13:33:57Z</p>
-      <p class="summary">
-        <span class="en">IsoMoE proposes hybrid CPU-GPU MoE inference whose outputs remain unchanged when experts move between devices, using a GPU kernel that reproduces CPU expert arithmetic bit for bit. It combines a layout for AVX-512 computation on lossless 12-bit experts with a dual micro-batch pipeline that overlaps CPU and GPU work. The approach targets both reproducibility and CPU memory traffic; the supplied abstract cuts off during the three-model evaluation and does not support a numerical throughput claim.</span>
-        <span class="zh">IsoMoE提出CPU与GPU混合MoE推理系统，通过让GPU内核逐位复现CPU专家运算，使专家在设备间移动时输出保持一致。它将面向AVX-512的无损12位专家计算布局，与重叠执行CPU和GPU任务的双微批流水线结合。该方法同时针对结果可复现性与CPU内存流量；所提供的摘要在三个模型的评测部分被截断，尚不能支持具体吞吐提升数字。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.27973" target="_blank" rel="noopener">
-          <span class="en">MemOnce Reconstructs KV Caches from Compact Memory States</span>
-          <span class="zh">MemOnce从紧凑记忆状态重建KV-cache</span>
-        </a>
-      </h3>
-      <p class="authors">Chang Nie, Chaoyou Fu, Songlin Liu, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27973" target="_blank" rel="noopener">arXiv:2611.27973</a> · 2026-11-20T18:51:29Z</p>
-      <p class="summary">
-        <span class="en">MemOnce caches a small subset of final-layer hidden states and dynamically decodes them into attention-layer KV caches, rather than retaining every layer&#x27;s token-level cache. Sparse memory retrieval computes indices once across layers, targeting the GPU memory growth of long-running interactions without relying solely on a fixed-size history state. The authors claim linear-time complexity, but the supplied abstract stops before experimental details, leaving retention quality and serving costs unquantified.</span>
-        <span class="zh">MemOnce缓存少量末层隐藏状态，再动态将其解码为各注意力层的KV-cache，从而避免保留每层逐词元的完整缓存。其稀疏记忆检索在各层之间只计算一次索引，旨在缓解长时交互中的GPU内存增长，同时避免完全依赖固定大小的历史状态。作者声称可实现线性时间复杂度，但所提供的摘要在实验细节之前已结束，尚无法量化细节保留能力与服务成本。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.27759" target="_blank" rel="noopener">
-          <span class="en">DPMA Learns Joint Pruning and Merging Under an MoE Expert Budget</span>
-          <span class="zh">DPMA在MoE专家预算下联合学习剪枝与合并</span>
-        </a>
-      </h3>
-      <p class="authors">Jon Irureta, Jon Imaz, Philipp Wiesner, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27759" target="_blank" rel="noopener">arXiv:2611.27759</a> · 2026-11-20T15:46:35Z</p>
-      <p class="summary">
-        <span class="en">DPMA jointly learns expert pruning, parameter merging and routing-weight reassignment under a global expert budget while keeping model weights frozen. Across four MoE models, eight multiple-choice benchmarks and five compression ratios, it achieves the best benchmark-and-ratio averaged accuracy on every model among the evaluated methods. At 75% expert reduction it beats the strongest baseline on every model by up to 6.7 percentage points, although this accuracy result does not by itself establish deployment speed or energy savings.</span>
-        <span class="zh">DPMA在全局专家预算约束下，联合学习专家剪枝、参数合并与路由权重重分配，并保持模型权重冻结。在四个MoE模型、八项选择题基准与五种压缩比例的评测中，它在每个模型上跨基准和压缩比例的平均准确率均为所比较方法中最高。专家数量减少75%时，它在每个模型上都超过最强基线，最大优势为6.7个百分点，但准确率结果本身尚不能证明实际部署中的速度或能耗收益。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.27962" target="_blank" rel="noopener">
-          <span class="en">Model Carving Learns Transformer Topology During Training</span>
-          <span class="zh">Model Carving在训练过程中学习Transformer拓扑</span>
-        </a>
-      </h3>
-      <p class="authors">Kaden Zheng, Pratyusha Sharma</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27962" target="_blank" rel="noopener">arXiv:2611.27962</a> · 2026-11-20T18:41:39Z</p>
-      <p class="summary">
-        <span class="en">Model Carving applies learnable scalar gates to Transformer sublayers so training jointly optimizes weights and removes components, producing a smaller heterogeneous topology. Tests cover standard Transformers from 140M to 2.7B parameters and looped Transformers from 140M to 1.3B. The authors report that carved models trained at a given compute budget reach lower validation loss than dense models using up to 1.7 times as much compute; the excerpt does not quantify inference latency on hardware.</span>
-        <span class="zh">Model Carving为Transformer子层加入可学习的标量门控，使训练在优化权重的同时移除组件，形成更小的异构拓扑。实验覆盖1.4亿至27亿参数的标准Transformer，以及1.4亿至13亿参数的循环Transformer。作者报告，在给定训练算力预算下，裁刻模型的验证损失低于使用至多1.7倍算力的稠密模型；摘录未量化其在硬件上的推理延迟。</span>
+        <span class="en">This study finds that W4A4 quantization of diffusion LLMs causes most quantization-induced decision flips at forced token commitments, while compressed logit gaps can also increase the number of forward passes. DECAL weights calibration by commitment risk under the deployed decoder and adds an argmax-preserving commitment temperature to recover parallelism. On LLaDA and Dream it reports the best average accuracy among the compared W4A4 methods, showing why fixed-step, uncached calibration can miss deployment-specific costs.</span>
+        <span class="zh">研究发现，扩散大模型的W4A4量化所引起的决策翻转，多数出现在强制确定词元的步骤；logit间距缩小还可能增加前向传播次数。DECAL依据实际部署解码器下的提交风险调整校准权重，并使用保持argmax不变的提交温度来恢复并行度。作者报告，在LLaDA与Dream上，该方法在所比较的W4A4方案中平均准确率最高，说明固定步数且不使用缓存的校准可能遗漏部署中的特定成本。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="eda">
+  <section class="area" id="quantum">
     <h2>
-      <span class="en">RFIC Design &amp; Engineering Automation</span>
-      <span class="zh">RFIC设计与工程自动化</span>
+      <span class="en">Quantum Computing Systems</span>
+      <span class="zh">量子计算系统</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.27559" target="_blank" rel="noopener">
-          <span class="en">Can Language Models Read Pixelated RFIC Passive Layouts?</span>
-          <span class="zh">语言模型能否读懂像素化RFIC无源器件版图？</span>
+        <a href="https://arxiv.org/abs/2611.31193" target="_blank" rel="noopener">
+          <span class="en">Schism Reconfigures Resource Sharing Across Quantum Processors</span>
+          <span class="zh">Schism动态重构量子处理器间的资源共享</span>
         </a>
       </h3>
-      <p class="authors">Jonathan Zhou, Kaushik Sengupta</p>
+      <p class="authors">Daniel Alexander, Deeksha P Rao, Nilesh Vyas, Vamsi Addanki</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.27559" target="_blank" rel="noopener">arXiv:2611.27559</a> · 2026-11-20T12:55:27Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.31193" target="_blank" rel="noopener">arXiv:2611.31193</a> · 2026-11-23T18:45:22Z</p>
       <p class="summary">
-        <span class="en">This study asks a language model with all tools disabled to predict 20–100 GHz input impedance and loss from pixelated passive layouts on 18-by-18 and 27-by-27 grids. Across eight genetic-algorithm-synthesized layouts and five random fills, predicted Smith-chart trajectories broadly follow full-wave simulations, but their features appear about 16% lower in frequency. The result suggests a possible aid for interpreting inverse-designed layouts, while the systematic bias and small test set limit its use as a substitute for electromagnetic verification.</span>
-        <span class="zh">研究要求一个关闭全部工具的语言模型，根据18×18和27×27网格上的像素化无源器件版图，预测20至100 GHz范围内的输入阻抗与损耗。在八个由遗传算法合成的版图及五个随机填充结构上，预测的Smith圆图轨迹总体跟随全波仿真结果，但特征频率系统性地偏低约16%。结果表明，该方法或可辅助理解逆向设计版图，但系统偏差与较小测试集限制了其替代电磁验证的能力。</span>
+        <span class="en">Schism proposes reconfigurable scale-up domains that change which quantum processors share Bell-state measurement resources without moving processors or migrating quantum states. Photonic switching groups processors within an optical-loss budget, balancing path loss against contention as communication patterns change. The architecture addresses uneven resource use in distributed quantum systems, but the supplied excerpt does not include quantified evaluation results.</span>
+        <span class="zh">Schism提出可重构的扩展域，在不移动量子处理器或迁移量子态的情况下，改变各处理器共享Bell态测量资源的方式。光子交换在光损耗预算内对处理器分组，并随通信模式变化权衡光路损耗与资源争用。该架构针对分布式量子系统中的资源利用不均衡问题，但所提供的摘录未包含量化评测结果。</span>
       </p>
     </article>
   </section>
@@ -498,8 +531,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-24 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-24 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-25 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-25 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
