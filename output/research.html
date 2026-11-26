@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-25">
+<meta name="edition-date" content="2026-11-26">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Hardware Efficiency Depends on Models and Verification — Semi Research 2026-11-25</title>
+<title>Implementation Evidence Shapes Efficient Hardware Design — Semi Research 2026-11-26</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,191 +319,143 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Wednesday, November 25, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月25日 星期三</span>
+      <span class="en">Research digest · Thursday, November 26, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月26日 星期四</span>
     </div>
     <h1>
-      <span class="en">Hardware Efficiency Depends on Models and Verification</span>
-      <span class="zh">硬件效率取决于建模与验证</span>
+      <span class="en">Implementation Evidence Shapes Efficient Hardware Design</span>
+      <span class="zh">硬件实现与验证证据推动效率设计</span>
     </h1>
     <p class="dek">
-      <span class="en">Nine preprints examine interconnect reliability, power-control contracts, circuit reconstruction, thermal analysis and memory-centric acceleration. The selection connects physical constraints with inference execution, keeping FPGA demonstrations, post-layout studies and architectural proposals distinct.</span>
-      <span class="zh">本期9篇预印本涵盖互连可靠性、电源控制契约、电路重建、热分析与存储中心加速。选文将物理约束与推理执行联系起来，并区分FPGA演示、布局后评估和架构提案的证据层次。</span>
+      <span class="en">Seven papers dated November 19–24 examine readout circuits, coherent DSP monitoring, specialized acceleration and design validation. The selection connects working hardware and system integration with synthesis studies, learned models and a survey of co-design methods.</span>
+      <span class="zh">本期7篇论文发表于11月19至24日，涵盖读出电路、相干DSP监测、专用加速与设计验证。选文将实际硬件及系统集成，与综合评估、学习式模型和软硬件协同设计综述联系起来。</span>
     </p>
     <div class="window">
-      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
-      <span class="zh">回溯窗口: 7天 · 9篇</span>
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
     </div>
   </header>
 
-    <section class="area" id="devices">
+    <section class="area" id="circuits">
     <h2>
-      <span class="en">Devices &amp; Process</span>
-      <span class="zh">器件与工艺</span>
+      <span class="en">Circuits &amp; Measurement</span>
+      <span class="zh">电路与测量</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.31206" target="_blank" rel="noopener">
-          <span class="en">A Solute-Aware Model Revisits Electromigration in Al-Cu Interconnects</span>
-          <span class="zh">考虑溶质演化的模型重新评估Al-Cu互连电迁移</span>
+        <a href="http://arxiv.org/abs/2611.32340" target="_blank" rel="noopener">
+          <span class="en">Calibration and integration of the GAPS silicon-tracker readout ASIC</span>
+          <span class="zh">GAPS硅径迹探测器读出ASIC的校准与集成</span>
         </a>
       </h3>
-      <p class="authors">Narahara Chari Dingari, David R. Heskett</p>
+      <p class="authors">Luca Ghislotti</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.31206" target="_blank" rel="noopener">arXiv:2611.31206</a> · 2026-11-23T18:53:12Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.32340" target="_blank" rel="noopener">arXiv:2611.32340</a> · 2026-11-24</p>
       <p class="summary">
-        <span class="en">The authors couple copper redistribution to the Korhonen stress equation on random grain maps, separating mobile dissolved copper from immobile precipitates. Simulations use 1,000 maps per condition at 200 °C for wide, narrow and near-bamboo Al-Cu lines; assuming all copper is mobile exaggerates the nucleation-time reduction by a further factor of 2.24–2.36 at 2 wt% copper. The result shows why solute state and microstructure matter in lifetime prediction, while remaining a modelling study rather than a measured device-lifetime result.</span>
-        <span class="zh">作者在随机晶粒分布上，将铜再分布与Korhonen应力方程耦合，并区分可迁移的固溶铜与不可迁移的析出相。仿真在200 °C下对宽线、窄线和近竹节状Al-Cu线的每种条件使用1000组晶粒分布；在铜含量为2 wt%时，将全部铜视为可迁移会进一步夸大成核时间的缩短，幅度达2.24至2.36倍。研究说明，寿命预测需要考虑溶质状态和微观结构，但这些仍是模型结果，而非器件寿命实测。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="circuits">
-    <h2>
-      <span class="en">Circuits &amp; Reliability</span>
-      <span class="zh">电路与可靠性</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.30631" target="_blank" rel="noopener">
-          <span class="en">Lightswitch Links Digital Power-Control Requests to Physical Completion</span>
-          <span class="zh">Lightswitch将数字电源控制请求与物理完成条件关联</span>
-        </a>
-      </h3>
-      <p class="authors">Sabrina Yarzada, Paul Yi-Chia Chen, Yuanhan Li, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.30631" target="_blank" rel="noopener">arXiv:2611.30631</a> · 2026-11-23T12:58:57Z</p>
-      <p class="summary">
-        <span class="en">This work proposes checkable logical-physical contracts for reusable on-die power-control services, combining formally verified digital guarantees with physically validated completion conditions. The Lightswitch proof of concept is assessed using post-layout designs in TSMC 28 nm. It addresses the gap between issuing a digital power request and ensuring the physical action has completed; the supplied abstract does not report fabricated-silicon measurements.</span>
-        <span class="zh">研究为可复用的片上电源控制服务提出可检查的逻辑—物理契约，将经过形式验证的数字保证与经过物理验证的完成条件结合。作者以Lightswitch为概念验证，并使用台积电28 nm工艺的布局后设计进行评估。该方法针对数字电源请求发出与物理动作实际完成之间的衔接问题；所提供的摘要未报告流片实测结果。</span>
-      </p>
-    </article>
-  </section>
-  <section class="area" id="eda">
-    <h2>
-      <span class="en">Design Automation &amp; Verification</span>
-      <span class="zh">设计自动化与验证</span>
-    </h2>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.31082" target="_blank" rel="noopener">
-          <span class="en">ChiProgramBench Tests Circuit Reconstruction Through Pin-Level Experiments</span>
-          <span class="zh">ChiProgramBench通过引脚级实验测试电路重建能力</span>
-        </a>
-      </h3>
-      <p class="authors">Tianrun Gou, Qingyao Yang, Wendong Xu, et al.</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.31082" target="_blank" rel="noopener">arXiv:2611.31082</a> · 2026-11-23T17:32:36Z</p>
-      <p class="summary">
-        <span class="en">ChiProgramBench introduces 18 tasks in which agents probe hidden stateful circuits through their pins and submit replacement gate-level netlists. Across 432 trials with six agent configurations, only 12.0% of black-box trials and 14.8% of function-guided trials pass every hidden test. Power, delay and area receive credit only after full functional success, making the benchmark relevant to whether AI can recover both circuit behavior and efficient implementations.</span>
-        <span class="zh">ChiProgramBench提出18项任务，要求智能体通过引脚探测隐藏的有状态电路，再提交替代的门级网表。在六种智能体配置的432次试验中，仅12.0%的黑盒试验和14.8%的功能提示试验通过全部隐藏测试。只有功能完全通过后，功耗、延迟和面积才计入评分，因此该基准有助于检验AI能否同时恢复电路行为并生成高效实现。</span>
+        <span class="en">This thesis reports the integration, calibration and validation of SLIDER32 readout electronics for the GAPS silicon tracker, using a custom 180 nm CMOS ASIC with lithium-drifted silicon detectors operated at −40 °C. Laboratory tests with an Am-241 source and cosmic muons were followed by full-tracker calibration in flight configuration and acquisition of a Cd-109 x-ray spectrum. The work provides instrument-level validation evidence for a demanding detector application; the supplied abstract does not quantify readout noise or energy resolution.</span>
+        <span class="zh">这篇学位论文报告了GAPS硅径迹探测器SLIDER32读出电子学的集成、校准与验证，采用定制180 nm CMOS ASIC，配合在−40 °C下工作的锂漂移硅探测器。作者先使用Am-241源和宇宙线缪子进行实验室测试，再在飞行配置下完成整套径迹探测器的校准，并获取Cd-109的X射线能谱。研究为复杂探测应用提供了仪器层面的验证证据，但所提供摘要未量化读出噪声或能量分辨率。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.30505" target="_blank" rel="noopener">
-          <span class="en">HLWalk Accelerates Thermal Analysis of Heterogeneous 2.5D and 3D ICs</span>
-          <span class="zh">HLWalk加速异构2.5D与3D芯片热分析</span>
+        <a href="http://arxiv.org/abs/2611.25353" target="_blank" rel="noopener">
+          <span class="en">A 3 nm coherent DSP ASIC monitors fiber power while carrying traffic</span>
+          <span class="zh">3 nm相干DSP ASIC在传输业务时同步监测光纤功率分布</span>
         </a>
       </h3>
-      <p class="authors">Qibo Xue, Shengnan Cai, Tianshu Hou, et al.</p>
+      <p class="authors">T. Sasai, Yukinobu Nakajima, Minami Takahashi, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.30505" target="_blank" rel="noopener">arXiv:2611.30505</a> · 2026-11-23T11:24:29Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.25353" target="_blank" rel="noopener">arXiv:2611.25353</a> · 2026-11-19</p>
       <p class="summary">
-        <span class="en">HLWalk combines local boundary-integral reconstruction, modal splitting and scale-aware random walks to analyze heterogeneous 2.5D and 3D ICs. Low-order modes are solved deterministically while Monte Carlo sampling handles the residual, targeting boundary error and the cost of resolving fine structures such as TSVs. The authors report faster wall-clock execution and better accuracy on IC benchmarks, but the supplied abstract provides no numerical speedup or error bounds.</span>
-        <span class="zh">HLWalk结合局部边界积分重构、模态分裂及尺度感知随机游走，对异构2.5D和3D芯片进行热分析。它确定性求解低阶模态，仅对剩余部分采用蒙特卡洛采样，以降低边界误差和解析TSV等精细结构的计算成本。作者报告其在芯片基准上运行更快、精度更高，但所提供的摘要未给出具体加速比或误差界限。</span>
+        <span class="en">The authors implement longitudinal power monitoring in a 3 nm 800G coherent DSP ASIC inside an OSFP module, recovering spatially resolved fiber-power profiles from received traffic. Experiments over links up to 1,005 km with 400ZR+ and 800ZR+ traffic show no measurable impact on Q factor or module power consumption, and include signals from third-party transceivers. This provides hardware evidence that distributed link monitoring can coexist with data transmission under the tested conditions.</span>
+        <span class="zh">作者在OSFP模块内的3 nm、800G相干DSP ASIC上实现纵向功率监测，从接收业务信号中恢复沿光纤分布的功率曲线。在最长1005 km链路上，使用400ZR+和800ZR+业务开展的实验未测得Q因子或模块功耗受到影响，并验证了来自第三方收发器的信号。结果以实际硬件证明，在所测试条件下，分布式链路监测能够与数据传输同时运行。</span>
       </p>
     </article>
   </section>
   <section class="area" id="accelerators">
     <h2>
-      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
-      <span class="zh">AI加速器与存算一体</span>
+      <span class="en">AI &amp; Domain-Specific Accelerators</span>
+      <span class="zh">AI与领域专用加速器</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.30446" target="_blank" rel="noopener">
-          <span class="en">Pudding Makes Processing-Using-DRAM Compilation Retargetable</span>
-          <span class="zh">Pudding支持面向DRAM内计算的可重定向编译</span>
+        <a href="http://arxiv.org/abs/2611.32758" target="_blank" rel="noopener">
+          <span class="en">Differential time representation supports modular SNN acceleration</span>
+          <span class="zh">差分时间表示支持模块化脉冲神经网络加速</span>
         </a>
       </h3>
-      <p class="authors">Tianrui Zheng, João Paulo Cardoso de Lima, Alexander Kusnezoff, et al.</p>
+      <p class="authors">D. Windhager, L. Ratschbacher, B. Moser, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.30446" target="_blank" rel="noopener">arXiv:2611.30446</a> · 2026-11-23T10:38:33Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.32758" target="_blank" rel="noopener">arXiv:2611.32758</a> · 2026-11-24</p>
       <p class="summary">
-        <span class="en">Pudding proposes an MLIR-based compiler that makes a Processing-Using-DRAM architecture description an explicit input, allowing retargeting without hard-coding each architecture into the compiler. Tensor-level passes use bit-slicing, mixed precision and ILP-based placement, while logic-level equality saturation explores Boolean implementations. The aim is to reduce PUD commands and inter-bank movement across different memory-computing designs; the supplied excerpt does not include evaluation results.</span>
-        <span class="zh">Pudding提出基于MLIR的编译器，将DRAM内计算架构描述作为显式输入，从而避免为每种架构在编译器中硬编码支持。张量层采用位切片、混合精度和基于整数线性规划的放置，逻辑层则通过等式饱和搜索布尔实现。目标是在不同存储计算设计间减少PUD指令和存储体间数据搬移；所提供的摘录未包含评测结果。</span>
+        <span class="en">This work represents spike trains with Differential Time Representation, using fewer bits than address-event encoding or uniformly sampled one-bit trains, and proves that multiple streams can be merged with low complexity. Modular streaming hardware and a Python framework generate parallel and time-multiplexed accelerators for SHD, SSC and PSMNIST. The authors report FPGA and ASIC implementations, but the supplied abstract ends before quantitative energy and area results, limiting comparisons with other SNN accelerators.</span>
+        <span class="zh">研究采用差分时间表示编码脉冲序列，相比地址事件表示或等间隔采样的单比特序列使用更少位数，并证明多个序列可以低复杂度合并。模块化流式硬件与Python框架可为SHD、SSC和PSMNIST生成并行版及分时复用版加速器。作者报告了FPGA与ASIC实现，但所提供摘要在能耗和面积的量化结果之前截断，因此暂不足以与其他SNN加速器作定量比较。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.30417" target="_blank" rel="noopener">
-          <span class="en">ANOR Splits Sparse Attention Between GPU Cache Hits and PNM Misses</span>
-          <span class="zh">ANOR让GPU处理稀疏注意力缓存命中、PNM处理未命中</span>
+        <a href="http://arxiv.org/abs/2611.28741" target="_blank" rel="noopener">
+          <span class="en">VEGA extends RISC-V vectors for programmable genome alignment</span>
+          <span class="zh">VEGA扩展RISC-V向量指令以加速可编程基因序列比对</span>
         </a>
       </h3>
-      <p class="authors">Hyunsu Ye, Hyunmin Choi, Jaehong Cho, et al.</p>
+      <p class="authors">Wei-Hong Xu, Shi-Jie Xu, Qun-You Liu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.30417" target="_blank" rel="noopener">arXiv:2611.30417</a> · 2026-11-23T10:16:06Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.28741" target="_blank" rel="noopener">arXiv:2611.28741</a> · 2026-11-21</p>
       <p class="summary">
-        <span class="en">ANOR proposes a GPU-PNM hierarchy that retains the full KV cache near memory while caching recently selected entries on the GPU. Most attention runs on GPU cache hits, and CXL-attached PNM devices process misses directly, allowing GPU cache updates to be separated from current-step execution. This targets the bandwidth imbalance that can leave GPUs waiting in PNM-centric systems; the supplied abstract cuts off before performance results.</span>
-        <span class="zh">ANOR提出GPU与近存计算协同的层次结构，在近存侧保留完整KV-cache，并在GPU缓存近期被选中的条目。大部分注意力计算利用GPU缓存命中完成，连接CXL的PNM设备直接处理未命中，使GPU缓存更新可与当前解码步解耦。该方案针对以PNM为中心的系统中带宽不均衡导致GPU等待的问题；所提供的摘要在性能结果之前已截断。</span>
+        <span class="en">VEGA combines RISC-V vector instruction extensions, a Forefront Stationary dataflow and intersequence parallelism to accelerate genome alignment while reducing off-chip accesses and improving SIMD utilization. Against Ara2-RVV, it reports peak speedups of 15.1× for Edit Distance and 9.7× for Smith–Waterman, retaining 10.2× and 6.7× gains for 10 kbp sequences. Post-synthesis results report 1.0% area overhead relative to a standard RISC-V core; these are synthesis and evaluation results rather than measured fabricated-silicon performance.</span>
+        <span class="zh">VEGA结合RISC-V向量指令扩展、Forefront Stationary数据流及序列间并行，在加速基因序列比对的同时减少片外访问、提高SIMD利用率。相对Ara2-RVV，Edit Distance与Smith–Waterman的峰值加速比分别为15.1倍和9.7倍，在10 kbp序列上仍分别达到10.2倍和6.7倍。综合后结果显示，相对标准RISC-V核的面积开销为1.0%；这些属于综合与评估结果，并非流片芯片的性能实测。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.30216" target="_blank" rel="noopener">
-          <span class="en">EdgeALM Runs Large Audio Language Models on an 8 GB FPGA Card</span>
-          <span class="zh">EdgeALM在8 GB FPGA卡上运行大型音频语言模型</span>
+        <a href="http://arxiv.org/abs/2611.27953" target="_blank" rel="noopener">
+          <span class="en">A rover integrates neuromorphic audio and event-based vision</span>
+          <span class="zh">移动机器人集成神经形态音频与事件视觉</span>
         </a>
       </h3>
-      <p class="authors">Chenglin Yang, Feifan Xu, Xingyuan Li, et al.</p>
+      <p class="authors">Guillem Fustier-Castillo, Ruben Ribes-Serrano, Javier Naranjo-Alcazar, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.30216" target="_blank" rel="noopener">arXiv:2611.30216</a> · 2026-11-23T07:50:16Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.27953" target="_blank" rel="noopener">arXiv:2611.27953</a> · 2026-11-20</p>
       <p class="summary">
-        <span class="en">EdgeALM combines AWQ-style quantization, modality-conditioned vocabulary pruning and concurrent convolution and matrix engines in an FPGA accelerator. On one Alveo U50 with 8 GB of HBM, the authors demonstrate more than 20 models, including models up to 13 billion parameters, and report audio-to-text throughput up to 169.5 tokens/s. This is a hardware implementation rather than an architecture-only proposal, although the supplied excerpt does not identify the model and operating conditions associated with peak throughput.</span>
-        <span class="zh">EdgeALM在FPGA加速器中结合AWQ式量化、按模态条件进行的词表剪枝，以及并行工作的卷积与矩阵引擎。作者在一块配备8 GB HBM的Alveo U50上演示了20余个模型，其中包括最大130亿参数的模型，并报告音频转文本吞吐最高169.5 tokens/s。这提供了实际硬件实现证据，但所提供的摘录未说明峰值吞吐对应的模型及运行条件。</span>
+        <span class="en">This technical report integrates three real-time perception pipelines on a four-wheel rover: PANNs audio tagging on an NVIDIA Jetson, SNN audio processing on a SynSense Xylo Audio 2 chip, and SpikeYOLO detection of traffic cones from event-camera input. The Xylo audio path performs microphone-to-classification processing on-chip, while containerized services connect through ROS 2. The contribution is system integration on a robotic platform; the supplied abstract gives no quantitative end-to-end latency or energy comparison.</span>
+        <span class="zh">这份技术报告在四轮移动机器人上集成了三条实时感知流程：NVIDIA Jetson上的PANNs音频标注、SynSense Xylo Audio 2芯片上的SNN音频处理，以及利用事件相机输入的SpikeYOLO交通锥检测。Xylo音频通路从麦克风信号到分类均在片上完成，各容器化服务通过ROS 2连接。研究贡献在于机器人平台上的系统集成；所提供摘要未给出端到端时延或能耗的定量对比。</span>
       </p>
     </article>
   </section>
-  <section class="area" id="ai-research">
+  <section class="area" id="eda">
     <h2>
-      <span class="en">Inference Systems &amp; Quantization</span>
-      <span class="zh">推理系统与量化</span>
+      <span class="en">Design Automation &amp; Validation</span>
+      <span class="zh">设计自动化与验证</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.30587" target="_blank" rel="noopener">
-          <span class="en">DECAL Calibrates Diffusion LLM Quantization for Parallel Decoding</span>
-          <span class="zh">DECAL面向并行解码校准扩散大模型量化</span>
+        <a href="http://arxiv.org/abs/2611.28778" target="_blank" rel="noopener">
+          <span class="en">Learning passive interconnect and power-delivery macromodels directly from layouts</span>
+          <span class="zh">从版图直接学习无源互连与供电网络宏模型</span>
         </a>
       </h3>
-      <p class="authors">Huan Xu, Maosen Zhao, Pengtao Chen, Tao Chen</p>
+      <p class="authors">Ben-Chao Zhu, Ke-Ren Zhu</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.30587" target="_blank" rel="noopener">arXiv:2611.30587</a> · 2026-11-23T12:27:42Z</p>
+      <p class="venue"><a href="http://arxiv.org/abs/2611.28778" target="_blank" rel="noopener">arXiv:2611.28778</a> · 2026-11-21</p>
       <p class="summary">
-        <span class="en">This study finds that W4A4 quantization of diffusion LLMs causes most quantization-induced decision flips at forced token commitments, while compressed logit gaps can also increase the number of forward passes. DECAL weights calibration by commitment risk under the deployed decoder and adds an argmax-preserving commitment temperature to recover parallelism. On LLaDA and Dream it reports the best average accuracy among the compared W4A4 methods, showing why fixed-step, uncached calibration can miss deployment-specific costs.</span>
-        <span class="zh">研究发现，扩散大模型的W4A4量化所引起的决策翻转，多数出现在强制确定词元的步骤；logit间距缩小还可能增加前向传播次数。DECAL依据实际部署解码器下的提交风险调整校准权重，并使用保持argmax不变的提交温度来恢复并行度。作者报告，在LLaDA与Dream上，该方法在所比较的W4A4方案中平均准确率最高，说明固定步数且不使用缓存的校准可能遗漏部署中的特定成本。</span>
+        <span class="en">The authors map physical layout graphs directly to multi-order port-Hamiltonian macromodels whose parameterization guarantees continuous-frequency passivity and stability by construction. One forward pass yields models of different orders through state slicing, with training supervised by S-parameters rather than reference state-space realizations. Evaluation covers 27,000 unseen structures from a 270,000-structure advanced-packaging dataset, but the supplied abstract truncates before the numerical error results. The method targets stable signal- and power-integrity simulation without a separate passivity-repair step.</span>
+        <span class="zh">作者将物理版图图结构直接映射为多阶端口哈密顿宏模型，通过参数化结构本身保证连续频域的无源性与稳定性。模型一次前向传播即可通过状态切片获得不同阶数，训练直接以S参数为监督，无需参考状态空间实现。评估使用包含27万个结构的先进封装数据集中的2.7万个未见结构，但所提供摘要在具体误差结果之前截断。该方法面向稳定的信号完整性与电源完整性仿真，无需额外的无源性修复步骤。</span>
       </p>
     </article>
-  </section>
-  <section class="area" id="quantum">
-    <h2>
-      <span class="en">Quantum Computing Systems</span>
-      <span class="zh">量子计算系统</span>
-    </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.31193" target="_blank" rel="noopener">
-          <span class="en">Schism Reconfigures Resource Sharing Across Quantum Processors</span>
-          <span class="zh">Schism动态重构量子处理器间的资源共享</span>
+        <a href="https://doi.org/10.1145/3862758" target="_blank" rel="noopener">
+          <span class="en">A survey maps validation methods for heterogeneous hardware-software co-design</span>
+          <span class="zh">综述梳理异构软硬件协同设计的验证方法</span>
         </a>
       </h3>
-      <p class="authors">Daniel Alexander, Deeksha P Rao, Nilesh Vyas, Vamsi Addanki</p>
+      <p class="authors">Oceane Bel, Andrés Márquez, Dhruv Gajaria, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.31193" target="_blank" rel="noopener">arXiv:2611.31193</a> · 2026-11-23T18:45:22Z</p>
+      <p class="venue"><a href="https://doi.org/10.1145/3862758" target="_blank" rel="noopener">ACM Transactions on Modeling and Computer Simulation</a> · 2026-11-19</p>
       <p class="summary">
-        <span class="en">Schism proposes reconfigurable scale-up domains that change which quantum processors share Bell-state measurement resources without moving processors or migrating quantum states. Photonic switching groups processors within an optical-loss budget, balancing path loss against contention as communication patterns change. The architecture addresses uneven resource use in distributed quantum systems, but the supplied excerpt does not include quantified evaluation results.</span>
-        <span class="zh">Schism提出可重构的扩展域，在不移动量子处理器或迁移量子态的情况下，改变各处理器共享Bell态测量资源的方式。光子交换在光损耗预算内对处理器分组，并随通信模式变化权衡光路损耗与资源争用。该架构针对分布式量子系统中的资源利用不均衡问题，但所提供的摘录未包含量化评测结果。</span>
+        <span class="en">This survey reviews co-simulation and benchmarking for systems combining chiplets, 2.5D interposers, 3D stacks, RF modules and photonics. It connects SystemC and TLM models, gem5 full-system simulation and FPGA emulation with packaging validation, focusing on scalability, synchronization and multiphysics limitations. The paper offers a map of validation approaches for performance, energy, thermal behavior and reliability, rather than a new accelerator or a measured speedup.</span>
+        <span class="zh">这篇综述讨论了包含Chiplet、2.5D中介层、3D堆叠、RF模块和光子器件的系统所需的协同仿真与基准测试。文章将SystemC与TLM模型、gem5全系统仿真和FPGA仿真验证，与封装验证流程联系起来，重点分析可扩展性、同步及多物理场建模的限制。其价值在于梳理性能、能耗、热行为和可靠性的验证方法，而非提出新的加速器或报告实测加速比。</span>
       </p>
     </article>
   </section>
@@ -531,8 +483,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-25 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-25 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-26 01:13 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-26 01:13 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
