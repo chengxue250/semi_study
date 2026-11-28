@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "theme": {
-    "en": "AI Hardware Faces Supply and Financing Constraints",
-    "zh": "AI硬件面临供货与资金约束"
+    "en": "AI Demand Tests the Entire Hardware Stack",
+    "zh": "AI需求考验整条硬件供应链"
   },
   "dek": {
-    "en": "GPU customer restrictions, scarce DRAM and a concentrated optical-materials supply chain complicate AI infrastructure expansion. Kioxia and Nvidia explore SSD-backed memory capacity while HPE stresses guarantees and prepayments for neocloud sales.",
-    "zh": "GPU客户限制、DRAM紧缺及高度集中的光互连材料供应链，让AI基础设施扩张面临更多约束。铠侠与Nvidia探索以SSD扩展有效内存容量，HPE则强调向新兴AI云服务商销售设备需要担保和预付款。"
+    "en": "AI infrastructure demand reaches beyond processors into HBM procurement, reused DDR4 and increasingly complex circuit boards. Equipment-policy risks and Cerebras's reported guidance increase show how supply constraints and growth expectations are spreading across the stack.",
+    "zh": "AI基础设施需求从处理器延伸至HBM采购、DDR4再利用和日益复杂的电路板。设备政策风险与Cerebras据报上调业绩指引，反映出供应约束和增长预期正在沿硬件链条扩散。"
   },
   "sections": [
     {
@@ -16,30 +16,16 @@
         {
           "featured": false,
           "title": {
-            "en": "HPE requires guarantees and prepayments for neocloud sales",
-            "zh": "HPE要求新兴AI云客户提供担保和预付款"
+            "en": "PCIe 5.0 switch card connects four GPUs through one x16 slot",
+            "zh": "PCIe 5.0交换卡通过单个x16插槽连接4块GPU"
           },
           "summary": {
-            "en": "HPE CEO Antonio Neri says investing in neocloud companies is not a suitable use of HPE's capital and that sales to them require guarantees and prepayments, Wccftech reports. He instead emphasizes enterprise and sovereign computing. That stance makes customers' financing capacity an explicit condition of supplying AI infrastructure, even as demand for GPUs remains strong.",
-            "zh": "据Wccftech报道，HPE首席执行官Antonio Neri表示，投资新兴AI云服务商并非HPE资本的合适用途，向这些企业销售设备需要担保和预付款。他更强调企业计算与主权计算市场。这一立场将客户的融资能力明确纳入AI基础设施供货条件，即使GPU需求依然强劲。"
+            "en": "LR-LINK's LRSV9500-4I uses Broadcom's 48-lane PEX89048 PCIe 5.0 switch to connect up to four GPUs through one x16 host slot without motherboard bifurcation, Wccftech reports. The card supports four downstream Gen5 x8 connections or two Gen5 x16 connections, widening workstation expansion options for local AI. Those downstream links share the host connection; the additional slots do not multiply upstream bandwidth.",
+            "zh": "据Wccftech报道，LR-LINK的LRSV9500-4I采用Broadcom的48通道PEX89048 PCIe 5.0交换芯片，无需主板支持PCIe通道拆分，即可通过单个x16主机插槽连接最多4块GPU。该卡支持4路下行Gen5 x8或2路下行Gen5 x16连接，为本地AI工作站提供更多扩展选择。这些下行链路共享主机连接，增加插槽并不意味着上行带宽同步增加。"
           },
           "source": "Wccftech",
-          "url": "https://wccftech.com/hpe-ceo-antonio-neri-says-ai-cloud-companies-are-not-a-use-of-our-capital-and-sales-to-them-require-guarantees-and-prepayments/",
-          "published": "2026-11-26T22:25:43+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "AMD introduces RT-MLAS to reduce ray-tracing memory and rebuild costs",
-            "zh": "AMD推出RT-MLAS，降低光线追踪内存占用与重建开销"
-          },
-          "summary": {
-            "en": "AMD has introduced Ray Tracing Multi-Level Acceleration Structures through GPUOpen, with a Vulkan extension available for Radeon RX 9000 GPUs and DirectX 12 support planned. Wccftech reports up to 92% lower BVH memory use and up to 3.7× faster rebuilds on a Radeon RX 9070. These results target the cost of representing large, changing scenes; the supplied excerpt does not describe the benchmark workloads behind those headline gains.",
-            "zh": "AMD通过GPUOpen推出Ray Tracing Multi-Level Acceleration Structures，已为Radeon RX 9000系列GPU提供Vulkan扩展，并计划支持DirectX 12。Wccftech报道称，在Radeon RX 9070上，BVH内存占用最多降低92%，重建速度最高提升至3.7倍。这些结果针对大型动态场景的表示开销，但所提供片段未说明上述峰值收益对应的基准负载。"
-          },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/amds-new-rt-mlas-technology-slashes-ray-tracing-bvh-memory-usage-by-92-delivers-up-to-3-7x-faster-rebuilds-on-radeon-rx-9070/",
-          "published": "2026-11-26T15:37:56+00:00"
+          "url": "https://wccftech.com/this-pcie-5-0-expansion-card-turns-a-single-x16-slot-into-four-gpu-connections-opening-up-new-possibilities-for-local-ai-rigs/",
+          "published": "2026-11-27T16:20:23+00:00"
         }
       ]
     },
@@ -50,30 +36,16 @@
         {
           "featured": false,
           "title": {
-            "en": "Trump is scheduled to attend TSMC's Arizona groundbreaking on December 4",
-            "zh": "特朗普据报将于12月4日出席台积电亚利桑那奠基仪式"
+            "en": "TSMC A14 reportedly reaches a design milestone",
+            "zh": "台积电A14据报达到设计里程碑"
           },
           "summary": {
-            "en": "Asia Economy reports that Trump will attend a TSMC Arizona groundbreaking on December 4. The planned appearance puts the company's U.S. manufacturing expansion back in the policy spotlight. A groundbreaking marks a construction milestone; the supplied item gives no production-start date, process node or added wafer capacity.",
-            "zh": "据《亚洲经济》报道，特朗普将于12月4日出席台积电亚利桑那项目的奠基仪式。这一行程使台积电在美国的制造扩张再次成为政策焦点。奠基属于建设节点，所提供条目未说明投产时间、制程或新增晶圆产能。"
+            "en": "TSMC's A14 process has reached a design milestone, HotHardware reports, placing its 1.4nm-class roadmap alongside Intel's competing 14A effort. Progress in design readiness matters to customers preparing future chip programs. The supplied item does not identify the milestone or provide yield and production data, so it does not establish manufacturing readiness.",
+            "zh": "据HotHardware报道，台积电A14制程达到一项设计里程碑，其1.4nm级路线图与Intel的14A形成竞争。设计准备工作的进展关系到客户未来芯片项目的规划。所提供条目未说明里程碑的具体内容，也未给出良率或量产数据，因此尚不能据此判断制造成熟度。"
           },
-          "source": "Asia Economy",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBpVl9uQXI0T3dMZlo0NXNvNVdRYW4wYTJOWkNQZDlhajFyWWlMUFlCdHpYWXJET1lyMkxHc09CS2NtREg1YllJS0VnUS1ocTNGY3ZXV3BBUEc0MmNkeGQwMm9WSUE?oc=5",
-          "published": "2026-11-26T21:05:56+00:00"
-        },
-        {
-          "featured": false,
-          "title": {
-            "en": "Samsung reportedly targets fab robots for deployment by 2028",
-            "zh": "三星据报计划到2028年在晶圆厂部署机器人"
-          },
-          "summary": {
-            "en": "Samsung has reportedly formed a robotics team and aims to deploy unmanned vehicles, autonomous robots and robotic arms in chip factories by 2028, according to Wccftech's account of ETNews reporting. The roadmap covers equipment maintenance and production-line work. It could extend automation into more fab operations, but the supplied report gives no deployment scale or measured productivity improvements.",
-            "zh": "Wccftech援引ETNews报道称，三星已组建机器人团队，计划到2028年在芯片工厂部署无人车辆、自主移动机器人与机械臂。路线图涉及设备维护及产线作业。这可能将自动化扩展至更多晶圆厂环节，但所提供报道未给出部署规模或生产效率提升的实测数据。"
-          },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/samsung-roadmap-reportedly-puts-unmanned-vehicles-self-driving-robots-and-robotic-arms-inside-its-chip-fabs-by-2028-covering-equipment-maintenance-and-production-line-work/",
-          "published": "2026-11-26T18:08:38+00:00"
+          "source": "HotHardware",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBnTW04dk1MNXJiZExDTDAzN3RxZHNBVGVVcTFhSHhUdHJLZVd3MmR4OThud3dXSGFXVmpreEYtXzFUdk90X0tBTWpjcFp6RXZPQ1dtQkw0ZWtVb0ltb0hfSnRkdlpXMWFMZVFHS1Q0NWdtZw?oc=5",
+          "published": "2026-11-27T16:45:00+00:00"
         }
       ]
     },
@@ -82,80 +54,66 @@
       "title": {"en": "Memory", "zh": "存储"},
       "stories": [
         {
-          "featured": true,
+          "featured": false,
           "title": {
-            "en": "Kioxia and Nvidia explore SSDs to expand effective HBM capacity",
-            "zh": "铠侠与Nvidia探索以SSD扩展HBM有效容量"
+            "en": "Penguin puts retired DDR4 back to work in AI servers",
+            "zh": "Penguin将退役DDR4重新用于AI服务器"
           },
           "summary": {
-            "en": "Kioxia and Nvidia are collaborating on using SSDs to expand effective high-bandwidth memory capacity, TechPowerUp reports. The effort targets the capacity constraint in AI systems by bringing storage into the memory hierarchy. The supplied item does not quantify latency, bandwidth or application performance, so it does not establish that SSDs can substitute for HBM at equivalent speed.",
-            "zh": "据TechPowerUp报道，铠侠与Nvidia正合作探索利用SSD扩展高带宽内存的有效容量。该方向通过将存储设备纳入内存层次，缓解AI系统的容量约束。所提供条目未量化时延、带宽或应用性能，因此尚不能据此认定SSD可以同等速度替代HBM。"
+            "en": "Penguin is reusing retired DDR4 for AI-server memory expansion, EE Times reports. Hyperscalers already reclaim older DRAM, while enterprise adoption has been slower, according to the supplied excerpt. Reuse offers another route to increasing memory capacity, although the excerpt gives no capacity, bandwidth or cost measurements for Penguin's implementation.",
+            "zh": "据EE Times报道，Penguin正将退役DDR4重新用于AI服务器的内存扩展。所提供片段指出，超大规模云厂商已经回收利用旧DRAM，而企业用户的采用速度较慢。再利用为增加内存容量提供了另一条路径，但片段未给出Penguin方案的容量、带宽或成本测量数据。"
           },
-          "source": "TechPowerUp",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNVmVYNFFVTldxTlhUZ1lsaE9xSS1Nc0d3MEVLVi0zZ3d2aE9sejh5SFliVkNtN0h0MmNHQzVJUFpaOEVDbDZ5NXlGLS1RVmVEZ3d3VllDUUlDd1BqbkprNFBGVDBqQlJmYkdDU29XOEpTODg3dmdIOGxhSFI5ZFZnenhLRG1oM3hWdWRxejlxWkJUSHYtaUZSZEJvQ2ZXUnVtY1d2eWRBMkJuQk5iOGhwRUpUMWJZNHRRTVNDZFc4cVU5NXPSAcgBQVVfeXFMT3R2YUpGZzFJLUwxZGl3VGo5aVd3bmJUUVZrSGJGbFRvN2JEUldxWkc5OFNjWDJwQ19mbWhueV80T0lxcm5Sa0VfOTJoWnRoRTZxRGZocENOMWI1OFFlM09OTVAxSHVpbnZYNVFEVTR1U1I3UmtXb0hTRzRtQVZsNXo1ZFlnZV9sR0RXUWV0VmJtMzJHdWVKZ2hMQlYyNHRRbGR5aGh2QkMwRWx4UTEydV9UWGVRdVFIcDBtSDRRaGFjSlVZY0VlSmk?oc=5",
-          "published": "2026-11-26T22:59:03+00:00"
-        },
-        {
-          "featured": true,
-          "title": {
-            "en": "Electronics makers organize DRAM sourcing teams as shortages strain cash",
-            "zh": "DRAM紧缺挤压现金，电子制造商组建专门采购团队"
-          },
-          "summary": {
-            "en": "Electronics manufacturers are setting up dedicated teams to secure DRAM through online listings, brokers and gray-market channels, Tom's Hardware reports. Some companies have taken out loans so they can buy chips as soon as supplies appear. The scramble links component availability directly to working-capital needs and production continuity, beyond the effect of higher memory prices alone.",
-            "zh": "据Tom's Hardware报道，电子制造商正组建专门团队，通过线上货源、经纪商和灰色市场渠道争取DRAM供应。部分企业甚至借款，以便在芯片现货出现时立即采购。这场争夺使元器件可得性直接关联到营运资金需求和生产连续性，影响已超出存储涨价本身。"
-          },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/pc-components/dram/electronics-manufacturers-set-up-memory-war-rooms-to-find-lock-in-dram-supplies-amid-worst-shortage-in-history-employees-scour-ebay-contact-hundreds-of-brokers-and-snap-up-even-small-batches-of-just-5-to-12-units",
-          "published": "2026-11-26T16:11:07+00:00"
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/penguin-revives-retired-ddr4-for-ai-servers/",
+          "published": "2026-11-27T19:17:00+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "Jeff Pu cuts 2027 DRAM price forecasts and models a 2028 halving",
-            "zh": "Jeff Pu下调2027年DRAM价格预测，并设想2028年价格减半"
+            "en": "Big Tech's direct HBM buying draws attention to Samsung and SK hynix",
+            "zh": "大型科技公司直接采购HBM，三星与SK hynix受关注"
           },
           "summary": {
-            "en": "GF Securities analyst Jeff Pu has lowered his DRAM contract-price growth forecasts for all four quarters of 2027 to 6%, 3%, 0% and 0% sequentially, according to Wccftech. His newly introduced 2028 base case envisages prices halving. This is an analyst scenario rather than an observed price decline, but it shifts attention from immediate shortages to the durability of memory suppliers' pricing power.",
-            "zh": "据Wccftech报道，广发证券分析师Jeff Pu下调了2027年全部4个季度的DRAM合约价涨幅预测，最新环比增幅依次为6%、3%、0%和0%。他首次提出的2028年基准情景设想价格减半。这属于分析师预测情景，而非已经发生的价格下跌，但它将关注点从眼前短缺延伸至存储厂商定价能力能维持多久。"
+            "en": "Asia Economy examines large technology companies buying HBM directly and the potential opportunity for Samsung and SK hynix. Direct procurement could give infrastructure buyers a larger role in securing memory supply for their systems. The supplied item names no purchasers, contract volumes or prices, leaving the scale of the shift unquantified.",
+            "zh": "《亚洲经济》讨论了大型科技公司直接采购HBM的动向，以及三星和SK hynix可能获得的机会。直接采购可能让基础设施买家在保障系统所需存储供应方面发挥更大作用。所提供条目未列出采购方、合同数量或价格，因此尚无法量化这一变化的规模。"
           },
-          "source": "Wccftech",
-          "url": "https://wccftech.com/analyst-jeff-pu-says-dram-prices-could-halve-in-2028-as-the-ai-memory-boom-cools-but-cheaper-ram-isnt-coming-next-year/",
-          "published": "2026-11-26T22:49:09+00:00"
+          "source": "Asia Economy",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9YdXk5VnNUdlM1LS1jb0o1YzBsYUI2YU4zWXN1MHFvOXhnYXpjZGJUM09BUENVM3hCMjVEQzRqckVEVmZ2cEJYZ3R4bmZUbnp4b0tHZnV6UExYX01uMGpHbWpFblk?oc=5",
+          "published": "2026-11-27T23:00:00+00:00"
         }
       ]
     },
     {
       "id": "equipment",
-      "title": {"en": "Equipment, Materials & Design Tools", "zh": "设备、材料与设计工具"},
+      "title": {"en": "Equipment & Materials", "zh": "设备与材料"},
       "stories": [
         {
-          "featured": false,
+          "featured": true,
           "title": {
-            "en": "Siemens plans Breker and Lauterbach acquisitions to expand development tools",
-            "zh": "西门子拟收购Breker与Lauterbach，扩展开发工具布局"
+            "en": "AI boards push copper foil and micro-drill bits into the supply spotlight",
+            "zh": "AI电路板将铜箔与微钻头推向供应链焦点"
           },
           "summary": {
-            "en": "Siemens plans to acquire Breker and Lauterbach to broaden its SoC verification and software-debugging capabilities, EE Times reports. The deals would bring more of the hardware and software development workflow into its tool portfolio. An analyst cited in the report expects integration benefits to take time; these are planned transactions rather than completed integrations.",
-            "zh": "据EE Times报道，西门子计划收购Breker与Lauterbach，扩展SoC验证与软件调试能力。两笔交易将使其工具组合覆盖更多软硬件开发流程。报道援引的分析师认为，整合收益需要时间才能体现；目前进展仍是拟议交易，并非已经完成工具整合。"
+            "en": "AI-server board complexity is increasing demand for smooth copper foil and micro-drill bits as China expands its push into these inputs, Tom's Hardware reports. The report describes designs such as Rubin Ultra pushing toward 78 PCB layers, with denser laminates wearing drill bits out 10 times faster than normal. This shifts part of the AI supply constraint into board materials and fabrication consumables, beyond accelerator availability alone.",
+            "zh": "据Tom's Hardware报道，AI服务器电路板复杂度提升，推高了对光滑铜箔和微钻头的需求，中国也在加强这些上游环节的布局。报道指出，Rubin Ultra等设计推动PCB向78层发展，更致密的层压材料使钻头磨损速度达到通常水平的10倍。这使AI供应约束的一部分延伸至板材与加工耗材，影响范围超出了加速器本身的供给。"
           },
-          "source": "EE Times",
-          "url": "https://www.eetimes.com/siemens-adds-soc-verification-and-software-debug-with-two-planned-deals/",
-          "published": "2026-11-26T18:00:00+00:00"
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/manufacturing/chinas-ai-hardware-push-is-moving-beyond-gpus-to-the-pcbs-underneath-them-beijing-races-to-corner-the-market-on-copper-foil-and-micro-drill-bits-as-board-complexity-explodes",
+          "published": "2026-11-27T17:00:00+00:00"
         },
         {
           "featured": false,
           "title": {
-            "en": "AI optical demand puts pressure on the concentrated InP supply chain",
-            "zh": "AI光互连需求加压高度集中的InP供应链"
+            "en": "Applied Materials India chief calls for manufacturing capabilities beyond design",
+            "zh": "应用材料印度负责人呼吁在芯片设计之外建设制造能力"
           },
           "summary": {
-            "en": "Tom's Hardware examines pressure on the indium phosphide supply chain as AI infrastructure shifts toward optical interconnects. InP supports lasers, transceivers and co-packaged optics, making material availability relevant across several interconnect technologies. The report frames a concentrated materials supply as a constraint on optical expansion, although the supplied excerpt gives no quantified capacity shortfall.",
-            "zh": "Tom's Hardware分析了AI基础设施转向光互连时，磷化铟供应链承受的压力。InP用于激光器、光收发器及共封装光学，其供给关系到多种互连技术。报道将材料供应的高度集中视为光互连扩张的约束，但所提供片段未量化产能缺口。"
+            "en": "Applied Materials' India chief says the country must build semiconductor manufacturing capabilities beyond chip design, ET Electronics reports. The argument puts process and production expertise at the center of India's effort to broaden its semiconductor role. This is an executive's assessment; the supplied item announces no new equipment order, investment amount or factory capacity.",
+            "zh": "据ET Electronics报道，应用材料印度负责人表示，印度需要在芯片设计之外建设半导体制造能力。这一观点将工艺与生产经验置于印度拓展半导体产业角色的核心位置。该条目属于企业高管的判断，未宣布新的设备订单、投资金额或工厂产能。"
           },
-          "source": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/photonics/inside-the-indium-phosphide-squeeze-and-the-optical-boom-inp-remains-tightly-constrained-as-the-demand-from-ai-puts-the-entire-supply-chain-under-pressure",
-          "published": "2026-11-26T16:00:00+00:00"
+          "source": "ET Electronics",
+          "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQRUJ6cW1CSE5ZVmxxc3JhYlNkX0tDMjdhcmNINVNxM2d5a3FTQjMwU3hBSXpFWGRvcU9uV1JGQ1V4clZ6NmlBd01hVUZBR2lUcUZVVTBFY1NEdTg2cXluMVBOUFUxYlU1WDFVX0FUbjB0WmNxWjhzTnFzX2ZxTldKQVdGaUF1OGRQQjc3V0NqS1pGanQ0TUdsSEVGU2x4SUhDdnNSMXJJRVd2LXllMkp5OEJrMXRoQlRFWmx3eDRyaUR4RVF2WldVcGlnTHBqVTI0a0ZldkhhU1B2U2UxZE0xTkhOZUNzbC1rSTkyNzd5aWwyM2pRc3VJMllkbmRBaDFXaGZYQndOWnR3dm_SAZACQVVfeXFMTWFvTEp3eEhiVGI0WFhGYm5OaGFReF9Xd1U5TXg1Skx6UWdRM29VdTBKUElJZS1ES0xTWmY3eG4xQmhScXdUMmdjNS1BTV84ekVmaTJjNTdSYUlNc1FmeWxMRWZ6RG4yOFlpSGxiblplLWNoWEQzaTQ2ajM0S2dCc1RZbUdnNl9jcXk3Sm53ck9nbXlrN3lqaWZ4ZDE1T2hxazFGb3FmMTJHa3ZtQmtZWHNZUU0yUkJCQ3pJWWdQTmlaVEJ3c1lpYzRuSVhGYzBJd0M3VlN5M01mdlREd0xJS3lHWXk5VWgteDFiZkpNN0M1Mkg1ODdNVjgyTVJCT3lyOWhEbURVNzBVS1FGa2J3b08?oc=5",
+          "published": "2026-11-27T21:20:02+00:00"
         }
       ]
     },
@@ -164,32 +122,58 @@
       "title": {"en": "Policy & Geopolitics", "zh": "政策与地缘政治"},
       "stories": [
         {
-          "featured": true,
+          "featured": false,
           "title": {
-            "en": "Nvidia GPU buyers reportedly must exclude Chinese renters",
-            "zh": "Nvidia GPU买家据报被要求排除中国租用方"
+            "en": "MATCH Act analysis flags risks to ASML's installed DUV tools in China",
+            "zh": "MATCH Act分析提示ASML在华存量DUV设备风险"
           },
           "summary": {
-            "en": "Nvidia chip buyers are being told to rule out Chinese renters as a condition of purchasing GPUs, CNBC reports, citing sources. Such a condition would connect hardware procurement to who can rent the resulting compute capacity. The supplied item does not specify its legal basis or customer scope, so it should be treated as a reported purchasing restriction rather than a fully documented new regulation.",
-            "zh": "CNBC援引消息人士报道称，Nvidia芯片买家被告知，购买GPU需要排除中国租用方。这类条件将硬件采购与后续算力可以租给谁直接联系起来。所提供条目未说明法律依据或客户适用范围，因此应将其视为报道中的采购限制，而非细则已经明确的新法规。"
+            "en": "Asia Times argues that the U.S. MATCH Act could leave ASML's DUV machines in China idle. The risk shifts attention toward the usable installed equipment base as well as future tool deliveries. The supplied item describes a possible outcome and gives no affected-machine count or implementation timetable; it does not document actual shutdowns.",
+            "zh": "《亚洲时报》分析认为，美国MATCH Act可能导致ASML在中国的DUV设备停机。这一风险使关注点从未来设备交付进一步延伸至现有设备能否继续使用。所提供条目讨论的是潜在结果，未给出受影响设备数量或执行时间表，也未证实已经发生停机。"
           },
-          "source": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1ydHdQWUpYRU16SjgyRXBibzZ6UFN4RThEMUV3VkRJV0NCNmk1Nm1wTFlvTnpsLS1VVHdmczlIQjZRN0RKZnlBdm5oSmFUY0lCaWV5dTY2bDBiRHcyV0lfMjk3ZS1TQW1oM3F0TTJFRdIBdEFVX3lxTE1hb0dnX1V6U3RzcVduQUhNcHBONFFMMVVaaThOcEc5dy1EOVMwUXBVM1lSMWljNm12aTJXT0FvMWdkaUdyTEZyZGY0dHJ0R3kxQllKQ2RaMl9MYmxIY2pHcTh6TWVDRkhCSkVqUVUtbVFOam81?oc=5",
-          "published": "2026-11-26T15:34:08+00:00"
-        },
+          "source": "Asia Times",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaHQybEVHOVlQZ2JMNHRDZkxZeFppT3JDMm52TGRMOVRWOE85NzE1bU0xWDBtT29fLVNra1ZvVk1mWk1QNUJPUG9tU21nYkdwakZ2MFpCSXd4SDBuTWVkTFFYeXpTX0pfRHpmVmRNSVZRMFJOZUFTMlZPbVR3Q1Q4M1ZuMU0wXzQ?oc=5",
+          "published": "2026-11-27T21:13:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "earnings",
+      "title": {"en": "Earnings & Guidance", "zh": "财报与业绩指引"},
+      "stories": [
+        {
+          "featured": true,
+          "title": {
+            "en": "Cerebras reportedly raises Q4 guidance and sees 2027 revenue tripling",
+            "zh": "Cerebras据报上调四季度指引，管理层预计2027年营收增至3倍"
+          },
+          "summary": {
+            "en": "Cerebras has raised fourth-quarter guidance above market expectations, and management sees 2027 revenue tripling, BigGo Finance reports. The outlook points to stronger growth expectations for an alternative AI-compute supplier. The supplied item gives no dollar guidance or profitability figures, and the 2027 projection remains a management forecast.",
+            "zh": "据BigGo Finance报道，Cerebras上调第四季度业绩指引，超过市场预期，管理层预计2027年营收将增至3倍。这一展望显示，市场主流之外的AI算力供应商也在提高增长预期。所提供条目未给出具体营收指引或盈利数字，2027年的预测仍属于管理层预期。"
+          },
+          "source": "BigGo Finance",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5EUGI4UnpsSnFmalBlcDJFTENidjJvckhDZVAzZ2dld2lmUk1WV0thOGxWWjhXdC1MQkhMS25tTW9CRzJDdE9OZUZhOXZZUUFXVXZ6RHRpcVhiNEprRXQ2NWxJeEZGZWlnVXprNFZFbjc0akxtSmc?oc=5",
+          "published": "2026-11-27T16:25:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "challengers",
+      "title": {"en": "Challengers & New Silicon", "zh": "新势力与新硅"},
+      "stories": [
         {
           "featured": false,
           "title": {
-            "en": "Dutch minister says the Netherlands will seek non-enforcement of the MATCH Act",
-            "zh": "荷兰部长称将请求美国不执行MATCH Act"
+            "en": "Tiger Global reportedly increases its Cerebras stake 48% to $790 million",
+            "zh": "Tiger Global据报增持Cerebras 48%，持仓价值达7.9亿美元"
           },
           "summary": {
-            "en": "The Netherlands will ask Washington not to enforce the MATCH Act, a minister says, according to Reuters. The request is relevant to the export-control environment facing Dutch chipmaking-equipment suppliers, including ASML. It signals a planned diplomatic intervention, while the supplied item reports no U.S. concession or change to licensing requirements.",
-            "zh": "据路透社报道，荷兰一名部长表示，荷兰将请求华盛顿不执行MATCH Act。这一请求关系到ASML等荷兰芯片制造设备供应商面临的出口管制环境。它表明荷兰计划展开外交交涉，但所提供条目未报道美国作出让步或许可要求发生变化。"
+            "en": "Tiger Global increased its Cerebras stake by 48% to a reported value of $790 million, according to Dealroom. The position adds evidence of investor interest in AI hardware suppliers beyond the largest incumbents. A fund's holding value does not establish an equivalent amount of new financing received by Cerebras.",
+            "zh": "据Dealroom报道，Tiger Global将Cerebras持仓增加48%，持仓价值达到7.9亿美元。这一配置显示，投资者对头部既有厂商之外的AI硬件供应商也保持关注。基金持仓价值并不意味着Cerebras获得了等额新增融资。"
           },
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOTGdjRUN5YTg3WHZsaVA3dk9EVHB3TzkybFUwc2cyS29EOTBueVZIVjhUOFlqZzl6T2xpNER5aW53a2plOWdIaG1icGNfQWUxd01yVjJ5Vm10dVR4QTNGb1VoQS11SWRhNlJJb3ZoQmtrVGZMcUlxWjhjYXpjNmVBNV9kdGdhZnJMTW9vd3lqV2ZPUnFGN0tUczEtTTk5TVBWbWl3?oc=5",
-          "published": "2026-11-26T16:34:42+00:00"
+          "source": "Dealroom",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdUhfa2pSYzljUHN5S2VqS1VMZjdhTUJiNzFyTTdTMzVyVTNicTA1OHNGY2tHZEt3SWJSQkI1R25GSldiWTNkU2pVSHpWbEVHbDc0d3JVV3lUNXJORHZaZW50WjFXNkdQMDd2Y3RfRlpxVTU1UmU2TXhaaWIwdmhpb3E0UUJrLXFlQWlWN3BOd3NPRkpVX0dHOURObWI?oc=5",
+          "published": "2026-11-27T21:59:45+00:00"
         }
       ]
     }
@@ -197,113 +181,113 @@
   "research": {
     "window_days": 7,
     "theme": {
-      "en": "Memory and Parameter Reuse Reshape Efficient Inference",
-      "zh": "内存与参数复用重塑高效推理"
+      "en": "Compute Budgets Shape Models and Edge Systems",
+      "zh": "计算预算塑造模型与边缘系统"
     },
     "dek": {
-      "en": "Five AI preprints examine sparse-cache sharing, looped architectures, lookup tables and compression, alongside a communications study on selective adaptation. The selection focuses on what changes compute and memory demands, distinguishing architectural claims from measured deployment gains.",
-      "zh": "5篇AI预印本讨论稀疏缓存共享、循环架构、查找表和压缩，另有1篇通信研究考察选择性适配。选文关注计算与内存需求如何变化，并区分架构层面的主张与实际部署收益。"
+      "en": "Four AI preprints examine token merging, initialization, trajectory reuse and hierarchical processing of model weights. An embedded-system prototype and a measured magnetometry study add hardware context; this candidate pool provides no new accelerator-silicon result for the selection.",
+      "zh": "4篇AI预印本考察token合并、初始化、轨迹复用和模型权重的层次化处理。另选边缘系统原型与磁测量实验提供硬件视角；本批候选中没有可纳入的新加速器芯片实测成果。"
     },
     "areas": [
       {
         "id": "ai-research",
-        "title": {"en": "Hardware-Relevant AI Research", "zh": "面向硬件效率的AI研究"},
+        "title": {"en": "AI Models & Compute Efficiency", "zh": "AI模型与计算效率"},
         "papers": [
           {
             "title": {
-              "en": "DFly2 shares a sparse target's KV cache and position selection",
-              "zh": "DFly2共享稀疏目标模型的KV缓存与位置选择结果"
+              "en": "Training-free focus maps cut encoder FLOPs in long-video segmentation",
+              "zh": "免训练聚焦图降低长视频分割的编码器FLOPs"
             },
-            "authors": "Hong Liu, Rui Cen, Junhan Shi, et al.",
+            "authors": "Harsha Karipineni, Rajesh Reddy Chintha",
             "affiliation": "",
-            "venue": "arXiv:2611.34776",
-            "venue_url": "https://arxiv.org/abs/2611.34776",
+            "venue": "arXiv:2611.34863",
+            "venue_url": "https://arxiv.org/abs/2611.34863",
             "summary": {
-              "en": "DFly2 uses a block-parallel draft model that shares a sparse target model's KV cache and attention-position selection, avoiding a separate draft cache and redundant selection work. The authors report that a selection made one step earlier still covers close to 90% of positions selected by later tokens on DS-V4.1-Flash. This targets memory traffic, prefill overhead and serving concurrency in long-context speculative decoding. The supplied abstract is truncated before end-to-end performance results, so the overlap figure should not be read as a measured speedup.",
-              "zh": "DFly2采用块并行草稿模型，共享稀疏目标模型的KV缓存与注意力位置选择结果，从而避免独立草稿缓存及重复的位置筛选。作者报告，在DS-V4.1-Flash上，提前一步生成的选择结果仍能覆盖后续token所选位置的近90%。该方法针对长上下文推测解码的内存流量、预填充开销和服务并发约束。所提供摘要在端到端性能结果之前截断，因此这一覆盖率不能解读为实测加速比。"
+              "en": "A training-free focus map preserves detailed tokens around tracked objects while merging background tokens in a frozen DINOv3 encoder inside a trained Cutie segmenter. On LVOS V2 with ViT-S, the authors report a 2.76-point J&F gain over ALGM 0.98 with 16% fewer counted encoder FLOPs, while remaining 1.0 point below the dense encoder. Motion-aware masks and a camera-compensated surprise check aim to prevent targets from being merged into the background. These are benchmark and operation-count results, not measured reductions in hardware latency or energy.",
+              "zh": "该方法在已训练的Cutie分割器中，为冻结的DINOv3编码器加入免训练聚焦图，保留跟踪目标周围的细粒度token，并合并背景token。作者报告，在LVOS V2的ViT-S实验中，相较ALGM 0.98，J&F提高2.76个百分点，统计的编码器FLOPs减少16%，但仍比稠密编码器低1.0个百分点。运动感知掩码和相机运动补偿后的异常检查用于避免目标被误并入背景。这些属于基准测试与运算量统计结果，不能直接等同于硬件时延或能耗降幅。"
             },
-            "published": "2026-11-25T17:37:49Z"
+            "published": "2026-11-25T18:30:28Z"
           },
           {
             "title": {
-              "en": "Mixture-of-Loops Transformer reuses KV memory across depth and loops",
-              "zh": "Mixture-of-Loops Transformer跨深度与循环复用KV记忆"
+              "en": "Architecture transfer uses initialization to reshape optimization",
+              "zh": "架构迁移通过初始化改变优化过程"
             },
-            "authors": "Lianghui Zhu, Shijie Wang, Xinggang Wang, et al.",
+            "authors": "Vighnesh Subramaniam, Boris Katz, Brian Cheung",
             "affiliation": "",
-            "venue": "arXiv:2611.34923",
-            "venue_url": "https://arxiv.org/abs/2611.34923",
+            "venue": "arXiv:2611.34816",
+            "venue_url": "https://arxiv.org/abs/2611.34816",
             "summary": {
-              "en": "Mixture-of-Loops Transformer changes what passes between repeated Transformer loops by using keys and values as selectively reusable memory. Its U-shaped variant separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. The authors report outperforming OLMo3 after 400B-token pretraining across 700M- and 1.5B-parameter dense models and a 3B MoE model. The design changes cache access and execution scheduling, but the supplied abstract ends before numerical efficiency gains or hardware latency measurements.",
-              "zh": "Mixture-of-Loops Transformer以key和value作为可选择复用的记忆，改变重复Transformer循环之间传递的信息。其U形变体将记忆构建与预测读出分离，并在不改变预测的情况下跳过无用的解码器遍历。作者报告，经过4000亿token预训练后，7亿和15亿参数的稠密模型及30亿参数MoE模型均优于OLMo3。该设计改变了缓存访问与执行调度，但所提供摘要在具体效率收益或硬件时延测量之前截断。"
+              "en": "This preprint aligns a target network's initial representational geometry with a randomly initialized guide of a different architecture before downstream training. The guide receives no gradients and supplies no learned features or labels; the authors report transferring benefits associated with depth into shallower networks. That could help separate training-time architectural guidance from the structure retained for inference. The supplied abstract is truncated and gives no quantified accuracy, compute or deployment-latency gains.",
+              "zh": "这篇预印本在下游训练前，将目标网络的初始表征几何与另一种架构的随机初始化引导网络对齐。引导网络不接收梯度，也不提供学得特征或标签；作者报告，这种方法能将与深度相关的部分优化优势传递给较浅网络。这有助于探索将训练阶段的架构引导与推理时保留的网络结构分开设计。所提供摘要存在截断，未给出精度、计算量或部署时延改善的具体数字。"
             },
-            "published": "2026-11-25T18:58:53Z"
+            "published": "2026-11-25T18:01:49Z"
           },
           {
             "title": {
-              "en": "LoopTitan separates parameter reuse from other looped-MoE gains",
-              "zh": "LoopTitan区分参数复用与循环MoE的其他收益来源"
+              "en": "CARE-OPD targets rollout cost with selective trajectory replay",
+              "zh": "CARE-OPD通过选择性轨迹回放降低交互采样开销"
             },
-            "authors": "Zichen Tian, Yudong Lu, Xuansheng Wu, et al.",
+            "authors": "Haowen Hou, Gen Li, Ruilin Li, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.34821",
-            "venue_url": "https://arxiv.org/abs/2611.34821",
+            "venue": "arXiv:2611.34756",
+            "venue_url": "https://arxiv.org/abs/2611.34756",
             "summary": {
-              "en": "LoopTitan finds that parameter revisiting itself contributes almost no gain in its matched-budget MoE experiments once network shape and residual scaling are controlled. A model without revisiting retains the reported improvement, with most attributed to network shape; the residual-scaling benefit disappears under Muon in the authors' analysis. The result argues for evaluating depth-versus-expert allocation before adding recurrent execution to an inference system. It concerns the tested recipes and controls rather than establishing that all forms of parameter reuse are ineffective.",
-              "zh": "LoopTitan在参数量、FLOPs与KV缓存预算匹配的MoE实验中发现，控制网络形状和残差缩放后，重复访问参数本身几乎不带来收益。无需重复访问的对照模型保留了所报告的提升，其中大部分来自网络形状；作者分析中的残差缩放收益则在采用Muon后消失。这提示推理系统在引入循环执行前，应先评估深度与专家数量的分配。结论针对所测试的训练方案与对照条件，并不等于证明所有参数复用方式都无效。"
+              "en": "CARE-OPD combines student-seeded teacher completions, confidence filtering and outcome-informed prefix replay to reuse long-horizon agent trajectories. It targets the need for fresh environment rollouts at every on-policy distillation update, a source of idle time and repeated collection work. The authors report outperforming online OPD and earlier replay baselines on software-engineering and deep-research tasks. The supplied abstract gives no numerical wall-clock, GPU-utilization or energy improvement, so the systems benefit remains unquantified here.",
+              "zh": "CARE-OPD结合以学生模型生成历史为起点的教师续写、置信度过滤，以及依据后续执行结果分配的前缀回放，复用长时程智能体轨迹。它针对同策略蒸馏每次更新都依赖新环境交互采样的问题，后者会带来等待时间和重复采集开销。作者报告，该方法在软件工程和深度研究任务中优于在线OPD与此前的回放基线。所提供摘要未给出实际训练耗时、GPU利用率或能耗改善的数字，因此此处无法量化系统收益。"
             },
-            "published": "2026-11-25T18:04:31Z"
+            "published": "2026-11-25T17:27:31Z"
           },
           {
             "title": {
-              "en": "Chorus N-gram tables expose a memory-versus-backbone tradeoff",
-              "zh": "Chorus N-gram查找表揭示存储与主干规模的权衡"
+              "en": "Hierarchical graph metanetworks process neural weights at multiple scales",
+              "zh": "层次图元网络以多种粒度处理神经网络权重"
             },
-            "authors": "Szymon Kocur",
+            "authors": "Ioannis Kalogeropoulos, Giorgos Bouritsas, Yannis Panagakis",
             "affiliation": "",
-            "venue": "arXiv:2611.34725",
-            "venue_url": "https://arxiv.org/abs/2611.34725",
+            "venue": "arXiv:2611.34726",
+            "venue_url": "https://arxiv.org/abs/2611.34726",
             "summary": {
-              "en": "Experiments with 16M–349M-parameter models find that Chorus bigram and trigram hash tables can match a larger plain Transformer's held-out loss, but replace relatively little backbone capacity per added parameter. With tables roughly as large as the backbone, 107M–349M models match plain models 1.16–1.20× their size, while each added parameter replaces at most 0.31 backbone parameters. Chorus trains slower than a same-size plain model and faster than one with the same loss. The memory-compute tradeoff is measured on one historical Polish corpus, one 8,000-token vocabulary and one-fifth of an epoch.",
-              "zh": "对1600万至3.49亿参数模型的实验发现，Chorus二元与三元token哈希表可使留出集损失达到更大普通Transformer的水平，但每个新增参数替代的主干容量有限。当查找表规模约等于主干时，1.07亿至3.49亿参数模型可匹配规模为其1.16至1.20倍的普通模型，而每个新增参数最多替代0.31个主干参数。Chorus的训练速度低于同规模普通模型，但高于损失相同的普通模型。这一存储与计算权衡仅在单一历史波兰语语料、8000 token词表及五分之一个训练轮次上评估。"
+              "en": "Hierarchical Graph Metanetworks add pooling and unpooling that preserve permutation symmetry while moving between neuron-, layer- and block-level representations of a neural network. This addresses the cost of existing weight-processing metanetworks that operate on every neuron and weight, and the authors also extend the construction to Transformers. Coarser processing could reduce dependence on parameter-level graph operations when analyzing or adapting models. The supplied abstract ends before the evaluation results, preventing a numerical scalability or accuracy comparison.",
+              "zh": "层次图元网络加入保持置换对称性的池化与反池化操作，在神经元、层和模块等不同粒度的网络表示之间切换。该方法针对现有权重处理元网络需要逐一处理神经元与权重的开销，作者还将图构建方法扩展至Transformer。较粗粒度的处理有望减少模型分析或适配对参数级图运算的依赖。所提供摘要在评估结果之前截断，因此无法给出可扩展性或精度的数值比较。"
             },
-            "published": "2026-11-25T17:10:46Z"
-          },
-          {
-            "title": {
-              "en": "LLift prepares one checkpoint for multiple SVD compression budgets",
-              "zh": "LLift使单个检查点适配多种SVD压缩预算"
-            },
-            "authors": "Chenyue Fang, Danila Mishin, Babak Falsafi",
-            "affiliation": "",
-            "venue": "arXiv:2611.34667",
-            "venue_url": "https://arxiv.org/abs/2611.34667",
-            "summary": {
-              "en": "LLift fine-tunes a low-rank approximation at one compression ratio using the original model as a teacher, then merges the updates while preserving weight components excluded from that forward pass. The prepared checkpoint reuses SVD decompositions at different truncation ranks without separately fine-tuning every compressed model. On LLaMA-7B, the authors report accuracy gains at three compression ratios and extensions across model families, sizes and SVD operators. This could simplify deployment across memory budgets, although the abstract gives no quantified accuracy gains or inference-speed measurements.",
-              "zh": "LLift以原始模型为教师，在单一压缩比例下微调低秩近似，再合并更新，同时保留训练前向传播中未使用的权重分量。处理后的检查点可在不同截断秩下复用SVD分解，无需为每个压缩模型分别微调。作者在LLaMA-7B的3种压缩比例下报告精度改善，并将结果扩展至不同模型家族、规模和SVD压缩算子。这可能简化面向不同内存预算的部署，但摘要未量化精度增益或推理速度。"
-            },
-            "published": "2026-11-25T16:35:40Z"
+            "published": "2026-11-25T17:12:08Z"
           }
         ]
       },
       {
         "id": "circuits",
-        "title": {"en": "Circuits & Communication Systems", "zh": "电路与通信系统"},
+        "title": {"en": "Embedded Systems & Sensing", "zh": "嵌入式系统与传感"},
         "papers": [
           {
             "title": {
-              "en": "Selective transfer learning adapts autoencoder communication front ends",
-              "zh": "选择性迁移学习适配自编码器通信前端"
+              "en": "Magnetometry detects internal battery leakage down to about 1–3 mA",
+              "zh": "磁测量可检测约1至3 mA的电池内部漏电流"
             },
-            "authors": "Yalin E. Sagduyu, Tugba Erpek",
+            "authors": "Shaurya Shukla, Chengtong Zhang, Yinan Hu, et al.",
             "affiliation": "",
-            "venue": "arXiv:2611.34942",
-            "venue_url": "https://arxiv.org/abs/2611.34942",
+            "venue": "arXiv:2611.34699",
+            "venue_url": "https://arxiv.org/abs/2611.34699",
             "summary": {
-              "en": "This study adapts an autoencoder-based physical layer to channel mismatch by fine-tuning a small subset of transmitter and receiver layers while freezing the rest. It formulates layer selection as a budget-constrained optimization problem and reports removing a mismatch-induced error floor when moving from AWGN training to Rayleigh fading with front-end impairments. The approach targets the time and energy cost of updating learned communications systems. The supplied abstract is truncated and provides no measured silicon power, adaptation latency or complete BER comparison.",
-              "zh": "这项研究通过仅微调发射端与接收端的少数层、冻结其余层，使基于自编码器的物理层适应信道失配。作者将层选择建模为预算约束下的优化问题，并报告在从AWGN训练条件转向带前端非理想因素的瑞利衰落信道时，消除了失配引起的误码率平台。该方法针对学习式通信系统更新时的时间与能耗开销。所提供摘要存在截断，未给出芯片功耗实测、适配时延或完整的误码率对比。"
+              "en": "A fixed three-axis magnetoresistive sensor and a scanning stage map pouch-cell magnetic fields, detecting internal leakage of about 1–3 mA at rest. Two mechanically indented 600 mAh cells developed a decaying magnetic field at zero applied current, while an intact cell showed a linear field response from 10 to 420 mA. The measured asymmetry between charging and discharging offers a diagnostic signal that terminal measurements can miss. The setup uses three-layer magnetic shielding and a small damaged-cell sample, leaving production-line sensitivity and throughput unresolved.",
+              "zh": "研究以固定的三轴磁阻传感器和扫描位移平台绘制软包电池磁场分布，在静置状态下可检测约1至3 mA的内部漏电流。2块受到机械压痕损伤的600 mAh电池在外加电流为零时产生了随时间衰减的磁场，完好电池则在10至420 mA范围内呈线性磁场响应。充放电磁场的不对称性提供了端口测量可能遗漏的诊断信号。实验使用三层磁屏蔽，受损样本数量也较少，产线条件下的灵敏度和检测吞吐量仍待验证。"
             },
-            "published": "2026-11-25T18:59:57Z"
+            "published": "2026-11-25T16:54:34Z"
+          },
+          {
+            "title": {
+              "en": "Raspberry Pi 3B prototype combines local pose monitoring with API-based tutoring",
+              "zh": "Raspberry Pi 3B原型结合本地姿态监测与API辅导"
+            },
+            "authors": "Truyen T. Le, Vinh Dang Ngoc, Thai Bao Huynh",
+            "affiliation": "",
+            "venue": "arXiv:2611.34669",
+            "venue_url": "https://arxiv.org/abs/2611.34669",
+            "summary": {
+              "en": "This prototype runs MediaPipe Pose and OpenCV on a Raspberry Pi 3 Model B with 1 GB RAM, using a camera for local posture monitoring without persisting raw video. A finite-state machine tracks study activity, while a tutoring agent sends voice and text queries through an encrypted API gateway. The division illustrates how a constrained edge platform can combine local perception with externally accessed AI services. The supplied abstract is truncated and provides no measured frame rate, power consumption or end-to-end response latency.",
+              "zh": "该原型在配备1 GB RAM的Raspberry Pi 3 Model B上运行MediaPipe Pose与OpenCV，通过摄像头在本地监测姿态，且不持久化保存原始视频。有限状态机负责跟踪学习活动，辅导智能体则经加密API网关提交语音和文本查询。这种分工展示了资源受限的边缘平台如何将本地感知与外部AI服务结合。所提供摘要存在截断，未给出实测帧率、功耗或端到端响应时延。"
+            },
+            "published": "2026-11-25T16:36:19Z"
           }
         ]
       }

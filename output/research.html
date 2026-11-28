@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="edition-date" content="2026-11-27">
+<meta name="edition-date" content="2026-11-28">
 <meta name="generator" content="semi-news-daily (research)">
-<title>Memory and Parameter Reuse Reshape Efficient Inference — Semi Research 2026-11-27</title>
+<title>Compute Budgets Shape Models and Edge Systems — Semi Research 2026-11-28</title>
 <style>
   :root {
     --bg: #fbfaf7;
@@ -319,16 +319,16 @@
 
   <header class="masthead">
     <div class="kicker">
-      <span class="en">Research digest · Friday, November 27, 2026</span>
-      <span class="zh">研究摘要 · 2026年11月27日 星期五</span>
+      <span class="en">Research digest · Saturday, November 28, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月28日 星期六</span>
     </div>
     <h1>
-      <span class="en">Memory and Parameter Reuse Reshape Efficient Inference</span>
-      <span class="zh">内存与参数复用重塑高效推理</span>
+      <span class="en">Compute Budgets Shape Models and Edge Systems</span>
+      <span class="zh">计算预算塑造模型与边缘系统</span>
     </h1>
     <p class="dek">
-      <span class="en">Five AI preprints examine sparse-cache sharing, looped architectures, lookup tables and compression, alongside a communications study on selective adaptation. The selection focuses on what changes compute and memory demands, distinguishing architectural claims from measured deployment gains.</span>
-      <span class="zh">5篇AI预印本讨论稀疏缓存共享、循环架构、查找表和压缩，另有1篇通信研究考察选择性适配。选文关注计算与内存需求如何变化，并区分架构层面的主张与实际部署收益。</span>
+      <span class="en">Four AI preprints examine token merging, initialization, trajectory reuse and hierarchical processing of model weights. An embedded-system prototype and a measured magnetometry study add hardware context; this candidate pool provides no new accelerator-silicon result for the selection.</span>
+      <span class="zh">4篇AI预印本考察token合并、初始化、轨迹复用和模型权重的层次化处理。另选边缘系统原型与磁测量实验提供硬件视角；本批候选中没有可纳入的新加速器芯片实测成果。</span>
     </p>
     <div class="window">
       <span class="en">Look-back window: 7 days · 6 paper(s)</span>
@@ -338,103 +338,103 @@
 
     <section class="area" id="ai-research">
     <h2>
-      <span class="en">Hardware-Relevant AI Research</span>
-      <span class="zh">面向硬件效率的AI研究</span>
+      <span class="en">AI Models &amp; Compute Efficiency</span>
+      <span class="zh">AI模型与计算效率</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.34776" target="_blank" rel="noopener">
-          <span class="en">DFly2 shares a sparse target&#x27;s KV cache and position selection</span>
-          <span class="zh">DFly2共享稀疏目标模型的KV缓存与位置选择结果</span>
+        <a href="https://arxiv.org/abs/2611.34863" target="_blank" rel="noopener">
+          <span class="en">Training-free focus maps cut encoder FLOPs in long-video segmentation</span>
+          <span class="zh">免训练聚焦图降低长视频分割的编码器FLOPs</span>
         </a>
       </h3>
-      <p class="authors">Hong Liu, Rui Cen, Junhan Shi, et al.</p>
+      <p class="authors">Harsha Karipineni, Rajesh Reddy Chintha</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.34776" target="_blank" rel="noopener">arXiv:2611.34776</a> · 2026-11-25T17:37:49Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34863" target="_blank" rel="noopener">arXiv:2611.34863</a> · 2026-11-25T18:30:28Z</p>
       <p class="summary">
-        <span class="en">DFly2 uses a block-parallel draft model that shares a sparse target model&#x27;s KV cache and attention-position selection, avoiding a separate draft cache and redundant selection work. The authors report that a selection made one step earlier still covers close to 90% of positions selected by later tokens on DS-V4.1-Flash. This targets memory traffic, prefill overhead and serving concurrency in long-context speculative decoding. The supplied abstract is truncated before end-to-end performance results, so the overlap figure should not be read as a measured speedup.</span>
-        <span class="zh">DFly2采用块并行草稿模型，共享稀疏目标模型的KV缓存与注意力位置选择结果，从而避免独立草稿缓存及重复的位置筛选。作者报告，在DS-V4.1-Flash上，提前一步生成的选择结果仍能覆盖后续token所选位置的近90%。该方法针对长上下文推测解码的内存流量、预填充开销和服务并发约束。所提供摘要在端到端性能结果之前截断，因此这一覆盖率不能解读为实测加速比。</span>
+        <span class="en">A training-free focus map preserves detailed tokens around tracked objects while merging background tokens in a frozen DINOv3 encoder inside a trained Cutie segmenter. On LVOS V2 with ViT-S, the authors report a 2.76-point J&amp;F gain over ALGM 0.98 with 16% fewer counted encoder FLOPs, while remaining 1.0 point below the dense encoder. Motion-aware masks and a camera-compensated surprise check aim to prevent targets from being merged into the background. These are benchmark and operation-count results, not measured reductions in hardware latency or energy.</span>
+        <span class="zh">该方法在已训练的Cutie分割器中，为冻结的DINOv3编码器加入免训练聚焦图，保留跟踪目标周围的细粒度token，并合并背景token。作者报告，在LVOS V2的ViT-S实验中，相较ALGM 0.98，J&amp;F提高2.76个百分点，统计的编码器FLOPs减少16%，但仍比稠密编码器低1.0个百分点。运动感知掩码和相机运动补偿后的异常检查用于避免目标被误并入背景。这些属于基准测试与运算量统计结果，不能直接等同于硬件时延或能耗降幅。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.34923" target="_blank" rel="noopener">
-          <span class="en">Mixture-of-Loops Transformer reuses KV memory across depth and loops</span>
-          <span class="zh">Mixture-of-Loops Transformer跨深度与循环复用KV记忆</span>
+        <a href="https://arxiv.org/abs/2611.34816" target="_blank" rel="noopener">
+          <span class="en">Architecture transfer uses initialization to reshape optimization</span>
+          <span class="zh">架构迁移通过初始化改变优化过程</span>
         </a>
       </h3>
-      <p class="authors">Lianghui Zhu, Shijie Wang, Xinggang Wang, et al.</p>
+      <p class="authors">Vighnesh Subramaniam, Boris Katz, Brian Cheung</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.34923" target="_blank" rel="noopener">arXiv:2611.34923</a> · 2026-11-25T18:58:53Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34816" target="_blank" rel="noopener">arXiv:2611.34816</a> · 2026-11-25T18:01:49Z</p>
       <p class="summary">
-        <span class="en">Mixture-of-Loops Transformer changes what passes between repeated Transformer loops by using keys and values as selectively reusable memory. Its U-shaped variant separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. The authors report outperforming OLMo3 after 400B-token pretraining across 700M- and 1.5B-parameter dense models and a 3B MoE model. The design changes cache access and execution scheduling, but the supplied abstract ends before numerical efficiency gains or hardware latency measurements.</span>
-        <span class="zh">Mixture-of-Loops Transformer以key和value作为可选择复用的记忆，改变重复Transformer循环之间传递的信息。其U形变体将记忆构建与预测读出分离，并在不改变预测的情况下跳过无用的解码器遍历。作者报告，经过4000亿token预训练后，7亿和15亿参数的稠密模型及30亿参数MoE模型均优于OLMo3。该设计改变了缓存访问与执行调度，但所提供摘要在具体效率收益或硬件时延测量之前截断。</span>
+        <span class="en">This preprint aligns a target network&#x27;s initial representational geometry with a randomly initialized guide of a different architecture before downstream training. The guide receives no gradients and supplies no learned features or labels; the authors report transferring benefits associated with depth into shallower networks. That could help separate training-time architectural guidance from the structure retained for inference. The supplied abstract is truncated and gives no quantified accuracy, compute or deployment-latency gains.</span>
+        <span class="zh">这篇预印本在下游训练前，将目标网络的初始表征几何与另一种架构的随机初始化引导网络对齐。引导网络不接收梯度，也不提供学得特征或标签；作者报告，这种方法能将与深度相关的部分优化优势传递给较浅网络。这有助于探索将训练阶段的架构引导与推理时保留的网络结构分开设计。所提供摘要存在截断，未给出精度、计算量或部署时延改善的具体数字。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.34821" target="_blank" rel="noopener">
-          <span class="en">LoopTitan separates parameter reuse from other looped-MoE gains</span>
-          <span class="zh">LoopTitan区分参数复用与循环MoE的其他收益来源</span>
+        <a href="https://arxiv.org/abs/2611.34756" target="_blank" rel="noopener">
+          <span class="en">CARE-OPD targets rollout cost with selective trajectory replay</span>
+          <span class="zh">CARE-OPD通过选择性轨迹回放降低交互采样开销</span>
         </a>
       </h3>
-      <p class="authors">Zichen Tian, Yudong Lu, Xuansheng Wu, et al.</p>
+      <p class="authors">Haowen Hou, Gen Li, Ruilin Li, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.34821" target="_blank" rel="noopener">arXiv:2611.34821</a> · 2026-11-25T18:04:31Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34756" target="_blank" rel="noopener">arXiv:2611.34756</a> · 2026-11-25T17:27:31Z</p>
       <p class="summary">
-        <span class="en">LoopTitan finds that parameter revisiting itself contributes almost no gain in its matched-budget MoE experiments once network shape and residual scaling are controlled. A model without revisiting retains the reported improvement, with most attributed to network shape; the residual-scaling benefit disappears under Muon in the authors&#x27; analysis. The result argues for evaluating depth-versus-expert allocation before adding recurrent execution to an inference system. It concerns the tested recipes and controls rather than establishing that all forms of parameter reuse are ineffective.</span>
-        <span class="zh">LoopTitan在参数量、FLOPs与KV缓存预算匹配的MoE实验中发现，控制网络形状和残差缩放后，重复访问参数本身几乎不带来收益。无需重复访问的对照模型保留了所报告的提升，其中大部分来自网络形状；作者分析中的残差缩放收益则在采用Muon后消失。这提示推理系统在引入循环执行前，应先评估深度与专家数量的分配。结论针对所测试的训练方案与对照条件，并不等于证明所有参数复用方式都无效。</span>
+        <span class="en">CARE-OPD combines student-seeded teacher completions, confidence filtering and outcome-informed prefix replay to reuse long-horizon agent trajectories. It targets the need for fresh environment rollouts at every on-policy distillation update, a source of idle time and repeated collection work. The authors report outperforming online OPD and earlier replay baselines on software-engineering and deep-research tasks. The supplied abstract gives no numerical wall-clock, GPU-utilization or energy improvement, so the systems benefit remains unquantified here.</span>
+        <span class="zh">CARE-OPD结合以学生模型生成历史为起点的教师续写、置信度过滤，以及依据后续执行结果分配的前缀回放，复用长时程智能体轨迹。它针对同策略蒸馏每次更新都依赖新环境交互采样的问题，后者会带来等待时间和重复采集开销。作者报告，该方法在软件工程和深度研究任务中优于在线OPD与此前的回放基线。所提供摘要未给出实际训练耗时、GPU利用率或能耗改善的数字，因此此处无法量化系统收益。</span>
       </p>
     </article>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.34725" target="_blank" rel="noopener">
-          <span class="en">Chorus N-gram tables expose a memory-versus-backbone tradeoff</span>
-          <span class="zh">Chorus N-gram查找表揭示存储与主干规模的权衡</span>
+        <a href="https://arxiv.org/abs/2611.34726" target="_blank" rel="noopener">
+          <span class="en">Hierarchical graph metanetworks process neural weights at multiple scales</span>
+          <span class="zh">层次图元网络以多种粒度处理神经网络权重</span>
         </a>
       </h3>
-      <p class="authors">Szymon Kocur</p>
+      <p class="authors">Ioannis Kalogeropoulos, Giorgos Bouritsas, Yannis Panagakis</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.34725" target="_blank" rel="noopener">arXiv:2611.34725</a> · 2026-11-25T17:10:46Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34726" target="_blank" rel="noopener">arXiv:2611.34726</a> · 2026-11-25T17:12:08Z</p>
       <p class="summary">
-        <span class="en">Experiments with 16M–349M-parameter models find that Chorus bigram and trigram hash tables can match a larger plain Transformer&#x27;s held-out loss, but replace relatively little backbone capacity per added parameter. With tables roughly as large as the backbone, 107M–349M models match plain models 1.16–1.20× their size, while each added parameter replaces at most 0.31 backbone parameters. Chorus trains slower than a same-size plain model and faster than one with the same loss. The memory-compute tradeoff is measured on one historical Polish corpus, one 8,000-token vocabulary and one-fifth of an epoch.</span>
-        <span class="zh">对1600万至3.49亿参数模型的实验发现，Chorus二元与三元token哈希表可使留出集损失达到更大普通Transformer的水平，但每个新增参数替代的主干容量有限。当查找表规模约等于主干时，1.07亿至3.49亿参数模型可匹配规模为其1.16至1.20倍的普通模型，而每个新增参数最多替代0.31个主干参数。Chorus的训练速度低于同规模普通模型，但高于损失相同的普通模型。这一存储与计算权衡仅在单一历史波兰语语料、8000 token词表及五分之一个训练轮次上评估。</span>
-      </p>
-    </article>
-    <article class="paper">
-      <h3>
-        <a href="https://arxiv.org/abs/2611.34667" target="_blank" rel="noopener">
-          <span class="en">LLift prepares one checkpoint for multiple SVD compression budgets</span>
-          <span class="zh">LLift使单个检查点适配多种SVD压缩预算</span>
-        </a>
-      </h3>
-      <p class="authors">Chenyue Fang, Danila Mishin, Babak Falsafi</p>
-      
-      <p class="venue"><a href="https://arxiv.org/abs/2611.34667" target="_blank" rel="noopener">arXiv:2611.34667</a> · 2026-11-25T16:35:40Z</p>
-      <p class="summary">
-        <span class="en">LLift fine-tunes a low-rank approximation at one compression ratio using the original model as a teacher, then merges the updates while preserving weight components excluded from that forward pass. The prepared checkpoint reuses SVD decompositions at different truncation ranks without separately fine-tuning every compressed model. On LLaMA-7B, the authors report accuracy gains at three compression ratios and extensions across model families, sizes and SVD operators. This could simplify deployment across memory budgets, although the abstract gives no quantified accuracy gains or inference-speed measurements.</span>
-        <span class="zh">LLift以原始模型为教师，在单一压缩比例下微调低秩近似，再合并更新，同时保留训练前向传播中未使用的权重分量。处理后的检查点可在不同截断秩下复用SVD分解，无需为每个压缩模型分别微调。作者在LLaMA-7B的3种压缩比例下报告精度改善，并将结果扩展至不同模型家族、规模和SVD压缩算子。这可能简化面向不同内存预算的部署，但摘要未量化精度增益或推理速度。</span>
+        <span class="en">Hierarchical Graph Metanetworks add pooling and unpooling that preserve permutation symmetry while moving between neuron-, layer- and block-level representations of a neural network. This addresses the cost of existing weight-processing metanetworks that operate on every neuron and weight, and the authors also extend the construction to Transformers. Coarser processing could reduce dependence on parameter-level graph operations when analyzing or adapting models. The supplied abstract ends before the evaluation results, preventing a numerical scalability or accuracy comparison.</span>
+        <span class="zh">层次图元网络加入保持置换对称性的池化与反池化操作，在神经元、层和模块等不同粒度的网络表示之间切换。该方法针对现有权重处理元网络需要逐一处理神经元与权重的开销，作者还将图构建方法扩展至Transformer。较粗粒度的处理有望减少模型分析或适配对参数级图运算的依赖。所提供摘要在评估结果之前截断，因此无法给出可扩展性或精度的数值比较。</span>
       </p>
     </article>
   </section>
   <section class="area" id="circuits">
     <h2>
-      <span class="en">Circuits &amp; Communication Systems</span>
-      <span class="zh">电路与通信系统</span>
+      <span class="en">Embedded Systems &amp; Sensing</span>
+      <span class="zh">嵌入式系统与传感</span>
     </h2>
     <article class="paper">
       <h3>
-        <a href="https://arxiv.org/abs/2611.34942" target="_blank" rel="noopener">
-          <span class="en">Selective transfer learning adapts autoencoder communication front ends</span>
-          <span class="zh">选择性迁移学习适配自编码器通信前端</span>
+        <a href="https://arxiv.org/abs/2611.34699" target="_blank" rel="noopener">
+          <span class="en">Magnetometry detects internal battery leakage down to about 1–3 mA</span>
+          <span class="zh">磁测量可检测约1至3 mA的电池内部漏电流</span>
         </a>
       </h3>
-      <p class="authors">Yalin E. Sagduyu, Tugba Erpek</p>
+      <p class="authors">Shaurya Shukla, Chengtong Zhang, Yinan Hu, et al.</p>
       
-      <p class="venue"><a href="https://arxiv.org/abs/2611.34942" target="_blank" rel="noopener">arXiv:2611.34942</a> · 2026-11-25T18:59:57Z</p>
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34699" target="_blank" rel="noopener">arXiv:2611.34699</a> · 2026-11-25T16:54:34Z</p>
       <p class="summary">
-        <span class="en">This study adapts an autoencoder-based physical layer to channel mismatch by fine-tuning a small subset of transmitter and receiver layers while freezing the rest. It formulates layer selection as a budget-constrained optimization problem and reports removing a mismatch-induced error floor when moving from AWGN training to Rayleigh fading with front-end impairments. The approach targets the time and energy cost of updating learned communications systems. The supplied abstract is truncated and provides no measured silicon power, adaptation latency or complete BER comparison.</span>
-        <span class="zh">这项研究通过仅微调发射端与接收端的少数层、冻结其余层，使基于自编码器的物理层适应信道失配。作者将层选择建模为预算约束下的优化问题，并报告在从AWGN训练条件转向带前端非理想因素的瑞利衰落信道时，消除了失配引起的误码率平台。该方法针对学习式通信系统更新时的时间与能耗开销。所提供摘要存在截断，未给出芯片功耗实测、适配时延或完整的误码率对比。</span>
+        <span class="en">A fixed three-axis magnetoresistive sensor and a scanning stage map pouch-cell magnetic fields, detecting internal leakage of about 1–3 mA at rest. Two mechanically indented 600 mAh cells developed a decaying magnetic field at zero applied current, while an intact cell showed a linear field response from 10 to 420 mA. The measured asymmetry between charging and discharging offers a diagnostic signal that terminal measurements can miss. The setup uses three-layer magnetic shielding and a small damaged-cell sample, leaving production-line sensitivity and throughput unresolved.</span>
+        <span class="zh">研究以固定的三轴磁阻传感器和扫描位移平台绘制软包电池磁场分布，在静置状态下可检测约1至3 mA的内部漏电流。2块受到机械压痕损伤的600 mAh电池在外加电流为零时产生了随时间衰减的磁场，完好电池则在10至420 mA范围内呈线性磁场响应。充放电磁场的不对称性提供了端口测量可能遗漏的诊断信号。实验使用三层磁屏蔽，受损样本数量也较少，产线条件下的灵敏度和检测吞吐量仍待验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.34669" target="_blank" rel="noopener">
+          <span class="en">Raspberry Pi 3B prototype combines local pose monitoring with API-based tutoring</span>
+          <span class="zh">Raspberry Pi 3B原型结合本地姿态监测与API辅导</span>
+        </a>
+      </h3>
+      <p class="authors">Truyen T. Le, Vinh Dang Ngoc, Thai Bao Huynh</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34669" target="_blank" rel="noopener">arXiv:2611.34669</a> · 2026-11-25T16:36:19Z</p>
+      <p class="summary">
+        <span class="en">This prototype runs MediaPipe Pose and OpenCV on a Raspberry Pi 3 Model B with 1 GB RAM, using a camera for local posture monitoring without persisting raw video. A finite-state machine tracks study activity, while a tutoring agent sends voice and text queries through an encrypted API gateway. The division illustrates how a constrained edge platform can combine local perception with externally accessed AI services. The supplied abstract is truncated and provides no measured frame rate, power consumption or end-to-end response latency.</span>
+        <span class="zh">该原型在配备1 GB RAM的Raspberry Pi 3 Model B上运行MediaPipe Pose与OpenCV，通过摄像头在本地监测姿态，且不持久化保存原始视频。有限状态机负责跟踪学习活动，辅导智能体则经加密API网关提交语音和文本查询。这种分工展示了资源受限的边缘平台如何将本地感知与外部AI服务结合。所提供摘要存在截断，未给出实测帧率、功耗或端到端响应时延。</span>
       </p>
     </article>
   </section>
@@ -462,8 +462,8 @@
 
   <footer>
     <div>
-      <span class="en">Built 2026-11-27 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
-      <span class="zh">生成于 2026-11-27 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+      <span class="en">Built 2026-11-28 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-28 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
     </div>
   </footer>
 
