@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-05-28">
+<meta name="generator" content="semi-news-daily">
+<title>Inference Money Lands; Chip Diplomacy Whiplashes — Semi News 2026-05-28</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Lang visibility — pure CSS off the body[data-lang] */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, May 28, 2026</span>
+      <span class="zh">2026年5月28日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Inference Money Lands; Chip Diplomacy Whiplashes</span>
+      <span class="zh">推理融资落地，芯片外交剧烈摇摆</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Groq raises $650M and Sandisk debuts a high-bandwidth flash for AI inference, just as Trump tells Taiwan it &#x27;stole our chip industry&#x27; and Jensen Huang takes a seat on a Beijing university board — a single news day in which both the capital and the geopolitics of compute moved hard.</span>
+      <span class="zh">Groq完成6.5亿美元融资、闪迪发布面向AI推理的高带宽闪存，与此同时特朗普称台湾「偷走了我们的芯片产业」、黄仁勋加入北京清华大学顾问委员会——单日之内，算力的资金面与地缘面同步剧烈位移。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBObkRQcUJGcFR2X2FzcHIyNVdmMWRmRklDMXpuTm1iY0diZ0FoOFhTZDF6Sm1qdTJ2RUE1Ni1ZVk9XVWZDTGlsWDU1ZTdONUptZVZzMENKZFhTQTNyS2dCbGhYbXhVQUk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Groq raises $650M to fund its second act in inference compute</span>
+          <span class="zh">Groq完成6.5亿美元融资，开启推理算力业务第二阶段</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Axios (via Google News)</span> · 48m ago</span>
+        <span class="zh"><span class="source">Axios (via Google News)</span> · 48分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Axios scooped that Groq, the LPU-based inference startup, is raising approximately $650 million in fresh capital — its largest single round to date and a clear signal that the post-Cerebras-IPO funding window for non-Nvidia inference silicon is fully open. The new capital is reportedly earmarked for capacity (more Groq Cloud regions, more LPU production with its US foundry partners) rather than R&amp;D into a successor architecture. Combined with Cerebras&#x27;s $63B IPO valuation and Marvell&#x27;s lifted AI guidance this week, the message to the market is that inference — not training — is where the next phase of accelerator economics gets fought.</span>
+        <span class="zh">Axios独家报道：基于LPU架构的推理初创公司Groq正在以约6.5亿美元规模融资——为公司迄今最大单轮融资，亦明确信号——继Cerebras IPO之后，非英伟达推理芯片的融资窗口已完全打开。资金据称用于扩容（更多Groq Cloud区域、与美国代工伙伴扩大LPU生产），而非投入下一代架构研发。叠加本周Cerebras 630亿美元IPO估值与Marvell上调AI业务指引，市场已获得清晰信号：加速器经济学的下一阶段战场是推理，而非训练。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPRXE1cklLX0FINFJZY0xiMzRpWHZuTm9IYjZkZVA1Mklfd1lwQVpzZUtYOWJteGExb3JKMzF6X21nLVF4dFpic01sRzU5VUNLNWw2REFTdEFIR0ZPQjl4M3pOa1RuTmxBRkxwV1M4QmVqSFp2QXh4aVo0dk9yckpmZG1UUEN4VkM4Z0tmZGtiUkxnZldCQlZxSldPMXFjeHVjekdZ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Marvell Q1 lifts AI growth targets as custom-silicon revenue continues to scale</span>
+          <span class="zh">Marvell财报Q1上调AI业务目标，定制硅片收入持续放量</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TradingView (via Google News)</span> · 5h ago</span>
+        <span class="zh"><span class="source">TradingView (via Google News)</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Marvell&#x27;s Q1 earnings call materially raised the company&#x27;s AI-related growth targets, with management pointing to ramping custom-silicon programs (almost certainly including the AWS Trainium 3 implementation work) plus higher attach rates for its DSP and optical-DSP portfolio in CoWoS-packaged accelerators. The narrative is consistent with what Broadcom signaled last week: the hyperscaler-ASIC opportunity is materializing faster than the analyst consensus has updated for, and the merchant-DSP layer (Marvell + Astera + MaxLinear) is the second-derivative beneficiary of every custom-XPU socket that lands.</span>
+        <span class="zh">Marvell Q1电话会议实质性上调AI业务增长目标——管理层指向正在爬坡的定制硅片项目（几乎可以确认包括AWS Trainium 3的实施工作），以及其DSP与光DSP产品组合在CoWoS封装加速器中更高的搭配率。这一叙事与博通上周释放的信号一致：超大规模客户的ASIC机会落地速度，快于分析师共识更新的速度；而商用DSP层（Marvell + Astera + MaxLinear）是每个定制XPU socket落地的二阶受益者。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxNQ2p3ckFVdnc0S0dNSmZxbHNnS0xmN2M4MDVyQndaMThHc3pMQ20wVVpocTZWQm9vZk1JQlBGQkpqdkpUXzZKWmRUVzE1bWNhV2txWUY2UVNPSDBMVkFPMi1leEZOdXJ2VVRwZTMxa012WHo4RG1hWjk3SFhkTnBIeVNpM1BxbVoxYU4wZUEzak4xV0ZEc0txaUhyRkE1TVA0TnZIRC1jeklOdllIWHM4SVluRnVLY1pSUzcxek53?oc=5" target="_blank" rel="noopener">
+          <span class="en">Sandisk debuts High-Bandwidth Flash (HBF) for AI inference</span>
+          <span class="zh">Sandisk推出面向AI推理的High-Bandwidth Flash（HBF）</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Seeking Alpha (via Google News)</span> · 1h ago</span>
+        <span class="zh"><span class="source">Seeking Alpha (via Google News)</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Sandisk&#x27;s CTO confirmed the company is bringing a new high-bandwidth flash product class — branded HBF — to market, explicitly framed as the tier that sits between HBM (capacity-limited, hot) and conventional NAND (cold, slow) for AI inference workloads. The pitch is that long-context KV-cache footprints and retrieval-heavy inference don&#x27;t actually need DRAM-class bandwidth on every byte; they need a tier that delivers ~10× DRAM capacity per dollar with bandwidth a few-x below HBM. If HBF lands with serious bandwidth numbers and a clean PCIe / CXL controller, it reshapes the memory stack: Micron and SK hynix would no longer have the only credible answer for HBM-adjacent demand.</span>
+        <span class="zh">Sandisk首席技术官确认公司将推出新的高带宽闪存品类——名为HBF——明确定位为AI推理负载中介于HBM（容量受限、发热高）与传统NAND（冷、慢）之间的中间层。逻辑是：长上下文KV缓存与重检索推理实际上并不需要每个字节都享有DRAM级带宽；它们需要的是单位美元容量为DRAM约10倍、带宽较HBM低数倍的层级。若HBF以严肃的带宽指标与干净的PCIe / CXL控制器面世，将重塑存储栈：美光与SK海力士将不再是HBM相邻需求的唯一可信答案。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNaXo1OTJoOE9mVmRxS2dvLU9hQ0p4UjJCeUZoczhKV193TFJrdm5Kam80X0E0Sl9zWWpQdGVzdUpYOFpxc043cWJxMi1YZ3NZcUZNMjhIeWlKdnMyV2tPN3FVSXVtWmF1Y1ZsaG9PcnVKLU1ObnN6WjNONi0yMms0X2RSTXMtbWJNMFAzdUNsZkVob1pyVE1yNzFGNkVrWFJqUnlYb1FxRGFVX2hxdHBjaXAyTE92Zw?oc=5" target="_blank" rel="noopener">
+          <span class="en">China&#x27;s CXMT accelerates IPO as DRAM-market challenge gathers pace</span>
+          <span class="zh">中国长鑫存储CXMT加快IPO进程，DRAM市场挑战加速</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Bloomberg (via Google News)</span> · 13h ago</span>
+        <span class="zh"><span class="source">Bloomberg (via Google News)</span> · 13小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Reports from Chosun and Bloomberg confirm that ChangXin Memory Technologies (CXMT) — China&#x27;s largest indigenous DRAM maker — has accelerated its IPO timeline, with bankers reportedly targeting a Shanghai listing within the next two quarters. The move lands directly on top of memory&#x27;s $1T-club moment for SK hynix and Micron: CXMT&#x27;s capacity, even at trailing nodes, is the structural relief valve that prevents the current global DDR5 shortage from becoming a multi-year squeeze. The strategic question is whether US export-control posture treats CXMT&#x27;s IPO proceeds as legitimately Chinese capital or as a forcing function for new sanctions.</span>
+        <span class="zh">Chosun与彭博消息显示，中国最大本土DRAM厂长鑫存储（CXMT）已加快IPO时间表，承销行据称瞄准未来两个季度内在上海挂牌。事件正叠加于SK海力士与美光跨入万亿俱乐部的时间节点：CXMT的产能——即便处于落后节点——也是结构性的「减压阀」，防止当前全球DDR5短缺演变为多年挤压。战略问题在于：美国出口管制将把CXMT的IPO募资视为合法的中国资本，还是视为触发新一轮制裁的导火索。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry-manufacturing">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi5gJBVV95cUxQcjFjUUNwaTJOLXo4REdISkttNW9CVi13MGdzLS12RlpudWJFYmxDU0FZZXY2ZjRwajh0VGVqWi1xTXkzTHFKc0VmUTdpem5CN3hEU0ZWUUI0QUNXcVhuc29WUEZQdVJfRGdNV3o5V1ozSkRjb1g2SjU2T1kySnNhaWwzNnpYMzk1OEhhRXk1VU44d09NZ2lCSW1ING9xbkhYd2pob3RSQ0ZtaFpYang0MzNTQjM3TFotTk1RSFFoWHRVZFo5TVZjb2w1UXppamwtbU1qODlDNTdtWnN4WDRHXzNLNFJIbkptd0pXc1V5bWhBTjFIdDJ5YlNrUUo4M3ZwRTRXU0dVYXEtaldaVm9hMDBIZmljZ3NsSWFkbkYtaFcxWk9HZWcwdlEyUjNxZ3A4a3hjNklUTTY1YW83Y1hXNWI3T1J5NmdNM2dNaXdORVdMZlJQeE83dWlBOV9kV0tMVzlPNmVR?oc=5" target="_blank" rel="noopener">
+          <span class="en">AMD begins ramping next-gen EPYC &#x27;Venice&#x27; on TSMC 2nm</span>
+          <span class="zh">AMD启动下一代EPYC「Venice」于台积电2nm节点的产能爬坡</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN (via Google News)</span> · 6h ago</span>
+        <span class="zh"><span class="source">MSN (via Google News)</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD&#x27;s next-generation EPYC server CPU, codenamed Venice, has formally entered ramp on TSMC&#x27;s N2 (2nm) node — making AMD an early high-volume N2 customer alongside Apple and putting it ahead of Intel&#x27;s competing Clearwater Forest Xeon timeline. The choice is notable because EPYC volumes give TSMC strong incentive to prioritize N2 yield-curve work on a server-validation workload (vs. mobile SoCs), which then feeds back as faster maturation for the rest of the N2 ecosystem (including Nvidia&#x27;s Rubin successor and Broadcom&#x27;s custom AI ASICs).</span>
+        <span class="zh">AMD下一代EPYC服务器CPU（代号「Venice」）正式启动台积电N2（2nm）节点产能爬坡——使AMD成为继苹果之后的高量级N2早期客户，并领先于英特尔Clearwater Forest Xeon竞品的时间表。意义在于：EPYC的出货量给了台积电充分动机，将N2的良率曲线优化优先投放在服务器验证负载（而非移动SoC）上，进而反哺整个N2生态（包括英伟达Rubin后继与博通自研AI ASIC）的成熟节奏。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxPRmQtR3hjNENYRUFzVEliZnJCYkdUaWI2anctRmF2VG9JYTBLdGtJQjFMMmVnR0pFT3Nhb2hzVG9uaF9PQ1dQNmxBM3UzN081WFZlNS01SHlUMnA5aXRpWlQtcHR2SnlYeHVNdVhiaWNraDlwUjZkcnVXRDYxdXdUWXZoTy1aMWFEU2xjMS1DRDVMcjR6c1JfcEtlSTZNdWhjWVdzeDA1a01keHlXRWx5NENscW5iaWoydlN3QzdseHExYXZNV1F0YnhTSEJ2X1Rnb1RNVlplREpKVXgxQkY0?oc=5" target="_blank" rel="noopener">
+          <span class="en">Broadcom-FuriosaAI 2nm chip on TSMC: 1H 2028 sampling target</span>
+          <span class="zh">博通-FuriosaAI 2nm芯片走台积电，预计2028年上半年送样</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TrendForce (via Google News)</span> · 5h ago</span>
+        <span class="zh"><span class="source">TrendForce (via Google News)</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TrendForce filled in the specifics on yesterday&#x27;s Broadcom-FuriosaAI announcement: the chip will be fabricated on TSMC 2nm with sampling targeted for 1H 2028 — a deliberately conservative schedule that puts the part one node behind Nvidia&#x27;s 2027 Rubin generation but in line with hyperscaler refresh cycles. FuriosaAI&#x27;s value proposition isn&#x27;t to beat Nvidia on raw FLOPs at the leading edge; it&#x27;s to land a credibly cheaper inference part with co-packaged optics readiness, leveraging Broadcom&#x27;s Tomahawk-fabric story to win Korean and Asia-Pacific hyperscaler deployments where Nvidia faces export-control friction.</span>
+        <span class="zh">TrendForce补全了昨日博通-FuriosaAI合作的细节：芯片将在台积电2nm节点制造，目标2028年上半年送样——这是一个刻意保守的时间表，使该产品较英伟达2027年的Rubin代落后一代，但与超大规模客户的换机周期相符。FuriosaAI的卖点不是在最先进节点上以裸FLOPs击败英伟达，而是落地一颗价格更可信、已为共封装光学做好准备的推理芯片——借力博通的Tomahawk网络叙事，去拿下韩国与亚太超大规模客户中英伟达受出口管制影响的部署机会。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy-geopolitics">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/trump-says-taiwan-stole-our-chip-industry-but-tsmc-was-built-by-a-us-citizen-and-25-year-texas-instruments-veteran" target="_blank" rel="noopener">
+          <span class="en">Trump says Taiwan &#x27;stole our chip industry&#x27;; Taiwan&#x27;s Lai delivers Morris Chang&#x27;s autobiography to the White House</span>
+          <span class="zh">特朗普称台湾「偷走了我们的芯片产业」；台湾赖清德向白宫递送张忠谋自传作为回应</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 3h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">President Trump&#x27;s renewed claim that Taiwan &#x27;stole our chip industry&#x27; lands in tension with the historical record — TSMC was founded by Morris Chang, a 25-year Texas Instruments veteran and US citizen — and Taiwan&#x27;s President Lai responded by formally presenting Chang&#x27;s autobiography to the White House along with a request for reassurances on rumored semiconductor tariffs. The episode matters less as rhetoric and more as a leading indicator: tariff threats now reliably move TSM and the entire SOX index intraday, and Taiwan&#x27;s Ministry of Economic Affairs is treating tariff posture as a sovereign-risk variable that requires diplomatic counter-programming.</span>
+        <span class="zh">特朗普重申台湾「偷走了我们的芯片产业」的说法与历史记录形成张力——台积电由德州仪器25年老兵、美国公民张忠谋所创立——台湾总统赖清德的回应是正式向白宫递送张忠谋自传，同时要求就传闻中的半导体关税获得保证。该事件作为修辞不重要，作为先行指标则关键：关税威胁如今已能在日内可靠地驱动TSM股价与整个SOX指数，台湾经济部正将关税立场视为需要外交反制的主权风险变量。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxNVi10VC0wdzFSZExEeUJVQlEwYWhTWnBuZkg0SEktT094c1oyamRuQ0s3bWt1NUkwdWw3VHo1ZXZGaVI5RG5ST0FmQ09odmNTczV3UjNxOF9DaGUwTUhrakZ3MFQyVldxS25IclpsVmQ1NVdMeDZuU3lhbUFzUk9fYU02SQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Jensen Huang joins Tsinghua University advisory board, plans Seoul visit next week</span>
+          <span class="zh">黄仁勋加入清华大学顾问委员会，下周访问首尔</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing (via Google News)</span> · 3h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing (via Google News)</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia CEO Jensen Huang accepted a seat on the advisory board of Tsinghua University — the Beijing institution whose alumni network anchors the Chinese AI hardware ecosystem (including Huawei&#x27;s chip leadership) — and confirmed a Seoul visit for next week. The Tsinghua appointment drew immediate criticism from US activist investors as a &#x27;security risk&#x27;, but Huang&#x27;s signal is hard to misread: he is publicly hedging against the scenario where US export-control posture costs Nvidia the China data-center market permanently. The Seoul leg is the corollary — keeping SK hynix and Samsung tightly aligned to Nvidia&#x27;s roadmap as the alternative-customer base.</span>
+        <span class="zh">英伟达CEO黄仁勋接受清华大学顾问委员会席位——这所北京高校的校友网络支撑着中国AI硬件生态（包括华为芯片业务领导层）——同时确认下周访问首尔。清华任命立刻被美国激进派投资者抨击为「安全风险」，但黄仁勋的信号难以误读：他在公开对冲——以防美国出口管制立场最终让英伟达永久失去中国数据中心市场。首尔之行是该对冲的另一面——把SK海力士与三星紧密绑定在英伟达的路线图上，作为客户基本盘的备选。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment-materials">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi6wJBVV95cUxNMVR4WGYxMXJaTFdRNl9SNlN5WXpVZXN6N3lCUGhqMTl5TmRydEJYR3oycWFPU2c2WjlwbUFHbzNXb2pZdmp5MDNnR09XSkM3NmxNTWVZUW5pWjkzZHB1OW5yWWtneGNRSExIcWpXR1FuaWxaMkl4elQ0UkkyY2lJWkpEZzVOV2VoMjVJN3dmT0Y1eWphQVh0NmtGRVJ3b1BaWWRIbmpLcFF2U0dtUWxhUzBFY2dTTDdiSFVUcGVmWnV6ZjNQNzhNSTlyWUhIejNoYl8wcmphbzBBa0FuSmxqbjloQU8teVZBekx3WnBvYVR5NzZMMmhwMmltS2hGWXk0ZV9Ib2h0YXhaZFZtakdVbElWZVBBM0ZkVG1pekdadnZaR0h1TDBIM1VrSVVCUnlPRUxHdnB6SHotZkdYTGZMUEhnZWpyVkxfLWN4LTJzcEF2cmJhYjlZaVBNNVEtLXprclhPRWxMS0VySEE?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML stock dips after TSMC reportedly declines latest lithography systems</span>
+          <span class="zh">ASML股价下挫——传台积电拒绝其最新光刻系统</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN (via Google News)</span> · 13h ago</span>
+        <span class="zh"><span class="source">MSN (via Google News)</span> · 13小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML&#x27;s share price slipped on a Korean report that TSMC has declined a batch of ASML&#x27;s newest High-NA EUV systems for the current procurement cycle, with TSMC reportedly preferring to extend its existing low-NA EUV stack through one more node before committing to High-NA&#x27;s tool-per-fab economics. If accurate, the news puts ASML&#x27;s revenue mix back-loaded toward 2027 and beyond, and validates Intel Foundry&#x27;s earlier-than-TSMC bet on High-NA as a near-term differentiator at 18A / 14A. ASML&#x27;s daily €16M buyback program continues to provide a partial floor, but the AI rally&#x27;s beneficiaries are being re-sorted in real time.</span>
+        <span class="zh">ASML股价因一则韩国报道下挫——该报道称台积电在本采购周期内拒绝了一批ASML最新的High-NA EUV系统；台积电据称倾向于将既有低NA EUV栈再用一个节点，然后再承担High-NA每厂一台的投资经济学。若属实，该消息将ASML的收入结构后移至2027年及以后，同时也验证了英特尔代工早于台积电押注High-NA作为18A / 14A近期差异化优势的策略。ASML每日1600万欧元回购计划继续提供部分托底，但AI行情受益者的排序正在被实时重新洗牌。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNOWN5Q2U1QUUtZHlYQkFsWEFDbFJEM1pkSW1KSG1XZURhTzcwZXNKM1ZJVXVQQnk5aVVjeEJZeXRJcVZmRDIyMURJaEZYTzlaSS16WWJwRE44V29oVW9KU2gxc244REdvM2ZVWEx0SXVOX0JXdU1waGllUmJzdDRGMTdmM3pLV3lvQUVzbE5VOG5LUlVhenY4LXFZdG1Vc2RSR2xN?oc=5" target="_blank" rel="noopener">
+          <span class="en">Tower Semiconductor announces $1.3 billion silicon-photonics agreements</span>
+          <span class="zh">Tower半导体公布13亿美元硅光子合作协议</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance (via Google News)</span> · 2h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance (via Google News)</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Israel&#x27;s Tower Semiconductor disclosed cumulative silicon-photonics customer agreements worth approximately $1.3 billion — a meaningful inflection for a foundry historically positioned around analog and RF processes rather than leading-edge logic. The bookings reflect demand for Tower&#x27;s BiCMOS-anchored silicon-photonics platform from data-center optical-engine suppliers who need a non-TSMC, non-Samsung path to volume. Combined with this week&#x27;s Lightmatter / TSMC COUPE news and the FuriosaAI CPO mention, the picture is clear: every credible 2027 AI accelerator now has a co-packaged optics story, and the foundry capacity behind those stories is finally being booked rather than projected.</span>
+        <span class="zh">以色列Tower半导体披露硅光子客户合作累计金额约13亿美元——对于一家历史上聚焦模拟与射频工艺、并非先进逻辑节点的代工厂而言，这是一次有意义的拐点。订单反映出数据中心光引擎供应商对Tower以BiCMOS为基础的硅光子平台的需求——它们需要一条非台积电、非三星的量产路径。结合本周的Lightmatter/台积电COUPE消息与FuriosaAI共封装光学（CPO）提法，图景清晰：每一个可信的2027 AI加速器如今都有了共封装光学的故事，而支撑这些故事的代工产能终于从规划变为实际订单。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="china-custom-silicon">
+    <h2>
+      <span class="en">China &amp; Custom Silicon</span>
+      <span class="zh">中国与自研芯片</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOWFJkanRhU19CNXcxQnJhV2o1Q05pQlZ5R0pDdDBocTVmeTF5LVRrcE9vZGxXa3VOQ0oxZE9aME9vNVZTZTV6c1RCNmZ0RkhOLWdYakRZdGd0WDVfT0lyc2lhMWlKcDhlUWdvQ2ZGd2NndGdnTzhkZ2oyZG9WdVd0SHJGOG52ZFpWUlJxMFBFNlBFbDJoY1E?oc=5" target="_blank" rel="noopener">
+          <span class="en">ByteDance starts building custom server CPUs to reduce chip dependence</span>
+          <span class="zh">字节跳动启动自研服务器CPU以降低芯片依赖</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing (via Google News)</span> · 3h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing (via Google News)</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ByteDance has confirmed an internal program to build custom server CPUs — the latest Chinese hyperscaler to vertically integrate down to silicon after Alibaba&#x27;s T-Head and Baidu&#x27;s Kunlun trajectories. The CPU focus (not AI accelerator) is what makes this news noteworthy: it implies ByteDance is preparing for a scenario where general-purpose x86 / Arm server CPU supply also becomes constrained, not just AI GPUs. Practically, the design is likely RISC-V or licensed Arm; whether SMIC can fab it at a competitive node will determine how much of the program is real engineering versus optionality hedge.</span>
+        <span class="zh">字节跳动确认内部正在自研服务器CPU——继阿里平头哥与百度昆仑之后，又一家中国超大规模厂商向硅片层做垂直整合。CPU（而非AI加速器）作为切入点令该消息值得关注：意味着字节为通用x86 / Arm服务器CPU供应同样受限——而不只是AI GPU受限——的场景做准备。从工程上看，设计大概率为RISC-V或授权Arm；而中芯国际能否以有竞争力的节点流片，将决定该项目究竟是真实工程，还是一项可选性对冲。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/chinese-university-builds-3d-chip-design-tool-tailored-to-huaweis-logicfolding-architecture" target="_blank" rel="noopener">
+          <span class="en">Chinese university releases 3D chip-design tool tailored to Huawei&#x27;s LogicFolding architecture</span>
+          <span class="zh">中国高校发布面向华为「LogicFolding」架构的3D芯片设计工具</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 3h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Researchers at a Chinese university released an open 3D chip-design toolkit explicitly tailored to Huawei&#x27;s LogicFolding architecture — the same architecture Huawei used last week to claim a path to &#x27;1.4nm-equivalent&#x27; density without EUV. The toolkit is meant to lower the design-side barrier for partners trying to actually target LogicFolding nodes, which until now had no Cadence/Synopsys-flow equivalent. The signal: China&#x27;s domestic EDA gap is being attacked from the university side with workflows narrowly tied to a single domestic architecture, rather than as a general-purpose flow. Whether the toolkit reaches industrial reliability is the open question.</span>
+        <span class="zh">一所中国高校发布了面向华为「LogicFolding」架构定制的开放3D芯片设计工具——上周华为正是以该架构宣称可在不依赖EUV的情况下实现「1.4nm级」密度的路径。该工具旨在降低希望真正瞄准LogicFolding节点的合作方在设计侧的进入门槛——此前并无Cadence / Synopsys工具流的对应物。信号意义：中国本土EDA短板正从高校端被以「窄绑定单一国产架构、而非通用流程」的方式攻克。该工具能否达到工业级可靠性，是悬而未决的问题。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-05-28 14:19 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-05-28 14:19 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var saved = null;
+    try { saved = localStorage.getItem("semi-news-lang"); } catch (e) {}
+    if (saved === "en" || saved === "zh") body.setAttribute("data-lang", saved);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-set-lang");
+        body.setAttribute("data-lang", lang);
+        try { localStorage.setItem("semi-news-lang", lang); } catch (e) {}
+        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

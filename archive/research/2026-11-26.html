@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-26">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Implementation Evidence Shapes Efficient Hardware Design — Semi Research 2026-11-26</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-11-26.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, November 26, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月26日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Implementation Evidence Shapes Efficient Hardware Design</span>
+      <span class="zh">硬件实现与验证证据推动效率设计</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Seven papers dated November 19–24 examine readout circuits, coherent DSP monitoring, specialized acceleration and design validation. The selection connects working hardware and system integration with synthesis studies, learned models and a survey of co-design methods.</span>
+      <span class="zh">本期7篇论文发表于11月19至24日，涵盖读出电路、相干DSP监测、专用加速与设计验证。选文将实际硬件及系统集成，与综合评估、学习式模型和软硬件协同设计综述联系起来。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 7 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 7篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Measurement</span>
+      <span class="zh">电路与测量</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.32340" target="_blank" rel="noopener">
+          <span class="en">Calibration and integration of the GAPS silicon-tracker readout ASIC</span>
+          <span class="zh">GAPS硅径迹探测器读出ASIC的校准与集成</span>
+        </a>
+      </h3>
+      <p class="authors">Luca Ghislotti</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.32340" target="_blank" rel="noopener">arXiv:2611.32340</a> · 2026-11-24</p>
+      <p class="summary">
+        <span class="en">This thesis reports the integration, calibration and validation of SLIDER32 readout electronics for the GAPS silicon tracker, using a custom 180 nm CMOS ASIC with lithium-drifted silicon detectors operated at −40 °C. Laboratory tests with an Am-241 source and cosmic muons were followed by full-tracker calibration in flight configuration and acquisition of a Cd-109 x-ray spectrum. The work provides instrument-level validation evidence for a demanding detector application; the supplied abstract does not quantify readout noise or energy resolution.</span>
+        <span class="zh">这篇学位论文报告了GAPS硅径迹探测器SLIDER32读出电子学的集成、校准与验证，采用定制180 nm CMOS ASIC，配合在−40 °C下工作的锂漂移硅探测器。作者先使用Am-241源和宇宙线缪子进行实验室测试，再在飞行配置下完成整套径迹探测器的校准，并获取Cd-109的X射线能谱。研究为复杂探测应用提供了仪器层面的验证证据，但所提供摘要未量化读出噪声或能量分辨率。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.25353" target="_blank" rel="noopener">
+          <span class="en">A 3 nm coherent DSP ASIC monitors fiber power while carrying traffic</span>
+          <span class="zh">3 nm相干DSP ASIC在传输业务时同步监测光纤功率分布</span>
+        </a>
+      </h3>
+      <p class="authors">T. Sasai, Yukinobu Nakajima, Minami Takahashi, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.25353" target="_blank" rel="noopener">arXiv:2611.25353</a> · 2026-11-19</p>
+      <p class="summary">
+        <span class="en">The authors implement longitudinal power monitoring in a 3 nm 800G coherent DSP ASIC inside an OSFP module, recovering spatially resolved fiber-power profiles from received traffic. Experiments over links up to 1,005 km with 400ZR+ and 800ZR+ traffic show no measurable impact on Q factor or module power consumption, and include signals from third-party transceivers. This provides hardware evidence that distributed link monitoring can coexist with data transmission under the tested conditions.</span>
+        <span class="zh">作者在OSFP模块内的3 nm、800G相干DSP ASIC上实现纵向功率监测，从接收业务信号中恢复沿光纤分布的功率曲线。在最长1005 km链路上，使用400ZR+和800ZR+业务开展的实验未测得Q因子或模块功耗受到影响，并验证了来自第三方收发器的信号。结果以实际硬件证明，在所测试条件下，分布式链路监测能够与数据传输同时运行。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI &amp; Domain-Specific Accelerators</span>
+      <span class="zh">AI与领域专用加速器</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.32758" target="_blank" rel="noopener">
+          <span class="en">Differential time representation supports modular SNN acceleration</span>
+          <span class="zh">差分时间表示支持模块化脉冲神经网络加速</span>
+        </a>
+      </h3>
+      <p class="authors">D. Windhager, L. Ratschbacher, B. Moser, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.32758" target="_blank" rel="noopener">arXiv:2611.32758</a> · 2026-11-24</p>
+      <p class="summary">
+        <span class="en">This work represents spike trains with Differential Time Representation, using fewer bits than address-event encoding or uniformly sampled one-bit trains, and proves that multiple streams can be merged with low complexity. Modular streaming hardware and a Python framework generate parallel and time-multiplexed accelerators for SHD, SSC and PSMNIST. The authors report FPGA and ASIC implementations, but the supplied abstract ends before quantitative energy and area results, limiting comparisons with other SNN accelerators.</span>
+        <span class="zh">研究采用差分时间表示编码脉冲序列，相比地址事件表示或等间隔采样的单比特序列使用更少位数，并证明多个序列可以低复杂度合并。模块化流式硬件与Python框架可为SHD、SSC和PSMNIST生成并行版及分时复用版加速器。作者报告了FPGA与ASIC实现，但所提供摘要在能耗和面积的量化结果之前截断，因此暂不足以与其他SNN加速器作定量比较。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.28741" target="_blank" rel="noopener">
+          <span class="en">VEGA extends RISC-V vectors for programmable genome alignment</span>
+          <span class="zh">VEGA扩展RISC-V向量指令以加速可编程基因序列比对</span>
+        </a>
+      </h3>
+      <p class="authors">Wei-Hong Xu, Shi-Jie Xu, Qun-You Liu, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.28741" target="_blank" rel="noopener">arXiv:2611.28741</a> · 2026-11-21</p>
+      <p class="summary">
+        <span class="en">VEGA combines RISC-V vector instruction extensions, a Forefront Stationary dataflow and intersequence parallelism to accelerate genome alignment while reducing off-chip accesses and improving SIMD utilization. Against Ara2-RVV, it reports peak speedups of 15.1× for Edit Distance and 9.7× for Smith–Waterman, retaining 10.2× and 6.7× gains for 10 kbp sequences. Post-synthesis results report 1.0% area overhead relative to a standard RISC-V core; these are synthesis and evaluation results rather than measured fabricated-silicon performance.</span>
+        <span class="zh">VEGA结合RISC-V向量指令扩展、Forefront Stationary数据流及序列间并行，在加速基因序列比对的同时减少片外访问、提高SIMD利用率。相对Ara2-RVV，Edit Distance与Smith–Waterman的峰值加速比分别为15.1倍和9.7倍，在10 kbp序列上仍分别达到10.2倍和6.7倍。综合后结果显示，相对标准RISC-V核的面积开销为1.0%；这些属于综合与评估结果，并非流片芯片的性能实测。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.27953" target="_blank" rel="noopener">
+          <span class="en">A rover integrates neuromorphic audio and event-based vision</span>
+          <span class="zh">移动机器人集成神经形态音频与事件视觉</span>
+        </a>
+      </h3>
+      <p class="authors">Guillem Fustier-Castillo, Ruben Ribes-Serrano, Javier Naranjo-Alcazar, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.27953" target="_blank" rel="noopener">arXiv:2611.27953</a> · 2026-11-20</p>
+      <p class="summary">
+        <span class="en">This technical report integrates three real-time perception pipelines on a four-wheel rover: PANNs audio tagging on an NVIDIA Jetson, SNN audio processing on a SynSense Xylo Audio 2 chip, and SpikeYOLO detection of traffic cones from event-camera input. The Xylo audio path performs microphone-to-classification processing on-chip, while containerized services connect through ROS 2. The contribution is system integration on a robotic platform; the supplied abstract gives no quantitative end-to-end latency or energy comparison.</span>
+        <span class="zh">这份技术报告在四轮移动机器人上集成了三条实时感知流程：NVIDIA Jetson上的PANNs音频标注、SynSense Xylo Audio 2芯片上的SNN音频处理，以及利用事件相机输入的SpikeYOLO交通锥检测。Xylo音频通路从麦克风信号到分类均在片上完成，各容器化服务通过ROS 2连接。研究贡献在于机器人平台上的系统集成；所提供摘要未给出端到端时延或能耗的定量对比。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">Design Automation &amp; Validation</span>
+      <span class="zh">设计自动化与验证</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2611.28778" target="_blank" rel="noopener">
+          <span class="en">Learning passive interconnect and power-delivery macromodels directly from layouts</span>
+          <span class="zh">从版图直接学习无源互连与供电网络宏模型</span>
+        </a>
+      </h3>
+      <p class="authors">Ben-Chao Zhu, Ke-Ren Zhu</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2611.28778" target="_blank" rel="noopener">arXiv:2611.28778</a> · 2026-11-21</p>
+      <p class="summary">
+        <span class="en">The authors map physical layout graphs directly to multi-order port-Hamiltonian macromodels whose parameterization guarantees continuous-frequency passivity and stability by construction. One forward pass yields models of different orders through state slicing, with training supervised by S-parameters rather than reference state-space realizations. Evaluation covers 27,000 unseen structures from a 270,000-structure advanced-packaging dataset, but the supplied abstract truncates before the numerical error results. The method targets stable signal- and power-integrity simulation without a separate passivity-repair step.</span>
+        <span class="zh">作者将物理版图图结构直接映射为多阶端口哈密顿宏模型，通过参数化结构本身保证连续频域的无源性与稳定性。模型一次前向传播即可通过状态切片获得不同阶数，训练直接以S参数为监督，无需参考状态空间实现。评估使用包含27万个结构的先进封装数据集中的2.7万个未见结构，但所提供摘要在具体误差结果之前截断。该方法面向稳定的信号完整性与电源完整性仿真，无需额外的无源性修复步骤。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1145/3862758" target="_blank" rel="noopener">
+          <span class="en">A survey maps validation methods for heterogeneous hardware-software co-design</span>
+          <span class="zh">综述梳理异构软硬件协同设计的验证方法</span>
+        </a>
+      </h3>
+      <p class="authors">Oceane Bel, Andrés Márquez, Dhruv Gajaria, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1145/3862758" target="_blank" rel="noopener">ACM Transactions on Modeling and Computer Simulation</a> · 2026-11-19</p>
+      <p class="summary">
+        <span class="en">This survey reviews co-simulation and benchmarking for systems combining chiplets, 2.5D interposers, 3D stacks, RF modules and photonics. It connects SystemC and TLM models, gem5 full-system simulation and FPGA emulation with packaging validation, focusing on scalability, synchronization and multiphysics limitations. The paper offers a map of validation approaches for performance, energy, thermal behavior and reliability, rather than a new accelerator or a measured speedup.</span>
+        <span class="zh">这篇综述讨论了包含Chiplet、2.5D中介层、3D堆叠、RF模块和光子器件的系统所需的协同仿真与基准测试。文章将SystemC与TLM模型、gem5全系统仿真和FPGA仿真验证，与封装验证流程联系起来，重点分析可扩展性、同步及多物理场建模的限制。其价值在于梳理性能、能耗、热行为和可靠性的验证方法，而非提出新的加速器或报告实测加速比。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-26 01:13 UTC · <a href="../2026-11-26.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-26 01:13 UTC · <a href="../2026-11-26.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

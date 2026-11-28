@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-11">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Data Movement Becomes the Design Variable — Semi Research 2026-06-11</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-11.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, June 11, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月11日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Data Movement Becomes the Design Variable</span>
+      <span class="zh">数据移动成为核心设计变量</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s papers attack remote HBM traffic, KV and RAG prefill overhead, in-memory lookup cost, and DRAM disturbance. Across hardware and software, the strongest gains come from changing where data lives and when it moves.</span>
+      <span class="zh">本周论文集中处理远端HBM流量、KV与RAG预填充开销、存内查表成本以及DRAM扰动问题。无论硬件还是软件，最显著的收益都来自重新设计数据的存放位置和移动时机。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits, Architecture &amp; Reliability</span>
+      <span class="zh">电路、架构与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.08947" target="_blank" rel="noopener">
+          <span class="en">NeuDW-CIM: A 65-nm Reconfigurable Neuromorphic CIM Macro</span>
+          <span class="zh">NeuDW-CIM：65纳米可重构神经形态存算一体宏</span>
+        </a>
+      </h3>
+      <p class="authors">J. Yang, Y. Yang, S. Dong, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08947" target="_blank" rel="noopener">arXiv:2606.08947</a> · 2026-06-08T02:50:04Z</p>
+      <p class="summary">
+        <span class="en">NeuDW-CIM implements nonlinear dendrite and K-winner modes in a measured 65-nm compute-in-memory macro using twin 9T ternary bit cells and a reconfigurable nonlinear in-memory ADC. It reports 0.8 pJ per synaptic operation, 97.2% accuracy on N-MNIST, and a 30% reduction in ADC conversion latency through early stopping, providing silicon evidence for more adaptable spiking-network primitives.</span>
+        <span class="zh">NeuDW-CIM采用双9T三值存储单元和可重构非线性存内ADC，在实测65纳米存算一体宏中实现非线性树突与K-winner两种模式。芯片达到每次突触操作0.8 pJ，在N-MNIST上取得97.2%准确率，并通过提前停止将ADC转换延迟降低30%，为更灵活的脉冲神经网络计算原语提供了硅验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.07761" target="_blank" rel="noopener">
+          <span class="en">ScaleDisturb Amplifies Read Disturbance in Modern DRAM</span>
+          <span class="zh">ScaleDisturb放大现代DRAM读扰动</span>
+        </a>
+      </h3>
+      <p class="authors">J. Wang, H. Luo, A. Olgun, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.07761" target="_blank" rel="noopener">arXiv:2606.07761</a> · 2026-06-05T18:21:16Z</p>
+      <p class="summary">
+        <span class="en">ScaleDisturb uses asymmetric open times for two aggressor rows to trigger read-disturbance bit flips with fewer activations than prior access patterns. Tests across 196 DDR4 and three HBM2 chips found increased vulnerability in every device examined, underscoring that RowHammer defenses must account for timing patterns beyond simple activation counts.</span>
+        <span class="zh">ScaleDisturb通过让两个攻击行保持非对称的开启时间，以比既有访问模式更少的激活次数触发读扰动位翻转。对196颗DDR4和3颗HBM2芯片的测试显示，所有受测器件的脆弱性均有所增加，说明RowHammer防护不能只统计激活次数，还必须覆盖更复杂的时序模式。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11718" target="_blank" rel="noopener">
+          <span class="en">Page-Compatible Locality-Aware GEMM for Chiplet GPUs</span>
+          <span class="zh">面向Chiplet GPU的页粒度兼容局部性感知GEMM</span>
+        </a>
+      </h3>
+      <p class="authors">E. Chung, J. H. Ju, H. Kim</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11718" target="_blank" rel="noopener">arXiv:2606.11718</a> · 2026-06-10T06:47:27Z</p>
+      <p class="summary">
+        <span class="en">Chiplet-Contiguous Layout stores chiplet-local GEMM data contiguously so locality-aware placement remains compatible with ordinary page-granularity mapping and requires no OS or hardware changes. Across Qwen 3 30B and Llama 3.1 70B GEMMs, it reduces remote HBM traffic by 24.7x and 19.2x on average versus 4 KB interleaving, making memory layout a practical control point for multi-chiplet GPUs.</span>
+        <span class="zh">Chiplet-Contiguous Layout将各chiplet的本地GEMM数据连续存放，使局部性感知放置能够兼容常规页粒度映射，且无需修改操作系统或硬件。在Qwen 3 30B和Llama 3.1 70B的GEMM负载上，相比4 KB交错映射，远端HBM流量平均分别降低24.7倍和19.2倍，表明内存布局可成为多chiplet GPU的重要优化手段。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.10822" target="_blank" rel="noopener">
+          <span class="en">A 185 TOPS/W/mm2 FeFET Bayesian Inference Engine</span>
+          <span class="zh">185 TOPS/W/mm²的FeFET贝叶斯推理引擎</span>
+        </a>
+      </h3>
+      <p class="authors">Z. M. Enciso, X. Niu, X. Wang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.10822" target="_blank" rel="noopener">arXiv:2606.10822</a> · 2026-06-09T13:04:02Z</p>
+      <p class="summary">
+        <span class="en">This FeFET compute-in-memory engine embeds a write-free Gaussian random-number generator for uncertainty-aware Bayesian inference. The generator consumes 640 aJ per sample and the CIM tile reaches 185 TOPS/W/mm2, addressing the sampling energy and endurance costs that make Bayesian models difficult to deploy on battery-limited platforms.</span>
+        <span class="zh">该FeFET存算一体引擎内置免写入高斯随机数发生器，用于支持具备不确定性感知能力的贝叶斯推理。随机数发生器每个样本仅消耗640 aJ，CIM计算单元达到185 TOPS/W/mm²，针对贝叶斯模型在电池受限平台上的采样能耗与器件耐久性瓶颈提出了硬件方案。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.08891" target="_blank" rel="noopener">
+          <span class="en">PALUTE Uses Monolithic 3D DRAM Lookups for Edge LLMs</span>
+          <span class="zh">PALUTE利用单片3D DRAM查表加速端侧LLM</span>
+        </a>
+      </h3>
+      <p class="authors">R. Tian, Y. Chen, W. Xu, T. S. Rosing</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08891" target="_blank" rel="noopener">arXiv:2606.08891</a> · 2026-06-08T00:33:44Z</p>
+      <p class="summary">
+        <span class="en">PALUTE places lookup-table queries inside monolithic 3D DRAM and generates tables near memory for GEMM and nonlinear operators. Cycle-accurate simulation and RTL synthesis report 1,264 tokens per second at 0.16 W and 12.8x higher energy efficiency than CHIME, though the result remains a modeled design rather than measured silicon.</span>
+        <span class="zh">PALUTE将查表操作放入单片3D DRAM，并在近存储位置为GEMM和非线性算子生成查找表。周期精确仿真与RTL综合显示，其在0.16 W功耗下达到每秒1,264个token，能效较CHIME提升12.8倍；但这些结果仍来自建模与综合，而非实测芯片。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Efficient AI Inference Systems</span>
+      <span class="zh">高效AI推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.11357" target="_blank" rel="noopener">
+          <span class="en">TileFuse Brings AWQ-Style Low-Bit Inference to AMD XDNA2</span>
+          <span class="zh">TileFuse将AWQ式低比特推理引入AMD XDNA2</span>
+        </a>
+      </h3>
+      <p class="authors">W. Pang, G. H. Jun, F. Liu, D. Chen</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.11357" target="_blank" rel="noopener">arXiv:2606.11357</a> · 2026-06-09T18:33:14Z</p>
+      <p class="summary">
+        <span class="en">TileFuse fuses unpacking, dequantization, and GEMM/GEMV into close-to-metal kernels for W4A16 and W8A16 inference on AMD XDNA2 NPUs. Its layouts support GEMM dimensions up to 32K and use the full 4x8 AIE array for GEMV, reducing the software mismatch that often prevents standard quantization formats from running efficiently on client NPUs.</span>
+        <span class="zh">TileFuse面向AMD XDNA2 NPU，将解包、反量化和GEMM/GEMV融合为贴近硬件的W4A16与W8A16内核。其数据布局支持最大32K维GEMM，并让GEMV利用完整的4x8 AIE阵列，从而缓解通用量化格式与客户端NPU软件栈之间的适配低效问题。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.08761" target="_blank" rel="noopener">
+          <span class="en">APEX4 Rebalances Tensor and CUDA Cores for Pure W4A4 Inference</span>
+          <span class="zh">APEX4重平衡Tensor Core与CUDA Core以实现纯W4A4推理</span>
+        </a>
+      </h3>
+      <p class="authors">H. Guo, N. Guo, W. Wang, et al.</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.08761" target="_blank" rel="noopener">arXiv:2606.08761</a> · 2026-06-07</p>
+      <p class="summary">
+        <span class="en">APEX4 shows that pure W4A4 performance depends on the ratio between Tensor Core and CUDA Core throughput because group dequantization can shift the bottleneck onto CUDA cores. Its hardware-aware kernels deliver up to 1.66x end-to-end speedup on L40S and 1.78x on RTX 3090 in unmodified vLLM, while the same baseline can slow down on GPUs with a less favorable compute balance.</span>
+        <span class="zh">APEX4指出，纯W4A4推理性能取决于Tensor Core与CUDA Core的吞吐比例，因为分组反量化可能把瓶颈转移到CUDA Core。其硬件感知内核在未经修改的vLLM中，使L40S端到端最高加速1.66倍、RTX 3090最高加速1.78倍；而在计算比例不利的GPU上，同类基线甚至可能变慢。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.09441" target="_blank" rel="noopener">
+          <span class="en">SIFT Reuses Attention Structure to Accelerate RAG Prefill</span>
+          <span class="zh">SIFT复用注意力结构以加速RAG预填充</span>
+        </a>
+      </h3>
+      <p class="authors">R. Sanovar, S. Bharadwaj, H. Taneja, M. Qureshi</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.09441" target="_blank" rel="noopener">arXiv:2606.09441</a> · 2026-06-08T12:50:13Z</p>
+      <p class="summary">
+        <span class="en">SIFT precomputes fine-grained high-attention locations in reusable RAG documents and selectively recomputes them during online prefill. The approach targets a practical failure of KV reuse: transferring cached tensors from disk can be slower than recomputation, while coarse reuse can damage accuracy.</span>
+        <span class="zh">SIFT离线提取可复用RAG文档中的细粒度高注意力位置，并在在线预填充阶段选择性重算。该方法针对KV复用的实际问题：从磁盘传输缓存张量可能比重新计算更慢，而粗粒度复用又可能损害准确率。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.09129" target="_blank" rel="noopener">
+          <span class="en">OpenOpt Jointly Tunes SRAM Architecture and Transistor Sizing</span>
+          <span class="zh">OpenOpt联合优化SRAM架构与晶体管尺寸</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Wang, Y. Wu, C. Wang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.09129" target="_blank" rel="noopener">arXiv:2606.09129</a> · 2026-06-08T07:26:06Z</p>
+      <p class="summary">
+        <span class="en">OpenOpt replaces inactive SRAM cells with equivalent RC and static-power models, accelerating simulation by up to 61.4x while keeping delay error below 0.22% and power error below 1.68%. On FreePDK45, its joint architecture and device-sizing search reports a 73.6% area reduction and 42.3% lower peak power, though validation on newer process design kits remains an open step.</span>
+        <span class="zh">OpenOpt用等效RC负载和静态功耗模型替代非活动SRAM单元，在读写延迟误差低于0.22%、功耗误差低于1.68%的同时，将仿真速度最高提升61.4倍。在FreePDK45上，联合架构与器件尺寸搜索实现73.6%的面积缩减和42.3%的峰值功耗下降，但仍需在更先进的工艺设计套件上验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2606.08161" target="_blank" rel="noopener">
+          <span class="en">AttentionCap Learns Multi-Node Full-Chip Capacitance Matrices</span>
+          <span class="zh">AttentionCap学习跨工艺节点的全芯片电容矩阵</span>
+        </a>
+      </h3>
+      <p class="authors">J. Huang, H. R. Rodriguez, D. Yang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2606.08161" target="_blank" rel="noopener">arXiv:2606.08161</a> · 2026-06-06T13:20:09Z</p>
+      <p class="summary">
+        <span class="en">AttentionCap uses a physics-aligned Transformer to predict self and coupling capacitance across multiple metal stacks and process nodes. On unseen real designs it reports 0.67% self-capacitance error, 3.99% coupling-capacitance error, and 192x faster inference than CNN-Cap, suggesting a path beyond fixed-node learned extraction models.</span>
+        <span class="zh">AttentionCap采用符合物理结构的Transformer，在多种金属层组合和工艺节点之间预测自电容与耦合电容。在未见过的真实设计上，其自电容误差为0.67%、耦合电容误差为3.99%，推理速度较CNN-Cap快192倍，为突破固定工艺节点的学习式寄生参数提取提供了路径。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-11 01:18 UTC · <a href="../2026-06-11.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-11 01:18 UTC · <a href="../2026-06-11.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

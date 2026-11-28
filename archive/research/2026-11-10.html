@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-10">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Precision and Placement Shape Useful AI Throughput — Semi Research 2026-11-10</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-11-10.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Tuesday, November 10, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月10日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">Precision and Placement Shape Useful AI Throughput</span>
+      <span class="zh">精度与数据放置共同决定AI有效吞吐量</span>
+    </h1>
+    <p class="dek">
+      <span class="en">The selected preprints connect low-bit arithmetic, shared compute meshes and memory-array placement to practical execution bottlenecks. Circuit entropy measurements and simulation-driven design tools broaden the reading queue, with modeled accelerator results distinguished from physical hardware measurements.</span>
+      <span class="zh">本期预印本将低比特运算、共享计算阵列与存储阵列映射，同实际执行瓶颈联系起来。电路熵测量和仿真驱动的设计工具进一步拓宽阅读范围，并对加速器建模结果与实体硬件测量作出区分。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 9 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 9篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.09522" target="_blank" rel="noopener">
+          <span class="en">Atik: A Shared-Mesh Transformer Accelerator for RISC-V</span>
+          <span class="zh">Atik：面向RISC-V的共享阵列Transformer加速器</span>
+        </a>
+      </h3>
+      <p class="authors">Ahmed Zeer, Erkan Uslu</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.09522" target="_blank" rel="noopener">arXiv:2611.09522</a> · 2026-11-06T14:36:37Z</p>
+      <p class="summary">
+        <span class="en">Atik uses one fixed-point MAC mesh for matrix multiplication and dense attention, accepts BF16 tensors, and streams online softmax without materializing the full attention-score matrix. In cycle-by-cycle FireSim evaluation, the 8×8 mesh reaches peak speedups of 31.5× for matrix multiplication and 225.8× for attention against a scalar Rocket BF16 reference. Sharing the datapath offers a concrete way to support both kernels with the same compute resources. The preprint combines simulation with standalone Sky130 physical design; its model-level speedups are hybrid projections rather than full-model hardware runs.</span>
+        <span class="zh">Atik以同一套定点乘加阵列执行矩阵乘法与稠密注意力，输入输出采用BF16，并通过流式在线softmax避免显式保存完整注意力分数矩阵。在逐周期FireSim评估中，8×8阵列相对标量Rocket BF16参考实现，矩阵乘法和注意力的峰值加速分别达到31.5倍和225.8倍。共享数据通路为使用同一组计算资源支持两类内核提供了具体方案。该预印本结合模拟与独立的Sky130物理设计评估，模型级加速来自混合推算，并非完整模型的硬件实跑结果。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.08693" target="_blank" rel="noopener">
+          <span class="en">Retraining-Free Accuracy Recovery for Analog Compute-in-Memory</span>
+          <span class="zh">无需重新训练的模拟存算一体精度恢复</span>
+        </a>
+      </h3>
+      <p class="authors">George Karfakis, Puneet Gupta</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08693" target="_blank" rel="noopener">arXiv:2611.08693</a> · 2026-11-05T20:49:55Z</p>
+      <p class="summary">
+        <span class="en">Input centering, array-local Hadamard rotations and shared calibration let pretrained models compensate for analog-array errors without updating their weights. On the evaluated ReRAM configuration with 6-bit ADCs, the preprint reports accuracy recovery from 37.4% to 82.9% for ViT-B/16 and from 27.0% to 72.2% for Phi-4, both within 2.2 percentage points of floating-point accuracy. The method could reduce the cost of hardware-aware retraining, with applicability dependent on the target array&#x27;s error distribution and calibration conditions.</span>
+        <span class="zh">研究结合输入中心化、限制在阵列内部的Hadamard旋转和共享校准，使预训练模型无需更新权重即可补偿模拟阵列误差。在所评估的6比特ADC ReRAM配置上，预印本报告ViT-B/16准确率从37.4%恢复至82.9%，Phi-4从27.0%恢复至72.2%，两者与浮点准确率的差距均不超过2.2个百分点。该方法有望降低硬件感知重新训练的成本，其适用性取决于目标阵列的误差分布与校准条件。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.07707" target="_blank" rel="noopener">
+          <span class="en">CAMP: Context-Aware LLM Weight Placement on 3D-IMC Arrays</span>
+          <span class="zh">CAMP：面向3D存算一体阵列的上下文感知大模型权重放置</span>
+        </a>
+      </h3>
+      <p class="authors">Orhun Görkem, Athanasios Vasilopoulos, Georgios Pagonis, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.07707" target="_blank" rel="noopener">arXiv:2611.07707</a> · 2026-11-05T09:27:31Z</p>
+      <p class="summary">
+        <span class="en">CAMP places LLM weights across stacked 3D-IMC arrays using a conflict matrix that captures contention among the architecture, network and inference context. A profiling-driven feedback loop refines the mapping to expose concurrent matrix-vector operations and improve resource use. The contribution makes weight placement an execution-scheduling decision, with benefits that need to be evaluated for each architecture and runtime context.</span>
+        <span class="zh">CAMP通过冲突矩阵描述硬件架构、模型网络与推理上下文共同引发的资源争用，据此将大模型权重放置到堆叠的3D存算一体阵列中。以性能分析驱动的反馈循环进一步优化映射，使更多矩阵向量运算能够并发执行，并改善资源利用。该研究将权重放置转化为执行调度问题，具体收益需要结合各类架构与运行时上下文评估。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Reliability</span>
+      <span class="zh">电路与可靠性</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.08774" target="_blank" rel="noopener">
+          <span class="en">Gain-Dependent Entropy in a Zener Avalanche Noise TRNG</span>
+          <span class="zh">齐纳雪崩噪声真随机数发生器中的增益相关熵特性</span>
+        </a>
+      </h3>
+      <p class="authors">Rishabh Das</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08774" target="_blank" rel="noopener">arXiv:2611.08774</a> · 2026-11-05T22:51:58Z</p>
+      <p class="summary">
+        <span class="en">This circuit study assesses five amplifier-gain settings and two coupling-capacitor values in a Zener avalanche noise generator, using 1.44 billion raw bits per configuration for NIST SP 800-22 and SP 800-90B evaluation. Replacing the diode with a stable voltage source at the same bias point reduces switching activity by about 97%, supporting avalanche noise as the necessary entropy source. A three-phase autocorrelation pattern associated with comparator saturation and recovery makes analog circuit dynamics a key consideration in entropy assessment for low-cost embedded hardware.</span>
+        <span class="zh">该电路研究评估齐纳雪崩噪声发生器的5种放大器增益与2种耦合电容取值，每种配置采用14.4亿原始比特进行NIST SP 800-22与SP 800-90B评估。将二极管替换为相同偏置点的稳定电压源后，开关活动减少约97%，支持雪崩噪声是必要熵源的判断。研究发现与比较器饱和及恢复过程相关的三阶段自相关结构，说明模拟电路动态是评估低成本嵌入式硬件熵质量的重要因素。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Models &amp; Inference Systems</span>
+      <span class="zh">AI模型与推理系统</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.09825" target="_blank" rel="noopener">
+          <span class="en">BitDecoding-FP4: Native FP4 KV Cache Decoding</span>
+          <span class="zh">BitDecoding-FP4：原生FP4 KV缓存解码</span>
+        </a>
+      </h3>
+      <p class="authors">Dayou Du, Woon Yee Ng, Guangming Sheng, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.09825" target="_blank" rel="noopener">arXiv:2611.09825</a> · 2026-11-06T18:13:54Z</p>
+      <p class="summary">
+        <span class="en">BitDecoding-FP4 co-designs quantization and attention kernels to decode directly from FP4 KV caches while addressing query error, probability underflow and key outliers. Splitting queries into two FP4 tensors reduces the reported query-logit error from 60% to 1%; the system also fuses probability quantization into transposed softmax and stacks query matrix operations over paged caches. The preprint targets the accuracy and kernel-overhead barriers that can prevent nominal 4-bit memory savings from becoming useful decoding throughput.</span>
+        <span class="zh">BitDecoding-FP4协同设计量化算法与注意力内核，直接使用FP4 KV缓存进行解码，并处理查询量化误差、概率下溢和键值离群点。将查询拆分为两个FP4张量后，文中报告的查询logit误差从60%降至1%；系统还将概率量化融合到转置softmax中，并在分页缓存上堆叠查询矩阵运算。该预印本针对精度损失与内核开销展开优化，这两类问题会妨碍4比特缓存的理论存储收益转化为实际解码吞吐量。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.05906" target="_blank" rel="noopener">
+          <span class="en">CHARM+: Attention Scheduling Across Unequal Communication Links</span>
+          <span class="zh">CHARM+：面向带宽不均衡互连的注意力调度</span>
+        </a>
+      </h3>
+      <p class="authors">Xinhang Zhang, Boning Zhang, Chengchun Liu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.05906" target="_blank" rel="noopener">arXiv:2611.05906</a> · 2026-11-04T03:57:56Z</p>
+      <p class="summary">
+        <span class="en">CHARM+ reorganizes sequence-parallel attention communication into levels and separates cross-hardware transfers from local communication to reduce synchronization caused by unequal bandwidth. Against Ring-Attention, the preprint reports average forward/backward speedups of 1.3×/1.7× on a dual-NUMA PCIe architecture and 2.8×/2.9× on a dual-node NVLink architecture. The different gains show why communication scheduling needs to reflect the actual interconnect topology; these are attention-algorithm results rather than whole-model speedups.</span>
+        <span class="zh">CHARM+将序列并行注意力通信重组为多个层级，并分离跨硬件传输与本地通信，以减少带宽不均衡引发的同步开销。相对Ring-Attention，预印本报告双NUMA PCIe架构上的前向与反向平均加速分别为1.3倍和1.7倍，双节点NVLink架构上分别为2.8倍和2.9倍。收益差异说明通信调度需要匹配实际互连拓扑；这些数字衡量注意力算法性能，尚不能直接等同于完整模型加速。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Design Automation</span>
+      <span class="zh">EDA与设计自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.08543" target="_blank" rel="noopener">
+          <span class="en">SAFTAC: Simulation-Augmented LLM Training for Analog Circuit Design</span>
+          <span class="zh">SAFTAC：以仿真增强大模型训练的模拟电路设计方法</span>
+        </a>
+      </h3>
+      <p class="authors">Junsheng Huang, Yifan Sun, Zhuoer Zhang, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08543" target="_blank" rel="noopener">arXiv:2611.08543</a> · 2026-11-05T03:54:10Z</p>
+      <p class="summary">
+        <span class="en">SAFTAC builds a simulation-grounded dataset of 8,626 design tasks across 10 analog-circuit types, including specifications, labeled ports, loads, testbenches and reference netlists. It combines three-stage supervised fine-tuning with reinforcement fine-tuning augmented by simulation feedback so open-source LLMs can generate and revise designs against explicit requirements. The work addresses missing training information for specification-driven design, while physical implementation and fabricated performance require subsequent validation.</span>
+        <span class="zh">SAFTAC构建了以仿真为基础的数据集，包含10类模拟电路的8626项设计任务，并提供指标要求、标注端口、负载、测试平台和参考网表。它结合三阶段监督微调与仿真反馈增强的强化微调，使开源大模型能够依据明确要求生成并修改设计。该工作补充了指标驱动设计所缺少的训练信息，物理实现与流片后的性能仍需后续验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.06079" target="_blank" rel="noopener">
+          <span class="en">TauLang: Explicit Space-Time Programming for Static Accelerators</span>
+          <span class="zh">TauLang：面向静态调度加速器的显式时空编程</span>
+        </a>
+      </h3>
+      <p class="authors">Xuxiao Yang, Junchi Wu, Yuqi Peng, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.06079" target="_blank" rel="noopener">arXiv:2611.06079</a> · 2026-11-04T07:21:03Z</p>
+      <p class="summary">
+        <span class="en">TauLang makes operation issue times explicit in a kernel language for statically scheduled accelerators, where cycle timing is part of program correctness. Its compiler checks timing relationships algebraically and jointly solves tensor placement and cycle scheduling with integer linear programming. The approach could make schedule exploration easier on TSP-style machines, with evaluation conducted on a cycle-accurate TSP-like model rather than establishing performance on deployed Groq hardware.</span>
+        <span class="zh">TauLang在面向静态调度加速器的内核语言中显式表达操作发射时间，因为这类机器的周期时序直接关系到程序正确性。编译器通过代数方式检查时序关系，并以整数线性规划联合求解张量放置与周期调度。该方法有望简化TSP类架构的调度探索，评估采用类似TSP机器的周期精确模型，其结果尚不能直接代表已部署Groq硬件的性能。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.08526" target="_blank" rel="noopener">
+          <span class="en">RoadBlock Models Microscaling Formats Inside Programmable Tensor Cores</span>
+          <span class="zh">RoadBlock在可编程Tensor Core中建模微缩放数值格式</span>
+        </a>
+      </h3>
+      <p class="authors">Nikhil Rout, Blaise Tine</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.08526" target="_blank" rel="noopener">arXiv:2611.08526</a> · 2026-11-04T01:17:32Z</p>
+      <p class="summary">
+        <span class="en">RoadBlock is an open-source framework built on the RISC-V Vortex GPGPU that models custom microscaling formats inside a programmable Tensor Core. It exposes data width, scale-factor width and block size as parameters and derives per-thread metadata tiling, enabling perplexity and power-performance-area tradeoffs to include integration overhead. The tool supports format selection before committing to silicon, with its results serving as modeling evidence that still needs physical validation.</span>
+        <span class="zh">RoadBlock是基于RISC-V Vortex GPGPU构建的开源框架，可在可编程Tensor Core中建模自定义微缩放数值格式。它将数据位宽、缩放因子位宽与分组大小参数化，并推导每个线程的元数据分块方式，使困惑度与功耗、性能、面积的权衡能够纳入集成开销。该工具支持在确定芯片实现前筛选格式，其结果属于建模证据，仍需物理实现验证。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-10 01:14 UTC · <a href="../2026-11-10.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-10 01:14 UTC · <a href="../2026-11-10.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

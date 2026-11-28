@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-20">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Reprices the Chip Stack — Semi News 2026-08-20</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Thursday, August 20, 2026</span>
+      <span class="zh">2026年8月20日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Reprices the Chip Stack</span>
+      <span class="zh">AI需求重定价整条芯片栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Tight foundry capacity is giving Samsung room to raise prices, while Google, Cerebras, and AMD broaden the architectural contest around AI infrastructure. The pressure now reaches from wafers and packaging to memory, interconnect, and power delivery.</span>
+      <span class="zh">晶圆代工产能趋紧，让三星获得提价空间；与此同时，Google、Cerebras与AMD正扩大AI基础设施的架构竞争。压力已从晶圆与封装延伸至存储、互连和供电。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/cerebras-cs-4-generates-in-1-second-what-a-gpu-rack-needs-30-seconds-for-powered-by-4-trillion-transistor-wse-3-turbo/" target="_blank" rel="noopener">
+          <span class="en">Cerebras turns three wafer-scale engines into the CS-4 rack</span>
+          <span class="zh">Cerebras以三颗晶圆级引擎构建CS-4机架</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 17h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 17小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras introduced CS-4, a rack-scale system built around three WSE-3 Turbo wafer-scale processors. The company claims that selected generation workloads can run roughly 30 times faster than a conventional GPU rack, but that comparison remains vendor-supplied and workload-dependent. The more durable architectural signal is the emphasis on dense power delivery, low-latency wafer links, and rack-level co-design.</span>
+        <span class="zh">Cerebras发布CS-4机架级系统，核心由三颗WSE-3 Turbo晶圆级处理器组成。公司宣称，在特定生成任务上，其速度约为传统GPU机架的30倍，但这一对比仍来自厂商，且高度依赖具体工作负载。更值得关注的架构信号，是高密度供电、低延迟晶圆互连与机架级协同设计。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.theregister.com/off-prem/2026/08/19/google-pits-marvell-against-broadcom-as-it-chases-ai-crown/5289902" target="_blank" rel="noopener">
+          <span class="en">Google adds Marvell to its custom-silicon bench</span>
+          <span class="zh">Google将Marvell纳入定制芯片合作阵容</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 18h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 18小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Google has selected Marvell for custom-silicon programs connected to the TPU ecosystem, including inference, storage, networking, memory-interface, and near-memory functions. Marvell also granted Google a warrant covering nearly 59 million shares, potentially worth about $12.2 billion. The agreement diversifies Google&#x27;s supply and design options without necessarily displacing Broadcom from the TPU roadmap.</span>
+        <span class="zh">Google选择Marvell参与与TPU生态相关的定制芯片项目，范围包括推理、存储、网络、存储接口和近存计算。Marvell还向Google授予近5900万股的认股权，潜在价值约122亿美元。这项协议扩大了Google的供应与设计选择，但并不意味着Broadcom将被排除出TPU路线图。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/amd-claims-just-two-of-its-2030-ai-racks-will-match-570-of-its-mi300x-racks-slashing-electricity-use-by-20x/" target="_blank" rel="noopener">
+          <span class="en">AMD sets an aggressive 2030 rack-efficiency target</span>
+          <span class="zh">AMD设定激进的2030年机架能效目标</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 21h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 21小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD says two rack-scale systems planned for 2030 could provide the AI performance of 570 MI300X-era racks while using far less electricity. The claim describes a long-range company target rather than shipping hardware, so it should be read as a roadmap for packaging, networking, memory, and cooling improvements. It nevertheless shows how quickly power efficiency has become a first-order accelerator metric.</span>
+        <span class="zh">AMD表示，计划于2030年推出的两套机架级系统，有望提供相当于570套MI300X时代机架的AI性能，同时显著降低用电量。该说法描述的是长期公司目标，而非已出货硬件，因此更适合作为封装、网络、存储与散热改进的路线图来理解。它仍清楚表明，能效已迅速成为加速器的一级竞争指标。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/events/372278-hot-chips-2026-architectures-for-the-agentic-computing-era/" target="_blank" rel="noopener">
+          <span class="en">Hot Chips shifts its lens toward agentic computing</span>
+          <span class="zh">Hot Chips将焦点转向智能体计算</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 16h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 16小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Hot Chips 2026 program is framing new processors and systems around agentic workloads rather than isolated model execution. That shift matters because long-running agents stress memory capacity, tool orchestration, storage I/O, and network latency differently from batch training. The conference agenda offers an early map of which hardware vendors believe those bottlenecks will become commercial priorities.</span>
+        <span class="zh">Hot Chips 2026议程正围绕智能体工作负载，而非单次模型执行，来组织新处理器与系统架构。长时间运行的智能体对存储容量、工具编排、存储I/O和网络延迟的压力，与批量训练明显不同。会议议程由此提供了一张早期地图，显示硬件厂商认为哪些瓶颈将率先成为商业重点。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry-manufacturing">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/samsung-raises-advanced-foundry-prices-by-up-to-15-percent-as-ai-demand-fills-its-4nm-lines" target="_blank" rel="noopener">
+          <span class="en">Samsung raises advanced-foundry prices by as much as 15%</span>
+          <span class="zh">三星先进制程代工价格最高上调15%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 21h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 21小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung reportedly raised prices for new 4 nm, 5 nm, and 8 nm foundry orders in July, with some increases reaching 15%. Its Pyeongtaek SF4 line has been running at full capacity as AI demand and limited alternatives push customers toward Samsung. Higher utilization and pricing could pull the loss-making foundry unit toward profitability, but sustained gains still depend on yield and customer execution.</span>
+        <span class="zh">据报道，三星在7月上调了4纳米、5纳米和8纳米新代工订单的价格，部分涨幅达到15%。在AI需求上升、替代产能有限的情况下，其平泽SF4产线已满负荷运行，客户正在转向三星。更高的利用率与价格可能推动亏损中的代工部门接近盈利，但持续改善仍取决于良率与客户项目执行。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/tsmcs-arizona-fab-crosses-4-of-group-sales-as-orders-reshape-us-chip-economics/" target="_blank" rel="noopener">
+          <span class="en">TSMC Arizona crosses 4% of group sales</span>
+          <span class="zh">台积电亚利桑那厂贡献集团营收超过4%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 15h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 15小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s Arizona operation has reportedly moved above 4% of group sales as U.S. customer orders ramp. That contribution suggests the overseas fab is becoming financially material rather than remaining a policy demonstration project. The next test is whether utilization and pricing can offset the structurally higher cost of U.S. production.</span>
+        <span class="zh">据报道，随着美国客户订单爬坡，台积电亚利桑那业务对集团营收的贡献已超过4%。这一占比表明，该海外晶圆厂正在产生实质财务影响，而不再只是政策示范项目。下一项考验是，利用率与定价能否抵消美国制造的结构性高成本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="design-ip">
+    <h2>
+      <span class="en">Design, IP &amp; Verification</span>
+      <span class="zh">设计、IP与验证</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/semiconductor-services/esd-alliance/372333-latest-savage-on-security-webinar-focuses-on-gen-ai-for-chip-design-and-security/" target="_blank" rel="noopener">
+          <span class="en">Chip-design security explores multi-agent automation</span>
+          <span class="zh">芯片设计安全探索多智能体自动化</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 20h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 20小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">An ESD Alliance webinar is examining how multi-agent assistants could automate parts of SoC design, verification, and security analysis. The practical opportunity lies in coordinating specialized tools and evidence rather than asking one model to replace an engineering flow. Adoption will depend on traceability, reproducibility, and containment of generated errors in sign-off work.</span>
+        <span class="zh">一场ESD Alliance网络研讨会正在讨论，多智能体助手如何自动化SoC设计、验证与安全分析的部分环节。现实机会在于协调专业工具与证据，而不是让单一模型取代完整工程流程。其采用速度将取决于可追溯性、可复现性，以及在签核工作中限制生成错误的能力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="infrastructure-systems">
+    <h2>
+      <span class="en">Infrastructure &amp; Systems</span>
+      <span class="zh">基础设施与系统</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/data-centers/china-shifting-massive-ai-data-center-complexes-to-rural-provinces-to-tap-surplus-energy-eastern-data-western-computing-strategy-has-chinese-tech-giants-huawei-and-tencent-building-ai-infrastructure-guizhou" target="_blank" rel="noopener">
+          <span class="en">China moves AI data centers toward energy-rich western provinces</span>
+          <span class="zh">中国将AI数据中心转向能源富集的西部地区</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 22h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 22小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chinese technology companies are expanding AI data-center construction in inland provinces where land and surplus power are easier to secure. The strategy can lower infrastructure constraints, but long-distance networking, cooling, utilization, and access to advanced accelerators still determine economics. It also makes electricity geography an increasingly important part of China&#x27;s domestic compute strategy.</span>
+        <span class="zh">中国科技公司正在内陆省份扩建AI数据中心，那里更容易获得土地和富余电力。这一策略可以缓解基础设施约束，但长距离网络、散热、利用率以及先进加速器供应仍将决定经济性。电力的地理分布也因此成为中国本土算力战略中越来越重要的一部分。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/laptops/qualcomm-retracts-select-snapdragon-c-power-efficiency-benchmarks-nearly-a-week-after-publication-updated-slide-removes-idle-apps-and-web-browsing-results" target="_blank" rel="noopener">
+          <span class="en">Qualcomm retracts selected Snapdragon C efficiency benchmarks</span>
+          <span class="zh">高通撤回部分Snapdragon C能效基准数据</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 22h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 22小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Qualcomm removed selected idle-app and web-browsing power-efficiency results from its Snapdragon C presentation less than a week after publication. The retraction does not invalidate every performance claim, but it narrows the evidence available for judging platform efficiency. For system buyers, it reinforces the need for reproducible workload definitions and independent measurements.</span>
+        <span class="zh">Snapdragon C演示发布不到一周，高通便移除了部分空闲应用和网页浏览能效结果。此次撤回并不否定全部性能主张，但缩小了评估平台能效时可用的证据范围。对于系统采购者而言，这再次强调了可复现工作负载定义与独立测量的重要性。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-20 13:55 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-20 13:55 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

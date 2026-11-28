@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-16">
+<meta name="generator" content="semi-news-daily">
+<title>AI Supply Chains Expand Under Intensifying Scrutiny — Semi News 2026-11-16</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Monday, November 16, 2026</span>
+      <span class="zh">2026年11月16日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">AI Supply Chains Expand Under Intensifying Scrutiny</span>
+      <span class="zh">AI供应链扩张伴随更严格的审视</span>
+    </h1>
+    <p class="dek">
+      <span class="en">SK hynix orders HBM4 equipment and develops supplier-validation infrastructure as TSMC approves a $500 million investment company. Calls for leadership changes at Nvidia, proposals for tighter China export controls and a continuing DRAM antitrust case bring governance and legal scrutiny into the expansion cycle.</span>
+      <span class="zh">SK海力士订购HBM4设备并建设供应商验证设施，台积电则批准设立5亿美元投资公司。要求Nvidia调整领导层的呼声、收紧对华出口管制的提议，以及继续推进的DRAM反垄断诉讼，使公司治理与法律审视成为这轮扩张的重要议题。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTFA2V3FTYlVUQ2VXQjBsaE1rbGpaU0FsM2RJN2FydGM4VHJsSU43eDR0SUMxNFhXZGtfZ2M2cDFWa2xLakZIellLQWNlaHpNazBCamhVeG14T25tREVFZG1ST3ExMHJma2l4Z3RCWktVbFBXRXduZlFFdHJsaXIxd9IBgwFBVV95cUxPeGkzNkNkWTB4ZkUzekc2SVFfVUlfQ0lFQTFtcWNMS05oaTA1dWhadV80YVZjNzJYLWhsT083bjFSZGNPdjEwU0JMeUZHVWdQS0ZmWTJOYm1hNU1qOVRtRnI5ZjJ1ZjgwV29ZTVhmNzVsMFZfUExiazhQeUltenVvU2tzYw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Bessent Urges Nvidia to Choose an Outside CEO</span>
+          <span class="zh">Bessent敦促Nvidia从外部选聘CEO</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CNBC</span> · 8h ago</span>
+        <span class="zh"><span class="source">CNBC</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Bessent calls for a major shakeup at Nvidia and urges the company to choose an outside CEO, CNBC reports. The intervention raises the stakes of Nvidia&#x27;s leadership search for customers and suppliers planning around its AI accelerator roadmap.</span>
+        <span class="zh">据CNBC报道，Bessent要求Nvidia进行重大调整，并敦促公司从外部选聘CEO。对于围绕Nvidia AI加速器路线图制定计划的客户和供应商，这一表态使公司领导层人选的影响进一步扩大。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/events/376230-iedm-2026-reveals-new-paths-to-faster-more-efficient-ai/" target="_blank" rel="noopener">
+          <span class="en">IEDM 2026 Preview Highlights Faster, More Efficient AI Hardware</span>
+          <span class="zh">IEDM 2026前瞻聚焦更快、更高效的AI硬件</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 7h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SemiWiki&#x27;s preview of the upcoming IEDM 2026 highlights research addressing AI demand for more computing power, faster memory and better energy efficiency. These directions matter to accelerator roadmaps because compute performance, memory access and power consumption jointly constrain AI systems.</span>
+        <span class="zh">SemiWiki对即将举行的IEDM 2026的前瞻，聚焦应对AI算力、更快存储器和更高能效需求的研究。这些方向关系到加速器路线图，因为计算性能、存储访问与功耗共同制约AI系统的扩展。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxNclpNUE5XRWFCUWhRcUF3WDFZVXQwVnlCV1hkTWJLRjBTQm85ek1aNjY1RWtvVWZTYXdhMkVuai14SVJCSVRibkpWME1xVXdURVkzdjZSdnBFempYa2RydElQeEV4TXM3aGFmeklRbDBtM2dtWF83eldpZkoyYUpscWhhNVFHVXRfSXROckNuc1BlWmMyRm1XT3pBbm9pcXNac1JkLVRDMGVzdFpRbC0wUG9HTFhyZmVFcnpKVU5xbVV3MUtMdlg5R0JzY0UybjY3ZG5KaQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Approves $500 Million Investment Company for Chip Firms and Suppliers</span>
+          <span class="zh">台积电批准设立5亿美元投资公司，支持芯片企业与供应商</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Dealroom</span> · 3h ago</span>
+        <span class="zh"><span class="source">Dealroom</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC approves a $500 million investment company to back chip businesses and, for the first time, its own suppliers, Dealroom reports. The vehicle creates a direct financing channel into the foundry&#x27;s broader ecosystem, linking equity investment with the development of its customer and supplier base.</span>
+        <span class="zh">据Dealroom报道，台积电批准设立5亿美元投资公司，支持芯片企业，并首次将自身供应商纳入投资范围。这一载体为其代工生态提供直接融资渠道，将股权投资与客户及供应商体系的发展联系起来。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBzVHRXRS1EZDlKLUkyak81dkMxOGZBZlk5aE01TzZlTHBKMWxnbUhWUkpuMXNiZGtYZlA5MWVKSUMtU2lGcVZKUG4zTzBDc2JzUXpFSmVZay00ZHdRV3hQWVlSRDhpNHhZM0FWMjNENGJaMU5qSEE?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Receives Record Aid as Fab Expansion Continues</span>
+          <span class="zh">台积电扩建晶圆厂，获得创纪录补助</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Taipei Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">Taipei Times</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC receives record government aid as it expands its fabs, Taipei Times reports. Public support affects the financing of construction and equipment costs, making subsidies an important part of the economics of its manufacturing expansion.</span>
+        <span class="zh">据Taipei Times报道，台积电在扩建晶圆厂的同时获得创纪录的政府补助。公共资金影响厂房建设与设备支出的融资安排，使补贴成为其制造业务扩张成本收益的重要组成部分。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory &amp; Storage</span>
+      <span class="zh">存储器与存储系统</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE9TQ3ZZVnJ1SURGeXpEcU9yV2RZVVE5X1FISkZQUGUwOHljYVh0UVNzMFhoTnZXRWdJblN6SXc0NFY5WER3Rzg0MFVNbHZkaENpUFd0c1pjaDJCQkU?oc=5" target="_blank" rel="noopener">
+          <span class="en">CXMT Plans Limited HBM3E Production as Yields Trail SK hynix</span>
+          <span class="zh">长鑫存储计划小规模生产HBM3E，良率仍落后于SK海力士</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TokenPost</span> · 31m ago</span>
+        <span class="zh"><span class="source">TokenPost</span> · 31分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CXMT plans limited HBM3E production while its yields trail SK hynix, TokenPost reports. The reported yield gap makes manufacturing execution central to how much usable AI memory the company can deliver as it enters this market.</span>
+        <span class="zh">据TokenPost报道，长鑫存储计划开展小规模HBM3E生产，其良率仍落后于SK海力士。报道所述的良率差距意味着，在进入这一市场的过程中，制造环节的执行能力将直接影响公司能够交付的合格AI存储器数量。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOMnFHbFJnajJZWUNfSWctSmNoMTM1MlF4VGhLNTAzSmZUQ1lWUWR2X3NnT1pYazg0YlVNdkhLa25JQkFzWmlaLWh5Z01lZlREYmpKc0JqMmdJTk5PcG5BQmFpaWlfMmJQdVJmOUtUSEhtNlhWRGs1dGFVS0xTZHM0Z2M3TzNYZE5BZ01vMzdudGUydU84MHlTLVZOdHJfcHlkTEJzNklheW11ZkFmcklPdXdjM1Fndmx4d3ZjY2ZKU1AxQ0U?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Places Equipment Orders on Broader HBM4 Demand</span>
+          <span class="zh">SK海力士面向更广泛的HBM4需求下达设备订单</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechPowerUp</span> · 8h ago</span>
+        <span class="zh"><span class="source">TechPowerUp</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix places new equipment orders as it anticipates HBM4 demand beyond Nvidia, TechPowerUp reports. The spending ties next-generation memory capacity plans to expectations of a broader AI accelerator customer base.</span>
+        <span class="zh">据TechPowerUp报道，SK海力士预期Nvidia以外的客户也将带来HBM4需求，并据此下达新设备订单。这笔投入将下一代存储器的产能规划与更广泛的AI加速器客户需求预期联系起来。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9ad2o5QzRZZFJIUU9rT1NUSlZ3UVRoRlRKTmRJTjRaZ3VWVjdBR0Q4TW12aDc3VDYtdmRjNUgwMjVXMVhlMVJkQUQ5Rmhya19QdVNCMlRwZWMyV0FPUGV0Tml5anFwMktnTFZlMks4dE5EOXRKTWc?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix Targets May 2027 Completion for 874.6 Billion Won Trinity Fab</span>
+          <span class="zh">SK海力士计划于2027年5月建成投资8746亿韩元的Trinity Fab</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo Finance</span> · 50m ago</span>
+        <span class="zh"><span class="source">BigGo Finance</span> · 50分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix plans to complete its 874.6 billion won Trinity Fab in May 2027, BigGo Finance reports. The facility is intended to lower barriers to mass-production validation for chip materials and equipment, helping suppliers qualify products for semiconductor manufacturing.</span>
+        <span class="zh">据BigGo Finance报道，SK海力士计划于2027年5月建成投资8746亿韩元的Trinity Fab。该设施旨在降低芯片材料与设备开展量产验证的门槛，帮助供应商完成面向半导体制造的产品验证。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQQ2FtcTV5d0t1UzBONS1MQ3JJM2R2YWVzM2tndFR2R3YtWTV6aV9iOXVwN09jaDFoVnNVb25EQTBURGRXQ05WQXUxSUVGNnFON3JZX3dGWm9oSlNZYUF0SXVaaW5uaHFzLWZFQmtVMzVIU2RPOWRtVHJSRjFhRzhZekZadnowV1RpRmRDYnRoaHkwSUNjQWN5YTdhS2NjR3N5U1BZWmJzVDIwSUNLQXRzRWJaUFp5M041TDhOa19NMTZwamdZOGY1eHR5dk0?oc=5" target="_blank" rel="noopener">
+          <span class="en">EV Group Targets Manufacturing Challenges in Qubit Scaling</span>
+          <span class="zh">EV Group着手应对量子比特规模化的制造挑战</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">New Electronics</span> · 3h ago</span>
+        <span class="zh"><span class="source">New Electronics</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">EV Group outlines manufacturing support aimed at scaling qubits, New Electronics reports. For quantum hardware developers, reproducible fabrication is essential to increasing qubit counts and integrating larger devices, connecting equipment capabilities with system expansion.</span>
+        <span class="zh">据New Electronics报道，EV Group提出面向量子比特规模扩大的制造支持方案。对于量子硬件开发商，可重复的制造工艺是增加量子比特数量和集成更大规模器件的基础，使设备能力与系统扩展紧密相连。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxPS1hmbDljMlQ4Q2JaZlJhOGtnbXZZb2tvZk9SdEgwdkZKVnBHSUtfODJKV1VXaUcxNzNDYUlfdm84LTlZcXh3QzNscEFRbjVJeWZ1RDJpOEMxZzE1RXpySHBaV054REtxNWZVQjdDNXFVRUlhanVZTnEtWHZ0TVZEcmNfc3FGZUlld2VBTHJGMy1SUzZvQTZyQXQ4dE1ZaTFpeUNYTEgxSUtuTU5r0gGsAUFVX3lxTE9LWGZsOWMyVDhDYlpmUmE4a2dtdllva29mT1J0SDB2RkpWcEdJS184MkpXVVdpRzE3M0NhSV92bzgtOVlxeHdDM2xwQVFuNUl5ZnVEMmk4QzFnMTVFenJIcFpXTnhES3E1ZlVCN0M1cVVFSWFqdVlOcS1YdnRNVkRyY19zcUZlSWV3ZUFMckYzLVJTNm9BNnJBdDh0TVlpMWl5Q1hMSDFJS25NTms?oc=5" target="_blank" rel="noopener">
+          <span class="en">DRAM Antitrust Case Against Samsung, SK hynix and Micron Proceeds</span>
+          <span class="zh">针对三星、SK海力士与美光的DRAM反垄断诉讼继续推进</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechPowerUp</span> · 7h ago</span>
+        <span class="zh"><span class="source">TechPowerUp</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung, SK hynix and Micron fail to win dismissal of a DRAM antitrust suit, TechPowerUp reports. The decision allows the claims to proceed, keeping the suppliers&#x27; market conduct under legal scrutiny.</span>
+        <span class="zh">据TechPowerUp报道，三星、SK海力士与美光未能成功申请驳回一宗DRAM反垄断诉讼。这一决定使相关指控得以继续进入诉讼程序，三家供应商的市场行为将持续受到法律审视。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi8gFBVV95cUxNazZqU0x5ZEQ1ZFFXMnhXT3ZhQ1cxcU5GTUI0WjlJVGtNaUZuME0taVFYbTAtMTJXQnZOQWxsc3FzVTJmb3A1aFhLUWZiOTByZkl1T1JJaklnWUJ1LUU4MVRFa25xQXpCSTJ6TzU5V1I2OWh6UlRWWF9zUVdiTnM0bGFMWjQwSkZEeDJSRHVnWG8yS0dLdXlabHhsRS1lVGZqRS1qZFdRYnBGcU5wQXJkMGdHOFFfWHNJRWl0MnhfYUVOSElOZkJWRFByT3hhVVJjc1h2NjhVYTdZMDYxR084aHlFLVltMEFVRUpKaV93VkhpUdIB9wFBVV95cUxNZkhDYU9RNlNlVUNTcnBmUUo1b0FKNUttbWl5SFlYMHR1NW5DNHNDSlhaelZ0VEhTOHp2RERSNFd3Z1VHODJ5TTBrNVhudjZRSE5NUU8yVVVZNWxrREdCaWJfeFBQVkdNSXE5eVFvYkozQ0hWaE9udTZRMVczOGM4dXdfeDdsaUtGY3FGOUN1Mk5IclFSdlRoc2puQThSMHVJalI4UFZsbUVQTDdHTFNVRVQwblgxbUtzWFQ1NXNyU1R6QzlQdTlpeTBvMzR2YUhkWWRLYjgtRklsR2FRMFk4QU81SEpuX2s2NXR6aXQ3aXpRR1BnOWdz?oc=5" target="_blank" rel="noopener">
+          <span class="en">US Lawmakers Seek Tighter AI Chip Export Curbs on China</span>
+          <span class="zh">美国议员推动收紧对华AI芯片出口限制</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Hindustan Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">Hindustan Times</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">US lawmakers push for tougher AI chip export restrictions on China following the Nvidia controversy, Hindustan Times reports. Any resulting restrictions would affect the addressable market for advanced accelerators and the compliance requirements of their sales channels.</span>
+        <span class="zh">据Hindustan Times报道，在Nvidia相关争议发生后，美国议员正推动对华实施更严格的AI芯片出口限制。由此产生的限制措施将影响先进加速器可进入的市场，以及销售渠道需要满足的合规要求。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-16 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-16 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

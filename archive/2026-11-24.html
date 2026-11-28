@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-24">
+<meta name="generator" content="semi-news-daily">
+<title>AI Supply Plans Advance Under Renewed Policy Scrutiny — Semi News 2026-11-24</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Tuesday, November 24, 2026</span>
+      <span class="zh">2026年11月24日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">AI Supply Plans Advance Under Renewed Policy Scrutiny</span>
+      <span class="zh">AI供应布局推进，政策审视再度升温</span>
+    </h1>
+    <p class="dek">
+      <span class="en">TSMC files an application for a proposed $22.6 billion Texas plant, while Micron accelerates HBM expansion in Singapore and Taiwan. Nvidia&#x27;s leadership reversal and reported US plans to blacklist Megaspeed keep governance and export access in focus.</span>
+      <span class="zh">台积电为拟建的226亿美元得州芯片厂提交申请，美光则加快在新加坡与台湾扩张HBM业务。英伟达领导层决定的逆转，以及美国据报拟将Megaspeed列入黑名单，使公司治理与出口准入继续成为焦点。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.eetimes.com/nvidia-board-reinstates-jensen-huang-as-ceo/" target="_blank" rel="noopener">
+          <span class="en">Nvidia Board Reinstates Jensen Huang as CEO</span>
+          <span class="zh">英伟达董事会恢复黄仁勋CEO职务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 6h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia&#x27;s board has reinstated Jensen Huang as CEO following his resignation, EE Times reports, describing a reversal after about a week. The decision restores the founder to leadership of a central supplier in the AI hardware market. The supplied report excerpt does not identify changes to the company&#x27;s product roadmap or customer commitments.</span>
+        <span class="zh">据EE Times报道，英伟达董事会在黄仁勋辞职约一周后，恢复其CEO职务。这项决定使创始人重新掌舵这家AI硬件市场的核心供应商。所提供的报道摘录未提及公司产品路线图或客户交付承诺发生变化。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/ai-and-ml/2026/11/23/amazon-scoops-up-ai-accelerator-tech-to-keep-chips-busy-at-all-times/5311754" target="_blank" rel="noopener">
+          <span class="en">Amazon Acquires Technology and Talent Targeting AI Accelerator Utilization</span>
+          <span class="zh">亚马逊收购旨在提高AI加速器利用率的技术与人才</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 3h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Amazon is acquiring AI accelerator technology and the people behind it rather than the entire startup, The Register reports. The reported focus is keeping chips busy, putting utilization alongside chip performance as a route to better infrastructure economics. The supplied excerpt does not name the startup, disclose terms or quantify the expected gains.</span>
+        <span class="zh">据The Register报道，亚马逊正在收购一项AI加速器技术及其背后的团队，交易范围并不包括整家初创公司。报道将重点放在提高芯片利用率上，说明改善基础设施经济性还取决于让已有算力充分工作。所提供的摘录未说明初创公司名称、交易条款或预期收益幅度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxOc2hiZVdfcU1OcmswdVZHRy1XRDVnQ2laWmEwUXBNWHlJUDhHTW5CcThNSkp3SnA2YzJXSEduTkdOZGVsLXlUeV9UYXctYzc0MnlYZEVXWmpBMEVpT1VBdlhwLTVaRXdENVVkRzJjdHZGTGl0b3ZnQWxBZUM3ejBjbVBnekc0NWdlZVdDdkZSRlJBS2hvOXV4amRtLWt1OWtyU3l4T0lraGdtaW9zQVVSeG5lSUJjU1ZWYmVXazBHNkdVdUd5WUtaUTM1S1FLTUhi?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Files Application for Proposed $22.6 Billion Texas Chip Plant</span>
+          <span class="zh">台积电为拟建的226亿美元得州芯片厂提交申请</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">KCEN (kcentv.com)</span> · 2h ago</span>
+        <span class="zh"><span class="source">KCEN (kcentv.com)</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC has filed an application for a proposed $22.6 billion chip plant in Brazos County, Texas, according to KCEN. The proposal would add another potential location to the company&#x27;s US manufacturing footprint. An application is an early project milestone; the supplied excerpt does not establish a final investment decision, process node, production capacity or opening date.</span>
+        <span class="zh">据KCEN报道，台积电已为拟在美国得克萨斯州Brazos县建设的226亿美元芯片厂提交申请。该提案为公司的美国制造布局增加了一个潜在地点。提交申请属于项目前期节点；所提供的摘录尚不能确认最终投资决定、制程、产能或投产日期。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxQeVB5clhkZWtmMGJVTjNyamw2aTFTNS1HSnEwcWdGSkRaeWJPdkRpM0YxX2ZZTkt0UXRyaWdoRG5qcDhja1M3d2pJMEJFNWlhdEJUc2JidWd4WHpwQk5SdWRVZEFTRjNiU3d4YUZUMnJmblNlM3hFVC1DZVBUN1dIUFJ1aUQwSm15WF9pYXdXSHNMV2ttYUVvNDhSNU5kd3lRcVpWWUdjR1ZrdnlVY1otNXhYWWZycVg5b0E?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASU-Led SWAP Hub Receives $11.4 Million for Microelectronics Work</span>
+          <span class="zh">亚利桑那州立大学牵头的SWAP Hub获1140万美元微电子资金</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ASU News</span> · 3h ago</span>
+        <span class="zh"><span class="source">ASU News</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The ASU-led SWAP Hub has received $11.4 million for the next phase of its national security microelectronics work, ASU News reports. The award supports a further phase of the research effort, adding funding to the US microelectronics development pipeline. The supplied excerpt does not specify the funded projects or their transition to manufacturing.</span>
+        <span class="zh">据ASU News报道，由亚利桑那州立大学牵头的SWAP Hub获得1140万美元，用于下一阶段的国家安全微电子工作。这笔资金支持该研究计划继续推进，为美国微电子研发链条补充投入。所提供的摘录未说明具体资助项目及其转入制造的安排。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE1LQU9zSENlQ3BQek5jR3VwdDVUZFRnQ3lPNDRaSjEzR0JZN0NPWXRXS3RzNEhTZzUwN0dyYUJRUGxISHkwWl9uVGY3N25KVEliZTBDQVFQdzBlT1FIWUpUWlZmZjBXUjFOVFRJSzBzeWk5M2d2QWQ2ZmxR0gGOAUFVX3lxTE1qT2tBbzlXdGk5MWU0UGJwbTJ0RE1YQXd1S2RBdm1yRkRzS05SQy1OS3VibzJCNTVrTEM1c055dWJwYzE2U0JaQi1jMEd5WDZjZENZNlNjY2pUUjBEQkliREc1ZEU1UmhWMzdRTDUteFVKZkpGQjBlSXY1cUtneHlsVkhMdk81OHUxRzlyaVE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron Accelerates HBM Expansion in Singapore and Taiwan</span>
+          <span class="zh">美光加快在新加坡与台湾扩张HBM业务</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosunbiz</span> · 4h ago</span>
+        <span class="zh"><span class="source">Chosunbiz</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron is accelerating HBM expansion in Singapore and Taiwan, Chosunbiz reports. The move places both locations in the company&#x27;s effort to expand a memory technology central to AI accelerators. The supplied excerpt gives no investment amount, incremental output or qualification timetable, so the pace of additional supply remains unquantified.</span>
+        <span class="zh">据Chosunbiz报道，美光正加快在新加坡与台湾扩张HBM业务。这使两地共同参与公司对AI加速器关键存储技术的扩张布局。所提供的摘录未给出投资额、新增产出或认证时间表，因此尚无法量化新增供应的释放节奏。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/dram/penguin-shows-off-photonic-memory-box-at-sc26-that-can-expand-ai-accelerator-capacity-over-optical-links-device-sports-up-to-576gb-of-hbm3e-customer-samples-expected-in-2027" target="_blank" rel="noopener">
+          <span class="en">Penguin Demonstrates Optical Memory Box with Up to 576 GB of HBM3E</span>
+          <span class="zh">Penguin展示光互连存储盒，最高配备576 GB HBM3E</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Penguin Solutions demonstrated an external memory box at SC26 with up to 576 GB of HBM3E and 16 TB of DDR5, connected to hosts through optical links, Tom&#x27;s Hardware reports. The device explores expanding AI accelerator memory capacity beyond local memory, with customer samples expected in 2027. Compatibility is a material constraint: the report says it does not appear to support existing servers and accelerators.</span>
+        <span class="zh">据Tom&#x27;s Hardware报道，Penguin Solutions在SC26展示了一款通过光链路连接主机的外置存储盒，最高配备576 GB HBM3E和16 TB DDR5。该设备探索将AI加速器的存储容量扩展到本地存储之外，预计于2027年提供客户样品。兼容性是重要限制：报道指出，它似乎不支持现有服务器与加速器。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE1fbldjUmE4MG5tTUppUlI1QXc5UHlLZVNpQjI1OXFkT2hGQmJ5NVJEUndNcUhhaVZCeE80MmtQZ2Qyak1TbEJTelBuZ2lCOUQ5Nzg5bGxXMXBHTW1RM2hCTDdrTjlEdVNWUDZiUVN5VnhfWEZQWDF1RE1B0gGOAUFVX3lxTE90V0VLUmZmUi0ybE1jOVdJdXgtNXo1SG5Ka0FJR1VON3ltR0dtSFdrSDFyd21TX3dOZnhJZnVseDZOZk8xNE9VTE9yV1B2M2lYQ25MTGt0RjJTc28tNUNCaFNkZWN2LXByX2NRWDg4RU55SXFQbmY5a1huRVR6Q1NNS0ZOREJaT3NicGR0ZkE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Promotes 131 Executives with a Focus on Technical Talent</span>
+          <span class="zh">三星晋升131名高管，强调技术人才</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosunbiz</span> · 1h ago</span>
+        <span class="zh"><span class="source">Chosunbiz</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung Electronics has promoted 131 executives while prioritizing technology talent, Chosunbiz reports. The appointments are a personnel signal to watch as the company&#x27;s semiconductor businesses execute their roadmaps. The headline does not establish changes to HBM output, customer qualification or capital spending.</span>
+        <span class="zh">据Chosunbiz报道，三星电子晋升131名高管，并将技术人才置于优先位置。在其半导体业务推进路线图之际，这轮任命提供了值得跟踪的人事信号。该标题本身并不能证明HBM产出、客户认证或资本开支发生变化。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Manufacturing Skills</span>
+      <span class="zh">设备与制造技能</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxQMXdWVHYtOHJSQkFFRU85TFVUcVlMTU1xV1Q4OVRWcjZubzJYdDNBSlBIejd5Q2QtUUU0d2xOTjhwVlhmVmUtak1RYThnOUNZN3M3c19hRFdaaW1PM080YXp2ei1fb1RTRVZmemQwQ1dvdkd5aXRQSU1OOE15bU43c014VmJLT281Tmp4YWhjZ0NDYzJmSl9BSDNCM1p4enc5VmowMkN2OE1YTjJLZHI1Zi1xZ2c2YnRoU0x0SDZ0U3ozbHNERER4cWx6b0xFZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Festo and NOCTI Announce Semiconductor Cleanroom Training Certification</span>
+          <span class="zh">Festo与NOCTI推出半导体洁净室培训认证</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TMCnet</span> · 1h ago</span>
+        <span class="zh"><span class="source">TMCnet</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Festo and NOCTI have announced a new cleanroom certification for semiconductor manufacturing training, according to TMCnet. The initiative addresses workforce preparation, a practical requirement for operating fabs and their equipment. The supplied announcement excerpt does not describe assessment standards, participating employers or training scale.</span>
+        <span class="zh">据TMCnet报道，Festo与NOCTI宣布推出面向半导体制造培训的新洁净室认证。该计划针对人才培养，而具备相应技能的人员是晶圆厂及其设备运行的实际前提。所提供的公告摘录未说明考核标准、参与雇主或培训规模。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Export Controls</span>
+      <span class="zh">政策与出口管制</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxQT1J6dzBaQU90dTBwdm1wWktJQmdlVXRiR2pSZEQ3aUJBekRsYzNhUmRtSmxZUVlhOXRORmtZVURORXpEX0ZDWjhNWGluNFJpanQzTlJzdFRfaHFFOHAtUkFVMzFGb3VQU2JTOG5teVJOYkk3cEQyYnJzSG0zRTI2aXlFRjhnaWVSdkdFb0hHUkVCVG4xbXpmdDhUVEtWUXB5Si15LWZyTDJiZVNQVFNTaFBUWnJpVG5WUDdMMVJlZUFJaUhYQWtDSWxR?oc=5" target="_blank" rel="noopener">
+          <span class="en">US Reportedly Plans to Blacklist Megaspeed over Chip Export Concerns</span>
+          <span class="zh">美国据报拟因芯片出口疑虑将Megaspeed列入黑名单</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Investing.com (citing Semafor)</span> · 4h ago</span>
+        <span class="zh"><span class="source">Investing.com (citing Semafor)</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The US plans to blacklist Megaspeed over chip export concerns, Investing.com reports, citing Semafor. The report brings another intermediary into scrutiny of access to advanced chips. The selected report describes a planned action; its supplied excerpt does not establish an effective date or the scope of any final restrictions.</span>
+        <span class="zh">Investing.com援引Semafor报道称，美国计划因芯片出口疑虑将Megaspeed列入黑名单。这使又一家中间商进入围绕先进芯片获取渠道的审查视野。所选报道描述的是拟议行动，其摘录尚不能确定生效日期或最终限制范围。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQcThDbDY1Rm5xMHQtWGRwMEJ0NENWNmVaY21Xd3ZrM3NfM0QzbVBYSUI1dS1UVTF4YkxMWkFmQWlGUHdpY1VSTjhieThPZUU4OXVNcnh0Wm1pZ2hpWjNCaTV1aFlNRVVlaU12MmlEVVREMHFDXzJEcWM5Tmh2ajFQMGdkUnoyYk9KZ2pPUE84OHZBNENFM3lZZXBDVWFqY19XdV85VjM5NzY2MllXMzRabGdR0gG3AUFVX3lxTE9VLXBSV0U2RjZUa04ybzc5c2ljbm1oQ1ZvXzFSd2FHbk5saVlMU1lvOXlnRGl2UjFycGtyN1BsVG1lc3NISzh4czB2S2VuVm9xSjFycGs2SDF4blkwdTlqUHlsRFpjbXNRSDdTMEtUMjU3aG5YcWhySnYxOWpDLUtqYVhONmRRd2g2RFJkX1NPT200V1J0YTVGMnFYRWVhSkY0M2l5ZkxEc1NoV1pkTG5UZmNnLUY1Yw?oc=5" target="_blank" rel="noopener">
+          <span class="en">EU Export-Control List Update Covers Semiconductors and Industrial Thresholds</span>
+          <span class="zh">欧盟出口管制清单更新涉及半导体及工业门槛</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The National Law Review</span> · 6h ago</span>
+        <span class="zh"><span class="source">The National Law Review</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The National Law Review reports an EU export-control list update involving new semiconductor controls and revised industrial thresholds. The coverage flags classification and licensing questions for suppliers handling potentially covered products. The supplied excerpt does not identify technical thresholds, exemptions or implementation dates, so it cannot support a product-specific compliance conclusion.</span>
+        <span class="zh">The National Law Review报道，欧盟出口管制清单更新涉及新增半导体管制及调整工业门槛。这篇报道提示，经营潜在受控产品的供应商需要关注分类与许可问题。所提供的摘录未列出技术门槛、豁免或实施日期，因此无法据此对具体产品作出合规判断。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-24 01:13 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-24 01:13 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

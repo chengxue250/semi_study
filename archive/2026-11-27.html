@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-27">
+<meta name="generator" content="semi-news-daily">
+<title>AI Hardware Faces Supply and Financing Constraints — Semi News 2026-11-27</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, November 27, 2026</span>
+      <span class="zh">2026年11月27日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Hardware Faces Supply and Financing Constraints</span>
+      <span class="zh">AI硬件面临供货与资金约束</span>
+    </h1>
+    <p class="dek">
+      <span class="en">GPU customer restrictions, scarce DRAM and a concentrated optical-materials supply chain complicate AI infrastructure expansion. Kioxia and Nvidia explore SSD-backed memory capacity while HPE stresses guarantees and prepayments for neocloud sales.</span>
+      <span class="zh">GPU客户限制、DRAM紧缺及高度集中的光互连材料供应链，让AI基础设施扩张面临更多约束。铠侠与Nvidia探索以SSD扩展有效内存容量，HPE则强调向新兴AI云服务商销售设备需要担保和预付款。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/hpe-ceo-antonio-neri-says-ai-cloud-companies-are-not-a-use-of-our-capital-and-sales-to-them-require-guarantees-and-prepayments/" target="_blank" rel="noopener">
+          <span class="en">HPE requires guarantees and prepayments for neocloud sales</span>
+          <span class="zh">HPE要求新兴AI云客户提供担保和预付款</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 2h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">HPE CEO Antonio Neri says investing in neocloud companies is not a suitable use of HPE&#x27;s capital and that sales to them require guarantees and prepayments, Wccftech reports. He instead emphasizes enterprise and sovereign computing. That stance makes customers&#x27; financing capacity an explicit condition of supplying AI infrastructure, even as demand for GPUs remains strong.</span>
+        <span class="zh">据Wccftech报道，HPE首席执行官Antonio Neri表示，投资新兴AI云服务商并非HPE资本的合适用途，向这些企业销售设备需要担保和预付款。他更强调企业计算与主权计算市场。这一立场将客户的融资能力明确纳入AI基础设施供货条件，即使GPU需求依然强劲。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/amds-new-rt-mlas-technology-slashes-ray-tracing-bvh-memory-usage-by-92-delivers-up-to-3-7x-faster-rebuilds-on-radeon-rx-9070/" target="_blank" rel="noopener">
+          <span class="en">AMD introduces RT-MLAS to reduce ray-tracing memory and rebuild costs</span>
+          <span class="zh">AMD推出RT-MLAS，降低光线追踪内存占用与重建开销</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD has introduced Ray Tracing Multi-Level Acceleration Structures through GPUOpen, with a Vulkan extension available for Radeon RX 9000 GPUs and DirectX 12 support planned. Wccftech reports up to 92% lower BVH memory use and up to 3.7× faster rebuilds on a Radeon RX 9070. These results target the cost of representing large, changing scenes; the supplied excerpt does not describe the benchmark workloads behind those headline gains.</span>
+        <span class="zh">AMD通过GPUOpen推出Ray Tracing Multi-Level Acceleration Structures，已为Radeon RX 9000系列GPU提供Vulkan扩展，并计划支持DirectX 12。Wccftech报道称，在Radeon RX 9070上，BVH内存占用最多降低92%，重建速度最高提升至3.7倍。这些结果针对大型动态场景的表示开销，但所提供片段未说明上述峰值收益对应的基准负载。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBpVl9uQXI0T3dMZlo0NXNvNVdRYW4wYTJOWkNQZDlhajFyWWlMUFlCdHpYWXJET1lyMkxHc09CS2NtREg1YllJS0VnUS1ocTNGY3ZXV3BBUEc0MmNkeGQwMm9WSUE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Trump is scheduled to attend TSMC&#x27;s Arizona groundbreaking on December 4</span>
+          <span class="zh">特朗普据报将于12月4日出席台积电亚利桑那奠基仪式</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Asia Economy</span> · 4h ago</span>
+        <span class="zh"><span class="source">Asia Economy</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Asia Economy reports that Trump will attend a TSMC Arizona groundbreaking on December 4. The planned appearance puts the company&#x27;s U.S. manufacturing expansion back in the policy spotlight. A groundbreaking marks a construction milestone; the supplied item gives no production-start date, process node or added wafer capacity.</span>
+        <span class="zh">据《亚洲经济》报道，特朗普将于12月4日出席台积电亚利桑那项目的奠基仪式。这一行程使台积电在美国的制造扩张再次成为政策焦点。奠基属于建设节点，所提供条目未说明投产时间、制程或新增晶圆产能。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/samsung-roadmap-reportedly-puts-unmanned-vehicles-self-driving-robots-and-robotic-arms-inside-its-chip-fabs-by-2028-covering-equipment-maintenance-and-production-line-work/" target="_blank" rel="noopener">
+          <span class="en">Samsung reportedly targets fab robots for deployment by 2028</span>
+          <span class="zh">三星据报计划到2028年在晶圆厂部署机器人</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung has reportedly formed a robotics team and aims to deploy unmanned vehicles, autonomous robots and robotic arms in chip factories by 2028, according to Wccftech&#x27;s account of ETNews reporting. The roadmap covers equipment maintenance and production-line work. It could extend automation into more fab operations, but the supplied report gives no deployment scale or measured productivity improvements.</span>
+        <span class="zh">Wccftech援引ETNews报道称，三星已组建机器人团队，计划到2028年在芯片工厂部署无人车辆、自主移动机器人与机械臂。路线图涉及设备维护及产线作业。这可能将自动化扩展至更多晶圆厂环节，但所提供报道未给出部署规模或生产效率提升的实测数据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxNVmVYNFFVTldxTlhUZ1lsaE9xSS1Nc0d3MEVLVi0zZ3d2aE9sejh5SFliVkNtN0h0MmNHQzVJUFpaOEVDbDZ5NXlGLS1RVmVEZ3d3VllDUUlDd1BqbkprNFBGVDBqQlJmYkdDU29XOEpTODg3dmdIOGxhSFI5ZFZnenhLRG1oM3hWdWRxejlxWkJUSHYtaUZSZEJvQ2ZXUnVtY1d2eWRBMkJuQk5iOGhwRUpUMWJZNHRRTVNDZFc4cVU5NXPSAcgBQVVfeXFMT3R2YUpGZzFJLUwxZGl3VGo5aVd3bmJUUVZrSGJGbFRvN2JEUldxWkc5OFNjWDJwQ19mbWhueV80T0lxcm5Sa0VfOTJoWnRoRTZxRGZocENOMWI1OFFlM09OTVAxSHVpbnZYNVFEVTR1U1I3UmtXb0hTRzRtQVZsNXo1ZFlnZV9sR0RXUWV0VmJtMzJHdWVKZ2hMQlYyNHRRbGR5aGh2QkMwRWx4UTEydV9UWGVRdVFIcDBtSDRRaGFjSlVZY0VlSmk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Kioxia and Nvidia explore SSDs to expand effective HBM capacity</span>
+          <span class="zh">铠侠与Nvidia探索以SSD扩展HBM有效容量</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TechPowerUp</span> · 2h ago</span>
+        <span class="zh"><span class="source">TechPowerUp</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Kioxia and Nvidia are collaborating on using SSDs to expand effective high-bandwidth memory capacity, TechPowerUp reports. The effort targets the capacity constraint in AI systems by bringing storage into the memory hierarchy. The supplied item does not quantify latency, bandwidth or application performance, so it does not establish that SSDs can substitute for HBM at equivalent speed.</span>
+        <span class="zh">据TechPowerUp报道，铠侠与Nvidia正合作探索利用SSD扩展高带宽内存的有效容量。该方向通过将存储设备纳入内存层次，缓解AI系统的容量约束。所提供条目未量化时延、带宽或应用性能，因此尚不能据此认定SSD可以同等速度替代HBM。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/dram/electronics-manufacturers-set-up-memory-war-rooms-to-find-lock-in-dram-supplies-amid-worst-shortage-in-history-employees-scour-ebay-contact-hundreds-of-brokers-and-snap-up-even-small-batches-of-just-5-to-12-units" target="_blank" rel="noopener">
+          <span class="en">Electronics makers organize DRAM sourcing teams as shortages strain cash</span>
+          <span class="zh">DRAM紧缺挤压现金，电子制造商组建专门采购团队</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 9h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Electronics manufacturers are setting up dedicated teams to secure DRAM through online listings, brokers and gray-market channels, Tom&#x27;s Hardware reports. Some companies have taken out loans so they can buy chips as soon as supplies appear. The scramble links component availability directly to working-capital needs and production continuity, beyond the effect of higher memory prices alone.</span>
+        <span class="zh">据Tom&#x27;s Hardware报道，电子制造商正组建专门团队，通过线上货源、经纪商和灰色市场渠道争取DRAM供应。部分企业甚至借款，以便在芯片现货出现时立即采购。这场争夺使元器件可得性直接关联到营运资金需求和生产连续性，影响已超出存储涨价本身。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/analyst-jeff-pu-says-dram-prices-could-halve-in-2028-as-the-ai-memory-boom-cools-but-cheaper-ram-isnt-coming-next-year/" target="_blank" rel="noopener">
+          <span class="en">Jeff Pu cuts 2027 DRAM price forecasts and models a 2028 halving</span>
+          <span class="zh">Jeff Pu下调2027年DRAM价格预测，并设想2028年价格减半</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 2h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">GF Securities analyst Jeff Pu has lowered his DRAM contract-price growth forecasts for all four quarters of 2027 to 6%, 3%, 0% and 0% sequentially, according to Wccftech. His newly introduced 2028 base case envisages prices halving. This is an analyst scenario rather than an observed price decline, but it shifts attention from immediate shortages to the durability of memory suppliers&#x27; pricing power.</span>
+        <span class="zh">据Wccftech报道，广发证券分析师Jeff Pu下调了2027年全部4个季度的DRAM合约价涨幅预测，最新环比增幅依次为6%、3%、0%和0%。他首次提出的2028年基准情景设想价格减半。这属于分析师预测情景，而非已经发生的价格下跌，但它将关注点从眼前短缺延伸至存储厂商定价能力能维持多久。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment, Materials &amp; Design Tools</span>
+      <span class="zh">设备、材料与设计工具</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/siemens-adds-soc-verification-and-software-debug-with-two-planned-deals/" target="_blank" rel="noopener">
+          <span class="en">Siemens plans Breker and Lauterbach acquisitions to expand development tools</span>
+          <span class="zh">西门子拟收购Breker与Lauterbach，扩展开发工具布局</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 7h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Siemens plans to acquire Breker and Lauterbach to broaden its SoC verification and software-debugging capabilities, EE Times reports. The deals would bring more of the hardware and software development workflow into its tool portfolio. An analyst cited in the report expects integration benefits to take time; these are planned transactions rather than completed integrations.</span>
+        <span class="zh">据EE Times报道，西门子计划收购Breker与Lauterbach，扩展SoC验证与软件调试能力。两笔交易将使其工具组合覆盖更多软硬件开发流程。报道援引的分析师认为，整合收益需要时间才能体现；目前进展仍是拟议交易，并非已经完成工具整合。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/photonics/inside-the-indium-phosphide-squeeze-and-the-optical-boom-inp-remains-tightly-constrained-as-the-demand-from-ai-puts-the-entire-supply-chain-under-pressure" target="_blank" rel="noopener">
+          <span class="en">AI optical demand puts pressure on the concentrated InP supply chain</span>
+          <span class="zh">AI光互连需求加压高度集中的InP供应链</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 9h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tom&#x27;s Hardware examines pressure on the indium phosphide supply chain as AI infrastructure shifts toward optical interconnects. InP supports lasers, transceivers and co-packaged optics, making material availability relevant across several interconnect technologies. The report frames a concentrated materials supply as a constraint on optical expansion, although the supplied excerpt gives no quantified capacity shortfall.</span>
+        <span class="zh">Tom&#x27;s Hardware分析了AI基础设施转向光互连时，磷化铟供应链承受的压力。InP用于激光器、光收发器及共封装光学，其供给关系到多种互连技术。报道将材料供应的高度集中视为光互连扩张的约束，但所提供片段未量化产能缺口。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE1ydHdQWUpYRU16SjgyRXBibzZ6UFN4RThEMUV3VkRJV0NCNmk1Nm1wTFlvTnpsLS1VVHdmczlIQjZRN0RKZnlBdm5oSmFUY0lCaWV5dTY2bDBiRHcyV0lfMjk3ZS1TQW1oM3F0TTJFRdIBdEFVX3lxTE1hb0dnX1V6U3RzcVduQUhNcHBONFFMMVVaaThOcEc5dy1EOVMwUXBVM1lSMWljNm12aTJXT0FvMWdkaUdyTEZyZGY0dHJ0R3kxQllKQ2RaMl9MYmxIY2pHcTh6TWVDRkhCSkVqUVUtbVFOam81?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia GPU buyers reportedly must exclude Chinese renters</span>
+          <span class="zh">Nvidia GPU买家据报被要求排除中国租用方</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CNBC</span> · 9h ago</span>
+        <span class="zh"><span class="source">CNBC</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia chip buyers are being told to rule out Chinese renters as a condition of purchasing GPUs, CNBC reports, citing sources. Such a condition would connect hardware procurement to who can rent the resulting compute capacity. The supplied item does not specify its legal basis or customer scope, so it should be treated as a reported purchasing restriction rather than a fully documented new regulation.</span>
+        <span class="zh">CNBC援引消息人士报道称，Nvidia芯片买家被告知，购买GPU需要排除中国租用方。这类条件将硬件采购与后续算力可以租给谁直接联系起来。所提供条目未说明法律依据或客户适用范围，因此应将其视为报道中的采购限制，而非细则已经明确的新法规。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOTGdjRUN5YTg3WHZsaVA3dk9EVHB3TzkybFUwc2cyS29EOTBueVZIVjhUOFlqZzl6T2xpNER5aW53a2plOWdIaG1icGNfQWUxd01yVjJ5Vm10dVR4QTNGb1VoQS11SWRhNlJJb3ZoQmtrVGZMcUlxWjhjYXpjNmVBNV9kdGdhZnJMTW9vd3lqV2ZPUnFGN0tUczEtTTk5TVBWbWl3?oc=5" target="_blank" rel="noopener">
+          <span class="en">Dutch minister says the Netherlands will seek non-enforcement of the MATCH Act</span>
+          <span class="zh">荷兰部长称将请求美国不执行MATCH Act</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 8h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Netherlands will ask Washington not to enforce the MATCH Act, a minister says, according to Reuters. The request is relevant to the export-control environment facing Dutch chipmaking-equipment suppliers, including ASML. It signals a planned diplomatic intervention, while the supplied item reports no U.S. concession or change to licensing requirements.</span>
+        <span class="zh">据路透社报道，荷兰一名部长表示，荷兰将请求华盛顿不执行MATCH Act。这一请求关系到ASML等荷兰芯片制造设备供应商面临的出口管制环境。它表明荷兰计划展开外交交涉，但所提供条目未报道美国作出让步或许可要求发生变化。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-27 01:14 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-27 01:14 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-18">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Hardware-Aware AI Moves Into the Loop — Semi Research 2026-06-18</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-06-18.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Thursday, June 18, 2026</span>
+      <span class="zh">研究摘要 · 2026年6月18日 星期四</span>
+    </div>
+    <h1>
+      <span class="en">Hardware-Aware AI Moves Into the Loop</span>
+      <span class="zh">硬件感知AI进入闭环</span>
+    </h1>
+    <p class="dek">
+      <span class="en">This week&#x27;s research selection emphasizes measured deployment constraints: resistive memory, FPGA SNN flows, MCU hardware-in-the-loop search, embedded control accelerators, and physical neural-network co-design. The strongest papers treat hardware behavior as part of the model design problem rather than a post-training afterthought.</span>
+      <span class="zh">本期研究更关注可测量的部署约束：阻变存储、FPGA上的SNN流程、MCU硬件在环搜索、嵌入式控制加速器以及物理神经网络协同设计。最有价值的论文把硬件行为纳入模型设计本身，而不是训练后的附加步骤。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 10 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 10篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="devices">
+    <h2>
+      <span class="en">Devices &amp; Process</span>
+      <span class="zh">器件与工艺</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1038/s41586-026-10646-w" target="_blank" rel="noopener">
+          <span class="en">Efficient and accurate neural-field reconstruction using resistive memory</span>
+          <span class="zh">利用阻变存储实现高效准确的神经场重建</span>
+        </a>
+      </h3>
+      <p class="authors">Y. Yu, X. Zhang, S. Zhang, W. Zhang, X. Wu, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1038/s41586-026-10646-w" target="_blank" rel="noopener">Nature</a> · 2026-06-10</p>
+      <p class="summary">
+        <span class="en">This Nature paper reports neural-field reconstruction using resistive memory, pointing to an analog-memory path for compute-heavy continuous representations. The materiality is that neural fields are bandwidth- and multiply-accumulate-intensive, so moving parts of the computation into memory can reduce data movement. The key caveat is that device variation, programming precision, and array-level scaling decide whether the result becomes a practical accelerator rather than a lab demonstration.</span>
+        <span class="zh">这篇Nature论文报道了利用阻变存储进行神经场重建，展示了面向连续表示计算的模拟存储路径。其重要性在于，神经场计算通常高度依赖带宽和乘加运算，把部分计算移入存储阵列有望减少数据搬运。关键限制仍在器件差异、编程精度和阵列级扩展能力，这些因素决定其能否从实验演示走向实用加速器。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1093/nsr/nwag335" target="_blank" rel="noopener">
+          <span class="en">Emerging integrated photonic neural-network technologies for AI</span>
+          <span class="zh">面向AI的新兴集成光子神经网络技术</span>
+        </a>
+      </h3>
+      <p class="authors">C. Han, Q. Yang, J. Qin, M. Wang, Z. Yi, et al.</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1093/nsr/nwag335" target="_blank" rel="noopener">National Science Review</a> · 2026-06-13</p>
+      <p class="summary">
+        <span class="en">This review surveys integrated photonic neural networks from devices through computing cores, integration, and packaging. It is useful because photonic AI hardware is moving from device papers toward system questions such as density, calibration, electro-optic conversion, and packaging. The paper&#x27;s cross-layer framing helps separate where optics can reduce latency and energy from where electronic control and memory still dominate the cost.</span>
+        <span class="zh">这篇综述从器件、计算核心、集成方式到封装层面梳理了集成光子神经网络。其价值在于，光子AI硬件正在从单一器件论文走向系统问题，包括密度、校准、电光转换和封装。论文的跨层视角有助于区分光学部分能降低延迟和能耗的环节，以及电子控制和存储仍主导成本的环节。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Circuits &amp; Architecture</span>
+      <span class="zh">电路与架构</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/TNNLS.2026.3700450" target="_blank" rel="noopener">
+          <span class="en">Real-time offset-free neural-network MPC on embedded systems</span>
+          <span class="zh">嵌入式系统上的实时无偏差神经网络MPC</span>
+        </a>
+      </h3>
+      <p class="authors">W.-T. Li, S.-X. Wen, X.-F. Wang, W. Meng, X.-M. Sun</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/TNNLS.2026.3700450" target="_blank" rel="noopener">IEEE Transactions on Neural Networks and Learning Systems</a> · 2026-06-11</p>
+      <p class="summary">
+        <span class="en">The paper implements a neural-network model predictive-control framework for aeroengine control and accelerates it on a Zynq DPU. It tackles a practical embedded-control problem: quantized NN predictors can introduce steady-state offsets, so the authors add adaptive error compensation and low-rank linearization. Hardware-in-the-loop experiments make the result more relevant than a pure simulation study.</span>
+        <span class="zh">这篇论文实现了用于航空发动机控制的神经网络模型预测控制框架，并在Zynq DPU上加速。它处理的是实际嵌入式控制问题：量化后的神经网络预测器可能带来稳态偏差，因此作者加入自适应误差补偿和低秩线性化。硬件在环实验让结果比纯仿真研究更具参考价值。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.3390/electronics15122541" target="_blank" rel="noopener">
+          <span class="en">A modular FPGA-based display architecture for low-power real-time avionics</span>
+          <span class="zh">面向低功耗实时航电的模块化FPGA显示架构</span>
+        </a>
+      </h3>
+      <p class="authors">C. Albayrak, S. Kurt, M. Kazanbaş</p>
+      
+      <p class="venue"><a href="https://doi.org/10.3390/electronics15122541" target="_blank" rel="noopener">Electronics</a> · 2026-06-09</p>
+      <p class="summary">
+        <span class="en">The authors present an FPGA-assisted smart multi-function display architecture that splits deterministic video processing, application management, LCD, and avionics I/O into separate modules. The design targets timing predictability and subsystem maintainability rather than raw accelerator throughput. It is a useful reminder that FPGA value in embedded systems often comes from deterministic integration and power-aware partitioning.</span>
+        <span class="zh">作者提出了一种FPGA辅助的智能多功能显示架构，将确定性视频处理、应用管理、LCD和航电I/O拆分为独立模块。该设计关注时序可预测性和子系统可维护性，而不是单纯追求加速器吞吐。它提醒我们，FPGA在嵌入式系统中的价值往往来自确定性集成和功耗感知的任务划分。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://doi.org/10.1109/MM.2026.3666128" target="_blank" rel="noopener">
+          <span class="en">Breaking TinyML: domain-specific security analysis for quantized neural networks</span>
+          <span class="zh">破解TinyML：量化神经网络需要领域专用安全分析</span>
+        </a>
+      </h3>
+      <p class="authors">J. Huckelberry, A. M. Garavagno, Y. Zhang, P. Beerel, J. Mickens, V. Reddi</p>
+      
+      <p class="venue"><a href="https://doi.org/10.1109/MM.2026.3666128" target="_blank" rel="noopener">IEEE Micro</a> · 2026-06-12</p>
+      <p class="summary">
+        <span class="en">This IEEE Micro paper argues that TinyML security needs attacks and defenses tailored to quantized neural-network hardware. The authors show that a two-step attack pipeline can beat prior approaches in the QNN setting, challenging the assumption that quantization robustness transfers cleanly from full-precision models. For edge accelerators, the implication is that model compression, hardware arithmetic, and adversarial behavior must be evaluated together.</span>
+        <span class="zh">这篇IEEE Micro论文指出，TinyML安全需要针对量化神经网络硬件设计专门的攻击与防御方法。作者展示了一个两阶段攻击流程在QNN场景中可超过既有方法，挑战了量化鲁棒性可从全精度模型直接迁移的假设。对边缘加速器而言，这意味着模型压缩、硬件算术和对抗行为必须联合评估。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.15004" target="_blank" rel="noopener">
+          <span class="en">CREST: deployment-realistic hardware-in-the-loop NAS for embedded sensing</span>
+          <span class="zh">CREST：面向嵌入式感知的部署真实硬件在环NAS</span>
+        </a>
+      </h3>
+      <p class="authors">J. Q. Zales, P. Sharma, M. Srivastava</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.15004" target="_blank" rel="noopener">arXiv:2606.15004</a> · 2026-06-12</p>
+      <p class="summary">
+        <span class="en">CREST searches neural architectures using hardware-in-the-loop measurements on low-power MCU sensing systems rather than relying on proxies such as FLOPs. On inertial odometry, the paper reports a 41.7% median per-inference energy reduction versus FLOPs-based search. The result is important because real deployment schedules, backends, quantization, and target boards can reorder the Pareto frontier.</span>
+        <span class="zh">CREST使用低功耗MCU感知系统上的硬件在环测量来搜索神经网络架构，而不是依赖FLOPs等代理指标。在惯性里程计任务上，论文称相对基于FLOPs的搜索，每次推理能耗中位数降低41.7%。该结果重要之处在于，真实部署节奏、后端、量化方式和目标板卡都会重排Pareto前沿。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.13354" target="_blank" rel="noopener">
+          <span class="en">SupraSNN exploits synapse-level parallelism in SNN accelerators</span>
+          <span class="zh">SupraSNN在SNN加速器中利用突触级并行</span>
+        </a>
+      </h3>
+      <p class="authors">S. S. Ghavami, M. H. Nikkhah, M. R. Roshanshah, S. Safari</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.13354" target="_blank" rel="noopener">arXiv:2606.13354</a> · 2026-06-11</p>
+      <p class="summary">
+        <span class="en">SupraSNN treats synaptic events as parallel micro-operations and proposes a superscalar-inspired SNN accelerator. The architecture separates synapse and neuron computation, using multicast and merge trees to expose parallelism while avoiding duplicated neuron-state hardware. The work is relevant because SNN efficiency often depends less on neuron equations than on mapping sparse events onto real datapaths.</span>
+        <span class="zh">SupraSNN将突触事件视为可并行执行的微操作，并提出了一种受超标量处理器启发的SNN加速器。该架构分离突触计算和神经元计算，通过多播树和合并树暴露并行性，同时避免重复配置神经元状态硬件。这项工作有意义，因为SNN效率往往不只取决于神经元方程，更取决于稀疏事件如何映射到真实数据通路。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.10008" target="_blank" rel="noopener">
+          <span class="en">Spiking neural-network inference on FPGAs with hls4ml</span>
+          <span class="zh">使用hls4ml在FPGA上部署SNN推理</span>
+        </a>
+      </h3>
+      <p class="authors">B. Dillon</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.10008" target="_blank" rel="noopener">arXiv:2606.10008</a> · 2026-06-08</p>
+      <p class="summary">
+        <span class="en">This paper extends hls4ml so spiking neural networks trained in PyTorch can be synthesized into FPGA firmware. The demonstration uses a dense quantized SNN on Heidelberg Spiking Digits and reports about 34 microseconds of inference latency. It is a practical tooling contribution because many real-time scientific systems still deploy on synchronous FPGAs rather than asynchronous neuromorphic chips.</span>
+        <span class="zh">这篇论文扩展了hls4ml，使PyTorch训练的脉冲神经网络可以综合为FPGA固件。作者在Heidelberg Spiking Digits数据集上演示了一个密集量化SNN，报告推理延迟约34微秒。其工具链价值较强，因为许多实时科学系统仍部署在同步FPGA上，而不是异步神经形态芯片上。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">EDA &amp; Hardware Co-Design</span>
+      <span class="zh">EDA与硬件协同设计</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.10294" target="_blank" rel="noopener">
+          <span class="en">LLM-guided NAS for robust co-design of physical neural networks</span>
+          <span class="zh">用于物理神经网络鲁棒协同设计的LLM引导NAS</span>
+        </a>
+      </h3>
+      <p class="authors">T. King, T. Leleu</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.10294" target="_blank" rel="noopener">arXiv:2606.10294</a> · 2026-06-09</p>
+      <p class="summary">
+        <span class="en">UH-NAS uses language models as evolutionary operators while swapping in different unconventional-hardware backends, energy models, precision limits, and non-ideality simulators. The paper tests optical MZI hardware and reports more diverse, robust architectures than conventional baselines. The important idea is not that an LLM designs hardware alone, but that search can reason across accuracy, energy, and physical non-idealities in one loop.</span>
+        <span class="zh">UH-NAS将语言模型作为进化搜索算子，同时接入不同非常规硬件后端、能耗模型、精度限制和非理想性仿真器。论文在光学MZI硬件上测试，并报告其找到的架构比传统基线更多样且更鲁棒。重要思想不是让LLM独立设计硬件，而是让搜索在同一闭环中同时权衡精度、能耗和物理非理想性。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="quantum">
+    <h2>
+      <span class="en">Quantum &amp; Emerging Computing</span>
+      <span class="zh">量子与新型计算</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="http://arxiv.org/abs/2606.07376" target="_blank" rel="noopener">
+          <span class="en">Measurement circuit ansatz: Naimark versus quantum neural-network measurements</span>
+          <span class="zh">测量电路Ansatz：Naimark与量子神经网络测量</span>
+        </a>
+      </h3>
+      <p class="authors">S. Yun, T. Kyaw, J. Bae</p>
+      
+      <p class="venue"><a href="http://arxiv.org/abs/2606.07376" target="_blank" rel="noopener">arXiv:2606.07376</a> · 2026-06-05</p>
+      <p class="summary">
+        <span class="en">The authors compare Naimark-based measurement circuits, hybrid Naimark-QNN circuits, and fully parameterized QNN measurements for general quantum measurements. The reported result is that QNN circuits can approach near-optimal measurements with fewer training iterations in state-discrimination tasks. For quantum hardware, measurement compilation is a real systems problem because readout strategy affects both fidelity and circuit resource cost.</span>
+        <span class="zh">作者比较了基于Naimark扩展的测量电路、混合Naimark-QNN电路以及全参数化QNN测量，用于实现一般量子测量。论文报告称，在态判别任务中，QNN电路可用更少训练迭代接近最优测量。对量子硬件而言，测量编译是实际系统问题，因为读出策略会同时影响保真度和电路资源成本。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-18 01:19 UTC · <a href="../2026-06-18.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-06-18 01:19 UTC · <a href="../2026-06-18.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

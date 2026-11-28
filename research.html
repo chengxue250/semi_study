@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-28">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Compute Budgets Shape Models and Edge Systems — Semi Research 2026-11-28</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Saturday, November 28, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月28日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">Compute Budgets Shape Models and Edge Systems</span>
+      <span class="zh">计算预算塑造模型与边缘系统</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Four AI preprints examine token merging, initialization, trajectory reuse and hierarchical processing of model weights. An embedded-system prototype and a measured magnetometry study add hardware context; this candidate pool provides no new accelerator-silicon result for the selection.</span>
+      <span class="zh">4篇AI预印本考察token合并、初始化、轨迹复用和模型权重的层次化处理。另选边缘系统原型与磁测量实验提供硬件视角；本批候选中没有可纳入的新加速器芯片实测成果。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 6 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 6篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="ai-research">
+    <h2>
+      <span class="en">AI Models &amp; Compute Efficiency</span>
+      <span class="zh">AI模型与计算效率</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.34863" target="_blank" rel="noopener">
+          <span class="en">Training-free focus maps cut encoder FLOPs in long-video segmentation</span>
+          <span class="zh">免训练聚焦图降低长视频分割的编码器FLOPs</span>
+        </a>
+      </h3>
+      <p class="authors">Harsha Karipineni, Rajesh Reddy Chintha</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34863" target="_blank" rel="noopener">arXiv:2611.34863</a> · 2026-11-25T18:30:28Z</p>
+      <p class="summary">
+        <span class="en">A training-free focus map preserves detailed tokens around tracked objects while merging background tokens in a frozen DINOv3 encoder inside a trained Cutie segmenter. On LVOS V2 with ViT-S, the authors report a 2.76-point J&amp;F gain over ALGM 0.98 with 16% fewer counted encoder FLOPs, while remaining 1.0 point below the dense encoder. Motion-aware masks and a camera-compensated surprise check aim to prevent targets from being merged into the background. These are benchmark and operation-count results, not measured reductions in hardware latency or energy.</span>
+        <span class="zh">该方法在已训练的Cutie分割器中，为冻结的DINOv3编码器加入免训练聚焦图，保留跟踪目标周围的细粒度token，并合并背景token。作者报告，在LVOS V2的ViT-S实验中，相较ALGM 0.98，J&amp;F提高2.76个百分点，统计的编码器FLOPs减少16%，但仍比稠密编码器低1.0个百分点。运动感知掩码和相机运动补偿后的异常检查用于避免目标被误并入背景。这些属于基准测试与运算量统计结果，不能直接等同于硬件时延或能耗降幅。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.34816" target="_blank" rel="noopener">
+          <span class="en">Architecture transfer uses initialization to reshape optimization</span>
+          <span class="zh">架构迁移通过初始化改变优化过程</span>
+        </a>
+      </h3>
+      <p class="authors">Vighnesh Subramaniam, Boris Katz, Brian Cheung</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34816" target="_blank" rel="noopener">arXiv:2611.34816</a> · 2026-11-25T18:01:49Z</p>
+      <p class="summary">
+        <span class="en">This preprint aligns a target network&#x27;s initial representational geometry with a randomly initialized guide of a different architecture before downstream training. The guide receives no gradients and supplies no learned features or labels; the authors report transferring benefits associated with depth into shallower networks. That could help separate training-time architectural guidance from the structure retained for inference. The supplied abstract is truncated and gives no quantified accuracy, compute or deployment-latency gains.</span>
+        <span class="zh">这篇预印本在下游训练前，将目标网络的初始表征几何与另一种架构的随机初始化引导网络对齐。引导网络不接收梯度，也不提供学得特征或标签；作者报告，这种方法能将与深度相关的部分优化优势传递给较浅网络。这有助于探索将训练阶段的架构引导与推理时保留的网络结构分开设计。所提供摘要存在截断，未给出精度、计算量或部署时延改善的具体数字。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.34756" target="_blank" rel="noopener">
+          <span class="en">CARE-OPD targets rollout cost with selective trajectory replay</span>
+          <span class="zh">CARE-OPD通过选择性轨迹回放降低交互采样开销</span>
+        </a>
+      </h3>
+      <p class="authors">Haowen Hou, Gen Li, Ruilin Li, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34756" target="_blank" rel="noopener">arXiv:2611.34756</a> · 2026-11-25T17:27:31Z</p>
+      <p class="summary">
+        <span class="en">CARE-OPD combines student-seeded teacher completions, confidence filtering and outcome-informed prefix replay to reuse long-horizon agent trajectories. It targets the need for fresh environment rollouts at every on-policy distillation update, a source of idle time and repeated collection work. The authors report outperforming online OPD and earlier replay baselines on software-engineering and deep-research tasks. The supplied abstract gives no numerical wall-clock, GPU-utilization or energy improvement, so the systems benefit remains unquantified here.</span>
+        <span class="zh">CARE-OPD结合以学生模型生成历史为起点的教师续写、置信度过滤，以及依据后续执行结果分配的前缀回放，复用长时程智能体轨迹。它针对同策略蒸馏每次更新都依赖新环境交互采样的问题，后者会带来等待时间和重复采集开销。作者报告，该方法在软件工程和深度研究任务中优于在线OPD与此前的回放基线。所提供摘要未给出实际训练耗时、GPU利用率或能耗改善的数字，因此此处无法量化系统收益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.34726" target="_blank" rel="noopener">
+          <span class="en">Hierarchical graph metanetworks process neural weights at multiple scales</span>
+          <span class="zh">层次图元网络以多种粒度处理神经网络权重</span>
+        </a>
+      </h3>
+      <p class="authors">Ioannis Kalogeropoulos, Giorgos Bouritsas, Yannis Panagakis</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34726" target="_blank" rel="noopener">arXiv:2611.34726</a> · 2026-11-25T17:12:08Z</p>
+      <p class="summary">
+        <span class="en">Hierarchical Graph Metanetworks add pooling and unpooling that preserve permutation symmetry while moving between neuron-, layer- and block-level representations of a neural network. This addresses the cost of existing weight-processing metanetworks that operate on every neuron and weight, and the authors also extend the construction to Transformers. Coarser processing could reduce dependence on parameter-level graph operations when analyzing or adapting models. The supplied abstract ends before the evaluation results, preventing a numerical scalability or accuracy comparison.</span>
+        <span class="zh">层次图元网络加入保持置换对称性的池化与反池化操作，在神经元、层和模块等不同粒度的网络表示之间切换。该方法针对现有权重处理元网络需要逐一处理神经元与权重的开销，作者还将图构建方法扩展至Transformer。较粗粒度的处理有望减少模型分析或适配对参数级图运算的依赖。所提供摘要在评估结果之前截断，因此无法给出可扩展性或精度的数值比较。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="circuits">
+    <h2>
+      <span class="en">Embedded Systems &amp; Sensing</span>
+      <span class="zh">嵌入式系统与传感</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.34699" target="_blank" rel="noopener">
+          <span class="en">Magnetometry detects internal battery leakage down to about 1–3 mA</span>
+          <span class="zh">磁测量可检测约1至3 mA的电池内部漏电流</span>
+        </a>
+      </h3>
+      <p class="authors">Shaurya Shukla, Chengtong Zhang, Yinan Hu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34699" target="_blank" rel="noopener">arXiv:2611.34699</a> · 2026-11-25T16:54:34Z</p>
+      <p class="summary">
+        <span class="en">A fixed three-axis magnetoresistive sensor and a scanning stage map pouch-cell magnetic fields, detecting internal leakage of about 1–3 mA at rest. Two mechanically indented 600 mAh cells developed a decaying magnetic field at zero applied current, while an intact cell showed a linear field response from 10 to 420 mA. The measured asymmetry between charging and discharging offers a diagnostic signal that terminal measurements can miss. The setup uses three-layer magnetic shielding and a small damaged-cell sample, leaving production-line sensitivity and throughput unresolved.</span>
+        <span class="zh">研究以固定的三轴磁阻传感器和扫描位移平台绘制软包电池磁场分布，在静置状态下可检测约1至3 mA的内部漏电流。2块受到机械压痕损伤的600 mAh电池在外加电流为零时产生了随时间衰减的磁场，完好电池则在10至420 mA范围内呈线性磁场响应。充放电磁场的不对称性提供了端口测量可能遗漏的诊断信号。实验使用三层磁屏蔽，受损样本数量也较少，产线条件下的灵敏度和检测吞吐量仍待验证。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.34669" target="_blank" rel="noopener">
+          <span class="en">Raspberry Pi 3B prototype combines local pose monitoring with API-based tutoring</span>
+          <span class="zh">Raspberry Pi 3B原型结合本地姿态监测与API辅导</span>
+        </a>
+      </h3>
+      <p class="authors">Truyen T. Le, Vinh Dang Ngoc, Thai Bao Huynh</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.34669" target="_blank" rel="noopener">arXiv:2611.34669</a> · 2026-11-25T16:36:19Z</p>
+      <p class="summary">
+        <span class="en">This prototype runs MediaPipe Pose and OpenCV on a Raspberry Pi 3 Model B with 1 GB RAM, using a camera for local posture monitoring without persisting raw video. A finite-state machine tracks study activity, while a tutoring agent sends voice and text queries through an encrypted API gateway. The division illustrates how a constrained edge platform can combine local perception with externally accessed AI services. The supplied abstract is truncated and provides no measured frame rate, power consumption or end-to-end response latency.</span>
+        <span class="zh">该原型在配备1 GB RAM的Raspberry Pi 3 Model B上运行MediaPipe Pose与OpenCV，通过摄像头在本地监测姿态，且不持久化保存原始视频。有限状态机负责跟踪学习活动，辅导智能体则经加密API网关提交语音和文本查询。这种分工展示了资源受限的边缘平台如何将本地感知与外部AI服务结合。所提供摘要存在截断，未给出实测帧率、功耗或端到端响应时延。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-28 01:14 UTC · <a href="index.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-28 01:14 UTC · <a href="index.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

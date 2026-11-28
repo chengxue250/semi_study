@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-16">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Stresses Every Layer — Semi News 2026-06-16</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Tuesday, June 16, 2026</span>
+      <span class="zh">2026年6月16日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Stresses Every Layer</span>
+      <span class="zh">AI需求拉紧每一层供应链</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Packaging, memory, power delivery, cooling, and data-center siting are all becoming gating factors for the AI buildout. The day&#x27;s strongest stories point less to one chip winner than to a broader scramble for capacity around it.</span>
+      <span class="zh">封装、存储、供电、散热和数据中心选址都在成为AI扩张的约束。今天最重要的新闻不只是某一家芯片公司的胜负，而是围绕AI基础设施的全链条产能争夺。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQekFpcmZ5TmE0emhiS3hoU2pycjdsWlVsR0k1WHpKOWh3bGlMRnA5ZXgzMy1tNXlZYzJac3NIa2JjckZRa2trNU9SSTRFcUpOUFdOYWE3LXg1RGFLQ3FIcHlDNFV1QWZTLUltanM1UE94QjlBTFNMY0ZfY294ZlM2djFOVWxUQzU4TUxpN2FfNFlBZWlqSHhjWk5Da3pJaVNMSmZicEV1TU1uaEZrc2RvSlBvM1ZWTlpwTWhQTnVsLU1qdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nvidia&#x27;s $20 Billion Bond Draws $85 Billion in Orders</span>
+          <span class="zh">Nvidia 200亿美元债券获得850亿美元认购</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AD HOC NEWS</span> · 5h ago</span>
+        <span class="zh"><span class="source">AD HOC NEWS</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia&#x27;s planned $20 billion bond sale reportedly drew about $85 billion of investor orders. The scale of demand gives the company cheaper financial room as it spends heavily on AI systems, networking, and supply-chain commitments. It also shows that credit investors still treat AI infrastructure as a durable capital cycle, not only an equity-market story.</span>
+        <span class="zh">Nvidia计划发行的200亿美元债券据称获得约850亿美元认购。强劲需求为其AI系统、网络和供应链投入提供了更低成本的融资空间。这也说明，信贷投资者仍把AI基础设施视为持续资本开支周期，而不只是股票市场题材。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/cpus/amd-takes-over-mext-to-address-growing-memory-constraints-in-the-data-center-memory-tiering-technology-enables-flash-to-appear-as-dram-to-applications" target="_blank" rel="noopener">
+          <span class="en">AMD Buys MEXT to Add Memory Tiering for Data Centers</span>
+          <span class="zh">AMD收购MEXT，补强数据中心内存分层</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 6h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AMD acquired MEXT, a company behind Predictive Memory Engine technology that can move colder data from DRAM to NAND while presenting it to applications like memory. The deal targets one of AI infrastructure&#x27;s practical bottlenecks: DRAM capacity and cost. If AMD can integrate the software cleanly, it could make larger memory footprints more economical for server platforms without waiting for more physical DRAM.</span>
+        <span class="zh">AMD收购MEXT，后者的Predictive Memory Engine可把较冷数据从DRAM迁移到NAND，同时让应用把它视作内存使用。这笔交易瞄准AI基础设施的现实瓶颈之一：DRAM容量和成本。如果AMD能顺利整合该软件，服务器平台或可在不单纯增加物理DRAM的情况下获得更经济的大内存空间。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry</span>
+      <span class="zh">晶圆代工</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxQTUdtVUJvRlpjY2ZZUmhsV0EyTmt3VUhyNDBUNzV5VFU0ODVmSElpMUZyUWRHYndvSW02bEYxMkpDVVplR0VxTDVBMm9DMU95NkFSLVhnemZQV0RMRGF5dFRHYy1GWGx6c1JZT05qcEVnU2xfVVJrMWdjbklLVTl4RzFvTUJEWG1ISE5meVpMczNKOXhybTZJOEJKYl8wT1ZUb2NWcUxwSWZTLXZ2Sm95dU5SNTR5b040MHA3WFI5cTZhaU1FclNDZmlR?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC&#x27;s CoWoS Capacity Push Targets 140,000 Wafers a Month</span>
+          <span class="zh">TSMC CoWoS产能推进至每月14万片目标</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AD HOC NEWS</span> · 1h ago</span>
+        <span class="zh"><span class="source">AD HOC NEWS</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is reportedly ramping CoWoS advanced-packaging capacity toward 140,000 wafers a month for AI demand. That figure matters because packaging, not only leading-edge wafer starts, has become a hard constraint for GPU and custom-accelerator shipments. A faster CoWoS ramp would relieve some supply pressure for Nvidia, AMD, and hyperscaler ASIC programs, but it also raises the bar for substrate, interposer, and HBM ecosystem capacity.</span>
+        <span class="zh">TSMC据称正把CoWoS先进封装产能推向每月14万片，以满足AI需求。这个数字重要，因为限制GPU和定制加速器出货的不只是先进制程晶圆投片，封装也已成为硬约束。CoWoS加速扩产有助于缓解Nvidia、AMD和云厂商ASIC项目的供给压力，但也会继续拉高基板、中介层和HBM生态的配套要求。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/globalfoundries-first-chipmaker-to-support-open-standard-for-ai-scale-up/" target="_blank" rel="noopener">
+          <span class="en">GlobalFoundries Backs OCI MSA Silicon for AI Scale-Up</span>
+          <span class="zh">GlobalFoundries支持面向AI扩展的OCI MSA硅实现</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 3h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">GlobalFoundries says it is the first chipmaker with silicon support for the Optical Communication Interface Multi-Source Agreement, an open standard aimed at AI scale-up links. The move puts a specialty foundry into the interconnect layer of AI data centers rather than only the compute die. Open optical interfaces could matter if cluster growth shifts more bottlenecks from arithmetic throughput to rack-to-rack and board-level bandwidth.</span>
+        <span class="zh">GlobalFoundries称其率先提供支持Optical Communication Interface Multi-Source Agreement的硅实现，该开放标准面向AI scale-up连接。此举让特色代工厂进入AI数据中心互连层，而不只是制造计算芯片。如果集群扩张的瓶颈从算力进一步转向机架间和板级带宽，开放光互连接口会更关键。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOc2tmMVYydVppQ3Z5VXdMM2RjeWNOQTNzRmlkd1QzS2ZJTEpLZjYxV3p3WVN0cFR2YlBVQjJ1RmN2dWRaNlgza1NJa3dWWE5lSWVjMGV0bjV4elJBWW1rdDZwX2lPdTRvdFg5SjhicXlyTXIzYjhScUdtblBVSUE5LWcxQkRPREJWeGtJc0R1NGVpUzd0TXc?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK Hynix Reportedly Readies HBM4E Samples for Nvidia</span>
+          <span class="zh">SK hynix据称准备向Nvidia送样HBM4E</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DIGITIMES</span> · 3h ago</span>
+        <span class="zh"><span class="source">DIGITIMES</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix is reportedly preparing HBM4E samples for Nvidia while Samsung tries to close the gap in next-generation AI memory. Sampling timing matters because HBM qualification windows can determine who captures early accelerator ramps. The report also underlines that the AI memory race has moved beyond HBM3E supply into HBM4 and HBM4E roadmap credibility.</span>
+        <span class="zh">SK hynix据称正准备向Nvidia提供HBM4E样品，同时Samsung也在追赶下一代AI存储。送样节奏重要，因为HBM认证窗口往往决定谁能拿到早期加速器爬坡订单。这一消息也显示，AI存储竞争已经从HBM3E供给延伸到HBM4和HBM4E路线图可信度。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/aletheia-warns-hbm-prices-will-double-in-2027-as-memory-becomes-ais-most-critical-component/" target="_blank" rel="noopener">
+          <span class="en">Aletheia Warns HBM Prices Could Double in 2027</span>
+          <span class="zh">Aletheia警告HBM价格2027年或翻倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 7h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Aletheia Capital warned that HBM prices could double in 2027 as memory becomes a larger share of AI system value. The call highlights a shift in bargaining power toward Micron, SK hynix, and Samsung as GPU platforms consume more stacked DRAM per rack. The risk for accelerator buyers is that even if compute silicon supply improves, total system cost may remain pinned by HBM availability and pricing.</span>
+        <span class="zh">Aletheia Capital警告，随着存储在AI系统价值中的占比上升，HBM价格到2027年可能翻倍。这个判断凸显Micron、SK hynix和Samsung议价能力上升，因为每个机架需要更多堆叠DRAM。对加速器买家而言，即使计算芯片供给改善，整机成本仍可能被HBM供需和价格锁住。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/low-latency-wide-dram-adopts-hbm-design-to-bring-on-device-ai-in-smartphones/" target="_blank" rel="noopener">
+          <span class="en">Low Latency Wide DRAM Rumored for On-Device AI Phones</span>
+          <span class="zh">Low Latency Wide DRAM据传将用于端侧AI手机</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says Chinese smartphone makers are exploring Low Latency Wide DRAM that borrows from HBM&#x27;s integrated design, promising 1.5 times higher bandwidth with lower temperatures. The technology would not be true HBM, but it points to mobile AI workloads putting pressure on conventional LPDDR bandwidth. If Xiaomi, Huawei, or peers adopt it around 2027, handset memory packaging could become a more visible part of on-device AI differentiation.</span>
+        <span class="zh">报道称，中国智能手机厂商正在探索Low Latency Wide DRAM，借鉴HBM的集成式设计，并号称带宽提升1.5倍、温度更低。该技术并非真正HBM，但说明端侧AI负载正在给传统LPDDR带宽带来压力。如果Xiaomi、Huawei等厂商在2027年前后采用，手机存储封装可能成为端侧AI差异化的更明显环节。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxNajVSSVRaUDFWcmkzQW1rb21zMEQzSlMwWXR5YUp5ZHQ4ZHZNYktiNzYxZlVjNnc0azh5elZsYjFVY0tpdHR2Ykl1LVlLRDkwcjJacGVSeWx0NnNIRGJpcE5wTFU1YmV2UTNPZFlKWVc1M09JdkdlWFNVWUY5ZDJKLTVmTFRTaFVpbWk3djBSaw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Chip Cooling Approach Claims 10x Efficiency Record</span>
+          <span class="zh">芯片液冷技术称效率达到此前纪录10倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tech Xplore</span> · 2h ago</span>
+        <span class="zh"><span class="source">Tech Xplore</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A new liquid-cooling technology for semiconductor chips reportedly achieved 10 times the efficiency of the previous record. Thermal removal is becoming a system-level limiter as AI accelerators push power density higher in packages and racks. Even if the work is still early, cooling efficiency gains can change rack design, power provisioning, and the economics of high-density AI deployments.</span>
+        <span class="zh">一项面向半导体芯片的液冷技术据称效率达到此前纪录的10倍。随着AI加速器在封装和机架层面持续提高功率密度，散热已成为系统级限制因素。即便该技术仍处早期，冷却效率提升也可能改变机架设计、供电规划和高密度AI部署成本。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/datacenters-outstripping-power-grid-forcing-nvidia-google-into-a-radical-800v-dc-overhaul/" target="_blank" rel="noopener">
+          <span class="en">Nvidia and Google Push Toward 800V DC Data-Center Power</span>
+          <span class="zh">Nvidia和Google推进800V DC数据中心供电</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia and Google are reportedly preparing next-generation 800V DC infrastructure for high-density AI data centers by Q3 2026. The shift reflects a basic physics problem: AI racks are drawing enough power that conventional distribution architectures lose efficiency and space. For power-semiconductor suppliers, high-voltage DC conversion is becoming part of the AI hardware stack rather than a back-office facility detail.</span>
+        <span class="zh">Nvidia和Google据称正为高密度AI数据中心准备下一代800V DC基础设施，时间点指向2026年第三季度。此举反映出基本物理约束：AI机架功耗已经高到让传统配电架构在效率和空间上承压。对功率半导体供应商而言，高压直流转换正成为AI硬件栈的一部分，而不只是机房后端设施。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy</span>
+      <span class="zh">政策</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/multiple-small-tennessee-counties-pass-temporary-data-center-bans-nashville-also-passed-near-unanimous-moratorium-on-first-reading" target="_blank" rel="noopener">
+          <span class="en">Tennessee Counties Pass Temporary Data-Center Bans</span>
+          <span class="zh">田纳西多地通过临时数据中心禁令</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Several small Tennessee counties have passed temporary data-center bans, and Nashville approved a near-unanimous moratorium on first reading. The measures show local resistance forming around power, land, and water use as AI infrastructure spreads beyond traditional data-center markets. For chip demand, these siting fights matter because accelerator deployments ultimately need grid connections and local permits, not only silicon supply.</span>
+        <span class="zh">田纳西多个小县已通过临时数据中心禁令，Nashville也在一读中以接近全票通过暂停措施。这些行动显示，随着AI基础设施扩展到传统数据中心市场之外，围绕电力、土地和用水的地方阻力正在形成。对芯片需求而言，选址争议同样关键，因为加速器部署最终需要电网接入和地方许可，而不只是芯片供给。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">挑战者</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNR0ljTjZ4bktyVGo3d0ZyVDNITV9ITF8zbEhWcE1TajR6TVpLQ3c2NGU5TS1fdElBekdzLWRsUnp4OVQwYTJ5VC1NVkdxQXR0aV9JZVpJZ0JfMnYwRE1DVE9hbkh1cmk2YjZzOHExWlFsX3RNbHhBSThZc2JfS2dhX054TzFFN3ZyOEQzeVZOenh0WVBVZ2dmT19iSkN6Zw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Qualcomm Reportedly in Talks to Buy Tenstorrent</span>
+          <span class="zh">Qualcomm据称洽购Tenstorrent</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 3h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Qualcomm is reportedly in talks to buy Tenstorrent, according to The Information and Reuters-linked coverage. The potential deal would give Qualcomm a route deeper into AI accelerator silicon and Jim Keller&#x27;s RISC-V-centered design effort. It would also signal that larger chip vendors may prefer buying credible AI hardware teams instead of building every accelerator stack internally.</span>
+        <span class="zh">据The Information和Reuters相关报道，Qualcomm正在洽谈收购Tenstorrent。这笔潜在交易将让Qualcomm更深入进入AI加速器硅片领域，并获得Jim Keller主导的RISC-V设计团队。它也表明，大型芯片厂商可能更愿意收购已有可信度的AI硬件团队，而不是完全自建每一层加速器栈。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/tensordyne-napier-ai-processor-announced-with-logarithmic-math/" target="_blank" rel="noopener">
+          <span class="en">Tensordyne Announces Napier AI Processor Built Around Logarithmic Math</span>
+          <span class="zh">Tensordyne发布基于对数数学的Napier AI处理器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 1h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tensordyne announced the Napier AI processor, an inference-focused accelerator built around logarithmic math and a 72-accelerator architecture. The design is another attempt to attack AI inference by changing the numeric representation rather than only scaling conventional matrix engines. The commercial question is whether software support and model accuracy can match the claimed efficiency advantages.</span>
+        <span class="zh">Tensordyne发布Napier AI处理器，这是一款面向推理的加速器，核心思路是对数数学和72个加速器架构。该设计再次尝试通过改变数值表示来优化AI推理，而不只是扩大传统矩阵引擎。商业化关键在于软件支持和模型精度是否能支撑其宣称的效率优势。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-16 01:11 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-16 01:11 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

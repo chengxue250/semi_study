@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-06">
+<meta name="generator" content="semi-news-daily">
+<title>AI Deployment Meets Power and Access Constraints — Semi News 2026-11-06</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, November 6, 2026</span>
+      <span class="zh">2026年11月6日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">AI Deployment Meets Power and Access Constraints</span>
+      <span class="zh">AI部署遭遇供电与准入约束</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Nvidia&#x27;s reported Hong Kong inventory and Micron&#x27;s Taiwan construction pause put deployment and expansion constraints in focus. Power-intensive rack plans and a broad chip-stock selloff add pressure to the industry&#x27;s AI growth assumptions.</span>
+      <span class="zh">据报道，Nvidia芯片在香港积压，Micron台湾项目因劳资纠纷暂停施工，算力部署与存储扩产的约束进一步显现。高功率机架的供电需求与芯片股普跌，也让产业界对AI增长预期的审视更加严格。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/nvidia-kyber-rubin-ultra-nvl576-600kw-power-consumption-data-center-bottleneck/" target="_blank" rel="noopener">
+          <span class="en">Nvidia&#x27;s Planned Kyber Racks Put Power Infrastructure Under Pressure</span>
+          <span class="zh">Nvidia拟推出的Kyber机架考验数据中心供电</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 4h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia&#x27;s planned Kyber racks, built around Rubin Ultra NVL576, could strain data-center electrical infrastructure, Wccftech reports. The article compares their potential electricity demand with that of 500 homes, highlighting why rack power delivery must be planned alongside accelerator procurement. The comparison concerns upcoming hardware and should be understood as a projection.</span>
+        <span class="zh">据Wccftech报道，Nvidia计划推出基于Rubin Ultra NVL576的Kyber机架，其用电需求可能给数据中心电力基础设施带来压力。报道将其潜在耗电量与500户家庭相比，说明采购加速器时也需同步规划机架供电。这一比较针对尚未推出的硬件，属于预测。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE1fU2pxOEh3TThqSDFQSUpQdnVRUFNRaHloM29IMXc4a1VFakluUkd6eElUcjBMM0QzY0tDWWRZR3h1WGdfTnpYbGtuUHZERDBVOUtYNEt0R1pOVWJjbGVfazEzb1BzT2RXNWNqanpEYjA3OWpoT2c?oc=5" target="_blank" rel="noopener">
+          <span class="en">Vera Rubin Reportedly Targets Up to 30x Inference Throughput With 3% More GPU Memory</span>
+          <span class="zh">据报道，Vera Rubin每GPU显存增3%，推理吞吐量最高可达30倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo Finance</span> · 8h ago</span>
+        <span class="zh"><span class="source">BigGo Finance</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia&#x27;s Vera Rubin platform reportedly delivers up to 30x inference throughput with only 3% more memory per GPU, according to BigGo Finance. The comparison puts efficient use of memory alongside capacity expansion as a system-design priority. The supplied excerpt identifies neither the workload nor the comparison baseline, limiting how broadly the headline ratio can be applied.</span>
+        <span class="zh">据BigGo Finance报道，Nvidia Vera Rubin平台在每颗GPU显存容量仅增加3%的情况下，推理吞吐量最高可达对比基线的30倍。这一比较将显存使用效率与容量扩展并列为系统设计的重点。候选摘要未说明具体工作负载和对比基线，因此不能将这一倍数直接推广到所有推理场景。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/tsmcs-1-nanometer-chip-making-site-could-be-in-a-science-park-that-also-manufactures-components-for-space-use-imply-taiwanese-officials-statements/" target="_blank" rel="noopener">
+          <span class="en">Taiwanese Official&#x27;s Remarks Point to Tainan as a Possible TSMC 1nm Site</span>
+          <span class="zh">台湾官员讲话暗示台南可能承接台积电1nm厂址</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Remarks by a Taiwanese science official point to a Tainan science park as a possible location for TSMC&#x27;s 1nm manufacturing plans, Wccftech reports. The discussion concerns resource and site planning, which shape the infrastructure available for future process-node expansion. A TSMC-confirmed fab location and production timetable remain unestablished in the supplied account.</span>
+        <span class="zh">据Wccftech报道，台湾科技主管部门官员的讲话暗示，台南一处科学园区可能成为台积电1nm制造计划的选址。相关讨论涉及资源与园区规划，将影响未来先进制程扩产所需的基础设施条件。候选报道尚未提供由台积电确认的厂址和量产时间表。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9YYWVyWTlEYWc3NTEwdjZ1OWI0bHhfcE5aY3g1M21nRzNDclZPdEh2WUpMQ1BKNlhBOW5pV29lc0N6MWFPR3FETkZBQkpCR3lXaDgwVW5nalp4cEpseGRSX1I1Q0ItNDJOS0FveU1yMVZFeE9ZdWc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron Reportedly Pauses $4.5 Billion Taiwan Plant Work After Labor Dispute</span>
+          <span class="zh">据报道，Micron因劳资纠纷暂停45亿美元台湾厂项目施工</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Taipei Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">Taipei Times</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Micron has paused work on a $4.5 billion Taiwan plant following a labor dispute, the Taipei Times reports. The interruption adds schedule risk to memory expansion, with the supplied report giving no restart date or quantified effect on output.</span>
+        <span class="zh">据《台北时报》报道，Micron因劳资纠纷暂停一项投资45亿美元的台湾工厂项目施工。停工为存储扩产带来工期风险；候选报道未提供复工时间，也未量化对产出的影响。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/3dic/375726-glass-is-becoming-an-ai-infrastructure-platform/" target="_blank" rel="noopener">
+          <span class="en">Glass Substrates Face the Manufacturing Test for AI Packaging</span>
+          <span class="zh">玻璃基板面临AI封装的规模化制造考验</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 7h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SemiWiki examines how glass substrates could expand the design space for advanced packages as AI infrastructure grows. Its central test is whether those architectural options can be reproduced reliably at manufacturing scale. For packaging suppliers, repeatable production will determine how far material advantages translate into usable AI systems.</span>
+        <span class="zh">SemiWiki分析指出，随着AI基础设施扩张，玻璃基板有望拓宽先进封装的架构设计空间。核心考验在于，这些设计选择能否在规模化制造中稳定复现。对封装供应商而言，生产一致性将决定材料优势能在多大程度上转化为可用的AI系统。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOOEJxbHQ0NEdjTlJWUFg3RjgxcG1wc0NBdjdLd2pzYTlBM29DWF90X3o1NHhlNEdSYktEU2lCakpOVkd4c095YVczMWkwTF9rVDJNWGcyd0VOaVlCaTAwTklXLUR6LXhlaE5vUEhvRnJoNFZxUm1yTVJjaW1MUjZCclpLbjR2MU5MYmJkVUhZT3psTXJjNzNmbTFZY2k1Skp1bHlhS0wwZXN3Q2NlNTlueEFzemZkaGo4TmxjOUN3clBFWDI1UGdiUmtOamNNVXZMS1l6M9IB2gFBVV95cUxPa1VBRmdaclNTVXdkNEpUaHNmSlVGeWdydElRbjJRbWV2WUxOU1EySHREdWtmOHh0d3NhaFJacGZiS1hrYW5yV0gxcVNydDEyZjFaU3A2VXhQUVRLZ3ljT3dsTWdJMVVGNUs5UXluUDVBYmxwZjNSRWtZRGVUcWpiOERwTUhoWmZOeDY4cHpNVVZrY09oOUxUUV85UlYxZm1BN2MzcnI1QTVLdnViZGNEd1BHeFRvWTJHVklDSVUzSXNNWVhNcVhIWEcxOG9reDMtLUxpd0J1blFLdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Nearly 600,000 Nvidia H200 Chips Reportedly Await Chinese Import Approval in Hong Kong</span>
+          <span class="zh">据报道，近60万颗Nvidia H200在香港等待中国进口批准</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Firstpost</span> · 7h ago</span>
+        <span class="zh"><span class="source">Firstpost</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nearly 600,000 Nvidia H200 chips are reportedly stockpiled in Hong Kong as Beijing delays import approval, according to Firstpost. If confirmed, the inventory shows how import clearance can constrain AI deployments even when chips are physically available.</span>
+        <span class="zh">据Firstpost报道，因北京方面迟迟未批准进口，近60万颗Nvidia H200芯片积压在香港。若报道属实，这批库存说明，即使芯片已到货，进口审批仍可能成为AI算力部署的制约因素。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/policy/chinese-ai-lab-moonshot-reportedly-looked-at-european-data-centers-to-access-nvidia-chips-report-claims-kimi-maker-primarily-interested-in-inferencing-capacity-but-also-asked-about-training-clusters" target="_blank" rel="noopener">
+          <span class="en">Moonshot Reportedly Explores European Capacity for at Least 8,000 Blackwell GPUs</span>
+          <span class="zh">据报道，Moonshot考察欧洲数据中心，拟租用至少8000颗Blackwell GPU</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Moonshot reportedly explored European data centers and was interested in renting at least 8,000 Nvidia Blackwell GPUs, according to Tom&#x27;s Hardware. The reported interest connects chip-access restrictions with demand for large overseas GPU clusters, while leaving the status of any rental agreement unresolved.</span>
+        <span class="zh">据Tom&#x27;s Hardware报道，Moonshot曾考察欧洲数据中心，并有意租用至少8000颗Nvidia Blackwell GPU。这一动向显示，芯片获取限制正与大型海外GPU集群的租用需求产生联系，但候选报道未确认是否已签订租赁协议。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/semiconductors/india-targets-creating-homegrown-gpus-within-2-years-and-plans-to-commercialize-indigenous-shakti-and-vega-risc-v-processors-sees-ai-boom-as-a-potential-repeat-of-the-y2k-opportunity-for-its-it-industry" target="_blank" rel="noopener">
+          <span class="en">India Targets a Homegrown GPU in Two Years and RISC-V Processor Commercialization</span>
+          <span class="zh">印度争取两年内开发国产GPU，并推动RISC-V处理器商业化</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">India aims to develop a homegrown GPU in approximately two years under Semiconductor Mission 2.0, MeitY Secretary S. Krishnan said. The country also plans to commercialize its SHAKTI and VEGA RISC-V processors and expand domestic server production. The effort links processor development with local computing-system manufacturing, while the GPU schedule remains a development target.</span>
+        <span class="zh">印度电子和信息技术部秘书S. Krishnan表示，印度计划在Semiconductor Mission 2.0框架下，争取用约两年时间开发国产GPU。印度还计划推动SHAKTI和VEGA RISC-V处理器商业化，并扩大本土服务器生产。这一布局将处理器开发与本地计算系统制造相衔接，其中两年的GPU时间表仍是研发目标。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxONHl2NGdNTktidnF4NHN0Y09CeWFCVHNmT25LbzlBeGZjWDV5MGJHRmhEVGFTMS1tbDJtMnpPaEl1bmN6UFNDbXFjZzJjWkRmd3ROWnFZdE12Ynh5ZWFIQXM0WVpFdE9iUjBWb0wyX3VQUFJqal9KaGZoQkF1U2Nrc0VmUmNCNEk3TjBWLVZ6UUJuakYzY2NYYXRucW45M3hDclNNNzdscEc1QQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Chip Stocks Suffer Their Worst Day Since 2020, Benzinga Reports</span>
+          <span class="zh">Benzinga称芯片股创2020年以来最差单日表现</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Benzinga</span> · 1h ago</span>
+        <span class="zh"><span class="source">Benzinga</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Semiconductor shares suffered their worst trading day since 2020, with 28 of the 30 largest names in bear-market territory, Benzinga reports. The breadth of the decline makes the selloff a sector-wide repricing and increases attention on whether forthcoming results support existing growth expectations.</span>
+        <span class="zh">据Benzinga报道，半导体股票创下2020年以来最差单日表现，规模最大的30家公司中已有28家股价进入熊市区间。如此广泛的下跌意味着市场正在对整个板块重新定价，也使后续财报能否支撑既有增长预期更受关注。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTjB1aFhlUFZxelhBdERkdmlLM2FxeERjRzZzMmdWNHVGd0pWT1h3MVJRZzdESC1DX0ljR0t6ZTVYRWtYM3FyanhsSkRHdEtzdG4za3VUUm9yNWNUZjRnc3kxU1BfdHVPcXl3ekVUY3hDdmZFSkZhXzJ0WDhhTVJLeVBZQWhhWS1NakFfY25WeDJoVWlvLW5vSDdLVGV1b3oxcnlXX21DNldMdlE?oc=5" target="_blank" rel="noopener">
+          <span class="en">Supermicro Selects SambaNova for AI Inference Racks Alongside Nvidia Offerings</span>
+          <span class="zh">Supermicro采用SambaNova构建AI推理机架，扩充Nvidia之外的产品选择</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Fierce Network</span> · 8h ago</span>
+        <span class="zh"><span class="source">Fierce Network</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Supermicro has selected SambaNova for AI inference racks alongside its Nvidia offerings, Fierce Network reports. The tie-up gives another accelerator supplier a route into complete server systems, making system-level availability part of the competition for inference workloads.</span>
+        <span class="zh">据Fierce Network报道，Supermicro采用SambaNova构建AI推理机架，与其Nvidia产品并行提供。这一合作让另一家加速器供应商进入完整服务器系统的供应渠道，也使整机交付能力成为推理市场竞争的一部分。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/ip/ceva/375820-ceva-and-mobilint-bring-physical-ai-closer-to-everyday-devices/" target="_blank" rel="noopener">
+          <span class="en">Mobilint&#x27;s REGULUS Combines Ceva DSP and NPU IP in an Edge AI SoC</span>
+          <span class="zh">Mobilint REGULUS在边缘AI SoC中集成Ceva DSP与NPU IP</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 9h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Mobilint&#x27;s REGULUS edge AI SoC combines Ceva&#x27;s SensPro AI DSP and NeuPro-Nano NPU, SemiWiki reports. The article describes a first production deployment, linking the signal-processing and neural-compute IP to a commercial edge chip. This gives device designers another integrated platform to assess for on-device AI, although the excerpt supplies no measured performance or power figures.</span>
+        <span class="zh">据SemiWiki报道，Mobilint的REGULUS边缘AI SoC集成了Ceva SensPro AI DSP与NeuPro-Nano NPU。文章将其描述为首次量产部署，使相关信号处理和神经计算IP进入商用边缘芯片。设备设计者由此多了一个可评估的端侧AI集成平台，但候选摘要未提供实测性能或功耗数据。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-06 01:13 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-06 01:13 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

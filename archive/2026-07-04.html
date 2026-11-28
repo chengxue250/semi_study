@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-07-04">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Tests the Supply Stack — Semi News 2026-07-04</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, July 4, 2026</span>
+      <span class="zh">2026年7月4日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Tests the Supply Stack</span>
+      <span class="zh">AI需求考验供应链全栈</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI demand is pulling on every layer at once: domestic accelerator clusters, DRAM pricing, power fabs, probe infrastructure, and raw-material controls. The day&#x27;s stories show capacity becoming strategic leverage, but no single policy or supplier can remove the bottleneck alone.</span>
+      <span class="zh">AI需求正在同时拉紧每一层供应：国产加速器集群、DRAM价格、功率半导体晶圆厂、探针基础设施以及原材料管制。今天的新闻显示产能正在变成战略筹码，但没有单一政策或供应商能够独自解除瓶颈。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE01VjQ2T0xnZzZrYVByc1VOanNEa0xydXR5enhhUVY3WjRMMmhiaC13dUJYU0lZMXFBMG5iQmRMaW5ka1Q3U3c4bnFieURjNFFpRUZBenlWOFBtdXNlM0hmVlNKYi1JS1lxYVdEd0JvSEczbnpEX0Zz?oc=5" target="_blank" rel="noopener">
+          <span class="en">Meituan trains a 1.6T-parameter model on 50,000 domestic chips</span>
+          <span class="zh">美团使用50,000颗国产芯片训练1.6万亿参数模型</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing</span> · 10h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Meituan reportedly trained a 1.6 trillion-parameter AI model on 50,000 domestic chips, framing the run as a workaround to U.S. export controls. The report matters because it points to Chinese internet firms building large clusters around local silicon instead of waiting for unrestricted access to Nvidia-class parts. It does not prove performance parity, but it shows that scale-out architecture is becoming part of the export-control contest.</span>
+        <span class="zh">报道称，美团使用50,000颗国产芯片训练了一个1.6万亿参数AI模型，并将其视为绕开美国出口管制的路径。其意义在于，中国互联网公司正在围绕本土硅片搭建大型集群，而不是等待不受限制地获得Nvidia级别器件。这并不证明性能已经对等，但说明横向扩展架构正成为出口管制博弈的一部分。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxQMUZISHhiakI0Tk95WXE1TUFOZ3FBUDNCQnJWT05QVFM2d1NHZjJ5TWdVZlJyY09tUF9hOWExTFN4ZDdBQzdFSjc5M2hqMXlKRTdvc2psNDBScFNpQ1M0SHpTdkNEcWJmNE9xSFNuTWJnLW8wVEZjRll0Qk4zLVNDTjB5UDJCUnI5dmRMd0NweHh5SHAyQTlFX2lR?oc=5" target="_blank" rel="noopener">
+          <span class="en">Germany opens a $5.7B power semiconductor fab</span>
+          <span class="zh">德国启用一座57亿美元功率半导体晶圆厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Interesting Engineering</span> · 1h ago</span>
+        <span class="zh"><span class="source">Interesting Engineering</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Germany opened a power semiconductor fab backed by a $5.7 billion investment, with the source describing it as the world&#x27;s largest facility of its kind. The project adds European capacity in a segment tied to EVs, industrial drives, energy systems, and grid hardware rather than leading-edge logic. It also shows that regional semiconductor policy is spreading beyond advanced-node foundry capacity into power devices and industrial resilience.</span>
+        <span class="zh">德国启用了一座投资57亿美元的功率半导体晶圆厂，原报道称其为同类设施中全球最大。这一项目增加的是与电动车、工业驱动、能源系统和电网硬件相关的欧洲产能，而非最先进逻辑制程。它也说明区域半导体政策正在从先进制程代工扩展到功率器件和工业韧性。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxONmRIRHhFS1lFYl9MQXZ5Vmhsd1hYclZaNmZOY05OZ3RGMzFWV0ktdDJhaHhWT09HVUpZQXFfM0tmT3VlUDVTdmEyQXF1UGdwODJJanlKRmc4MjlzNWVtMWlDek9Yd3lCWjdvandNV2xCYVJ6WHFNQVh5N1l0RG9udkozWTl4M0dNWFBrT0g5YW82eE03THVkdU9GcnNRY1lyemlfX0VIM1ZZTnJfMXBfZlVkMlhsUDg?oc=5" target="_blank" rel="noopener">
+          <span class="en">India advances a $13.2B semiconductor push with a chip research hub</span>
+          <span class="zh">印度以芯片研究中心推进132亿美元半导体计划</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">gasworld</span> · 10h ago</span>
+        <span class="zh"><span class="source">gasworld</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">India advanced a $13.2 billion semiconductor program with a new chip research hub. The move adds an R&amp;D layer to a national effort that has mostly been measured through fab, assembly, and subsidy announcements. For suppliers, the signal is that India wants a broader domestic stack, not only imported tools placed inside subsidized shells.</span>
+        <span class="zh">印度通过新的芯片研究中心推进一项132亿美元半导体计划。这为一个过去更多由晶圆厂、封装和补贴公告衡量的国家项目增加了研发层。对供应商而言，这释放的信号是印度希望建设更完整的本土栈，而不只是把进口设备放进补贴厂房。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://wccftech.com/ubs-doubles-its-dram-price-forecast-as-memory-demand-outpaces-supply-by-17-points-through-2027/" target="_blank" rel="noopener">
+          <span class="en">UBS doubles its DRAM price forecast as shortages stretch toward 2028</span>
+          <span class="zh">UBS上调DRAM涨价预期，短缺或延续至2028年</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 9h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">UBS doubled its DRAM price forecast and said demand could outpace supply by 17 percentage points through 2027, with market tightness potentially lasting until the second quarter of 2028. The forecast aligns with TrendForce&#x27;s view that third-quarter shortages remain severe, even if consumer-price sensitivity slows the rate of increase. For AI servers, the implication is that memory remains a gating input rather than a passive commodity line item.</span>
+        <span class="zh">UBS将DRAM价格预测上调一倍，并称到2027年需求可能比供应高出17个百分点，市场紧张可能持续到2028年第二季度。这与TrendForce关于三季度DRAM仍严重短缺的判断相符，尽管消费端价格敏感度可能放缓涨幅。对AI服务器而言，存储仍是限制投入，而不是被动的商品化成本项。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/dram/samsung-sk-hynix-and-micron-face-a-third-dram-price-fixing-lawsuit" target="_blank" rel="noopener">
+          <span class="en">Samsung, SK hynix, and Micron face a new DRAM price-fixing lawsuit</span>
+          <span class="zh">Samsung、SK hynix与Micron面临新的DRAM价格操纵诉讼</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 11h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung, SK hynix, and Micron are facing another U.S. antitrust class action over alleged DRAM price-fixing, with 17 plaintiffs suing in the Northern District of California in late June. The twist is HBM allocation: unlike older DRAM cases, AI-driven capacity choices may become part of the argument about supply discipline and pricing power. The case does not establish wrongdoing, but it raises legal risk just as memory margins are expanding.</span>
+        <span class="zh">Samsung、SK hynix和Micron在美国面临新的反垄断集体诉讼，17名原告已于6月下旬在加州北区联邦法院起诉，指控DRAM价格操纵。新的变量是HBM分配：与早期DRAM案件不同，AI驱动的产能选择可能进入关于供给纪律和定价能力的论证。该案件本身并不证明违规，但在存储利润率扩张之际增加了法律风险。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxQX2NIZThNdHRxLTBmemZZcVc5ejVDUUhfaFFUcDNKVUY1WlZPQXpEeklINDlsQTRaNFItbXhxcEJuVUlqQ1Z2OENab0JiUnJHUXBGVnM5VDBJSTZWTTNuUjJUc2UxMm9nOWNsaDZuUEdTZ1dsZ3BFRlN1UmZOLWRVc28wSnJPY2lQbjMtWnNKUUI?oc=5" target="_blank" rel="noopener">
+          <span class="en">CXMT reportedly lands a $3B Tencent memory deal</span>
+          <span class="zh">报道称CXMT获得腾讯30亿美元存储订单</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Memeburn</span> · 8h ago</span>
+        <span class="zh"><span class="source">Memeburn</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CXMT reportedly landed a $3 billion memory deal with Tencent as Chinese AI infrastructure buyers look deeper into the domestic supply chain. If confirmed, the order would give CXMT a large anchor customer outside commodity PC and mobile DRAM cycles. It also links memory localization directly to AI training and inference capacity, not just to import substitution policy.</span>
+        <span class="zh">报道称，CXMT获得了腾讯30亿美元存储订单，显示中国AI基础设施买家正在更深入地转向本土供应链。如果属实，该订单将为CXMT带来一个超越PC和手机DRAM周期的大型锚定客户。它还把存储国产化直接连接到AI训练和推理产能，而不仅是进口替代政策。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNeWdUd0JzTndXUGRXY2NvZDV5dEJNUmkzVmUxYkxPbHdYNkdfWmhLemREajVOZnFON1lVTnBzanVVaUdFa1NDSGdOcWEzMFBnVFNiVFJaeHliNy1MeXhSMTdUbXpTNjRSS1Z1YzNZOUVjUFpmZnVMY0Riem5TZW1pdThwcW5WX01DRkoxYkwzcnd1QWw2VlhyRFpFQWtkN3dVT2paWTlod1k?oc=5" target="_blank" rel="noopener">
+          <span class="en">FormFactor wins a $24.2M grant for a U.S. semiconductor facility</span>
+          <span class="zh">FormFactor获得2420万美元美国半导体设施补助</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">gasworld</span> · 9h ago</span>
+        <span class="zh"><span class="source">gasworld</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">FormFactor won a $24.2 million grant tied to a U.S. semiconductor facility. The dollar amount is small next to fab subsidies, but wafer probe and test capacity are critical once advanced packaging and high-value AI parts enter production. The award is another reminder that resilient semiconductor supply chains depend on metrology, probe, and test infrastructure as much as on headline wafer capacity.</span>
+        <span class="zh">FormFactor获得了一笔与美国半导体设施相关的2420万美元补助。与晶圆厂补贴相比金额不大，但当先进封装和高价值AI器件进入量产时，晶圆探针和测试能力十分关键。这项补助再次说明，半导体供应链韧性不仅取决于晶圆产能，也取决于量测、探针和测试基础设施。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNZFVUdE14cjhPcWFYM2hTYlp0a1Z5RnYycnZid2pQb0V3TXFvTTl4cDRyREVqN1JtaS1qdWtkb1hyWWpibFFyMG1teHRuWWdwSk9FRVA5YXQzbjBTSnlKQ0lTcTgxZGtLTkxjTEMtdUo2SnlFLVhLMFZzckhyZzBmaUZuRmtMU2NZZzZVdjFxN2wyamR0dVc4VU9sNEFRWjROLWRLVWdJMA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Chipmakers push back on broad White House memory-market intervention</span>
+          <span class="zh">芯片厂商反对白宫广泛干预存储市场</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SiliconANGLE</span> · 1h ago</span>
+        <span class="zh"><span class="source">SiliconANGLE</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Chipmakers are urging the White House to avoid broad intervention in the memory market. The pushback comes as AI demand tightens DRAM and HBM supply, making memory a policy target as well as a pricing story. It suggests suppliers want Washington to focus on capacity and resilience without turning memory allocation into an administered market.</span>
+        <span class="zh">芯片厂商正敦促白宫避免对存储市场进行广泛干预。此举发生在AI需求拉紧DRAM和HBM供给之际，使存储同时成为政策目标和价格议题。这表明供应商希望华盛顿聚焦产能和韧性，而不是把存储分配变成行政化市场。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxPbDhwMTVEdXdsUl9sdDlUdkJRMWRobmcxYk4wQmJrdVR5dWczZ2E1cVhTNW5qcHRsZnd6cVRjOTZjX3NtYVRTOURtVEx1dmNYVHNsUEVJYnFCVUFDVnM0S1NwMU1MelpkNkcxQ2EtVGE4eVI4NGsta194LXhTY2F1bW1ZNDJGRUdhajIzLWs0aGZrSVVqVGdtM2VaY2ZlY1NQaE9XZ2pWS3d6ZmQzaXVCY3dIWUNLRnhTalJybXFIX2tBenRBNVFjM3V1RzhMNkdWVG1rbThVdEE4YlQzWW5v?oc=5" target="_blank" rel="noopener">
+          <span class="en">Rare-earth export controls rise on Europe&#x27;s chip-risk list</span>
+          <span class="zh">稀土出口管制升上欧洲芯片风险清单</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Rare Earth Exchanges</span> · 9h ago</span>
+        <span class="zh"><span class="source">Rare Earth Exchanges</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Europe&#x27;s chip industry is warning that rare-earth export controls now rank among its major strategic risks. The concern widens the semiconductor policy map from lithography tools and advanced chips to upstream materials with fewer substitutes. For European manufacturers, the issue is not only access to fabs, but whether the materials base can absorb geopolitical shocks.</span>
+        <span class="zh">欧洲芯片行业警告称，稀土出口管制已成为其主要战略风险之一。这把半导体政策版图从光刻设备和先进芯片扩展到替代来源更少的上游材料。对欧洲制造商而言，问题不只是能否获得晶圆厂产能，还包括材料基础能否承受地缘政治冲击。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE4yRlFuSi00X1A5VnlLVUJ6OHhSQVFLRXp0NkowYjZ6bndzLXZBR3RaYW1fdVN0LXVtdHBWQ1R0cTg3Vy1xQTRTamRDcWxSdVZHSHBYZGp0NmRpbFhyY3gxX1RFVWp4V0NCYVN0bVY1TXkxdw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Washington&#x27;s AI export-control model draws fresh criticism</span>
+          <span class="zh">华盛顿AI出口管制模式再遭批评</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Foreign Policy in Focus</span> · 8h ago</span>
+        <span class="zh"><span class="source">Foreign Policy in Focus</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A new policy analysis argues that Washington&#x27;s AI export-control approach has not held as intended. The critique lands alongside reports of domestic Chinese training clusters and local memory procurement, both of which point to adaptation rather than a simple supply cutoff. The policy question is shifting from whether controls can block hardware flows to whether they can slow system-level capability growth.</span>
+        <span class="zh">一篇新的政策分析认为，华盛顿的AI出口管制路径并未按预期维持效果。这一批评与中国本土训练集群和本地存储采购的报道同时出现，二者都指向适应性调整，而不是简单的供应切断。政策问题正在从管制能否阻断硬件流动，转向能否减缓系统级能力增长。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/cpus/intel-confirms-price-hikes-on-select-consumer-and-server-cpus-citing-supply-costs-and-demand-select-xeon-processors-now-over-usd1-000-more-expensive" target="_blank" rel="noopener">
+          <span class="en">Intel raises prices on selected Core Ultra and Xeon processors</span>
+          <span class="zh">Intel上调部分Core Ultra与Xeon处理器价格</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 10h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel confirmed price increases on selected consumer and server CPUs, citing market dynamics, rising costs, and strong demand. Some Xeon processors are now more than $1,000 more expensive, according to the report. The move gives Intel room to defend margins, but it also raises platform costs for customers still balancing CPU supply, accelerator purchases, and data-center budgets.</span>
+        <span class="zh">Intel确认上调部分消费级和服务器CPU价格，理由包括市场动态、成本上升和需求强劲。报道称，部分Xeon处理器涨价幅度超过1,000美元。这一举措有助于Intel维护利润率，但也会提高客户的平台成本，尤其是在CPU供给、加速器采购和数据中心预算之间权衡的客户。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE1MQ25iMnh6NTczdkJtV1lIeGpoaUlCNjNCcVJkNmZTLUdYSVhDT1NDb0JwQ0V5VXJRWS1zOXRqdFRKd0ZJVXVyS1BrekM4Q3V1SW5FTE00NVdWVXZtYm5kQy1RRGlfeWY3RV85dllSWDJ5Mk9QY1Fsbg?oc=5" target="_blank" rel="noopener">
+          <span class="en">Ayar Labs raises $500M at a $3.75B valuation</span>
+          <span class="zh">Ayar Labs以37.5亿美元估值融资5亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Crypto Briefing</span> · 7h ago</span>
+        <span class="zh"><span class="source">Crypto Briefing</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Ayar Labs raised $500 million at a $3.75 billion valuation as investors keep funding AI-infrastructure plays beyond merchant GPUs. The company&#x27;s optical I/O focus sits close to a real bottleneck: moving data between accelerators, memory, and switches without letting power and latency dominate the system. The funding round does not settle adoption risk, but it is large enough to keep photonic interconnects in the strategic conversation.</span>
+        <span class="zh">Ayar Labs以37.5亿美元估值融资5亿美元，显示投资者仍在押注通用GPU之外的AI基础设施公司。该公司的光I/O方向贴近一个真实瓶颈：在加速器、存储和交换芯片之间移动数据，同时避免功耗和延迟主导系统成本。这轮融资不能消除采用风险，但规模足以让光互连继续留在战略讨论中。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-07-04 01:17 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-07-04 01:17 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

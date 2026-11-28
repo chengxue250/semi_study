@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-27">
+<meta name="generator" content="semi-news-daily">
+<title>AI Constraints Move Through the Stack — Semi News 2026-06-27</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, June 27, 2026</span>
+      <span class="zh">2026年6月27日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">AI Constraints Move Through the Stack</span>
+      <span class="zh">AI约束沿堆栈扩散</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Export controls, memory scarcity, foundry pricing, and packaging chokepoints all show the AI build-out becoming a full-stack capacity problem. The day is less about one GPU launch than about who can secure compute, memory, tools, and policy clearance at the same time.</span>
+      <span class="zh">出口管制、存储紧缺、代工涨价和封装瓶颈同时出现，说明AI建设已经变成贯穿全栈的产能问题。今天的主线不是某一款GPU，而是谁能同时拿到算力、存储、工具和政策通道。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxNemowbnZEdVQzc2tLS0RzMkRsMDlXYUxOc1BmODRROW1RT01OaHJSZWx3TEN1WnRNWW5raVV1LVRTaDk5cHZHNDR5cUVGVWNvNV9mM21Fb3ZtQjdoYTlkMjR5d1Y2VlZlZUFWSWM5R211QzJQMk1zUWllYzRPQktIR2N1OVhmaXBraXFYWEowRXVfY3c?oc=5" target="_blank" rel="noopener">
+          <span class="en">Marvell expands its AI push with Nvidia deal and two acquisitions</span>
+          <span class="zh">Marvell借Nvidia交易和两项收购加码AI</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Yahoo Finance Singapore</span> · 2h ago</span>
+        <span class="zh"><span class="source">Yahoo Finance Singapore</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Marvell is being reported as expanding its AI hardware push through a Nvidia-related deal and two acquisitions. The item matters because Marvell sits in the custom silicon, networking, and optical-connectivity path that hyperscalers need as accelerator clusters scale. The candidate record does not provide deal terms, so the signal is strategic positioning rather than a confirmed financial reset.</span>
+        <span class="zh">报道显示，Marvell正通过一项与Nvidia相关的交易和两项收购扩大AI硬件布局。这件事重要，是因为Marvell处在定制芯片、网络和光互连链路上，而这些环节正是超大规模AI集群扩张所需要的。候选记录没有给出交易条款，因此这里的信号主要是战略站位，而不是已经确认的财务重估。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxNOWw4YjNrTXpjYlhtRzM3a3F6S1JwOGhPaTdLMmVtbjdfMFFqNWxhNHJJZ0k2cWw2RzREdEFCTVZyU09aN1FHVFhBMDBYeW1YLTNrUmtKNFhBVlI2dnFlMC05OC00WjlDUlZxMHRXckZPU0g5cmR1QXBEQTRoN3doWHVuRQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Qualcomm touts $15B in AI chip sales before the chips exist</span>
+          <span class="zh">Qualcomm称AI芯片销售目标达150亿美元，但产品尚未落地</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AOL.com</span> · 7h ago</span>
+        <span class="zh"><span class="source">AOL.com</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Qualcomm is being framed as promising $15B in AI chip sales even though the referenced chips are not yet available. That makes the story a useful check on the widening gap between AI silicon demand signals and shipping hardware. For investors and customers, the question is whether Qualcomm can convert its mobile and edge AI base into datacenter-class or adjacent accelerator revenue.</span>
+        <span class="zh">报道将Qualcomm的AI芯片销售目标描述为150亿美元，但相关芯片尚未实际推出。这使它成为观察AI硅片需求信号与真实出货之间差距的一个样本。对投资者和客户而言，关键问题是Qualcomm能否把移动端和边缘AI基础转化为数据中心级或相邻加速器收入。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi7AFBVV95cUxNNllMbGpqQjFQdzktY3dENjlLcmc5dGxBaHZfQ2FiaDNjeVU1cDZvc3JnZnQtUVBJckZkaFEzNXBHU2l3RVZMY3BURVNSMURCQXBLUzBYT0l5d1paR25hR1psNWxJc1hhZDNCYjJ5blhKR2lsaUlrMnZQeDlxZ3pvbHFPRnludi1JTUFxQUUxWlI5RnJZdTJZcThvVHktWkI2c19ZX3htS1o3TGhYbTNmaEc0WlFwalU0Yi1YVmJUX1FKU3NjZThmNzFlVzFLeHVwOVBmdWE3SU4xTXlGN0h0NFpHV2tjbHZoNFFiN9IB8gFBVV95cUxOYS1tQVJHZzdsMHRIemVzaXpiempHUGJIZ0MzNXVSaE81cm9UcUVhRXhCeTM5cWd6YTdKeFRJdXF3UXp4clFxVzR5UWpHV0VDYzgtOV9JVGVtTFpYQnowbnlOcUV2RVotMWVtWUNhUlJKLXR5M3NLV2pzdmo3emNpMUxlbVZITGRMS0tyY0UzOEQtRmhuTXloODc2elFkczQ5ek9EM0R1SUpsYkpSNWFMUmtVczJvbDRCME9tVWctbDl4dXFRREw3ekg0Q0NrcmUtWGZrZllJMVlXS2xoM0hraWktT3lGWXpKSTJEY0V0UXpndw?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC is reported to raise 7nm prices by up to 10%</span>
+          <span class="zh">报道称TSMC将7nm价格最高上调10%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">simplywall.st</span> · 8h ago</span>
+        <span class="zh"><span class="source">simplywall.st</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC is reported to be raising 7nm chip prices by up to 10% as expansion costs build. Even though 7nm is no longer the leading edge, it remains a high-volume node for networking, AI-adjacent logic, and long-lived platform products. A price increase there would show that foundry tightness is not confined to N3/N2 capacity.</span>
+        <span class="zh">报道称，TSMC随着扩产成本上升，正把7nm芯片价格最高上调10%。7nm虽然不再是最先进制程，但仍是网络、AI周边逻辑和长生命周期平台产品的重要高量产节点。若这一涨价成立，说明代工紧张并不只局限在N3/N2。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQWWR0RnpqZnpUN2NoVktOR05SWTVHZVd1UkRRanFQVk51czB6bWF3VGR6VWRLMEw2UUk2bmJGSUNweC1BZi1tTFVoUmlRaVM3d1h5ZnhiemJkUkFYNGlDTUFQR2ZJMjBrcmZ3b25LWUJEYndlODVEdjMtd2JmY2JObzg3U0pIbjVQR2c?oc=5" target="_blank" rel="noopener">
+          <span class="en">A niche manufacturing technology becomes an AI choke point</span>
+          <span class="zh">一项小众制造技术成为AI瓶颈</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The New York Times</span> · 6h ago</span>
+        <span class="zh"><span class="source">The New York Times</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The New York Times highlights a niche technology that has become a choke point for AI. The candidate appears in the TSMC feed, pointing to the manufacturing and advanced-packaging layer rather than model software. The broader implication is that AI supply is increasingly constrained by specialized process steps that are hard to duplicate quickly.</span>
+        <span class="zh">The New York Times聚焦一项已经成为AI瓶颈的小众技术。该候选项出现在TSMC相关信息流中，指向制造和先进封装层，而不是模型软件本身。更大的含义是，AI供给越来越受制于难以快速复制的专用工艺步骤。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.nextplatform.com/store/2026/06/26/the-end-of-boom/bust-cycles-for-the-memory-market/5263287" target="_blank" rel="noopener">
+          <span class="en">The Next Platform asks whether memory boom-bust cycles are ending</span>
+          <span class="zh">The Next Platform讨论存储市场周期是否正在改变</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Next Platform</span> · 6h ago</span>
+        <span class="zh"><span class="source">The Next Platform</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Next Platform frames the memory market as potentially moving away from its old boom-bust pattern. AI demand, especially for HBM and high-value server memory, is changing the mix from commodity bit growth toward capacity that is pre-committed and strategically scarce. The key caveat is that memory remains cyclical, but the AI layer may be changing the amplitude and timing of the cycle.</span>
+        <span class="zh">The Next Platform将存储市场描述为可能正在脱离旧有的繁荣-萧条周期。AI需求，尤其是HBM和高价值服务器内存，正在把市场组合从通用bit增长推向被提前锁定且具有战略稀缺性的产能。需要保留的判断是，存储仍然有周期性，但AI层可能正在改变周期的幅度和节奏。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNQTM1TWFZVXg5ZjJqVk1DZUhNelFheTVzQ0xpYjVCcERCbUhjWHBYNXpnajN4REZlQ1NyZTl4YTdqZzBpbklnUEpWekgxbnVSYW00V2FoZDczVTNtMXdjenY3bzdiNVFiVjJweWxpalhsWVFkajdqNUxZVmF1SnRYSGk2Mm82SDdIUXlMYjZVeWxMY2xkTmhhZDdZM3NYM2dJRGVQQlhUOTFVWWVfZUZ0RjBhM0lfbU4xeW9QQ1FWRlI?oc=5" target="_blank" rel="noopener">
+          <span class="en">Amazon raises AI cloud prices as memory shortages tighten</span>
+          <span class="zh">存储短缺加剧，Amazon再次上调AI云价格</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tekedia</span> · 7h ago</span>
+        <span class="zh"><span class="source">Tekedia</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tekedia reports that Amazon has raised AI cloud prices again as memory-chip shortages tighten global infrastructure supply. The story matters because it turns HBM and server-memory scarcity into a visible cloud-pricing signal rather than a component-level issue. If memory remains the limiting input, accelerator availability alone will not determine AI compute costs.</span>
+        <span class="zh">Tekedia报道称，随着存储芯片短缺继续压紧全球基础设施供给，Amazon再次上调AI云价格。这件事重要，因为HBM和服务器内存稀缺正在从元器件层问题转化为可见的云价格信号。如果存储仍是限制性投入，仅有加速器供给并不能决定AI算力成本。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxNYVIwXzgzcjFGNkNwd1haN0E0WHVlUHl1YmlXWEw0Y2staXBHb2FxVVVibTBkOU96dXRZRUxqV3M3Sld3Q3lfSTJHbzFMN1puVzlvaGhWaFl4NUFtX1lsMlppRkNlQUhzN0lyaThmVXpIRFZ1V1lFb1lFMUd4ajdDWHotSEZRcXVtSktXcTBTMldwT0lmampiTWFscUw1SG85UUQ2bWZoSzZ2RUZFRlFyNUVvYlg2Z3lzWExLQ2ZR?oc=5" target="_blank" rel="noopener">
+          <span class="en">Air Liquide ties specialty gases and materials to AI compute demand</span>
+          <span class="zh">Air Liquide将特种气体和材料需求与AI算力扩张相连</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Air Liquide</span> · 7h ago</span>
+        <span class="zh"><span class="source">Air Liquide</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Air Liquide published a semiconductor materials piece linking its process-gas and materials role to AI computing demand. The story is less a single capex announcement than a reminder that advanced fabs depend on high-purity gases, chemicals, and delivery infrastructure as much as headline lithography tools. As AI capacity expands, materials suppliers become part of the bottleneck map.</span>
+        <span class="zh">Air Liquide发布半导体材料相关内容，将其工艺气体和材料角色与AI计算需求相连。这不是单一资本开支公告，更像是在提醒市场：先进晶圆厂依赖高纯气体、化学品和供应系统，并不只依赖头部光刻设备。随着AI产能扩张，材料供应商也会进入瓶颈图谱。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5UOXhNOXRRd2RKcElmTTJ4MGFKLUZEdnpaMUI4V3lBZnFWcFdLektvWVpfS1lPZVlLSVQ0UW94THJhTzdWSnNsb0pESksxdGpxbUNRN2xGR25keDNRcGY4QUFNMzBvVm8?oc=5" target="_blank" rel="noopener">
+          <span class="en">U.S. tightens controls on China access to advanced chips and AI tools</span>
+          <span class="zh">美国收紧中国获取先进芯片和AI工具的限制</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">mezha.net</span> · 4h ago</span>
+        <span class="zh"><span class="source">mezha.net</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A fresh policy item reports that the U.S. is tightening export controls to curb China&#x27;s access to advanced chips and AI tools. The material point is the scope: controls are no longer only about finished accelerators, but also about the tooling and services that let restricted users reach frontier compute. For suppliers, that raises compliance risk across hardware, cloud, and software channels.</span>
+        <span class="zh">一条新的政策报道显示，美国正在收紧出口管制，以限制中国获取先进芯片和AI工具。关键在于范围：管制不再只针对成品加速器，也覆盖让受限用户接近前沿算力的工具和服务。对供应商来说，硬件、云和软件渠道的合规风险都会上升。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFB0cFRPbXF6SFFEc3NyREh2bF9hQVZFT2VHdTVoM1ZCcmFwMHo5QzBhcmluQUhsVENjVnVJLTI0V2EtYVVWdXF0UE9zeEVIVS1VcHZpanpEZWk2Mk5CQ3k0WWNwNnpldzVxSHY4eWdvcl95MUo5QURTUHJreGk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cloud bill targets the China AI compute loophole</span>
+          <span class="zh">云服务法案瞄准中国AI算力漏洞</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">thehawk.in</span> · 7h ago</span>
+        <span class="zh"><span class="source">thehawk.in</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Hawk reports on a cloud bill aimed at a China AI loophole. The policy logic is that export controls on chips can be partly bypassed if restricted users rent equivalent compute through cloud services. If enacted or tightened, this would push AI-compute compliance deeper into hyperscaler customer screening and workload governance.</span>
+        <span class="zh">The Hawk报道了一项针对中国AI算力漏洞的云服务法案。政策逻辑在于，如果受限用户能够通过云服务租用等效算力，那么只限制芯片出口并不完整。若相关规则落地或加码，AI算力合规将进一步深入到超大规模云厂商的客户筛查和工作负载治理中。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQOHhKbkdKZ0NUUktudlJMbHk1aVNQb0RaQlpUSmlFNzJYekVLXy1lcGgtNGdZYkZJYndPaVRlamFIOEZ2eXdKX2lNTnVhUEdhcktKcW1QWFo3RGxDSGNzR2JMWXBUVnhBSmt0bHMyS19LQ0RGbEtaTUQ0SF9TQjR3eV8yOGF2SDJyeXdiLXZJVjJtVnBpWmt4aXlWdG5VMS14dFp2ZXh1dy1RTXN2WEg4V05ZcTUzQ1dFUjhBaEdxZGtMUQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">EU Semiconductor Alliance discusses Chips Act 2.0</span>
+          <span class="zh">欧盟半导体联盟讨论Chips Act 2.0</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">INSIGHT EU MONITORING</span> · 3h ago</span>
+        <span class="zh"><span class="source">INSIGHT EU MONITORING</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The EU Semiconductor Alliance met to discuss Chips Act 2.0, according to the candidate feed. The next version of European chip policy is likely to focus less on announcing broad ambitions and more on closing gaps in manufacturing, packaging, design, and materials supply. It is a policy process item, but it matters because Europe is trying to keep a seat in the advanced-node and supply-security conversation.</span>
+        <span class="zh">候选信息显示，欧盟半导体联盟召开会议讨论Chips Act 2.0。欧洲下一版芯片政策可能会少一些宏观目标宣示，更多聚焦制造、封装、设计和材料供应中的缺口。这是一条政策流程新闻，但重要性在于欧洲仍试图在先进制程和供应安全议题中保留位置。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxNWmxONDJjSEkxdGpmaHJHQUhXRE9mU1dHQ1EyNy01SFl0SXFxdkpBWnJISmlTZWNnbVQ4bjlDMnB0VHZHTG1BN1hkcVBDQjlXUkpNaldjbHJWS2J6ZUhYUzRxVkZlTlVvT2dnSXhzUGFIUTBrSmpoQ1dWaFhTZElfcXlkVEMzNFA5MkR4NFNkckdscmVlYTVJT0wtQVhHT284aUVLNXZn?oc=5" target="_blank" rel="noopener">
+          <span class="en">Etched AI takes 80,000 square feet in Milpitas</span>
+          <span class="zh">Etched AI在Milpitas租下80,000平方英尺空间</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Business Journals</span> · 2h ago</span>
+        <span class="zh"><span class="source">The Business Journals</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Etched AI has taken 80,000 square feet in Milpitas as chip startups compete for power-intensive space. For a challenger accelerator company, real estate is not the product, but it signals a move from slideware toward labs, bring-up, and customer-support infrastructure. The size also shows that AI silicon startups are now constrained by power and facilities, not only by tape-out capital.</span>
+        <span class="zh">Etched AI在Milpitas拿下80,000平方英尺空间，背景是芯片初创公司争夺高功率密度场地。对一家挑战者加速器公司来说，地产本身不是产品，但它意味着公司正在从方案展示转向实验室、bring-up和客户支持基础设施。这个面积也说明AI硅片初创公司的约束不只是流片资金，还包括电力和设施。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPRm5JSWx1MWM5Z3hFMkp4bGhlTU01cC1ydnIxc0tDck81ZDZZcjFVRVYxNUJESzNPN3VxSXRGWjMxUXRaR0RHVjB2cVF2T1VTVjlYQ2hBLUxhMHhBemRIaVFTZjJ1dnN3YVdYVUtwam9KbUQ1MGRQZ09yYk5qRTRYUG03dTFYenhPUkdNbnJPbHVncVlaanZ3cktKS3dianZWRFlSQmNGaDZuMy1LSEZZMndDT1c3anJKVzZoLTNnQlB2Z2lBVk5n?oc=5" target="_blank" rel="noopener">
+          <span class="en">Reed Semiconductor closes a $100M funding round</span>
+          <span class="zh">Reed Semiconductor完成1亿美元融资</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Business Wire</span> · 7h ago</span>
+        <span class="zh"><span class="source">Business Wire</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Reed Semiconductor announced completion of a $100M funding round, according to Business Wire. The candidate record does not identify the technology focus or investors, so the item clears the challenger bar mainly on round size. In a funding market that is selective about hardware, a nine-figure semiconductor raise is still a useful signal of strategic appetite for non-incumbent silicon.</span>
+        <span class="zh">Business Wire消息显示，Reed Semiconductor宣布完成1亿美元融资。候选记录没有列出技术方向或投资方，因此这条新闻主要因为融资规模达到新势力筛选门槛。在硬件融资仍然挑剔的市场中，九位数半导体融资仍然说明资本对非头部硅片公司保持战略兴趣。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-27 01:18 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-27 01:18 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

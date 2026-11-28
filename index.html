@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-28">
+<meta name="generator" content="semi-news-daily">
+<title>AI Demand Tests the Entire Hardware Stack — Semi News 2026-11-28</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, November 28, 2026</span>
+      <span class="zh">2026年11月28日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">AI Demand Tests the Entire Hardware Stack</span>
+      <span class="zh">AI需求考验整条硬件供应链</span>
+    </h1>
+    <p class="dek">
+      <span class="en">AI infrastructure demand reaches beyond processors into HBM procurement, reused DDR4 and increasingly complex circuit boards. Equipment-policy risks and Cerebras&#x27;s reported guidance increase show how supply constraints and growth expectations are spreading across the stack.</span>
+      <span class="zh">AI基础设施需求从处理器延伸至HBM采购、DDR4再利用和日益复杂的电路板。设备政策风险与Cerebras据报上调业绩指引，反映出供应约束和增长预期正在沿硬件链条扩散。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/this-pcie-5-0-expansion-card-turns-a-single-x16-slot-into-four-gpu-connections-opening-up-new-possibilities-for-local-ai-rigs/" target="_blank" rel="noopener">
+          <span class="en">PCIe 5.0 switch card connects four GPUs through one x16 slot</span>
+          <span class="zh">PCIe 5.0交换卡通过单个x16插槽连接4块GPU</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">LR-LINK&#x27;s LRSV9500-4I uses Broadcom&#x27;s 48-lane PEX89048 PCIe 5.0 switch to connect up to four GPUs through one x16 host slot without motherboard bifurcation, Wccftech reports. The card supports four downstream Gen5 x8 connections or two Gen5 x16 connections, widening workstation expansion options for local AI. Those downstream links share the host connection; the additional slots do not multiply upstream bandwidth.</span>
+        <span class="zh">据Wccftech报道，LR-LINK的LRSV9500-4I采用Broadcom的48通道PEX89048 PCIe 5.0交换芯片，无需主板支持PCIe通道拆分，即可通过单个x16主机插槽连接最多4块GPU。该卡支持4路下行Gen5 x8或2路下行Gen5 x16连接，为本地AI工作站提供更多扩展选择。这些下行链路共享主机连接，增加插槽并不意味着上行带宽同步增加。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBnTW04dk1MNXJiZExDTDAzN3RxZHNBVGVVcTFhSHhUdHJLZVd3MmR4OThud3dXSGFXVmpreEYtXzFUdk90X0tBTWpjcFp6RXZPQ1dtQkw0ZWtVb0ltb0hfSnRkdlpXMWFMZVFHS1Q0NWdtZw?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC A14 reportedly reaches a design milestone</span>
+          <span class="zh">台积电A14据报达到设计里程碑</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">HotHardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">HotHardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s A14 process has reached a design milestone, HotHardware reports, placing its 1.4nm-class roadmap alongside Intel&#x27;s competing 14A effort. Progress in design readiness matters to customers preparing future chip programs. The supplied item does not identify the milestone or provide yield and production data, so it does not establish manufacturing readiness.</span>
+        <span class="zh">据HotHardware报道，台积电A14制程达到一项设计里程碑，其1.4nm级路线图与Intel的14A形成竞争。设计准备工作的进展关系到客户未来芯片项目的规划。所提供条目未说明里程碑的具体内容，也未给出良率或量产数据，因此尚不能据此判断制造成熟度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/penguin-revives-retired-ddr4-for-ai-servers/" target="_blank" rel="noopener">
+          <span class="en">Penguin puts retired DDR4 back to work in AI servers</span>
+          <span class="zh">Penguin将退役DDR4重新用于AI服务器</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 5h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Penguin is reusing retired DDR4 for AI-server memory expansion, EE Times reports. Hyperscalers already reclaim older DRAM, while enterprise adoption has been slower, according to the supplied excerpt. Reuse offers another route to increasing memory capacity, although the excerpt gives no capacity, bandwidth or cost measurements for Penguin&#x27;s implementation.</span>
+        <span class="zh">据EE Times报道，Penguin正将退役DDR4重新用于AI服务器的内存扩展。所提供片段指出，超大规模云厂商已经回收利用旧DRAM，而企业用户的采用速度较慢。再利用为增加内存容量提供了另一条路径，但片段未给出Penguin方案的容量、带宽或成本测量数据。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE9YdXk5VnNUdlM1LS1jb0o1YzBsYUI2YU4zWXN1MHFvOXhnYXpjZGJUM09BUENVM3hCMjVEQzRqckVEVmZ2cEJYZ3R4bmZUbnp4b0tHZnV6UExYX01uMGpHbWpFblk?oc=5" target="_blank" rel="noopener">
+          <span class="en">Big Tech&#x27;s direct HBM buying draws attention to Samsung and SK hynix</span>
+          <span class="zh">大型科技公司直接采购HBM，三星与SK hynix受关注</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Asia Economy</span> · 2h ago</span>
+        <span class="zh"><span class="source">Asia Economy</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Asia Economy examines large technology companies buying HBM directly and the potential opportunity for Samsung and SK hynix. Direct procurement could give infrastructure buyers a larger role in securing memory supply for their systems. The supplied item names no purchasers, contract volumes or prices, leaving the scale of the shift unquantified.</span>
+        <span class="zh">《亚洲经济》讨论了大型科技公司直接采购HBM的动向，以及三星和SK hynix可能获得的机会。直接采购可能让基础设施买家在保障系统所需存储供应方面发挥更大作用。所提供条目未列出采购方、合同数量或价格，因此尚无法量化这一变化的规模。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/manufacturing/chinas-ai-hardware-push-is-moving-beyond-gpus-to-the-pcbs-underneath-them-beijing-races-to-corner-the-market-on-copper-foil-and-micro-drill-bits-as-board-complexity-explodes" target="_blank" rel="noopener">
+          <span class="en">AI boards push copper foil and micro-drill bits into the supply spotlight</span>
+          <span class="zh">AI电路板将铜箔与微钻头推向供应链焦点</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 8h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">AI-server board complexity is increasing demand for smooth copper foil and micro-drill bits as China expands its push into these inputs, Tom&#x27;s Hardware reports. The report describes designs such as Rubin Ultra pushing toward 78 PCB layers, with denser laminates wearing drill bits out 10 times faster than normal. This shifts part of the AI supply constraint into board materials and fabrication consumables, beyond accelerator availability alone.</span>
+        <span class="zh">据Tom&#x27;s Hardware报道，AI服务器电路板复杂度提升，推高了对光滑铜箔和微钻头的需求，中国也在加强这些上游环节的布局。报道指出，Rubin Ultra等设计推动PCB向78层发展，更致密的层压材料使钻头磨损速度达到通常水平的10倍。这使AI供应约束的一部分延伸至板材与加工耗材，影响范围超出了加速器本身的供给。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiwJBVV95cUxQRUJ6cW1CSE5ZVmxxc3JhYlNkX0tDMjdhcmNINVNxM2d5a3FTQjMwU3hBSXpFWGRvcU9uV1JGQ1V4clZ6NmlBd01hVUZBR2lUcUZVVTBFY1NEdTg2cXluMVBOUFUxYlU1WDFVX0FUbjB0WmNxWjhzTnFzX2ZxTldKQVdGaUF1OGRQQjc3V0NqS1pGanQ0TUdsSEVGU2x4SUhDdnNSMXJJRVd2LXllMkp5OEJrMXRoQlRFWmx3eDRyaUR4RVF2WldVcGlnTHBqVTI0a0ZldkhhU1B2U2UxZE0xTkhOZUNzbC1rSTkyNzd5aWwyM2pRc3VJMllkbmRBaDFXaGZYQndOWnR3dm_SAZACQVVfeXFMTWFvTEp3eEhiVGI0WFhGYm5OaGFReF9Xd1U5TXg1Skx6UWdRM29VdTBKUElJZS1ES0xTWmY3eG4xQmhScXdUMmdjNS1BTV84ekVmaTJjNTdSYUlNc1FmeWxMRWZ6RG4yOFlpSGxiblplLWNoWEQzaTQ2ajM0S2dCc1RZbUdnNl9jcXk3Sm53ck9nbXlrN3lqaWZ4ZDE1T2hxazFGb3FmMTJHa3ZtQmtZWHNZUU0yUkJCQ3pJWWdQTmlaVEJ3c1lpYzRuSVhGYzBJd0M3VlN5M01mdlREd0xJS3lHWXk5VWgteDFiZkpNN0M1Mkg1ODdNVjgyTVJCT3lyOWhEbURVNzBVS1FGa2J3b08?oc=5" target="_blank" rel="noopener">
+          <span class="en">Applied Materials India chief calls for manufacturing capabilities beyond design</span>
+          <span class="zh">应用材料印度负责人呼吁在芯片设计之外建设制造能力</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ET Electronics</span> · 3h ago</span>
+        <span class="zh"><span class="source">ET Electronics</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Applied Materials&#x27; India chief says the country must build semiconductor manufacturing capabilities beyond chip design, ET Electronics reports. The argument puts process and production expertise at the center of India&#x27;s effort to broaden its semiconductor role. This is an executive&#x27;s assessment; the supplied item announces no new equipment order, investment amount or factory capacity.</span>
+        <span class="zh">据ET Electronics报道，应用材料印度负责人表示，印度需要在芯片设计之外建设半导体制造能力。这一观点将工艺与生产经验置于印度拓展半导体产业角色的核心位置。该条目属于企业高管的判断，未宣布新的设备订单、投资金额或工厂产能。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQaHQybEVHOVlQZ2JMNHRDZkxZeFppT3JDMm52TGRMOVRWOE85NzE1bU0xWDBtT29fLVNra1ZvVk1mWk1QNUJPUG9tU21nYkdwakZ2MFpCSXd4SDBuTWVkTFFYeXpTX0pfRHpmVmRNSVZRMFJOZUFTMlZPbVR3Q1Q4M1ZuMU0wXzQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">MATCH Act analysis flags risks to ASML&#x27;s installed DUV tools in China</span>
+          <span class="zh">MATCH Act分析提示ASML在华存量DUV设备风险</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Asia Times</span> · 4h ago</span>
+        <span class="zh"><span class="source">Asia Times</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Asia Times argues that the U.S. MATCH Act could leave ASML&#x27;s DUV machines in China idle. The risk shifts attention toward the usable installed equipment base as well as future tool deliveries. The supplied item describes a possible outcome and gives no affected-machine count or implementation timetable; it does not document actual shutdowns.</span>
+        <span class="zh">《亚洲时报》分析认为，美国MATCH Act可能导致ASML在中国的DUV设备停机。这一风险使关注点从未来设备交付进一步延伸至现有设备能否继续使用。所提供条目讨论的是潜在结果，未给出受影响设备数量或执行时间表，也未证实已经发生停机。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Guidance</span>
+      <span class="zh">财报与业绩指引</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE5EUGI4UnpsSnFmalBlcDJFTENidjJvckhDZVAzZ2dld2lmUk1WV0thOGxWWjhXdC1MQkhMS25tTW9CRzJDdE9OZUZhOXZZUUFXVXZ6RHRpcVhiNEprRXQ2NWxJeEZGZWlnVXprNFZFbjc0akxtSmc?oc=5" target="_blank" rel="noopener">
+          <span class="en">Cerebras reportedly raises Q4 guidance and sees 2027 revenue tripling</span>
+          <span class="zh">Cerebras据报上调四季度指引，管理层预计2027年营收增至3倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo Finance</span> · 8h ago</span>
+        <span class="zh"><span class="source">BigGo Finance</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Cerebras has raised fourth-quarter guidance above market expectations, and management sees 2027 revenue tripling, BigGo Finance reports. The outlook points to stronger growth expectations for an alternative AI-compute supplier. The supplied item gives no dollar guidance or profitability figures, and the 2027 projection remains a management forecast.</span>
+        <span class="zh">据BigGo Finance报道，Cerebras上调第四季度业绩指引，超过市场预期，管理层预计2027年营收将增至3倍。这一展望显示，市场主流之外的AI算力供应商也在提高增长预期。所提供条目未给出具体营收指引或盈利数字，2027年的预测仍属于管理层预期。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新硅</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQdUhfa2pSYzljUHN5S2VqS1VMZjdhTUJiNzFyTTdTMzVyVTNicTA1OHNGY2tHZEt3SWJSQkI1R25GSldiWTNkU2pVSHpWbEVHbDc0d3JVV3lUNXJORHZaZW50WjFXNkdQMDd2Y3RfRlpxVTU1UmU2TXhaaWIwdmhpb3E0UUJrLXFlQWlWN3BOd3NPRkpVX0dHOURObWI?oc=5" target="_blank" rel="noopener">
+          <span class="en">Tiger Global reportedly increases its Cerebras stake 48% to $790 million</span>
+          <span class="zh">Tiger Global据报增持Cerebras 48%，持仓价值达7.9亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Dealroom</span> · 3h ago</span>
+        <span class="zh"><span class="source">Dealroom</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tiger Global increased its Cerebras stake by 48% to a reported value of $790 million, according to Dealroom. The position adds evidence of investor interest in AI hardware suppliers beyond the largest incumbents. A fund&#x27;s holding value does not establish an equivalent amount of new financing received by Cerebras.</span>
+        <span class="zh">据Dealroom报道，Tiger Global将Cerebras持仓增加48%，持仓价值达到7.9亿美元。这一配置显示，投资者对头部既有厂商之外的AI硬件供应商也保持关注。基金持仓价值并不意味着Cerebras获得了等额新增融资。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-28 01:14 UTC · <a href="archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-28 01:14 UTC · <a href="archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-24">
+<meta name="generator" content="semi-news-daily (research)">
+<title>Inference Efficiency Depends on Memory and Execution — Semi Research 2026-11-24</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #2b6a3f;     /* green for research vs. news's amber */
+    --tag-bg: #ede9dd;
+    --tag-fg: #4a4a4a;
+    --code: #f1eee5;
+    --max-w: 780px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #7ec896;
+      --tag-bg: #25241f;
+      --tag-fg: #b8b5ad;
+      --code: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Top bar with mode switch */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  /* Masthead — quieter than the news page */
+  .masthead { margin-bottom: 44px; }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.9vw, 19px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0;
+  }
+  .masthead .window {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* Sections */
+  section.area { margin: 48px 0 0; }
+  section.area > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 18px;
+  }
+
+  /* Paper cards — denser than news, more metadata */
+  article.paper {
+    padding: 16px 0 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.paper:last-child { border-bottom: none; }
+  article.paper h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  article.paper h3 a { color: var(--fg); text-decoration: none; }
+  article.paper h3 a:hover { color: var(--accent); }
+  article.paper .authors {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  article.paper .affil {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  article.paper .venue {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  article.paper .venue a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  article.paper .venue a:hover { text-decoration: underline; }
+  article.paper .summary {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] article.paper h3,
+  body[data-lang="zh"] .masthead h1 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] article.paper h3 .zh,
+  body[data-lang="both"] article.paper .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.paper h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.paper .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .kicker .zh,
+  body[data-lang="both"] .masthead .window .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.area > h2 .zh::before {
+    content: " / ";
+  }
+
+  .newsletter {
+    margin-top: 64px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../2026-11-24.html"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../../research.html" class="current"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker">
+      <span class="en">Research digest · Tuesday, November 24, 2026</span>
+      <span class="zh">研究摘要 · 2026年11月24日 星期二</span>
+    </div>
+    <h1>
+      <span class="en">Inference Efficiency Depends on Memory and Execution</span>
+      <span class="zh">推理效率取决于存储组织与执行方式</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Eight preprints examine heterogeneous memory, vector quantization, MoE execution, compact model states and RFIC layout analysis. The reading queue emphasizes mechanisms that change hardware workload, with reported results kept within their stated evaluation scope.</span>
+      <span class="zh">本期8篇预印本涵盖异构存储、向量量化、MoE执行、紧凑模型状态及RFIC版图分析。选文聚焦能够改变硬件负载的机制，量化结果均保留其原有评测范围。</span>
+    </p>
+    <div class="window">
+      <span class="en">Look-back window: 7 days · 8 paper(s)</span>
+      <span class="zh">回溯窗口: 7天 · 8篇</span>
+    </div>
+  </header>
+
+    <section class="area" id="accelerators">
+    <h2>
+      <span class="en">AI Accelerators &amp; Compute-in-Memory</span>
+      <span class="zh">AI加速器与存算一体</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27701" target="_blank" rel="noopener">
+          <span class="en">FOREST Coordinates HBF, RRAM and HBM for Speculative LLM Inference</span>
+          <span class="zh">FOREST协同HBF、RRAM与HBM支持大模型推测式推理</span>
+        </a>
+      </h3>
+      <p class="authors">Hao Ding, Zheng Shi, Dongxue Zhao, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27701" target="_blank" rel="noopener">arXiv:2611.27701</a> · 2026-11-20T15:07:53Z</p>
+      <p class="summary">
+        <span class="en">FOREST proposes a heterogeneous memory-centric architecture that coordinates HBF, 3D-stacked RRAM and HBM memory-compute trees for speculative decoding. Its design separates the demands of latency-sensitive drafting, weight-intensive target verification and growing KV-cache attention, including wide low-frequency RRAM reads and overlapped SRAM-DCIM weight refills. This targets the resource mismatch of serving all stages through shared HBM, but the supplied abstract ends before evaluation results and does not establish measured-silicon performance.</span>
+        <span class="zh">FOREST提出以存储为中心的异构架构，协同HBF、3D堆叠RRAM与HBM存储计算树来执行推测解码。该设计区分低延迟草稿生成、密集读取权重的目标模型验证，以及KV-cache不断增长的注意力计算，并采用超宽低频RRAM读取和可重叠的SRAM-DCIM权重补充。这一方案针对所有阶段共用HBM带来的资源错配，但所提供的摘要在评测结果之前已截断，尚不能据此确认实测芯片性能。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27561" target="_blank" rel="noopener">
+          <span class="en">VQACC Reuses Operand Buffers for Ultra-Low-Bit LLM Inference</span>
+          <span class="zh">VQACC复用操作数缓冲器支持超低位宽大模型推理</span>
+        </a>
+      </h3>
+      <p class="authors">Hao Wang, Yang Shi, Jiageng Shi, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27561" target="_blank" rel="noopener">arXiv:2611.27561</a> · 2026-11-20T12:57:48Z</p>
+      <p class="summary">
+        <span class="en">VQACC changes operand-buffer access logic and data mapping so systolic-array LLM accelerators can reuse existing storage and ports for vector-quantization codebook lookups. By integrating dequantization into operand addressing, it targets the lookup overhead that can erode the benefit of ultra-low-bit weights. The authors report a 2.63-fold speedup over EVA; the supplied abstract truncates the hardware-overhead description and provides no measured-silicon evidence.</span>
+        <span class="zh">VQACC通过调整操作数缓冲器的访问逻辑与数据映射，让采用脉动阵列的大模型加速器复用现有存储和端口执行向量量化码本查找。它将反量化融入操作数寻址流程，针对查表开销侵蚀超低位宽权重收益的问题。作者报告，相比EVA基线实现2.63倍加速；所提供的摘要截断了硬件开销说明，也未提供实测芯片证据。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="ai-research">
+    <h2>
+      <span class="en">Inference Systems, Memory &amp; Compression</span>
+      <span class="zh">推理系统、存储与压缩</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27765" target="_blank" rel="noopener">
+          <span class="en">Weave Adapts MoE Megakernel Warp Scheduling to Routing Loads</span>
+          <span class="zh">Weave按路由负载动态调整MoE巨型内核的warp调度</span>
+        </a>
+      </h3>
+      <p class="authors">Ziyu Huang, Yangjie Zhou, Chenhao Zhu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27765" target="_blank" rel="noopener">arXiv:2611.27765</a> · 2026-11-20T15:55:34Z</p>
+      <p class="summary">
+        <span class="en">Weave schedules communication and computation within a persistent MoE megakernel at both SM and warp granularity, adapting resource allocation to routing-dependent loads. Its temporal schedule also changes warp roles during execution to reduce idle periods at layer boundaries and around data dependencies. The mechanism addresses utilization lost when whole SMs are reserved for communication, but the supplied abstract does not include benchmark speedups.</span>
+        <span class="zh">Weave在常驻MoE巨型内核中，以SM和warp两种粒度调度通信与计算，使资源分配适应由路由结果决定的负载。其时间调度还会在执行过程中切换warp角色，以减少层起止阶段及数据依赖附近的空闲。该机制针对将整个SM保留给通信所造成的利用率损失，但所提供的摘要未包含基准测试加速比。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27604" target="_blank" rel="noopener">
+          <span class="en">IsoMoE Preserves Outputs Across CPU-GPU Expert Placement</span>
+          <span class="zh">IsoMoE保持不同CPU与GPU专家放置下的输出一致性</span>
+        </a>
+      </h3>
+      <p class="authors">Hang Gu, Teng Wang, Zhendong Zheng, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27604" target="_blank" rel="noopener">arXiv:2611.27604</a> · 2026-11-20T13:33:57Z</p>
+      <p class="summary">
+        <span class="en">IsoMoE proposes hybrid CPU-GPU MoE inference whose outputs remain unchanged when experts move between devices, using a GPU kernel that reproduces CPU expert arithmetic bit for bit. It combines a layout for AVX-512 computation on lossless 12-bit experts with a dual micro-batch pipeline that overlaps CPU and GPU work. The approach targets both reproducibility and CPU memory traffic; the supplied abstract cuts off during the three-model evaluation and does not support a numerical throughput claim.</span>
+        <span class="zh">IsoMoE提出CPU与GPU混合MoE推理系统，通过让GPU内核逐位复现CPU专家运算，使专家在设备间移动时输出保持一致。它将面向AVX-512的无损12位专家计算布局，与重叠执行CPU和GPU任务的双微批流水线结合。该方法同时针对结果可复现性与CPU内存流量；所提供的摘要在三个模型的评测部分被截断，尚不能支持具体吞吐提升数字。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27973" target="_blank" rel="noopener">
+          <span class="en">MemOnce Reconstructs KV Caches from Compact Memory States</span>
+          <span class="zh">MemOnce从紧凑记忆状态重建KV-cache</span>
+        </a>
+      </h3>
+      <p class="authors">Chang Nie, Chaoyou Fu, Songlin Liu, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27973" target="_blank" rel="noopener">arXiv:2611.27973</a> · 2026-11-20T18:51:29Z</p>
+      <p class="summary">
+        <span class="en">MemOnce caches a small subset of final-layer hidden states and dynamically decodes them into attention-layer KV caches, rather than retaining every layer&#x27;s token-level cache. Sparse memory retrieval computes indices once across layers, targeting the GPU memory growth of long-running interactions without relying solely on a fixed-size history state. The authors claim linear-time complexity, but the supplied abstract stops before experimental details, leaving retention quality and serving costs unquantified.</span>
+        <span class="zh">MemOnce缓存少量末层隐藏状态，再动态将其解码为各注意力层的KV-cache，从而避免保留每层逐词元的完整缓存。其稀疏记忆检索在各层之间只计算一次索引，旨在缓解长时交互中的GPU内存增长，同时避免完全依赖固定大小的历史状态。作者声称可实现线性时间复杂度，但所提供的摘要在实验细节之前已结束，尚无法量化细节保留能力与服务成本。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27759" target="_blank" rel="noopener">
+          <span class="en">DPMA Learns Joint Pruning and Merging Under an MoE Expert Budget</span>
+          <span class="zh">DPMA在MoE专家预算下联合学习剪枝与合并</span>
+        </a>
+      </h3>
+      <p class="authors">Jon Irureta, Jon Imaz, Philipp Wiesner, et al.</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27759" target="_blank" rel="noopener">arXiv:2611.27759</a> · 2026-11-20T15:46:35Z</p>
+      <p class="summary">
+        <span class="en">DPMA jointly learns expert pruning, parameter merging and routing-weight reassignment under a global expert budget while keeping model weights frozen. Across four MoE models, eight multiple-choice benchmarks and five compression ratios, it achieves the best benchmark-and-ratio averaged accuracy on every model among the evaluated methods. At 75% expert reduction it beats the strongest baseline on every model by up to 6.7 percentage points, although this accuracy result does not by itself establish deployment speed or energy savings.</span>
+        <span class="zh">DPMA在全局专家预算约束下，联合学习专家剪枝、参数合并与路由权重重分配，并保持模型权重冻结。在四个MoE模型、八项选择题基准与五种压缩比例的评测中，它在每个模型上跨基准和压缩比例的平均准确率均为所比较方法中最高。专家数量减少75%时，它在每个模型上都超过最强基线，最大优势为6.7个百分点，但准确率结果本身尚不能证明实际部署中的速度或能耗收益。</span>
+      </p>
+    </article>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27962" target="_blank" rel="noopener">
+          <span class="en">Model Carving Learns Transformer Topology During Training</span>
+          <span class="zh">Model Carving在训练过程中学习Transformer拓扑</span>
+        </a>
+      </h3>
+      <p class="authors">Kaden Zheng, Pratyusha Sharma</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27962" target="_blank" rel="noopener">arXiv:2611.27962</a> · 2026-11-20T18:41:39Z</p>
+      <p class="summary">
+        <span class="en">Model Carving applies learnable scalar gates to Transformer sublayers so training jointly optimizes weights and removes components, producing a smaller heterogeneous topology. Tests cover standard Transformers from 140M to 2.7B parameters and looped Transformers from 140M to 1.3B. The authors report that carved models trained at a given compute budget reach lower validation loss than dense models using up to 1.7 times as much compute; the excerpt does not quantify inference latency on hardware.</span>
+        <span class="zh">Model Carving为Transformer子层加入可学习的标量门控，使训练在优化权重的同时移除组件，形成更小的异构拓扑。实验覆盖1.4亿至27亿参数的标准Transformer，以及1.4亿至13亿参数的循环Transformer。作者报告，在给定训练算力预算下，裁刻模型的验证损失低于使用至多1.7倍算力的稠密模型；摘录未量化其在硬件上的推理延迟。</span>
+      </p>
+    </article>
+  </section>
+  <section class="area" id="eda">
+    <h2>
+      <span class="en">RFIC Design &amp; Engineering Automation</span>
+      <span class="zh">RFIC设计与工程自动化</span>
+    </h2>
+    <article class="paper">
+      <h3>
+        <a href="https://arxiv.org/abs/2611.27559" target="_blank" rel="noopener">
+          <span class="en">Can Language Models Read Pixelated RFIC Passive Layouts?</span>
+          <span class="zh">语言模型能否读懂像素化RFIC无源器件版图？</span>
+        </a>
+      </h3>
+      <p class="authors">Jonathan Zhou, Kaushik Sengupta</p>
+      
+      <p class="venue"><a href="https://arxiv.org/abs/2611.27559" target="_blank" rel="noopener">arXiv:2611.27559</a> · 2026-11-20T12:55:27Z</p>
+      <p class="summary">
+        <span class="en">This study asks a language model with all tools disabled to predict 20–100 GHz input impedance and loss from pixelated passive layouts on 18-by-18 and 27-by-27 grids. Across eight genetic-algorithm-synthesized layouts and five random fills, predicted Smith-chart trajectories broadly follow full-wave simulations, but their features appear about 16% lower in frequency. The result suggests a possible aid for interpreting inverse-designed layouts, while the systematic bias and small test set limit its use as a substitute for electromagnetic verification.</span>
+        <span class="zh">研究要求一个关闭全部工具的语言模型，根据18×18和27×27网格上的像素化无源器件版图，预测20至100 GHz范围内的输入阻抗与损耗。在八个由遗传算法合成的版图及五个随机填充结构上，预测的Smith圆图轨迹总体跟随全波仿真结果，但特征频率系统性地偏低约16%。结果表明，该方法或可辅助理解逆向设计版图，但系统偏差与较小测试集限制了其替代电磁验证的能力。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-24 01:13 UTC · <a href="../2026-11-24.html">← back to today's headlines</a></span>
+      <span class="zh">生成于 2026-11-24 01:13 UTC · <a href="../2026-11-24.html">← 返回今日要闻</a></span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

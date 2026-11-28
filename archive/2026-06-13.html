@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-06-13">
+<meta name="generator" content="semi-news-daily">
+<title>Capacity Pressure Reprices the Chip Stack — Semi News 2026-06-13</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Saturday, June 13, 2026</span>
+      <span class="zh">2026年6月13日 星期六</span>
+    </div>
+    <h1>
+      <span class="en">Capacity Pressure Reprices the Chip Stack</span>
+      <span class="zh">产能压力重估芯片供应链</span>
+    </h1>
+    <p class="dek">
+      <span class="en">Advanced-node constraints are pushing prospective customers toward alternative foundries, while HBM demand lifts costs for equipment buyers and professional GPUs. Export reviews and material controls add another layer of uncertainty.</span>
+      <span class="zh">先进制程产能受限，推动潜在客户转向其他晶圆代工厂；HBM需求则抬高设备采购与专业GPU的成本。出口审查和关键材料管制又增加了一层不确定性。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/gpus/nvidia-raises-rtx-pro-6000-blackwell-gpu-pricing-to-usd13-250-55-percent-increase-over-msrp-in-a-years-time" target="_blank" rel="noopener">
+          <span class="en">Nvidia Raises RTX Pro 6000 Blackwell Price to $13,250</span>
+          <span class="zh">Nvidia将RTX Pro 6000 Blackwell价格上调至$13,250</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 52m ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 52分钟前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Nvidia is now selling the RTX Pro 6000 Blackwell for $13,250, 55% above its original MSRP, while partner cards start at $11,359.99. The increase shows that supply and workstation-AI demand are still supporting unusually high prices a year after launch, raising deployment costs for professional visualization and local AI systems.</span>
+        <span class="zh">Nvidia现将RTX Pro 6000 Blackwell售价定为$13,250，较最初建议零售价高55%，合作伙伴版本起价为$11,359.99。上市一年后仍能大幅提价，说明供应状况与工作站AI需求继续支撑高价，也将推高专业可视化和本地AI系统的部署成本。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.servethehome.com/this-is-an-intel-xeon-6-soc-dpu-on-a-pcie-card-from-senao-at-computex-2026/" target="_blank" rel="noopener">
+          <span class="en">Senao Shows an Intel Xeon 6 SoC DPU on a PCIe Card</span>
+          <span class="zh">Senao展示基于Intel Xeon 6 SoC的PCIe DPU卡</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ServeTheHome</span> · 12h ago</span>
+        <span class="zh"><span class="source">ServeTheHome</span> · 12小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Senao showed the SX906, a PCIe card built around an Intel Xeon 6 SoC and positioned as a next-generation SmartNIC/DPU. Putting a server-class SoC on an add-in card gives operators another route to offload networking and infrastructure services without redesigning the host platform, though the report does not provide performance or availability details.</span>
+        <span class="zh">Senao展示了SX906，这是一款采用Intel Xeon 6 SoC的PCIe扩展卡，定位为新一代SmartNIC/DPU。把服务器级SoC放到扩展卡上，可让运营商在不重构主机平台的情况下卸载网络与基础设施服务，但报道尚未给出性能或上市时间。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQa1c5d0x2ancwMFJ0NnZDbkUtZkwtWVo5TU1IVFd3SmxLckFBYXRLT0pPeWxmVmduWHhvd2c5NEktaTByb2VjYndfclVnRFF5d0d4U2VkYkNGVm9PZUJOQlltUjEwUHpEem5EQ1o1X1QwX2NlSFJNXzd5S3lmaTRvSWdoN0g5UnMtcHBqSHJZX1J5aGlyQktQSnFkU1JJMS1Wdmc?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Capacity Limits Reportedly Push Google Toward Samsung 2nm</span>
+          <span class="zh">据报TSMC产能受限，Google转向接洽Samsung 2nm</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Seoul Economic Daily</span> · 11h ago</span>
+        <span class="zh"><span class="source">Seoul Economic Daily</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Google has reportedly approached Samsung about 2nm foundry capacity after TSMC cited limited availability, according to Seoul Economic Daily. If it results in a production order, the move would give Samsung an important advanced-node customer and show how constrained capacity can loosen TSMC&#x27;s grip on leading-edge designs; no contract has been confirmed.</span>
+        <span class="zh">据《首尔经济日报》报道，在TSMC表示先进制程产能有限后，Google已就2nm晶圆代工与Samsung接洽。若最终形成量产订单，这将为Samsung带来重要的先进制程客户，也表明产能约束可能削弱TSMC对高端设计的控制力；目前尚无已确认合同。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQRk5qUDZXMUlESXhwekJ5WWtrZzdBWUJNenJfenFKckZRdVNDdFVtSHFIcHNZMEtnTDJxRjVablB3X2JTcE43OFhkWXYxVGpZendaUFcyRnZLeTE5eGo4UXRpWTN4TnFBYWxLWVBrXzE4SXpxZmZFanNmUXFiU1ktdFI2elNTN3JBN3c4ZmFqSUlOTWowTGxEdUdrSUx2bFZZMFB2WlFTRlc5X2w0RXE3dlFB?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC CEO Calls Talent the Company&#x27;s Biggest AI-Era Constraint</span>
+          <span class="zh">TSMC CEO称人才短缺是AI时代最大挑战</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 7h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 7小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">TSMC&#x27;s chief executive identified talent shortages as the company&#x27;s biggest challenge as AI demand drives expansion. The warning shifts attention from fab construction budgets to the engineers and technicians required to ramp and operate new capacity, a constraint that can slow both Taiwan and overseas projects.</span>
+        <span class="zh">TSMC首席执行官表示，在AI需求推动扩张之际，人才短缺是公司面临的最大挑战。这一表态把关注点从厂房投资转向新产能爬坡和运营所需的工程师与技术人员；该瓶颈可能同时拖慢台湾及海外项目。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPUWVjSlFkVko4c2Ytd0V1cXZtN0kzbWxXNktTYTZEV2RTTUpNWmtiMXVNT3lwUVcyWGZaaUk5M001SjdMOU1aV185VWl6TVQtOWdsaWdXNngxcmg1TkppV2JIQ3lDOHJBWHJYZ3J4MWZWTTR2OWo1aHZ3ZEd2dVR4c2pYSkgwbVZJNUd3ejB4bkpHYzktYVNBT0Z0NldfZmxFUkQ1dmpUOTBUb083V2h3Q0NKeFhnT2RlZUpLREdzQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Micron Opens Its Sanand Semiconductor Plant in Gujarat</span>
+          <span class="zh">Micron在古吉拉特邦启用Sanand半导体工厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">News On AIR</span> · 3h ago</span>
+        <span class="zh"><span class="source">News On AIR</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Indian Prime Minister Narendra Modi inaugurated Micron&#x27;s semiconductor plant in Sanand, Gujarat. The opening gives India&#x27;s chip-manufacturing policy a tangible operating asset and expands Micron&#x27;s geographic footprint, although the candidate report does not specify the site&#x27;s ramp schedule or production capacity.</span>
+        <span class="zh">印度总理纳伦德拉·莫迪为Micron位于古吉拉特邦Sanand的半导体工厂揭幕。该项目为印度的芯片制造政策提供了实体运营资产，也扩大了Micron的地域布局，但候选报道未披露产能爬坡时间或生产规模。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/cpus/intel-reportedly-preparing-surprise-return-to-ddr4-systems-with-raptor-lake-next-ddr4-platform-slated-for-the-first-half-of-2027-on-the-lga-1700-socket-takes-a-page-from-amds-book-by-extending-budget-platform-longevity" target="_blank" rel="noopener">
+          <span class="en">Intel Reportedly Plans a DDR4 Return With Raptor Lake Next</span>
+          <span class="zh">据报Intel计划以Raptor Lake Next重返DDR4平台</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 1h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Intel is reportedly preparing a Raptor Lake Next platform for LGA 1700 and DDR4 systems in the first half of 2027, although the company declined to comment. Extending an older socket and memory standard would target price-sensitive PCs and preserve demand for DDR4, but the roadmap remains an unconfirmed Computex report.</span>
+        <span class="zh">据报Intel正准备在2027年上半年推出面向LGA 1700和DDR4系统的Raptor Lake Next，但公司拒绝置评。延长旧插槽和内存标准的生命周期可覆盖价格敏感型PC，并维持DDR4需求，不过这一规划目前仍只是Computex期间未经确认的消息。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxQSjNTWFFZYlM3WnZ1bkdyck9xZDJMX0FwZG0wMlJCVTJLQU8yS1dSZU9QaVpzc180OUFDekxuWUhITzRuanVLTENWOEdzNDF0U1RIZEhsRUZJc1FZOXlHUFFobzdTSDZpdF94WmpXcC1fNTZybE14MHJhalZGSGlwWG1ya2NlMUliN205TXZSdTR0dWtWQzM0NkVn?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung Reviews Strategy as the Memory Boom Squeezes Devices</span>
+          <span class="zh">存储景气挤压终端业务，Samsung重新评估战略</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 12h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 12小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung is reviewing its strategy as stronger memory conditions raise pressure on its device businesses, according to DigiTimes. Higher component prices improve semiconductor profitability but can compress margins in phones and other electronics, forcing Samsung to balance gains as a memory supplier against costs inside its own products.</span>
+        <span class="zh">据DigiTimes报道，随着存储市场走强对终端设备业务形成压力，Samsung正在重新评估战略。元件涨价有利于半导体部门盈利，却会压缩手机等电子产品的利润率，迫使Samsung在存储供应商收益与自有产品成本之间重新平衡。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQUnppTTRpZkliNXY4TUl3U2FDZk5pWXRJekktTkJOVElrem4yYUdPXzFNTk5FMHMxaHI1LTZSMVdIV3NjT2M2RjlQNzg4TlpnbmNjejdnYmROZVBVaEVkMXNjZ252M2ticWRSX1BiOWVKZ2cyc2hjRER2Rkh5YzlOS1E5b3RkN0ZmVkhtRzBPYmhkQQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK Hynix Weighs Supplier Price Increases as HBM Demand Surges</span>
+          <span class="zh">HBM需求激增，SK hynix考虑接受供应商涨价</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">DigiTimes</span> · 12h ago</span>
+        <span class="zh"><span class="source">DigiTimes</span> · 12小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix is weighing price increases from equipment suppliers as the HBM boom lifts tool demand and supplier bargaining power, DigiTimes reports. The shift indicates that AI-memory economics are spreading upstream: higher tool costs can raise the capital intensity of capacity additions even while HBM margins remain strong.</span>
+        <span class="zh">据DigiTimes报道，随着HBM热潮推高设备需求和供应商议价能力，SK hynix正考虑接受设备供应商涨价。这表明AI存储的经济效应正向上游扩散：即使HBM利润率保持强劲，设备成本上升仍会提高新增产能的资本强度。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPb2VMOFZzc0NTbnhmNGZmTVNWRnQzQjRXWjNSOER3VzJjLU1BUUpnTTVQQy1JSVZEUG5YRXJmcnZTY2tYbTg2ZGVEMmh1ZGFjcExhYmNqSFM5VWpRY0J2TG9qdmNyWmpJV09vX0tkWkhuVEpyUDJqUjJDQWlRS2FxdGlRc05BVDdPZVVTdHE0VDlqWTlkU3VwdmlKbFd5T21oYWVTZFMtaWp6SXBvVWJMcEZ3Zko2eUJyMVA3TUtMMVJWcGNTWHlINnJB?oc=5" target="_blank" rel="noopener">
+          <span class="en">ASML Secures Union Backing for Job Cuts</span>
+          <span class="zh">ASML裁员计划获得工会支持</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">AD HOC NEWS</span> · 14h ago</span>
+        <span class="zh"><span class="source">AD HOC NEWS</span> · 14小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ASML has secured union backing for planned job cuts even as its shares approach a record amid the chip-equipment boom. The contrast suggests the lithography leader is tightening selected costs rather than responding to a broad demand collapse, but the candidate report does not disclose the number or location of affected roles.</span>
+        <span class="zh">在芯片设备景气推动股价接近纪录高位之际，ASML的裁员计划已获得工会支持。这一反差更像是光刻设备龙头在收紧特定成本，而非应对全面需求下滑；不过候选报道未披露受影响岗位数量和地点。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMijwNBVV95cUxOT2JWSzBxbENnb3RyZU04YnlTMUNFTW9hZVgxMTVLNGsyV2pSM2F3V0pQd210RV91enprQ082WnJuQm1MXzRrZk0ybVV6UkxTamRiamo2Y0t4UXUzNUh5QUx4R0pTN0dZaVFxcjg2SFJybFhFLVRvVGphY3BxanFDRG1DVjVVN2lOdVNlNWFKSjd5Sm9GVlNnbkJ1RHo3Z0dUcUZrUzFXRHlWWkxmMzF1UzNQS0c4UGVNY1NrOU4zcXQzSEtYbDd3VmowWVVOMEE2Y0ZMRVFsV3RpcXFZcEZSRF9meVZIMXJrZXVVS3IxODZQc21LQXRLcUN1djQtNTJpeVRZTFZPWl93cDRzbFpNYXFYZDFndG9YLUVNdzExWlJSYlpDSjV1ZXFFUnZBaW5aVFhaUkVhcFJBR2k2WlY1LTAxQjlJdXBTdXlRNklSLU1Ba2FUM0s3eWN6T3RqQ1JiYXIzT05DNThfSzZVRS01N3pfbWZ0YzV4THhydlpaSFAxdVBmMm9rQTlzR1c5b3M?oc=5" target="_blank" rel="noopener">
+          <span class="en">Taiwan Considers Tighter Controls on AI-Chip Exports to China</span>
+          <span class="zh">台湾考虑收紧对中国大陆的AI芯片出口限制</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MSN</span> · 3h ago</span>
+        <span class="zh"><span class="source">MSN</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Taiwan is considering tougher restrictions on exports of AI chips to China, a prospect that weighed on TSMC shares. A stricter regime could add licensing and customer-screening risk for chips made in Taiwan, but the proposal&#x27;s product thresholds and implementation timetable have not yet been specified.</span>
+        <span class="zh">台湾正考虑收紧对中国大陆的AI芯片出口限制，该消息令TSMC股价承压。更严格的制度可能增加台湾制造芯片的许可与客户审查风险，但提案涉及的产品门槛和实施时间表尚未明确。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxOTjYyVWdHa216eTdhU2lXaXRicmxVY1FMTDhQSzNxdVB4TkJFNmIxalNEZVRRdnpKVGdXMk1wMGh3RFBZcHpVV29PLTVZeGJqS0h4cDJZTVBlckg2YjJZX3h4NmVJSkVTbnZYX0JyM3FoTldNNi1OTFZ4SDVJVzZmbndOaFM3bDBmUWx0d3IxTUFWXy1pSDYzWXVHRWJYQjBVaHF0Yk5XXzd4V0hUUldEQW9Eb2l6VTNsUmYxN1hwWHk1RGF5Z1Aw0gHHAUFVX3lxTE9ianRpeXNzWTA1VldibTV3bmxOYTctNWJXWHhrblFnczE2R2ZwVmp4RWN5TktRc2tVc1BoUUJoclA0WHBsbFNmc1hMbEQ0eGpLRlRaV1dGUloyUkRLb1RWdFVjTVpieGdXSmMxbzlPU3V2VXNfZWR4NGNnREh6ZlhSbHFXbm1VeXNFUVJzTkIzVDg5SHlyZjhCN3BFTXpua2k4NFhHZVJwbHN6cUlOMDM4SkNGT25EWU00eFZYWEZQU25lT3d1ZUk?oc=5" target="_blank" rel="noopener">
+          <span class="en">China&#x27;s Tungsten Export Curbs Test Japan&#x27;s AI-Chip Supply Chain</span>
+          <span class="zh">中国钨出口限制考验日本AI芯片供应链</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">South China Morning Post</span> · 6h ago</span>
+        <span class="zh"><span class="source">South China Morning Post</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">China&#x27;s tungsten export restrictions are raising concern about Japan&#x27;s AI-chip supply chain, according to the South China Morning Post. Tungsten is used across semiconductor manufacturing and electronics, so tighter availability can create cost and qualification pressure upstream even when finished-chip export rules are unchanged.</span>
+        <span class="zh">据《南华早报》报道，中国的钨出口限制正引发日本AI芯片供应链担忧。钨广泛用于半导体制造和电子产业，因此即使成品芯片出口规则不变，供应收紧也可能在上游造成成本上升和材料认证压力。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Markets</span>
+      <span class="zh">财报与市场</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxPYVhzbG9fWjVqUEJjbEFiYUlfejhjZjVDMjJGRndhUTdNM0VlWC1vdVNOekdxU1NpTkVkaTFzc2tHdklmS0pDRkQtWFAxTDVTNl9hbnlIT1pOYnNnVlQxUWJEdElnM2poQmxDSTNBU081NFNZdFVxSExyOWZ6WUdkRTZDT2ROX1FLNTFndE1vOUlQTTIzMFFhclFNbkVuTmdRUExqcHNHUlQ2VzBxQlJydGJUb1EtOGFudUU4cQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK Hynix Reportedly Chooses Nasdaq for a Planned U.S. Listing</span>
+          <span class="zh">据报SK hynix计划赴美在Nasdaq上市</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">ET Telecom</span> · 9h ago</span>
+        <span class="zh"><span class="source">ET Telecom</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix is reportedly leaning toward Nasdaq for its planned U.S. listing. A U.S. venue could broaden access for global investors and attach a more direct market valuation to the HBM leader, although the report does not specify the instrument, size, or timing of the transaction.</span>
+        <span class="zh">据报SK hynix倾向于为计划中的美国上市选择Nasdaq。赴美上市可扩大国际投资者的参与渠道，并让市场更直接地为这家HBM龙头定价，但报道未说明上市工具、规模或时间。</span>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-06-13 13:22 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-06-13 13:22 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

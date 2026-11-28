@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-08-10">
+<meta name="generator" content="semi-news-daily">
+<title>Memory suppliers lock in AI leverage — Semi News 2026-08-10</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Monday, August 10, 2026</span>
+      <span class="zh">2026年8月10日 星期一</span>
+    </div>
+    <h1>
+      <span class="en">Memory suppliers lock in AI leverage</span>
+      <span class="zh">存储厂商锁定AI议价权</span>
+    </h1>
+    <p class="dek">
+      <span class="en">New HBM yield claims, long-term supply agreements, and SK hynix fab spending point to memory becoming a tighter strategic input for AI systems. At the same time, Apple’s CXMT testing and Huawei’s rise sharpen the competitive pressure around China.</span>
+      <span class="zh">新的HBM良率进展、长期供货协议和SK hynix的晶圆厂投资表明，存储正成为AI系统中更紧缺、更具战略性的投入品。与此同时，Apple测试CXMT产品以及Huawei的崛起，也在加剧中国市场的竞争压力。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/pc-components/cpus/two-variants-of-nvidias-rtx-spark-show-up-on-geekbench-revealing-a-cut-down-18-core-model-full-20-core-beats-most-x86-mobile-chips-across-multi-core-and-single-core-tests" target="_blank" rel="noopener">
+          <span class="en">Two Nvidia RTX Spark variants appear in Geekbench</span>
+          <span class="zh">两款Nvidia RTX Spark型号现身Geekbench</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 11h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Geekbench listings show a full 20-core RTX Spark and a cut-down 18-core version. The 20-core part scored 2,570 single-core and 23,126 multi-core points, versus 2,541 and 21,776 for the 18-core model. The result suggests Nvidia may offer a more segmented Spark lineup for local AI and workstation-style workloads.</span>
+        <span class="zh">Geekbench记录显示，RTX Spark有完整的20核版本和精简的18核版本。20核型号单核得分为2,570、多核为23,126；18核型号则为2,541和21,776。该结果表明Nvidia可能会为本地AI及工作站类负载提供更细分的Spark产品线。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTFA0cVpiZXZqVmJFSGt2aFJBeGdLUG5XdGp4eVNlVnBMTE9QRGhaT3Y0LXI1MDVja1EwenhfZU9FWjctcTlVRUxfbVRsWTVzYTFvbG41SjY5YnlSVTB6c0VEaWlNWTFJVW5VQk1FNE5wUDBGTTk2aDI4TA?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Longtan science-park talks resume</span>
+          <span class="zh">TSMC龙潭科学园区讨论重启</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Taipei Times</span> · 9h ago</span>
+        <span class="zh"><span class="source">Taipei Times</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Discussions over TSMC’s Longtan science-park plans have resumed, reopening a possible path for additional Taiwanese manufacturing capacity. The significance is less an immediate capacity addition than the return of a local-site option as advanced-node demand and infrastructure constraints continue to shape expansion plans.</span>
+        <span class="zh">围绕TSMC龙潭科学园区计划的讨论已经重启，为其在台湾追加制造产能重新打开了一条可能路径。其意义不在于立即增加产能，而在于先进制程需求和基础设施约束持续影响扩产时，本地选址方案重新回到议程。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1lczlZUV9mSEJxenFLWE1kNUlmbV9VcDQyLWcxZ3lLZG1qMnlaMUNod3dkVGZsbUlFcFpiaG5TYmx3a19Pd3c1RlVYYXNoY1RBRktiMkdYejlwYXU3Z01oRnpPZi03MlE?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix plans ₩54.3 trillion for new semiconductor fabs</span>
+          <span class="zh">SK hynix计划投资54.3万亿韩元新建半导体晶圆厂</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">TheElec</span> · 2h ago</span>
+        <span class="zh"><span class="source">TheElec</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SK hynix is reported to be planning ₩54.3 trillion in investment for new semiconductor fabs. The scale signals that the company is treating AI-memory demand as a multiyear capacity commitment rather than a short-cycle shortage. Execution, including timing and product mix, will matter for how much of that investment translates into HBM and advanced DRAM supply.</span>
+        <span class="zh">据报道，SK hynix计划投入54.3万亿韩元建设新的半导体晶圆厂。这一规模表明，该公司把AI存储需求视为多年期的产能承诺，而非短周期的供给紧张。投资能有多少转化为HBM和先进DRAM供给，仍取决于建设节奏与产品组合。</span>
+      </p>
+    </article>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOOC0zTmtOel9EYWJ5ME9QZ3hmZlFrajhza2NOTFg0VlQxMlpSWjlJaDN0NEVRamUtbEJkYTYzT0hrcWtUNUNUeUFlZXFVakQ0all1ZnczdURjcHZ5aWVRanZTMjFXQVQzd2M5SXNpNWQ2bnpuNGxUZTFjYzhUVDVQLS1tbzJGdXEwaDN4cmNIWHItSjFZM0lJaER2dw?oc=5" target="_blank" rel="noopener">
+          <span class="en">Samsung reportedly reaches 80% HBM4 yield and advances HBM4E</span>
+          <span class="zh">Samsung据报HBM4良率达到80%，并加快HBM4E推进</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Seoul Economic Daily</span> · 3h ago</span>
+        <span class="zh"><span class="source">Seoul Economic Daily</span> · 3小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Samsung has reportedly reached an 80% yield on HBM4 and is accelerating HBM4E production preparations. If sustained in volume manufacturing, that would improve Samsung’s ability to challenge the incumbent HBM supply position held by SK hynix and Micron. Yield claims need to be distinguished from qualified, customer-shipping output, but they are a key indicator before platform ramps.</span>
+        <span class="zh">据报道，Samsung的HBM4良率已达到80%，并在加快HBM4E量产准备。若能在大规模制造中保持这一水平，Samsung将更有能力挑战SK hynix和Micron在HBM供应中的既有地位。良率数据仍需与通过客户验证并实际出货的产量区分，但在平台放量前，它是重要的先行指标。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPVzBTUENkMGYwT05Oak50bDEyREZvNlVDS19aLUVmQi1wazNyMzhMN2tlcnZtdFQ4bndzbjNLNkFlVGRWT2xnaTVCT1U2cm1lb3J3WTJkWTFURms3ZDhnRTVIUmZxS3FPLUdaOUdtYzJpYXdvb0lCcEFkLWk1WU9oV3pPVHRtMTJaaG1COUpuSzJMX3pncjhOaTJsZUdMSG5sNTVJdC1WYUl4MUQ3VE9HWm1jUjVUZl9ldHRFNE9Ya9IBxAFBVV95cUxNanl2Uzg5LUFJOVByU3JMb2VWMGdTZ0s2N3RuNG5yLUlieVNKcWgzNVVBOE9LMVd3dWl4V2g0ZG9nWVl1Y05PLVhUY2lHV1lWdmE0S0N3X05YV3Vvb21qdGxGUGdueno0SE5PS05wY0RoNldQbko3cjZCZ0tXM3UxQzMtRjVJdlB5Yzk0clppMnhZZXI4TjRZZ1dxTkRpWEc2TTQ4emxZYXV4UnJHMWNxUVd0bXJNYUVRLTR6RlpCWlJpMEhX?oc=5" target="_blank" rel="noopener">
+          <span class="en">SK hynix outlines 16-high HBM4 and 375-layer wafer-bonded NAND</span>
+          <span class="zh">SK hynix展示16层堆叠HBM4与375层晶圆键合NAND</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">StorageReview</span> · 4h ago</span>
+        <span class="zh"><span class="source">StorageReview</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">At FMS 2026, SK hynix presented a roadmap including 16-high HBM4 and wafer-bonded 375-layer NAND. The announcements span both the bandwidth-hungry AI memory stack and high-density flash, showing how the company is positioning multiple tiers of memory for data-center systems. The roadmaps are technology disclosures rather than confirmed volume-shipment milestones.</span>
+        <span class="zh">在FMS 2026上，SK hynix展示了包括16层堆叠HBM4和375层晶圆键合NAND在内的路线图。这些信息同时覆盖高带宽AI存储栈和高密度闪存，显示其正为数据中心系统布局多层级存储。该路线图属于技术披露，并不等同于已确认的大规模出货节点。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQRFNfS1RZNDdydXVwbHdlZjVNOWxMWjhCdkFZQ3pyM2hZMmhNRUVKVVBVdUFRY2RnNVE0blZDaHBrV2hXWTRzb2xUWXdYQm9zbFdkdFRpX3F1NWFWWEJ3eVJ5QW1TSHROV2FLZjBqaXFJZDlhTDJxVHkyNnhrYUZnUGdWeVM5VTQt?oc=5" target="_blank" rel="noopener">
+          <span class="en">Five-year supply contracts reportedly become a semiconductor norm</span>
+          <span class="zh">五年期供货合同据报正成为半导体行业常态</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Chosun Ilbo</span> · 9h ago</span>
+        <span class="zh"><span class="source">Chosun Ilbo</span> · 9小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A report says five-year supply contracts are becoming standard practice across the semiconductor industry. Longer commitments can give suppliers greater visibility for capital spending while locking customers into pricing and allocation terms. Their spread would mark a structural change from the historically volatile spot-driven memory market, though terms and enforceability vary by contract.</span>
+        <span class="zh">一篇报道指出，五年期供货合同正成为半导体行业的常见做法。更长的承诺期可提高供应商对资本开支的可见度，同时将客户锁定在价格和配额条款中。若这一趋势扩大，将意味着行业正偏离历史上由现货价格主导的高波动存储市场，但具体条款和约束力仍因合同而异。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/dram-manufacturers-38-billion-dominance-2029/" target="_blank" rel="noopener">
+          <span class="en">Advance DRAM commitments reportedly reach $38 billion</span>
+          <span class="zh">DRAM预付款承诺据报达到380亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 11h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 11小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">An industry analysis puts advance commitments held by major DRAM suppliers at $38 billion and argues that long-term contracts and price floors are strengthening supplier leverage. Samsung, SK hynix, and Micron would have more predictable revenue and customers less room to switch during tight supply. The $38 billion figure is an analysis estimate, not a disclosed aggregate from the manufacturers.</span>
+        <span class="zh">一项行业分析称，主要DRAM供应商获得的预付款承诺已达380亿美元，并认为长期合同和价格底线正在增强供应商的议价能力。Samsung、SK hynix和Micron将拥有更可预测的收入，而在供给紧张时期，客户的切换空间会变小。380亿美元为分析估算，并非这些厂商披露的合计数字。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Geopolitics</span>
+      <span class="zh">政策与地缘政治</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFAxOS01RS1QS0FQNkRGZVBSZzYzeEx5WmNrN3FLckZQLXNITUtUWkdzaTNvalgtc3dON1M4Q2ZDZXRXaTN3RnJPcVdnMlJTRkdicDFlMA?oc=5" target="_blank" rel="noopener">
+          <span class="en">Apple tests CXMT memory for iPhones and Macs</span>
+          <span class="zh">Apple测试用于iPhone和Mac的CXMT存储芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">bloomingbit</span> · 1h ago</span>
+        <span class="zh"><span class="source">bloomingbit</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Apple is reported to be testing memory chips from China’s CXMT for iPhones and Macs. Even a limited qualification effort would give Apple another potential source as AI-driven memory demand tightens supply and raises costs. Actual adoption would still depend on performance, reliability, volume capacity, and the regulatory environment around Chinese components.</span>
+        <span class="zh">据报道，Apple正在测试中国CXMT用于iPhone和Mac的存储芯片。即便只是有限的认证工作，在AI驱动的存储需求收紧供给、推高成本之际，也可能为Apple增加一个潜在来源。实际采用仍取决于性能、可靠性、量产能力，以及围绕中国零部件的监管环境。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxPc3FYTkRuQWUta3dBcWc4U3IyUFB0YlBuZGlkdWF2a2MycjNER19uX2JFVlNtS1Q2b0NRZWNuVDI0WWlYNGdPRkRDSF9wNFRUYkwwWFpkTi1wemRfOHFyY0UxOVl1SVVYVUR2eElsN3B1LXBVWTllaXBnelE2aWJLN2s5cjdGNGFXU0NYM3JJSThtQlB4RlQzRTNQeFhzNEREcDd3X21SQWh4c2xKTEhORWdCNVlkSktZSUFDSDZOYmFLZzV0TGw0TW9aZzdjR0I4?oc=5" target="_blank" rel="noopener">
+          <span class="en">Forecast sees Nvidia China AI-chip share falling from 40% to 8%</span>
+          <span class="zh">预测称Nvidia中国AI芯片份额将从40%降至8%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">MarketScale</span> · 10h ago</span>
+        <span class="zh"><span class="source">MarketScale</span> · 10小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">A forecast cited by MarketScale projects Nvidia’s China AI-chip share could fall from 40% to 8% as Huawei scales. The forecast highlights how export restrictions and domestic alternatives are changing the addressable market even for the leading AI-accelerator supplier. It is a projection rather than reported market data, so its assumptions on product availability and Huawei execution are decisive.</span>
+        <span class="zh">MarketScale援引的一项预测认为，随着Huawei扩大规模，Nvidia在中国AI芯片市场的份额可能从40%降至8%。这一预测凸显了出口限制和本土替代品如何改变即使是领先AI加速器供应商的可服务市场。这是预测而非已公布的市场统计，因此其对产品可得性和Huawei执行力的假设至关重要。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers</span>
+      <span class="zh">新兴挑战者</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://semiwiki.com/eda/chipagents-ai/372067-chipagent-raises-130-million-and-why-it-matters/" target="_blank" rel="noopener">
+          <span class="en">ChipAgent raises $130 million for AI-assisted EDA</span>
+          <span class="zh">ChipAgent为AI辅助EDA融资1.3亿美元</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SemiWiki</span> · 8h ago</span>
+        <span class="zh"><span class="source">SemiWiki</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">ChipAgent has raised $130 million, according to SemiWiki. The funding is notable because AI-assisted verification and design automation have become one of the more active EDA investment areas as chip projects grow in complexity. Revenue durability and adoption inside established design flows will be more meaningful tests than funding size alone.</span>
+        <span class="zh">据SemiWiki报道，ChipAgent已融资1.3亿美元。这笔融资值得关注，因为随着芯片项目复杂度提高，AI辅助验证和设计自动化已成为EDA投资最活跃的领域之一。比融资规模更重要的检验，将是其收入的可持续性以及在成熟设计流程中的采用情况。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-08-10 01:15 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-08-10 01:15 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="edition-date" content="2026-11-20">
+<meta name="generator" content="semi-news-daily">
+<title>Export Curbs Reshape Chip Supply and Investment Priorities — Semi News 2026-11-20</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #18181b;
+    --muted: #6b6b6b;
+    --rule: #e7e3da;
+    --link: #1f3a8a;
+    --accent: #b1370b;
+    --featured-bg: #f3efe5;
+    --max-w: 720px;
+    --serif: "Newsreader", "Charter", "Iowan Old Style", "Source Serif Pro",
+             Georgia, "Songti SC", "Source Han Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue",
+            "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --fg: #ece9e1;
+      --muted: #9a9690;
+      --rule: #2b2925;
+      --link: #9ab4ff;
+      --accent: #e88a55;
+      --featured-bg: #1c1a16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 80px;
+  }
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Masthead */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .brand { flex-shrink: 0; font-family: var(--serif); font-size: 15px; color: var(--fg); }
+  .top-bar > div:last-child { text-align: right; }
+  .brand .dot { color: var(--accent); }
+  .lang-toggle button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; cursor: pointer; padding: 0 4px;
+  }
+  .lang-toggle button[aria-pressed="true"] { color: var(--fg); font-weight: 600; }
+  .lang-toggle .sep { opacity: 0.4; }
+  .nav-modes a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 4px;
+  }
+  .nav-modes a.current { color: var(--fg); font-weight: 600; }
+  .nav-modes .sep { opacity: 0.4; }
+  .lang-toggle { margin-left: 14px; }
+
+  /* Theme headline */
+  .masthead { margin-bottom: 48px; }
+  .masthead .date {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .masthead .dek {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Sections */
+  section.cat { margin: 56px 0 0; }
+  section.cat > h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+
+  /* Story cards */
+  article.story {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  article.story:last-child { border-bottom: none; }
+  article.story.featured {
+    background: var(--featured-bg);
+    margin: 0 -16px 12px;
+    padding: 20px 16px;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  article.story h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  article.story.featured h3 { font-size: 24px; }
+  article.story h3 a { color: var(--fg); text-decoration: none; }
+  article.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  article.story .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  article.story .meta .source { color: var(--accent); }
+  article.story .summary { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  /* Language visibility and bilingual layout. */
+  body[data-lang="en"] .zh { display: none; }
+  body[data-lang="zh"] .en { display: none; }
+  body[data-lang="zh"] { font-family: var(--sans); }
+  body[data-lang="zh"] .masthead h1,
+  body[data-lang="zh"] article.story h3 {
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story h3 .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] article.story .summary .zh,
+  body[data-lang="both"] footer .zh {
+    display: block;
+  }
+  body[data-lang="both"] .masthead h1 .zh,
+  body[data-lang="both"] article.story h3 .zh {
+    margin-top: 5px;
+    font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
+  }
+  body[data-lang="both"] .masthead .dek .zh,
+  body[data-lang="both"] article.story .summary .zh {
+    margin-top: 9px;
+  }
+  body[data-lang="both"] .masthead .date .zh,
+  body[data-lang="both"] article.story .meta .zh,
+  body[data-lang="both"] footer .zh,
+  body[data-lang="both"] .newsletter .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    margin-top: 2px;
+  }
+  body[data-lang="both"] .nav-modes a .zh::before,
+  body[data-lang="both"] section.cat > h2 .zh::before {
+    content: " / ";
+  }
+
+  /* Newsletter */
+  .newsletter {
+    margin-top: 72px;
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter h2 {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .newsletter p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 15px;
+  }
+  .newsletter-form button {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  .newsletter-hp { display: none; }
+  .newsletter-status {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .newsletter-status[data-tone="error"] { color: var(--accent); }
+  body[data-lang="both"] .newsletter h2 .zh,
+  body[data-lang="both"] .newsletter p .zh,
+  body[data-lang="both"] .newsletter-status .zh {
+    display: block;
+  }
+  body[data-lang="both"] .newsletter h2 .zh { margin-top: 2px; }
+  body[data-lang="both"] .newsletter p .zh { margin-top: 4px; }
+  @media (max-width: 540px) {
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body data-lang="both">
+<main>
+
+  <div class="top-bar">
+    <div class="brand">semi<span class="dot">·</span>news</div>
+    <div>
+      <span class="nav-modes">
+        <a href="../index.html" class="current"><span class="en">Headlines</span><span class="zh">要闻</span></a>
+        <span class="sep">/</span>
+        <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      </span>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="both" aria-pressed="true">中英</button>
+        <span class="sep">/</span>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <span class="sep">/</span>
+        <button data-set-lang="zh" aria-pressed="false">中文</button>
+      </span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="date">
+      <span class="en">Friday, November 20, 2026</span>
+      <span class="zh">2026年11月20日 星期五</span>
+    </div>
+    <h1>
+      <span class="en">Export Curbs Reshape Chip Supply and Investment Priorities</span>
+      <span class="zh">出口管制重塑芯片供应与投资重点</span>
+    </h1>
+    <p class="dek">
+      <span class="en">TSMC tightens China AI chip restrictions as US export approvals face scrutiny and new controls reach Malaysia and Singapore. Diverging DRAM and NAND outlooks, power constraints and stacked-memory inference chips show how unevenly AI demand translates into infrastructure spending.</span>
+      <span class="zh">台积电收紧对中国AI芯片的限制，美国出口许可受到审视，新的管制涉及马来西亚和新加坡。DRAM与NAND前景分化、电力约束以及采用堆叠存储的推理芯片，显示AI需求向基础设施投资的传导并不同步。</span>
+    </p>
+  </header>
+
+    <section class="cat" id="ai-accelerators">
+    <h2>
+      <span class="en">AI &amp; Accelerators</span>
+      <span class="zh">AI与加速器</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.tomshardware.com/tech-industry/data-centers/ai-data-center-power-demand-will-double-by-2030-thanks-to-usd4-trillion-in-spending-adding-an-entire-great-britain-to-energy-strain-93-large-ai-factories-with-projected-capacity-of-around-50-gigawatts" target="_blank" rel="noopener">
+          <span class="en">AI Data Center Power Demand Is Forecast to Double by 2030</span>
+          <span class="zh">AI数据中心电力需求预计到2030年翻倍</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Tom&#x27;s Hardware</span> · 4h ago</span>
+        <span class="zh"><span class="source">Tom&#x27;s Hardware</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Tom&#x27;s Hardware reports that AI data center power demand is forecast to double by 2030 alongside $4 trillion in spending, citing an IEA report. Electricity generation and distribution are barely keeping pace with data center growth. For accelerator deployments, this makes power availability an infrastructure constraint alongside chip supply; the figures describe a forecast rather than installed capacity today.</span>
+        <span class="zh">Tom&#x27;s Hardware援引国际能源署报告称，伴随4万亿美元投入，AI数据中心的电力需求预计到2030年翻倍。发电与输配电建设的速度已难以跟上数据中心扩张。对加速器部署而言，电力可用性因此成为芯片供应之外的另一项基础设施约束；这些数字属于预测，并非当前已建成的容量。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://wccftech.com/amd-zen-6-olympic-ridge-desktop-cpus-reportedly-slip-past-computex-2027-after-a-switch-to-tsmcs-performance-focused-n2x-2nm-process/" target="_blank" rel="noopener">
+          <span class="en">AMD Zen 6 Desktop Launch Reportedly Slips After N2X Process Switch</span>
+          <span class="zh">AMD Zen 6桌面处理器据报因转向N2X工艺而推迟</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Wccftech</span> · 8h ago</span>
+        <span class="zh"><span class="source">Wccftech</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Wccftech reports that AMD&#x27;s Zen 6 Olympic Ridge desktop CPUs may arrive after Computex 2027 following a switch to TSMC&#x27;s performance-focused N2X 2nm process. The report points to a possible second-half 2027 introduction and a delay of several months. The claimed change links the product schedule to process selection, but remains an unconfirmed roadmap report.</span>
+        <span class="zh">据Wccftech报道，AMD Zen 6 Olympic Ridge桌面处理器在转向台积电偏重性能的N2X 2nm工艺后，可能推迟至Computex 2027之后推出。报道指向2027年下半年发布的可能性，意味着数月的延期。这一说法将产品进度与工艺选择联系起来，但仍属于未经确认的路线图消息。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="foundry">
+    <h2>
+      <span class="en">Foundry &amp; Manufacturing</span>
+      <span class="zh">晶圆代工与制造</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNc1pDUGRULVJNeGdkT21ERVNzMEl6RHJKTEtLRWFFQjFpYjdxWU5NMmM3Zl8zUzlHQUd3UzJlNE1UV2tlZnZFTEZrNnRKSWU1Y1lkSU1ISmF6U1JGNWNEeUJETVpHNDI5QTEwMWJTTmRraUgyaDR2RUJ1UlRadVJZMW9MUTZCeXdpZHRZRWl1X1VIZ0xBbllSWEUxMGxmdmllVFgxbmxuTmljOFFBTUkyUGR2NDRfTmM0Rm5xcXFxaHk?oc=5" target="_blank" rel="noopener">
+          <span class="en">TSMC Tightens China AI Chip Curbs as US Rules Close Manufacturing Loophole</span>
+          <span class="zh">美国新规封堵制造环节漏洞，台积电收紧中国AI芯片限制</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Reuters</span> · 6h ago</span>
+        <span class="zh"><span class="source">Reuters</span> · 6小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Reuters reports, citing sources, that TSMC is tightening restrictions on China AI chips as new US rules close a manufacturing loophole. The reported change makes foundry access a direct channel through which export controls can affect chip designers. The supplied excerpt does not specify affected customers or quantify the production impact.</span>
+        <span class="zh">路透社援引消息人士称，随着美国新规封堵制造环节的漏洞，台积电正在收紧针对中国AI芯片的限制。这一变化使晶圆代工服务成为出口管制直接影响芯片设计公司的传导渠道。所提供的摘要未列出受影响客户，也未量化生产影响。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="memory">
+    <h2>
+      <span class="en">Memory</span>
+      <span class="zh">存储芯片</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://www.theregister.com/systems/2026/11/19/nand-prices-tipped-to-fall-as-chinese-cloud-giants-cut-ssd-orders/5311116" target="_blank" rel="noopener">
+          <span class="en">NAND Prices Face Pressure as Chinese Cloud Companies Cut SSD Orders</span>
+          <span class="zh">中国云厂商削减SSD订单，NAND价格面临下行压力</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Register</span> · 8h ago</span>
+        <span class="zh"><span class="source">The Register</span> · 8小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Register reports that Chinese cloud companies are cutting SSD orders, while TrendForce expects NAND supply to outpace demand in 2027. The outlook points to downward pressure on flash prices even as DRAM remains constrained. Buyers therefore face different supply conditions across storage and working memory rather than one uniform memory shortage.</span>
+        <span class="zh">据The Register报道，中国云厂商正在削减SSD订单，TrendForce预计2027年NAND供给将超过需求。这意味着闪存价格面临下行压力，而DRAM供应仍然偏紧。采购方因此需要分别判断存储与运行内存的供需状况，不能用同一种短缺逻辑看待整个存储市场。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE54ZklwMWVhdy05SE5kSGdiVEU5bWszWUZudUZxYUpzRWtFSkhpY1Nna2k5eHMySEQtQXdka09TeldoQWlGYXhrX3BTdlFpUVZ0Uy1KYlFHN3c4Z2xpd291TFl4UU9xQ2FBRERhS19OR0JDcXF3Qnc?oc=5" target="_blank" rel="noopener">
+          <span class="en">KB Securities Forecasts 40% Rise in 2027 DRAM Contract Prices</span>
+          <span class="zh">KB证券预测2027年DRAM合约价上涨40%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">BigGo Finance</span> · 1h ago</span>
+        <span class="zh"><span class="source">BigGo Finance</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">BigGo Finance reports that KB Securities forecasts a 40% rise in 2027 DRAM contract prices in its outlook for Samsung Electronics and SK hynix. Such an increase would support memory suppliers&#x27; pricing while raising costs for system buyers. This is a brokerage forecast, not a confirmed contract-price increase or company guidance.</span>
+        <span class="zh">据BigGo Finance报道，KB证券在三星电子与SK海力士的展望中，预测2027年DRAM合约价上涨40%。如果这一涨幅兑现，将支撑存储供应商的定价，同时提高系统采购方的成本。这属于券商预测，并非已确认的合约涨价或公司业绩指引。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://www.eetimes.com/memory-rd-is-a-high-stakes-game/" target="_blank" rel="noopener">
+          <span class="en">AI Demand Raises the Cost and Risk of Memory R&amp;D</span>
+          <span class="zh">AI需求抬高存储研发的成本与风险</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">EE Times</span> · 2h ago</span>
+        <span class="zh"><span class="source">EE Times</span> · 2小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">EE Times examines how AI is reshaping memory makers&#x27; research priorities and encouraging partnerships to share development costs and risks. The discussion extends beyond the next process node to longer-term memory technologies. It highlights research collaboration as part of the industry&#x27;s supply response, without announcing a specific new production ramp.</span>
+        <span class="zh">EE Times分析了AI如何重塑存储厂商的研发重点，并推动企业通过合作分担开发成本与风险。讨论范围超出了下一代工艺节点，延伸至更长期的存储技术。文章凸显了研发合作在行业供给应对中的作用，但并未宣布某项具体的新产线爬坡计划。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="equipment">
+    <h2>
+      <span class="en">Equipment &amp; Materials</span>
+      <span class="zh">设备与材料</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOX1BOZGFfeGg5TmkzX3BTVWt2SVByaG84d0Vad1lSeXF5VU91Wm9VblRtWVlVUWlqc0p6d3ZrNDVRYVZhcmxad3lrcm5Ic1AzRUhPaGQtNlc4THdUV1NqU2NVaVN1emVOUXZWbmEzX1BjY29oLVpRQjM5U2NHNi1JZW1YcVY?oc=5" target="_blank" rel="noopener">
+          <span class="en">Penn State Unveils New Semiconductor Research Capabilities</span>
+          <span class="zh">宾州州立大学公布新增半导体研究能力</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Semiconductor Today</span> · 1h ago</span>
+        <span class="zh"><span class="source">Semiconductor Today</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Semiconductor Today reports that Penn State has unveiled new semiconductor research capabilities. The development adds an academic infrastructure item to the semiconductor R&amp;D pipeline. The supplied excerpt does not identify the equipment, investment amount or access arrangements, limiting assessment of its manufacturing relevance.</span>
+        <span class="zh">据Semiconductor Today报道，宾州州立大学公布了新增的半导体研究能力。这为半导体研发体系增添了一项高校基础设施进展。所提供的摘要未说明具体设备、投资金额或使用安排，因此尚难判断其对制造环节的实际作用。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="policy">
+    <h2>
+      <span class="en">Policy &amp; Export Controls</span>
+      <span class="zh">政策与出口管制</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE1TbEk0NDY0UEtDbGFEY3hpX0lQWXY4RUMzNllqWllsTmQ5Wl8xeXpFVTdmQmpvX3hLZXkxUWpabzBaUHFieXkydmFtODZxVnctTDBZTkhYWHFDVWlsZF9HYTE1Q0NoQzdEWmtZLXRkdENBRjNVOG1zSGNwUHg3UdIBgwFBVV95cUxPalZ2a1NfTW5MM3ItZWxEbmlRODJpc0FwVE5KSmExazY4WlhGMEotZ1htWTduNVB1S0JibUVMSnVwc3BjSzBzdVFhdVdSc1NSMElhd3NNQ3laXzRiU2JkRmRHMkFjZlVWeTQ1dWtRcHFzTF96dlV0R3lreFhENWZUcGtUWQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">Rep. Mast Says Commerce Approved More Than 879,000 AI Chips for Chinese Companies</span>
+          <span class="zh">美国议员Mast称商务部批准向中国企业销售逾87.9万颗AI芯片</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">CNBC</span> · 5h ago</span>
+        <span class="zh"><span class="source">CNBC</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">CNBC reports that Rep. Mast says the Commerce Department approved sales of more than 879,000 AI chips to Chinese companies. The disclosed figure puts the scale of export licensing at the center of scrutiny over US chip controls. Approvals alone do not establish how many chips were shipped, and the supplied excerpt does not give the approval period or product breakdown.</span>
+        <span class="zh">据CNBC报道，美国众议员Mast称，商务部批准向中国企业销售超过87.9万颗AI芯片。这一披露使出口许可的规模成为审视美国芯片管制的重要焦点。获得批准并不等于芯片已实际交付，所提供的摘要也未说明批准的时间范围或产品构成。</span>
+      </p>
+    </article>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE9HbWVneXd0OHl3ZF9QX0pZWE10VVpyTW53SjlpTkNrS3drcFpwLVFkZXhobFlIRDVvVVBtNFVJSE5haF9vQktRWC1FZGdDRW9C?oc=5" target="_blank" rel="noopener">
+          <span class="en">US Advanced-Chip Export Controls Covering Malaysia and Singapore Take Effect</span>
+          <span class="zh">涉及马来西亚与新加坡的美国先进芯片出口管制生效</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">The Edge Malaysia</span> · 4h ago</span>
+        <span class="zh"><span class="source">The Edge Malaysia</span> · 4小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">The Edge Malaysia reports that new US export controls covering advanced chips and Malaysia and Singapore take effect on November 19. The development puts Southeast Asian supply routes into the compliance picture alongside direct China shipments. The supplied excerpt does not detail licensing thresholds or exemptions, so it does not establish a blanket shipment ban.</span>
+        <span class="zh">据The Edge Malaysia报道，涉及马来西亚与新加坡的美国先进芯片出口新管制于11月19日生效。这使东南亚供应路径与直接对华出货一道进入合规考量。所提供的摘要未说明许可门槛或豁免条款，不能据此认定所有相关出货均被禁止。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="earnings">
+    <h2>
+      <span class="en">Earnings &amp; Outlook</span>
+      <span class="zh">业绩与展望</span>
+    </h2>
+    <article class="story">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WaUpkTnhPMXBoSlkxTm9TUENZdmtUb29ZaXBQeTkzN2thNGFDUXBKSU5FX3VleFB4UTk2U2llaDNkeGRFNEhkVnhHN0ppUmo0c3B6cDRVazQ?oc=5" target="_blank" rel="noopener">
+          <span class="en">MELCON Operating Profit Is Forecast to Rise 38% as EUV Adoption Expands</span>
+          <span class="zh">受益于EUV应用扩大，MELCON营业利润预计增长38%</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">Financial News (파이낸셜뉴스)</span> · 1h ago</span>
+        <span class="zh"><span class="source">Financial News (파이낸셜뉴스)</span> · 1小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">Financial News reports a forecast for MELCON&#x27;s operating profit to rise 38% this year, linking the outlook to the shift toward EUV. The report points to potential earnings benefits for suppliers exposed to lithography transitions. The figure is a forecast rather than a reported result, and the supplied excerpt does not identify its author or underlying order assumptions.</span>
+        <span class="zh">韩国Financial News报道，MELCON今年营业利润预计增长38%，并将这一展望与向EUV转型联系起来。这表明光刻技术转换可能为相关供应商带来盈利机会。该数字属于预测，而非已公布的业绩；所提供的摘要未说明预测主体及其订单假设。</span>
+      </p>
+    </article>
+  </section>
+  <section class="cat" id="challengers">
+    <h2>
+      <span class="en">Challengers &amp; New Silicon</span>
+      <span class="zh">新势力与新芯片</span>
+    </h2>
+    <article class="story featured">
+      <h3>
+        <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPbFdlR3BPSzU0dXI4YjczNUFSa1dmQVhBQ1l3OVFENjVHaW8zNUZaaWF3OXBGY1FBRkJQX09VNHZHcDI0MExFMXJsUVlKX2dqZ2xONGZnME96SmlIX3Z1Nk1MMmJEbzhBLTZmd19oRVpxb0pndnpuTEV6QW5jaW85T3k0WGNNMi0teTR0LVBoWWJJai1rVUJ6MU05UWdmdGpm?oc=5" target="_blank" rel="noopener">
+          <span class="en">d-Matrix Raptor Uses Stacked 3D DRAM to Address Inference Memory Limits</span>
+          <span class="zh">d-Matrix Raptor采用堆叠3D DRAM应对推理存储瓶颈</span>
+        </a>
+      </h3>
+      <div class="meta">
+        <span class="en"><span class="source">SiliconANGLE</span> · 5h ago</span>
+        <span class="zh"><span class="source">SiliconANGLE</span> · 5小时前</span>
+      </div>
+      <p class="summary">
+        <span class="en">SiliconANGLE reports that d-Matrix&#x27;s Raptor chip stacks 3D DRAM to address memory limits in inference. The design places memory integration at the center of an alternative AI accelerator&#x27;s approach to serving models. The supplied excerpt provides no capacity, bandwidth or benchmark figures with which to assess the claimed benefit.</span>
+        <span class="zh">据SiliconANGLE报道，d-Matrix的Raptor芯片采用堆叠3D DRAM，以应对推理中的存储瓶颈。该设计将存储集成置于替代性AI加速器服务模型的技术路径核心。所提供的摘要未给出容量、带宽或基准测试数字，尚无法量化其收益。</span>
+      </p>
+    </article>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">
+      <span class="en">Newsletter</span>
+      <span class="zh">邮件订阅</span>
+    </h2>
+    <p>
+      <span class="en">Daily semiconductor briefing.</span>
+      <span class="zh">每日半导体简报。</span>
+    </p>
+    <form class="newsletter-form" data-newsletter-form>
+      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-label="Email">
+      <input class="newsletter-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="both" data-newsletter-lang>
+      <button type="submit">
+        <span class="en">Subscribe</span>
+        <span class="zh">订阅</span>
+      </button>
+    </form>
+    <div class="newsletter-status" role="status" data-newsletter-status></div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="en">Built 2026-11-20 01:13 UTC · <a href="../archive.html">Archive</a></span>
+      <span class="zh">生成于 2026-11-20 01:13 UTC · <a href="../archive.html">往期</a></span>
+    </div>
+    <div>
+      <span class="en">Semi News Daily — a curated chip-industry digest.</span>
+      <span class="zh">半导体每日要闻 — 精选芯片产业摘要。</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var body = document.body;
+    var mode = "both";
+    try {
+      var saved = localStorage.getItem("semi-news-lang-v2");
+      if (saved === "both" || saved === "en" || saved === "zh") mode = saved;
+    } catch (e) {}
+    function setMode(nextMode) {
+      mode = nextMode;
+      body.setAttribute("data-lang", mode);
+      document.documentElement.lang = mode === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-set-lang") === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-newsletter-lang]").forEach(function (input) {
+        input.value = mode;
+      });
+    }
+    function setNewsletterStatus(form, en, zh, tone) {
+      var status = form.querySelector("[data-newsletter-status]") ||
+        form.parentNode.querySelector("[data-newsletter-status]");
+      if (!status) return;
+      status.setAttribute("data-tone", tone || "");
+      status.innerHTML = '<span class="en"></span><span class="zh"></span>';
+      status.querySelector(".en").textContent = en;
+      status.querySelector(".zh").textContent = zh;
+    }
+    setMode(mode);
+    document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nextMode = btn.getAttribute("data-set-lang");
+        setMode(nextMode);
+        try { localStorage.setItem("semi-news-lang-v2", nextMode); } catch (e) {}
+      });
+    });
+    document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = form.querySelector("button");
+        var data = new FormData(form);
+        if (button) button.disabled = true;
+        setNewsletterStatus(form, "Sending...", "提交中...", "");
+        fetch("/api/subscribe", { method: "POST", body: data })
+          .then(function (response) {
+            return response.json().then(function (payload) {
+              return { ok: response.ok, payload: payload };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.payload.ok) {
+              throw new Error(result.payload && result.payload.error || "subscribe_failed");
+            }
+            if (result.payload.status === "confirmed") {
+              setNewsletterStatus(form, "You're already subscribed.", "你已经订阅。", "");
+            } else if (result.payload.status === "pending_delivery_unconfigured") {
+              setNewsletterStatus(form, "Saved. Confirmation email is waiting for mail setup.", "已保存，确认邮件会在邮件服务配置后发送。", "");
+            } else {
+              setNewsletterStatus(form, "Check your inbox to confirm.", "请查收邮件完成确认。", "");
+            }
+            form.reset();
+            form.querySelector("[data-newsletter-lang]").value = mode;
+          })
+          .catch(function () {
+            setNewsletterStatus(form, "Subscription failed. Try again later.", "订阅失败，请稍后再试。", "error");
+          })
+          .finally(function () {
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
